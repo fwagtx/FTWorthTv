@@ -37,7 +37,7 @@ jobs:
         run: |
           NOW_ARG=""
           if [ -n "${{ inputs.now }}" ]; then NOW_ARG="--now ${{ inputs.now }}"; fi
-          python -m ftworthtv run --stories "${{ inputs.stories }}" --no-sources --dry-run --max "${{ inputs.max_posts }}" --since-hours 96 $NOW_ARG -v
+          python -m ftworthtv -v run --stories "${{ inputs.stories }}" --no-sources --dry-run --max "${{ inputs.max_posts }}" --since-hours 96 $NOW_ARG
       - name: Push renders to a branch
         run: |
           RUN=$(ls -d out/runs/* | tail -1)

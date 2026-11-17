@@ -159,6 +159,7 @@ def build_parser() -> argparse.ArgumentParser:
     sub = p.add_subparsers(dest="cmd", required=True)
 
     def common(sp):
+        sp.add_argument("-v", "--verbose", action="store_true", dest="verbose_sub", help=argparse.SUPPRESS)
         sp.add_argument("--publisher", choices=["dryrun", "facebook", "metricool"], help="override FTWTV_PUBLISHER")
         sp.add_argument("--max", type=int, help="max posts this run")
         sp.add_argument("--since-hours", type=int, help="ignore stories older than this")
@@ -197,7 +198,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO, format="%(levelname)-7s %(name)s: %(message)s")
+    verbose = args.verbose or getattr(args, "verbose_sub", False)
+    logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="%(levelname)-7s %(name)s: %(message)s")
     logging.getLogger("urllib3").setLevel(logging.WARNING)
     logging.getLogger("httpx2").setLevel(logging.WARNING)
     return args.func(args)
