@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-17T23:45:00+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-140000/04-2-minors-killed-3-others-seriously-injured-after/card.jpg",
+    "credit": "Photo: Maxx@night from Austin, Texas. USA via Wikimedia Commons (CC BY 2.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Street_-_Flickr_-_Night_Photo.jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "traffic",
+    "headline": "2 minors killed, 3 others seriously injured",
+    "caption": "🚨 2 minors killed, 3 others seriously injured after van crashes and catches fire in Fort Worth\n\nA Toyota Sienna overturned and caught fire near a creek in north Fort Worth, not far from the Stockyards. The driver and another passenger, both minors, died at the scene; two juveniles and an 18-year-old were taken to the…\n\n📍 Fort Worth, TX\n\nWe'll share updates as police release them. Follow @FortWorthTexasTV 📲",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/2-minors-killed-3-others-seriously-injured-after-van-crashes-and-catches-fire-in-fort-worth/4106946/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [
+      "#FortWorth",
+      "#FortWorthTraffic",
+      "#DFWTraffic",
+      "#I35W",
+      "#Texas",
+      "#Stockyards"
+    ],
+    "image_query": "Texas highway traffic night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "0544b8324e6dda67",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "2 minors killed, 3 others seriously injured after van crashes and catches fire in Fort Worth",
+    "summary": "A Toyota Sienna overturned and caught fire near a creek in north Fort Worth, not far from the Stockyards. The driver and another passenger, both minors, died at the scene; two juveniles and an 18-year-old were taken to the hospital with serious injuries. A Texas DPS trooper had tried to stop the speeding van about half a mile away but lost sight of it before finding the crash. DPS is investigating.",
+    "url": "https://www.nbcdfw.com/news/local/2-minors-killed-3-others-seriously-injured-after-van-crashes-and-catches-fire-in-fort-worth/4106946/",
+    "published": "2026-11-16T22:00:00+00:00",
+    "category_hint": "traffic",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": null,
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {},
+    "category": "traffic",
+    "relevance": 3,
+    "score": 0.2753
+  }
+}
