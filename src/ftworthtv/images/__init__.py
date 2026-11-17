@@ -80,11 +80,13 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             if background:
                 credit, license_, provider, photo_id, source_url = cand.credit, cand.license, cand.provider, cand.id, cand.source_url
 
+    mood = {"nws_forecast": "sunrise", "nws_alert": "storm", "event": "dusk", "event_roundup": "dusk"}.get(story.source_kind) or \
+        {"food": "day", "business": "day", "community": "day", "weather": "day", "culture": "sunrise", "sports": "dusk"}.get(copy.category, "night")
     out = render_card(
         background=background, headline=copy.headline or story.title, category_label=label, brand=brand,
         out_path=workdir / "card.jpg", fonts_dir=settings.fonts_dir,
         source_line=f"Source: {story.source}", photo_credit=credit if provider != "placeholder" else None,
-        subline=subline, fit=fit, logo_path=settings.assets_dir / "logo.png",
+        subline=subline, fit=fit, logo_path=settings.assets_dir / "logo.png", mood=mood,
     )
     return ImageAsset(path=out, credit=credit, license=license_, provider=provider, source_url=source_url, photo_id=photo_id,
                       width=brand.get("card", {}).get("size", [1080, 1350])[0], height=brand.get("card", {}).get("size", [1080, 1350])[1])

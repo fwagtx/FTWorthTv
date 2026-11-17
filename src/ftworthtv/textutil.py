@@ -87,3 +87,21 @@ def relative_day(dt: datetime, now: datetime, tz: ZoneInfo) -> str:
 def clean_hashtag(tag: str) -> str:
     tag = re.sub(r"[^0-9A-Za-z_]", "", tag.strip())
     return f"#{tag}" if tag else ""
+
+
+CLAUSE_BREAKS = (": ", " — ", " – ", ", ", "; ", " after ", " as ", " at ", " in ", " of ", " for ", " with ", " to ", " and ")
+
+
+def smart_headline(title: str, limit: int = 60, min_len: int = 28) -> str:
+    """Trim a long title at a clause boundary so the card headline reads as a complete thought."""
+    title = collapse_ws(title)
+    if len(title) <= limit:
+        return title
+    best = ""
+    for sep in CLAUSE_BREAKS:
+        idx = title.rfind(sep, 0, limit + 1)
+        if idx >= min_len and idx > len(best):
+            best = title[:idx]
+    if best:
+        return best.rstrip(" ,;:–—")
+    return truncate(title, limit)

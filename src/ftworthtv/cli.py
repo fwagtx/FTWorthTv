@@ -29,11 +29,34 @@ def _settings(args) -> Settings:
     return Settings.load(**overrides)
 
 
+def _stories_from_json(path: Path, now: datetime):
+    """A JSON list of story dicts (title, summary, url, source, published?, category_hint?, image_url?...) -> Story objects."""
+    from .models import Story
+    from .textutil import stable_id
+    items = json.loads(path.read_text(encoding="utf-8"))
+    stories = []
+    for item in items:
+        item = dict(item)
+        item.setdefault("id", stable_id("json", item.get("url") or item.get("title", "")))
+        item.setdefault("source_kind", "rss")
+        item.setdefault("summary", "")
+        pub = item.get("published")
+        item["published"] = dtparse.isoparse(pub) if pub else now
+        stories.append(Story(**{k: v for k, v in item.items() if k in Story.__dataclass_fields__}))
+    return stories
+
+
 def cmd_run(args) -> int:
     from .pipeline import run
     settings = _settings(args)
     now = dtparse.isoparse(args.now).astimezone(timezone.utc) if args.now else None
-    report = run(settings, now=now, publisher_name=args.publisher)
+    stories = None
+    if getattr(args, "stories", None):
+        stories = _stories_from_json(Path(args.stories), now or datetime.now(timezone.utc))
+        if not args.no_sources:
+            from .sources import collect
+            stories += collect(settings, now or datetime.now(timezone.utc))
+    report = run(settings, now=now, stories=stories, publisher_name=args.publisher)
     print(report.summary())
     print(f"preview: {report.run_dir / 'preview.html'}")
     return 0 if all(r.ok for r in report.results) else 1
@@ -145,6 +168,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     r = sub.add_parser("run", help="collect, write, illustrate and publish")
     common(r)
+    r.add_argument("--stories", help="JSON file of extra stories to consider (real headlines, submissions)")
+    r.add_argument("--no-sources", action="store_true", help="with --stories: use only the JSON stories, skip the feeds")
     r.set_defaults(func=cmd_run)
     pv = sub.add_parser("preview", help="demo on bundled example stories, no network/keys needed")
     common(pv)

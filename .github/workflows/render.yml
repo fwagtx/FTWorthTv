@@ -1,0 +1,56 @@
+# Render sample posts from a JSON file of headlines with REAL photos (Wikimedia Commons / NWS need no keys) and
+# push the result to a `renders/<run>` branch, so renderings can be made from a machine without internet access.
+name: Render sample posts
+
+on:
+  workflow_dispatch:
+    inputs:
+      stories:
+        description: "JSON file of stories"
+        default: "examples/real/headlines-2026-11-17.json"
+      max_posts:
+        description: "max posts"
+        default: "7"
+      now:
+        description: "pretend it is this ISO time (optional)"
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      NWS_USER_AGENT: ${{ secrets.NWS_USER_AGENT || 'FTWorthTv/0.1 (github actions render)' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -q -e .
+      - name: Render
+        run: |
+          NOW_ARG=""
+          if [ -n "${{ inputs.now }}" ]; then NOW_ARG="--now ${{ inputs.now }}"; fi
+          python -m ftworthtv run --stories "${{ inputs.stories }}" --no-sources --dry-run --max "${{ inputs.max_posts }}" --since-hours 96 $NOW_ARG -v
+      - name: Push renders to a branch
+        run: |
+          RUN=$(ls -d out/runs/* | tail -1)
+          BRANCH="renders/$(basename "$RUN")-${GITHUB_RUN_NUMBER}"
+          git config user.name "ftworthtv-bot"
+          git config user.email "ftworthtv-bot@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add -f "$RUN"
+          git commit -q -m "render: sample posts $(basename "$RUN") [skip ci]"
+          git push -u origin "$BRANCH"
+          echo "renders pushed to $BRANCH"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: renders-${{ github.run_number }}
+          path: out/
+          retention-days: 14

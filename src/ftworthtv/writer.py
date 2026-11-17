@@ -10,7 +10,7 @@ from dateutil import parser as dtparse
 
 from .config import Settings
 from .models import CATEGORIES, PostCopy, Story
-from .textutil import clean_hashtag, fmt_time, relative_day, truncate
+from .textutil import clean_hashtag, fmt_time, relative_day, smart_headline, truncate
 
 log = logging.getLogger(__name__)
 
@@ -136,6 +136,45 @@ def claude_copy(story: Story, settings: Settings, now: datetime) -> PostCopy | N
 
 
 # --------------------------------------------------------------------------- template
+SOMBER_WORDS = ("killed", "dies", "died", "dead", "fatal", "death", "shot", "shooting", "homicide", "murder", "drown", "stabbed")
+
+
+def is_somber(story: Story) -> bool:
+    text = story.text()
+    return any(w in text for w in SOMBER_WORDS)
+
+
+ROAD_RE = re.compile(r"\b(I-35W|I-35|I-30|I-20|I-820|Loop 820|SH 121|US 287|Chisholm Trail Parkway|Camp Bowie|Highway 377)\b", re.I)
+
+
+def hook_for(story: Story, category: str) -> str:
+    """First line of a template caption: short, local, Dallas-Texas-TV flavored. The title follows on the next line."""
+    text = story.text()
+    title = story.title.lower()
+    if category == "traffic":
+        m = ROAD_RE.search(story.title) or ROAD_RE.search(story.summary)
+        return f"{m.group(1)} right now 🚨" if m else "Heads up, Fort Worth drivers 🚧"
+    if category == "weather":
+        return "Fort Worth weather check 🌤️"
+    if category == "food":
+        return "New spot alert, Fort Worth 🌮" if ("open" in text or "new" in text) else "Fort Worth foodies 👀"
+    if category == "sports":
+        if any(w in text for w in ("tcu", "horned frogs", "frogs")):
+            return "Dub for the Frogs 🐸" if ("win" in title or "beat" in title) else "Frogs update 🐸"
+        return "Fort Worth sports 🏆"
+    if category == "crime":
+        return "FWPD update 🚔"
+    if category == "business":
+        return "Big news for Fort Worth 🏗️"
+    if category == "culture":
+        return "Only in Fort Worth 🤠"
+    if category == "community":
+        return "Fort Worth, this one's for you 💜"
+    if category == "breaking":
+        return "🚨 BREAKING"
+    return "Fort Worth 📍"
+
+
 def guess_location(story: Story, settings: Settings) -> str:
     text = story.text()
     for place in PLACES:
@@ -157,7 +196,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
                    "events": "concert crowd lights", "food": "Texas barbecue plate", "sports": "football stadium Texas",
                    "culture": "Fort Worth Stockyards", "community": "Fort Worth downtown street", "business": "Fort Worth skyline day",
                    "breaking": "Fort Worth downtown night"}.get(category, "Fort Worth skyline")
-    headline = truncate(story.title, 60, "")
+    headline = smart_headline(story.title, 60)
 
     if kind == "nws_alert":
         ends = story.extra.get("ends")
@@ -193,8 +232,12 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
     elif kind == "reddit":
         lines = ["Trending on r/FortWorth 👀", truncate(story.title, 140), f"📍 {location}", cta]
     else:
-        hook = truncate(story.title, 88, "")
-        lines = [f"{hook} {emoji}".strip()]
+        title_line = truncate(story.title, 120, "")
+        if is_somber(story):
+            lines = [f"🚨 {title_line}"]
+            cta = f"We'll share updates as police release them. Follow {handle} 📲"
+        else:
+            lines = [hook_for(story, category), title_line]
         if story.summary and story.summary.lower()[:40] != story.title.lower()[:40]:
             lines.append(truncate(story.summary, 230))
         lines += [f"📍 {location}", cta]

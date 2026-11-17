@@ -63,7 +63,10 @@ def search_wikimedia(query: str, *, limit: int = 15) -> list[PhotoCandidate]:
             continue
         artist = strip_html((meta.get("Artist", {}) or {}).get("value", "")) or "Wikimedia Commons contributor"
         url = info.get("thumburl") or info.get("url")
+        title = str(page.get("title", "")).lower()
         if not url or int(info.get("width", 0)) < 1000:
+            continue
+        if any(bad in title for bad in ("map", "logo", "flag", "diagram", "seal", "icon", "chart", "plan", ".svg", ".gif", "poster")):
             continue
         out.append(PhotoCandidate(
             id=f"commons-{page.get('pageid')}", url=url,

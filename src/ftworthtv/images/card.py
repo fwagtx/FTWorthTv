@@ -49,41 +49,55 @@ def contain(img: Image.Image, size: tuple[int, int], bg: tuple[int, int, int]) -
     return canvas
 
 
-def placeholder_background(size: tuple[int, int], colors: dict, seed: str = "") -> Image.Image:
-    """Night-sky gradient + Fort Worth-ish skyline silhouette. Used only when no licensed photo is available."""
+MOODS = {  # sky gradient stops top -> horizon, star count, lit-window probability, glow color
+    "night":   {"stops": [(14, 18, 43), (28, 36, 80), (60, 54, 70)], "stars": 140, "windows": 0.35, "glow": (242, 177, 52)},
+    "sunrise": {"stops": [(22, 36, 92), (120, 100, 140), (250, 160, 70)], "stars": 25, "windows": 0.12, "glow": (255, 210, 90)},
+    "dusk":    {"stops": [(40, 20, 80), (130, 50, 110), (235, 110, 80)], "stars": 60, "windows": 0.3, "glow": (255, 140, 90)},
+    "day":     {"stops": [(70, 130, 215), (140, 190, 240), (215, 230, 245)], "stars": 0, "windows": 0.0, "glow": (255, 255, 255)},
+    "storm":   {"stops": [(30, 34, 48), (70, 76, 95), (120, 124, 135)], "stars": 0, "windows": 0.3, "glow": (200, 200, 210)},
+}
+
+
+def _lerp(a, b, t):
+    return tuple(int(a[i] + (b[i] - a[i]) * t) for i in range(3))
+
+
+def placeholder_background(size: tuple[int, int], colors: dict, seed: str = "", mood: str = "night") -> Image.Image:
+    """Sky gradient + Fort Worth-ish skyline silhouette. Used only when no licensed photo is available."""
     w, h = size
-    primary = _hex(colors.get("primary", "#14182B"))
-    accent = _hex(colors.get("accent", "#F2B134"))
-    img = Image.new("RGB", size, primary)
+    m = MOODS.get(mood, MOODS["night"])
+    stops = m["stops"]
+    img = Image.new("RGB", size, stops[0])
     draw = ImageDraw.Draw(img)
-    hue, light, sat = colorsys.rgb_to_hls(*(c / 255 for c in primary))
-    for y in range(h):
-        t = y / h
-        r, g, b = colorsys.hls_to_rgb(hue, max(0.03, light + 0.22 * (1 - t) - 0.08 * t), min(1, sat + 0.1))
-        draw.line([(0, y), (w, y)], fill=(int(r * 255), int(g * 255), int(b * 255)))
-    rnd = random.Random(seed or "ftw")
-    for _ in range(140):  # stars
-        x, y = rnd.randrange(w), rnd.randrange(int(h * 0.55))
-        draw.ellipse([x, y, x + 2, y + 2], fill=(255, 255, 255, 180))
     horizon = int(h * 0.68)
-    glow = Image.new("RGB", size, primary)
+    for y in range(h):
+        t = min(1.0, y / horizon)
+        seg = t * (len(stops) - 1)
+        i = min(int(seg), len(stops) - 2)
+        draw.line([(0, y), (w, y)], fill=_lerp(stops[i], stops[i + 1], seg - i))
+    rnd = random.Random(seed or "ftw")
+    for _ in range(m["stars"]):
+        x, y = rnd.randrange(w), rnd.randrange(int(h * 0.5))
+        draw.ellipse([x, y, x + 2, y + 2], fill=(255, 255, 255))
+    glow = Image.new("RGB", size, stops[-1])
     gd = ImageDraw.Draw(glow)
-    gd.ellipse([-w * 0.2, horizon - 90, w * 1.2, horizon + 320], fill=accent)
+    gd.ellipse([-w * 0.2, horizon - 90, w * 1.2, horizon + 320], fill=m["glow"])
     glow = glow.filter(ImageFilter.GaussianBlur(120))
-    img = Image.blend(img, glow, 0.35)
+    img = Image.blend(img, glow, 0.3)
     draw = ImageDraw.Draw(img)
+    building = (10, 12, 24) if mood in ("night", "dusk", "storm") else (38, 48, 78)
     x = -20
     while x < w + 20:  # skyline blocks
         bw = rnd.randrange(50, 150)
         bh = rnd.randrange(60, 380)
         top = horizon - bh
-        draw.rectangle([x, top, x + bw, horizon + 40], fill=(10, 12, 24))
+        draw.rectangle([x, top, x + bw, horizon + 40], fill=building)
         for wy in range(top + 18, horizon - 10, 26):  # lit windows
             for wx in range(x + 10, x + bw - 10, 22):
-                if rnd.random() < 0.35:
+                if rnd.random() < m["windows"]:
                     draw.rectangle([wx, wy, wx + 8, wy + 10], fill=(255, 226, 150))
         x += bw + rnd.randrange(6, 26)
-    draw.rectangle([0, horizon + 40, w, h], fill=(8, 9, 18))
+    draw.rectangle([0, horizon + 40, w, h], fill=(8, 9, 18) if mood in ("night", "dusk", "storm") else (24, 30, 50))
     return img
 
 
@@ -131,7 +145,7 @@ def _pill(draw, xy, text, font, fill, text_fill, pad=(26, 14), radius=18):
 def render_card(*, background: Path | None, headline: str, category_label: str, brand: dict, out_path: Path,
                 fonts_dir: Path, source_line: str | None = None, photo_credit: str | None = None,
                 subline: str | None = None, fit: str = "cover", size: tuple[int, int] | None = None,
-                logo_path: Path | None = None) -> Path:
+                logo_path: Path | None = None, mood: str = "night") -> Path:
     colors = brand.get("colors", {}) or {}
     card_cfg = brand.get("card", {}) or {}
     size = tuple(size or card_cfg.get("size") or DEFAULT_SIZE)  # type: ignore[assignment]
@@ -144,12 +158,12 @@ def render_card(*, background: Path | None, headline: str, category_label: str, 
             src = src.convert("RGB")
             base = contain(src, size, primary) if fit == "contain" else cover(src, size)
     else:
-        base = placeholder_background(size, colors, seed=headline)
+        base = placeholder_background(size, colors, seed=headline, mood=mood)
 
     # bottom gradient so white text always reads
     overlay = Image.new("RGBA", size, (0, 0, 0, 0))
     od = ImageDraw.Draw(overlay)
-    grad_top = int(h * 0.42)
+    grad_top = int(h * 0.34)
     for y in range(grad_top, h):
         t = (y - grad_top) / (h - grad_top)
         alpha = int(235 * (t ** 1.4))
@@ -185,7 +199,16 @@ def render_card(*, background: Path | None, headline: str, category_label: str, 
     base = Image.alpha_composite(base, ui)
     draw = ImageDraw.Draw(base)
 
-    # --- footer: source + credit ---
+    # --- text block (footer, headline, subline) on its own layers so the shadow blends properly ---
+    text_layer = Image.new("RGBA", size, (0, 0, 0, 0))
+    shadow_layer = Image.new("RGBA", size, (0, 0, 0, 0))
+    tdraw = ImageDraw.Draw(text_layer)
+    sdraw = ImageDraw.Draw(shadow_layer)
+
+    def shadowed(xy, text, font, fill):
+        sdraw.text((xy[0] + 3, xy[1] + 4), text, font=font, fill=(0, 0, 0, 190))
+        tdraw.text(xy, text, font=font, fill=fill)
+
     foot_font = load_font(fonts_dir, bold=False, size=26)
     footer_y = h - margin - foot_font.size
     footer_lines = []
@@ -195,28 +218,30 @@ def render_card(*, background: Path | None, headline: str, category_label: str, 
         footer_lines.append(photo_credit)
     footer_text = "   •   ".join(footer_lines)
     if footer_text:
-        while draw.textlength(footer_text, font=foot_font) > w - 2 * margin and len(footer_text) > 20:
+        while tdraw.textlength(footer_text, font=foot_font) > w - 2 * margin and len(footer_text) > 20:
             footer_text = footer_text[:-4].rstrip() + "…"
-        draw.text((margin, footer_y), footer_text, font=foot_font, fill=muted)
+        shadowed((margin, footer_y), footer_text, foot_font, (*muted, 255))
 
-    # --- headline block (bottom-left, above footer) ---
     max_width = w - 2 * margin
-    head_font, lines = fit_headline(draw, headline, fonts_dir, max_width, max_lines=4)
+    head_font, lines = fit_headline(tdraw, headline, fonts_dir, max_width, max_lines=4)
     line_h = int(head_font.size * 1.12)
     block_h = line_h * len(lines)
     y = footer_y - 44 - block_h
     for line in lines:
-        draw.text((margin, y), line, font=head_font, fill=text_col)
+        shadowed((margin, y), line, head_font, (*text_col, 255))
         y += line_h
-    # accent bar + optional subline above the headline
     bar_y = footer_y - 44 - block_h - 34
-    draw.rounded_rectangle([margin, bar_y, margin + 140, bar_y + 10], radius=5, fill=accent)
+    tdraw.rounded_rectangle([margin, bar_y, margin + 140, bar_y + 10], radius=5, fill=(*accent, 255))
     if subline:
         sub_font = load_font(fonts_dir, bold=True, size=32)
         sub = subline.upper()
-        while draw.textlength(sub, font=sub_font) > max_width and len(sub) > 10:
+        while tdraw.textlength(sub, font=sub_font) > max_width and len(sub) > 10:
             sub = sub[:-4].rstrip() + "…"
-        draw.text((margin, bar_y - 20 - sub_font.size), sub, font=sub_font, fill=accent)
+        shadowed((margin, bar_y - 20 - sub_font.size), sub, sub_font, (*accent, 255))
+
+    shadow_layer = shadow_layer.filter(ImageFilter.GaussianBlur(6))
+    base = Image.alpha_composite(base, shadow_layer)
+    base = Image.alpha_composite(base, text_layer)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     base.convert("RGB").save(out_path, "JPEG", quality=90, optimize=True)

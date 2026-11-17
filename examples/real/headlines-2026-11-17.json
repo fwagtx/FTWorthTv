@@ -1,0 +1,113 @@
+[
+  {
+    "source": "FOX 4 Dallas-Fort Worth",
+    "title": "USPS semi-truck ends up partially over I-35W railing in Fort Worth due to wet weather",
+    "summary": "Wet weather triggered a string of crashes across Fort Worth on Sunday, including a USPS truck that ended up partially over a railing and an 18-wheeler crash on northbound I-35W near 28th Street. Police said no fatalities or major injuries were reported in any of the crashes.",
+    "url": "https://www.fox4news.com/news/fort-worth-police-respond-string-weather-related-crashes-across-city",
+    "published": "2026-11-16T00:30:00Z",
+    "category_hint": "traffic",
+    "weight": 0.8
+  },
+  {
+    "source": "NBC 5 DFW",
+    "title": "2 minors killed, 3 others seriously injured after van crashes and catches fire in Fort Worth",
+    "summary": "A Toyota Sienna overturned and caught fire near a creek in north Fort Worth, not far from the Stockyards. The driver and another passenger, both minors, died at the scene; two juveniles and an 18-year-old were taken to the hospital with serious injuries. A Texas DPS trooper had tried to stop the speeding van about half a mile away but lost sight of it before finding the crash. DPS is investigating.",
+    "url": "https://www.nbcdfw.com/news/local/2-minors-killed-3-others-seriously-injured-after-van-crashes-and-catches-fire-in-fort-worth/4106946/",
+    "published": "2026-11-16T22:00:00Z",
+    "category_hint": "traffic",
+    "weight": 0.8
+  },
+  {
+    "source": "Fort Worth Report",
+    "title": "UT Southwestern a step closer to opening of Radiation Oncology center",
+    "summary": "UT Southwestern placed the final beam on its $177 million radiation oncology center in the Fort Worth Medical District on Nov. 16, moving a step closer to the anticipated 2028 opening. The center will offer MRI-guided radiation treatments, a first for Fort Worth.",
+    "url": "https://fortworthreport.org/2026/11/16/ut-southwestern-a-step-closer-to-opening-of-radiation-oncology-center/",
+    "published": "2026-11-16T21:00:00Z",
+    "category_hint": "business",
+    "always_relevant": true,
+    "weight": 1.0
+  },
+  {
+    "source": "CultureMap Fort Worth",
+    "title": "Where to eat in Fort Worth: 5 tasty new restaurants to try",
+    "summary": "New this month: Beverly's Downtown, an underground Mexican restaurant in the basement of the historic Hogan Building at 901 Houston St. (opened Nov. 10); Flora House Cafe at the Fort Worth Botanic Garden (ribbon cutting Nov. 11); Yindee Thai Eatery, opening Nov. 19 at H Mart Plaza on NE Loop 820; and Station & Vine, set to open inside the historic Texas & Pacific Station across from Dickies Arena.",
+    "url": "https://fortworth.culturemap.com/news/restaurants-bars/where-to-eat-november-2026/",
+    "published": "2026-11-16T15:00:00Z",
+    "category_hint": "food",
+    "always_relevant": true,
+    "weight": 0.9
+  },
+  {
+    "source": "PaperCity Fort Worth",
+    "title": "A first look at Beverly's Downtown, Fort Worth's new underground Mexican restaurant",
+    "summary": "Beverly's Downtown opened Nov. 10 in the basement of the historic Hogan Building at 901 Houston St., bringing a subterranean Mexican restaurant to downtown Fort Worth.",
+    "url": "https://www.papercitymag.com/restaurants/beverlys-downtown-fort-worth-restaurant-opening-first-look/",
+    "published": "2026-11-15T16:00:00Z",
+    "category_hint": "food",
+    "always_relevant": true,
+    "weight": 0.7
+  },
+  {
+    "source": "ABC News (AP)",
+    "title": "Horned Frogs get back on winning track with 20-10 win over Kansas State",
+    "summary": "Jaden Craig threw for 225 yards and a touchdown to Jacobe Hayes while TCU's defense piled up five sacks and two takeaways in a 20-10 win over Kansas State in Fort Worth on Saturday. TCU improved to 5-5 (3-4 Big 12); Kansas State fell to 4-6. The Frogs host No. 2 Utah next.",
+    "url": "https://abcnews.com/Sports/wireStory/horned-frogs-back-winning-track-20-10-win-138149402",
+    "published": "2026-11-15T03:30:00Z",
+    "category_hint": "sports",
+    "weight": 0.9
+  },
+  {
+    "source": "FOX 4 Dallas-Fort Worth",
+    "title": "Clear skies, chilly temps and the Leonid meteor shower peaks tonight over North Texas",
+    "summary": "Clear skies and chilly temperatures are in the forecast as the Leonid meteor shower peaks tonight. A cold front arrives Saturday night with a low chance of rain and seasonal temperatures returning by Sunday.",
+    "url": "https://fox4news.com/weather/dallas-weather-clear-skies-chilly-temperatures-leonid-meteor-shower-peak",
+    "published": "2026-11-17T13:00:00Z",
+    "category_hint": "weather",
+    "always_relevant": true,
+    "weight": 0.8
+  },
+  {
+    "source": "FOX Weather",
+    "source_kind": "nws_forecast",
+    "id": "forecast-2026-11-17",
+    "title": "Fort Worth forecast for Tuesday, November 17",
+    "summary": "Today: Sunny, high near 65. Wednesday: Sunny, high near 70. Showers possible before noon Thursday, then highs in the low-to-mid 70s into Saturday. A weak cold front arrives Saturday night with a 20 to 40 percent chance of rain this weekend.",
+    "url": "https://www.foxweather.com/local-weather/texas/fort-worth",
+    "published": "2026-11-17T12:00:00Z",
+    "category_hint": "weather",
+    "official": true,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {"high": 65, "short": "Sunny", "wind": "light", "low": null}
+  },
+  {
+    "source": "Ticketmaster",
+    "source_kind": "event",
+    "id": "tm-ty-myers-2026-11-21",
+    "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+    "summary": "Ty Myers brings The Legal Tour 2026 with special guest Benny G to Dickies Arena on Saturday, Nov. 21 at 7:30 PM. Country.",
+    "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330",
+    "published": "2026-11-17T12:00:00Z",
+    "category_hint": "events",
+    "always_relevant": true,
+    "weight": 1.1,
+    "image_policy": "source_image",
+    "image_license": "ticketmaster",
+    "extra": {"venue": "Dickies Arena", "city": "Fort Worth", "when": "Sat, Nov 21 7:30 PM", "start": "2026-11-22T01:30:00+00:00", "genre": "Country", "ticket_url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"}
+  },
+  {
+    "source": "Ticketmaster",
+    "source_kind": "event",
+    "id": "tm-funkytown-showdown-2026-11-22",
+    "title": "Women's Funkytown Showdown at Dickies Arena",
+    "summary": "Elite women's college basketball comes to Dickies Arena on Sunday, Nov. 22 starting at noon: TCU vs. Utah State and Texas vs. Ohio State.",
+    "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330",
+    "published": "2026-11-17T12:00:00Z",
+    "category_hint": "sports",
+    "always_relevant": true,
+    "weight": 1.0,
+    "image_policy": "source_image",
+    "image_license": "ticketmaster",
+    "extra": {"venue": "Dickies Arena", "city": "Fort Worth", "when": "Sun, Nov 22 12:00 PM", "start": "2026-11-22T18:00:00+00:00", "genre": "Basketball", "ticket_url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"}
+  }
+]
