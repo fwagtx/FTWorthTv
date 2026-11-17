@@ -1,0 +1,71 @@
+# Brand + voice for the automated page.
+# Modeled on what the Dallas Texas TV Facebook page does (~647K followers):
+#   - bio "The home of DTX entertainment", "All news available"
+#   - short punchy captions ("635 Today", "Downtown Dallas, how does this happen 😂",
+#     "Kid Cudi joins Kanye at AT&T"), 1-3 emojis, location tag, "Follow us on Instagram @..."
+#   - real photos / phone videos of local happenings, sources credited, links kept out of the caption
+#   - a sponsor line ("official partner of ...") on some posts
+
+page_name: "Fort Worth Texas TV"
+short_name: "FTW TV"
+handle: "@FortWorthTexasTV"
+instagram_handle: "@FortWorthTexasTV"
+tagline: "The home of FTW entertainment 🤠"
+bio: "The home of Fort Worth entertainment & news 🤠 All news available. 📍 Fort Worth, TX. DM us your videos & photos 📲"
+city: "Fort Worth"
+state: "TX"
+timezone: "America/Chicago"
+
+# Appended to the caption on every Nth post (like "Official partner of J. Alexander Law")
+sponsor:
+  enabled: false
+  line: "Official partner of <Your Sponsor>"
+  every_n_posts: 5
+
+# Visual identity for the photo cards (hex)
+colors:
+  primary: "#14182B"   # deep navy backdrop / gradient
+  accent: "#F2B134"    # Fort Worth gold
+  text: "#FFFFFF"
+  muted: "#D7D9E0"
+
+card:
+  size: [1080, 1350]      # 4:5 portrait: the biggest footprint in the Facebook / Instagram feed
+  watermark: true         # "FTW TV" badge top-left
+  show_source_line: true  # tiny "Source: Fort Worth Report" line at the bottom of the card
+  show_photo_credit: true # tiny photographer credit on the card (Pexels / Wikimedia / NWS)
+
+# How the posting cadence behaves
+posting:
+  max_posts_per_run: 2
+  min_minutes_between_posts: 75
+  daily_cap: 10
+  quiet_hours_local: [23, 6]   # no posts from 11pm to 6am Central (severe weather still posts)
+  daily_forecast_hour_local: 7 # "Good morning Fort Worth" weather post once a day (needs no API key)
+  weekend_events_roundup: true # Thursday evening "This weekend in Fort Worth" (needs Ticketmaster key)
+  # news_photo_mode controls what we do for stories from news outlets whose photos we do NOT own:
+  #   card = native photo post: licensed stock/Wikimedia photo of Fort Worth + headline overlay, source link in first comment  (looks like the Dallas page)
+  #   link = Facebook link post: Facebook renders the outlet's own photo as the preview (100% safe, lower reach)
+  news_photo_mode: card
+
+hashtags:
+  default: ["#FortWorth", "#FTW", "#FortWorthTX", "#DFW", "#Texas"]
+  by_category:
+    breaking:  ["#FortWorth", "#FTW", "#DFW", "#Breaking", "#Texas"]
+    crime:     ["#FortWorth", "#FortWorthPolice", "#FTW", "#DFW", "#Texas"]
+    traffic:   ["#FortWorth", "#FortWorthTraffic", "#DFWTraffic", "#I35W", "#Texas"]
+    weather:   ["#FortWorth", "#FortWorthWeather", "#DFWwx", "#TXwx", "#Texas"]
+    events:    ["#FortWorth", "#FortWorthEvents", "#ThingsToDoFortWorth", "#DickiesArena", "#DFW"]
+    food:      ["#FortWorth", "#FortWorthEats", "#FortWorthFood", "#DFWFoodie", "#Texas"]
+    sports:    ["#FortWorth", "#FortWorthSports", "#FTW", "#DFW", "#Texas"]
+    culture:   ["#FortWorth", "#Stockyards", "#SundanceSquare", "#CulturalDistrict", "#Texas"]
+    community: ["#FortWorth", "#FTW", "#Cowtown", "#DFW", "#Texas"]
+    business:  ["#FortWorth", "#FortWorthBusiness", "#FTW", "#DFW", "#Texas"]
+
+# Voice notes handed to the caption writer (Claude). Edit freely.
+voice: |
+  Casual, local, high-energy, a little playful. Short lines. Talk like a Fort Worth local talking to other locals.
+  Hook first (what shows before "See more"), then 1-3 lines of facts, a 📍 location line, then a follow CTA.
+  1-3 emojis per caption. Never mislead, never invent facts, names, numbers or quotes. Keep links and hashtags out of the caption.
+  Vibe examples: "Downtown Fort Worth tonight 😍" / "I-35W is a parking lot right now 🚨" / "635 Today" /
+  "Kid Cudi joins Kanye at AT&T" / "Dickies Arena is about to go crazy this weekend 🎟️" / "Stockyards cattle drive hits different in the fall 🐂"

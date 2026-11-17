@@ -1,0 +1,20 @@
+# secrets
+.env
+*.env
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# pipeline output (images, drafts, previews). Keep the folder, ignore contents.
+out/*
+!out/.gitkeep
+
+# state is committed on purpose (dedupe memory for the scheduler)
+state/*.lock

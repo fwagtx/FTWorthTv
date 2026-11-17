@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+  <title>Example DFW-wide feed (demo data)</title>
+  <link>https://example.com/dfw</link>
+  <item>
+    <title>Stockyards cattle drive adds extra holiday shows this season</title>
+    <link>https://example.com/dfw/stockyards-holiday-drive</link>
+    <guid>demo-fox-1</guid>
+    <pubDate>__PUB1__</pubDate>
+    <description><![CDATA[The twice-daily Fort Worth Herd cattle drive in the Stockyards will add evening runs during the holidays, organizers said.]]></description>
+    <media:thumbnail url="https://example.com/images/stockyards.jpg"/>
+  </item>
+  <item>
+    <title>Dallas ISD trustees debate new school start times</title>
+    <link>https://example.com/dfw/dallas-isd-start-times</link>
+    <guid>demo-fox-2</guid>
+    <pubDate>__PUB2__</pubDate>
+    <description><![CDATA[The Dallas school board heard three hours of comment on moving high school start times later.]]></description>
+  </item>
+  <item>
+    <title>Texas Legislature weighs statewide property tax changes</title>
+    <link>https://example.com/dfw/legislature-tax</link>
+    <guid>demo-fox-3</guid>
+    <pubDate>__PUB3__</pubDate>
+    <description><![CDATA[Lawmakers in Austin opened hearings on a package of property tax bills.]]></description>
+  </item>
+  <item>
+    <title>Arlington police arrest suspect after chase ends near AT&amp;T Stadium</title>
+    <link>https://example.com/dfw/arlington-chase</link>
+    <guid>demo-fox-4</guid>
+    <pubDate>__PUB4__</pubDate>
+    <description><![CDATA[Arlington police arrested a driver after a short pursuit that ended in a parking lot near AT&T Stadium. No injuries were reported.]]></description>
+  </item>
+</channel>
+</rss>

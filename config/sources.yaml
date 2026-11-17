@@ -1,0 +1,202 @@
+# Where the content comes from. Everything here is public and machine-readable.
+# `verify: true` marks URLs I could not test from the build sandbox (its network only allowed a few hosts);
+# run `ftworthtv sources check` on your machine and delete/fix any that fail.
+#
+# image_policy per source:
+#   none          never download this source's images; we illustrate with our own licensed photo (card) or a link post
+#   source_image  the source's image may be used in our posts (government / public-domain / API terms allow it)
+
+rss:
+  - name: Fort Worth Report
+    url: https://fortworthreport.org/feed/
+    weight: 1.0
+    always_relevant: true          # Fort Worth-only outlet: every item is local
+    image_policy: none
+  - name: Fort Worth Star-Telegram
+    url: https://www.star-telegram.com/news/local/?widgetName=rssfeed&widgetContentId=712015&getXmlFeed=true
+    weight: 0.9
+    always_relevant: true
+    image_policy: none
+    verify: true
+  - name: CultureMap Fort Worth
+    url: https://fortworth.culturemap.com/feeds/news/
+    weight: 0.9
+    always_relevant: true
+    category_hint: culture
+    image_policy: none
+  - name: Fort Worth Weekly
+    url: https://www.fwweekly.com/feed/
+    weight: 0.7
+    always_relevant: true
+    category_hint: culture
+    image_policy: none
+    verify: true
+  - name: Fort Worth Magazine
+    url: https://fwtx.com/feed/
+    weight: 0.7
+    always_relevant: true
+    category_hint: culture
+    image_policy: none
+    verify: true
+  - name: Fort Worth Business Press
+    url: https://fortworthbusiness.com/feed/
+    weight: 0.5
+    always_relevant: true
+    category_hint: business
+    image_policy: none
+    verify: true
+  - name: FOX 4 Dallas-Fort Worth
+    url: https://www.fox4news.com/rss/category/local-news
+    weight: 0.8
+    image_policy: none
+  - name: NBC 5 DFW
+    url: https://www.nbcdfw.com/?rss=y
+    weight: 0.8
+    image_policy: none
+  - name: WFAA
+    url: https://www.wfaa.com/feeds/syndication/rss/news/local
+    weight: 0.8
+    image_policy: none
+    verify: true
+  - name: CBS News Texas
+    url: https://www.cbsnews.com/latest/rss/texas
+    weight: 0.7
+    image_policy: none
+    verify: true
+  - name: City of Fort Worth
+    url: https://www.fortworthtexas.gov/news/rss
+    weight: 0.8
+    always_relevant: true
+    official: true                 # city press releases + their photos are fair to reuse with credit
+    image_policy: source_image
+    category_hint: community
+    verify: true
+  - name: Fort Worth Police Department
+    url: https://police.fortworthtexas.gov/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml
+    weight: 0.9
+    always_relevant: true
+    official: true
+    image_policy: source_image
+    category_hint: crime
+    verify: true
+  - name: TCU Athletics
+    url: https://gofrogs.com/rss.aspx
+    weight: 0.6
+    always_relevant: true
+    category_hint: sports
+    image_policy: none
+    verify: true
+
+# National Weather Service (free, no key, public domain imagery)
+nws:
+  enabled: true
+  zone: TXZ118            # NWS public forecast zone for Tarrant County (Fort Worth / Arlington)
+  county: TXC439          # Tarrant County FIPS zone, used for county-based warnings
+  radar_station: KFWS     # Fort Worth radar
+  latitude: 32.7555       # downtown Fort Worth, for the daily forecast gridpoint lookup
+  longitude: -97.3308
+  min_severity: Moderate  # Minor | Moderate | Severe | Extreme
+  post_alerts: true
+  daily_forecast: true
+
+# Ticketmaster Discovery API (free key): concerts / rodeo / TCU / Dickies Arena with event images + ticket links
+ticketmaster:
+  enabled: true
+  city: Fort Worth
+  state_code: TX
+  radius_miles: 15
+  lookahead_days: 3
+  min_image_width: 1000
+  venue_boost: ["Dickies Arena", "Billy Bob's Texas", "Texas Motor Speedway", "Will Rogers Memorial Center",
+                "Fort Worth Convention Center", "Bass Performance Hall", "Tannahill's Tavern", "Amon G. Carter Stadium",
+                "Schollmaier Arena", "Globe Life Field", "AT&T Stadium"]
+
+# Reddit r/FortWorth: trend signal + link posts only (we never download redditors' photos). Off by default.
+reddit:
+  enabled: false
+  subreddits: ["FortWorth"]
+  min_score: 150
+
+# TxDOT / city traffic cameras: if a traffic story mentions one of these roads we attach a LIVE snapshot as the photo.
+# Fill snapshot URLs from the camera popups on https://drivetexas.org (right-click the image, copy image address).
+traffic_cameras:
+  enabled: false
+  cameras: []
+  # - name: "I-35W at Downtown"
+  #   roads: ["I-35W", "35W", "I-35"]
+  #   snapshot_url: "https://.../snapshot.jpg"
+
+# Relevance: a story needs to hit at least `min_relevance` points (title hit = 2 points, summary hit = 1 point)
+# unless it comes from an `always_relevant` source.
+relevance:
+  min_relevance: 2
+  keywords:
+    - fort worth
+    - ft. worth
+    - ft worth
+    - tarrant
+    - tcu
+    - horned frogs
+    - stockyards
+    - sundance square
+    - dickies arena
+    - west 7th
+    - near southside
+    - magnolia ave
+    - cultural district
+    - panther island
+    - trinity river
+    - cowtown
+    - funkytown
+    - billy bob's
+    - will rogers
+    - bass hall
+    - kimbell
+    - amon carter
+    - fort worth zoo
+    - botanic garden
+    - texas motor speedway
+    - alliance
+    - arlington
+    - at&t stadium
+    - globe life
+    - six flags
+    - keller
+    - southlake
+    - grapevine
+    - colleyville
+    - mansfield
+    - burleson
+    - crowley
+    - benbrook
+    - haltom city
+    - north richland hills
+    - hurst
+    - euless
+    - bedford
+    - saginaw
+    - white settlement
+    - azle
+    - weatherford
+    - i-35w
+    - 35w
+    - loop 820
+    - chisholm trail
+    - camp bowie
+    - dfw airport
+    - fort worth isd
+    - fwpd
+    - fwfd
+  # stories matching these are never posted (brand safety)
+  blocklist:
+    - suicide
+    - child sex
+    - sexual assault
+    - child porn
+    - rape
+    - obituary
+    - obituaries
+    - execution
+  # categories we skip by default (the Dallas page stays out of politics)
+  exclude_categories: ["politics"]
+  max_age_hours: 36

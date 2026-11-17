@@ -1,0 +1,46 @@
+{
+  "type": "FeatureCollection",
+  "title": "Current watches, warnings, and advisories for Tarrant (TXZ118) TX (demo data)",
+  "features": [
+    {
+      "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.demo-svr",
+      "type": "Feature",
+      "properties": {
+        "id": "urn:oid:2.49.0.1.840.0.demo-svr",
+        "areaDesc": "Tarrant, TX",
+        "sent": "__NOW__",
+        "effective": "__NOW__",
+        "expires": "__ENDS__",
+        "ends": "__ENDS__",
+        "status": "Actual",
+        "messageType": "Alert",
+        "severity": "Severe",
+        "urgency": "Immediate",
+        "event": "Severe Thunderstorm Warning",
+        "senderName": "NWS Fort Worth TX",
+        "headline": "Severe Thunderstorm Warning issued for Tarrant County (demo)",
+        "description": "At 5:12 PM CDT, a severe thunderstorm was located over west Fort Worth, moving east at 35 mph. HAZARD... 60 mph wind gusts and quarter size hail. IMPACT... Damage to roofs, siding and trees is possible.",
+        "instruction": "For your protection move to an interior room on the lowest floor of a building. Stay away from windows."
+      }
+    },
+    {
+      "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.demo-minor",
+      "type": "Feature",
+      "properties": {
+        "id": "urn:oid:2.49.0.1.840.0.demo-minor",
+        "areaDesc": "Tarrant, TX",
+        "sent": "__NOW__",
+        "expires": "__ENDS__",
+        "ends": "__ENDS__",
+        "status": "Actual",
+        "messageType": "Alert",
+        "severity": "Minor",
+        "urgency": "Expected",
+        "event": "Special Weather Statement",
+        "headline": "Patchy fog this morning (demo)",
+        "description": "Patchy dense fog will reduce visibility.",
+        "instruction": ""
+      }
+    }
+  ]
+}

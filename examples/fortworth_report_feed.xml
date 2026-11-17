@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+  <title>Example Fort Worth feed (demo data)</title>
+  <link>https://example.com/fortworth</link>
+  <item>
+    <title>New barbecue joint opens on Magnolia Avenue in Near Southside</title>
+    <link>https://example.com/fortworth/magnolia-barbecue-opens</link>
+    <guid>demo-1</guid>
+    <pubDate>__PUB1__</pubDate>
+    <description><![CDATA[<p>A family-run smokehouse opened its doors on Magnolia Avenue this week, serving brisket, sausage and jalapeño cheddar sides out of a renovated 1920s storefront. Lines wrapped around the block on opening day.</p>]]></description>
+    <media:content url="https://example.com/images/bbq.jpg" medium="image" width="1200" height="800"/>
+  </item>
+  <item>
+    <title>Crash shuts down northbound I-35W near downtown Fort Worth during morning rush</title>
+    <link>https://example.com/fortworth/i35w-crash</link>
+    <guid>demo-2</guid>
+    <pubDate>__PUB2__</pubDate>
+    <description><![CDATA[All northbound lanes of Interstate 35W were closed near the downtown Fort Worth mixmaster after a multi-vehicle crash involving an 18-wheeler. Police say minor injuries were reported and drivers should use alternate routes.]]></description>
+  </item>
+  <item>
+    <title>Dickies Arena announces 2027 concert lineup with six new shows</title>
+    <link>https://example.com/fortworth/dickies-arena-lineup</link>
+    <guid>demo-3</guid>
+    <pubDate>__PUB3__</pubDate>
+    <description><![CDATA[Dickies Arena added six concerts to its 2027 calendar, including two country headliners and a comedy tour. Tickets go on sale Friday at 10 a.m.]]></description>
+  </item>
+  <item>
+    <title>Fort Worth City Council approves budget after marathon meeting</title>
+    <link>https://example.com/fortworth/council-budget</link>
+    <guid>demo-4</guid>
+    <pubDate>__PUB4__</pubDate>
+    <description><![CDATA[The council vote came after six hours of public comment on the city budget and property tax rate.]]></description>
+  </item>
+  <item>
+    <title>Kimbell Art Museum unveils new impressionist exhibit in the Cultural District</title>
+    <link>https://example.com/fortworth/kimbell-exhibit</link>
+    <guid>demo-5</guid>
+    <pubDate>__PUB5__</pubDate>
+    <description><![CDATA[The Kimbell Art Museum opens a touring exhibition of 60 impressionist works this weekend. Admission to the permanent collection remains free.]]></description>
+  </item>
+  <item>
+    <title>Obituary: longtime Fort Worth rancher dies at 94</title>
+    <link>https://example.com/fortworth/obituary</link>
+    <guid>demo-6</guid>
+    <pubDate>__PUB6__</pubDate>
+    <description><![CDATA[Family and friends will gather Saturday to remember a fixture of the Stockyards cattle community.]]></description>
+  </item>
+  <item>
+    <title>TCU basketball opens season at Schollmaier Arena with a blowout win</title>
+    <link>https://example.com/fortworth/tcu-opener</link>
+    <guid>demo-7</guid>
+    <pubDate>__PUB7__</pubDate>
+    <description><![CDATA[The Horned Frogs rolled past their season-opening opponent in front of a sold-out Schollmaier Arena crowd on Tuesday night.]]></description>
+  </item>
+</channel>
+</rss>

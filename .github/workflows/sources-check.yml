@@ -1,0 +1,20 @@
+# Weekly health check of every RSS feed in config/sources.yaml. Fails loudly when an outlet changes its feed URL.
+name: Check content sources
+
+on:
+  schedule:
+    - cron: "41 13 * * 1"         # Mondays 7:41am Central
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -q -e .
+      - run: python -m ftworthtv sources check

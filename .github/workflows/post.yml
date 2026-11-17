@@ -1,0 +1,95 @@
+# Runs the Fort Worth Texas TV pipeline on a schedule.
+#
+# Set these in the repo: Settings -> Secrets and variables -> Actions
+#   Variables (plain):  FTWTV_PUBLISHER = dryrun | facebook | metricool     (start with dryrun!)
+#                       MEDIA_BASE_URL  = https://raw.githubusercontent.com/<owner>/<repo>/<branch>   (metricool only, public repo)
+#   Secrets:            FB_PAGE_ID, FB_PAGE_ACCESS_TOKEN, ANTHROPIC_API_KEY, PEXELS_API_KEY, TICKETMASTER_API_KEY,
+#                       METRICOOL_USER_TOKEN, METRICOOL_USER_ID, METRICOOL_BLOG_ID, NWS_USER_AGENT
+#
+# Scheduled workflows only run from the repository's DEFAULT branch.
+name: Post to Fort Worth Texas TV
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"        # every 2 hours, UTC. Quiet hours (11pm-6am Central) are enforced by config/brand.yaml.
+  workflow_dispatch:
+    inputs:
+      publisher:
+        description: "dryrun | facebook | metricool (blank = repo variable FTWTV_PUBLISHER)"
+        required: false
+        default: ""
+      max_posts:
+        description: "max posts this run (blank = config)"
+        required: false
+        default: ""
+
+concurrency:
+  group: ftworthtv-post
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      FTWTV_PUBLISHER: ${{ inputs.publisher != '' && inputs.publisher || vars.FTWTV_PUBLISHER || 'dryrun' }}
+      FTWTV_MAX_POSTS: ${{ inputs.max_posts != '' && inputs.max_posts || vars.FTWTV_MAX_POSTS || '2' }}
+      MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+      FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+      FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+      FB_PLACE_ID: ${{ vars.FB_PLACE_ID }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      FTWTV_MODEL: ${{ vars.FTWTV_MODEL || 'claude-opus-5-5' }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+      METRICOOL_USER_TOKEN: ${{ secrets.METRICOOL_USER_TOKEN }}
+      METRICOOL_USER_ID: ${{ secrets.METRICOOL_USER_ID }}
+      METRICOOL_BLOG_ID: ${{ secrets.METRICOOL_BLOG_ID }}
+      METRICOOL_NETWORKS: ${{ vars.METRICOOL_NETWORKS || 'facebook' }}
+      NWS_USER_AGENT: ${{ secrets.NWS_USER_AGENT || 'FTWorthTv/0.1 (github actions)' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -q -e .
+
+      - name: Generate posts (phase 1, always a dry run on disk)
+        run: python -m ftworthtv run --publisher dryrun
+
+      - name: Commit images so Metricool can fetch them (metricool only)
+        if: env.FTWTV_PUBLISHER == 'metricool'
+        run: |
+          git config user.name "ftworthtv-bot"
+          git config user.email "ftworthtv-bot@users.noreply.github.com"
+          shopt -s nullglob
+          files=(out/runs/*/*/card.jpg)
+          [ ${#files[@]} -gt 0 ] && git add -f "${files[@]}"
+          git diff --cached --quiet || (git commit -m "media: post images $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]" && git push)
+
+      - name: Publish (phase 2)
+        if: env.FTWTV_PUBLISHER != 'dryrun'
+        run: python -m ftworthtv publish latest --publisher "$FTWTV_PUBLISHER"
+
+      - name: Remember what was posted
+        if: always()
+        run: |
+          git config user.name "ftworthtv-bot"
+          git config user.email "ftworthtv-bot@users.noreply.github.com"
+          git add state/posted.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "chore: update post memory [skip ci]" && git pull --rebase --autostash && git push)
+
+      - name: Upload run output (cards, captions, preview.html)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-${{ github.run_number }}
+          path: out/
+          retention-days: 14

@@ -1,0 +1,46 @@
+{
+  "_embedded": {
+    "events": [
+      {
+        "name": "Example Country Star: Cowtown Tour",
+        "id": "demo-tm-1",
+        "url": "https://www.ticketmaster.com/example-country-star",
+        "images": [
+          {"ratio": "16_9", "url": "https://example.com/images/country-16x9.jpg", "width": 2048, "height": 1152},
+          {"ratio": "3_2", "url": "https://example.com/images/country-3x2.jpg", "width": 640, "height": 427}
+        ],
+        "dates": {"start": {"localDate": "2026-01-01", "localTime": "19:30:00", "dateTime": "__EVT1__"}},
+        "classifications": [{"segment": {"name": "Music"}, "genre": {"name": "Country"}}],
+        "priceRanges": [{"min": 49.5, "max": 189.0}],
+        "_embedded": {"venues": [{"name": "Dickies Arena", "city": {"name": "Fort Worth"}}]}
+      },
+      {
+        "name": "Example Rodeo Night",
+        "id": "demo-tm-2",
+        "url": "https://www.ticketmaster.com/example-rodeo",
+        "images": [{"ratio": "16_9", "url": "https://example.com/images/rodeo.jpg", "width": 1024, "height": 576}],
+        "dates": {"start": {"localDate": "2026-01-02", "localTime": "20:00:00", "dateTime": "__EVT2__"}},
+        "classifications": [{"segment": {"name": "Sports"}, "genre": {"name": "Rodeo"}}],
+        "_embedded": {"venues": [{"name": "Cowtown Coliseum", "city": {"name": "Fort Worth"}}]}
+      },
+      {
+        "name": "Example Comedy Tour",
+        "id": "demo-tm-3",
+        "url": "https://www.ticketmaster.com/example-comedy",
+        "images": [{"ratio": "4_3", "url": "https://example.com/images/comedy.jpg", "width": 305, "height": 225}],
+        "dates": {"start": {"localDate": "2026-01-03", "localTime": "19:00:00", "dateTime": "__EVT3__"}},
+        "classifications": [{"segment": {"name": "Arts & Theatre"}, "genre": {"name": "Comedy"}}],
+        "_embedded": {"venues": [{"name": "Bass Performance Hall", "city": {"name": "Fort Worth"}}]}
+      },
+      {
+        "name": "Example Honky Tonk Saturday",
+        "id": "demo-tm-4",
+        "url": "https://www.ticketmaster.com/example-honky-tonk",
+        "images": [{"ratio": "16_9", "url": "https://example.com/images/honky.jpg", "width": 1136, "height": 639}],
+        "dates": {"start": {"localDate": "2026-01-03", "localTime": "21:00:00", "dateTime": "__EVT4__"}},
+        "classifications": [{"segment": {"name": "Music"}, "genre": {"name": "Country"}}],
+        "_embedded": {"venues": [{"name": "Billy Bob's Texas", "city": {"name": "Fort Worth"}}]}
+      }
+    ]
+  }
+}

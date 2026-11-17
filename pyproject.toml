@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ftworthtv"
+version = "0.1.0"
+description = "Fully automated Fort Worth, Texas local news & entertainment page (Facebook / Instagram), Dallas Texas TV style"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+  "feedparser>=6.0",
+  "requests>=2.31",
+  "PyYAML>=6.0",
+  "Pillow>=10.0",
+  "anthropic>=2.0,<3",
+  "pydantic>=2.0",
+  "python-dateutil>=2.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+ftworthtv = "ftworthtv.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
