@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+<head>
+	<!-- Published by OpenCities, 1.38.0.1 -->
+
+    
+        
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#FFFFFF"/>
+    <title>News articles - Fort Worth Police</title>
+	<meta name="generator" content="OpenCities - https://granicus.com/product/opencities" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using mobile-web-app-capable for now to enable full-screen experience on supported platforms -->
+    <!-- Note: This tag works mainly on Android Chrome. It does NOT enable full-screen mode on iOS Safari. -->
+    <!-- For iOS, the correct tag is: <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- TODO: Monitor for updated meta tag standards from Apple or other browser vendors -->
+    <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content="Find News Releases, Honors &amp; Celebration and more from the Fort Worth Police Department." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://police.fortworthtexas.gov/news-articles" />
+    <meta property="og:title" content="News articles" />
+    <meta property="og:description" content="Find News Releases, Honors &amp; Celebration and more from the Fort Worth Police Department." />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="News articles" />
+    <meta property="twitter:description" content="Find News Releases, Honors &amp; Celebration and more from the Fort Worth Police Department." />
+    <link rel="canonical" href="https://police.fortworthtexas.gov/news-articles" />
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/files/ocfavicon/Police/apple-touch-icon.png?V=638445503070787444">
+<link rel="icon" type="image/png" sizes="32x32" href="/files/ocfavicon/Police/favicon-32x32.png?V=638445503070787444">
+<link rel="icon" type="image/png" sizes="16x16" href="/files/ocfavicon/Police/favicon-16x16.png?V=638445503070787444">
+<link rel="manifest" href="/files/ocfavicon/Police/site.webmanifest?V=638445503070787444">
+<link rel="shortcut icon" href="/files/ocfavicon/Police/favicon.ico?V=638445503070787444">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-config" content="/files/ocfavicon/Police/browserconfig.xml?V=638445503070787444">
+    <script>
+        (function () {
+            if (window.__UNLOAD_LAZY_PATCH__) return;
+            window.__UNLOAD_LAZY_PATCH__ = true;
+
+            var supportsPageHide = ("onpagehide" in window);
+            var mappedType = supportsPageHide ? "pagehide" : "beforeunload";
+            var nativeAdd = window.addEventListener;
+            var nativeRemove = window.removeEventListener;
+            var unloadMap = null;
+            var patched = false;
+
+            function ensurePatched() {
+                if (patched) return;
+                unloadMap = new WeakMap();
+
+                window.addEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = function (evt) {
+                            if (supportsPageHide && evt.persisted) return;
+                            listener.call(this, evt);
+                        };
+                        unloadMap.set(listener, wrapped);
+                        return nativeAdd.call(this, mappedType, wrapped, options);
+                    }
+                    return nativeAdd.call(this, type, listener, options);
+                };
+
+                window.removeEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = unloadMap.get(listener);
+                        if (wrapped) {
+                            nativeRemove.call(this, mappedType, wrapped, options);
+                            unloadMap.delete(listener);
+                        }
+                        return;
+                    }
+                    return nativeRemove.call(this, type, listener, options);
+                };
+
+                var orig = null;
+                Object.defineProperty(window, "onunload", {
+                    configurable: true, enumerable: true,
+                    get: function () { return orig; },
+                    set: function (h) {
+                        orig = h;
+                        if (typeof h === "function") window.addEventListener("unload", h);
+                    }
+                });
+                patched = true;
+            }
+
+            window.addEventListener = function (type, listener, options) {
+                if (type === "unload") {
+                    ensurePatched();
+                    return window.addEventListener(type, listener, options);
+                }
+                return nativeAdd.call(this, type, listener, options);
+            };
+
+            window.removeEventListener = function (type, listener, options) {
+                if (type === "unload" && !patched) {
+                    return;
+                }
+                return nativeRemove.call(this, type, listener, options);
+            };
+
+            function patchTelerik() {
+                ensurePatched();
+                var ns = window.RadAjaxNamespace;
+                if (!ns || !ns.EventManager || !ns.EventManager.Add || ns.EventManager.__UnloadPatched) return;
+                var origAdd = ns.EventManager.Add;
+                ns.EventManager.Add = function (el, evtName, handler, clientId) {
+                    if (el === window && evtName === "unload") {
+                        return window.addEventListener("unload", handler);
+                    }
+                    return origAdd.call(this, el, evtName, handler, clientId);
+                };
+                ns.EventManager.__UnloadPatched = true;
+            }
+
+            if (window.RadAjaxNamespace)
+                patchTelerik();
+            else (window.requestIdleCallback || function (cb)
+            {
+                setTimeout(cb, 120);
+            })(patchTelerik);
+        })();
+    </script>
+    <!-- Preconnecting to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Defer Roboto font loading to avoid render-blocking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const robotoLink = document.createElement('link');
+            robotoLink.rel = 'stylesheet';
+            robotoLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap';
+            document.head.appendChild(robotoLink);
+        });
+    </script>
+
+    <style>
+        .gm-style, .gm-style * {
+            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+        }
+    </style>
+
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+        
+            <script type="text/javascript">
+                window.__oc_flags_ImprovedBreakpointEventHandling = true;
+            </script>
+            
+        
+    
+    
+    
+        <script type="text/javascript">
+            var __metaQueryBreakpoints = {
+                'sc-size-4': '(max-width: 480px)',
+                'sc-size-3': '(min-width: 480px) and (max-width: 768px)',
+                'sc-size-2': '(min-width: 768px) and (max-width: 992px)',
+                'sc-size-1': '(min-width: 992px)'
+            }
+
+            var __ocSizePoints = [
+                { min: 0, name: 'sc-size-4' },
+                { min: 480, name: 'sc-size-3' },
+                { min: 768, name: 'sc-size-2' },
+                { min: 992, name: 'sc-size-1' }
+            ];
+
+        </script>
+    
+
+    <!-- Framework Section -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/files/templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/jquery-3.7.1.min.js?seamlessts=639289420744643354" ><\/script>')</script>
+
+    <!--Google Maps API Loader – Improved Version to avoid Warning
+    This script loads the Google Maps JavaScript API using a dynamic and async method.
+    It replaces the old static <script> tag to avoid performance warnings from Google.
+
+    Dynamically creates the <script> tag with loading = async for better performance
+    Builds the API URL with required libraries(places, geometry, marker, geocoding)
+    Uses a Promise and callback(google.maps.__ib__) to confirm when the script is ready
+
+    It Avoids Google’s warning about direct script loading
+    Improves page load speed by loading the API asynchronously-->
+
+    
+        <script>
+            (function (root) {
+                root.OpenCities = root.OpenCities || {};
+                if (!root.OpenCities.GoogleMapsLoader) {
+                    root.OpenCities.GoogleMapsLoader = {
+                        _cbs: [],
+                        _ready: false,
+                        onReady: function (cb) {
+                            if (this._ready) { try { cb(); } catch (e) { console.error(e); } }
+                            else if (typeof cb === 'function') this._cbs.push(cb);
+                        },
+                        _fire: function () {
+                            if (this._ready) return;
+                            this._ready = true;
+                            var q = this._cbs.splice(0);
+                            for (var i = 0; i < q.length; i++) {
+                                try { q[i](); } catch (e) { console.error(e); }
+                            }
+                        }
+                    };
+                }
+            })(window);
+
+            (g => {
+                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                    m = document, b = window;
+                b = b[c] || (b[c] = {});
+                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    u = () => h || (h = new Promise(async (resolve, reject) => {
+                        a = m.createElement("script");
+                        e.set("libraries", [...r] + "");
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                        e.set("callback", c + ".maps." + q);
+                        a.src = "https://maps." + c + "apis.com/maps/api/js?" + e.toString();
+                        a.loading = "async";
+                        a.async = true;
+                        a.defer = true;
+                        d[q] = resolve;
+                        a.onerror = () => reject(Error(p + " could not load."));
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                        m.head.append(a);
+                    }));
+                if (d[l]) {
+                    console.warn(p + " only loads once. Ignoring duplicate load.");
+                } else {
+                    d[l] = (f, ...n) => (r.add(f), u().then(() => d[l](f, ...n)));
+                }
+            })({
+                key: "AIzaSyCteORUk2a6pomusYOHkEvqeRd1Q0hgJU4",
+                v: "3.65"
+            });
+
+            (async () => {
+                try {
+                    if (!google?.maps?.importLibrary) return;
+
+                    if (!window.OpenCities.__mapsLibsPromise) {
+                        window.OpenCities.__mapsLibsPromise = Promise.all([
+                            google.maps.importLibrary('maps'),
+                            google.maps.importLibrary('places'),
+                            google.maps.importLibrary('geocoding'),
+                            google.maps.importLibrary('marker'),
+                            google.maps.importLibrary('geometry')
+                        ]);
+                    }
+                    await window.OpenCities.__mapsLibsPromise;
+
+                    if (window.OpenCities?.GoogleMapsLoader) {
+                        window.OpenCities.GoogleMapsLoader._fire();
+                    }
+                } catch (err) {
+                    console.error('Google Maps failed to initialise', err);
+                }
+            })();
+        </script>
+    
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/modernizr.custom.710f3bf.js?seamlessts=639289420744643354" defer></script>
+    
+    <!--// End Framework Section -->
+    <!-- OpenCities Section -->
+    <script>
+        var OpenCities = OpenCities || {};
+        OpenCities.Paths = {
+            SiteTemplate: '/files/templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/',
+            ThemePath: '/files/templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/'
+        };
+    </script>
+    <script src='/ocapi/409e35e3-c8ba-43b1-b409-598822955f3b/en-US/websitesettings.js'></script>
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/oc_head.js?applied=20250318051804"></script>
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/oc_grid.css~oc_style.css~oc_wizard_style.css~oc_main.css~oc_forms.css~oc_wizard.css~oc_wizard_menu.css~oc_main_s1.css~oc_wizard_s1.css~oc_wizard_menu_s1.css~oc_grid_s1.css~OcScriptCombine_Minify0?uniqueid=20250318051804" rel="stylesheet" type="text/css">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/client_style.css~client.css~client_menu.css~client_s1.css~client_menu_s1.css~client_forms.css~OcScriptCombine_Minify0?uniqueid=20250318051804" rel="stylesheet" type="text/css">
+    <script>
+(function (BackgroundSettings, $, undefined) {
+    BackgroundSettings.initialise = function () {
+        this.Application = {"CSSSelector":".content-outer-container","EnableFade":true,"MediaType":"image"};
+    };
+} (OpenCities.BackgroundSettings = OpenCities.BackgroundSettings || {}, jQuery));
+OpenCities.BackgroundSettings.initialise();
+</script>
+    
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/oc_print.css~client_print.css~OcScriptCombine_Minify0?uniqueid=20250318051804" rel="stylesheet" type="text/css" media="print">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<script src="/files/oc-templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/external_plugins.js~oc_form_helper.js~oc_main.js~plugins.js~oc_main_init.js~OcScriptCombine_Minify0?uniqueid=20250318051804" defer="true"></script>
+    <script async src="https://siteimproveanalytics.com/js/siteanalyze_15203328.js"></script>
+    
+
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DYTCK-JM9C8-ED4EP-C3GGK-Z575H",function(){function e(){if(!r){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.appendChild(e),r=!0}}function t(e){r=!0;var n,t,a,i,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",i=(a.frameElement||a).style,i.width=0,i.height=0,i.border=0,i.display="none",o.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void 0;",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=14,window.BOOMR.url=n+"DYTCK-JM9C8-ED4EP-C3GGK-Z575H";var i=document.currentScript||document.getElementsByTagName("script")[0],o=i.parentNode,r=!1,d=document.createElement("link");if(d.relList&&"function"==typeof d.relList.supports&&d.relList.supports("preload")&&"as"in d)window.BOOMR.snippetMethod="p",d.href=window.BOOMR.url,d.rel="preload",d.as="script",d.addEventListener("load",e),d.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!r)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.appendChild(d);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="crabr4qx37yl42x456jq-f-a5472cd59-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"41","ak.cp":"1680976","ak.ai":parseInt("1075935",10),"ak.ol":"0","ak.cr":14,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"9f4c4dd","ak.r":43020,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.cport":19473,"ak.gh":"23.205.102.188","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1794961299","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==BMNWLbHJR3VUhQscoNoYdIxjCsFamcRXSqGI+z5SAoX+mmbrtzMyIFtI4CQNEXMOPwjemEXA1eFxNlc4M+AScCos1sL3skgFXe6C055Vgu/N0iSMWQHW6ozniOrjOp2lo4zJ3pvwWY5GeiXlLtd2R3Ufk8LNfYYQ4FsGC347Tz3AQRFh6jH5sIehji3G7zOrMt1T6Xeur9B0lkPaYr9xOHjo2zwAHPCBCHEH/QRdLQHn4cw3lVqh2c7rOi6VcCpkdncTUJhh3/XX0CjX0G9UXs1qV6CZTXDbNG0eYkRraXqild+NzzEqegeBZdmJ4nBofSVNT9+up8+PW9xtQv25NY4UEw421mUITBWCoi+ay1m21Hrt749m6SYa7lc8g8fGnueGRul8AoZoJTdlZvWdXP5LxRnIRUT8eG8gT1v7P58=","ak.pv":"369","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body class="body layout-modern  site-search-always-visble  content-type-oc-module-interface content-template-fw-oc-news-listing-with-public-mixed group-template-oc-full-width-with-default-header page-name-news-articles page-sequence-8 page-depth-1 page-section-8 website-type-defaultsubsite device-desktop featured-site-section featured-site-section-homepage featured-site-section-hide-homepage-title " id="body-top">
+    <div id="skip-to-content-container">
+        <a href="#main-content" class="visuallyhidden focusable" id="skip-to-content-link">Skip to main content</a>
+    </div>
+    <script>
+        // OCNOW-11988 (Cursor): Proactively focus skip link when returning from browser chrome.
+        // Must run inline (not deferred oc_main.js) so focus is intercepted before NVDA speaks footer.
+        (function () {
+            var awaitingReentry = false;
+            var inertSupported = 'inert' in HTMLElement.prototype;
+
+            function isExplicitlyOutsideDocument(node) {
+                return node != null && !document.documentElement.contains(node);
+            }
+
+            function getSkipContainer() {
+                return document.getElementById('skip-to-content-container');
+            }
+
+            function getSkipLink() {
+                return document.getElementById('skip-to-content-link');
+            }
+
+            function applyGuard() {
+                awaitingReentry = true;
+                if (!inertSupported) {
+                    return;
+                }
+                var skipContainer = getSkipContainer();
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    if (children[i] !== skipContainer) {
+                        children[i].setAttribute('inert', '');
+                    }
+                }
+            }
+
+            function clearGuard() {
+                awaitingReentry = false;
+                if (!inertSupported) {
+                    return;
+                }
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    children[i].removeAttribute('inert');
+                }
+            }
+
+            function isSkipLinkElement(target) {
+                if (!target) {
+                    return false;
+                }
+                var skipContainer = getSkipContainer();
+                return target.id === 'skip-to-content-link' ||
+                    (skipContainer && skipContainer.contains(target));
+            }
+
+            function focusSkipLink() {
+                var skipLink = getSkipLink();
+                if (!skipLink) {
+                    return;
+                }
+                if (window.scrollY > 0) {
+                    window.scrollTo(0, 0);
+                }
+                skipLink.focus({ preventScroll: true });
+            }
+
+            function scheduleGuardIfDocumentLostFocus() {
+                window.setTimeout(function () {
+                    if (!document.hasFocus()) {
+                        applyGuard();
+                    }
+                }, 0);
+            }
+
+            document.addEventListener('focusout', function (e) {
+                if (isExplicitlyOutsideDocument(e.relatedTarget)) {
+                    applyGuard();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    scheduleGuardIfDocumentLostFocus();
+                } else if (e.key === 'F6' || (e.key === 'l' && e.ctrlKey)) {
+                    scheduleGuardIfDocumentLostFocus();
+                }
+            }, true);
+
+            window.addEventListener('focus', function () {
+                if (!awaitingReentry) {
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+            }, true);
+
+            document.addEventListener('focusin', function (e) {
+                var reentryFromChrome = awaitingReentry || isExplicitlyOutsideDocument(e.relatedTarget);
+                if (!reentryFromChrome) {
+                    return;
+                }
+                if (isSkipLinkElement(e.target)) {
+                    clearGuard();
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+                clearGuard();
+            }, true);
+        })();
+    </script>
+    <form name="mainForm" method="post" action="/news-articles?page=2" id="mainForm">
+<input type="hidden" name="ctl04_seamless_script_manager_TSM" id="ctl04_seamless_script_manager_TSM" value="" />
+<input type="hidden" name="__SEAMLESSVIEWSTATE" id="__SEAMLESSVIEWSTATE" value="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" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-GB%3add3ac3d5-1e29-4112-8fed-529caffa8f24%3aea597d4b%3bOpenCities.CustomControls%3aen-GB%3a7197b077-b068-4a69-9481-a6cf2e7718f9%3a8e1d32bf" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=EYVjNsQ7oYmzBqCI0dkEyYe0LYmPcVFL4WPcQCXhKfQwUqkAT7lLra0za-OLMuUUcCyPINdTVMHIWti96-8R_oN-trjXUUZnJRzckxTjid4ecctwwEJyNI-05jZYvXHBRiEKL0MUQMEyEJ2FXanyE1uBk88RxZ1wVK6AUn9D4v8rW-LNx2OOtB8vE3hC8P0jk4XZt7GAPiCeYQolxUlwFZA8cuOfgd4u08OASxFdh8mChz3A0YHhuwRrXGVlulfs9SJVkAvulhjdHYIIp1SRohDxt9acTwxUQrOlxuxC847b00zOOWg9SlpwD_iBuQQ1rOK9WH9O_wN9c2TXm4GeXaQHHT4yQ9IlzZXw6th8ch3f-k_n1yYeeurDMbwChXW1Vh_7rpu00kgmegsg9w2J3ququXIPfy2Gq8IscVTmtwouupfmUzAOicU_yESgQ-dG0" type="text/javascript"></script>
+    
+<script type="text/javascript">
+    try{
+        function SeamlessEndRequestHandler(sender, args) {
+            try {
+                var dataItems = args.get_dataItems();
+                if(dataItems.ctl04_seamless_script_manager)
+                    document.getElementById('__SEAMLESSVIEWSTATE').value = dataItems.ctl04_seamless_script_manager;
+            }
+            catch (e) { }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SeamlessEndRequestHandler);
+    }
+    catch (e) { }
+</script>
+
+    <div class="unsupported-browser-warning js-element"></div>
+    
+    <div hidden>
+        <span id="new-window-0">opens in new tab or window </span>
+    </div>
+    <div class="overlay-container"></div>
+    
+    <div class="background-container">
+        <div class="page-container">
+            <!-- OC Layout Element GROUP TEMPLATE -->
+            <!--groupTemplateStart--><header>
+            <div class="toolbar-outer-container">
+  <div class="toolbar-inner-container clearfix">
+    <div class="toolbar-item toolbar-quicklinks toolbar-display-dropdown">
+	<button type="button" aria-controls="toolbar-quicklinks-drop-down" aria-expanded="false" class="toolbar-button toolbar-button-quicklinks js-element"><span>Quick Links</span><i aria-hidden="true"></i></button>	
+	<div id="toolbar-quicklinks-drop-down" class="toolbar-drop-down toolbar-quicklinks-drop-down clearfix">
+		<ul>
+		  <li><a href="https://police.fortworthtexas.gov/Contact" class="oc-icon-b oc-i--none link-type-internal"><span>Contact Us</span></a></li><li><a href=" https://www.facebook.com/InsideFWPD" class="oc-icon-b oc-i-facebook link-type-external" target="_blank"><span>Facebook</span></a></li><li><a href="https://www.instagram.com/fortworthpd/" class="oc-icon-b oc-i-instagram link-type-external" target="_blank"><span>Instagram</span></a></li><li><a href="https://twitter.com/fortworthpd" class="oc-icon-b oc-i-x link-type-external" target="_blank"><span>X</span></a></li><li><a href="https://www.linkedin.com/company/fwpd" class="oc-icon-b oc-i-linkedin link-type-external" target="_blank"><span>LinkedIn</span></a></li><li><a href="https://www.youtube.com/user/InsideFWPD" class="oc-icon-b oc-i-youtube link-type-external" target="_blank"><span>YouTube</span></a></li>
+		</ul>
+	</div>
+</div><div class="toolbar-item toolbar-language notranslate toolbar-display-dropdown"><div class="no-js-element">
+		  <ul>
+		    <li id="toolbar-language-option-en-us-noscript"><a href="https://police.fortworthtexas.gov/news-articles?page=2&oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English (United States)<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+          </ul>
+		</div>
+	<button type="button" role="combobox" aria-controls="toolbar-language-drop-down" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="none" aria-labelledby="toolbar-language-label" class="toolbar-button toolbar-button-language js-element">  
+        <span class="toolbar-language-globe-icon" aria-hidden="true"></span>
+        <span id="toolbar-language-label" class="current-language">
+            Select a language to translate to
+		</span>
+		<i aria-hidden="true"></i>
+	</button>
+	<div id="toolbar-language-drop-down" role="listbox" aria-label="Available languages" class="toolbar-drop-down toolbar-language-drop-down js-element clearfix">
+		<ul role="group">
+		    <li role="presentation"><a id="toolbar-language-option-en-us" role="option" aria-selected="true" href="https://police.fortworthtexas.gov/news-articles?page=2&oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English (United States)<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+        </ul>
+	</div></div>
+  </div>
+</div>
+            <div class="header-outer-container">
+    <div class="header-container header-layout-2  clearfix">
+			<div class="header-site-logo">
+				<a href="https://police.fortworthtexas.gov/home" lang="en-US" aria-label="Fort Worth Police - home - Logo">
+				</a>
+			</div>
+		    <div class="header-website-settings">
+                <button id="btn-mob-nav" type="button" aria-expanded="false" aria-controls="nav">
+                    <i aria-hidden="true"></i><span class="side-menu-btn-text">Menu</span>
+                </button>
+        	</div>
+			
+			<div class="header-search-control-container" id="header-search">
+				<div class="search-inner-container">
+					<div class="sc-search-panel">
+	<label for="ctl07_txtSearch" id="ctl07_lblSearch" class="sc-search-label">Search</label><input name="ctl07$txtSearch" type="text" id="ctl07_txtSearch" class="sc-search-text" placeholder="Find almost anything on our website" /><input type="submit" name="ctl07$btnSearch" value="Search" id="ctl07_btnSearch" class="sc-search-button" />
+</div>
+					<div role="status" id="predictiveResults"></div>
+				</div>
+			</div>
+    </div>
+</div>
+<div class="navigation-outer-container">
+	<div id="nav" role="navigation" class="navigation-container navigation-container-option-1" data-menu-type="horizontal" aria-label="primary">
+        <div class="grid">
+            <div class="col-xs-12">                
+                <ul class="sf-menu mega-menu" id="sc-main-menu"><li class="nav-section-quarters-1   first-item nav-item-seq-1">
+<a href="https://police.fortworthtexas.gov/Patrol" class="nav-level-1 nav-has-children"  target="">
+	<i class="item-icon" aria-hidden="true"></i><span class="item-text">Patrol</span>
+</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-1" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-1" class="second-level-container ch-6">
+
+          
+            <li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/central-division" class=""  target="">Central Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/east-division" class=""  target="">East Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/north-division" class=""  target="">North Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/northwest-division" class=""  target="">Northwest Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/south-division" class=""  target="">South Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/west-division" class=""  target="">West Division</a></li></ul></li>
+          
+            <li class="nav-section-quarters-1   nav-item-seq-2">
+<a href="https://police.fortworthtexas.gov/Support-Services" class="nav-level-1 nav-has-children"  target="">Support Services</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-2" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-2" class="second-level-container ch-20">
+
+          
+            <li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/air-support" class=""  target="">Air Support</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/auto-pound" class=""  target="">Auto Pound</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/civilian-response-unit" class=""  target="">Civilian Response Unit (CRU)</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/commercial-vehicle-enforcement" class=""  target="">Commercial Vehicle Enforcement (CVE)</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/crisis-intervention-team" class=""  target="">Crisis Intervention Team</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/digital-forensic" class=""  target="">Digital Forensics</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/forensic-science" class=""  target="">Forensic Science</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/fugitive-unit" class=""  target="">Fugitive Unit</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/human-trafficking" class=""  target="">Human Trafficking/ICAC Unit</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/intelligence-section" class=""  target="">Intelligence Section</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/mounted-patrol" class=""  target="">Mounted Patrol</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/professional-standards-division" class=""  target="">Professional Standards Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/seer" class=""  target="">Special Events/Emergency Response (SEER)</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/sex-offender-registration-and-tracking" class=""  target="">Sex Offender Registration and Tracking</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/swat" class=""  target="">SWAT (Special Weapons & Tactics)</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/tactical-medic" class=""  target="">Tactical Medic Unit</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/tarrant-county-5-stones-taskforce" class=""  target="">Tarrant County 5 Stones Taskforce</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/technology-services" class=""  target="">Technology Services</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/vice-unit" class=""  target="">Vice Unit</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/wellness-unit-resources" class=""  target="">Wellness Unit & Resources</a></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-3">
+<a href="https://police.fortworthtexas.gov/Crime-Public-Info" class="nav-level-1 nav-has-children"  target="">Crime & Public Info</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-3" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-3" class="second-level-container ch-10">
+
+          
+            <li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Public-Relations-Office" class=""  target="">Public Relations Office</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center" class="nav-has-children"  target="">Crime Data Center</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center/crime-reports"  target="_self">Crime Reports</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center/crimemapping"  target="_blank">Crime Mapping</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center/One-Address"  target="">One Address</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center/open-data-portal"  target="_blank">Open Data Portal</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center/open-records-center"  target="_blank">Open Records Center</a></li></ul></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources" class="nav-has-children"  target="">Crime Prevention and Resources</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/fort-worth-safe"  target="_blank">#FortWorthSafe</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/crime-prevention-unit"  target="_blank">Crime Prevention Unit</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/crime-free-multi-housing-program"  target="_blank">Crime Free Multi-Housing Program</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/handle-with-care"  target="">Handle With Care Initiative</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/illegal-gunfire"  target="">Illegal Gunfire</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/sex-offender-residency-ordinance"  target="">Sex Offender Residency Ordinance</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/victim-assistance"  target="">Victim Assistance</a></li></ul></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Jail-Inmate-List-Recent-Arrests" class=""  target="_self">Jail Inmate List/Recent Arrests</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted" class=""  target="">Most Wanted</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/offenderwatch" class=""  target="_blank">OffenderWatch®</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Cold-Cases-Landing" class="nav-has-children"  target="">Cold Cases</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Cold-Cases-Landing/Cold-Cases"  target="">Homicides</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Cold-Cases-Landing/Missing-Persons"  target="">Missing Persons</a></li></ul></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/FWPD-Strategic-Plan" class=""  target="">Strategic Plan</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/General-Orders" class=""  target="">General Orders</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports" class="nav-has-children"  target="">Department Reports and Transparency</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-10" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-10" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Annual-Reports"  target="">Annual</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Arbitration-Reports"  target="">Arbitration</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Crime-Reports"  target="">Crime Reports</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Demographics-Diversity"  target="">Demographics/Diversity</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Drone-Reports"  target="">Drones</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Officer-Involved-Shootings"  target="">Officer Involved Shootings</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Racial-Profiling-Report"  target="">Racial Profiling</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Use-of-Force-Reports"  target="">Use of Force</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-4">
+<a href="https://police.fortworthtexas.gov/get-involved" class="nav-level-1 nav-has-children"  target="">Get Involved</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-4" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-4" class="second-level-container ch-15">
+
+          
+            <li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/active-shooter-response-training" class=""  target="">Active Shooter Response Training</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/police-cadet-program" class=""  target="">Cadet Program</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/cert" class=""  target="">Community Emergency Response Team (CERT)</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/citizens-on-patrol" class=""  target="">Citizens on Patrol</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/citizens-police-academy" class=""  target="">Citizens Police Academy</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/Cold-Cases-Link" class=""  target="_self">Cold Cases</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/community-camera-program" class=""  target="_blank">Community Camera Program</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/community-forums" class=""  target="">Community Forums</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/crime-prevention-unit" class=""  target="">Crime Prevention Unit</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/police-activities-league" class=""  target="">Fort Worth Police Activities League</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/explorer-program" class=""  target="">Fort Worth Police Explorer Program</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/police-internship-program" class=""  target="">Internship Program</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/police-and-clergy-coalition" class=""  target="">Police and Clergy Coalition</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/National-Night-Out" class=""  target="">National Night Out</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/ride-in-program" class=""  target="">Ride-In Program</a></li></ul></li>
+          
+            <li class="nav-section-quarters-3   nav-item-seq-5">
+<a href="https://police.fortworthtexas.gov/How-Do-I" class="nav-level-1 nav-has-children"  target="">How Do I...</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-5" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-5" class="second-level-container ch-11">
+
+          
+            <li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Contact-NPO-Beat-Officer" class=""  target="">Contact my NPO/Beat Officer?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/File-Compliment-Complaint" class=""  target="_self">File a Compliment or Complaint?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/File-a-Report" class=""  target="_self">File a Police Report?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Get-Copy-My-Offense-Report" class=""  target="_self">Get a Copy of My Offense Report?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Find-Towed-Vehicle" class=""  target="_self">Find My Towed Vehicle?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Locate-Sex-Offenders" class=""  target="_blank">Locate Sex Offenders Near Me?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Submit-Tip" class=""  target="_blank">Submit a Tip?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/File-Open-Records-Request" class=""  target="_blank">File an Open Records Request?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Register-Surveillance-Cameras" class=""  target="_blank">Register My Surveillance Camera(s)?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Get-Copy-Accident-Report" class=""  target="">Get a Copy of My Accident Report?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/View-answers-other-FAQs" class=""  target="_self">View Answers to Other FAQs?</a></li></ul></li>
+          
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+            </header>
+            <div class="content-outer-container">
+                <div id="main" role="main" class="main-outer-container clearfix">
+                        
+                        <div class="content-main-container">
+                            <div class="grid">
+					            <div class="col-xs-12">
+						            <nav id="breadcrumbs-container" aria-label="You Are Here :">
+							            <span role="list">
+<span role="listitem">
+	<a href="https://police.fortworthtexas.gov/home"  lang="en-US">Home</a>
+	<span class="nav-separator" aria-hidden="true" role="presentation">/</span>
+</span>
+          <span class="current-page" role="listitem" aria-current="page" >News articles</span></span>
+						            </nav>
+					            </div>
+                      <div class='col-xs-12'>
+                                                <div class='featured-section-header-outer clearfix'><div class='featured-section-header-inner clearfix'><div class='featured-section-header-logo'><a href='https://police.fortworthtexas.gov/news-articles' class='featured-section-header-logo-link'><picture>
+  <source media="(min-width:992px)" srcset ="/files/ocwebsite/6e99453e-49ce-40f1-a683-c3176dd2b209/fwpdpatchbadge1.gif?w=191" >
+        <source media="(min-width:768px)" srcset ="/files/ocwebsite/6e99453e-49ce-40f1-a683-c3176dd2b209/fwpdpatchbadge1.gif?w=191" >
+        <source srcset="/files/ocwebsite/6e99453e-49ce-40f1-a683-c3176dd2b209/fwpdpatchbadge1.gif?w=191" >
+            <img src="/files/ocwebsite/6e99453e-49ce-40f1-a683-c3176dd2b209/fwpdpatchbadge1.gif?w=191" alt="" />
+        </picture><span class='featured-section-header-logo-text'>FWPD News & Information</span></a></div></div></div></div>
+					            <div class="col-xs-12">
+						            <div class="main-inner-container">
+							            <div id="main-content" class="main-container clearfix">
+							              
+                            <!-- OC Layout Element Conent Template -->
+							              <!--normalTemplateStart--><h1 class='oc-page-title featured-site-section-visuallyhidden'>News articles</h1>
+
+
+<!--<h2 style="padding: 10px;color: #fff;background-color:#333;">Top Stories Example One</h2>
+<hr>-->
+<!--WebUserControl FW PD CL Police Homepage News Listing Featured Banner With Cards-->
+
+<h2 style="padding: 10px;color: #fff;background-color:#333;">Top Stories</h2>
+
+<br>
+
+<div class="profile-listing-container profile-news-listing-container profile-news-listing-option-7 clearfix"><div class="profile-tabbed-listing profile-news-listing clearfix" data-total-results="110">
+<div class="grid">
+
+<div class="col-xs-12 col-m-6 col-lg-8" id="line-news">
+	<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_8300_block_N_Riverside_Dr" title="Homicide Investigation at 8300 block of N. Riverside Dr." class="profile-list item-0 homepage-pin" >
+		<picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=homepagelistingwide&w=760&h=416">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=homepagelistingwide&w=496&h=272">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=homepagelistingwide&w=480&h=263">
+  <img class="large-thumbnail-image wide-thumbnail-image" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=homepagelistingwide&w=760&h=416"  alt=""/>
+  </picture>
+      
+		<h2>Homicide Investigation at 8300 block of N. Riverside Dr.</h2>
+		<p class="published-on small-text">Published on September 26, 2026</p>
+		<p>FORT WORTH, TX - The Fort Worth Police Department is investigating a homicide that occurred in North Division. On Saturday, September 26, 2026, at approximately 3:36 a.m., officers were called to a shooting at a residence located at the 8300 block of N. Riverside Dr.</p>
+	
+	<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+	</a>
+
+</div><div class="col-xs-12 col-m-6 col-lg-4"  style="padding-left:10px;" >
+	<a href="https://police.fortworthtexas.gov/news-articles/2026/MurderSuicide_2200_block_Whistler_Creek_Drive" title="Murder/Suicide at 2200 block of Whistler Creek Drive" class="profile-list item-1 homepage-pin" >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272">
+  <source srcset="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=homepagelisting&w=480&h=263">
+  <img class="large-thumbnail-image" src="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272" alt=""/>
+  </picture>
+		<h2>Murder/Suicide at 2200 block of Whistler Creek Drive</h2>
+		<p class="published-on small-text">Published on September 24, 2026</p>
+		<p>FORT WORTH, TX - The Fort Worth Police Department is investigating a Murder/Suicide that occurred in North Division.<br/>On Wednesday, September 23, 2026, at 8:52 p.m., officers were on scene of a Welfare Check located in an apartment community in the 2200 block of Whistler Creek Drive.</p>
+		<span class="field-label">Profile</span><span class="field-value">FORT WORTH, TX - The Fort Worth Police Department is investigating a Murder/Suicide that occurred in North Division.<br/>On Wednesday, September 23, 2026, at 8:52 p.m., officers were on scene of a Welfare Check located in an apartment community in the 2200 block of Whistler Creek Drive.</span>
+	</a>
+	
+</div><div class="col-xs-12 col-m-6 col-lg-4"  style="padding-left:10px;" >
+	<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_4300_block_Martin_St" title="Homicide Investigation at 4300 block of Martin St." class="profile-list item-2 homepage-pin" >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=homepagelisting&w=480&h=263">
+  <img class="large-thumbnail-image" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272" alt=""/>
+  </picture>
+		<h2>Homicide Investigation at 4300 block of Martin St.</h2>
+		<p class="published-on small-text">Published on September 20, 2026</p>
+		<p>FORT WORTH, TX - On Sunday, September 20, 2026, at 3:32 a.m., officers were called to a shooting in the 4300 block of Martin St.</p>
+		<span class="field-label">Profile</span><span class="field-value">FORT WORTH, TX - On Sunday, September 20, 2026, at 3:32 a.m., officers were called to a shooting in the 4300 block of Martin St.</span>
+	</a>
+	
+</div><div class="col-xs-12 col-m-6 col-lg-4"  style="padding-left:10px;" >
+	<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_6300_Jeremiah_Dr-1" title="Homicide Investigation at 6300 Sloop St." class="profile-list item-3 homepage-pin" >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_6300_jeremiah_dr-1/news-release-sized-for-x.jpg?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_6300_jeremiah_dr-1/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_6300_jeremiah_dr-1/news-release-sized-for-x.jpg?dimension=homepagelisting&w=480&h=263">
+  <img class="large-thumbnail-image" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_6300_jeremiah_dr-1/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272" alt=""/>
+  </picture>
+		<h2>Homicide Investigation at 6300 Sloop St.</h2>
+		<p class="published-on small-text">Published on September 16, 2026</p>
+		<p>FORT WORTH, TX - On Tuesday, September 15, 2026, at approximately 10:27 p.m., Northwest Division officers were dispatched to a shooting at a residence in the 6300 block of Sloop St.</p>
+		<span class="field-label">Profile</span><span class="field-value">FORT WORTH, TX - On Tuesday, September 15, 2026, at approximately 10:27 p.m., Northwest Division officers were dispatched to a shooting at a residence in the 6300 block of Sloop St.</span>
+	</a>
+	
+</div>
+
+
+</div>
+	
+</div>
+
+</div>
+
+
+
+
+<br>
+<!--
+<h2 style="padding: 10px;color: #fff;background-color:#333;">Top Stories Example Three</h2>
+<hr>
+<br>-->
+<!--WebUserControlFW CL Police Homepage News Listing One Card With List<!--/WebUserControl-->
+
+
+<div data-type="0" data-title-level="2" class="oc-wysiwyg-container">
+<div class="oc-wysiwyg-container-panel">
+<h2>All Police Department News Search</h2>
+<div class="oc-wysiwyg-container-panel-content">
+<p>
+<div class="grid">
+
+<div class="col-xs-12 col-lg-8">
+<div class="listing-results">
+131 Result(s) Found
+</div>
+<div class="list-container news-list-container left">
+<div class="list-item-container homepage-show">		
+	<article>
+		<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_2600_block_Swale_Dr" >		
+			<h2 class="list-item-title">
+				Homicide Investigation 2600 Block of Swale Dr
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_2600_block_swale_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_2600_block_swale_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_2600_block_swale_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <img class="thumbnail-image right" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_2600_block_swale_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on October 07, 2026</p>
+			<p>		
+				FORT WORTH, TX — On Wednesday, October 7, 2026, at 6:30 p.m., South division officers were called to a shooting at the 2600 block of Swale Drive, which is an apartment community.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-pin">		
+	<article>
+		<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_8300_block_N_Riverside_Dr" >		
+			<h2 class="list-item-title">
+				Homicide Investigation at 8300 block of N. Riverside Dr.
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <img class="thumbnail-image right" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on September 26, 2026</p>
+			<p>		
+				FORT WORTH, TX - The Fort Worth Police Department is investigating a homicide that occurred in North Division. On Saturday, September 26, 2026, at approximately 3:36 a.m., officers were called to a shooting at a residence located at the 8300 block of N. Riverside Dr.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-pin">		
+	<article>
+		<a href="https://police.fortworthtexas.gov/news-articles/2026/MurderSuicide_2200_block_Whistler_Creek_Drive" >		
+			<h2 class="list-item-title">
+				Murder/Suicide at 2200 block of Whistler Creek Drive
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <source srcset="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <img class="thumbnail-image right" src="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on September 24, 2026</p>
+			<p>		
+				FORT WORTH, TX - The Fort Worth Police Department is investigating a Murder/Suicide that occurred in North Division.<br/>On Wednesday, September 23, 2026, at 8:52 p.m., officers were on scene of a Welfare Check located in an apartment community in the 2200 block of Whistler Creek Drive.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-pin">		
+	<article>
+		<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_4300_block_Martin_St" >		
+			<h2 class="list-item-title">
+				Homicide Investigation at 4300 block of Martin St.
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <img class="thumbnail-image right" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on September 20, 2026</p>
+			<p>		
+				FORT WORTH, TX - On Sunday, September 20, 2026, at 3:32 a.m., officers were called to a shooting in the 4300 block of Martin St.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-pin">		
+	<article>
+		<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_6300_Jeremiah_Dr-1" >		
+			<h2 class="list-item-title">
+				Homicide Investigation at 6300 Sloop St.
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_6300_jeremiah_dr-1/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_6300_jeremiah_dr-1/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_6300_jeremiah_dr-1/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <img class="thumbnail-image right" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_6300_jeremiah_dr-1/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on September 16, 2026</p>
+			<p>		
+				FORT WORTH, TX - On Tuesday, September 15, 2026, at approximately 10:27 p.m., Northwest Division officers were dispatched to a shooting at a residence in the 6300 block of Sloop St.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-show">		
+	<article>
+		<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_6000_block_Oakland_Hills_Dr" >		
+			<h2 class="list-item-title">
+				Homicide Investigation 6000 block of Oakland Hills Dr
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/2/news-articles/2026/homicide_investigation_6000_block_oakland_hills_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/2/news-articles/2026/homicide_investigation_6000_block_oakland_hills_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <source srcset="/files/content/police/v/2/news-articles/2026/homicide_investigation_6000_block_oakland_hills_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <img class="thumbnail-image right" src="/files/content/police/v/2/news-articles/2026/homicide_investigation_6000_block_oakland_hills_dr/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on August 30, 2026</p>
+			<p>		
+				FORT WORTH, TX — On Sunday, August 30, 2026, at approximately 2:45 a.m., East Division officers were called to a stabbing investigation at the 2100 block of Handley Dr, upon their arrival, officers were directed to the 6000 block of Oakland Hills Dr.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-pin">		
+	<article>
+		<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Road_Rage_Shooting_Arrest" >		
+			<h2 class="list-item-title">
+				Homicide- Road Rage Shooting Arrest
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/3/news-articles/2026/homicide_road_rage_shooting_arrest/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/3/news-articles/2026/homicide_road_rage_shooting_arrest/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <source srcset="/files/content/police/v/3/news-articles/2026/homicide_road_rage_shooting_arrest/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <img class="thumbnail-image right" src="/files/content/police/v/3/news-articles/2026/homicide_road_rage_shooting_arrest/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on August 13, 2026</p>
+			<p>		
+				FORT WORTH, Texas – The Fort Worth Police Department makes arrest in a road rage incident that killed a woman early this morning. <br/>Through coordinated efforts involving FWPD Patrol Officers, Homicide Unit, Real Time Crime Center, Operations & Surveillance Team, Recruit Class, and Directed Response Unit, 37-year-old Patrick Lawrence was identified and arrested for murder.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-pin">		
+	<article>
+		<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_3700_IH_20" >		
+			<h2 class="list-item-title">
+				Homicide Investigation - 3700 IH 20
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/2/news-articles/2026/homicide_investigation_3700_ih_20/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/2/news-articles/2026/homicide_investigation_3700_ih_20/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <source srcset="/files/content/police/v/2/news-articles/2026/homicide_investigation_3700_ih_20/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <img class="thumbnail-image right" src="/files/content/police/v/2/news-articles/2026/homicide_investigation_3700_ih_20/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on August 13, 2026</p>
+			<p>		
+				FORT WORTH, TEXAS - The Fort Worth Police Department is investigating a shooting that occurred on the South side of Fort Worth. On Thursday, August 13, 2026, South Division officers were dispatched to shooting near the 3700 block of I20.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-show">		
+	<article>
+		<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_5600_Talons_Crest_Cir" >		
+			<h2 class="list-item-title">
+				Homicide Investigation - 5600 Talons Crest Cir.
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_5600_talons_crest_cir/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_5600_talons_crest_cir/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_5600_talons_crest_cir/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <img class="thumbnail-image right" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_5600_talons_crest_cir/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on August 09, 2026</p>
+			<p>		
+				FORT WORTH, Texas – The Fort Worth Police Department is investigating a shooting call that occurred in Northwest Fort Worth. <br/>On Sunday, August 9, 2026, at approximately 8:40 pm., Northwest Division officers were dispatched to a shooting call at the 5600 block of Talons Crest Cir.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-show">		
+	<article>
+		<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_1400_block_Carol_Oaks_Lane" >		
+			<h2 class="list-item-title">
+				Homicide on 1400 block of Carol Oaks Lane
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_1400_block_carol_oaks_lane/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_1400_block_carol_oaks_lane/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_1400_block_carol_oaks_lane/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=150&h=82">
+  <img class="thumbnail-image right" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_1400_block_carol_oaks_lane/news-release-sized-for-x.jpg?dimension=smallthumbnail&w=213&h=117"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on July 15, 2026</p>
+			<p>		
+				FORT WORTH, TX — The Fort Worth Police Department is investigating a Homicide that occurred in the 1400 block of Carol Oaks Ln. On July 14, 2026, at approximately 11:41pm, Fort Worth police officers were dispatched to a shooting call that occurred in the 1400 block of Carol Oaks Ln.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Media Releases</span></p>
+		</a>
+	</article>
+</div>
+</div>
+<div class="seamless-pagination left seamless-pagination-count-14">
+	<div class="seamless-pagination-controls">
+		<span class="button-previous"><input type="submit" name="ctl11$ctl00$ctl05" value="Previous" disabled="disabled" title="Previous page" class="btn_scPagingNonJS_disabled" /></span>
+	    <div class="seamless-pagination-data" aria-label='Pagination' role='navigation'>
+        Page <select name="ctl11$ctl00$ctl07" title="Please select the page here." class="scSearchInputBox">
+	<option selected="selected" value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+
+</select><input type="submit" name="ctl11$ctl00$ctl08" value="Go" title="Change page" class="btn_scPagingNonJS_enabled" />
+	    </div>
+	    <span class="button-next"><input type="submit" name="ctl11$ctl00$ctl09" value="Next" title="Next page" class="btn_scPagingNonJS_enabled" /></span>
+    </div>
+    <div class="seamless-pagination-pages" aria-label="Pagination" role="navigation">
+    </div>
+</div>
+<div class="seamless-pagination-info right" role="status">
+  Page 1 of 14
+</div>
+
+</div>
+<div class="col-xs-12 col-lg-4">
+		<div class="search-filter">
+			<div class="search-filter-header">
+				<h2 class="filter-title">Search News</h2>
+					<span class="accordion-trigger search-filter-trigger" data-accordion-body="#newsListBody" data-open="false" data-accordion-all-device="false">
+						<i aria-hidden="true"></i>
+					</span>
+			</div>
+			<div class="search-filter-body accordion-panel clearfix" id="newsListBody">
+				<label for="ctl11_ctl00_ctl13">
+					By Phrase or Keyword
+				</label>
+				<span class='sc-search-box'><input name="ctl11$ctl00$ctl13" type="text" id="ctl11_ctl00_ctl13" class="inputBox" /></span>
+				<label for="ctl11_ctl00_ctl15_ctl00_ctl00">
+					By Category
+				</label>			
+				<select size="4" name="ctl11$ctl00$ctl15$ctl00$ctl00" multiple="multiple" id="ctl11_ctl00_ctl15_ctl00_ctl00" class="scSearchInputBox">
+	<option value="Announcements">Announcements</option>
+	<option value="Arts &amp; Culture">Arts &amp; Culture</option>
+	<option value="Business &amp; Economy">Business &amp; Economy</option>
+	<option value="Community Safety">Community Safety</option>
+	<option value="Environment">Environment</option>
+	<option value="Events &amp; Activities">Events &amp; Activities</option>
+	<option value="Health &amp; Lifestyle">Health &amp; Lifestyle</option>
+	<option value="Honours &amp; Celebration">Honours &amp; Celebration</option>
+	<option value="Improvement Works">Improvement Works</option>
+	<option value="Media Releases">Media Releases</option>
+	<option value="Public Notices">Public Notices</option>
+
+</select>
+				<input type="submit" name="ctl11$ctl00$ctl16" value="Search" />
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+</p>
+</div>
+</div>
+<div class="oc-wysiwyg-container-panel">
+<h2>Newsroom</h2>
+<div class="oc-wysiwyg-container-panel-content">
+<p><a name="newsroom" id="newsroom"></a>The Fort Worth Police Department Newsroom page serves as a centralized hub for disseminating timely updates, alerts, and news releases. FWPD aims to foster communication, trust, and collaboration between our department, the community we serve, and our media partners.</p>
+<h3>February 2025</h3>
+<ul>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2025/02/02062024-news-release-fwpd-and-lwpd-release-body-worn-camera-footage-from-ois-incident-on-skyline-dr.pdf" target="_blank" title="Feb. 6, 2025 - News Release (FWPD) Fort Worth Police Department and Lake Worth Police Department Release Body-Worn Camera Footage from OIS Incident on Skyline Dr." class="document ext-pdf"><i aria-hidden="true"></i>February 6, 2025 - News Release (FWPD)&nbsp;Fort Worth Police Department and Lake Worth Police Department Release Body-Worn Camera Footage from OIS Incident on Skyline Dr.<span class="file-info">(PDF,&nbsp;185KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2025/02/02052025-news-release-fort-worth-police-arrest-suspects-in-copper-cable-theft.pdf" target="_blank" title="Feb. 5, 2025 - News Release (FWPD) Fort Worth Police Arrest Suspects in Copper Cable Theft " class="document ext-pdf"><i aria-hidden="true"></i>February 5, 2025 - News Release (FWPD) Fort Worth Police Arrest Suspects in Copper Cable Theft&nbsp;<span class="file-info">(PDF,&nbsp;137KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2025/02/02032025-news-release-homicide-investigation-700-block-of-w.-anthony-st.pdf" target="_blank" title="Feb. 3, 2025 - News Release (FWPD) Homicide Investigation 700 block of W. Anthony St. " class="document ext-pdf"><i aria-hidden="true"></i>February 3, 2025 - News Release (FWPD) Homicide Investigation 700 block of W. Anthony St.<span class="file-info">(PDF,&nbsp;165KB)</span></a><a href="/files/assets/police/v/2/news/documents/newsroom/2025/02/02032025-news-release-homicide-investigation-700-block-of-w.-anthony-st.pdf" target="_blank" title="Feb. 3, 2025 - News Release (FWPD) Homicide Investigation 700 block of W. Anthony St. " class="document ext-pdf"><i aria-hidden="true"></i>&nbsp;<span class="file-info">(PDF,&nbsp;165KB)</span></a></li>
+</ul>
+<h3>January 2025</h3>
+<ul>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2025/01/01302025-news-release-skyline-dr.-officer-involved-shooting-investigation.pdf" target="_blank" title="Jan. 30, 2025 - News Release (FWPD) - Skyline Dr. Officer-Involved Shooting Investigation" class="document ext-pdf"><i aria-hidden="true"></i>January 30, 2025 - News Release (FWPD) -&nbsp;Skyline Dr. Officer-Involved Shooting Investigation<span class="file-info">(PDF,&nbsp;134KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2025/01/01282025-homicide-investigation-150-e-loop-820.pdf" target="_blank" title="Jan. 28, 2025 - News Release (FWPD) - Homicide Investigation 150 E Loop 820" class="document ext-pdf"><i aria-hidden="true"></i>January 28, 2025 - News Release (FWPD) - Homicide Investigation&nbsp;150 E Loop 820<span class="file-info">(PDF,&nbsp;96KB)</span></a></li>
+<li>January 27, 2025 - News Release (FWPD) - Homicide Investigation 900 E. Ramsey Ave.</li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2025/01/01242025-news-release-fwpd-fwpd-releases-body-worn-camera-footage-from-ois-incident-on-john-t.-white.-rd._jan24.pdf" target="_blank" title="Jan. 24, 2025 - News Release (FWPD) - FWPD Releases Body-Worn Camera Footage from OIS Incident on John T. White Rd." class="document ext-pdf"><i aria-hidden="true"></i>January 24, 2025 - News Release (FWPD) -&nbsp;FWPD Releases Body-Worn Camera Footage from OIS Incident on John T. White Rd.<span class="file-info">(PDF,&nbsp;138KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2025/01/01242025-news-release-fwpd-fwpd-releases-body-worn-camera-footage-from-ois-incident-on-westgate-dr._jan24.pdf" target="_blank" title="Jan. 24, 2025 - News Release (FWPD) - FWPD Releases Body-Worn Camera Footage from OIS Incident on Westgate Dr. " class="document ext-pdf"><i aria-hidden="true"></i>January 24, 2025 - News Release (FWPD) - FWPD Releases Body-Worn Camera Footage from OIS Incident on Westgate Dr.&nbsp;<span class="file-info">(PDF,&nbsp;135KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2025/01/01152025-news-release-fwpd-officer-involved-shooting-investigation.pdf" target="_blank" title="Jan.15, 2025 - News Release (FWPD) - Officer-Involved Shooting" class="document ext-pdf"><i aria-hidden="true"></i>January 15, 2025 - News Release (FWPD) - Officer-Involved Shooting<span class="file-info">(PDF,&nbsp;197KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2025/01/01092025-news-release-fwpd-officer-involved-shooting.pdf" target="_blank" title="anuary 9, 2025 - News Release (FWPD) - Officer-Involved Shooting" class="document ext-pdf"><i aria-hidden="true"></i>January 9, 2025 - News Release (FWPD) - Officer-Involved Shooting<span class="file-info">(PDF,&nbsp;154KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2025/01/01012025-news-release-fwpd-fort-worth-police-homicide-investigations-1124_jan01.pdf" target="_blank" title="Jan, 1, 2025 - News Release (FWPD) - Fort Worth Police Homicide Investigations " class="document ext-pdf"><i aria-hidden="true"></i>January 1, 2025 - News Release (FWPD) - Fort Worth Police Homicide Investigations&nbsp;<span class="file-info">(PDF,&nbsp;155KB)</span></a></li>
+</ul>
+<h3>December 2024</h3>
+<ul>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/12/12292024-news-release-fwpd-fort-worth-police-homicide-investigation.pdf" target="_blank" title="Dec. 29, 2024 - News Release (FWPD) - Fort Worth Police Homicide Investigation " class="document ext-pdf"><i aria-hidden="true"></i>December 29, 2024 - News Release (FWPD) - Fort Worth Police Homicide Investigation&nbsp;<span class="file-info">(PDF,&nbsp;154KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/12/12272024-news-release-fwpd-fort-worth-police-homicide-investigation.pdf" target="_blank" title="Dec. 27, 2024 - News Release (FWPD) - Fort Worth Police Arrest Two in Deadly Shooting, Suspects Charged with Capital Murder" class="document ext-pdf"><i aria-hidden="true"></i>December 27, 2024 - News Release (FWPD) -&nbsp;Fort Worth Police Arrest Two in Deadly Shooting, Suspects Charged with Capital Murder<span class="file-info">(PDF,&nbsp;154KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2024/12/12232024-news-release-fwpd-fort-worth-police-department-reduces-backlog-crime-lab-nearly-fully-staffed-1.pdf" target="_blank" title="Dec. 23, 2024 - News Release (FWPD) - Fort Worth Police Department Reduces Backlog, Crime Lab Nearly Fully Staffed" class="document ext-pdf"><i aria-hidden="true"></i>December 23, 2024 -&nbsp;News Release (FWPD) - Fort Worth Police Department Reduces Backlog, Crime Lab Nearly Fully Staffed<span class="file-info">(PDF,&nbsp;199KB)</span></a></li>
+<li><a href="/files/assets/police/v/3/news/documents/newsroom/2024/12/12212024-news-release-fwpd-suspect-in-serial-robberies-arrested.pdf" target="_blank" title="Dec. 21, 2024 - News Release (FWPD) Suspect in Serial Robberies Arrested" class="document ext-pdf"><i aria-hidden="true"></i>December 21, 2024 - News Release (FWPD) Suspect in Serial Robberies Arrested<span class="file-info">(PDF,&nbsp;192KB)</span></a></li>
+<li><a href="/files/assets/police/v/5/news/documents/newsroom/2024/12/remove-12212024-news-release-fwpd-suspect-in-deadly-shooting-arrested-charged-with-felony-murder.pdf" target="_blank" title="December 21, 2024 - News Release (FWPD) Suspect in Deadly Shooting Arrested, Charged with Murder" class="document ext-pdf"><i aria-hidden="true"></i>December 21, 2024 - News Release (FWPD) Suspect in Deadly Shooting Arrested, Charged with Murder<span class="file-info">(PDF,&nbsp;114KB)</span></a></li>
+<li><a href="/files/assets/police/v/4/news/documents/newsroom/2024/12/12202024-news-release-fwpd-central-division-homicide.pdf" target="_blank" title="Dec. 21, 2024 - News Release (FWPD) Suspect in Deadly Shooting Arrested, Charged with Murder" class="document ext-pdf"><i aria-hidden="true"></i>December 20, 2024 - (FWPD) Central Division Homicide&nbsp;<span class="file-info">(PDF,&nbsp;146KB)</span></a></li>
+<li><a href="/files/assets/police/v/3/news/documents/newsroom/2024/12/12182024-news-release-fwpd-officer-terminated-following-use-of-force_incident.pdf" target="_blank" title="Dec 18, 2024 -News Release (FWPD) Officer Termination" class="document ext-pdf"><i aria-hidden="true"></i>December 18, 2024 - News Release (FWPD) Officer Termination<span class="file-info">(PDF,&nbsp;204KB)</span></a></li>
+<li><a href="/files/assets/police/v/3/news/documents/newsroom/2024/12/12092024-news-release-fwpd-fort-worth-police-chief-announces-retirement.pdf" target="_blank" title="News Release (FWPD) Fort Worth Police Chief Neil Noakes Announces Retirement" class="document ext-pdf"><i aria-hidden="true"></i>December 9, 2024 - News Release (FWPD) Fort Worth Police Chief Neil Noakes Announces Retiremen<span class="file-info">(PDF,&nbsp;293KB)</span></a><a href="/files/assets/police/v/3/news/documents/newsroom/2024/12/12092024-news-release-fwpd-fort-worth-police-chief-announces-retirement.pdf" target="_blank" title="News Release (FWPD) Fort Worth Police Chief Neil Noakes Announces Retirement" class="document ext-pdf"><i aria-hidden="true"></i>t<span class="file-info">(PDF,&nbsp;293KB)</span></a></li>
+</ul>
+<h3>November 2024</h3>
+<ul>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/11/1182024_homicide_investigation_3500_ave_l.pdf" target="_blank" title="1182024_Homicide_Investigation_3500_Ave_L.pdf" class="document ext-pdf"><i aria-hidden="true"></i>November 8, 2024 - Homicide Investigation, 3500 Ave. L<span class="file-info">(PDF,&nbsp;52KB)</span></a></li>
+</ul>
+<h4>October 2024</h4>
+<ul>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2024/10/10182024-news-release-fwpd-officer-martin-termination.pdf" target="_blank" title="Oct. 18, 2024 - News Release - Officer Martin Termination" class="document ext-pdf"><i aria-hidden="true"></i>October 18, 2024 - News Release - Officer Martin Termination<span class="file-info">(PDF,&nbsp;161KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/10/10122024-homicide-4200-south-freeway.pdf" target="_blank" title="Oct.12, 2024 - Homicide Investigation - 4200 South Freeway" class="document ext-pdf"><i aria-hidden="true"></i>October 12, 2024 - Homicide Investigation - 4200 South Freeway<span class="file-info">(PDF,&nbsp;61KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2024/10/10132024-homicide-4300-kyleigh-dr.pdf" target="_blank" title="Oct. 13, 2024 - Homicide Investigation - 4300 Kyleigh Dr." class="document ext-pdf"><i aria-hidden="true"></i>October 12, 2024 - Homicide Investigation - 1800 NE 33rd St.<span class="file-info">(PDF,&nbsp;97KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2024/10/10132024-homicide-4300-kyleigh-dr.pdf" target="_blank" title="Oct. 13, 2024 - Homicide Investigation - 4300 Kyleigh Dr." class="document ext-pdf"><i aria-hidden="true"></i>October 13, 2024 - Homicide Investigation - 4300 Kyleigh Dr.<span class="file-info">(PDF,&nbsp;97KB)</span></a></li>
+</ul>
+<h3>September 2024</h3>
+<ul>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/09/09242024-news-release-officer-involved-shooting-selkirk-dr.pdf" target="_blank" title="Sept. 24, 2024 - News Release - Officer Involved Shooting - Selkirk Dr." class="document ext-pdf"><i aria-hidden="true"></i>September 24, 2024 - News Release - Officer Involved Shooting - Selkirk Dr<span class="file-info">(PDF,&nbsp;152KB)</span></a>.</li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/09/09202024-news-relase-off-duty-officer-involved-shooting.pdf" target="_blank" title="Sept. 20, 2024 - News Release - Off Duty Officer Involved Shooting" class="document ext-pdf"><i aria-hidden="true"></i>September 20, 2024 - News Release - Off Duty Officer Involved Shooting<span class="file-info">(PDF,&nbsp;484KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/09/09092024-fatal-crash-investigation-2100-jacksboro-hwy.pdf" target="_blank" title="Sept.9, 2024 - News Release - Suspect Arrested in Fatal Crash Investigation" class="document ext-pdf"><i aria-hidden="true"></i>September 9, 2024 - News Release - Suspect Arrested in Fatal Crash Investigation<span class="file-info">(PDF,&nbsp;126KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/09/09072024-fatal-crash-investigation.pdf" target="_blank" title="Sept.7, 2024 - News Release - Fatal Crash Investigation" class="document ext-pdf"><i aria-hidden="true"></i>September 7, 2024 - News Release - Fatal Crash Investigation<span class="file-info">(PDF,&nbsp;157KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/09/09062024-news-release-fatal-crash-investigation.pdf" target="_blank" title="Sept. 6, 2024 - News Release - Fatal Crash Investigation" class="document ext-pdf"><i aria-hidden="true"></i>September 6, 2024 - News Release - Fatal Crash Investigation<span class="file-info">(PDF,&nbsp;151KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/09/09052024-update-to-off-duty-ois-shooting.pdf" target="_blank" title="Sept.5, 2024 - Update to Off Duty OIS Shooting" class="document ext-pdf"><i aria-hidden="true"></i>September 5, 2024 - Update to Off Duty OIS Shooting<span class="file-info">(PDF,&nbsp;438KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2024/09/09032024-news-release-shooting-investigation.pdf" target="_self" title="Sept. 3, 2024 - News Release, Shooting Investigation" class="document ext-pdf"><i aria-hidden="true"></i>September 3, 2024 - News Release, Shooting Investigation<span class="file-info">(PDF,&nbsp;156KB)</span></a></li>
+</ul>
+<h3>August 2024</h3>
+<ul>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/08/08302024-homicide-investigation-stabbing.pdf" target="_blank" title="Aug. 30, 2024 - Homicide Investigation - Stabbing" class="document ext-pdf"><i aria-hidden="true"></i>August 30, 2024 - Homicide Investigation - Stabbing<span class="file-info">(PDF,&nbsp;109KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/08/08192024-homicide-investigation-2400-ross-ave.pdf" target="_blank" title="Aug. 19, 2024 - Homicide Investigation, 2400 Ross Ave." class="document ext-pdf"><i aria-hidden="true"></i>August 19, 2024 - Homicide Investigation, 2400 Ross Ave.<span class="file-info">(PDF,&nbsp;107KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/08/08192024-fatal-crash-investigation.pdf" target="_blank" title="Aug.t 19, 2024 - Fatal Crash Investigation" class="document ext-pdf"><i aria-hidden="true"></i>August 19, 2024 - Fatal Crash Investigation<span class="file-info">(PDF,&nbsp;104KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/08/08132024-vigil.pdf" target="_blank" title="Aug.13, 2024 - Candlelight Vigil to honor to Sergeant Billy Randolph" class="document ext-pdf"><i aria-hidden="true"></i>August 13, 2024 - Candlelight Vigil to honor to Sergeant Billy Randolph<span class="file-info">(PDF,&nbsp;200KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/08/08122024-line-of-duty-death-sgt-billy-randolph.pdf" target="_blank" title="August 12, 2024 - Line of Duty Death, Sergeant Billy Randolph" class="document ext-pdf"><i aria-hidden="true"></i>August 12, 2024 - Line of Duty Death, Sergeant Billy Randolph<span class="file-info">(PDF,&nbsp;190KB)</span></a></li>
+</ul>
+<h3>July 2024</h3>
+<ul>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/07/07112024-news-release-ois.pdf" target="_blank" title="uly 11, 2024 - Officer Involved Shooting" class="document ext-pdf"><i aria-hidden="true"></i>July 11, 2024 - Officer Involved Shooting<span class="file-info">(PDF,&nbsp;159KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/07/07082024-ews-release-fwpd-fwfd-seek-additional-general-mental-health-partners-for-r3-wellness-program.pdf" target="_blank" title="July 8, 2024 - Fort Worth Police &amp; Fire Departments Seek Additional General and Mental Health Partners for R3 Wellness Program" class="document ext-pdf"><i aria-hidden="true"></i>July 8, 2024 -&nbsp;Fort Worth Police &amp; Fire Departments Seek Additional General and Mental Health Partners for R3 Wellness Program<span class="file-info">(PDF,&nbsp;221KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/07/07052024-news-release-multiple-fatal-shooting-investigations-002.pdf" target="_blank" title="July 5, 2024 - UPDATE: Multiple Fatal Shooting Investigations" class="document ext-pdf"><i aria-hidden="true"></i>July 5, 2024 -&nbsp;UPDATE: Multiple Fatal Shooting Investigations<span class="file-info">(PDF,&nbsp;165KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/07/07052024-news-release-multiple-fatal-shooting-investigations.pdf" target="_blank" title="July 5, 2024 - Multiple Fatal Shooting Investigations" class="document ext-pdf"><i aria-hidden="true"></i>July 5, 2024 -&nbsp;Multiple Fatal Shooting Investigations<span class="file-info">(PDF,&nbsp;160KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/07/07052024-news-release-robbery-and-kidnapping-investigation.pdf" target="_blank" title="July 5, 2024 - Robbery and Kidnapping Investigation" class="document ext-pdf"><i aria-hidden="true"></i>July 5, 2024 -&nbsp;Robbery and Kidnapping Investigation<span class="file-info">(PDF,&nbsp;158KB)</span></a></li>
+<li>July 1, 2024 - Homicide Investigation</li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/07/07012024-cutting-incident-at-1500-langston-st.-ongoing-investigation.pdf" target="_blank" title="July 1, 2024 - Cutting Incident at 1500 Langston St. - Ongoing Investigation" class="document ext-pdf"><i aria-hidden="true"></i>July 1, 2024 -&nbsp;Cutting Incident at 1500 Langston St. - Ongoing Investigation<span class="file-info">(PDF,&nbsp;152KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/07/07012024-fort-worth-police-department-releases-warrant-affidavit-for-xavier-bass.pdf" target="_blank" title="July 1, 2024 - Fort Worth Police Department Releases Warrant Affidavit for Xavier Bass" class="document ext-pdf"><i aria-hidden="true"></i>July 1, 2024 -&nbsp;Fort Worth Police Department Releases Warrant Affidavit for Xavier Bass<span class="file-info">(PDF,&nbsp;148KB)</span></a></li>
+</ul>
+<h3>June2024</h3>
+<ul>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/06/06292024-news-release-homicide-investigation-update.pdf" target="_blank" title="June 29, 2024 - Homicide Investigation Update" class="document ext-pdf"><i aria-hidden="true"></i>June 29, 2024 -&nbsp;Homicide Investigation Update<span class="file-info">(PDF,&nbsp;180KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/06/06282024-k9-memorial-day.pdf" target="_self" title="June 28, 2024 - FWPD K9 Memorial Day" class="document ext-pdf"><i aria-hidden="true"></i>June 28, 2024 - FWPD K9 Memorial Day<span class="file-info">(PDF,&nbsp;157KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/06/06262024-news-release.pdf" target="_blank" title="June 26, 2024 - Use-of-Force Incident near the 1000 block of Foch St " class="document ext-pdf"><i aria-hidden="true"></i>June 26, 2024 -&nbsp;Use-of-Force Incident near the 1000 block of Foch St&nbsp;<span class="file-info">(PDF,&nbsp;156KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/06/061024-news-release-fatality-accident.pdf" target="_blank" title="June 11, 2024 - Fatality Accident " class="document ext-pdf"><i aria-hidden="true"></i>June 12, 2024 -&nbsp;FWPD Honors Fallen Sgt. Jenson with End Of Watch Ride<span class="file-info">(PDF,&nbsp;151KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/06/061024-news-release-fatality-accident.pdf" target="_blank" title="June 11, 2024 - Fatality Accident " class="document ext-pdf"><i aria-hidden="true"></i>June 11, 2024 - Fatality Accident&nbsp;<span class="file-info">(PDF,&nbsp;151KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2024/06/06102024-awa-miad-pd-media-advisory-draft.pdf" target="_blank" title="une 10, 2024 - Moral Injury Awareness Day" class="document ext-pdf"><i aria-hidden="true"></i>June 10, 2024 -&nbsp;Moral Injury Awareness Day<span class="file-info">(PDF,&nbsp;159KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/06/06102024-news-release-homicide-investigation.pdf" target="_blank" title="June 10, 2024 - Homicide Investigation " class="document ext-pdf"><i aria-hidden="true"></i>June 10, 2024 - Homicide Investigation<span class="file-info">(PDF,&nbsp;150KB)</span></a>&nbsp;</li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/06/06102024-news-release-auto-pedestrian-accident.pdf" target="_blank" title="June 10, 2024 - Auto-Pedestrian Fatality" class="document ext-pdf"><i aria-hidden="true"></i>June 10, 2024 - Auto-Pedestrian Fatality<span class="file-info">(PDF,&nbsp;150KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/06/06072024-homicide-investigation-7200-silver-city-dr.pdf" target="_blank" title="June 7, 2024 - Homicide Investigation 7200 Silver City Dr" class="document ext-pdf"><i aria-hidden="true"></i>June 7, 2024 - Homicide Investigation<span class="file-info">(PDF,&nbsp;94KB)</span></a></li>
+<li>J<a href="/files/assets/police/v/1/news/documents/newsroom/2024/06/06062024-news-release-terrance-parker.pdf" target="_blank" title="June 6, 2024 - Fort Worth Police Officer Miraculously Survives ‘Widowmaker’ Heart Attack" class="document ext-pdf"><i aria-hidden="true"></i>une 6, 2024 -&nbsp;Fort Worth Police Officer Miraculously Survives &lsquo;Widowmaker&rsquo; Heart Attack<span class="file-info">(PDF,&nbsp;174KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/06/06042024-homicide-investigation-3800-elm-st-corected_.pdf" target="_self" title="June 4, 2024 - Homicide Investigation 3800 Elm St" class="document ext-pdf"><i aria-hidden="true"></i>June 4, 2024 -&nbsp;Homicide Investigation<span class="file-info">(PDF,&nbsp;92KB)</span></a></li>
+</ul>
+<h3>May 2024&nbsp;</h3>
+<ul>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/053124-news-release-fatality-accident.pdf" target="_blank" title="May 31, 2024 - Fatality Accident" class="document ext-pdf"><i aria-hidden="true"></i>May 31, 2024 - Fatality Accident<span class="file-info">(PDF,&nbsp;152KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05292024-news-release-homicide-investigation.pdf" target="_blank" title="May 30, 2024 - Homicide Investigation" class="document ext-pdf"><i aria-hidden="true"></i>May 30, 2024 - Homicide Investigation<span class="file-info">(PDF,&nbsp;155KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05282024-news-release-homicide-investigation.pdf" target="_blank" title="May 28, 2024 - Homicide Investigation " class="document ext-pdf"><i aria-hidden="true"></i>May 28, 2024 - Homicide Investigation&nbsp;<span class="file-info">(PDF,&nbsp;153KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05272024-media-advisory-officer-involved-shooting-news-conference.pdf" target="_blank" title="May 27, 2024 - Officer Involved Shooting News Conference" class="document ext-pdf"><i aria-hidden="true"></i>May 27, 2024 - Officer Involved Shooting News Conference<span class="file-info">(PDF,&nbsp;158KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/052624-news-release-homicide-investigation.pdf" target="_blank" title="May 27, 2024 - Homicide Investigation " class="document ext-pdf"><i aria-hidden="true"></i>May 27, 2024 - Homicide Investigation&nbsp;<span class="file-info">(PDF,&nbsp;152KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05252024-news-release-fatality-accident.pdf" target="_blank" title="May 25, 2024 - Fatality Accident " class="document ext-pdf"><i aria-hidden="true"></i>May 25, 2024 - Fatality Accident<span class="file-info">(PDF,&nbsp;154KB)</span></a>&nbsp;</li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05242024-news-release-media-update-on-tcso-deputy-shooting-002.pdf" target="_blank" title="May 24, 2024 - Update on TCSO Deputy Shooting" class="document ext-pdf"><i aria-hidden="true"></i>May 24, 2024 -&nbsp;Update on TCSO Deputy Shooting<span class="file-info">(PDF,&nbsp;156KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05232024-news-release-fwpd-multiple-suspects-in-las-vegas-trail-shooting-arrested.pdf" target="_blank" title="May 23, 2024 - Multiple Suspects In Las Vegas Trail Shooting Arrested" class="document ext-pdf"><i aria-hidden="true"></i>May 23, 2024 - Multiple Suspects In Las Vegas Trail Shooting Arrested<span class="file-info">(PDF,&nbsp;144KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05232024-master-news-release-life-saving-cpr.pdf" target="_blank" title="May 23, 2024 - Child Makes Miraculous Recovery Thanks to Officers " class="document ext-pdf"><i aria-hidden="true"></i>May 23, 2024 - Child Makes Miraculous Recovery Thanks to Officers&nbsp;<span class="file-info">(PDF,&nbsp;155KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05222024-news-release-fwpd-public-relations-office-announces-personnel-changes.pdf" target="_blank" title="May 22, 2024 - Fort Worth PD Public Relations Office Announces Personnel Changes" class="document ext-pdf"><i aria-hidden="true"></i>May 22, 2024 -&nbsp;Fort Worth PD Public Relations Office Announces Personnel Changes<span class="file-info">(PDF,&nbsp;166KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05222024-fatality-accident.pdf" target="_blank" title="ay 22, 2024 - Fatality Accident " class="document ext-pdf"><i aria-hidden="true"></i>May 22, 2024 - Fatality Accident&nbsp;<span class="file-info">(PDF,&nbsp;169KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05202024-news-release-critical-police-incident.pdf" target="_blank" title="ay 20, 2024 - Critical Police Incident " class="document ext-pdf"><i aria-hidden="true"></i>May 20, 2024 - Critical Police Incident&nbsp;<span class="file-info">(PDF,&nbsp;193KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05192024-news-release-homicide-investigation.pdf" target="_blank" title="May 19, 2024 - Homicide Investigation" class="document ext-pdf"><i aria-hidden="true"></i>May 19, 2024 - Homicide Investigation<span class="file-info">(PDF,&nbsp;127KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05182024-news-release-fatality-accident.pdf" target="_blank" title="May 19, 2024 - Fatality Accident" class="document ext-pdf"><i aria-hidden="true"></i>May 19, 2024 - Fatality Accident<span class="file-info">(PDF,&nbsp;106KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05172024-news-release-homicide-investigation.pdf" target="_blank" title="May 17, 2024 - Homicide Investigation " class="document ext-pdf"><i aria-hidden="true"></i>May 17, 2024 - Homicide Investigation<span class="file-info">(PDF,&nbsp;205KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05132024-news-release-homicide-investigation.pdf" target="_blank" title="May 13, 2024 - Homicide Investigation" class="document ext-pdf"><i aria-hidden="true"></i>May 13, 2024 - Homicide Investigation<span class="file-info">(PDF,&nbsp;153KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05082024-news-release-fatality-crash-investigation.pdf" target="_blank" title="May 8, 2024 - Fatality Crash Investigation " class="document ext-pdf"><i aria-hidden="true"></i>May 8, 2024 - Fatality Crash Investigation&nbsp;<span class="file-info">(PDF,&nbsp;150KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05062024-news-release-homicide-investigation-1.pdf" target="_blank" title="May 6, 2024 - Homicide Investigation" class="document ext-pdf"><i aria-hidden="true"></i>May 6, 2024 - Homicide Investigation<span class="file-info">(PDF,&nbsp;152KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2024/05/05012024-news-release-fwpd-shooting-investigation.pdf" target="_blank" title="May 1, 2024 - Shooting Investigation" class="document ext-pdf"><i aria-hidden="true"></i>May 1, 2024 - Shooting Investigation<span class="file-info">(PDF,&nbsp;192KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/05/05012024-media-advisory-fwpd-police-memorial-hosted-by-fwpoa.pdf" target="_blank" title="May 1, 2024 - Fort Worth Police Memorial to Honor Department’s Fallen Officers" class="document ext-pdf"><i aria-hidden="true"></i>May 1, 2024 -&nbsp;Fort Worth Police Memorial to Honor Department&rsquo;s Fallen Officers<span class="file-info">(PDF,&nbsp;136KB)</span></a></li>
+</ul>
+<h3>April 2024&nbsp;</h3>
+<ul>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/04/04232024-northwest-division-introduces-dedicated-newly-formed-team-to-enhance-safety-in-historic-stockyards.pdf" target="_blank" title="April 23, 2024 - Enhance Safety in Historic Stockyards" class="document ext-pdf"><i aria-hidden="true"></i>April 23, 2024 -&nbsp;Enhance Safety in Historic Stockyards<span class="file-info">(PDF,&nbsp;56KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/04/04172024-fatality-accident.pdf" target="_blank" title="April 17, 2024 - Fatality Accident" class="document ext-pdf"><i aria-hidden="true"></i>April 17, 2024 - Fatality Accident<span class="file-info">(PDF,&nbsp;254KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/04/04122024news-release-auto-pedestrian-fatality-002.pdf" target="_blank" title="April 12, 2024 - Auto-Pedestrian Fatality" class="document ext-pdf"><i aria-hidden="true"></i>April 12, 2024 - Auto-Pedestrian Fatality<span class="file-info">(PDF,&nbsp;153KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2024/04/04112024-news-release-hit-and-run-fatality-investigation.pdf" target="_blank" title="April 11, 2024 - Hit and Run Fatality Investigation " class="document ext-pdf"><i aria-hidden="true"></i>April 11, 2024 - Hit and Run Fatality Investigation&nbsp;<span class="file-info">(PDF,&nbsp;156KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/04/04052024-news-release-homicide-investigation.pdf" target="_blank" title="April 6, 2024 - Homicide Investigation" class="document ext-pdf"><i aria-hidden="true"></i>April 6, 2024 - Homicide Investigation<span class="file-info">(PDF,&nbsp;152KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/04/04052024-news-release-auto-pedestrian-fatality.pdf" target="_blank" title="April 5, 2024 - Auto Pedestrian Fatality" class="document ext-pdf"><i aria-hidden="true"></i>April 5, 2024 - Auto Pedestrian Fatality<span class="file-info">(PDF,&nbsp;178KB)</span></a></li>
+<li><a href="/files/assets/police/v/2/news/documents/newsroom/2024/04/04032024-news-release-fort-worth-police-officers-receive-lifesaving-and-heroes-award.pdf" target="_blank" title="April 3, 2024 - FWPD Officers Recognized By Sons of American Revolution" class="document ext-pdf"><i aria-hidden="true"></i>April 3, 2024 -&nbsp;FWPD Officers Recognized By Sons of American Revolution<span class="file-info">(PDF,&nbsp;160KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/04/04032024-news-release-fort-worth-police-department-issues-safety-tips-ahead-of-2024-solar-eclipse.pdf" target="_blank" title="April 3, 2024 - Fort Worth Police Department issues safety tips ahead of 2024 Solar Eclipse" class="document ext-pdf"><i aria-hidden="true"></i>April 3, 2024 -&nbsp;Fort Worth Police Department issues safety tips ahead of 2024 Solar Eclipse<span class="file-info">(PDF,&nbsp;156KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/04/04032024-news-release-auto-pedestrian-fatality-1.pdf" target="_blank" title="April 3, 2024 - Auto-Pedestrian Fatality" class="document ext-pdf"><i aria-hidden="true"></i>April 3, 2024 -&nbsp;Auto-Pedestrian Fatality<span class="file-info">(PDF,&nbsp;178KB)</span></a></li>
+</ul>
+<h3>March 2024</h3>
+<ul>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/03/03272024-r3-kick-off-news-release-3-27-24-final.pdf" target="_blank" title="March 27, 2024 - Historic Public-Private Partnership to Address Moral Injury with Groundbreaking R3 Program" class="document ext-pdf"><i aria-hidden="true"></i>March 27, 2024 - Historic Public-Private Partnership to Address Moral Injury with Groundbreaking R3 Program<span class="file-info">(PDF,&nbsp;370KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/03/03192024-news-release-two-honor-chairs-bestowed-upon-families-of-fallen-fort-worth-officers.pdf" target="_blank" title="March 19, 2024 - Two Honor Chairs Bestowed Upon Families of Fallen Fort Worth Officers" class="document ext-pdf"><i aria-hidden="true"></i>March 19, 2024 - Two Honor Chairs Bestowed Upon Families of Fallen Fort Worth Officers<span class="file-info">(PDF,&nbsp;158KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/03/03122024-fatal-crash-investigation.pdf" target="_blank" title="March 12, 2024 - Fatal Crash Investigation" class="document ext-pdf"><i aria-hidden="true"></i>March 12, 2024 - Fatal Crash Investigation<span class="file-info">(PDF,&nbsp;169KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/03/03112024-fatal-crash-investigation.pdf" target="_blank" title="March 11, 2024 - Fatal Crash Investigation" class="document ext-pdf"><i aria-hidden="true"></i>March 11, 2024 - Fatal Crash Investigation<span class="file-info">(PDF,&nbsp;172KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/03/03092024-news-release-hit-and-run-fatality-investigation.pdf" target="_blank" title="March 9, 2024 - Hit-and-Run Fatality Investigation" class="document ext-pdf"><i aria-hidden="true"></i>March 9, 2024 - Hit-and-Run Fatality Investigation<span class="file-info">(PDF,&nbsp;155KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/03/03052024-news-release-homicide-6700-bridge-st.pdf" target="_blank" title="March 5, 2024 - Homicide - 6700 Bridge St" class="document ext-pdf"><i aria-hidden="true"></i>March 5, 2024 -&nbsp;Homicide - 6700 Bridge St<span class="file-info">(PDF,&nbsp;137KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/03/03032024-news-release-homicide-investigation-2.pdf" target="_blank" title="March 3, 2024 - Homicide Investigation" class="document ext-pdf"><i aria-hidden="true"></i>March 3, 2024 - Homicide Investigation<span class="file-info">(PDF,&nbsp;201KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/03/03012024-suspicious-person-investigation.pdf" target="_blank" title="March 1, 2024 - Suspicious Person Investigation" class="document ext-pdf"><i aria-hidden="true"></i>March 1, 2024 - Suspicious Person Investigation<span class="file-info">(PDF,&nbsp;85KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/03/03012024-news-release-fwpd-officer-arrested-on-assault-family-violence.pdf" target="_self" title="March 1, 2024 - FWPD Officer Arrested on Assault Family Violence" class="document ext-pdf"><i aria-hidden="true"></i>March 1, 2024 - FWPD Officer Arrested on Assault Family Violence<span class="file-info">(PDF,&nbsp;453KB)</span></a></li>
+</ul>
+<h3>February 2024</h3>
+<ul>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/02/02292024-news-release-attempted-burglary-of-a-residence-arrest.pdf" target="_blank" title="February 29, 2024 - Fort Worth Police Arrest Suspect for Attempted Burglary of a Residence" class="document ext-pdf"><i aria-hidden="true"></i>February 29, 2024 -&nbsp;Fort Worth Police Arrest Suspect for Attempted Burglary of a Residence<span class="file-info">(PDF,&nbsp;145KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/02/02232024-news-release-fort-worth-police-officer-recovering-after-vehicle-accident.pdf" target="_blank" title="February 23, 2024 - Fort Worth Police Officer Recovering After Vehicle Accident " class="document ext-pdf"><i aria-hidden="true"></i>February 23, 2024 - Fort Worth Police Officer Recovering After Vehicle Accident&nbsp;<span class="file-info">(PDF,&nbsp;133KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/02/02192024-news-release-safariland-honors-fort-worth-pd-ofc.-brazeal.pdf" target="_blank" title="February 19, 2024 - Safariland Honors Fort Worth PD Ofc. Brazeal" class="document ext-pdf"><i aria-hidden="true"></i>February 19, 2024 - Safariland Honors Fort Worth PD Ofc. Brazeal<span class="file-info">(PDF,&nbsp;158KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/02/02192024-news-release-fwpd-hosts-national-honor-guard-training.pdf" target="_blank" title="February 19, 2024 - Fort Worth PD Hosts the National Honor Guard Academy Training" class="document ext-pdf"><i aria-hidden="true"></i>February 19, 2024 - Fort Worth PD Hosts the National Honor Guard Academy Training<span class="file-info">(PDF,&nbsp;205KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/02/02132024-news-release-fort-worth-pd-uncovers-stolen-goods-and-‘chop-shop’-worth-thousands-1.pdf" target="_blank" title="February 13, 2024 - Fort Worth PD Uncovers Stolen Goods and ‘Chop Shop’ Worth Thousands" class="document ext-pdf"><i aria-hidden="true"></i>February 13, 2024 - Fort Worth PD Uncovers Stolen Goods and &lsquo;Chop Shop&rsquo; Worth Thousands<span class="file-info">(PDF,&nbsp;169KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/02/02092024-news-release-domestic-related-kidnapping-suspect-in-fort-worth-police-custody.pdf" target="_blank" title="February 9, 2024 - Domestic-related kidnapping suspect in Fort Worth Police custody" class="document ext-pdf"><i aria-hidden="true"></i>February 9, 2024 - Domestic-related kidnapping suspect in Fort Worth Police custody<span class="file-info">(PDF,&nbsp;162KB)</span></a></li>
+<li><a href="/files/assets/police/v/1/news/documents/newsroom/2024/02/02082024-news-release-arrest-warrants-issued-in-hate-crimeaggravated-assault.pdf" target="_blank" title="February 8, 2024 - Arrest Warrants Issued in Hate Crime/Aggravated Assault with a Deadly Weapon Investigation" class="document ext-pdf"><i aria-hidden="true"></i>February 8, 2024 - Arrest Warrants Issued in Hate Crime/Aggravated Assault with a Deadly Weapon Investigation<span class="file-info">(PDF,&nbsp;150KB)</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<!--<div data-type="0" data-title-level="2" class="oc-wysiwyg-container">
+<div class="oc-wysiwyg-container-panel">
+<h2>All Police Department News Search</h2>
+<div class="oc-wysiwyg-container-panel-content">
+>OC CL Police News Listing
+</div>
+</div><!--/WebUserControl-->
+<div data-type="0" data-title-level="2" class="oc-wysiwyg-container">
+<div class="oc-wysiwyg-container-panel">
+<h2>Weather Map</h2>
+<div class="oc-wysiwyg-container-panel-content">
+<div style="width: 100%; border-radius: 30px; position:relative" id="pwWidget:63f7db06-9b57-40c7-b740-2e7611c271f1">        <script src="https://widget.perryweather.com/js/PwIframe.min.js"> </script>        <script>            PwIframe.createPerryWeatherWidget('63f7db06-9b57-40c7-b740-2e7611c271f1');        </script>    </div>
+</div>
+</div>
+</div>
+
+<style>
+.profile-tabbed-listing {
+    padding: 0px;
+    border-bottom: 1px solid #ccc;
+}
+#line-news {
+    border-right: 1px solid #ccc;
+}
+
+ .profile-news-listing a {
+    padding: 5px;
+    margin: 0px 0px 23px 0px;
+    background-color: #fff;
+}
+
+.field-label{display:none !important;}
+
+@media only screen and (max-width: 767px){
+    .wide-thumbnail-image {
+        display: block !important;;
+    }
+    }
+</style><!--normalTemplateEnd-->
+                            
+                            
+                            
+							            </div>
+						            </div>
+					            </div>
+                        <div class="col-xs-12">
+					            	<div class="share-page-container share-page-link-right share-page-link-small share-page-link-rounded share-page-link-no-labels" data-item-id="409e35e3-c8ba-43b1-b409-598822955f3b" id="share-page-container clearfix">
+                                        <section aria-labelledby="share-page-info-label">
+                                            <span id="share-page-info-label" class="share-page-info">Share</span><ul class="share-page-links no-translate"><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpolice.fortworthtexas.gov%2fnews-articles" target="{ShareTarget}" class="share-page-link share-page-link-facebook" data-channel="facebook" data-channel-id="1"><i aria-hidden="true"></i><span class="share-page-link-name share-page-link-name-facebook">Facebook</span></a></li><li><a href="https://twitter.com/share?url=https%3a%2f%2fpolice.fortworthtexas.gov%2fnews-articles" target="_blank" class="share-page-link share-page-link-x" data-channel="x" data-channel-id="2"><i aria-hidden="true"></i><span class="share-page-link-name share-page-link-name-x">X</span></a></li><li><a href="mailto:?Body=https%3a%2f%2fpolice.fortworthtexas.gov%2fnews-articles" target="_self" class="share-page-link share-page-link-email" data-channel="email" data-channel-id="3"><i aria-hidden="true"></i><span class="share-page-link-name share-page-link-name-email">Email</span></a></li><li><a href="#" target="_self" class="share-page-link share-page-link-print" data-channel="print" data-channel-id="5"><i aria-hidden="true"></i><span class="share-page-link-name share-page-link-name-print">Print</span></a></li><li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fpolice.fortworthtexas.gov%2fnews-articles" target="_blank" class="share-page-link share-page-link-linkedin" data-channel="linkedin" data-channel-id="7"><i aria-hidden="true"></i><span class="share-page-link-name share-page-link-name-linkedin">LinkedIn</span></a></li></ul>
+                                        </section>
+                                    </div></div>
+                            </div>
+                        </div>
+                        <div class="back-to-top-container text-center">
+                            <a href="#body-top" id="back-to-top"><i aria-hidden="true"></i><span class="js-visuallyhidden">Back to top</span></a>
+                        </div>
+                </div>
+            </div><!--groupTemplateEnd-->
+            <footer>
+                
+                    <div class="footer-outer-container footer-first-row">
+                        <div class="footer-container clearfix">
+                            <div class="grid grid-pad">
+                                <div class="col-xs-12 col-s-6 col-m-6 col-lg-3 address-container" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Contact Us</h3>
+			
+	<p><a href="https://police.fortworthtexas.gov/Contact">FWPD Contact List</a></p>
+<p><strong><br /></strong>FWPD Main Line:&nbsp;<strong>&nbsp;<a href="tel:3104567890"></a></strong><a href="tel:8173924200">817-392-4200</a><strong style="font-size: 1em;">&nbsp;&nbsp;<br /></strong><span style="font-size: 1em;">Non-Emergency</span><span style="font-size: 1em;">:&nbsp;&nbsp;</span><a href="tel:8173924222" style="font-size: 1em;">817-392-4222</a><br />
+<span style="font-size: 1em;">Emergency</span><span style="font-size: 1em;">:&nbsp; Dial</span> <a href="tel:911" style="font-size: 1em;">911</a></p>
+
+
+	<ul class="footer-links with-icons ">   </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-6 col-lg-3 social-media-container" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Share &amp; Connect</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-facebook-new">
+	<a href="https://www.facebook.com/InsideFWPD" target="_blank"  >
+<i aria-hidden="true"></i>Like us on Facebook
+</a>
+</li>
+          <li class="footer-link-twitter-new">
+	<a href="https://x.com/fortworthpd" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Twitter
+</a>
+</li>
+          <li class="footer-link-instagram-new">
+	<a href="https://www.instagram.com/fortworthpd" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Instagram
+</a>
+</li>
+          <li class="footer-link-youtube">
+	<a href="https://www.youtube.com/@InsideFWPD" target="_blank"  >
+<i aria-hidden="true"></i>Watch YouTube
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://public.govdelivery.com/accounts/TXFTWORTH/subscriber/topics" target="_blank"  >
+<i aria-hidden="true"></i>Subscribe to Newsletters
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-6 col-lg-3" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Resources</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-">
+	<a href="https://www.fortworthtexas.gov/job-board" target="_blank"  >
+<i aria-hidden="true"></i>Careers
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center" target="_blank"  >
+<i aria-hidden="true"></i>Crime Data Center
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://joinfwpd.com" target="_blank"  >
+<i aria-hidden="true"></i>Recruiting
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://police.fortworthtexas.gov/Support-Services/wellness-unit-resources" target="_self"  >
+<i aria-hidden="true"></i>Wellness Unit & Resources
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-6 col-lg-3" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Quick Links</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-">
+	<a href="https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted" target="_self"  >
+<i aria-hidden="true"></i>Most Wanted
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://police.fortworthtexas.gov/How-Do-I/File-Compliment-Complaint" target="_self"  >
+<i aria-hidden="true"></i>File Complaint/Compliment
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://www.fortworthtexas.gov/departments/communications/customercare/myfw" target="_blank"  >
+<i aria-hidden="true"></i>MyFW App
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://police.fortworthtexas.gov/How-Do-I/Get-Copy-Accident-Report" target="_self"  >
+<i aria-hidden="true"></i>Get Accident Reports
+</a>
+</li>
+           </ul>
+	
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="footer-outer-container footer-second-row">
+                    <div class="footer-container clearfix">
+                        <div class="grid grid-pad footer-secondary-links">
+                            <div class="col-xs-12 col-m-7">
+                                
+                                    <div><a href="https://police.fortworthtexas.gov/policies" target="_self"  >Disclaimer & Copyright</a>&nbsp;| <a href="https://police.fortworthtexas.gov/privacy-policy" target="_self"  >Privacy Statement</a>&nbsp;| <a href="https://police.fortworthtexas.gov/sitemap" target="_self"  >Sitemap</a>&nbsp;| <a href="https://police.fortworthtexas.gov/a-z-Index" target="_self"  >A - Z Index</a>&nbsp;| <a href="https://us.openforms.com/Form/d005cb58-090b-4e8c-bd4a-ac42ba9d2581" target="_blank"  >Web Suggestions</a></div>
+                                
+                            </div>
+                            <div class="col-xs-12 col-m-5 powered-by">
+                                <div class="right">
+                                    &copy; 2026 Fort Worth Police&nbsp;|&nbsp;<span class="powered-by">Powered by <a href="https://granicus.com/solution/govaccess/opencities/" target="_blank">Granicus</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/files/oc-resources/1cab6839-bc0a-4b8d-9936-27b063b1889c/JsTextSnippets.js?ocsvclang=en-US" type="text/javascript"></script><script>OpenCitiesResourceStrings["Sys Js Dates Past event dates"] = "Past event dates";OpenCitiesResourceStrings["Sys Js Get Updates"] = "Get updates";</script>
+    
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SKMWLW5GDH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SKMWLW5GDH');
+</script>
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl04_seamless_script_manager_TSM');//]]>
+</script>
+</form>
+</body>
+</html>
