@@ -94,7 +94,7 @@ class PostDraft:
     story: Story
     copy: PostCopy
     writer: str                               # claude | template
-    mode: Literal["photo", "link", "video", "text"] = "photo"
+    mode: Literal["photo", "link", "share", "video", "text"] = "photo"   # share = a public facebook.com post URL, rendered nested by Facebook
     image: Optional[ImageAsset] = None
     video_path: Optional[Path] = None
     link: Optional[str] = None                # for link posts

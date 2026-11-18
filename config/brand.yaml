@@ -61,7 +61,25 @@ colors:
   muted: "#D7D9E0"
 
 card:
-  style: plain            # plain = the photo as-is with a small @handle watermark, like the Dallas page; headline = text overlay card
+  style: quoted           # quoted = a post inside a post: the source's post (author, handle, text, photo) as a white card, the way a
+                          #          shared post looks on Facebook; plain = the photo as-is with a small @handle watermark;
+                          #          headline = text overlay card. Culture-calendar posts always use the plain photo.
+  quoted_handles:         # shown under the author only when the story is itself a social post (extra.post_url); otherwise the
+                          # card shows the website domain the quoted text really comes from
+    Fort Worth Police Department: "@fortworthpd"
+    Arlington Police Department: "@ArlingtonPD"
+    Texas DPS: "@TxDPS"
+    NWS Fort Worth: "@NWSFortWorth"
+    National Weather Service Fort Worth: "@NWSFortWorth"
+    City of Fort Worth: "@CityofFortWorth"
+    City of Arlington: "@CityOfArlington"
+    Fort Worth Report: "@FortWorthReport"
+    Fort Worth Star-Telegram: "@startelegram"
+    WFAA: "@wfaa"
+    NBC 5 DFW: "@NBCDFW"
+    FOX 4 Dallas-Fort Worth: "@FOX4"
+    CBS News Texas: "@CBSNewsTexas"
+    Dickies Arena: "@DickiesArena"
   watermark_handle: true  # small "@FortWorthTexasTV" in the corner of plain photos (their videos carry one)
   max_side: 1440          # plain photos are posted at their own aspect ratio, long side capped here
   placeholder_when_no_photo: false   # plain style: a story without a usable photo becomes a link post instead of a fake skyline

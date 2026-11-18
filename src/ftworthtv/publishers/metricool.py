@@ -40,7 +40,7 @@ class MetricoolPublisher(Publisher):
             log.warning("Instagram needs an image; dropping it for this post (set MEDIA_BASE_URL)")
             networks = [n for n in networks if n != "instagram"]
         text = draft.caption_text()
-        if draft.mode == "link" or not media:
+        if draft.mode in ("link", "share") or not media:   # Metricool has no share type: the post URL goes in the text as a link preview
             text += f"\n\n{draft.link or draft.story.url}"
         body = {
             "providers": [{"network": n} for n in networks],

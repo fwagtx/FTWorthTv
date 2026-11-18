@@ -272,3 +272,126 @@ def render_plain(background: Path, out_path: Path, *, brand: dict, fonts_dir: Pa
     out_path.parent.mkdir(parents=True, exist_ok=True)
     img.save(out_path, "JPEG", quality=92, optimize=True)
     return out_path
+
+
+def _initials(name: str) -> str:
+    words = [w for w in name.replace("-", " ").split() if w[0].isalpha()]
+    return "".join(w[0] for w in words[:2]).upper() or "FW"
+
+
+def _avatar_color(name: str) -> tuple[int, int, int]:
+    palette = [(24, 119, 242), (0, 150, 136), (233, 30, 99), (255, 112, 67), (103, 58, 183), (0, 131, 143), (121, 85, 72)]
+    return palette[sum(map(ord, name)) % len(palette)]
+
+
+def _wrap_lines(draw, text: str, font, max_width: int, max_lines: int) -> list[str]:
+    out: list[str] = []
+    for para in text.split("\n"):
+        lines = wrap_text(draw, para, font, max_width) if para.strip() else [""]
+        out.extend(lines)
+    if len(out) > max_lines:
+        out = out[:max_lines]
+        out[-1] = out[-1].rstrip(".,;:") + "…"
+    return out
+
+
+def render_quote_card(*, author: str, handle: str | None, when: str, text: str, photo: Path | None, out_path: Path, brand: dict,
+                      fonts_dir: Path, watermark: str | None = None, footer: str | None = None,
+                      size: tuple[int, int] | None = None) -> Path:
+    """A post inside a post: the source's post (author, handle, text, photo) as a white card on a feed-colored background,
+    the way a shared post looks. No platform logos, no badges, no invented like/comment counts."""
+    W, H = tuple(size or (1080, 1350))
+    bg, card, ink, muted, line = (240, 242, 245), (255, 255, 255), (5, 5, 5), (101, 103, 107), (228, 230, 235)
+    margin, pad, radius = 54, 44, 30
+    canvas = Image.new("RGB", (W, H), bg)
+    draw = ImageDraw.Draw(canvas)
+    card_w = W - 2 * margin
+    inner_w = card_w - 2 * pad
+
+    name_font = load_font(fonts_dir, bold=True, size=40)
+    sub_font = load_font(fonts_dir, bold=False, size=30)
+    text_font = load_font(fonts_dir, bold=False, size=44)
+    foot_font = load_font(fonts_dir, bold=False, size=26)
+
+    photo_img = None
+    if photo and Path(photo).exists():
+        with Image.open(photo) as im:
+            photo_img = im.convert("RGB")
+    max_text_lines = 5 if photo_img is not None else 12
+    lines = _wrap_lines(draw, text, text_font, inner_w, max_text_lines)
+    line_h = int(text_font.size * 1.3)
+    header_h = 104
+    text_h = line_h * len(lines)
+    footer_h = (foot_font.size + 28) if footer else 0
+    photo_h = 0
+    if photo_img is not None:
+        avail = H - 2 * margin - 2 * pad - header_h - text_h - footer_h - 60
+        max_photo_h = max(300, min(avail, int(H * 0.56)))
+        scale = inner_w / photo_img.width
+        natural_h = int(photo_img.height * scale)
+        if natural_h <= max_photo_h:
+            photo_img = photo_img.resize((inner_w, natural_h), Image.LANCZOS)
+        else:
+            # tall photo (a booking photo, a phone screenshot): never crop a face. Fit it inside the box on a blurred,
+            # darkened copy of itself, the way TV news shows portraits.
+            box = Image.new("RGB", (inner_w, max_photo_h))
+            backdrop = cover(photo_img, (inner_w, max_photo_h)).filter(ImageFilter.GaussianBlur(28))
+            backdrop = Image.blend(backdrop, Image.new("RGB", backdrop.size, (20, 22, 28)), 0.35)
+            box.paste(backdrop, (0, 0))
+            fit_scale = max_photo_h / photo_img.height
+            fitted = photo_img.resize((max(1, int(photo_img.width * fit_scale)), max_photo_h), Image.LANCZOS)
+            box.paste(fitted, ((inner_w - fitted.width) // 2, 0))
+            photo_img = box
+        photo_h = photo_img.height
+    card_h = 2 * pad + header_h + text_h + (photo_h + 28 if photo_img is not None else 0) + footer_h
+    card_h = min(card_h, H - 2 * margin)
+    y0 = (H - card_h) // 2
+    x0 = margin
+
+    # shadow + card
+    shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).rounded_rectangle([x0 + 6, y0 + 12, x0 + card_w + 6, y0 + card_h + 12], radius=radius, fill=(0, 0, 0, 60))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(18))
+    canvas = Image.alpha_composite(canvas.convert("RGBA"), shadow).convert("RGB")
+    draw = ImageDraw.Draw(canvas)
+    draw.rounded_rectangle([x0, y0, x0 + card_w, y0 + card_h], radius=radius, fill=card, outline=line, width=2)
+
+    # header: avatar + name + handle · time
+    ax, ay = x0 + pad, y0 + pad
+    draw.ellipse([ax, ay, ax + 88, ay + 88], fill=_avatar_color(author))
+    init_font = load_font(fonts_dir, bold=True, size=34)
+    tw = draw.textlength(_initials(author), font=init_font)
+    draw.text((ax + 44 - tw / 2, ay + 44 - init_font.size * 0.58), _initials(author), font=init_font, fill=(255, 255, 255))
+    name = author
+    while draw.textlength(name, font=name_font) > inner_w - 110 and len(name) > 8:
+        name = name[:-2].rstrip() + "…"
+    draw.text((ax + 108, ay + 2), name, font=name_font, fill=ink)
+    sub = " · ".join(x for x in (handle, when) if x)
+    draw.text((ax + 108, ay + 52), sub, font=sub_font, fill=muted)
+
+    # text
+    ty = y0 + pad + header_h
+    for ln in lines:
+        draw.text((x0 + pad, ty), ln, font=text_font, fill=ink)
+        ty += line_h
+
+    # photo with rounded corners
+    if photo_img is not None:
+        py = ty + 20
+        mask = Image.new("L", photo_img.size, 0)
+        ImageDraw.Draw(mask).rounded_rectangle([0, 0, photo_img.width - 1, photo_img.height - 1], radius=22, fill=255)
+        canvas.paste(photo_img, (x0 + pad, py), mask)
+        ty = py + photo_img.height + 8
+
+    if footer:
+        draw.line([(x0 + pad, ty + 10), (x0 + card_w - pad, ty + 10)], fill=line, width=2)
+        draw.text((x0 + pad, ty + 22), footer, font=foot_font, fill=muted)
+
+    if watermark:
+        wm_font = load_font(fonts_dir, bold=True, size=30)
+        wtw = draw.textlength(watermark, font=wm_font)
+        draw.text((W - wtw - margin, H - margin - wm_font.size), watermark, font=wm_font, fill=(140, 143, 150))
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    canvas.save(out_path, "JPEG", quality=92, optimize=True)
+    return out_path

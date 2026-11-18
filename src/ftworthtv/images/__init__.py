@@ -9,11 +9,65 @@ from ..models import CATEGORY_LABELS, ImageAsset, PostDraft
 from ..sources import cameras
 from ..state import State
 from ..textutil import fmt_time, to_local
-from .card import render_card, render_plain
+from .card import render_card, render_plain, render_quote_card
 from .fetch import download_image
 from .providers import find_photo
 
 log = logging.getLogger(__name__)
+
+
+def quote_fields(story, settings) -> tuple[str, str | None, str, str]:
+    """(author, source line, quoted text, when) for the post-inside-a-post card.
+
+    The card quotes the source's own public text (headline + first sentence, or the bulletin fields) under the source's name.
+    The grey line shows where that text comes from: the real @handle when the story *is* a social post (extra.post_url),
+    otherwise the website domain. No platform logos, no invented engagement numbers."""
+    from urllib.parse import urlparse
+    from ..textutil import fmt_time, to_local, smart_headline
+    from ..writer import _first_sentence
+    brand = settings.brand
+    handles = (brand.get("card", {}) or {}).get("quoted_handles", {}) or {}
+    x = story.extra
+    kind = story.source_kind
+    when = ""
+    if story.published:
+        local = to_local(story.published, settings.tz)
+        when = fmt_time(story.published, settings.tz) if kind in ("nws_alert", "nws_forecast") else local.strftime("%b %d").replace(" 0", " ")
+    if kind == "wanted":
+        author = x.get("agency", story.source)
+        text = f"WANTED: {x.get('name')}\nWanted for {str(x.get('charge', '')).lower()}.\nCrime Stoppers will pay up to {x.get('reward')} for information leading to an arrest. Call {x.get('tip_phone')}. Tipsters stay anonymous."
+    elif kind == "nws_alert":
+        author = "NWS Fort Worth"
+        text = f"{x.get('event', 'Weather alert')} for {x.get('area', 'Tarrant County')}. " + (_first_sentence(x.get("instruction", "")) or "")
+    elif kind == "nws_forecast":
+        author = "NWS Fort Worth"
+        detail = _first_sentence(story.summary) if story.summary else ""
+        text = f"Today: {x.get('short', '')}, high near {x.get('high', '')}°." + (f"\n{detail}" if detail else "")
+    elif kind in ("event", "event_roundup"):
+        author = x.get("venue") or story.source
+        text = f"{story.title.split(' at ')[0]}\n{x.get('when', '')}" + (f" · {x.get('venue')}" if x.get("venue") else "")
+    elif kind == "arrest_log":
+        author = story.source
+        text = story.title + "\n" + "\n".join(f"• {e.get('name')} – {e.get('charge')}" for e in x.get("entries", [])[:6])
+    else:
+        author = story.source
+        first = _first_sentence(story.summary) if story.summary else ""
+        head = smart_headline(story.title, 110)
+        text = head + (f"\n\n{first}" if first and first.lower()[:30] != head.lower()[:30] else "")
+    if x.get("post_url"):
+        line = handles.get(author) or handles.get(story.source) or urlparse(x["post_url"]).netloc.replace("www.", "")
+    else:
+        line = urlparse(story.url).netloc.replace("www.", "") if story.url else None
+    return author, line, text.strip(), when
+
+
+def quote_footer(story, credit: str | None) -> str | None:
+    """Only a photo credit, and only when the photo is not the source's own (stock / Creative Commons)."""
+    if not credit or credit.lower().startswith(("photo: " + story.source.lower(), "radar:", "image: ticketmaster")):
+        return None
+    if story.image_policy == "source_image" and credit == (story.image_credit or ""):
+        return None
+    return credit
 
 
 def short_agency(name: str) -> str:
@@ -124,7 +178,17 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                         pass
 
     card_cfg = brand.get("card", {}) or {}
-    if card_cfg.get("style", "plain") == "plain":
+    style = card_cfg.get("style", "plain")
+    if style == "quoted" and story.source_kind not in ("culture",):
+        author, handle, text, when = quote_fields(story, settings)
+        out = render_quote_card(author=author, handle=handle, when=when, text=text, photo=background, out_path=workdir / "quote.jpg",
+                                brand=brand, fonts_dir=settings.fonts_dir,
+                                watermark=(brand.get("instagram_handle") or brand.get("handle")) if card_cfg.get("watermark_handle", True) else None,
+                                footer=quote_footer(story, credit if provider != "placeholder" else None))
+        return ImageAsset(path=out, credit=credit if provider != "placeholder" else f"Card: {brand.get('short_name', 'FTW TV')}",
+                          license=license_ if provider != "placeholder" else "card", provider=provider if provider != "placeholder" else "quote",
+                          source_url=source_url, photo_id=photo_id, width=1080, height=1350)
+    if style in ("plain", "quoted"):
         if background is None:
             if not card_cfg.get("placeholder_when_no_photo", False):
                 return None

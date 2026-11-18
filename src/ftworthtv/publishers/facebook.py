@@ -68,8 +68,8 @@ class FacebookPublisher(Publisher):
                 with open(draft.image.path, "rb") as fh:
                     payload = self._post(f"{s.fb_page_id}/photos", data, files={"source": (draft.image.path.name, fh, "image/jpeg")})
                 post_id = payload.get("post_id") or payload.get("id")
-            elif draft.mode == "link" and draft.link:
-                data["link"] = draft.link
+            elif draft.mode in ("link", "share") and draft.link:
+                data["link"] = draft.link   # a public facebook.com post URL renders as a nested shared post
                 payload = self._post(f"{s.fb_page_id}/feed", data)
                 post_id = payload.get("id")
             else:

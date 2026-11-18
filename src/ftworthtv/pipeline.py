@@ -116,7 +116,10 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         n = len(drafts) + 1
         workdir = run_dir / f"{n:02d}-{slugify(story.title)}"
         link_mode = posting.get("news_photo_mode", "card") == "link"
-        if story.source_kind == "reddit" or (story.source_kind == "rss" and story.image_policy == "none" and link_mode):
+        if story.extra.get("facebook_post_url"):   # submissions / sources that give us a public post: share it as a nested post
+            draft.mode, draft.link = "share", story.extra["facebook_post_url"]
+            workdir.mkdir(parents=True, exist_ok=True)
+        elif story.source_kind == "reddit" or (story.source_kind == "rss" and story.image_policy == "none" and link_mode):
             draft.mode, draft.link = "link", story.url
             workdir.mkdir(parents=True, exist_ok=True)
         else:
@@ -205,6 +208,8 @@ def write_preview(report: RunReport, settings: Settings) -> Path:
         if draft.image:
             rel = Path(draft.image.path).relative_to(report.run_dir).as_posix()
             img = f'<img src="{html.escape(rel)}" alt="">'
+        elif draft.mode == "share":
+            img = f'<div class="linkbox">🔁 Shared post: Facebook renders the original post nested inside ours<br><small>{html.escape(draft.link or "")}</small></div>'
         elif draft.mode == "link":
             img = f'<div class="linkbox">🔗 Link post: Facebook will render the outlet\'s own preview photo<br><small>{html.escape(draft.link or "")}</small></div>'
         when = draft.scheduled_at.astimezone(settings.tz).strftime("%b %d, %I:%M %p") if draft.scheduled_at else "Just now"

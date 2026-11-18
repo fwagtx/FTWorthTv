@@ -95,3 +95,26 @@ def test_unsafe_photos_are_filtered(settings, monkeypatch):
                                     source_url="https://flickr.com/p/2", alt="AT&T Stadium exterior")
     monkeypatch.setattr(providers, "_search", lambda q, s: [bad, good])
     assert providers.find_photo("football stadium Texas", settings).id == "openverse-2"
+
+
+def test_quote_card_renders_with_and_without_photo(settings, tmp_path):
+    from ftworthtv.images.card import render_quote_card
+    photo = tmp_path / "p.jpg"
+    Image.new("RGB", (1200, 800), (90, 120, 160)).save(photo)
+    out = render_quote_card(author="Fort Worth Police Department", handle="@fortworthpd", when="2h", text="WANTED: Sample Person\nWanted for aggravated robbery.",
+                            photo=photo, out_path=tmp_path / "q.jpg", brand=settings.brand, fonts_dir=settings.fonts_dir, watermark="@FortWorthTexasTV",
+                            footer="Source: police.fortworthtexas.gov")
+    with Image.open(out) as im:
+        assert im.size == (1080, 1350)
+    out2 = render_quote_card(author="Fort Worth Report", handle="@FortWorthReport", when="Nov 18", text="A headline with no photo at all " * 4,
+                             photo=None, out_path=tmp_path / "q2.jpg", brand=settings.brand, fonts_dir=settings.fonts_dir)
+    assert out2.exists()
+
+
+def test_quoted_style_is_used_by_the_planner(settings, now, tmp_path):
+    from ftworthtv.examples import example_stories
+    from ftworthtv.pipeline import run
+    settings.brand["card"]["style"] = "quoted"
+    settings.max_posts = 3
+    report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
+    assert all(d.image and d.image.path.name == "quote.jpg" for d in report.drafts if d.story.source_kind != "culture")
