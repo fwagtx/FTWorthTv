@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T01:00:00+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-140000/05-where-to-eat-in-fort-worth-5-tasty-new-restauran/card.jpg",
+    "credit": "Photo: JIP via Wikimedia Commons (CC BY-SA 3.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Spicy_Texas_Beef.jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "food",
+    "headline": "Where to eat in Fort Worth: 5 tasty new restaurants to try",
+    "caption": "New spot alert, Fort Worth 🌮\n\nWhere to eat in Fort Worth: 5 tasty new restaurants to try\n\nNew this month: Beverly's Downtown, an underground Mexican restaurant in the basement of the historic Hogan Building at 901 Houston St. (opened Nov. 10); Flora House Cafe at the Fort Worth Botanic Garden (ribbon cutting Nov.…\n\n📍 Fort Worth, TX\n\nFollow @FortWorthTexasTV for more 📲",
+    "first_comment": "Source: CultureMap Fort Worth https://fortworth.culturemap.com/news/restaurants-bars/where-to-eat-november-2026/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [
+      "#FortWorth",
+      "#FortWorthEats",
+      "#FortWorthFood",
+      "#DFWFoodie",
+      "#Texas",
+      "#DickiesArena"
+    ],
+    "image_query": "Texas barbecue plate",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "ee4c14e1f58f3df0",
+    "source": "CultureMap Fort Worth",
+    "source_kind": "rss",
+    "title": "Where to eat in Fort Worth: 5 tasty new restaurants to try",
+    "summary": "New this month: Beverly's Downtown, an underground Mexican restaurant in the basement of the historic Hogan Building at 901 Houston St. (opened Nov. 10); Flora House Cafe at the Fort Worth Botanic Garden (ribbon cutting Nov. 11); Yindee Thai Eatery, opening Nov. 19 at H Mart Plaza on NE Loop 820; and Station & Vine, set to open inside the historic Texas & Pacific Station across from Dickies Arena.",
+    "url": "https://fortworth.culturemap.com/news/restaurants-bars/where-to-eat-november-2026/",
+    "published": "2026-11-16T15:00:00+00:00",
+    "category_hint": "food",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": null,
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.9,
+    "extra": {},
+    "category": "food",
+    "relevance": 5,
+    "score": 0.2057
+  }
+}
