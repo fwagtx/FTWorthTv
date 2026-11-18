@@ -44,10 +44,22 @@ SKYLINE = [  # (x, width, height, style) in fractions of the screen box
 ]
 
 
+TRACED = ROOT / "assets" / "brand" / "skyline-traced.json"
+
+
 def draw_skyline(draw: ImageDraw.ImageDraw, box: tuple[float, float, float, float], color, windows=None) -> None:
     x0, y0, x1, y1 = box
     W, H = x1 - x0, y1 - y0
     base = y1
+    if TRACED.exists():   # the real skyline, traced from a photo
+        import json
+        pts = json.loads(TRACED.read_text())["points"]
+        ys = [y for _, y in pts]
+        top, bottom = min(ys), max(ys)
+        span = (bottom - top) or 1.0
+        poly = [(x0, base)] + [(x0 + W * x, base - H * (bottom - y) / span) for x, y in pts] + [(x1, base)]
+        draw.polygon(poly, fill=color)
+        return
     for x, w, h, style in SKYLINE:
         bx0, bx1, top = x0 + W * x, x0 + W * (x + w), base - H * h
         if style == "step":

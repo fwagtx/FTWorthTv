@@ -179,6 +179,24 @@ def fort_worth_skyline(x0: float, y0: float, w: float, h: float, fill: str) -> s
     return "".join(out)
 
 
+TRACED = ROOT / "assets" / "brand" / "skyline-traced.json"
+
+
+def traced_skyline(x0: float, y0: float, w: float, h: float, fill: str) -> str | None:
+    """The skyline traced from a real photo (scripts/trace_skyline.py), scaled into the box; None if not traced yet.
+    The traced profile's lowest point sits on the base line, its highest point at the top of the box."""
+    if not TRACED.exists():
+        return None
+    import json
+    pts = json.loads(TRACED.read_text())["points"]
+    ys = [y for _, y in pts]
+    top, bottom = min(ys), max(ys)
+    span = (bottom - top) or 1.0
+    base = y0 + h
+    poly = [(x0, base)] + [(x0 + w * x, base - h * (bottom - y) / span) for x, y in pts] + [(x0 + w, base)]
+    return '<polygon points="' + " ".join(f"{x:.1f},{y:.1f}" for x, y in poly) + f'" fill="{fill}"/>'
+
+
 def option_b2(c: dict, with_caption: bool) -> str:
     """Sunset skyline, Fort Worth edition."""
     body, screen, fg, accent, cap = c["body"], c["screen"], c["fg"], c["accent"], c["caption"]
@@ -190,7 +208,8 @@ def option_b2(c: dict, with_caption: bool) -> str:
             '</linearGradient></defs>')
     sx, sy, sw, sh = 140 + 34, ty + 34, 720 - 68, th - 68
     sun = "" if mono else f'<circle cx="{sx + sw * 0.30:.0f}" cy="{sy + sh * 0.50:.0f}" r="{sh * 0.15:.0f}" fill="{PAPER}" opacity="0.85"/>'
-    city = fort_worth_skyline(sx + 30, sy + sh * 0.12, sw - 60, sh * 0.76, body if not mono else INK)
+    city = traced_skyline(sx + 24, sy + sh * 0.14, sw - 48, sh * 0.74, body if not mono else INK) \
+        or fort_worth_skyline(sx + 30, sy + sh * 0.12, sw - 60, sh * 0.76, body if not mono else INK)
     ground = f'<rect x="{sx + 22}" y="{sy + sh * 0.88:.0f}" width="{sw - 44}" height="{sh * 0.03:.0f}" fill="{accent if mono else body}"/>'
     ant = (f'<g stroke="{body}" stroke-width="30" stroke-linecap="round" fill="none">'
            f'<path d="M 500 {ty} L 380 {ty - 150}"/><path d="M 500 {ty} L 620 {ty - 150}"/></g><circle cx="500" cy="{ty}" r="30" fill="{body}"/>')
