@@ -19,23 +19,32 @@ only reads `assets/logo.png` (the post-card avatar), which the script also write
 
 ## 2. Logo system (`assets/brand/`)
 
-A TV set with the Fort Worth skyline on screen (Burnett Plaza, Wells Fargo Tower, The Tower, the courthouse clock tower),
-a gold ground line, and FTWTV under it. It is an original mark, not a copy of the Dallas page's TV logo, so there is nothing to
-clear with them.
+The mark is **"Sunset skyline"**: a rounded TV set whose screen shows the Fort Worth skyline (Burnett Plaza, Wells Fargo
+Tower, The Tower's pyramid roof, the courthouse clock tower) against a navy-to-gold-to-orange sunset with a low sun, and
+FTWTV in Inter Display Black under it. It is drawn as vector SVG (`assets/brand/logo-options/b-sunset-*.svg`) and rendered
+to PNG by `scripts/make_logo_options.py`, so it scales to any size. It is an original mark, not a copy of the Dallas page's
+TV logo, so there is nothing to clear with them.
+
+Two alternates ship in `assets/brand/logo-options/` and the comparison is `options-sheet.jpg`:
+**A "Longhorn TV"** (the antennae are longhorn horns, FTW on screen; the most legible at 32 px) and
+**C "Badge"** (a round seal, FORT WORTH ★ TEXAS TV around a TV with the lone star; good as a stamp or watermark).
+To switch the whole kit to one of them, change `LOGO_CHOICE` in `scripts/make_brandkit.py` and run
+`python scripts/make_logo_options.py && python scripts/make_brandkit.py`.
 
 | File | Use |
 |---|---|
-| `logo-navy.png` | primary mark, navy + gold, on light backgrounds |
-| `logo-white.png` | white + gold, on navy / photos |
-| `logo-black.png` | one-colour, print, stamps, watermarks |
-| `logo-mark-only.png` | the TV without the FTWTV text (small sizes, favicons, the card avatar) |
+| `logo-navy.png` | primary, navy cabinet + sunset screen, on light backgrounds |
+| `logo-white.png` | white cabinet + sunset screen, on navy / photos |
+| `logo-black.png` | one-colour black (white screen, black skyline): print, stamps, engraving |
+| `logo-mark-only.png` | the TV without the FTWTV caption: small sizes, favicons, the post-card avatar |
 | `profile-light-1024.png` | profile picture everywhere (white disc, navy ring). Also `profile-400.png`, `favicon-180.png` |
 | `profile-dark-1024.png` | alternate profile picture (navy disc, gold ring) |
 | `wordmark-navy.png`, `wordmark-white.png` | horizontal lockup FORT WORTH / TEXAS TV + tagline, for covers, intros, email |
 | `watermark-handle.png` | the @handle pill for the corner of videos and reels |
+| `logo-options/*.svg` | the vector sources (light / dark / mono × full / mark-only) for a designer or a print shop |
 
 Rules: clear space of one antenna height around the mark; never smaller than 32 px (use the mark only below 64 px);
-never stretched, never recoloured outside navy / white / black with the gold ground line; never on busy photos without the pill.
+never stretched, never recoloured outside navy / white / black with the sunset screen; never on busy photos without the pill.
 
 ## 3. Colour
 

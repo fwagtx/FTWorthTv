@@ -73,8 +73,18 @@ def draw_skyline(draw: ImageDraw.ImageDraw, box: tuple[float, float, float, floa
                     draw.rectangle([wx, wy, wx + W * 0.014, wy + W * 0.014], fill=windows)
 
 
+LOGO_DIR = ROOT / "assets" / "brand" / "logo-options"
+LOGO_CHOICE = "b-sunset"     # a-longhorn | b-sunset | c-badge  (rendered by scripts/make_logo_options.py)
+
+
 def mark(size: int, body, screen, city, ground, text: str | None, text_color, windows=None) -> Image.Image:
-    """The TV mark on a transparent square. body = TV colour, screen = screen fill, city = skyline colour."""
+    """The brand mark on a transparent square. Uses the chosen vector logo (light / dark / mono, with or without the
+    caption) when it has been rendered; otherwise falls back to the simple drawn TV."""
+    way = "dark" if body == PAPER else ("mono" if body == INK else "light")
+    rendered = LOGO_DIR / f"{LOGO_CHOICE}-{way}-{'full' if text else 'mark'}-1024.png"
+    if rendered.exists():
+        with Image.open(rendered) as im:
+            return im.convert("RGBA").resize((size, size), Image.LANCZOS)
     S = size
     img = Image.new("RGBA", (S, S), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
@@ -103,7 +113,7 @@ def circle_profile(size: int, bg, m: Image.Image, ring=None) -> Image.Image:
     img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     d.ellipse([0, 0, size - 1, size - 1], fill=bg, outline=ring, width=int(size * 0.02) if ring else 0)
-    inner = int(size * 0.72)
+    inner = int(size * 0.80)
     mm = m.resize((inner, inner), Image.LANCZOS)
     img.alpha_composite(mm, ((size - inner) // 2, (size - inner) // 2))
     return img
