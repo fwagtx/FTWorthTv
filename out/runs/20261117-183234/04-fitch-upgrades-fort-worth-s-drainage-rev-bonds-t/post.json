@@ -1,0 +1,56 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T04:17:34.540055+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183234/04-fitch-upgrades-fort-worth-s-drainage-rev-bonds-t/card.jpg",
+    "credit": "Photo: City of Fort Worth",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.fortworthtexas.gov/news/2026/11/Fitch-upgrades-Fort-Worths-Drainage-Rev-Bonds-to-AAA"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Fitch upgrades Fort Worth's Drainage Rev Bonds",
+    "caption": "Fort Worth weather check 🌤️\n\nFitch upgrades Fort Worth's Drainage Rev Bonds to 'AAA';Stable Outlook\n\nStable outlook reflects strong financial performance, responsible fiscal management and continued investment in flood protection infrastructure\n\n📍 Fort Worth, TX\n\nFollow @FortWorthTexasTV for more 📲",
+    "first_comment": "Source: City of Fort Worth https://www.fortworthtexas.gov/news/2026/11/Fitch-upgrades-Fort-Worths-Drainage-Rev-Bonds-to-AAA\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [
+      "#FortWorth",
+      "#FortWorthWeather",
+      "#DFWwx",
+      "#TXwx",
+      "#Texas"
+    ],
+    "image_query": "Fort Worth skyline storm clouds",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "44271d1bfada65e9",
+    "source": "City of Fort Worth",
+    "source_kind": "rss",
+    "title": "Fitch upgrades Fort Worth's Drainage Rev Bonds to 'AAA';Stable Outlook",
+    "summary": "Stable outlook reflects strong financial performance, responsible fiscal management and continued investment in flood protection infrastructure",
+    "url": "https://www.fortworthtexas.gov/news/2026/11/Fitch-upgrades-Fort-Worths-Drainage-Rev-Bonds-to-AAA",
+    "published": "2026-11-17T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.fortworthtexas.gov/files/assets/public/v/1/news/images/chamber-regional-skyline-downtown.jpg",
+    "image_credit": "Photo: City of Fort Worth",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.8,
+    "extra": {
+      "listing_image": "https://www.fortworthtexas.gov/files/assets/public/v/1/news/images/chamber-regional-skyline-downtown.jpg",
+      "generic_image": false,
+      "article_fetched": true
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 0.8235
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "daily": {
+    "2026-11-17": 6
+  },
+  "flags": {},
+  "last_post_at": "2026-11-18T00:32:34.540055+00:00",
+  "posted": {
+    "0483ca217fa88587": {
+      "at": "2026-11-18T00:32:34.540055+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183234/02-wanted-joshua-rodriguez",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "2c2ccee9a4db2847": {
+      "at": "2026-11-18T00:32:34.540055+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183234/05-free-fun-events-in-arlington-november-19-25-2026",
+      "publisher": "dryrun",
+      "source": "City of Arlington",
+      "title": "Free & Fun Events in Arlington: November 19 - 25, 2026",
+      "url": "https://www.arlingtontx.gov/News-Articles/2026/Free-Fun-Events-in-Arlington-November-19-25-2026"
+    },
+    "44271d1bfada65e9": {
+      "at": "2026-11-18T00:32:34.540055+00:00",
+      "category": "weather",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183234/04-fitch-upgrades-fort-worth-s-drainage-rev-bonds-t",
+      "publisher": "dryrun",
+      "source": "City of Fort Worth",
+      "title": "Fitch upgrades Fort Worth's Drainage Rev Bonds to 'AAA';Stable Outlook",
+      "url": "https://www.fortworthtexas.gov/news/2026/11/Fitch-upgrades-Fort-Worths-Drainage-Rev-Bonds-to-AAA"
+    },
+    "597a35e53e14c31b": {
+      "at": "2026-11-18T00:32:34.540055+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183234/03-90-year-old-mowing-lawns-to-get-by-in-south-fort",
+      "publisher": "dryrun",
+      "source": "WFAA",
+      "title": "90-year-old mowing lawns to get by in South Fort Worth sparks community support",
+      "url": "https://www.wfaa.com/article/news/local/tarrant-county/90-year-old-mowing-lawns-make-ends-meet-south-fort-worth-sparks-community-support/287-91e5a724-a0c1-4fc8-8534-23e1425748bb"
+    },
+    "8cdf3328f6418667": {
+      "at": "2026-11-18T00:32:34.540055+00:00",
+      "category": "events",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183234/06-r-b-star-jhen-aiko-sets-fort-worth-date-on-2027",
+      "publisher": "dryrun",
+      "source": "CultureMap Fort Worth",
+      "title": "R&B star Jhené Aiko sets Fort Worth date on 2027 arena tour",
+      "url": "https://fortworth.culturemap.com/news/entertainment/jhene-aiko-tour-fort-worth/"
+    },
+    "beb16b4ccafde2b9": {
+      "at": "2026-11-18T00:32:34.540055+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183234/01-fort-works-art-announces-who-wears-the-hat-andre",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Fort Works Art announces ‘Who Wears the Hat,’ Andrew Walker’s inaugural exhibition for the 2027 Fort Worth Stock Show & Rodeo",
+      "url": "https://fortworthreport.org/2026/11/17/fort-works-art-announces-who-wears-the-hat-andrew-walkers-inaugural-exhibition-for-the-2027-fort-worth-stock-show-and-rodeo/"
+    }
+  },
+  "total_posts": 6,
+  "used_photos": [
+    "commons-2847539",
+    "commons-6963865",
+    "commons-62555302"
+  ],
+  "version": 1
+}
