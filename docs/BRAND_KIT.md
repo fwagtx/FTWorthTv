@@ -72,11 +72,28 @@ covers, stories and highlights.
 
 ## 6. Bios (paste as-is)
 
-- **Facebook intro (101 chars):** `Independent news, culture and entertainment for Fort Worth. Every day. DM us your videos 📲`
-- **Instagram (150):** `Fort Worth, every day.` / `Independent news · culture · entertainment` / `DM us your videos & photos 📲`
-- **X (160):** `Independent news, culture and entertainment for Fort Worth, Tarrant County and Arlington. Every day. DM us your videos 📲`
-- **TikTok (80):** `Fort Worth, every day. DM us your videos 📲`
-- **YouTube / About:** `Fort Worth Daily is an independent news, culture and entertainment page for Fort Worth, Tarrant County and Arlington: what happened today, what is on this weekend, where to eat, the weather, the Cowboys and TCU, and the people who make the city. Every source and every photo is credited. Not affiliated with any TV station or with the City of Fort Worth.`
+Pick one voice and use it on both networks so the page reads the same everywhere.
+
+**Recommended: "If it happened in Fort Worth, it's here."**
+
+- **Instagram** (111 of 150 characters, three lines):
+  `If it happened in Fort Worth, it's here.` / `📍 News · events · food · sports · weather` / `DM us your videos & photos 📲`
+- **Facebook intro** (97 of 101): `If it happened in Fort Worth, it's here. News, events, food & weather, daily. DM us your videos 📲`
+
+**Alternative: "The city's group chat."** (warmer, more Dallas-page energy)
+
+- **Instagram** (95): `The city's group chat.` / `Fort Worth news, events, food & weather, every day.` / `DM us what you saw 📲`
+- **Facebook intro** (95): `The city's group chat. Fort Worth news, events, food & weather, every day. DM us what you saw 📲`
+
+**Alternative: the tagline straight.**
+
+- **Instagram** (91): `Fort Worth, every day.` / `The news, the shows, the food, the weather. 🤠` / `Send us what you saw 📲`
+- **Facebook intro** (89): `Fort Worth, every day. The news, the shows, the food, the weather. Send us what you saw 📲`
+
+Other fields: Instagram name field `Fort Worth Daily`, category *Media/News Company*; Facebook "About" (255):
+`Independent news, culture and entertainment for Fort Worth, Tarrant County and Arlington. What happened today, what's on this weekend, where to eat, the weather, the Cowboys and TCU. Every source and photo credited. Not affiliated with any TV station or the City of Fort Worth.`
+X (160): `If it happened in Fort Worth, it's here. Independent news, events, food & weather for Fort Worth, Tarrant County and Arlington. DM us your videos 📲`
+TikTok (80): `If it happened in Fort Worth, it's here. DM us your videos 📲`
 
 ## 7. The post, in one paragraph
 
