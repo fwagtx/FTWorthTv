@@ -48,7 +48,7 @@ class MetricoolPublisher(Publisher):
             "text": text,
             "media": media,
             "mediaAltText": [draft.copy.headline] if media else [],
-            "autoPublish": True,
+            "autoPublish": bool(s.metricool_autopublish),
             "draft": False,
             "firstCommentText": draft.first_comment_text(),
             "shortener": False,

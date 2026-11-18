@@ -82,6 +82,7 @@ class Settings:
     metricool_user_id: str | None = None
     metricool_blog_id: str | None = None
     metricool_networks: list[str] = field(default_factory=lambda: ["facebook"])
+    metricool_autopublish: bool = True          # False = Metricool pushes the post to your phone for one-tap approval
     media_base_url: str | None = None
     verbose: bool = False
 
@@ -170,6 +171,7 @@ class Settings:
             metricool_user_id=pick("METRICOOL_USER_ID"),
             metricool_blog_id=pick("METRICOOL_BLOG_ID"),
             metricool_networks=networks or ["facebook"],
+            metricool_autopublish=_bool(pick("METRICOOL_AUTOPUBLISH"), True),
             media_base_url=pick("MEDIA_BASE_URL"),
         )
         for key, value in overrides.items():

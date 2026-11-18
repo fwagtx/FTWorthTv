@@ -215,7 +215,8 @@ look repetitive. No AI-generated imagery is used anywhere.
 * **Instagram (free)** — set `IG_USER_ID` (the Instagram Business account linked to the Page) and `MEDIA_BASE_URL`; the facebook
   publisher then cross-posts each photo through the Instagram Graph API (`/media` → `/media_publish`). The workflow commits the
   images first so they have a public URL on `raw.githubusercontent.com` (public repo).
-* **metricool** — optional, only if you already pay for Metricool's API add-on; schedules Facebook + Instagram in one call.
+* **metricool** — schedules Facebook + Instagram (and more) in one call through Metricool's API, with
+  `METRICOOL_AUTOPUBLISH=false` for one-tap approval from the Metricool app. No Meta developer app or Page token needed.
 * **dryrun** — writes everything to `out/` and nothing leaves the machine. The GitHub workflow always runs phase 1 as a dry run and
   only then publishes (`ftworthtv publish latest`), so you can also insert a human review step between the two.
 
@@ -248,7 +249,7 @@ Built and tested in a sandbox that could not reach the public internet beyond pa
 
 Nothing. Public GitHub repo = unlimited Actions minutes; NWS, Ticketmaster, Openverse, Wikimedia, Unsplash, Flickr, Pixabay and
 the Facebook/Instagram Graph APIs are free; captions come from Claude Code on a Pro/Max subscription or from the free template
-writer. The only paid things in this repo are optional and off by default: the Anthropic pay-as-you-go API and Metricool.
+writer. Metricool is optional (handy if you already have it); the Anthropic pay-as-you-go API is optional and off by default.
 
 ## Roadmap (not built yet)
 

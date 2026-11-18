@@ -56,7 +56,8 @@ jobs:
       METRICOOL_USER_TOKEN: ${{ secrets.METRICOOL_USER_TOKEN }}
       METRICOOL_USER_ID: ${{ secrets.METRICOOL_USER_ID }}
       METRICOOL_BLOG_ID: ${{ secrets.METRICOOL_BLOG_ID }}
-      METRICOOL_NETWORKS: ${{ vars.METRICOOL_NETWORKS || 'facebook' }}
+      METRICOOL_NETWORKS: ${{ vars.METRICOOL_NETWORKS || 'facebook,instagram' }}
+      METRICOOL_AUTOPUBLISH: ${{ vars.METRICOOL_AUTOPUBLISH || 'true' }}
       NWS_USER_AGENT: ${{ secrets.NWS_USER_AGENT || 'FTWorthTv/0.1 (github actions)' }}
     steps:
       - uses: actions/checkout@v4

@@ -9,7 +9,7 @@ the captions use the Claude subscription you already have.
 | # | Decision | Default if you say nothing |
 |---|----------|----------------------------|
 | 1 | Page name and handles | "Fort Worth Texas TV", Facebook `@FortWorthTexasTV`, Instagram `@FortWorthTexasTV` (check the handle is free) |
-| 2 | Posting path | Facebook Graph API directly (free); Instagram cross-posting through the same free API (set `IG_USER_ID`) |
+| 2 | Posting path | **Metricool** (you already have it): Facebook + Instagram from one brand, optional phone approval, no Meta developer app needed. Facebook Graph API direct is the fallback. |
 | 3 | Crime content | WANTED bulletins on (1/day), felony arrest log off, sex-offense cases filtered out |
 | 4 | Volume | up to 2 posts per run, 10 per day, quiet 11pm–6am Central |
 | 5 | Sponsor line | none until you have a sponsor ("Official partner of …" every 5th post) |
@@ -26,7 +26,19 @@ the captions use the Claude subscription you already have.
 | `NWS_USER_AGENT` | nothing to sign up for; just the text `FTWorthTv/0.1 (contact: you@yourdomain.com)` | 0 | the weather service requires an identifying string |
 | `CLAUDE_CODE_OAUTH_TOKEN` | on your computer, in Claude Code: `claude setup-token` (uses your Pro/Max subscription, no API bill) | 2 min | captions in the Dallas voice instead of the template. Each caption is one short headless Claude Code call (about 40K tokens of plan usage, well under a Max plan's daily allowance at 10 posts a day) |
 
-## C. Facebook Page + a token that doesn't expire (20–30 minutes)
+## C1. Metricool path (15 minutes) — recommended, you already pay for it
+
+1. Create the Facebook Page (name from A1) and the Instagram Business account; link them.
+2. In Metricool, add a new brand for the page and connect Facebook + Instagram to it.
+3. Metricool → Settings → API: copy your **user token**. Your **user id** is the number in the Metricool URL / the one your
+   other brands use. The new brand's **blog id** is in the planner URL (or `https://app.metricool.com/api/admin/simpleProfiles?userId=<id>`).
+4. GitHub secrets: `METRICOOL_USER_TOKEN`, `METRICOOL_USER_ID`, `METRICOOL_BLOG_ID`.
+   Variables: `FTWTV_PUBLISHER = metricool`, `METRICOOL_NETWORKS = facebook,instagram`,
+   `MEDIA_BASE_URL = https://raw.githubusercontent.com/fwagtx/FTWorthTv/main` (repo public), and
+   `METRICOOL_AUTOPUBLISH = false` if you want every post sent to your phone for one-tap approval first.
+5. That's it: no Meta app, no tokens. Skip C2 unless you want the direct path later.
+
+## C2. Facebook Graph API direct (fallback, 20–30 minutes)
 
 1. Create the Page in Meta Business Suite (name from A1). Make yourself admin. Add profile picture, cover, bio from `config/brand.yaml`.
 2. developers.facebook.com → My Apps → Create app → type **Business**. Note App ID and App Secret (Settings → Basic). Leave the app in Development mode; no App Review is needed to post to your own Page.
@@ -41,21 +53,19 @@ the captions use the Claude subscription you already have.
 
 1. Settings → General → Default branch: rename `claude/practical-mccarthy-mi4jkw` to `main` (or tell me to push `main`). Scheduled workflows run from the default branch only.
 2. Settings → Secrets and variables → Actions → **Secrets**: everything from B and C.
-3. **Variables**: `FTWTV_PUBLISHER = dryrun` (start here), optionally `FTWTV_MAX_POSTS = 2`.
+3. **Variables**: `FTWTV_PUBLISHER = dryrun` (start here), optionally `FTWTV_MAX_POSTS = 2`. Flip to `metricool` (or `facebook`) in step 5.
 4. Actions → "Post to Fort Worth Texas TV" → Run workflow. Download the artifact, open `latest-preview.html`, check 10 posts.
-5. Flip the variable to `facebook` (or `metricool`). Done: it runs every 2 hours.
+5. Flip the variable to `metricool` (or `facebook`). Done: it runs every 2 hours.
 6. Housekeeping: delete the `renders/*` and `pages/*` branches (sample renders), or tell me to.
 
-## E. Instagram, free (10 minutes)
+## E. Instagram without Metricool (only for the C2 path, 10 minutes)
 
 1. Make the repo **public** (Settings → General → Danger zone → Change visibility). That also gives unlimited free Actions minutes.
-2. Convert the Instagram account to Business/Creator and link it to the Page (Instagram → Settings → Business tools → Connect Page).
-3. When generating the token in C3, also tick `instagram_basic` and `instagram_content_publish`.
+2. Convert the Instagram account to Business/Creator and link it to the Page.
+3. When generating the token in C2, also tick `instagram_basic` and `instagram_content_publish`.
 4. Find the Instagram account id: Graph API Explorer → `GET /{page-id}?fields=instagram_business_account`.
 5. Variables: `IG_USER_ID = <that id>`, `MEDIA_BASE_URL = https://raw.githubusercontent.com/fwagtx/FTWorthTv/main`.
    Photos whose aspect ratio Instagram rejects (taller than 4:5) are skipped on Instagram and still posted on Facebook.
-
-(Metricool is supported but needs their paid API add-on, so it is not part of the free setup.)
 
 ## F. The missing ingredient: the inbox (your call on tooling, 30 minutes to set up)
 
