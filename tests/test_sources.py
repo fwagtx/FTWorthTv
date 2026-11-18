@@ -96,3 +96,19 @@ def test_opencities_listing_parser(settings, now):
     assert s.title and s.summary and s.published is not None and s.published.year == 2026
     assert s.official and s.image_policy == "source_image" and s.category_hint == "crime"
     assert s.extra["generic_image"] is True and s.image_url is None   # the "news release" graphic is not used as the photo
+
+
+def test_arrest_log_parser_and_roundup(settings):
+    from datetime import datetime, timezone
+    from pathlib import Path
+    from ftworthtv.sources.arrests import clean_charge, parse_entries, roundup_story
+    html = Path(__file__).parent.joinpath("fixtures/fwpd_recent_arrests.html").read_text(encoding="utf-8")
+    entries = parse_entries(html)
+    assert len(entries) == 3
+    assert entries[0]["name"] == "DOE, JOHN" and entries[0]["age"] == 40 and entries[0]["booked"].year == 2026
+    assert entries[1]["degree"] == "F2" and len(entries[1]["charges"]) == 2
+    assert clean_charge(entries[1]["charges"][0]).startswith("Aggravated Assault")
+    now = datetime(2026, 11, 17, 18, 0, tzinfo=timezone.utc)
+    story = roundup_story(entries, now, settings.tz, {"window_hours": 48, "min_degree": "MA", "min_entries": 1})
+    assert story and story.source_kind == "arrest_log" and story.extra["entries"][0]["degree"] in ("F2", "F3")
+    assert "•" in story.summary

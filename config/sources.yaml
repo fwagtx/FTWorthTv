@@ -102,6 +102,16 @@ opencities:
     category_hint: community
     verify: true
 
+# FWPD public arrest log (names, ages, charges; no photos). One daily "arrest log" post of felony bookings.
+# Public record, but it names people who are only accused: off by default. Turn on deliberately.
+arrest_log:
+  enabled: false
+  url: https://pdapps.fortworthtexas.gov/OnlineServices/Reports/RecentArrests
+  window_hours: 24
+  min_degree: F3        # F1 | F2 | F3 | SJF (state jail felony) | MA (include class A misdemeanors)
+  min_entries: 3
+  max_entries: 8
+
 # National Weather Service (free, no key, public domain imagery)
 nws:
   enabled: true

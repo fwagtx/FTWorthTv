@@ -232,6 +232,14 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         lines += ["Tickets in the comments 👇", cta]
         headline = "This Weekend in Fort Worth"
         first_comment = "🎟️ Tickets:\n" + "\n".join(f"{e.get('title', '')}: {e.get('url', '')}" for e in story.extra.get("events", [])[:6]) + "\n{photo_credit}"
+    elif kind == "arrest_log":
+        entries = story.extra.get("entries", [])
+        lines = [f"Fort Worth arrest log 🚔 Felony bookings, last {story.title.split('last ')[-1] if 'last ' in story.title else '24 hours'}"]
+        lines += [f"• {e.get('name')}{', ' + str(e['age']) if e.get('age') else ''} — {e.get('charge') or 'charges pending'}" for e in entries[:8]]
+        lines += [settings.brand.get("crime", {}).get("disclaimer", "All suspects are presumed innocent until proven guilty."), cta]
+        headline = f"Fort Worth Arrest Log: {len(entries)} Felony Bookings"
+        first_comment = f"Source: Fort Worth Police Department public arrest records {story.url}\n{{photo_credit}}"
+        image_query = "police car lights night"
     elif kind == "reddit":
         lines = ["Trending on r/FortWorth 👀", truncate(story.title, 140), f"📍 {location}", cta]
     else:

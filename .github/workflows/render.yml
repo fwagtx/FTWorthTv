@@ -14,6 +14,12 @@ on:
       now:
         description: "pretend it is this ISO time (optional)"
         default: ""
+      live_sources:
+        description: "also pull the real feeds / police / city / NWS sources (true|false)"
+        default: "false"
+      since_hours:
+        description: "ignore stories older than this"
+        default: "96"
 
 permissions:
   contents: write
@@ -37,7 +43,9 @@ jobs:
         run: |
           NOW_ARG=""
           if [ -n "${{ inputs.now }}" ]; then NOW_ARG="--now ${{ inputs.now }}"; fi
-          python -m ftworthtv -v run --stories "${{ inputs.stories }}" --no-sources --dry-run --max "${{ inputs.max_posts }}" --since-hours 96 $NOW_ARG
+          SRC_ARG="--no-sources"
+          if [ "${{ inputs.live_sources }}" = "true" ]; then SRC_ARG=""; fi
+          python -m ftworthtv -v run --stories "${{ inputs.stories }}" $SRC_ARG --dry-run --max "${{ inputs.max_posts }}" --since-hours "${{ inputs.since_hours }}" $NOW_ARG
       - name: Push renders to a branch
         run: |
           RUN=$(ls -d out/runs/* | tail -1)

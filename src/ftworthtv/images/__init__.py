@@ -77,6 +77,9 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                 label = "WANTED" if any(w in text for w in ("wanted", "seeking", "searching for", "looking for", "help identify")) else "ARRESTED" if any(w in text for w in ("arrest", "charged", "custody", "booked", "indicted")) else "CRIME"
                 subline = story.source.upper()
 
+    if story.source_kind == "arrest_log":
+        label, subline = "ARREST LOG", story.source.upper()
+
     if background is None and copy.category == "traffic":
         cam = cameras.snapshot_for(story, settings, workdir)
         if cam:

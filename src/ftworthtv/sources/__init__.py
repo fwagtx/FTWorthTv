@@ -6,14 +6,14 @@ from datetime import datetime
 
 from ..config import Settings
 from ..models import Story
-from . import nws, opencities, reddit, rss, ticketmaster
+from . import arrests, nws, opencities, reddit, rss, ticketmaster
 
 log = logging.getLogger(__name__)
 
 
 def collect(settings: Settings, now: datetime) -> list[Story]:
     stories: list[Story] = []
-    for module in (rss, opencities, nws, ticketmaster, reddit):
+    for module in (rss, opencities, nws, ticketmaster, arrests, reddit):
         try:
             found = module.fetch(settings, now)
             log.info("%s: %d candidate(s)", module.__name__.rsplit(".", 1)[-1], len(found))
