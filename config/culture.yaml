@@ -1,0 +1,175 @@
+# Recurring Fort Worth cultural moments. The Dallas page leans hard on seasonal / cultural beats (State Fair, Halloween
+# houses, holiday lights, Cowboys game days, World Cup fans in town). These windows produce the Fort Worth equivalents
+# automatically, with a licensed photo (Wikimedia / Pexels) and a one-line Dallas-style caption.
+#
+# window: MM-DD..MM-DD (inclusive, Central time) · every_days: repeat inside the window · captions: one is picked per post
+# {year} is filled in. Keep captions factual: these are evergreen, not news.
+moments:
+  - slug: stock-show
+    name: Fort Worth Stock Show & Rodeo
+    window: 01-10..02-08
+    every_days: 7
+    category: culture
+    image_query: Fort Worth Stock Show rodeo
+    url: https://www.fwssr.com/
+    captions:
+      - "Stock Show season in Fort Worth 🐂"
+      - "The Fort Worth Stock Show & Rodeo is back at Dickies Arena and Will Rogers through early February"
+  - slug: mlk-parade
+    name: Fort Worth MLK Day
+    window: 01-14..01-20
+    category: community
+    image_query: Fort Worth downtown street
+    captions:
+      - "Fort Worth celebrates Dr. King today"
+  - slug: cowtown-marathon
+    name: Cowtown Marathon
+    window: 02-20..02-28
+    category: sports
+    image_query: marathon runners city street
+    url: https://www.cowtownmarathon.org/
+    captions:
+      - "Cowtown Marathon weekend in Fort Worth 🏃"
+  - slug: spring-stockyards
+    name: Stockyards spring
+    window: 03-15..04-15
+    every_days: 10
+    category: culture
+    image_query: Fort Worth Stockyards cattle drive
+    captions:
+      - "The Fort Worth Herd runs through the Stockyards twice a day, 11:30 and 4"
+      - "Stockyards on a spring weekend hits different"
+  - slug: main-st-arts
+    name: Main St. Fort Worth Arts Festival
+    window: 04-10..04-20
+    category: culture
+    image_query: Fort Worth downtown Sundance Square
+    url: https://www.mainstreetartsfest.org/
+    captions:
+      - "Main St. Arts Festival takes over downtown Fort Worth this week"
+  - slug: mayfest
+    name: Mayfest
+    window: 04-28..05-05
+    category: events
+    image_query: Trinity River Fort Worth
+    url: https://www.mayfest.org/
+    captions:
+      - "Mayfest is back on the Trinity in Fort Worth"
+  - slug: cinco-de-mayo
+    name: Cinco de Mayo
+    window: 05-03..05-05
+    category: culture
+    image_query: Fort Worth Northside street
+    captions:
+      - "Cinco de Mayo weekend on the Northside 🇲🇽"
+  - slug: colonial
+    name: Charles Schwab Challenge at Colonial
+    window: 05-18..05-26
+    category: sports
+    image_query: golf course Fort Worth Colonial
+    captions:
+      - "PGA week at Colonial in Fort Worth ⛳"
+  - slug: juneteenth
+    name: Juneteenth
+    window: 06-14..06-19
+    every_days: 3
+    category: culture
+    image_query: Fort Worth Juneteenth parade
+    captions:
+      - "Juneteenth in Fort Worth, the hometown of Opal Lee, the grandmother of the holiday"
+      - "Juneteenth weekend in Fort Worth ✊🏾"
+  - slug: fourth
+    name: Fort Worth's Fourth
+    window: 07-03..07-04
+    category: events
+    image_query: fireworks city skyline night
+    url: https://www.fortworthsfourth.com/
+    captions:
+      - "Fort Worth's Fourth on Panther Island tonight 🎆"
+  - slug: heat
+    name: Texas summer
+    window: 07-10..08-20
+    every_days: 14
+    category: weather
+    image_query: Fort Worth skyline summer
+    captions:
+      - "Everyone in Fort Worth right now 🥵"
+      - "Fort Worth summer is undefeated 🥵"
+  - slug: tcu-kickoff
+    name: TCU football season
+    window: 08-25..09-05
+    category: sports
+    image_query: Amon G. Carter Stadium TCU
+    captions:
+      - "Frogs football is back this week 🐸"
+  - slug: state-fair
+    name: State Fair of Texas
+    window: 09-25..10-20
+    every_days: 10
+    category: events
+    image_query: State Fair of Texas Big Tex
+    url: https://bigtex.com/
+    captions:
+      - "State Fair of Texas is open through mid-October"
+      - "Fair season 🎡"
+  - slug: dia-de-muertos
+    name: Día de los Muertos
+    window: 10-28..11-02
+    category: culture
+    image_query: Dia de los Muertos altar
+    captions:
+      - "Día de los Muertos celebrations across Fort Worth this weekend 💀🌼"
+  - slug: halloween
+    name: Halloween
+    window: 10-29..10-31
+    category: community
+    image_query: Halloween decorations house night
+    captions:
+      - "Happy Halloween Fort Worth 🎃"
+  - slug: lone-star-film
+    name: Lone Star Film Festival
+    window: 11-05..11-10
+    category: culture
+    image_query: Sundance Square Fort Worth night
+    url: https://lonestarfilmfestival.com/
+    captions:
+      - "Lone Star Film Festival is in Sundance Square this week 🎬"
+  - slug: parade-of-lights
+    name: Parade of Lights
+    window: 11-20..11-24
+    category: events
+    image_query: Fort Worth downtown Christmas lights
+    url: https://www.fortworthparadeoflights.org/
+    captions:
+      - "Parade of Lights rolls through downtown Fort Worth this Sunday 🎄"
+  - slug: thanksgiving
+    name: Thanksgiving
+    window: 11-26..11-27
+    category: community
+    image_query: Fort Worth skyline evening
+    captions:
+      - "Happy Thanksgiving Fort Worth 🦃"
+  - slug: stockyards-christmas
+    name: Christmas in the Stockyards
+    window: 12-01..12-24
+    every_days: 7
+    category: culture
+    image_query: Fort Worth Stockyards Christmas
+    captions:
+      - "Christmas in the Stockyards 🎄"
+      - "The Stockyards in December is a whole vibe"
+  - slug: nye
+    name: New Year's Eve
+    window: 12-31..12-31
+    category: events
+    image_query: Fort Worth skyline fireworks
+    captions:
+      - "Happy New Year Fort Worth 🎆"
+  - slug: freeze
+    name: Winter cold snaps
+    window: 12-15..02-15
+    every_days: 14
+    category: weather
+    image_query: Fort Worth downtown winter
+    captions:
+      - "Fort Worth when it drops below 40 🥶"

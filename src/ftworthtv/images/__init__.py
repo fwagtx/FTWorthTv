@@ -88,6 +88,9 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
 
     if story.source_kind == "arrest_log":
         label, subline = "ARREST LOG", story.source.upper()
+    if story.source_kind == "culture":
+        label = CATEGORY_LABELS.get(copy.category, "FORT WORTH")
+        copy = copy.model_copy(update={"image_query": story.extra.get("image_query") or copy.image_query})
     if story.source_kind == "wanted":
         label = "WANTED"
         subline = f"{story.extra.get('charge', '')} · {short_agency(story.extra.get('agency', story.source))}"[:70]

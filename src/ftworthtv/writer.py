@@ -75,7 +75,18 @@ OUTPUT FIELDS
   Prefer Fort Worth landmarks when the story is about the city itself.
 - location: "City, TX" best guess from the story, default "Fort Worth, TX".
 
+WHAT THIS PAGE POSTS (copied from what the Dallas page does; keep this mix in mind when writing)
+- "right now" moments: wrecks and closures on I-35W/I-30/820, storms, lightning, snow, flooding, fights at games, concerts
+  ("Kid Cudi joins Kanye at AT&T"), fans taking over the city, funny street scenes ("how does this happen 😂")
+- one-liner local news: rankings ("Fort Worth was ranked..."), openings ("Nine new stores are coming to..."), closings,
+  big decisions (arenas, taxes), consumer alerts (outages, recalls, free sandbags), statewide bills everyone feels
+- sports fan culture: Cowboys/Rangers (Arlington), TCU, Mavs, Stars; the fans and the moments more than the box score
+- concerts & nightlife: who played last night, who showed up, Dickies Arena / Billy Bob's / Bass Hall
+- weather drama and PSAs; seasonal & cultural beats: Stock Show, Juneteenth, State Fair, Halloween houses, holiday lights
+- crime only when the police published it: WANTED bulletins, arrests, homicide investigations
+
 KIND-SPECIFIC RULES
+- culture: the title IS the caption (evergreen seasonal/cultural beat); do not add facts.
 - nws_alert: hook starts with ⚠️ and names the alert + area; give the end time in Central time; include 1-2 safety lines from the official
   instruction; category weather; no jokes.
 - nws_forecast: a "Good morning, Fort Worth" style post with today's high, conditions and tonight's low; category weather.
@@ -200,10 +211,16 @@ def _tidy(sentence: str) -> str:
     return collapse_ws(sentence).rstrip(" .")
 
 
+BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "read more", "learn more", "stay informed", "follow us",
+               "sponsored", "advertis", "click to", "watch the video", "see the full")
+
+
 def _first_sentence(text: str, limit: int = 170) -> str:
     text = collapse_ws(text)
     m = re.match(r"(.+?[.!?])(\s|$)", text)
     first = (m.group(1) if m else text).strip()
+    if any(w in first.lower() for w in BOILERPLATE) or len(first) < 25:
+        return ""
     return first if len(first) <= limit else ""
 
 
@@ -223,13 +240,23 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
         ends = x.get("ends")
         until = f" until {fmt_time(dtparse.isoparse(ends), settings.tz)}" if ends else ""
         return [f"{x.get('event', 'Weather alert')} issued for {x.get('area', 'Tarrant County')}{until} 🚨"]
+    if kind == "culture":
+        return [_tidy(story.title) if not story.title.rstrip().endswith(("🐂", "🏃", "🇲🇽", "⛳", "✊🏾", "🎆", "🥵", "🐸", "🎡", "💀🌼", "🎃", "🎬", "🎄", "🦃", "🥶")) else story.title.strip()]
     if kind == "nws_forecast":
-        high, short = x.get("high"), (x.get("short") or "").lower()
+        high, low, short = x.get("high"), x.get("low"), (x.get("short") or "").lower()
+        try:
+            if high is not None and int(high) >= 100:
+                return [f"{int(high)} degrees in {city} today 🥵"]
+            if low is not None and int(low) <= 32:
+                return [f"Freezing tonight in {city}, low of {int(low)} 🥶"]
+        except (TypeError, ValueError):
+            pass
         return [f"{short.capitalize()} and a high of {high} in {city} today" if high and short else _tidy(story.title)]
     if kind == "event":
         start = x.get("start")
-        when = relative_day(dtparse.isoparse(start), now, settings.tz).lower() if start else (x.get("when") or "")
-        artist = story.title.split(" at ")[0]
+        rd = relative_day(dtparse.isoparse(start), now, settings.tz) if start else (x.get("when") or "")
+        when = (rd[0].lower() + rd[1:]) if rd else ""          # "this Saturday", "tonight", "tomorrow"
+        artist = story.title.split(" at ")[0].split(":")[0].strip()   # drop tour names: "Ty Myers: The Legal Tour" -> "Ty Myers"
         return [f"{artist} at {x.get('venue', city)} {when}. Tickets in the comments 🎟️"]
     if kind == "event_roundup":
         return [f"This weekend in {city}:"] + [f"{e.get('when', '')} – {e.get('title', '')}" for e in x.get("events", [])[:6]]
@@ -326,6 +353,11 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         headline = f"Fort Worth Arrest Log: {len(entries)} Felony Bookings"
         first_comment = f"Source: Fort Worth Police Department public arrest records {story.url}\n{{photo_credit}}"
         image_query = "police car lights night"
+    elif kind == "culture":
+        lines = [story.title.strip(), f"📍 {location}", cta]
+        headline = truncate(story.extra.get("name") or story.title, 60, "")
+        first_comment = (f"More: {story.url}\n" if story.url else "") + "{photo_credit}\nDM us your videos & photos 📲"
+        image_query = story.extra.get("image_query", image_query)
     elif kind == "reddit":
         lines = ["Trending on r/FortWorth 👀", truncate(story.title, 140), f"📍 {location}", cta]
     else:
@@ -378,7 +410,7 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
     seen: set[str] = set()
     tags = [t for t in tags if not (t.lower() in seen or seen.add(t.lower()))][:8]
     first_comment = copy.first_comment.strip()
-    if story.url and story.url not in first_comment:
+    if story.url and story.url not in first_comment and story.source_kind != "culture":
         first_comment = f"Source: {story.source} {story.url}\n" + first_comment
     if "{photo_credit}" not in first_comment:
         first_comment += "\n{photo_credit}"

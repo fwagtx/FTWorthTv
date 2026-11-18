@@ -85,7 +85,7 @@ def infer_category(story: Story) -> str:
 
 
 def is_fresh(story: Story, now: datetime, max_age_hours: float) -> bool:
-    if story.source_kind in ("nws_alert", "nws_forecast", "event", "event_roundup", "wanted", "arrest_log"):
+    if story.source_kind in ("nws_alert", "nws_forecast", "event", "event_roundup", "wanted", "arrest_log", "culture"):
         return True
     if story.published is None:
         return True  # feeds without dates: trust the feed order / dedupe state

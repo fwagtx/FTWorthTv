@@ -156,3 +156,33 @@ def test_wanted_story_renders_as_contained_mugshot_card(settings, now, tmp_path)
     asset = plan_image(draft, settings, State(tmp_path / "s2.json"), tmp_path / "w2")
     with Image.open(asset.path) as im:
         assert im.size == (1080, 1350)
+
+
+def test_culture_calendar_windows_and_captions(settings):
+    from datetime import date, datetime, timezone
+    from ftworthtv.sources.calendar import active_moments, load_moments, moment_story
+    moments = load_moments(settings)
+    assert len(moments) >= 15
+    act = active_moments(moments, date(2026, 11, 21))
+    slugs = {m["slug"] for m, _, _ in act}
+    assert "parade-of-lights" in slugs and "stock-show" not in slugs
+    jan = active_moments(moments, date(2027, 1, 20))
+    assert {"stock-show", "freeze", "mlk-parade"} <= {m["slug"] for m, _, _ in jan}
+    m, start, idx = next(x for x in act if x[0]["slug"] == "parade-of-lights")
+    story = moment_story(m, start, idx, datetime(2026, 11, 21, 18, tzinfo=timezone.utc), "Fort Worth")
+    assert story.source_kind == "culture" and story.id == "culture-parade-of-lights-2026-0" and "Parade of Lights" in story.title
+    # weekly repeats inside a long window get distinct ids
+    s2 = active_moments(moments, date(2026, 12, 9))
+    xmas = next(x for x in s2 if x[0]["slug"] == "stockyards-christmas")
+    assert xmas[2] == 1
+
+
+def test_daily_category_caps(settings, now, tmp_path):
+    from ftworthtv.examples import example_stories
+    from ftworthtv.pipeline import run
+    settings.brand["content_mix"]["caps_per_day"] = {"events": 0, "sports": 0, "food": 0, "culture": 0, "business": 0, "community": 0, "traffic": 1, "weather": 1}
+    settings.max_posts = 5
+    report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
+    cats = [d.copy.category for d in report.drafts]
+    assert cats.count("events") == 0 and cats.count("traffic") <= 1
+    assert any("daily cap" in r for _, r in report.skipped)

@@ -44,6 +44,9 @@ class State:
     def posts_on(self, day: str) -> int:
         return int(self.data.get("daily", {}).get(day, 0))
 
+    def posts_on_by_category(self, day: str, category: str) -> int:
+        return int(self.data.get("daily_by_category", {}).get(day, {}).get(category, 0))
+
     def photo_recently_used(self, photo_id: str | None) -> bool:
         return bool(photo_id) and photo_id in self.data.get("used_photos", [])
 
@@ -74,6 +77,9 @@ class State:
         }
         self.data["last_post_at"] = when.isoformat()
         self.data.setdefault("daily", {})[day] = self.posts_on(day) + 1
+        cat = draft.copy.category or "other"
+        by_cat = self.data.setdefault("daily_by_category", {}).setdefault(day, {})
+        by_cat[cat] = int(by_cat.get(cat, 0)) + 1
         self.data["total_posts"] = self.total_posts + 1
         if draft.image and draft.image.photo_id:
             used = self.data.setdefault("used_photos", [])
@@ -87,7 +93,8 @@ class State:
         stale = [k for k, v in posted.items() if datetime.fromisoformat(v["at"]) < cutoff]
         for k in stale:
             del posted[k]
-        daily = self.data.get("daily", {})
-        for day in [d for d in daily if d < cutoff.date().isoformat()]:
-            del daily[day]
+        for key in ("daily", "daily_by_category"):
+            daily = self.data.get(key, {})
+            for day in [d for d in daily if d < cutoff.date().isoformat()]:
+                del daily[day]
         return len(stale)

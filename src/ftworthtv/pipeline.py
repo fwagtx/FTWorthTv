@@ -101,6 +101,13 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         wanted_cap = int(os.environ.get("FTWTV_WANTED_MAX_PER_RUN") or (settings.sources.get("wanted", {}) or {}).get("max_per_run", 1))
         if story.source_kind == "wanted" and sum(1 for d in drafts if d.story.source_kind == "wanted") >= wanted_cap:
             continue
+        caps = (settings.brand.get("content_mix", {}) or {}).get("caps_per_day", {}) or {}
+        cat = story.category or "other"
+        if cat in caps and not story.is_urgent:
+            used_today = state.posts_on_by_category(day, cat) + sum(1 for d in drafts if (d.copy.category or "other") == cat)
+            if used_today >= int(caps[cat]):
+                report.skipped.append((story, f"daily cap for {cat} reached"))
+                continue
         copy, writer = write_copy(story, settings, now)
         if copy.skip:
             report.skipped.append((story, copy.skip_reason or "writer skipped"))
