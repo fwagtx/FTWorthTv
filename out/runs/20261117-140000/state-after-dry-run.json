@@ -1,0 +1,104 @@
+{
+  "daily": {
+    "2026-11-17": 7
+  },
+  "flags": {},
+  "last_post_at": "2026-11-17T20:00:00+00:00",
+  "posted": {
+    "0544b8324e6dda67": {
+      "at": "2026-11-17T20:00:00+00:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-140000/04-2-minors-killed-3-others-seriously-injured-after",
+      "publisher": "dryrun",
+      "source": "NBC 5 DFW",
+      "title": "2 minors killed, 3 others seriously injured after van crashes and catches fire in Fort Worth",
+      "url": "https://www.nbcdfw.com/news/local/2-minors-killed-3-others-seriously-injured-after-van-crashes-and-catches-fire-in-fort-worth/4106946/"
+    },
+    "905f5464c6089eef": {
+      "at": "2026-11-17T20:00:00+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-140000/06-ut-southwestern-a-step-closer-to-opening-of-radi",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "UT Southwestern a step closer to opening of Radiation Oncology center",
+      "url": "https://fortworthreport.org/2026/11/16/ut-southwestern-a-step-closer-to-opening-of-radiation-oncology-center/"
+    },
+    "ee4c14e1f58f3df0": {
+      "at": "2026-11-17T20:00:00+00:00",
+      "category": "food",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-140000/05-where-to-eat-in-fort-worth-5-tasty-new-restauran",
+      "publisher": "dryrun",
+      "source": "CultureMap Fort Worth",
+      "title": "Where to eat in Fort Worth: 5 tasty new restaurants to try",
+      "url": "https://fortworth.culturemap.com/news/restaurants-bars/where-to-eat-november-2026/"
+    },
+    "f8dff8120280ee36": {
+      "at": "2026-11-17T20:00:00+00:00",
+      "category": "weather",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-140000/07-clear-skies-chilly-temps-and-the-leonid-meteor-s",
+      "publisher": "dryrun",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Clear skies, chilly temps and the Leonid meteor shower peaks tonight over North Texas",
+      "url": "https://fox4news.com/weather/dallas-weather-clear-skies-chilly-temperatures-leonid-meteor-shower-peak"
+    },
+    "forecast-2026-11-17": {
+      "at": "2026-11-17T20:00:00+00:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-140000/01-fort-worth-forecast-for-tuesday-november-17",
+      "publisher": "dryrun",
+      "source": "FOX Weather",
+      "title": "Fort Worth forecast for Tuesday, November 17",
+      "url": "https://www.foxweather.com/local-weather/texas/fort-worth"
+    },
+    "tm-funkytown-showdown-2026-11-22": {
+      "at": "2026-11-17T20:00:00+00:00",
+      "category": "sports",
+      "kind": "event",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-140000/02-women-s-funkytown-showdown-at-dickies-arena",
+      "publisher": "dryrun",
+      "source": "Ticketmaster",
+      "title": "Women's Funkytown Showdown at Dickies Arena",
+      "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
+    },
+    "tm-ty-myers-2026-11-21": {
+      "at": "2026-11-17T20:00:00+00:00",
+      "category": "events",
+      "kind": "event",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-140000/03-ty-myers-the-legal-tour-2026-at-dickies-arena",
+      "publisher": "dryrun",
+      "source": "Ticketmaster",
+      "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+      "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
+    }
+  },
+  "total_posts": 7,
+  "used_photos": [
+    "commons-9674590",
+    "commons-118068496",
+    "commons-118308013",
+    "commons-113161817",
+    "commons-38534024",
+    "commons-133454898",
+    "commons-21750861"
+  ],
+  "version": 1
+}
