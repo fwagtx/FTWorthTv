@@ -107,8 +107,8 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             # generic genre photo first; a venue photo only when the file is clearly of the building, never another artist's show
             from .providers import PERFORMANCE_WORDS
             venue_words = tuple(w for w in venue.lower().split() if len(w) > 2)
-            queries = [copy.image_query, (f"{venue} exterior", PERFORMANCE_WORDS, venue_words),
-                       (f"{venue} building", PERFORMANCE_WORDS, venue_words)]
+            queries = [(f"category:{venue}", PERFORMANCE_WORDS), copy.image_query,
+                       (f"{venue} exterior", PERFORMANCE_WORDS, venue_words), (f"{venue} building", PERFORMANCE_WORDS, venue_words)]
         cand = find_photo(queries, settings, state, exclude=exclude_photos)
         if cand:
             background = _download(cand.url, workdir / "photo")

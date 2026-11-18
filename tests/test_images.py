@@ -44,3 +44,16 @@ def test_render_plain_keeps_aspect_and_adds_watermark(settings, tmp_path):
     out = render_plain(photo, tmp_path / "plain.jpg", brand=settings.brand, fonts_dir=settings.fonts_dir, watermark="@FortWorthTexasTV")
     with Image.open(out) as im:
         assert im.format == "JPEG" and min(im.size) >= 720 and abs(im.width / im.height - 288 / 432) < 0.01
+
+
+def test_commons_author_cleanup_and_category_parsing():
+    from ftworthtv.images.providers import _candidates_from_pages, _clean_artist
+    assert _clean_artist("No machine-readable author provided. Tokoroten assumed (based on copyright claims).") == "Tokoroten"
+    assert _clean_artist("<a href='x'>Jane Doe</a>") == "Jane Doe"
+    payload = {"query": {"pages": [{"pageid": 1, "title": "File:Dickies Arena exterior.jpg", "imageinfo": [{
+        "thumburl": "https://upload.wikimedia.org/x.jpg", "width": 2000, "height": 1300, "descriptionurl": "https://commons.wikimedia.org/wiki/File:Dickies_Arena_exterior.jpg",
+        "extmetadata": {"LicenseShortName": {"value": "CC BY-SA 4.0"}, "Artist": {"value": "Someone"}}}]},
+        {"pageid": 2, "title": "File:Venue map.svg", "imageinfo": [{"thumburl": "https://upload.wikimedia.org/m.png", "width": 2000, "height": 2000,
+        "extmetadata": {"LicenseShortName": {"value": "CC0"}}}]}]}}
+    cands = _candidates_from_pages(payload)
+    assert len(cands) == 1 and cands[0].credit == "Photo: Someone via Wikimedia Commons (CC BY-SA 4.0)"

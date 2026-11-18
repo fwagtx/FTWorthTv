@@ -55,13 +55,17 @@ def search_pexels(query: str, api_key: str, *, per_page: int = 15, orientation: 
     return out
 
 
-def search_wikimedia(query: str, *, limit: int = 15) -> list[PhotoCandidate]:
-    params = {
-        "action": "query", "format": "json", "formatversion": 2,
-        "generator": "search", "gsrsearch": f"{query} filetype:bitmap", "gsrnamespace": 6, "gsrlimit": limit,
-        "prop": "imageinfo", "iiprop": "url|extmetadata|size", "iiurlwidth": 1800,
-    }
-    payload = http.get_json(COMMONS_API, params=params)
+def _clean_artist(raw: str) -> str:
+    a = strip_html(raw or "")
+    a = re.sub(r"No machine-readable author provided\.?", "", a, flags=re.I)
+    a = re.sub(r"\s*assumed\s*\(based on copyright claims\)\.?", "", a, flags=re.I)
+    a = re.sub(r"^User:", "", a.strip())
+    a = re.sub(r"\s*\(talk\)", "", a)
+    a = a.strip(" .,-")
+    return a[:60] or "Wikimedia Commons contributor"
+
+
+def _candidates_from_pages(payload: dict) -> list[PhotoCandidate]:
     out: list[PhotoCandidate] = []
     for page in (payload.get("query", {}) or {}).get("pages", []) or []:
         info = (page.get("imageinfo") or [{}])[0]
@@ -69,7 +73,7 @@ def search_wikimedia(query: str, *, limit: int = 15) -> list[PhotoCandidate]:
         lic = strip_html((meta.get("LicenseShortName", {}) or {}).get("value", "")).strip()
         if not lic or not lic.lower().startswith(OK_LICENSES) or "nc" in lic.lower() or "nd" in lic.lower():
             continue
-        artist = strip_html((meta.get("Artist", {}) or {}).get("value", "")) or "Wikimedia Commons contributor"
+        artist = _clean_artist((meta.get("Artist", {}) or {}).get("value", ""))
         url = info.get("thumburl") or info.get("url")
         title = str(page.get("title", "")).lower()
         if not url or int(info.get("width", 0)) < 1000:
@@ -78,7 +82,7 @@ def search_wikimedia(query: str, *, limit: int = 15) -> list[PhotoCandidate]:
             continue
         out.append(PhotoCandidate(
             id=f"commons-{page.get('pageid')}", url=url,
-            credit=f"Photo: {artist[:60]} via Wikimedia Commons ({lic})",
+            credit=f"Photo: {artist} via Wikimedia Commons ({lic})",
             license="wikimedia-cc", provider="wikimedia", source_url=info.get("descriptionurl", "https://commons.wikimedia.org"),
             width=int(info.get("width", 0)), height=int(info.get("height", 0)),
             alt=strip_html((meta.get("ImageDescription", {}) or {}).get("value", ""))[:200],
@@ -86,11 +90,36 @@ def search_wikimedia(query: str, *, limit: int = 15) -> list[PhotoCandidate]:
     return out
 
 
+def search_wikimedia(query: str, *, limit: int = 15) -> list[PhotoCandidate]:
+    params = {
+        "action": "query", "format": "json", "formatversion": 2,
+        "generator": "search", "gsrsearch": f"{query} filetype:bitmap", "gsrnamespace": 6, "gsrlimit": limit,
+        "prop": "imageinfo", "iiprop": "url|extmetadata|size", "iiurlwidth": 1800,
+    }
+    return _candidates_from_pages(http.get_json(COMMONS_API, params=params))
+
+
+def search_wikimedia_category(category: str, *, limit: int = 25) -> list[PhotoCandidate]:
+    """Files in a Commons category, e.g. 'Dickies Arena': the building itself, not a full-text match on a description."""
+    params = {
+        "action": "query", "format": "json", "formatversion": 2,
+        "generator": "categorymembers", "gcmtitle": f"Category:{category}", "gcmtype": "file", "gcmlimit": limit,
+        "prop": "imageinfo", "iiprop": "url|extmetadata|size", "iiurlwidth": 1800,
+    }
+    return _candidates_from_pages(http.get_json(COMMONS_API, params=params))
+
+
 PERFORMANCE_WORDS = ("concert", "live", "performing", "performs", "tour", "festival", "show", "gig", "on stage", "onstage")
 
 
 def _search(query: str, settings) -> list[PhotoCandidate]:
     candidates: list[PhotoCandidate] = []
+    if query.lower().startswith("category:"):   # Commons category lookup (venues, landmarks)
+        try:
+            return search_wikimedia_category(query.split(":", 1)[1].strip())
+        except Exception as exc:
+            log.warning("wikimedia category failed for %r: %s", query, exc)
+            return []
     if settings.pexels_api_key:
         try:
             candidates = search_pexels(query, settings.pexels_api_key)
@@ -127,7 +156,7 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             if exclude and (cand.id in exclude or cand.family in exclude):
                 continue
             name = cand.source_url.rsplit("/", 1)[-1].lower().replace("_", " ")
-            if avoid and any(w in name for w in avoid):
+            if avoid and (any(w in name for w in avoid) or " - " in name):   # "Artist - Venue, 2022.jpg" is a performance photo
                 continue
             if require and not all(w in name for w in require):
                 continue
