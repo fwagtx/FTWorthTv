@@ -1,0 +1,354 @@
+
+
+<!--P2CBasic-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head><meta http-equiv="Page-Enter" content="Alpha(opacity=100)" /><meta http-equiv="content-type" content="text/html; charset=utf-8" /><link id="activeStylesheetLink" href="css/active.css" rel="Stylesheet" /><link id="commonStylesheet" href="css/p2cBase.css" rel="Stylesheet" /><link rel="Shortcut Icon" href="./images/favicon.ico" type="image/x-icon" /><script src="js/jquery-1.8.3.min.js" type="text/javascript"></script><script src="jqui/1.11.4/jquery-ui-1.11.4.custom.min.js" type="text/javascript"></script><link href="jqui/1.11.4/custom-theme/jquery-ui.css" rel="Stylesheet" class="ui-theme" /><link href="jqui/1.11.4/custom-theme/theme.css" rel="Stylesheet" class="ui-theme" />
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="js/jqgrid/ui.jqgrid.css" />
+    <script src="js/jqgrid/i18n/grid.locale-en.js" type="text/javascript"></script>
+    <script src="js/jqgrid/jquery.jqGrid.min.js" type="text/javascript"></script>
+    
+    <script src='js/jqprint.0.3.js' type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            jQuery("#tblWL").jqGrid({
+                url: 'jqHandler.ashx?op=s',
+                postData: { t: 'wl' },
+                datatype: "json",
+                colModel: [
+   		            { label: 'Name', name: 'name', index: 'name', width: 50, search:false },
+   		            { label: 'Last Name', name: 'lastname', index: 'lastname', hidden: true, searchoptions: { searchhidden: true} },
+   		            { label: 'First Name', name: 'firstname', index: 'firstname', hidden: true, searchoptions: { searchhidden: true} },
+   		            { label: 'Middle Name', name: 'middlename', index: 'middlename', hidden: true, searchoptions: { searchhidden: true} },
+   		            { label: 'Race', name: 'race', index: 'race', hidden: true, sType: 'select', searchoptions: { dataUrl: 'jqHandler.ashx?t=wl&op=psf&sf=race', searchhidden: true}  },
+   		            { label: 'Sex', name: 'sex', index: 'sex', hidden: true, sType: 'select', searchoptions: { dataUrl: 'jqHandler.ashx?t=ii&op=psf&sf=sex', searchhidden: true} },
+   		            { label: 'Age', name: 'age', index: 'age', hidden: true, searchoptions: { searchhidden: true} },
+   		            { label: 'Charge', name: 'charge', index: 'charge', width: 60 },
+   		            { label: 'Paper Type', name: 'paper_type', index: 'paper_type', width: 28, sType: 'select', searchoptions: { dataUrl: 'jqHandler.ashx?t=wl&op=psf&sf=paper_type'} },
+   		            { label: 'Address', name: 'address', index: 'address', width:70, searchoptions: { searchhidden: true} },
+   		            { label: 'Agency', name: 'agency', index: 'agency', width:50, hidden: true, sType: 'select', searchoptions: { dataUrl: 'jqHandler.ashx?t=wl&op=psf&sf=agency', searchhidden: true} }
+   	            ],
+                rowNum: 15,
+                rowList: [5, 15, 30, 50, 10000],
+                loadComplete: function () {
+                    $("option[value=10000]").text('All');
+                },
+                pager: '#pager',
+                pginput: false,
+                sortname: 'lastname',
+                viewrecords: true,
+                caption: "Wanted List",
+                hidegrid: false,
+                emptyrecords: 'No wanted individuals match the specified criteria.',
+                jsonReader: {
+                    root: "rows",
+                    page: "page",
+                    total: "total",
+                    records: "records",
+                    repeatitems: false,
+                    id: "0"
+                },
+                autowidth: true,
+                altRows: true,
+                height: "auto",
+                mtype: "POST",
+                beforeSelectRow: function(rowid,e){return false;} // disable row selection
+            }).navGrid('#pager', { add: false, del: false, edit: false, view: false },
+                {}, //settings for edit
+                {}, //settings for add
+                {}, //settings for delete
+                {multipleSearch: true, closeAfterSearch: true, closeOnEscape: true }, //settings for search
+                {closeOnEscape: true, modal: true} //settings for view
+                ).jqGrid('gridResize', { minWidth: 350, maxWidth: 800, minHeight: 80, maxHeight: 800 });
+            $('#aPrint').button({ icons: { primary: 'ui-icon-print'} });
+        });
+        function goToPrintableVersion() {
+            buttons = {
+                'Close': function () {
+                    $('#dbPrintModal').remove();
+                },
+                'Print': function () {
+                    $('#ifDBPrint').contents().find('#divPrintMe').jqprint({ importCSS: true });
+                }
+            };
+            var printUrl = "./WantedListPrint.aspx"
+
+            $("<div id='dbPrintModal' title='Wanted List'><div style='height:500px; overflow:auto; padding:0; margin:0; border:solid 1px #000;'><iframe id='ifDBPrint' frameborder='0' src='" + printUrl + "' width='100%' height='100%'></iframe></div></div>").dialog({
+                modal: true,
+                width: 800,
+                buttons: buttons,
+                close: function (event, ui) { $('#dbPrintModal').remove(); }
+            });
+        }
+    </script>
+    <style type="text/css">
+        .ui-searchFilter table {position:relative; margin: 7px auto;} /*centers search dialog for jqgrid*/
+        .ui-jqgrid tr.jqgrow td {white-space: normal; height:auto;}
+        .ui-th-column{font-size:.7em;}
+        .ui-jqgrid-btable{font-size:1em;}
+        .ui-paging-info{font-size:.8em;}
+    </style>
+    <link id="jquiOverride" href="css/jqui-override.css" rel="Stylesheet" />
+    <script language="javascript" type="text/javascript">
+        // DO NOT REMOVE
+        // this function is used by the form builder
+        // to control tab index issues
+        function getASPElm(nm, tag) {
+            if ($get(nm)) { return $get(nm); }
+            if (!tag) { tag = '*'; }
+            var e = document.getElementsByTagName(tag);
+            for (var i = 0; i < e.length; i++) {
+                if (e[i].id) {
+                    if (e[i].id.indexOf(nm) != -1) {
+                        return e[i];
+                    }
+                }
+            }
+            return null;
+        }
+
+        $(document).ready(function () {
+            $("input").attr("autocomplete", "off");
+        });
+    </script>
+
+    <!-- JQuery Menu Helper Script -->
+    
+    <!-- JQuery Menu Helper Script -->
+<title>
+	Mansfield Police Department P2C
+</title></head>
+
+<body class="Body">
+    <script language="javascript" type="text/javascript">
+        $(function () {
+            var backgrounds = [
+            
+            ];
+
+            var path = '';
+            var $body = $(document.body);
+            backgrounds.forEach(function (background, index) {
+                var $element = $('<div class="background-image toggle-image' + (index === 0 ? ' show' : '') + '" style="background-image: url(\''+ path + '/images/background/' + background + '\'); z-index: -' + index + 1 + ';" ></div>');
+                $body.append($element);
+            });
+
+            (function () {
+                if (backgrounds.length > 1) {
+                    var index = 0;
+
+                    $imageElements = $('.toggle-image'); // Get the images to be cycled.
+
+                    setInterval(function () {
+                        index = index + 1 < $imageElements.length ? index + 1 : 0;
+                        $imageElements.eq(index - 1).removeClass('show');
+                        $imageElements.eq(index).addClass('show');
+                    }, 18000);
+                }
+            })();
+        });
+    </script>
+    <form method="post" action="./wantedlist.aspx" id="Form1" onsubmit="return(onsubmitEventsHandler());">
+<input type="hidden" name="_popupBlockerExists" id="_popupBlockerExists" value="true" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTQ3NDI4NTIzOA9kFgJmD2QWBmYPZBYCAgUPZBYEZg8WAh4EVGV4dAVFPHNjcmlwdCBzcmM9ImpzL2pxdWVyeS0xLjguMy5taW4uanMiIHR5cGU9InRleHQvamF2YXNjcmlwdCI+PC9zY3JpcHQ+ZAIBDxYCHwAFhQI8c2NyaXB0IHNyYz0ianF1aS8xLjExLjQvanF1ZXJ5LXVpLTEuMTEuNC5jdXN0b20ubWluLmpzIiB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPjwvc2NyaXB0PjxsaW5rIGhyZWY9ImpxdWkvMS4xMS40L2N1c3RvbS10aGVtZS9qcXVlcnktdWkuY3NzIiByZWw9IlN0eWxlc2hlZXQiIGNsYXNzPSJ1aS10aGVtZSIgLz48bGluayBocmVmPSJqcXVpLzEuMTEuNC9jdXN0b20tdGhlbWUvdGhlbWUuY3NzIiByZWw9IlN0eWxlc2hlZXQiIGNsYXNzPSJ1aS10aGVtZSIgLz5kAgEPZBYEAgMPFgIeBWFsaWduBQZjZW50ZXIWBgIBDxYCHgNzcmMFF34vaW1hZ2VzL0FnZW5jeU5hbWUuZ2lmZAIDDxYCHghkaXNhYmxlZGQWAmYPZBYEZg9kFgICAQ8PFgIfAAXpCiAgPGEgY2xhc3M9Ik1lbnVUZXh0IHAyYy1ub3dyYXAiIGhyZWY9Ii4vbWFpbi5hc3B4Ij5IT01FPC9hPjxzcGFuIGNsYXNzPSJNZW51VGV4dCI+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7PC9zcGFuPiAgPGEgY2xhc3M9Ik1lbnVUZXh0IHAyYy1ub3dyYXAiIGhyZWY9Ii4vc3VtbWFyeS5hc3B4Ij5FVkVOVCBTRUFSQ0g8L2E+PHNwYW4gY2xhc3M9Ik1lbnVUZXh0Ij4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDs8L3NwYW4+ICA8YSBjbGFzcz0iTWVudVRleHQgcDJjLW5vd3JhcCIgaHJlZj0iLi9tb3N0d2FudGVkLmFzcHgiPk1PU1QgV0FOVEVEPC9hPjxzcGFuIGNsYXNzPSJNZW51VGV4dCI+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7PC9zcGFuPiAgPGEgY2xhc3M9Ik1lbnVUZXh0IHAyYy1ub3dyYXAiIGhyZWY9Ii4vZGFpbHlidWxsZXRpbi5hc3B4Ij5EQUlMWSBCVUxMRVRJTjwvYT48c3BhbiBjbGFzcz0iTWVudVRleHQiPiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOzwvc3Bhbj4gIDxhIGNsYXNzPSJNZW51VGV4dCBwMmMtbm93cmFwIiBocmVmPSIuL2NvbnRhY3QuYXNweCI+Q09OVEFDVCBVUzwvYT48c3BhbiBjbGFzcz0iTWVudVRleHQiPiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOzwvc3Bhbj4gIDxhIGNsYXNzPSJNZW51VGV4dCBwMmMtbm93cmFwIiBocmVmPSIuL2ZhcS5hc3B4Ij5GQVE8L2E+PHNwYW4gY2xhc3M9Ik1lbnVUZXh0Ij4mbmJzcDsmbmJzcDsmbmJzcDsmbmJzcDs8L3NwYW4+ICA8YSBjbGFzcz0iTWVudVRleHQgcDJjLW5vd3JhcCIgaHJlZj0iLi9qYWlsaW5tYXRlcy5hc3B4Ij5JTk1BVEVTPC9hPjxzcGFuIGNsYXNzPSJNZW51VGV4dCI+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7PC9zcGFuPiAgPGEgY2xhc3M9Ik1lbnVUZXh0IHAyYy1ub3dyYXAiIGhyZWY9Ii4vcmVwb3J0aW5jaWRlbnQvaW5jaWRlbnRlbnRyeWludHJvLmFzcHgiPlJFUE9SVCBJTkNJREVOVDwvYT48c3BhbiBjbGFzcz0iTWVudVRleHQiPiZuYnNwOyZuYnNwOyZuYnNwOyZuYnNwOzwvc3Bhbj4gIDxhIGNsYXNzPSJNZW51VGV4dCBwMmMtbm93cmFwIiBocmVmPSIuL3dhbnRlZGxpc3QuYXNweCI+V0FSUkFOVCBMSVNUPC9hPjxzcGFuIGNsYXNzPSJNZW51VGV4dCI+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7PC9zcGFuPiAgPGEgY2xhc3M9Ik1lbnVUZXh0IHAyYy1ub3dyYXAiIGhyZWY9Ii4vYW5pbWFsc2VydmljZXMuYXNweCI+QU5JTUFMIFNFUlZJQ0VTPC9hPjxzcGFuIGNsYXNzPSJNZW51VGV4dCI+Jm5ic3A7Jm5ic3A7Jm5ic3A7Jm5ic3A7PC9zcGFuPiAgPGEgY2xhc3M9Ik1lbnVUZXh0IHAyYy1ub3dyYXAiIGhyZWY9Imh0dHBzOi8vd3d3Lm1hbnNmaWVsZHRleGFzLmdvdi81NDYvUEQtRW1wbG95bWVudCI+UE9MSUNFIFJFQ1JVSVRJTkc8L2E+ZGQCAQ9kFgICAQ9kFgJmDxAPFgYeDURhdGFUZXh0RmllbGQFBHRleHQeDkRhdGFWYWx1ZUZpZWxkBQRsaW5rHgtfIURhdGFCb3VuZGdkEBUNEC0gUXVpY2sgTGlua3MgLSAESG9tZQxFdmVudCBTZWFyY2gLTW9zdCBXYW50ZWQPTWlzc2luZyBQZXJzb25zDkRhaWx5IEJ1bGxldGluCkNvbnRhY3QgVXMDRkFRB0lubWF0ZXMPUmVwb3J0IEluY2lkZW50DFdhcnJhbnQgTGlzdA9BbmltYWwgU2VydmljZXMRUE9MSUNFIFJFQ1JVSVRJTkcVDQN+LzALfi9tYWluLmFzcHgOfi9zdW1tYXJ5LmFzcHgRfi9tb3N0d2FudGVkLmFzcHgOfi9taXNzaW5nLmFzcHgUfi9kYWlseWJ1bGxldGluLmFzcHgOfi9jb250YWN0LmFzcHgKfi9mYXEuYXNweBJ+L2phaWxpbm1hdGVzLmFzcHgofi9yZXBvcnRpbmNpZGVudC9pbmNpZGVudGVudHJ5aW50cm8uYXNweBF+L3dhbnRlZGxpc3QuYXNweBV+L2FuaW1hbHNlcnZpY2VzLmFzcHgwaHR0cHM6Ly93d3cubWFuc2ZpZWxkdGV4YXMuZ292LzU0Ni9QRC1FbXBsb3ltZW50FCsDDWdnZ2dnZ2dnZ2dnZ2cWAWZkAgcPZBYCZg9kFgICAw8PFgIfAAUqVGhlcmUgYXJlIGN1cnJlbnRseSBubyBpdGVtcyBpbiB5b3VyIGNhcnQuZGQCBw9kFgJmDw8WAh8ABekITGFzdCBOYW1lOiA8YSBocmVmPSJXYW50ZWRMaXN0LmFzcHg/TGFzdE5hbWU9QSI+QTwvYT4gPGEgaHJlZj0iV2FudGVkTGlzdC5hc3B4P0xhc3ROYW1lPUIiPkI8L2E+IDxhIGhyZWY9IldhbnRlZExpc3QuYXNweD9MYXN0TmFtZT1DIj5DPC9hPiA8YSBocmVmPSJXYW50ZWRMaXN0LmFzcHg/TGFzdE5hbWU9RCI+RDwvYT4gPGEgaHJlZj0iV2FudGVkTGlzdC5hc3B4P0xhc3ROYW1lPUUiPkU8L2E+IDxhIGhyZWY9IldhbnRlZExpc3QuYXNweD9MYXN0TmFtZT1GIj5GPC9hPiA8YSBocmVmPSJXYW50ZWRMaXN0LmFzcHg/TGFzdE5hbWU9RyI+RzwvYT4gPGEgaHJlZj0iV2FudGVkTGlzdC5hc3B4P0xhc3ROYW1lPUgiPkg8L2E+IDxhIGhyZWY9IldhbnRlZExpc3QuYXNweD9MYXN0TmFtZT1JIj5JPC9hPiA8YSBocmVmPSJXYW50ZWRMaXN0LmFzcHg/TGFzdE5hbWU9SiI+SjwvYT4gPGEgaHJlZj0iV2FudGVkTGlzdC5hc3B4P0xhc3ROYW1lPUsiPks8L2E+IDxhIGhyZWY9IldhbnRlZExpc3QuYXNweD9MYXN0TmFtZT1MIj5MPC9hPiA8YSBocmVmPSJXYW50ZWRMaXN0LmFzcHg/TGFzdE5hbWU9TSI+TTwvYT4gPGEgaHJlZj0iV2FudGVkTGlzdC5hc3B4P0xhc3ROYW1lPU4iPk48L2E+IDxhIGhyZWY9IldhbnRlZExpc3QuYXNweD9MYXN0TmFtZT1PIj5PPC9hPiA8YSBocmVmPSJXYW50ZWRMaXN0LmFzcHg/TGFzdE5hbWU9UCI+UDwvYT4gPGEgaHJlZj0iV2FudGVkTGlzdC5hc3B4P0xhc3ROYW1lPVEiPlE8L2E+IDxhIGhyZWY9IldhbnRlZExpc3QuYXNweD9MYXN0TmFtZT1SIj5SPC9hPiA8YSBocmVmPSJXYW50ZWRMaXN0LmFzcHg/TGFzdE5hbWU9UyI+UzwvYT4gPGEgaHJlZj0iV2FudGVkTGlzdC5hc3B4P0xhc3ROYW1lPVQiPlQ8L2E+IDxhIGhyZWY9IldhbnRlZExpc3QuYXNweD9MYXN0TmFtZT1VIj5VPC9hPiA8YSBocmVmPSJXYW50ZWRMaXN0LmFzcHg/TGFzdE5hbWU9ViI+VjwvYT4gPGEgaHJlZj0iV2FudGVkTGlzdC5hc3B4P0xhc3ROYW1lPVciPlc8L2E+IDxhIGhyZWY9IldhbnRlZExpc3QuYXNweD9MYXN0TmFtZT1YIj5YPC9hPiA8YSBocmVmPSJXYW50ZWRMaXN0LmFzcHg/TGFzdE5hbWU9WSI+WTwvYT4gPGEgaHJlZj0iV2FudGVkTGlzdC5hc3B4P0xhc3ROYW1lPVoiPlo8L2E+IGRkAgIPFgIfAAXqAzxzY3JpcHQgdHlwZT0ndGV4dC9qYXZhc2NyaXB0Jz4NCihmdW5jdGlvbihpLCBzLCBvLCBnLCByLCBhLCBtKSB7DQppWydHb29nbGVBbmFseXRpY3NPYmplY3QnXSA9IHI7IGlbcl0gPSBpW3JdIHx8IGZ1bmN0aW9uICgpIHsNCiAgICAgICAgKGlbcl0ucSA9IGlbcl0ucSB8fCBbXSkucHVzaChhcmd1bWVudHMpDQogICAgfSwgaVtyXS5sID0gMSAqIG5ldyBEYXRlKCk7IGEgPSBzLmNyZWF0ZUVsZW1lbnQobyksDQptID0gcy5nZXRFbGVtZW50c0J5VGFnTmFtZShvKVswXTsgYS5hc3luYyA9IDE7IGEuc3JjID0gZzsgbS5wYXJlbnROb2RlLmluc2VydEJlZm9yZShhLCBtKQ0KfSkod2luZG93LCBkb2N1bWVudCwgJ3NjcmlwdCcsICdodHRwczovL3d3dy5nb29nbGUtYW5hbHl0aWNzLmNvbS9hbmFseXRpY3MuanMnLCAnZ2EnKTsNCmdhKCdjcmVhdGUnLCAnVUEtMTAzMzU2OTUtNicsICdhdXRvJyk7DQpnYSgnc2VuZCcsICdwYWdldmlldycpOw0KPC9zY3JpcHQ+DQpkZIlE+kIKDFxYsAv9pqO3hjKqVpF3BenUUqx0eUzgHoFK" />
+
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A53528B0" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAA41wa0qb+KqdkqGAcrookGouI3iHuXEmBWqfujr/fvpzyrvYfOQK5lzvsijDXaex918kWulgIaHBLw1qk98wCckyIl0POnGhDYCLuH9UZiw2fhicE1LPAjP9xxCfZnShjzxyAYiYr9LD7SdzvPeRtWLody6FifT283s0oDe3ZJ0depBhrp6boqD0hjyRyk7ndF9jj6ahtAmtgCq7bSiLfHVuh0e6gUeydvDCvjU2bDZH33OwFpURDDC2aUs01L5rbe4Qe8SdkpOzMqNsjwQQxx+9o9dN8q5Kk7VBURzDKT+Lh54RnJIZFII/Y2mUeSImZC9y60CrW6DKOhH6KktbMff" />
+        
+        
+        <table class="MainTable" id="Table1" cellspacing="0" cellpadding="0">
+            <tr height="40px">
+                <td valign="bottom" align="left">
+                    <div id="divHeader" class="Header" align="center">
+                        <img src="images/AgencyName.gif" id="imgAgencyBanner" /><br />
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td>
+                                    <table id="classicmenu" width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr style="line-height: 11px; padding: 1px 0 2px 0;">
+		<td class="Menu p2c-menu-bar">
+                                                <font size="1" class="MainFont"><strong>
+                                                    <span id="lblMenu">  <a class="MenuText p2c-nowrap" href="./main.aspx">HOME</a><span class="MenuText">&nbsp;&nbsp;&nbsp;&nbsp;</span>  <a class="MenuText p2c-nowrap" href="./summary.aspx">EVENT SEARCH</a><span class="MenuText">&nbsp;&nbsp;&nbsp;&nbsp;</span>  <a class="MenuText p2c-nowrap" href="./mostwanted.aspx">MOST WANTED</a><span class="MenuText">&nbsp;&nbsp;&nbsp;&nbsp;</span>  <a class="MenuText p2c-nowrap" href="./dailybulletin.aspx">DAILY BULLETIN</a><span class="MenuText">&nbsp;&nbsp;&nbsp;&nbsp;</span>  <a class="MenuText p2c-nowrap" href="./contact.aspx">CONTACT US</a><span class="MenuText">&nbsp;&nbsp;&nbsp;&nbsp;</span>  <a class="MenuText p2c-nowrap" href="./faq.aspx">FAQ</a><span class="MenuText">&nbsp;&nbsp;&nbsp;&nbsp;</span>  <a class="MenuText p2c-nowrap" href="./jailinmates.aspx">INMATES</a><span class="MenuText">&nbsp;&nbsp;&nbsp;&nbsp;</span>  <a class="MenuText p2c-nowrap" href="./reportincident/incidententryintro.aspx">REPORT INCIDENT</a><span class="MenuText">&nbsp;&nbsp;&nbsp;&nbsp;</span>  <a class="MenuText p2c-nowrap" href="./wantedlist.aspx">WARRANT LIST</a><span class="MenuText">&nbsp;&nbsp;&nbsp;&nbsp;</span>  <a class="MenuText p2c-nowrap" href="./animalservices.aspx">ANIMAL SERVICES</a><span class="MenuText">&nbsp;&nbsp;&nbsp;&nbsp;</span>  <a class="MenuText p2c-nowrap" href="https://www.mansfieldtexas.gov/546/PD-Employment">POLICE RECRUITING</a></span></strong></font>
+                                            </td>
+		<td class="Menu p2c-menu-bar" align="right">
+                                                <select name="MasterPage$DDLSiteMap1$ddlQuickLinks" id="DDLSiteMap1_ddlQuickLinks" class="ShadowBoxDark">
+			<option selected="selected" value="~/0">- Quick Links - </option>
+			<option value="~/main.aspx">Home</option>
+			<option value="~/summary.aspx">Event Search</option>
+			<option value="~/mostwanted.aspx">Most Wanted</option>
+			<option value="~/missing.aspx">Missing Persons</option>
+			<option value="~/dailybulletin.aspx">Daily Bulletin</option>
+			<option value="~/contact.aspx">Contact Us</option>
+			<option value="~/faq.aspx">FAQ</option>
+			<option value="~/jailinmates.aspx">Inmates</option>
+			<option value="~/reportincident/incidententryintro.aspx">Report Incident</option>
+			<option value="~/wantedlist.aspx">Warrant List</option>
+			<option value="~/animalservices.aspx">Animal Services</option>
+			<option value="https://www.mansfieldtexas.gov/546/PD-Employment">POLICE RECRUITING</option>
+
+		</select>
+
+                                            </td>
+	</tr>
+</table>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="ui-widget">
+                                    <table id="superfishtb" width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr style="padding: 0 0 0 0;">
+		<td style="font-size: 1em;" class="ui-widget-header">
+                                                <!-- Use the Literal control below to store JQuery Menu scripts-->
+                                                
+                                                <!-- Use the Literal control below to store JQuery Menu scripts-->
+                                            </td>
+	</tr>
+</table>
+
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr class="p2c-main-content-row">
+                <td valign="top">
+                    
+                        <div class="p2c-page-title">
+                            
+                        </div>
+                    
+                    
+    <div class="p2c-border p2c-user-margin" style="text-align:center;">
+        <div class="p2c-page-title">Wanted List</div>
+        <div style="width:775px; margin: 0 auto;">
+            
+            <div style="text-align:right;"><a id='aPrint' href="#" onclick="javascript:goToPrintableVersion();" style="margin-bottom:.1em; font-size:.7em;">Show All Wanted List</a></div>
+            <table id="tblWL">
+            </table>
+            <div id="pager">
+			</div>
+            <br />
+            
+			<div>
+                Disclaimer: <span class="p2c-disclaimer" style="font-size:11.0pt; font-family:Calibri,sans-serif;">The age is based on the event date not the current date.</span>
+			</div>
+			<br/>
+        </div>
+    </div>
+
+                    <div id="pnlThemeSwitcher">
+
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Footer" align="center" style="font-size: 10pt;">
+                    <div style="margin: 2px 0;">
+                        
+                        <span class="FooterText">powered by</span>
+                        <a href="https://www.superion.com/public-safety/" class="NoUnderLine">
+                            Superion
+                        </a>
+                        <span class="FooterText">'s P2C engine</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    <div id="_UniqueWaitControlID">
+	<TABLE width='100%' height='100%'>
+<TR><TD align='middle'>
+<span id="_WaitControlMessageID">Request in process, please wait...</span>
+</TD></TR>
+<TR><TD>&nbsp;</TD></TR>
+<TR><TD align='middle'>
+<IMG id='_UniqueWaitControlID_Image1' src='/images/progress1.gif' align='middle' name='Image1'>
+</TD></TR>
+<TR><TD align='middle'><a style='color:#3333cc;text-decoration:underline;' href='javascript:window.document.fireEvent("onstop"); void 0;'>Cancel</a></TD></TR>
+</TABLE>
+
+</div>
+<script language="javascript">
+function DetectPopupBlocker()
+{
+  var bPopupBlocker;
+  var newWin = window.open('','','top=5000,left=5000,width=1,height=1,scrollbars=no');
+  if (newWin)
+  {
+    bPopupBlocker = false;
+    newWin.close();
+  }
+  else
+  {
+    bPopupBlocker = true;
+  }
+  return bPopupBlocker;
+}
+if(DetectPopupBlocker()==true)
+{
+  document.forms[0]._popupBlockerExists.value='true';
+}
+else
+{
+  document.forms[0]._popupBlockerExists.value='false';
+}
+</script>
+<script language='javascript'>
+var ImgProgress = new Array(4);
+for (var i=0;i<ImgProgress.length;i++)
+{
+ImgProgress[i]=new Image(0,0);
+ImgProgress[i].src = '/images/progress' + (i+1) + '.gif';
+}
+function WaitALittleBit()
+{
+setTimeout('InProcessPleaseWait()',750);
+}
+function InProcessPleaseWait()
+{
+document.forms[0].style.visibility='hidden';
+_UniqueWaitControlID.style.left = (document.body.offsetWidth / 2) - (_UniqueWaitControlID.offsetWidth / 2);
+_UniqueWaitControlID.style.top = (document.body.offsetHeight / 2) - (_UniqueWaitControlID.offsetHeight / 2);
+_UniqueWaitControlID.style.position = 'absolute';
+_UniqueWaitControlID.style.visibility='visible';
+AnimationImage();
+}
+var ImgIndex=0;
+function AnimationImage()
+{
+window.document._UniqueWaitControlID_Image1.src=ImgProgress[ImgIndex%ImgProgress.length].src;
+ImgIndex++;
+if (document.readyState!='complete')
+{
+setTimeout('AnimationImage()',250);
+}
+else
+{
+document.forms[0].style.visibility='visible';
+_UniqueWaitControlID.style.visibility='hidden';
+}
+}
+</script>
+
+<script language="javascript">
+function onsubmitEventsHandler(){
+if(WaitALittleBit()==false){return false;}
+return true;}
+</script></form>
+    <script type='text/javascript'>
+(function(i, s, o, g, r, a, m) {
+i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+ga('create', 'UA-10335695-6', 'auto');
+ga('send', 'pageview');
+</script>
+
+</body>
+</html>

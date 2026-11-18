@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+<head>
+	<!-- Published by OpenCities, 1.38.0.1 -->
+
+    
+        
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#FFFFFF"/>
+    <title>All News | City of Arlington, TX</title>
+	<meta name="generator" content="OpenCities - https://granicus.com/product/opencities" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using mobile-web-app-capable for now to enable full-screen experience on supported platforms -->
+    <!-- Note: This tag works mainly on Android Chrome. It does NOT enable full-screen mode on iOS Safari. -->
+    <!-- For iOS, the correct tag is: <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- TODO: Monitor for updated meta tag standards from Apple or other browser vendors -->
+    <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content="Stay informed with MyArlingtonTX, your go-to source for the latest news and updates in Arlington. From city projects to community events, find timely information and stay connected with what’s happening around town." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://www.arlingtontx.gov/News-Events/All-News" />
+    <meta property="og:title" content="All News" />
+    <meta property="og:description" content="Stay informed with MyArlingtonTX, your go-to source for the latest news and updates in Arlington. From city projects to community events, find timely information and stay connected with what’s happening around town." />
+    <meta property="og:image" content="https://www.arlingtontx.gov/files/assets/city/v/1/news/site-dev/news-1.jpg?w=1200" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="All News" />
+    <meta property="twitter:description" content="Stay informed with MyArlingtonTX, your go-to source for the latest news and updates in Arlington. From city projects to community events, find timely information and stay connected with what’s happening around town." />
+    <meta property="twitter:image" content="https://www.arlingtontx.gov/files/assets/city/v/1/news/site-dev/news-1.jpg?w=1080" />
+    <link rel="canonical" href="https://www.arlingtontx.gov/News-Events/All-News" />
+
+    
+    <link rel="icon" type="image/png" href="/files/ocfavicon/City/favicon-48x48.png" sizes="48x48" />
+<link rel="icon" type="image/svg+xml" href="/files/ocfavicon/City/favicon.svg" />
+<link rel="shortcut icon" href="/files/ocfavicon/City/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/files/ocfavicon/City/apple-touch-icon.png" />
+<link rel="manifest" href="/files/ocfavicon/City/site.webmanifest" />
+    <script>
+        (function () {
+            if (window.__UNLOAD_LAZY_PATCH__) return;
+            window.__UNLOAD_LAZY_PATCH__ = true;
+
+            var supportsPageHide = ("onpagehide" in window);
+            var mappedType = supportsPageHide ? "pagehide" : "beforeunload";
+            var nativeAdd = window.addEventListener;
+            var nativeRemove = window.removeEventListener;
+            var unloadMap = null;
+            var patched = false;
+
+            function ensurePatched() {
+                if (patched) return;
+                unloadMap = new WeakMap();
+
+                window.addEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = function (evt) {
+                            if (supportsPageHide && evt.persisted) return;
+                            listener.call(this, evt);
+                        };
+                        unloadMap.set(listener, wrapped);
+                        return nativeAdd.call(this, mappedType, wrapped, options);
+                    }
+                    return nativeAdd.call(this, type, listener, options);
+                };
+
+                window.removeEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = unloadMap.get(listener);
+                        if (wrapped) {
+                            nativeRemove.call(this, mappedType, wrapped, options);
+                            unloadMap.delete(listener);
+                        }
+                        return;
+                    }
+                    return nativeRemove.call(this, type, listener, options);
+                };
+
+                var orig = null;
+                Object.defineProperty(window, "onunload", {
+                    configurable: true, enumerable: true,
+                    get: function () { return orig; },
+                    set: function (h) {
+                        orig = h;
+                        if (typeof h === "function") window.addEventListener("unload", h);
+                    }
+                });
+                patched = true;
+            }
+
+            window.addEventListener = function (type, listener, options) {
+                if (type === "unload") {
+                    ensurePatched();
+                    return window.addEventListener(type, listener, options);
+                }
+                return nativeAdd.call(this, type, listener, options);
+            };
+
+            window.removeEventListener = function (type, listener, options) {
+                if (type === "unload" && !patched) {
+                    return;
+                }
+                return nativeRemove.call(this, type, listener, options);
+            };
+
+            function patchTelerik() {
+                ensurePatched();
+                var ns = window.RadAjaxNamespace;
+                if (!ns || !ns.EventManager || !ns.EventManager.Add || ns.EventManager.__UnloadPatched) return;
+                var origAdd = ns.EventManager.Add;
+                ns.EventManager.Add = function (el, evtName, handler, clientId) {
+                    if (el === window && evtName === "unload") {
+                        return window.addEventListener("unload", handler);
+                    }
+                    return origAdd.call(this, el, evtName, handler, clientId);
+                };
+                ns.EventManager.__UnloadPatched = true;
+            }
+
+            if (window.RadAjaxNamespace)
+                patchTelerik();
+            else (window.requestIdleCallback || function (cb)
+            {
+                setTimeout(cb, 120);
+            })(patchTelerik);
+        })();
+    </script>
+    <!-- Preconnecting to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Defer Roboto font loading to avoid render-blocking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const robotoLink = document.createElement('link');
+            robotoLink.rel = 'stylesheet';
+            robotoLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap';
+            document.head.appendChild(robotoLink);
+        });
+    </script>
+
+    <style>
+        .gm-style, .gm-style * {
+            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+        }
+    </style>
+
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "js");
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://use.typekit.net/fjy8saf.css">
+    
+        
+            <script type="text/javascript">
+                window.__oc_flags_ImprovedBreakpointEventHandling = true;
+            </script>
+            
+        
+    
+    
+    
+        <script type="text/javascript">
+            var __metaQueryBreakpoints = {
+                'sc-size-4': '(max-width: 480px)',
+                'sc-size-3': '(min-width: 480px) and (max-width: 768px)',
+                'sc-size-2': '(min-width: 768px) and (max-width: 992px)',
+                'sc-size-1': '(min-width: 992px)'
+            }
+
+            var __ocSizePoints = [
+                { min: 0, name: 'sc-size-4' },
+                { min: 480, name: 'sc-size-3' },
+                { min: 768, name: 'sc-size-2' },
+                { min: 992, name: 'sc-size-1' }
+            ];
+
+        </script>
+    
+
+    <!-- Framework Section -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/239/jquery-3.7.1.min.js?seamlessts=639280911487444338" ><\/script>')</script>
+
+    <!--Google Maps API Loader – Improved Version to avoid Warning
+    This script loads the Google Maps JavaScript API using a dynamic and async method.
+    It replaces the old static <script> tag to avoid performance warnings from Google.
+
+    Dynamically creates the <script> tag with loading = async for better performance
+    Builds the API URL with required libraries(places, geometry, marker, geocoding)
+    Uses a Promise and callback(google.maps.__ib__) to confirm when the script is ready
+
+    It Avoids Google’s warning about direct script loading
+    Improves page load speed by loading the API asynchronously-->
+
+    
+        <script>
+            (function (root) {
+                root.OpenCities = root.OpenCities || {};
+                if (!root.OpenCities.GoogleMapsLoader) {
+                    root.OpenCities.GoogleMapsLoader = {
+                        _cbs: [],
+                        _ready: false,
+                        onReady: function (cb) {
+                            if (this._ready) { try { cb(); } catch (e) { console.error(e); } }
+                            else if (typeof cb === 'function') this._cbs.push(cb);
+                        },
+                        _fire: function () {
+                            if (this._ready) return;
+                            this._ready = true;
+                            var q = this._cbs.splice(0);
+                            for (var i = 0; i < q.length; i++) {
+                                try { q[i](); } catch (e) { console.error(e); }
+                            }
+                        }
+                    };
+                }
+            })(window);
+
+            (g => {
+                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                    m = document, b = window;
+                b = b[c] || (b[c] = {});
+                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    u = () => h || (h = new Promise(async (resolve, reject) => {
+                        a = m.createElement("script");
+                        e.set("libraries", [...r] + "");
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                        e.set("callback", c + ".maps." + q);
+                        a.src = "https://maps." + c + "apis.com/maps/api/js?" + e.toString();
+                        a.loading = "async";
+                        a.async = true;
+                        a.defer = true;
+                        d[q] = resolve;
+                        a.onerror = () => reject(Error(p + " could not load."));
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                        m.head.append(a);
+                    }));
+                if (d[l]) {
+                    console.warn(p + " only loads once. Ignoring duplicate load.");
+                } else {
+                    d[l] = (f, ...n) => (r.add(f), u().then(() => d[l](f, ...n)));
+                }
+            })({
+                key: "AIzaSyC5spyrOUNr_0OLk_yEJVNZs5pcx7ywSf4",
+                v: "3.65"
+            });
+
+            (async () => {
+                try {
+                    if (!google?.maps?.importLibrary) return;
+
+                    if (!window.OpenCities.__mapsLibsPromise) {
+                        window.OpenCities.__mapsLibsPromise = Promise.all([
+                            google.maps.importLibrary('maps'),
+                            google.maps.importLibrary('places'),
+                            google.maps.importLibrary('geocoding'),
+                            google.maps.importLibrary('marker'),
+                            google.maps.importLibrary('geometry')
+                        ]);
+                    }
+                    await window.OpenCities.__mapsLibsPromise;
+
+                    if (window.OpenCities?.GoogleMapsLoader) {
+                        window.OpenCities.GoogleMapsLoader._fire();
+                    }
+                } catch (err) {
+                    console.error('Google Maps failed to initialise', err);
+                }
+            })();
+        </script>
+    
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/239/modernizr.custom.710f3bf.js?seamlessts=639280911487444338" defer></script>
+    
+    <!--// End Framework Section -->
+    <!-- OpenCities Section -->
+    <script>
+        var OpenCities = OpenCities || {};
+        OpenCities.Paths = {
+            SiteTemplate: '/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/239/',
+            ThemePath: '/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/239/'
+        };
+    </script>
+    <script src='/ocapi/78a20704-6cd5-4356-b1a0-62596b1266d2/en-US/websitesettings.js'></script>
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/239/oc_head.js?applied=20261020040514"></script>
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/239/oc_grid.css~oc_style.css~oc_wizard_style.css~oc_main.css~oc_forms.css~oc_wizard.css~oc_wizard_menu.css~oc_main_s1.css~oc_wizard_s1.css~oc_wizard_menu_s1.css~oc_grid_s1.css~OcScriptCombine_Minify0?uniqueid=20261020040514" rel="stylesheet" type="text/css">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/239/client_style.css~client.css~client_menu.css~client_s1.css~client_menu_s1.css~client_forms.css~OcScriptCombine_Minify0?uniqueid=20261020040514" rel="stylesheet" type="text/css">
+    <script>
+(function (BackgroundSettings, $, undefined) {
+    BackgroundSettings.initialise = function () {
+        this.Application = {"CSSSelector":".content-outer-container","EnableFade":false,"MediaType":"image"};
+    };
+} (OpenCities.BackgroundSettings = OpenCities.BackgroundSettings || {}, jQuery));
+OpenCities.BackgroundSettings.initialise();
+</script>
+    
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/239/oc_print.css~client_print.css~OcScriptCombine_Minify0?uniqueid=20261020040514" rel="stylesheet" type="text/css" media="print">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<script src="/files/oc-templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/239/external_plugins.js~oc_form_helper.js~oc_main.js~plugins.js~oc_main_init.js~OcScriptCombine_Minify0?uniqueid=20261020040514" defer="true"></script>
+    
+    
+
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DYTCK-JM9C8-ED4EP-C3GGK-Z575H",function(){function e(){if(!r){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.appendChild(e),r=!0}}function t(e){r=!0;var n,t,a,i,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",i=(a.frameElement||a).style,i.width=0,i.height=0,i.border=0,i.display="none",o.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void 0;",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=14,window.BOOMR.url=n+"DYTCK-JM9C8-ED4EP-C3GGK-Z575H";var i=document.currentScript||document.getElementsByTagName("script")[0],o=i.parentNode,r=!1,d=document.createElement("link");if(d.relList&&"function"==typeof d.relList.supports&&d.relList.supports("preload")&&"as"in d)window.BOOMR.snippetMethod="p",d.href=window.BOOMR.url,d.rel="preload",d.as="script",d.addEventListener("load",e),d.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!r)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.appendChild(d);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="crrhlofyd2lne2x46b5a-f-501df6adf-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"41","ak.cp":"1793056","ak.ai":parseInt("1075935",10),"ak.ol":"0","ak.cr":7,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"371ff6ff","ak.r":44989,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.cport":62528,"ak.gh":"184.30.149.203","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1794961530","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==MeFMRSY+Jy59YJeA6EWsjYtoR1G43HyjHPdSwNPgbIomM0dVGkX7TR9ATN7wC1V1ChCR9yB+xBryNFThBQllsekV7jB8R0nwuN95Uo1n9vZK5lcywivWQKEXLCtUNK6ZhLjno2XNBTQR1vPNAAZrFm8xNlGufzqcA6Tgztk9cUkyx9m90GtdWNbNnuTmiG5GC69T6M9s3JJzFlGAR3PxcE87MdUzgF3i6ixhgRKNpcuMp2rJiBMAy5PuchqOZBH78ltqG/oC9U+H96ChNDbheIMrzQKWA6pbaEVn3sje3jtqybbqLyvB3bslMc8Fx1QIWJzschzfHfyXtSa6Pd3OlEghCVu2+gAyb7bybqk1FyNj4SwoDJmo5fMAiSmmWOBR+qs9GhTNsL2zEVDnd3Hwf3JrDOPSrkzSP6z6fKvp/1g=","ak.pv":"369","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body class="body layout-modern  site-search-always-visble  content-type-oc-module-interface content-template-oc-news-listing group-template-oc-full-width-with-default-header page-name-all-news page-sequence-1 page-depth-2 page-section-9 website-type-primary device-desktop " id="body-top">
+    <div id="skip-to-content-container">
+        <a href="#main-content" class="visuallyhidden focusable" id="skip-to-content-link">Skip to main content</a>
+    </div>
+    <script>
+        // OCNOW-11988 (Cursor): Proactively focus skip link when returning from browser chrome.
+        // Must run inline (not deferred oc_main.js) so focus is intercepted before NVDA speaks footer.
+        (function () {
+            var awaitingReentry = false;
+            var inertSupported = 'inert' in HTMLElement.prototype;
+
+            function isExplicitlyOutsideDocument(node) {
+                return node != null && !document.documentElement.contains(node);
+            }
+
+            function getSkipContainer() {
+                return document.getElementById('skip-to-content-container');
+            }
+
+            function getSkipLink() {
+                return document.getElementById('skip-to-content-link');
+            }
+
+            function applyGuard() {
+                awaitingReentry = true;
+                if (!inertSupported) {
+                    return;
+                }
+                var skipContainer = getSkipContainer();
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    if (children[i] !== skipContainer) {
+                        children[i].setAttribute('inert', '');
+                    }
+                }
+            }
+
+            function clearGuard() {
+                awaitingReentry = false;
+                if (!inertSupported) {
+                    return;
+                }
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    children[i].removeAttribute('inert');
+                }
+            }
+
+            function isSkipLinkElement(target) {
+                if (!target) {
+                    return false;
+                }
+                var skipContainer = getSkipContainer();
+                return target.id === 'skip-to-content-link' ||
+                    (skipContainer && skipContainer.contains(target));
+            }
+
+            function focusSkipLink() {
+                var skipLink = getSkipLink();
+                if (!skipLink) {
+                    return;
+                }
+                if (window.scrollY > 0) {
+                    window.scrollTo(0, 0);
+                }
+                skipLink.focus({ preventScroll: true });
+            }
+
+            function scheduleGuardIfDocumentLostFocus() {
+                window.setTimeout(function () {
+                    if (!document.hasFocus()) {
+                        applyGuard();
+                    }
+                }, 0);
+            }
+
+            document.addEventListener('focusout', function (e) {
+                if (isExplicitlyOutsideDocument(e.relatedTarget)) {
+                    applyGuard();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    scheduleGuardIfDocumentLostFocus();
+                } else if (e.key === 'F6' || (e.key === 'l' && e.ctrlKey)) {
+                    scheduleGuardIfDocumentLostFocus();
+                }
+            }, true);
+
+            window.addEventListener('focus', function () {
+                if (!awaitingReentry) {
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+            }, true);
+
+            document.addEventListener('focusin', function (e) {
+                var reentryFromChrome = awaitingReentry || isExplicitlyOutsideDocument(e.relatedTarget);
+                if (!reentryFromChrome) {
+                    return;
+                }
+                if (isSkipLinkElement(e.target)) {
+                    clearGuard();
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+                clearGuard();
+            }, true);
+        })();
+    </script>
+    <form name="mainForm" method="post" action="/News-Events/All-News" id="mainForm">
+<input type="hidden" name="ctl04_seamless_script_manager_TSM" id="ctl04_seamless_script_manager_TSM" value="" />
+<input type="hidden" name="__SEAMLESSVIEWSTATE" id="__SEAMLESSVIEWSTATE" value="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" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-GB%3add3ac3d5-1e29-4112-8fed-529caffa8f24%3aea597d4b%3bOpenCities.CustomControls%3aen-GB%3a7197b077-b068-4a69-9481-a6cf2e7718f9%3a8e1d32bf" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=EYVjNsQ7oYmzBqCI0dkEyYe0LYmPcVFL4WPcQCXhKfQwUqkAT7lLra0za-OLMuUUcCyPINdTVMHIWti96-8R_oN-trjXUUZnJRzckxTjid4ecctwwEJyNI-05jZYvXHBRiEKL0MUQMEyEJ2FXanyE1uBk88RxZ1wVK6AUn9D4v8rW-LNx2OOtB8vE3hC8P0jk4XZt7GAPiCeYQolxUlwFZA8cuOfgd4u08OASxFdh8mChz3A0YHhuwRrXGVlulfs9SJVkAvulhjdHYIIp1SRohDxt9acTwxUQrOlxuxC847b00zOOWg9SlpwD_iBuQQ1rOK9WH9O_wN9c2TXm4GeXaQHHT4yQ9IlzZXw6th8ch3f-k_n1yYeeurDMbwChXW1Vh_7rpu00kgmegsg9w2J3ququXIPfy2Gq8IscVTmtwouupfmUzAOicU_yESgQ-dG0" type="text/javascript"></script>
+    
+<script type="text/javascript">
+    try{
+        function SeamlessEndRequestHandler(sender, args) {
+            try {
+                var dataItems = args.get_dataItems();
+                if(dataItems.ctl04_seamless_script_manager)
+                    document.getElementById('__SEAMLESSVIEWSTATE').value = dataItems.ctl04_seamless_script_manager;
+            }
+            catch (e) { }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SeamlessEndRequestHandler);
+    }
+    catch (e) { }
+</script>
+
+    <div class="unsupported-browser-warning js-element"></div>
+    
+    <div hidden>
+        <span id="new-window-0">opens in new tab or window </span>
+    </div>
+    <div class="overlay-container"></div>
+    
+    <div role="region" aria-label="Site announcements" class="emergency-container emergency-container-position-1"><div id="PublicEmergencyAnnouncementList" data-cookiekeydismisseditems="OC_EA_EmergencyAnnouncementList_Dismissed" data-querykeydismisseditem="OC_EA_EmergencyAnnouncementList_Dismiss">
+   <div class="oc-emergency-announcement-container">
+  <div class="oc-emergency-undismissed max-severity-30 results-1">
+    <div class="side-box message-box emergency-message-box oc-emergency-severity-30 " >
+   <h3 class="side-box-title">Sign up for MyArlingtonTX News</h3>
+   <div class="side-box-content">
+      <p >Stay informed with this twice-weekly e-newsletter sent right to your inbox.</p>
+      <a href="https://public.govdelivery.com/accounts/TXARLINGTON/subscriber/topics?qsp=TXARLINGTON_1"  target="_self" >Sign Up Here</a>
+      
+   </div>
+   <button type="button" class="emergency-announcement-item-dismiss" aria-label="Close this announcement" data-cvid="0ec40500-72f4-4b7c-a520-27bcdf491f17"></button>
+</div>
+        
+  </div><div class="oc-emergency-dismissed results-0"></div></div></div></div>
+    <div class="background-container">
+        <div class="page-container">
+            <!-- OC Layout Element GROUP TEMPLATE -->
+            <!--groupTemplateStart--><header><div class="print-header-outer-container print-element">
+<img src="/files/templates/00000000-0000-0000-0000-000000000000/1e57e76d-1919-4c46-a066-ed414e8610c1/v/238/print-logo.svg" alt="City of Arlington, TX - Logo" />
+</div>
+            <div class="toolbar-outer-container">
+  <div class="toolbar-inner-container clearfix">
+    <div class="toolbar-item toolbar-quicklinks toolbar-display-dropdown">
+	<button type="button" aria-controls="toolbar-quicklinks-drop-down" aria-expanded="false" class="toolbar-button toolbar-button-quicklinks js-element"><span>Quick Links</span><i aria-hidden="true"></i></button>	
+	<div id="toolbar-quicklinks-drop-down" class="toolbar-drop-down toolbar-quicklinks-drop-down clearfix">
+		<ul>
+		  <li><a href="https://www.arlingtontx.gov/Government/Data-Information/Data-Information-Directory/Accessibility" class="oc-icon-b oc-i--none link-type-internal"><span>Accessibility</span></a></li><li><a href="https://www.arlingtontx.gov/News-Events" class="oc-icon-b oc-i--none link-type-internal"><span>News</span></a></li><li><a href="https://www.arlingtontx.gov/Government/Contact-Us" class="oc-icon-b oc-i--none link-type-internal"><span>Contact Us</span></a></li><li><a href="https://www.facebook.com/CityofArlington" class="oc-icon-b oc-i-facebook link-type-external link-hide-text" target="_blank"><span>Facebook</span></a></li><li><a href="https://x.com/cityofarlington" class="oc-icon-b oc-i-x link-type-external link-hide-text" target="_blank"><span>X</span></a></li><li><a href="http://www.instagram.com/cityofarlington" class="oc-icon-b oc-i-instagram link-type-external link-hide-text" target="_blank"><span>Instagram</span></a></li><li><a href="http://www.youtube.com/cityofarlington" class="oc-icon-b oc-i-youtube link-type-external link-hide-text" target="_blank"><span>YouTube</span></a></li><li><a href="https://www.linkedin.com/company/city-of-arlington/" class="oc-icon-b oc-i-linkedin link-type-external link-hide-text" target="_blank"><span>LinkedIn</span></a></li>
+		</ul>
+	</div>
+</div><div class="toolbar-item toolbar-language notranslate toolbar-display-dropdown"><div class="no-js-element">
+		  <ul>
+		    <li id="toolbar-language-option-en-us-noscript"><a href="https://www.arlingtontx.gov/News-Events/All-News?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+          </ul>
+		</div>
+	<button type="button" role="combobox" aria-controls="toolbar-language-drop-down" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="none" aria-labelledby="toolbar-language-label" class="toolbar-button toolbar-button-language js-element">  
+        <span class="toolbar-language-globe-icon" aria-hidden="true"></span>
+        <span id="toolbar-language-label" class="current-language">
+            Select a language to translate to
+		</span>
+		<i aria-hidden="true"></i>
+	</button>
+	<div id="toolbar-language-drop-down" role="listbox" aria-label="Available languages" class="toolbar-drop-down toolbar-language-drop-down js-element clearfix">
+		<ul role="group">
+		    <li role="presentation"><a id="toolbar-language-option-en-us" role="option" aria-selected="true" href="https://www.arlingtontx.gov/News-Events/All-News?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+        </ul>
+	</div></div>
+  </div>
+</div>
+            <div class="header-outer-container">
+    <div class="header-container header-layout-4  clearfix">
+			<div class="header-site-logo">
+				<a href="https://www.arlingtontx.gov/Home" lang="en-US" aria-label="City of Arlington, TX - Home - Logo">
+				</a>
+			</div>
+      
+		    <div class="mobile-search-btn js-element">
+		        <button><i aria-hidden="true"></i><span class="mobile-search-btn-text"><span class="visuallyhidden">Open </span>Search</span></button>
+		    </div>
+		    <div class="header-website-settings">
+                <button id="btn-mob-nav" type="button" aria-expanded="false" aria-controls="nav">
+                    <i aria-hidden="true"></i><span class="side-menu-btn-text">Menu</span>
+                </button>
+        	</div>
+          <div class="navigation-outer-container">
+	<div id="nav" role="navigation" class="navigation-container  navigation-container-option-8" data-menu-type="horizontal" aria-label="primary">
+        <div class="grid">
+            <div class="col-xs-12">              
+                <ul class="sf-menu mega-menu" id="sc-main-menu"><li class="nav-section-quarters-1   first-item nav-item-seq-1">
+<a href="https://www.arlingtontx.gov/Government" class="nav-level-1 nav-has-children"  target="">
+	<i class="item-icon" aria-hidden="true"></i><span class="item-text">Government</span>
+</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-1" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-1" class="second-level-container ch-11">
+
+          
+            <li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government" class="nav-has-children"  target="">City Government</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-1" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-1" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/Mayor-Jim-Ross"  target="_self">Mayor Jim Ross</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/City-Council"  target="">City Council</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/City-Attorney"  target="">City Attorney</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/City-Auditor"  target="">City Auditor</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/City-Manager"  target="">City Manager</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/City-Secretary"  target="">City Secretary</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/City-Government/Boards-Commissions"  target="">Boards & Commissions</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas" class="nav-has-children"  target="">Meetings & Agendas</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas/City-Council-Meeting-Agendas"  target="">City Council Meeting Agendas</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas/City-Council-Meeting-Minutes"  target="">City Council Meeting Minutes</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas/City-Council-Meeting-Schedule"  target="">City Council Meeting Schedule</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas/City-Council-Meeting-Process"  target="">City Council Meeting Process</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Meetings-Agendas/Watch-Meetings"  target="">Watch Meetings</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Departments" class=""  target="_self">Departments</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Elections-Voting" class="nav-has-children"  target="">Elections & Voting</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-4" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-4" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Elections-Voting/Election-Information"  target="">Election Information</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Elections-Voting/Council-District-Maps"  target="_self">Council District Maps</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Elections-Voting/Campaign-Finance-Reports"  target="">Campaign Finance Reports</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Public-Safety" class=""  target="_self">Public Safety</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Municipal-Court" class="nav-has-children"  target="">Municipal Court</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-6" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-6" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Municipal-Court/Municipal-Court-Options"  target="">Municipal Court Options</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Municipal-Court/Citation-Search"  target="_blank">Citation Search</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Municipal-Court/Warrants-or-Posting-Bond"  target="">Warrants or Posting Bond</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Municipal-Court/Court-Information"  target="">Court Information</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance" class="nav-has-children"  target="">Budget & Finance</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-7" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-7" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Budget-Business-Plan"  target="">Budget & Business Plan</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Treasury"  target="">Treasury</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Purchasing"  target="">Purchasing</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Financial-Transparency"  target="">Financial Transparency</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Accounts-Payable-Payroll"  target="">Accounts Payable & Payroll</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Budget-Finance/Annual-Financial-Reports"  target="">Annual Financial Reports</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Records" class="nav-has-children"  target="">Records</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-8" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-8" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Records/Vital-Records"  target="">Vital Records</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Records/Open-Records-Request"  target="_blank">Open Records Request</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Records/Police-Records"  target="_self">Police Records</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Jobs-Volunteering" class=""  target="_self">Jobs & Volunteering</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Contact-Us" class="nav-has-children"  target="">Contact Us</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-10" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-10" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Contact-Us/Action-Center"  target="_self">Action Center</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Contact-Us/City-Phones-Emails-Directory"  target="">City Phones & Emails Directory</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Contact-Us/Mobile-Apps"  target="">Mobile Apps</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Government/Data-Information" class="nav-has-children"  target="_self">Data & Information</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-1-nav-item-seq-11" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-1-nav-item-seq-11" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Data-Information/City-Facts"  target="_self">City Facts</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Data-Information/Open-Data"  target="_self">Open Data</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Government/Data-Information/Interactive-Maps"  target="_self">Interactive Maps</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-1   nav-item-seq-2">
+<a href="https://www.arlingtontx.gov/Business" class="nav-level-1 nav-has-children"  target="">Business</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-2" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-2" class="second-level-container ch-9">
+
+          
+            <li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Economic-Development-Corporation" class=""  target="_blank">Economic Development Corporation</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Economic-Development" class="nav-has-children"  target="_self">Economic Development</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Economic-Development/Site-Selection-Resources"  target="_self">Site Selection Resources</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Small-Business-Assistance" class=""  target="_self">Small Business Assistance</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Development-Resources" class="nav-has-children"  target="">Development Resources</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-4" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-4" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Development-Resources/Water-Utilities-Resources-for-Engineers-Builders-and-Contractors"  target="_self">Water Utilities Resources for Engineers, Builders and Contractors</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Development-Resources/Zoning"  target="_self">Zoning</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Development-Resources/Commercial-Site-Plan-Public-Improvements"  target="">Commercial Site Plan/Public Improvements</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Development-Resources/Land-Development"  target="">Land Development</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development" class="nav-has-children"  target="_self">Planning & Development</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-5" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development/Building-Codes"  target="_self">Building Codes</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development/Permit-Applications-Forms"  target="_self">Permit Applications & Forms</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development/Long-Range-Planning"  target="_self">Long Range Planning</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development/Permitting-Inspections"  target="_self">Permitting & Inspections</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Planning-Development/Planning-Development-Boards-Commissions"  target="_self">Boards & Commissions</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Health-Services" class=""  target="_self">Health Services</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Work-With-the-City" class="nav-has-children"  target="">Work With the City</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-2-nav-item-seq-7" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Work-With-the-City/Bid-Opportunities"  target="_blank">Bid Opportunities</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Business/Work-With-the-City/Office-of-Business-Outreach"  target="">Office of Business Outreach</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Real-Estate-Services" class=""  target="">Real Estate Services</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Business/Arlington-TX-Film-Commission" class=""  target="">Arlington, TX Film Commission</a></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-3">
+<a href="https://www.arlingtontx.gov/City-Services" class="nav-level-1 nav-has-children"  target="">City Services</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-3" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-3" class="second-level-container ch-13">
+
+          
+            <li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Action-Center" class="nav-has-children"  target="">Action Center</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-1" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Action-Center/Contact-the-Action-Center"  target="">Contact the Action Center</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Action-Center/Ask-Arlington-App"  target="">Ask Arlington App</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Action-Center/Report-an-Issue"  target="_blank">Report an Issue</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Water-Utilities" class="nav-has-children"  target="_self">Water Utilities</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Water-Utilities/Pay-Your-Water-Bill"  target="_blank">Pay Your Water Bill</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Water-Utilities/My-Water-Account"  target="_self">My Water Account</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Water-Utilities/Common-Water-Issues"  target="_self">Common Water Issues</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Water-Utilities/Water-Conservation"  target="_self">Water Conservation</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Garbage-Recycling" class=""  target="_self">Garbage & Recycling</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Safety" class="nav-has-children"  target="">Public Safety</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-4" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-4" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department"  target="">Police Department</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Safety/Fire-Department"  target="">Fire Department</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Safety/Emergency-Preparedness"  target="">Emergency Preparedness</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Code-Compliance" class="nav-has-children"  target="_self">Code Compliance</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-5" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-5" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Code-Compliance/Tool-Sharing-Program"  target="_self">Tool Sharing Program</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Code-Compliance/Garage-Sales-Permit"  target="_self">Garage Sales Permit</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Code-Compliance/Graffiti-Removal"  target="_self">Graffiti Removal</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Your-Home-Neighborhood" class="nav-has-children"  target="">Your Home & Neighborhood</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-6" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-6" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Your-Home-Neighborhood/Neighborhood-Programs"  target="">Neighborhood Programs</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Your-Home-Neighborhood/Home-Improvement"  target="">Home Improvement</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets" class="nav-has-children"  target="">Animals & Pets</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Animal-Services"  target="">Animal Services</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Adoptable-Animals"  target="">Adoptable Animals</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Lost-and-Found-Pets"  target="">Lost and Found Pets</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Pet-Information"  target="">Pet Information</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Urban-Wildlife"  target="">Urban Wildlife</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Animal-Control"  target="">Animal Control</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Animals-Pets/Breeder-Information"  target="">Breeder Information</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Housing" class="nav-has-children"  target="_self">Housing</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-8" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-8" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Housing/Housing-Choice-Voucher-Program"  target="_self">Housing Choice Voucher Program</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Housing/Rental-Assistance"  target="_self">Rental Assistance</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Housing/Housing-Rehabilitation"  target="_self">Housing Rehabilitation</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Housing/Homeless-Services"  target="_self">Homeless Services</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library" class="nav-has-children"  target="">Library</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-9" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-9" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library/Library-Account"  target="_blank">Library Account</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library/Library-Card"  target="_blank">Library Card</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library/Library-Programs-Events"  target="_blank">Library Programs & Events</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library/Library-Locations"  target="_blank">Library Locations</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Library/Library-Catalog"  target="_blank">Library Catalog</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Permits" class=""  target="">Permits</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Projects-Construction" class="nav-has-children"  target="">Public Projects & Construction</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-11" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-11" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Projects-Construction/Southeast-Connector-Project"  target="_blank">Southeast Connector Project</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Projects-Construction/A-Z-List-of-Public-Projects"  target="">A-Z List of Public Projects</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Projects-Construction/Project-Tracker"  target="">Project Tracker</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Public-Projects-Construction/Bond-Tracker"  target="">Bond Tracker</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Transportation-Streets-Traffic" class="nav-has-children"  target="">Transportation, Streets & Traffic</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-12" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-12" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Transportation-Streets-Traffic/Airport"  target="">Arlington Municipal Airport</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Transportation-Streets-Traffic/Arlington-On-Demand"  target="">Arlington On-Demand</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Transportation-Streets-Traffic/Handitran"  target="">Handitran</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Transportation-Streets-Traffic/Streets-and-Traffic"  target="">Streets and Traffic</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/City-Services/Arlington-Tomorrow-Foundation" class=""  target="_self">Arlington Tomorrow Foundation</a></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-4">
+<a href="https://www.arlingtontx.gov/Parks-Places" class="nav-level-1 nav-has-children"  target="">Parks & Places</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-4" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-4" class="second-level-container ch-6">
+
+          
+            <li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Parks-Trails" class="nav-has-children"  target="">Parks & Trails</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-1" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-1" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Parks-Trails/Park-Finder"  target="">Park Finder</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Parks-Trails/Urban-Forestry"  target="">Urban Forestry</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Parks-Trails/Lake-Arlington"  target="">Lake Arlington</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities" class="nav-has-children"  target="">Facilities</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Arlington-Tennis-Center"  target="">Arlington Tennis Center</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Event-Centers"  target="">Event Centers</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Arlington-Expo-Center"  target="">Arlington Expo Center</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Golf"  target="_blank">Golf</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Park-Pavilions"  target="">Park Pavilions</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Aquatics"  target="">Aquatics</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Recreation-Centers"  target="">Recreation Centers</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Athletic-Fields"  target="">Athletic Fields</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Arlington-Cemetery"  target="">Arlington Cemetery</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Facilities/Pickleball"  target="">Pickleball</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Activities" class="nav-has-children"  target="">Activities</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-4-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-4-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Activities/Register-for-Parks-Recreation-Culture-Programs"  target="">Register for Parks, Recreation & Culture Programs</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Activities/Special-Events"  target="_self">Special Events</a></li><li  class="third-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Activities/50-Programs"  target="">50+ Programs</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Tourism" class=""  target="_self">Tourism</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/History-of-Arlington" class=""  target="_self">History of Arlington</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/Parks-Places/Sister-Cities" class=""  target="">Sister Cities</a></li></ul></li>
+          
+            <li class="nav-section-quarters-3 nav-active-path  nav-item-seq-5">
+<a href="https://www.arlingtontx.gov/News-Events" class="nav-level-1 nav-has-children"  target="">News & Events</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-5" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-5" class="second-level-container ch-4">
+
+          
+            <li class="second-level-item nav-active-path nav-active-page"><a href="https://www.arlingtontx.gov/News-Events/All-News" class=""  target="">All News</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/News-Events/MyArlingtonTV" class=""  target="_self">MyArlingtonTV</a></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/News-Events/Espanol" class="nav-has-children"  target="">Español</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-5-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-5-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://www.arlingtontx.gov/News-Events/Espanol/Calendario-de-Eventos-en-Español"  target="">Calendario de Eventos en Español</a></li></ul></li><li class="second-level-item  "><a href="https://www.arlingtontx.gov/News-Events/Events" class=""  target="_self">Events</a></li></ul></li>
+          
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+			
+			<div class="header-search-control-container" id="header-search">
+				<div class="search-inner-container">
+					<div class="sc-search-panel">
+	<label for="ctl08_txtSearch" id="ctl08_lblSearch" class="sc-search-label">Search</label><input name="ctl08$txtSearch" type="text" id="ctl08_txtSearch" class="sc-search-text" placeholder="What are you looking for?" /><input type="submit" name="ctl08$btnSearch" value="Search" id="ctl08_btnSearch" class="sc-search-button" />
+</div>
+					<div role="status" id="predictiveResults"></div>
+				</div>
+			</div>
+    </div>
+</div>
+
+            
+            </header>
+            <div class="content-outer-container">
+                <div id="main" role="main" class="main-outer-container clearfix">
+                        
+                        <div class="content-main-container">
+                            <div class="grid">
+					            <div class="col-xs-12">
+						            <nav id="breadcrumbs-container" aria-label="You Are Here :">
+							            <span role="list">
+<span role="listitem">
+	<a href="https://www.arlingtontx.gov/Home"  lang="en-US">Home</a>
+	<span class="nav-separator" aria-hidden="true" role="presentation">/</span>
+</span>
+          <span role="listitem"><a href="https://www.arlingtontx.gov/News-Events" >News & Events</a><span class='nav-separator' aria-hidden="true" role="presentation">/</span></span><span class="current-page" role="listitem" aria-current="page" >All News</span></span>
+						            </nav>
+					            </div>
+                      
+					            <div class="col-xs-12">
+						            <div class="main-inner-container">
+							            <div id="main-content" class="main-container clearfix">
+							              
+                            <!-- OC Layout Element Conent Template -->
+							              <!--normalTemplateStart--><h1 class='oc-page-title '>All News</h1>
+
+
+
+<div class="grid">
+
+<div class="col-xs-12 col-lg-8">
+<div class="listing-results">
+2959 Result(s) Found
+</div>
+<div class="list-container news-list-container left">
+<div class="list-item-container homepage-show">		
+	<article>
+		<a href="https://www.arlingtontx.gov/News-Articles/2026/Free-Fun-Events-in-Arlington-November-19-25-2026" >		
+			<h2 class="list-item-title">
+				Free & Fun Events in Arlington: November 19 - 25, 2026
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/news/2026/free-fun-in-arlington-2026.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/news/2026/free-fun-in-arlington-2026.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source srcset="/files/assets/city/v/1/news/2026/free-fun-in-arlington-2026.jpg?dimension=smallthumbnail&w=150&h=100">
+  <img class="thumbnail-image right" src="/files/assets/city/v/1/news/2026/free-fun-in-arlington-2026.jpg?dimension=smallthumbnail&w=150&h=100"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on November 18, 2026</p>
+			<p>		
+				Check back each week for additional free and family-friendly events.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Community</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-show">		
+	<article>
+		<a href="https://www.arlingtontx.gov/News-Articles/2026/November/Home-for-the-Howlidays-Includes-Pet-Adoption-Vouchers-Santa-More" >		
+			<h2 class="list-item-title">
+				Home for the Howlidays Includes Pet Adoption Vouchers, Santa & More
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/news/2026/november/articles-home-for-the-howlidays-2026-11-17.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/news/2026/november/articles-home-for-the-howlidays-2026-11-17.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source srcset="/files/assets/city/v/1/news/2026/november/articles-home-for-the-howlidays-2026-11-17.jpg?dimension=smallthumbnail&w=150&h=100">
+  <img class="thumbnail-image right" src="/files/assets/city/v/1/news/2026/november/articles-home-for-the-howlidays-2026-11-17.jpg?dimension=smallthumbnail&w=150&h=100"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on November 18, 2026</p>
+			<p>		
+				Join Arlington Animal Services on Dec. 12, 2026, to visit Santa, purchase pet adoption vouchers for $25, and visit with local vendors about pet programs and services.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Animal Services<span class="separator">,&nbsp;</span>Holidays</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-show">		
+	<article>
+		<a href="https://www.arlingtontx.gov/News-Articles/2026/November/2026-Thanksgiving-Closings-and-Service-Schedules-in-Arlington" >		
+			<h2 class="list-item-title">
+				2026 Thanksgiving Closings and Service Schedules in Arlington
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/animal-services/images/animals-amp-pets/articles_thanksgiving.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/animal-services/images/animals-amp-pets/articles_thanksgiving.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source srcset="/files/assets/city/v/1/animal-services/images/animals-amp-pets/articles_thanksgiving.jpg?dimension=smallthumbnail&w=150&h=100">
+  <img class="thumbnail-image right" src="/files/assets/city/v/1/animal-services/images/animals-amp-pets/articles_thanksgiving.jpg?dimension=smallthumbnail&w=150&h=100"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on November 17, 2026</p>
+			<p>		
+				Residential and commercial garbage and recycling collection will not occur on Thursday, Nov. 26.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Government<span class="separator">,&nbsp;</span>Holidays</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-hide">		
+	<article>
+		<a href="https://www.arlingtontx.gov/News-Articles/2026/November/Servicios-para-Animales-de-Arlington-abrirá-seis-días-a-la-semana" >		
+			<h2 class="list-item-title">
+				Servicios para Animales de Arlington abrirá seis días a la semana
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/3/news/articles-animal-shelter.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/3/news/articles-animal-shelter.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source srcset="/files/assets/city/v/3/news/articles-animal-shelter.jpg?dimension=smallthumbnail&w=150&h=100">
+  <img class="thumbnail-image right" src="/files/assets/city/v/3/news/articles-animal-shelter.jpg?dimension=smallthumbnail&w=150&h=100"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on November 17, 2026</p>
+			<p>		
+				El refugio ha estado abierto temporalmente al público solo cinco días a la semana como parte de las medidas de ahorro aprobadas para el presupuesto del año fiscal 2026.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Animal Services<span class="separator">,&nbsp;</span>Espanol</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-hide">		
+	<article>
+		<a href="https://www.arlingtontx.gov/News-Articles/2026/November/Find-Your-Holiday-Cheer-at-These-Christmas-2026-Events-in-Arlington" >		
+			<h2 class="list-item-title">
+				Find Your Holiday Cheer at These Christmas 2026 Events in Arlington
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/news/2026/november/articles-christmas-events-in-arlington.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/news/2026/november/articles-christmas-events-in-arlington.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source srcset="/files/assets/city/v/1/news/2026/november/articles-christmas-events-in-arlington.jpg?dimension=smallthumbnail&w=150&h=100">
+  <img class="thumbnail-image right" src="/files/assets/city/v/1/news/2026/november/articles-christmas-events-in-arlington.jpg?dimension=smallthumbnail&w=150&h=100"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on November 17, 2026</p>
+			<p>		
+				Whether you're making memories with the family, searching for unique gifts or simply looking for a little Christmas magic, these Arlington holiday favorites deserve a spot on your seasonal itinerary.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Holidays</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-hide">		
+	<article>
+		<a href="https://www.arlingtontx.gov/News-Articles/2026/November/Arlington-Animal-Services-Open-Again-Six-Days-a-Week" >		
+			<h2 class="list-item-title">
+				Arlington Animal Services Open Again Six Days a Week
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/3/news/articles-animal-shelter.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/3/news/articles-animal-shelter.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source srcset="/files/assets/city/v/3/news/articles-animal-shelter.jpg?dimension=smallthumbnail&w=150&h=100">
+  <img class="thumbnail-image right" src="/files/assets/city/v/3/news/articles-animal-shelter.jpg?dimension=smallthumbnail&w=150&h=100"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on November 17, 2026</p>
+			<p>		
+				The shelter has temporarily been open to the public only five days a week as part of cost-saving measures adopted for the Fiscal Year 2026 budget.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Animal Services</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-hide">		
+	<article>
+		<a href="https://www.arlingtontx.gov/News-Articles/2026/November/City-Residents-Connect-at-Woodbrook-Neighborhood-Block-Party" >		
+			<h2 class="list-item-title">
+				City, Residents Connect at Woodbrook Neighborhood Block Party
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/news/2026/november/articles-woodbrook-neighborhood-block-party-1.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/news/2026/november/articles-woodbrook-neighborhood-block-party-1.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source srcset="/files/assets/city/v/1/news/2026/november/articles-woodbrook-neighborhood-block-party-1.jpg?dimension=smallthumbnail&w=150&h=100">
+  <img class="thumbnail-image right" src="/files/assets/city/v/1/news/2026/november/articles-woodbrook-neighborhood-block-party-1.jpg?dimension=smallthumbnail&w=150&h=100"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on November 17, 2026</p>
+			<p>		
+				City representatives from Code Compliance and the Arlington Public Library had the opportunity to meet with residents, many of whom were original homeowners that helped establish the neighborhood more than 60 years ago.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Clean Arlington<span class="separator">,&nbsp;</span>Code Compliance<span class="separator">,&nbsp;</span>Strengthen Our Communities</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-show">		
+	<article>
+		<a href="https://www.arlingtontx.gov/News-Articles/2026/November/Arlington-Announces-Kirk-Franklin’s-150th-Holiday-Celebration-Concert" >		
+			<h2 class="list-item-title">
+				Arlington Announces Kirk Franklin’s 150th Holiday Celebration Concert
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/news/2026/november/articles-150-voices-holiday-concert-with-kirk-franklin.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/news/2026/november/articles-150-voices-holiday-concert-with-kirk-franklin.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source srcset="/files/assets/city/v/1/news/2026/november/articles-150-voices-holiday-concert-with-kirk-franklin.jpg?dimension=smallthumbnail&w=150&h=100">
+  <img class="thumbnail-image right" src="/files/assets/city/v/1/news/2026/november/articles-150-voices-holiday-concert-with-kirk-franklin.jpg?dimension=smallthumbnail&w=150&h=100"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on November 16, 2026</p>
+			<p>		
+				Franklin will perform alongside a 150 Voices Choir, featuring 25 students from each of Arlington ISD’s six high schools: Arlington High, Bowie High, Lamar High, Martin High, Sam Houston High and Seguin High.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Arlington Tomorrow Foundation<span class="separator">,&nbsp;</span>Arts & Culture<span class="separator">,&nbsp;</span>Community<span class="separator">,&nbsp;</span>Education<span class="separator">,&nbsp;</span>History<span class="separator">,&nbsp;</span>Holidays<span class="separator">,&nbsp;</span>Support Youth & Families</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-show">		
+	<article>
+		<a href="https://www.arlingtontx.gov/News-Articles/2026/November/The-Arlin-Brings-Boutique-Hotel-Experience-to-Arlington" >		
+			<h2 class="list-item-title">
+				The Arlin Brings Boutique Hotel Experience to Arlington
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/news/2026/november/articles-the-arlin-2026-11-16.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/news/2026/november/articles-the-arlin-2026-11-16.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source srcset="/files/assets/city/v/1/news/2026/november/articles-the-arlin-2026-11-16.jpg?dimension=smallthumbnail&w=150&h=100">
+  <img class="thumbnail-image right" src="/files/assets/city/v/1/news/2026/november/articles-the-arlin-2026-11-16.jpg?dimension=smallthumbnail&w=150&h=100"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on November 16, 2026</p>
+			<p>		
+				The Arlin, a Tribute Portfolio Hotel, is now welcoming guests as a new lifestyle boutique hotel experience in Arlington, Texas and the city’s only full-service Marriott property.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Arts, Culture & Entertainment District<span class="separator">,&nbsp;</span>Economic Development<span class="separator">,&nbsp;</span>Grow Our Economy</span></p>
+		</a>
+	</article>
+</div><div class="list-item-container homepage-hide">		
+	<article>
+		<a href="https://www.arlingtontx.gov/News-Articles/2026/November/Celebra-las-Fiestas-con-Tres-Eventos-Navideños-en-Arlington" >		
+			<h2 class="list-item-title">
+				Celebra las Fiestas con Tres Eventos Navideños en Arlington
+			</h2>
+			<p class='oc-thumbnail-image'>
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/city/v/1/news/2026/november/articles-christmas-photo-with-santa.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source media="(min-width: 768px)" srcset="/files/assets/city/v/1/news/2026/november/articles-christmas-photo-with-santa.jpg?dimension=smallthumbnail&w=150&h=100">
+  <source srcset="/files/assets/city/v/1/news/2026/november/articles-christmas-photo-with-santa.jpg?dimension=smallthumbnail&w=150&h=100">
+  <img class="thumbnail-image right" src="/files/assets/city/v/1/news/2026/november/articles-christmas-photo-with-santa.jpg?dimension=smallthumbnail&w=150&h=100"  alt=""/>
+</picture> 
+      </p>
+			<p class="published-on small-text">Published on November 16, 2026</p>
+			<p>		
+				Acompáñanos el sábado 12 de diciembre en nuestro evento Holly Jolly Holiday Hop. Tres lugares, tres eventos y una sola aventura llena de espíritu navideño.
+			</p>
+			<p class="tagged-as-list">
+	<span class='label'>Tagged as:&nbsp;</span><span class="text"><span class="separator">,&nbsp;</span>Espanol<span class="separator">,&nbsp;</span>Holidays<span class="separator">,&nbsp;</span>Parks, Recreation & Culture</span></p>
+		</a>
+	</article>
+</div>
+</div>
+<div class="seamless-pagination left seamless-pagination-count-296">
+	<div class="seamless-pagination-controls">
+		<span class="button-previous"><input type="submit" name="ctl10$ctl00$ctl05" value="Previous" disabled="disabled" title="Previous page" class="btn_scPagingNonJS_disabled" /></span>
+	    <div class="seamless-pagination-data" aria-label='Pagination' role='navigation'>
+        Page <select name="ctl10$ctl00$ctl07" title="Please select the page here." class="scSearchInputBox">
+	<option selected="selected" value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+	<option value="15">15</option>
+	<option value="16">16</option>
+	<option value="17">17</option>
+	<option value="18">18</option>
+	<option value="19">19</option>
+	<option value="20">20</option>
+	<option value="21">21</option>
+	<option value="22">22</option>
+	<option value="23">23</option>
+	<option value="24">24</option>
+	<option value="25">25</option>
+	<option value="26">26</option>
+	<option value="27">27</option>
+	<option value="28">28</option>
+	<option value="29">29</option>
+	<option value="30">30</option>
+	<option value="31">31</option>
+	<option value="32">32</option>
+	<option value="33">33</option>
+	<option value="34">34</option>
+	<option value="35">35</option>
+	<option value="36">36</option>
+	<option value="37">37</option>
+	<option value="38">38</option>
+	<option value="39">39</option>
+	<option value="40">40</option>
+	<option value="41">41</option>
+	<option value="42">42</option>
+	<option value="43">43</option>
+	<option value="44">44</option>
+	<option value="45">45</option>
+	<option value="46">46</option>
+	<option value="47">47</option>
+	<option value="48">48</option>
+	<option value="49">49</option>
+	<option value="50">50</option>
+	<option value="51">51</option>
+	<option value="52">52</option>
+	<option value="53">53</option>
+	<option value="54">54</option>
+	<option value="55">55</option>
+	<option value="56">56</option>
+	<option value="57">57</option>
+	<option value="58">58</option>
+	<option value="59">59</option>
+	<option value="60">60</option>
+	<option value="61">61</option>
+	<option value="62">62</option>
+	<option value="63">63</option>
+	<option value="64">64</option>
+	<option value="65">65</option>
+	<option value="66">66</option>
+	<option value="67">67</option>
+	<option value="68">68</option>
+	<option value="69">69</option>
+	<option value="70">70</option>
+	<option value="71">71</option>
+	<option value="72">72</option>
+	<option value="73">73</option>
+	<option value="74">74</option>
+	<option value="75">75</option>
+	<option value="76">76</option>
+	<option value="77">77</option>
+	<option value="78">78</option>
+	<option value="79">79</option>
+	<option value="80">80</option>
+	<option value="81">81</option>
+	<option value="82">82</option>
+	<option value="83">83</option>
+	<option value="84">84</option>
+	<option value="85">85</option>
+	<option value="86">86</option>
+	<option value="87">87</option>
+	<option value="88">88</option>
+	<option value="89">89</option>
+	<option value="90">90</option>
+	<option value="91">91</option>
+	<option value="92">92</option>
+	<option value="93">93</option>
+	<option value="94">94</option>
+	<option value="95">95</option>
+	<option value="96">96</option>
+	<option value="97">97</option>
+	<option value="98">98</option>
+	<option value="99">99</option>
+	<option value="100">100</option>
+	<option value="101">101</option>
+	<option value="102">102</option>
+	<option value="103">103</option>
+	<option value="104">104</option>
+	<option value="105">105</option>
+	<option value="106">106</option>
+	<option value="107">107</option>
+	<option value="108">108</option>
+	<option value="109">109</option>
+	<option value="110">110</option>
+	<option value="111">111</option>
+	<option value="112">112</option>
+	<option value="113">113</option>
+	<option value="114">114</option>
+	<option value="115">115</option>
+	<option value="116">116</option>
+	<option value="117">117</option>
+	<option value="118">118</option>
+	<option value="119">119</option>
+	<option value="120">120</option>
+	<option value="121">121</option>
+	<option value="122">122</option>
+	<option value="123">123</option>
+	<option value="124">124</option>
+	<option value="125">125</option>
+	<option value="126">126</option>
+	<option value="127">127</option>
+	<option value="128">128</option>
+	<option value="129">129</option>
+	<option value="130">130</option>
+	<option value="131">131</option>
+	<option value="132">132</option>
+	<option value="133">133</option>
+	<option value="134">134</option>
+	<option value="135">135</option>
+	<option value="136">136</option>
+	<option value="137">137</option>
+	<option value="138">138</option>
+	<option value="139">139</option>
+	<option value="140">140</option>
+	<option value="141">141</option>
+	<option value="142">142</option>
+	<option value="143">143</option>
+	<option value="144">144</option>
+	<option value="145">145</option>
+	<option value="146">146</option>
+	<option value="147">147</option>
+	<option value="148">148</option>
+	<option value="149">149</option>
+	<option value="150">150</option>
+	<option value="151">151</option>
+	<option value="152">152</option>
+	<option value="153">153</option>
+	<option value="154">154</option>
+	<option value="155">155</option>
+	<option value="156">156</option>
+	<option value="157">157</option>
+	<option value="158">158</option>
+	<option value="159">159</option>
+	<option value="160">160</option>
+	<option value="161">161</option>
+	<option value="162">162</option>
+	<option value="163">163</option>
+	<option value="164">164</option>
+	<option value="165">165</option>
+	<option value="166">166</option>
+	<option value="167">167</option>
+	<option value="168">168</option>
+	<option value="169">169</option>
+	<option value="170">170</option>
+	<option value="171">171</option>
+	<option value="172">172</option>
+	<option value="173">173</option>
+	<option value="174">174</option>
+	<option value="175">175</option>
+	<option value="176">176</option>
+	<option value="177">177</option>
+	<option value="178">178</option>
+	<option value="179">179</option>
+	<option value="180">180</option>
+	<option value="181">181</option>
+	<option value="182">182</option>
+	<option value="183">183</option>
+	<option value="184">184</option>
+	<option value="185">185</option>
+	<option value="186">186</option>
+	<option value="187">187</option>
+	<option value="188">188</option>
+	<option value="189">189</option>
+	<option value="190">190</option>
+	<option value="191">191</option>
+	<option value="192">192</option>
+	<option value="193">193</option>
+	<option value="194">194</option>
+	<option value="195">195</option>
+	<option value="196">196</option>
+	<option value="197">197</option>
+	<option value="198">198</option>
+	<option value="199">199</option>
+	<option value="200">200</option>
+	<option value="201">201</option>
+	<option value="202">202</option>
+	<option value="203">203</option>
+	<option value="204">204</option>
+	<option value="205">205</option>
+	<option value="206">206</option>
+	<option value="207">207</option>
+	<option value="208">208</option>
+	<option value="209">209</option>
+	<option value="210">210</option>
+	<option value="211">211</option>
+	<option value="212">212</option>
+	<option value="213">213</option>
+	<option value="214">214</option>
+	<option value="215">215</option>
+	<option value="216">216</option>
+	<option value="217">217</option>
+	<option value="218">218</option>
+	<option value="219">219</option>
+	<option value="220">220</option>
+	<option value="221">221</option>
+	<option value="222">222</option>
+	<option value="223">223</option>
+	<option value="224">224</option>
+	<option value="225">225</option>
+	<option value="226">226</option>
+	<option value="227">227</option>
+	<option value="228">228</option>
+	<option value="229">229</option>
+	<option value="230">230</option>
+	<option value="231">231</option>
+	<option value="232">232</option>
+	<option value="233">233</option>
+	<option value="234">234</option>
+	<option value="235">235</option>
+	<option value="236">236</option>
+	<option value="237">237</option>
+	<option value="238">238</option>
+	<option value="239">239</option>
+	<option value="240">240</option>
+	<option value="241">241</option>
+	<option value="242">242</option>
+	<option value="243">243</option>
+	<option value="244">244</option>
+	<option value="245">245</option>
+	<option value="246">246</option>
+	<option value="247">247</option>
+	<option value="248">248</option>
+	<option value="249">249</option>
+	<option value="250">250</option>
+	<option value="251">251</option>
+	<option value="252">252</option>
+	<option value="253">253</option>
+	<option value="254">254</option>
+	<option value="255">255</option>
+	<option value="256">256</option>
+	<option value="257">257</option>
+	<option value="258">258</option>
+	<option value="259">259</option>
+	<option value="260">260</option>
+	<option value="261">261</option>
+	<option value="262">262</option>
+	<option value="263">263</option>
+	<option value="264">264</option>
+	<option value="265">265</option>
+	<option value="266">266</option>
+	<option value="267">267</option>
+	<option value="268">268</option>
+	<option value="269">269</option>
+	<option value="270">270</option>
+	<option value="271">271</option>
+	<option value="272">272</option>
+	<option value="273">273</option>
+	<option value="274">274</option>
+	<option value="275">275</option>
+	<option value="276">276</option>
+	<option value="277">277</option>
+	<option value="278">278</option>
+	<option value="279">279</option>
+	<option value="280">280</option>
+	<option value="281">281</option>
+	<option value="282">282</option>
+	<option value="283">283</option>
+	<option value="284">284</option>
+	<option value="285">285</option>
+	<option value="286">286</option>
+	<option value="287">287</option>
+	<option value="288">288</option>
+	<option value="289">289</option>
+	<option value="290">290</option>
+	<option value="291">291</option>
+	<option value="292">292</option>
+	<option value="293">293</option>
+	<option value="294">294</option>
+	<option value="295">295</option>
+	<option value="296">296</option>
+
+</select><input type="submit" name="ctl10$ctl00$ctl08" value="Go" title="Change page" class="btn_scPagingNonJS_enabled" />
+	    </div>
+	    <span class="button-next"><input type="submit" name="ctl10$ctl00$ctl09" value="Next" title="Next page" class="btn_scPagingNonJS_enabled" /></span>
+    </div>
+    <div class="seamless-pagination-pages" aria-label="Pagination" role="navigation">
+    </div>
+</div>
+<div class="seamless-pagination-info right" role="status">
+  Page 1 of 296
+</div>
+
+</div>
+<div class="col-xs-12 col-lg-4">
+		<div class="search-filter">
+			<div class="search-filter-header">
+				<h2 class="filter-title">Search News</h2>
+					<span class="accordion-trigger search-filter-trigger" data-accordion-body="#newsListBody" data-open="false" data-accordion-all-device="false">
+						<i aria-hidden="true"></i>
+					</span>
+			</div>
+			<div class="search-filter-body accordion-panel clearfix" id="newsListBody">
+				<label for="ctl10_ctl00_ctl13">
+					By Phrase or Keyword
+				</label>
+				<span class='sc-search-box'><input name="ctl10$ctl00$ctl13" type="text" id="ctl10_ctl00_ctl13" class="inputBox" /></span>
+				<label for="ctl10_ctl00_ctl15_ctl00_ctl00">
+					By Category
+				</label>			
+				<select size="4" name="ctl10$ctl00$ctl15$ctl00$ctl00" multiple="multiple" id="ctl10_ctl00_ctl15_ctl00_ctl00" class="scSearchInputBox">
+	<option value="Animal Services">Animal Services</option>
+	<option value="Arlington Tomorrow Foundation">Arlington Tomorrow Foundation</option>
+	<option value="Arts &amp; Culture">Arts &amp; Culture</option>
+	<option value="Arts, Culture &amp; Entertainment District">Arts, Culture &amp; Entertainment District</option>
+	<option value="AT&amp;T Stadium">AT&amp;T Stadium</option>
+	<option value="Aviation">Aviation</option>
+	<option value="Awards">Awards</option>
+	<option value="Bond Program">Bond Program</option>
+	<option value="Build Unity">Build Unity</option>
+	<option value="Business">Business</option>
+	<option value="Champion Great Neighborhoods">Champion Great Neighborhoods</option>
+	<option value="City Council">City Council</option>
+	<option value="Clean Arlington">Clean Arlington</option>
+	<option value="Code Compliance">Code Compliance</option>
+	<option value="Community">Community</option>
+	<option value="Economic Development">Economic Development</option>
+	<option value="Education">Education</option>
+	<option value="Elections">Elections</option>
+	<option value="Enhance Mobility">Enhance Mobility</option>
+	<option value="Enhance Regional Mobility">Enhance Regional Mobility</option>
+	<option value="Entertainment District">Entertainment District</option>
+	<option value="Environment">Environment</option>
+	<option value="Espanol">Espanol</option>
+	<option value="Film Commission">Film Commission</option>
+	<option value="Fire">Fire</option>
+	<option value="Government">Government</option>
+	<option value="Grants Management">Grants Management</option>
+	<option value="Grow Our Economy">Grow Our Economy</option>
+	<option value="History">History</option>
+	<option value="Holidays">Holidays</option>
+	<option value="Housing">Housing</option>
+	<option value="Invest in our Economy">Invest in our Economy</option>
+	<option value="Jobs">Jobs</option>
+	<option value="Leverage Technology">Leverage Technology</option>
+	<option value="Library">Library</option>
+	<option value="MLK">MLK</option>
+	<option value="Municipal Court">Municipal Court</option>
+	<option value="MyArlingtonTV">MyArlingtonTV</option>
+	<option value="Neighborhood Enhancement Team">Neighborhood Enhancement Team</option>
+	<option value="Office of Business Diversity">Office of Business Diversity</option>
+	<option value="Office of Business Outreach">Office of Business Outreach</option>
+	<option value="Parks, Recreation &amp; Culture">Parks, Recreation &amp; Culture</option>
+	<option value="Pets of the Week">Pets of the Week</option>
+	<option value="Planning &amp; Development Services">Planning &amp; Development Services</option>
+	<option value="Police">Police</option>
+	<option value="Police News Releases">Police News Releases</option>
+	<option value="Preserve Financial Stability And Resilience">Preserve Financial Stability And Resilience</option>
+	<option value="Public Works">Public Works</option>
+	<option value="Small Business">Small Business</option>
+	<option value="Street Maintenance">Street Maintenance</option>
+	<option value="Strengthen Our Communities">Strengthen Our Communities</option>
+	<option value="Strengthening Our Communities">Strengthening Our Communities</option>
+	<option value="Support Youth &amp; Families">Support Youth &amp; Families</option>
+	<option value="Transportation">Transportation</option>
+	<option value="Veterans">Veterans</option>
+	<option value="Volunteer">Volunteer</option>
+	<option value="Water Utilities">Water Utilities</option>
+	<option value="Weather">Weather</option>
+	<option value="West Nile Virus">West Nile Virus</option>
+	<option value="World Cup">World Cup</option>
+
+</select>
+				<input type="submit" name="ctl10$ctl00$ctl16" value="Search" />
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<!--normalTemplateEnd-->
+                            
+                            
+                            
+							            </div>
+						            </div>
+					            </div>
+                        
+                            </div>
+                        </div>
+                        <div class="back-to-top-container text-center">
+                            <a href="#body-top" id="back-to-top"><i aria-hidden="true"></i><span class="js-visuallyhidden">Back to top</span></a>
+                        </div>
+                </div>
+            </div><!--groupTemplateEnd-->
+            <footer>
+                
+                    <div class="footer-outer-container footer-first-row">
+                        <div class="footer-container clearfix">
+                            <div class="grid grid-pad">
+                                <div class="col-xs-12 col-s-6 col-m-3 col-lg-3 footer-logo-widget" >
+	
+	<div><img alt="COA-Vertical.png" src="/files/sharedassets/city/v/1/coa-vertical.png" /></div>
+
+
+	
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 contact-us" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Contact Us</h3>
+			
+	<p>101 W. Abram St.<br />
+Arlington TX 76010</p>
+<p><a href="https://maps.app.goo.gl/u56WxVvxiwhDwWGv9" target="_blank">View on Map</a></p>
+<p><a href="https://www.arlingtontx.gov/Government/Contact-Us">Contact Us</a></p>
+<p><a href="tel:8174596777">817-459-6777</a></p>
+
+
+	<ul class="footer-links without-icons ">   </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 share-and-connect" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Share &amp; Connect</h3>
+			
+	
+	<ul class="footer-links with-icons social-media-links">  <li class="footer-link-facebook">
+	<a href="https://www.facebook.com/CityofArlington" target="_blank"  >
+<i aria-hidden="true"></i>Like us on Facebook
+</a>
+</li>
+          <li class="footer-link-twitter">
+	<a href="https://x.com/cityofarlington" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on X
+</a>
+</li>
+          <li class="footer-link-instagram">
+	<a href="https://www.instagram.com/cityofarlington/?hl=en" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Instagram
+</a>
+</li>
+          <li class="footer-link-youtube">
+	<a href="http://www.youtube.com/cityofarlington" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on YouTube
+</a>
+</li>
+          <li class="footer-link-linkedin">
+	<a href="https://www.linkedin.com/company/city-of-arlington/" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on LinkedIn
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-3 col-lg-3 quick-links" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Quick Links</h3>
+			
+	
+	<ul class="footer-links without-icons ">  <li>
+<a href="https://www.arlingtontx.gov/Government/Data-Information/Data-Information-Directory/Open-Data" target="_self"  >Open Data</a>
+</li>
+          <li>
+<a href="https://arlingtontx.govqa.us/WEBAPP/_rs/(S(412yz3mcenbudxwrp003wqb3))/SupportHome.aspx" target="_blank"  >Open Records Request</a>
+</li>
+          <li>
+<a href="https://www.arlingtontx.gov/Government/Budget-Finance/Financial-Transparency" target="_self"  >Financial Transparency</a>
+</li>
+          <li>
+<a href="https://policerecords-arlingtontx.govqa.us/WEBAPP/_rs/(S(wfp2j0e3rxq55zxnj2fv0pys))/SupportHome.aspx?lp=3" target="_blank"  >Police Records Request</a>
+</li>
+          <li>
+<a href="https://www.arlingtontx.gov/Government/Budget-Finance/Purchasing/Bidding-Procurement" target="_self"  >Bidding Opportunities</a>
+</li>
+          <li>
+<a href="https://www.arlingtontx.gov/Government/City-Government/City-Auditor/Report-Fraud-Waste-Abuse" target="_self"  >Report Fraud, Waste & Abuse</a>
+</li>
+          <li>
+<a href="https://www.arlingtontx.gov/Government/Budget-Finance/Treasury/Property-Tax/Property-Tax-Rate" target="_self"  >Property Tax Rate</a>
+</li>
+           </ul>
+	
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="footer-outer-container footer-second-row">
+                    <div class="footer-container clearfix">
+                        <div class="grid grid-pad footer-secondary-links">
+                            <div class="col-xs-12 col-m-7">
+                                
+                                    <div><a href="https://www.arlingtontx.gov/Government/Data-Information/Data-Information-Directory/Terms-of-Use" target="_self"  >Terms of Use</a>&nbsp;| <a href="https://www.arlingtontx.gov/Government/Data-Information/Data-Information-Directory/Privacy-Policy" target="_self"  >Privacy Policy</a>&nbsp;| <a href="https://www.arlingtontx.gov/Government/Data-Information/Data-Information-Directory/Accessibility" target="_self"  >Accessibility</a>&nbsp;| <a href="https://www.arlingtontx.gov/Government/Departments/Department-Directory/Human-Resources/Employee-Center" target="_self"  >Employee Center</a></div>
+                                
+                            </div>
+                            <div class="col-xs-12 col-m-5 powered-by">
+                                <div class="right">
+                                    &copy; 2026 City of Arlington, TX&nbsp;|&nbsp;<span class="powered-by">Powered by <a href="https://granicus.com/solution/govaccess/opencities/" target="_blank">Granicus</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/files/oc-resources/4d9218f4-9f02-4583-82d3-ac37007582e2/JsTextSnippets.js?ocsvclang=en-US" type="text/javascript"></script><script></script>
+    
+    <script id="citibot-chatscript" type="text/javascript" src="https://webchat-ui.citibot.net/script.js?account_id=6752cf54ca51334d5c9c6c9a"></script>
+<script type="text/javascript">
+    window._monsido = window._monsido || {
+        token: "rIKuaP3UPTz4ESNnJKi0bA",
+        statistics: {
+            enabled: true,
+            cookieLessTracking: true,
+            documentTracking: {
+                enabled: true,
+                documentCls: "monsido_download",
+                documentIgnoreCls: "monsido_ignore_download",
+                documentExt: [],
+            },
+        },
+    };
+</script>
+<script type="text/javascript" async src="https://app-script.monsido.com/v2/monsido-script.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MTFDFNNKK6"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-MTFDFNNKK6');
+</script>
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl04_seamless_script_manager_TSM');//]]>
+</script>
+</form>
+</body>
+</html>

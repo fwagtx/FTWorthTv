@@ -1,0 +1,4 @@
+# 200
+User-Agent: *
+Disallow: /en/search.html
+Crawl-delay: 30
