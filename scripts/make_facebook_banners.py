@@ -77,6 +77,59 @@ def banner_type(dark: bool) -> str:
     return svg(W, H, body, bg=bg)
 
 
+def _jpeg_uri(path: Path, max_w: int = 900) -> str:
+    with Image.open(path) as im:
+        im = im.convert("RGB")
+        if im.width > max_w:
+            im = im.resize((max_w, int(im.height * max_w / im.width)), Image.LANCZOS)
+        tmp = OUT / "_tmp.jpg"; im.save(tmp, quality=88)
+    data = base64.b64encode(tmp.read_bytes()).decode(); tmp.unlink()
+    return "data:image/jpeg;base64," + data
+
+
+def banner_feed() -> str:
+    """Our real post cards laid out like a feed, the lockup small at the left. Shows what the page is, not a slogan."""
+    d = DIRECTIONS[KEY]
+    picks = ["05-cowboys", "03-ty-myers", "07-fort-worth-parade", "02-free-fun"]
+    cards = []
+    for pre in picks:
+        hit = sorted((ROOT / "out" / "tweet-renders").glob(f"{pre}*/post.jpg"))
+        if hit:
+            cards.append(hit[0])
+    body = ""
+    b, lw, lh = lockup_body(KEY, d["paper"], d["accent"], d["ink"], mono_h=170)
+    s = min(1.0, 430 / lw)
+    body += g(b, SAFE_X0 + 10, 150, s)
+    body += text(SAFE_X0 + 16, 150 + lh * s + 70, "Fort Worth, every day.", 500, 34, d["paper"], 0.01, wdth=112)
+    body += text(SAFE_X0 + 16, 150 + lh * s + 116, HANDLE, 500, 26, "#B9BCC6", 0.04, wdth=100)
+    body += '<defs><filter id="sh" x="-10%" y="-10%" width="130%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity="0.35"/></filter></defs>'
+    x = 740
+    for i, c in enumerate(cards[:3]):
+        with Image.open(c) as im:
+            cw, ch = im.size
+        w = 470; h = int(ch * w / cw)
+        y = (H - h) // 2 + (-28 if i % 2 else 28)
+        body += (f'<g filter="url(#sh)"><clipPath id="c{i}"><rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14"/></clipPath>'
+                 f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="#fff"/>'
+                 f'<image href="{_jpeg_uri(c, 700)}" x="{x}" y="{y}" width="{w}" height="{h}" clip-path="url(#c{i})"/></g>')
+        x += w + 30
+    return svg(W, H, body, bg=d["ink"])
+
+
+def banner_caption() -> str:
+    """The photo as it is, a newspaper caption band along the bottom with the lockup in it. No overlay, no slogan."""
+    d = DIRECTIONS[KEY]
+    uri = photo_data_uri()
+    band = 92
+    body = f'<image href="{uri}" x="0" y="0" width="{W}" height="{H - band}" preserveAspectRatio="xMidYMid slice"/>' if uri else ""
+    body += f'<rect x="0" y="{H - band}" width="{W}" height="{band}" fill="{d["paper"]}"/>'
+    b, lw, lh = lockup_body(KEY, d["ink"], d["accent"], d["paper"], mono_h=46)
+    s = min(1.0, 300 / lw)
+    body += g(b, SAFE_X0 + 10, H - band + (band - lh * s) / 2, s)
+    body += text(SAFE_X1 - 10, H - band / 2 + 9, "Downtown Fort Worth from Trinity Park   ·   " + CREDIT, 500, 22, "#4A4E58", 0.02, "end", wdth=100)
+    return svg(W, H, body, bg=d["paper"])
+
+
 def preview(names: list[str]) -> None:
     f = ImageFont.truetype("/usr/share/fonts/opentype/inter/Inter-Medium.otf", 22)
     rows = []
@@ -97,7 +150,8 @@ def preview(names: list[str]) -> None:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    files = {"cover-photo-1640x624": banner_photo(), "cover-charcoal-1640x624": banner_type(True), "cover-light-1640x624": banner_type(False)}
+    files = {"cover-feed-1640x624": banner_feed(), "cover-caption-1640x624": banner_caption(),
+             "cover-photo-1640x624": banner_photo(), "cover-charcoal-1640x624": banner_type(True), "cover-light-1640x624": banner_type(False)}
     paths = []
     for n, s in files.items():
         p = OUT / f"{n}.svg"; p.write_text(s, encoding="utf-8"); paths.append(str(p))
