@@ -63,28 +63,43 @@ rss:
     weight: 0.7
     image_policy: none
     verify: true
-  - name: City of Fort Worth
-    url: https://www.fortworthtexas.gov/news/rss
-    weight: 0.8
-    always_relevant: true
-    official: true                 # city press releases + their photos are fair to reuse with credit
-    image_policy: source_image
-    category_hint: community
-    verify: true
-  - name: Fort Worth Police Department
-    url: https://police.fortworthtexas.gov/RSSFeed.aspx?ModID=1&CID=All-newsflash.xml
+  - name: Crime Stoppers of Tarrant County
+    url: https://469tips.com/feed/
     weight: 0.9
     always_relevant: true
-    official: true
+    official: true                 # wanted bulletins are published to be shared; photo + reward info come from the post
     image_policy: source_image
     category_hint: crime
-    verify: true
+    fetch_article: true
   - name: TCU Athletics
     url: https://gofrogs.com/rss.aspx
     weight: 0.6
     always_relevant: true
     category_hint: sports
     image_policy: none
+    verify: true
+
+# Government news listings without RSS (OpenCities CMS). Parsed from HTML; the release page is fetched for the real photo.
+# FWPD releases carry booking photos when an arrest is announced; city news carries event/project photos.
+opencities:
+  - name: Fort Worth Police Department
+    url: https://police.fortworthtexas.gov/news-articles
+    weight: 1.0
+    official: true
+    image_policy: source_image
+    category_hint: crime
+  - name: City of Fort Worth
+    url: https://www.fortworthtexas.gov/news
+    weight: 0.8
+    official: true
+    image_policy: source_image
+    category_hint: community
+  - name: City of Arlington
+    url: https://www.arlingtontx.gov/News-Events/All-News
+    weight: 0.6
+    official: true
+    image_policy: source_image
+    category_hint: community
     verify: true
 
 # National Weather Service (free, no key, public domain imagery)

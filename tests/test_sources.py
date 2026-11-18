@@ -82,3 +82,17 @@ def test_article_parser_prefers_og_image():
     from ftworthtv.sources.article import parse_article
     html = '<meta name="twitter:image" content="https://x/y.jpg"><img src="/other.jpg">'
     assert parse_article(html, "https://x/")["image"] == "https://x/y.jpg"
+
+
+def test_opencities_listing_parser(settings, now):
+    from pathlib import Path
+    from ftworthtv.sources.opencities import parse_listing
+    html = Path(__file__).parent.joinpath("fixtures/opencities_fwpd_listing.html").read_text(encoding="utf-8")
+    cfg = {"name": "Fort Worth Police Department", "category_hint": "crime", "official": True, "image_policy": "source_image"}
+    stories = parse_listing(html, "https://police.fortworthtexas.gov/news-articles", cfg, now, settings.tz)
+    assert len(stories) == 3
+    s = stories[0]
+    assert s.url.startswith("https://police.fortworthtexas.gov/news-articles/2026/")
+    assert s.title and s.summary and s.published is not None and s.published.year == 2026
+    assert s.official and s.image_policy == "source_image" and s.category_hint == "crime"
+    assert s.extra["generic_image"] is True and s.image_url is None   # the "news release" graphic is not used as the photo

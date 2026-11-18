@@ -40,21 +40,43 @@ def save(url: str, body: bytes, tag: str = "") -> None:
     (OUT / f"{tag}{name}.html").write_bytes(body)
 
 
+LOG: list[str] = []
+
+
+def log(line: str) -> None:
+    print(line)
+    LOG.append(line)
+
+
 def fetch(url: str) -> bytes | None:
     if not allowed(url):
-        print(f"SKIP (robots.txt disallows) {url}")
+        log(f"SKIP (robots.txt disallows) {url}")
         return None
     try:
         r = requests.get(url, headers={"User-Agent": UA, "Accept": "text/html,application/xml;q=0.9,*/*;q=0.8"}, timeout=30)
-        print(f"{r.status_code} {len(r.content):>8}  {url}  -> {r.url}")
+        log(f"{r.status_code} {len(r.content):>8}  {url}  -> {r.url}")
         time.sleep(1.0)
-        return r.content
+        return r.content if r.ok else None
     except Exception as exc:
-        print(f"ERR {url}: {exc}")
+        log(f"ERR {url}: {exc}")
         return None
 
 
+def save_robots(url: str) -> None:
+    origin = "{0.scheme}://{0.netloc}".format(urlparse(url))
+    out = OUT / ("robots__" + re.sub(r"[^a-zA-Z0-9]+", "_", urlparse(url).netloc) + ".txt")
+    if out.exists():
+        return
+    try:
+        r = requests.get(origin + "/robots.txt", headers={"User-Agent": UA}, timeout=20)
+        OUT.mkdir(parents=True, exist_ok=True)
+        out.write_text(f"# {r.status_code}\n" + r.text[:20000], encoding="utf-8")
+    except Exception as exc:
+        log(f"robots.txt fetch failed for {origin}: {exc}")
+
+
 for url in URLS:
+    save_robots(url)
     body = fetch(url)
     if not body:
         continue
@@ -72,3 +94,6 @@ for url in URLS:
         sub = fetch(link)
         if sub:
             save(link, sub, tag="article__")
+
+OUT.mkdir(parents=True, exist_ok=True)
+(OUT / "fetch-log.txt").write_text("\n".join(LOG) + "\n", encoding="utf-8")
