@@ -8,7 +8,7 @@ the captions use the Claude subscription you already have.
 
 | # | Decision | Default if you say nothing |
 |---|----------|----------------------------|
-| 1 | Page name and handles | "Fort Worth Texas TV", Facebook `@FortWorthTexasTV`, Instagram `@FortWorthTexasTV` (check the handle is free) |
+| 1 | Page name and handles | "Fort Worth Daily", Facebook `@FortWorthDaily`, Instagram `@FortWorthDaily` (check the handle is free) |
 | 2 | Posting path | **Metricool** (you already have it): Facebook + Instagram from one brand, optional phone approval, no Meta developer app needed. Facebook Graph API direct is the fallback. |
 | 3 | Crime content | WANTED bulletins on (1/day), felony arrest log off, sex-offense cases filtered out |
 | 4 | Volume | up to 2 posts per run, 10 per day, quiet 11pm–6am Central |
@@ -58,7 +58,7 @@ the captions use the Claude subscription you already have.
 1. Settings → General → Default branch: rename `claude/practical-mccarthy-mi4jkw` to `main` (or tell me to push `main`). Scheduled workflows run from the default branch only.
 2. Settings → Secrets and variables → Actions → **Secrets**: everything from B and C.
 3. **Variables**: `FTWTV_PUBLISHER = dryrun` (start here), optionally `FTWTV_MAX_POSTS = 2`. Flip to `metricool` (or `facebook`) in step 5.
-4. Actions → "Post to Fort Worth Texas TV" → Run workflow. Download the artifact, open `latest-preview.html`, check 10 posts.
+4. Actions → "Post to Fort Worth Daily" → Run workflow. Download the artifact, open `latest-preview.html`, check 10 posts.
 5. Flip the variable to `metricool` (or `facebook`). Done: it runs every 2 hours.
 6. Housekeeping: delete the `renders/*` and `pages/*` branches (sample renders), or tell me to.
 

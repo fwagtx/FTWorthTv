@@ -6,12 +6,12 @@
 #   - real photos / phone videos of local happenings, sources credited, links kept out of the caption
 #   - a sponsor line ("official partner of ...") on some posts
 
-page_name: "Fort Worth Texas TV"
-short_name: "FTW TV"
-handle: "@FortWorthTexasTV"
-instagram_handle: "@FortWorthTexasTV"
-tagline: "The home of FTW entertainment 🤠"
-bio: "The home of Fort Worth entertainment & news 🤠 All news available. 📍 Fort Worth, TX. DM us your videos & photos 📲"
+page_name: "Fort Worth Daily"
+short_name: "FWD"
+handle: "@FortWorthDaily"
+instagram_handle: "@FortWorthDaily"
+tagline: "Fort Worth, every day."
+bio: "Independent news, culture and entertainment for Fort Worth. Every day. DM us your videos & photos 📲"
 city: "Fort Worth"
 state: "TX"
 timezone: "America/Chicago"
@@ -55,17 +55,17 @@ photos:
 
 # Visual identity for the photo cards (hex)
 colors:
-  primary: "#14182B"   # deep navy backdrop / gradient
-  accent: "#F2B134"    # Fort Worth gold
-  text: "#FFFFFF"
-  muted: "#D7D9E0"
+  primary: "#26282E"   # charcoal (identity direction B, "The Overbar")
+  accent: "#2F5BFF"    # electric blue
+  text: "#F7F7F5"      # off-white
+  muted: "#B9BCC6"
 
 card:
   style: tweet            # tweet  = OUR post as the Dallas Texas TV page does it: white card, our logo + page name + @handle, a one-line
                           #          news headline, then the photo with rounded corners (the "post inside a post" look)
                           # quoted = the SOURCE's post rendered as a card (name, domain, their text, photo)
                           # plain  = the photo as-is with a small @handle watermark;  headline = text overlay card
-  logo: assets/logo.png   # square PNG used as the avatar on the card (drop in your real logo; scripts/make_logo.py drew this one)
+  logo: assets/logo.png   # the post-card avatar: the FWD profile mark (scripts/make_brandkit_identity.py writes it)
   verified_badge: false   # the Dallas page shows Meta's blue check because it is verified; turn on only once this page is
   photo_credit_on_card: false   # credits for stock / Creative-Commons photos stay in the first comment (true = small grey line on the card)
   quoted_handles:         # shown under the author only when the story is itself a social post (extra.post_url); otherwise the

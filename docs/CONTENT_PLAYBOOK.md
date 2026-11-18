@@ -55,7 +55,7 @@ masks/face coverings", "New Texas leaders say THC rules are a top priority for 2
 3:2, inset about 13.5% on each side. No date, no like counts, no platform logo. The whole image is about 1.3:1.
 
 What the pipeline does with it: `card.style: tweet` renders exactly that card for every post (`images/card.py:
-render_tweet_card`) with our logo, "Fort Worth Texas TV", "@FortWorthTexasTV", the writer's `headline` and the photo; the
+render_tweet_card`) with our logo, "Fort Worth Daily", "@FortWorthDaily", the writer's `headline` and the photo; the
 caption writer follows the two-paragraph rule above (`writer.py: DALLAS_CAPTION_RULES` for Claude, `dallas_caption` for the
 template). The blue check is off until the page is verified (`card.verified_badge`).
 

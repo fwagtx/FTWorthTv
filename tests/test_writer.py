@@ -50,7 +50,7 @@ def test_finalize_strips_urls_and_hashtags_and_fills_defaults(settings, now, tmp
 
 def test_system_prompt_carries_brand(settings):
     prompt = build_system_prompt(settings)
-    assert "Fort Worth Texas TV" in prompt and "@FortWorthTexasTV" in prompt and "{photo_credit}" in prompt
+    assert settings.brand["page_name"] in prompt and settings.brand["handle"] in prompt and "{photo_credit}" in prompt
 
 
 

@@ -38,8 +38,8 @@ keywords) until you like what you see. This loop is where the page's personality
 
 ## 3. The Facebook Page and a token that never expires (20 min)
 
-1. Create the Page (Meta Business Suite → Pages → Create). Suggested: name **Fort Worth Texas TV**, category *Media/News Company*,
-   username `@FortWorthTexasTV`, bio from `config/brand.yaml`. Make yourself an admin.
+1. Create the Page (Meta Business Suite → Pages → Create). Suggested: name **Fort Worth Daily**, category *Media/News Company*,
+   username `@FortWorthDaily`, bio from `config/brand.yaml`. Make yourself an admin.
 2. Create a Meta app at https://developers.facebook.com/apps → *Create app* → type **Business** (or "Other → Business"). Note the
    **App ID** and **App Secret** (Settings → Basic). The app can stay in **Development mode** forever: that only limits who can
    use it (people with a role in the app), not what the Page can publish, and no App Review is needed to post to a Page you admin.
@@ -84,7 +84,7 @@ Want to approve every post from your phone instead of full auto? Set `"autoPubli
    * **Variables**: `FTWTV_PUBLISHER=dryrun` (start here!), optionally `FTWTV_MAX_POSTS`, `MEDIA_BASE_URL`, `FB_PLACE_ID`, `FTWTV_MODEL`.
    * **Secrets**: `FB_PAGE_ID`, `FB_PAGE_ACCESS_TOKEN`, `ANTHROPIC_API_KEY`, `PEXELS_API_KEY`, `TICKETMASTER_API_KEY`, `NWS_USER_AGENT`,
      and for Metricool `METRICOOL_USER_TOKEN`, `METRICOOL_USER_ID`, `METRICOOL_BLOG_ID`.
-3. Actions → *Post to Fort Worth Texas TV* → *Run workflow*. Download the `run-N` artifact and open `latest-preview.html`.
+3. Actions → *Post to Fort Worth Daily* → *Run workflow*. Download the `run-N` artifact and open `latest-preview.html`.
 4. Happy? Set `FTWTV_PUBLISHER=facebook` (or `metricool`). From then on it runs every two hours, posts up to `max_posts_per_run`
    per run, at most `daily_cap` per day, never between 11 pm and 6 am Central (severe weather excepted), and commits
    `state/posted.json` so nothing repeats.

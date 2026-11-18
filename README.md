@@ -1,4 +1,4 @@
-# FTWorthTv — "Fort Worth Texas TV", fully automated
+# FTWorthTv — "Fort Worth Daily", fully automated
 
 A hands-off Fort Worth, Texas local news & entertainment page for Facebook (and Instagram), built to look and feel like
 [Dallas Texas TV](https://www.facebook.com/DallasTexasTV) but for Fort Worth / Tarrant County.
@@ -98,7 +98,7 @@ Every post has two parts, copied from how that page posts (see `docs/CONTENT_PLA
    identifiable. ICE says masks protect agents from being targeted."* The Claude writer produces this from the article; the
    template writer builds it from the article lead (title + complete sentences, boilerplate filtered).
 2. **The media** (`card.style: tweet`, the default): **our own post as a card**, the "post inside a post" look. A white card
-   with our logo, "Fort Worth Texas TV" and "@FortWorthTexasTV", a one-line news headline in plain type ("New Texas leaders
+   with our logo, "Fort Worth Daily" and "@FortWorthDaily", a one-line news headline in plain type ("New Texas leaders
    say THC rules are a top priority for 2027"), then the photo with rounded corners. Proportions are measured from their
    screenshots (1200 px wide, about 1.3:1 with a 3:2 photo). No date, no counts, no platform logo. Tall photos (booking
    photos) are contained on a blurred backdrop, never cropped. `card.logo` points at the avatar PNG (`assets/logo.png` is a
@@ -142,7 +142,7 @@ For your protection move to an interior room on the lowest floor of a building. 
 
 Stay safe out there, Fort Worth 💜
 
-Follow @FortWorthTexasTV for more 📲
+Follow @FortWorthDaily for more 📲
 ```
 first comment: `Source: National Weather Service <link> · Radar: NWS Fort Worth (public domain) · #FortWorth #FortWorthWeather #DFWwx #TXwx #Texas`
 
