@@ -64,9 +64,18 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             if background:
                 credit, license_, provider, source_url = story.image_credit or "Image: Ticketmaster", "ticketmaster", "ticketmaster", story.url
     elif story.image_policy == "source_image" and story.image_url and not settings.offline:
-        background = _download(story.image_url, workdir / "source")
+        crime_cfg = brand.get("crime", {}) or {}
+        if copy.category == "crime" and crime_cfg.get("mugshots", "official_releases_only") == "never":
+            background = None
+        else:
+            background = _download(story.image_url, workdir / "source")
         if background:
             credit, license_, provider, source_url = story.image_credit or f"Photo: {story.source}", story.image_license or "official", "source", story.url
+            if copy.category == "crime":
+                fit = "contain"  # booking photos are portraits: never crop a face, show on a blurred backdrop like TV news does
+                text = story.text()
+                label = "WANTED" if any(w in text for w in ("wanted", "seeking", "searching for", "looking for", "help identify")) else "ARRESTED" if any(w in text for w in ("arrest", "charged", "custody", "booked", "indicted")) else "CRIME"
+                subline = story.source.upper()
 
     if background is None and copy.category == "traffic":
         cam = cameras.snapshot_for(story, settings, workdir)
@@ -77,10 +86,11 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         queries = [copy.image_query]
         venue = story.extra.get("venue")
         if story.source_kind in ("event", "event_roundup") and venue:
-            # a photo of the venue building beats a random concert; never another artist's show at that venue
+            # generic genre photo first; a venue photo only when the file is clearly of the building, never another artist's show
             from .providers import PERFORMANCE_WORDS
-            queries = [(f"{venue} exterior", PERFORMANCE_WORDS), (f"{venue} building", PERFORMANCE_WORDS),
-                       (f"{venue} {brand.get('city', 'Fort Worth')}", PERFORMANCE_WORDS), copy.image_query]
+            venue_words = tuple(w for w in venue.lower().split() if len(w) > 2)
+            queries = [copy.image_query, (f"{venue} exterior", PERFORMANCE_WORDS, venue_words),
+                       (f"{venue} building", PERFORMANCE_WORDS, venue_words)]
         cand = find_photo(queries, settings, state, exclude=exclude_photos)
         if cand:
             background = _download(cand.url, workdir / "photo")

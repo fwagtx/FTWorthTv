@@ -61,3 +61,24 @@ def test_example_stories_loads_everything(settings, now):
     kinds = {s.source_kind for s in stories}
     assert {"rss", "nws_alert", "event", "event_roundup"} <= kinds
     assert len(stories) >= 15
+
+
+def test_article_parser_reads_og_tags_and_body_image():
+    from ftworthtv.sources.article import parse_article
+    html = """<html><head><meta property="og:title" content="Suspect Arrested in Robbery"/>
+    <meta property="og:description" content="FWPD arrested a 24-year-old man."/>
+    <meta property="article:published_time" content="2026-11-16T15:00:00-06:00"/></head>
+    <body><main><img src="/logo.svg"><img src="/files/assets/police/booking-photo.jpg">
+    <p>Fort Worth Police arrested a 24-year-old man on Monday in connection with a string of robberies on East Lancaster Avenue.</p>
+    <p>Short.</p></main></body></html>"""
+    info = parse_article(html, "https://police.fortworthtexas.gov/news-articles/x")
+    assert info["title"] == "Suspect Arrested in Robbery"
+    assert info["image"] == "https://police.fortworthtexas.gov/files/assets/police/booking-photo.jpg"
+    assert info["summary"].startswith("Fort Worth Police arrested")
+    assert info["published"].year == 2026
+
+
+def test_article_parser_prefers_og_image():
+    from ftworthtv.sources.article import parse_article
+    html = '<meta name="twitter:image" content="https://x/y.jpg"><img src="/other.jpg">'
+    assert parse_article(html, "https://x/")["image"] == "https://x/y.jpg"

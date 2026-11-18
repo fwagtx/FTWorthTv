@@ -112,6 +112,9 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                 draft.image = plan_image(draft, settings, state, workdir, exclude_photos=used_photos)
                 if draft.image and draft.image.photo_id:
                     used_photos.add(draft.image.photo_id)
+                crime_cfg = settings.brand.get("crime", {}) or {}
+                if copy.category == "crime" and draft.image and draft.image.provider == "source" and crime_cfg.get("disclaimer"):
+                    draft.copy = copy.model_copy(update={"first_comment": copy.first_comment.rstrip() + "\n" + crime_cfg["disclaimer"]})
             except Exception as exc:
                 log.warning("image pipeline failed for %s: %s", story.title[:60], exc)
                 draft.mode, draft.link = "link", story.url

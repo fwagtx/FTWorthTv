@@ -115,7 +115,9 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
     tried: set[str] = set()
     for item in queries:
         avoid: tuple[str, ...] = ()
-        if isinstance(item, tuple):  # (query, words that disqualify a result's file name)
+        require: tuple[str, ...] = ()
+        if isinstance(item, tuple):  # (query, words that disqualify a file name[, words the file name must contain])
+            require = tuple(item[2]) if len(item) > 2 else ()
             item, avoid = item[0], tuple(item[1])
         q = re.sub(r"\s+", " ", item or "").strip()
         if not q or q.lower() in tried:
@@ -126,6 +128,8 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
                 continue
             name = cand.source_url.rsplit("/", 1)[-1].lower().replace("_", " ")
             if avoid and any(w in name for w in avoid):
+                continue
+            if require and not all(w in name for w in require):
                 continue
             if state and state.photo_recently_used(cand.id):
                 continue

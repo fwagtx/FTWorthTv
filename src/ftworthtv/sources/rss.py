@@ -88,13 +88,19 @@ def fetch_one(cfg: dict, now: datetime) -> list[Story]:
 def fetch(settings: Settings, now: datetime) -> list[Story]:
     if settings.offline:
         return []
+    from .article import enrich
     stories: list[Story] = []
+    max_age = float(settings.since_hours or 36)
     for cfg in settings.sources.get("rss", []) or []:
         if not cfg.get("enabled", True):
             continue
         try:
             found = fetch_one(cfg, now)
             log.info("rss %-32s %3d items", cfg["name"], len(found))
+            if cfg.get("fetch_article") or (cfg.get("official") and cfg.get("image_policy") == "source_image"):
+                fresh = [s for s in found if not s.image_url and (s.published is None or s.age_hours(now) <= max_age)]
+                for story in fresh[: int(cfg.get("max_article_fetches", 6))]:
+                    enrich(story)
             stories.extend(found)
         except Exception as exc:
             log.warning("rss %s failed (%s): %s", cfg["name"], cfg.get("url"), exc)

@@ -22,6 +22,15 @@ sponsor:
   line: "Official partner of <Your Sponsor>"
   every_n_posts: 5
 
+# Crime posts and mugshots. DFW news pages run booking photos; we only use photos that the police agency itself
+# published with the release (FWPD, Arlington PD, Tarrant County Sheriff, DPS/Crime Stoppers wanted bulletins).
+# Texas Bus. & Com. Code ch. 109 restricts commercial mugshot publication and requires removal when charges are
+# dropped or the person is acquitted; keep the disclaimer and honor removal requests.
+crime:
+  mugshots: official_releases_only   # never | official_releases_only
+  disclaimer: "Charges are accusations. All suspects are presumed innocent until proven guilty in a court of law."
+  credit_agency: true                # "Photo: Fort Worth Police Department" on the card and in the first comment
+
 # Visual identity for the photo cards (hex)
 colors:
   primary: "#14182B"   # deep navy backdrop / gradient
