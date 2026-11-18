@@ -1,0 +1,29 @@
+# Dev helper: download open-licence (OFL) typefaces from the google/fonts repository into a `brandfonts/<run>` branch,
+# so the identity work can use real editorial type on a machine without internet access.
+name: Fetch brand fonts
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch
+        shell: bash
+        run: bash scripts/fetch_fonts.sh out/fonts
+      - name: Push
+        run: |
+          BRANCH="brandfonts/${GITHUB_RUN_NUMBER}"
+          git config user.name "ftworthtv-bot"
+          git config user.email "ftworthtv-bot@users.noreply.github.com"
+          git checkout -q --orphan "$BRANCH"
+          git rm -r -q --cached . >/dev/null
+          git add -f out/fonts
+          git commit -q -m "fonts: OFL typefaces for the identity work [skip ci]"
+          git push -u origin "$BRANCH"
