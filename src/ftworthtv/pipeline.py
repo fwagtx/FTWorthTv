@@ -95,6 +95,8 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             break
         if (quiet or not gap_ok or cap_left <= 0) and not story.is_urgent:
             continue
+        if story.source_kind == "wanted" and sum(1 for d in drafts if d.story.source_kind == "wanted") >= int((settings.sources.get("wanted", {}) or {}).get("max_per_run", 1)):
+            continue
         copy, writer = write_copy(story, settings, now)
         if copy.skip:
             report.skipped.append((story, copy.skip_reason or "writer skipped"))

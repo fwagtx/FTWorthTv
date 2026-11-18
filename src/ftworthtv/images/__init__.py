@@ -79,6 +79,9 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
 
     if story.source_kind == "arrest_log":
         label, subline = "ARREST LOG", story.source.upper()
+    if story.source_kind == "wanted":
+        label = "WANTED"
+        subline = f"{story.extra.get('agency', story.source)} · {story.extra.get('charge', '')}"[:70]
 
     if background is None and copy.category == "traffic":
         cam = cameras.snapshot_for(story, settings, workdir)

@@ -10,14 +10,14 @@ CATEGORY_BOOST = {
     "breaking": 1.6, "weather": 1.2, "traffic": 1.15, "events": 1.1, "food": 1.05, "sports": 1.05,
     "crime": 1.0, "culture": 1.0, "community": 0.9, "business": 0.8, "other": 0.75, "politics": 0.5,
 }
-KIND_BOOST = {"nws_alert": 2.0, "nws_forecast": 1.3, "event_roundup": 1.25, "event": 0.95, "rss": 1.0, "reddit": 0.7}
+KIND_BOOST = {"nws_alert": 2.0, "nws_forecast": 1.3, "event_roundup": 1.25, "event": 0.95, "rss": 1.0, "wanted": 0.9, "arrest_log": 0.9, "reddit": 0.7}
 HALF_LIFE_HOURS = 10.0
 
 
 def score(story: Story, now: datetime) -> float:
     rel = 1.0 + min(story.relevance, 8) / 8.0          # 1.0 .. 2.0
     fresh = 0.5 ** (story.age_hours(now) / HALF_LIFE_HOURS)
-    if story.source_kind in ("nws_alert", "nws_forecast", "event", "event_roundup"):
+    if story.source_kind in ("nws_alert", "nws_forecast", "event", "event_roundup", "wanted", "arrest_log"):
         fresh = 1.0
     sev = {"extreme": 2.0, "severe": 1.6, "moderate": 1.2}.get(story.severity, 1.0) if story.source_kind == "nws_alert" else 1.0
     img = 1.08 if (story.image_url and story.image_policy == "source_image") else 1.0

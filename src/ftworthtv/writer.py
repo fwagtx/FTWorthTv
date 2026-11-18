@@ -232,6 +232,16 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         lines += ["Tickets in the comments 👇", cta]
         headline = "This Weekend in Fort Worth"
         first_comment = "🎟️ Tickets:\n" + "\n".join(f"{e.get('title', '')}: {e.get('url', '')}" for e in story.extra.get("events", [])[:6]) + "\n{photo_credit}"
+    elif kind == "wanted":
+        x = story.extra
+        city_name = x.get("city") or settings.brand.get("city", "Fort Worth")
+        lines = [f"🚨 WANTED in {city_name}: {x.get('name')}",
+                 f"Wanted by the {x.get('agency')} for {x.get('charge')}.",
+                 f"Crime Stoppers will pay up to {x.get('reward')} for information leading to an arrest. Call {x.get('tip_phone')} or submit a tip at 469tips.com. You stay anonymous.",
+                 f"📍 {city_name}, TX", "Share this post 🔁"]
+        headline = truncate(f"WANTED: {x.get('name')}", 60, "")
+        first_comment = f"Source: {x.get('agency')} most wanted {story.url}\n{{photo_credit}}\nTips: {x.get('tip_url')}"
+        location = f"{city_name}, TX"
     elif kind == "arrest_log":
         entries = story.extra.get("entries", [])
         lines = [f"Fort Worth arrest log 🚔 Felony bookings, last {story.title.split('last ')[-1] if 'last ' in story.title else '24 hours'}"]
@@ -253,10 +263,13 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
             lines.append(truncate(story.summary, 230))
         lines += [f"📍 {location}", cta]
 
+    hashtags = settings.hashtags_for(category)
+    if kind == "wanted":
+        hashtags = ["#Wanted", "#CrimeStoppers"] + hashtags
     return PostCopy(
         skip=False, skip_reason="", category=category if category in CATEGORIES else "other",
         headline=headline, caption="\n\n".join(l for l in lines if l), first_comment=first_comment,
-        hashtags=settings.hashtags_for(category), image_query=image_query, location=location,
+        hashtags=hashtags, image_query=image_query, location=location,
     )
 
 

@@ -130,8 +130,10 @@ def roundup_story(entries: list[dict], now: datetime, tz: ZoneInfo, cfg: dict) -
 
 
 def fetch(settings: Settings, now: datetime) -> list[Story]:
+    import os
     cfg = settings.sources.get("arrest_log", {}) or {}
-    if settings.offline or not cfg.get("enabled", False):
+    enabled = cfg.get("enabled", False) or os.environ.get("FTWTV_ENABLE_ARREST_LOG", "").lower() in ("1", "true", "yes")
+    if settings.offline or not enabled:
         return []
     resp = http.get(cfg.get("url", URL), headers={"Accept": "text/html"})
     entries = parse_entries(resp.text)

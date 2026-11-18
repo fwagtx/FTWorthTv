@@ -112,3 +112,42 @@ def test_arrest_log_parser_and_roundup(settings):
     story = roundup_story(entries, now, settings.tz, {"window_hours": 48, "min_degree": "MA", "min_entries": 1})
     assert story and story.source_kind == "arrest_log" and story.extra["entries"][0]["degree"] in ("F2", "F3")
     assert "•" in story.summary
+
+
+def test_wanted_parsers_skip_juveniles_and_keep_local(settings, now):
+    from pathlib import Path
+    from ftworthtv.sources.wanted import parse_arlington, parse_dps, parse_fwpd, person_story
+    fx = Path(__file__).parent / "fixtures"
+    fw = parse_fwpd(fx.joinpath("fwpd_most_wanted.html").read_text(encoding="utf-8"), "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted", now)
+    assert [p["name"] for p in fw] == ["Sample Adult", "Sample Minor"]
+    assert fw[0]["charge"] == "Aggravated Robbery" and fw[0]["reward"] == "$2,000" and fw[0]["age"] == 36
+    assert fw[0]["image"] == "https://police.fortworthtexas.gov/files/assets/police/v/1/most-wanted/images/2026/sample-adult.png"
+    agency = {"name": "Fort Worth Police Department", "city": "Fort Worth"}
+    assert person_story(fw[0], agency, "https://x", now, "Fort Worth").source_kind == "wanted"
+    assert person_story(fw[1], agency, "https://x", now, "Fort Worth") is None      # 16-year-old: never posted
+    ar = parse_arlington(fx.joinpath("arlington_wanted.html").read_text(encoding="utf-8"), "https://www.arlingtontx.gov/x", now)
+    assert len(ar) == 2 and ar[0]["name"] == "Sample ONE" and ar[1]["charge"] == "Burglary" and ar[0]["image"].startswith("https://www.arlingtontx.gov/files/")
+    dps = parse_dps(fx.joinpath("dps_fugitives.html").read_text(encoding="utf-8"), "https://www.dps.texas.gov/texas10mostwanted/mostwanted/fugitives", now)
+    assert len(dps) == 1 and dps[0]["name"] == "Sample Local" and dps[0]["image"].startswith("data:image/jpeg") and dps[0]["reward"] == "$7,500"
+
+
+def test_wanted_story_renders_as_contained_mugshot_card(settings, now, tmp_path):
+    from pathlib import Path
+    from PIL import Image
+    from ftworthtv.images import plan_image
+    from ftworthtv.models import PostDraft
+    from ftworthtv.sources.wanted import parse_dps, person_story
+    from ftworthtv.state import State
+    from ftworthtv.writer import write_copy
+    fx = Path(__file__).parent / "fixtures"
+    person = parse_dps(fx.joinpath("dps_fugitives.html").read_text(encoding="utf-8"), "https://www.dps.texas.gov/x", now)[0]
+    story = person_story(person, {"name": "Texas DPS"}, "https://www.dps.texas.gov/x", now, "Fort Worth")
+    story.category = "crime"
+    copy, writer = write_copy(story, settings, now)
+    assert copy.caption.startswith("🚨 WANTED in Fort Worth: Sample Local") and "#Wanted" in copy.hashtags
+    settings.offline = False  # the data: URI needs no network
+    draft = PostDraft(story=story, copy=copy, writer=writer)
+    asset = plan_image(draft, settings, State(tmp_path / "s.json"), tmp_path / "w")
+    assert asset.provider == "source" and asset.license == "official"
+    with Image.open(asset.path) as im:
+        assert im.size == (1080, 1350)

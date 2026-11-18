@@ -20,6 +20,9 @@ on:
       since_hours:
         description: "ignore stories older than this"
         default: "96"
+      arrest_log:
+        description: "include the FWPD felony arrest-log post (true|false)"
+        default: "false"
 
 permissions:
   contents: write
@@ -32,6 +35,7 @@ jobs:
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       NWS_USER_AGENT: ${{ secrets.NWS_USER_AGENT || 'FTWorthTv/0.1 (github actions render)' }}
+      FTWTV_ENABLE_ARREST_LOG: ${{ inputs.arrest_log }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

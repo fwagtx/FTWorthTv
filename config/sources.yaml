@@ -102,6 +102,27 @@ opencities:
     category_hint: community
     verify: true
 
+# WANTED bulletins with the agency's own photo: the cleanest "mugshot" content there is (published to be shared).
+wanted:
+  enabled: true
+  max_per_run: 1
+  agencies:
+    - name: Fort Worth Police Department
+      kind: fwpd
+      url: https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted
+      city: Fort Worth
+      weight: 0.85
+    - name: Arlington Police Department
+      kind: arlington
+      url: https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives
+      city: Arlington
+      weight: 0.7
+    - name: Texas DPS
+      kind: dps
+      url: https://www.dps.texas.gov/texas10mostwanted/mostwanted/fugitives
+      local_only: true      # only fugitives whose DPS notice mentions Tarrant County / Fort Worth / Arlington
+      weight: 0.75
+
 # FWPD public arrest log (names, ages, charges; no photos). One daily "arrest log" post of felony bookings.
 # Public record, but it names people who are only accused: off by default. Turn on deliberately.
 arrest_log:
