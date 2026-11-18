@@ -15,7 +15,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter
 
 
-def profile(im: Image.Image, drop: int = 26, sat_jump: float = 0.22, min_run: int = 6) -> list[int]:
+def profile(im: Image.Image, drop: int = 26, sat_jump: float = 0.22, min_run: int = 6, warm: bool = False) -> list[int]:
     """Walk down every column from the top (pure sky in the crop) and stop where the pixel gets clearly darker or more
     saturated than the running sky colour: that is the roofline, even for glass towers that reflect the sky. Clouds stay
     sky because they are brighter, not darker. The result is smoothed across columns to drop antennas and wires."""
@@ -38,6 +38,8 @@ def profile(im: Image.Image, drop: int = 26, sat_jump: float = 0.22, min_run: in
             ref_s = sorted(sky_sat[-24:])[len(sky_sat[-24:]) // 2]
             darker = mx < ref_b - drop
             more_sat = sat > ref_s + sat_jump and mx < 235
+            if warm:   # hand-tinted postcards: stone is warm (red over blue), sky and its pink clouds are not
+                more_sat = (r - b) > 55
             if darker or more_sat:
                 # confirm: the next pixels stay non-sky (skip wires / noise)
                 ok = 0
@@ -45,7 +47,7 @@ def profile(im: Image.Image, drop: int = 26, sat_jump: float = 0.22, min_run: in
                     r2, g2, b2 = px[x, yy][:3]
                     mx2, mn2 = max(r2, g2, b2), min(r2, g2, b2)
                     s2 = 0.0 if mx2 == 0 else (mx2 - mn2) / mx2
-                    if mx2 < ref_b - drop or (s2 > ref_s + sat_jump and mx2 < 235):
+                    if mx2 < ref_b - drop or ((r2 - b2) > 55 if warm else (s2 > ref_s + sat_jump and mx2 < 235)):
                         ok += 1
                 if ok >= min_run - 1:
                     y_found = y
@@ -87,6 +89,7 @@ def main() -> None:
     ap.add_argument("--left", type=float, default=0.0); ap.add_argument("--right", type=float, default=1.0)
     ap.add_argument("--top", type=float, default=0.0); ap.add_argument("--bottom", type=float, default=0.9)
     ap.add_argument("--eps", type=float, default=2.2, help="simplification tolerance in px at 1400 px width")
+    ap.add_argument("--warm", action="store_true", help="roofline = where warm (red over blue) pixels start; for tinted postcards")
     a = ap.parse_args()
     im = Image.open(a.photo).convert("RGB")
     W, H = im.size
@@ -95,7 +98,7 @@ def main() -> None:
     scale = 1400 / im.width
     im = im.resize((1400, max(1, int(im.height * scale))), Image.LANCZOS).filter(ImageFilter.GaussianBlur(0.6))
     w, h = im.size
-    ys = profile(im)
+    ys = profile(im, warm=a.warm)
     pts = [(float(x), float(y)) for x, y in enumerate(ys)]
     simp = rdp(pts, a.eps)
     # normalise: x 0..1 across the crop, y 0 = top of crop, 1 = base (bottom of crop)
