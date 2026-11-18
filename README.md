@@ -42,6 +42,9 @@ on some posts. The photos and videos come from three places: **people who DM the
 | Real photos on every post | Pexels (free commercial license) / Wikimedia Commons (CC) photos of Fort Worth + headline card; NWS radar; event images | ✅ |
 | Hashtags + source link in first comment, posts spaced out, quiet hours, daily cap, no repeats | built in | ✅ |
 | Sponsor line every Nth post | `sponsor:` in `config/brand.yaml` | ✅ |
+| Mugshot / WANTED posts like the DFW crime pages | FWPD Most Wanted, Arlington PD "Cash for Crooks", Texas DPS 10 Most Wanted: the agency's own photo, charge, Crime Stoppers reward + tip line | ✅ no key needed |
+| "Fort Worth arrests" lists | FWPD public arrest log → daily felony-bookings roundup (names, ages, charges; no photos) | ✅ off by default |
+| City hall / police releases with their photos | OpenCities listings of fortworthtexas.gov, police.fortworthtexas.gov, arlingtontx.gov (no RSS, parsed from HTML, release page fetched for the photo) | ✅ |
 | Posting to Facebook (+ Instagram) | Graph API publisher, or Metricool publisher (you already use Metricool) | ✅ |
 
 **Caveat 1 — the viral phone videos.** The Dallas page's biggest hits are crowd-sourced clips (a fight outside AT&T Stadium, a car
@@ -58,6 +61,29 @@ pipeline prefers when a story has them.
 
 Bottom line: a page that posts 6–10 real, local, photo-backed posts a day with zero human touch is achievable with this repo
 today. Matching the Dallas page's *virality* additionally needs a human-curated video inbox.
+
+### Mugshots: where the DFW pages get them, and what this repo does
+
+The DFW crime pages run booking photos from three places: (1) police press releases and police social posts, (2) the county
+jail's inmate lookup (booking photos are public records in Texas), and (3) TV-station stories that got them from (1) or (2).
+Fort Worth PD does **not** put photos in its public arrest log (names, ages, charges only), and its release pages are taken
+down after a while, so the reliable, no-questions-asked source is the **WANTED** material every agency publishes to be shared:
+
+* `sources/wanted.py` parses FWPD's Most Wanted page, Arlington PD's Cash-for-Crooks fugitives and Texas DPS's 10 Most Wanted
+  (DPS filtered to notices that mention Tarrant County). Each person becomes one post: the agency's photo on a blurred backdrop
+  (never cropped), "WANTED" label, charge, Crime Stoppers reward and the 817-469-TIPS line. Juveniles are skipped, the agency is
+  credited on the card and in the first comment, and the first comment carries the presumption-of-innocence disclaimer from
+  `config/brand.yaml`. At most one WANTED post per run (`wanted.max_per_run`).
+* `sources/arrests.py` turns FWPD's public arrest log into a daily "felony bookings" roundup (off by default: it names people
+  who have only been accused).
+* Photos from police *press releases* are used automatically when a release carries one (`sources/article.py` fetches the
+  release page and takes the og:image / first body image).
+* Jail-lookup scraping is deliberately **not** implemented. Texas Bus. & Com. Code ch. 109 regulates commercial mugshot
+  publication and requires correction/removal when charges are dropped or the person is acquitted; the brand-safety blocklist
+  in `config/sources.yaml` also keeps sexual-assault and child-victim cases off the page. Honor removal requests.
+
+Preview just this material with `ftworthtv run --dry-run --only-kinds wanted,arrest_log` (or the "Render sample posts"
+workflow with `only_kinds`).
 
 ---
 
@@ -103,6 +129,8 @@ ftworthtv preview --max 4      # offline demo -> out/latest-preview.html
 cp .env.example .env           # add keys (see docs/SETUP.md)
 ftworthtv sources check        # verify every RSS feed from YOUR network (some are marked verify: true)
 ftworthtv run --dry-run        # real sources, real photos, nothing posted
+ftworthtv run --dry-run --only-kinds wanted,arrest_log      # preview one kind of content
+ftworthtv run --dry-run --stories examples/real/headlines-2026-11-17.json --no-sources   # render from a JSON of headlines
 ftworthtv run                  # posts via FTWTV_PUBLISHER (dryrun | facebook | metricool)
 ```
 
@@ -212,11 +240,14 @@ Built and tested in a sandbox that could not reach the public internet beyond pa
 ```
 config/            brand.yaml, sources.yaml
 src/ftworthtv/     pipeline.py cli.py writer.py filters.py ranking.py state.py queue.py examples.py
-                   sources/ (rss, nws, ticketmaster, reddit, cameras)  images/ (providers, card, fetch, video)  publishers/
-examples/          demo stories used by `ftworthtv preview` and the tests (made up, not real news)
+                   sources/ (rss, opencities, article, nws, ticketmaster, wanted, arrests, reddit, cameras)
+                   images/ (providers, card, fetch, video)  publishers/ (facebook, metricool, dryrun)
+examples/          demo stories used by `ftworthtv preview` and the tests (made up), examples/real/ = real headlines for renders
+scripts/           fetch_pages.py (dev helper: fetch public agency pages for inspection, honors robots.txt)
 assets/fonts/      Liberation Sans (OFL) so cards render identically everywhere; drop a logo.png in assets/ to replace the badge
 state/             posted.json memory (committed by the workflow)
 out/               run output (ignored by git)
-.github/workflows/ post.yml (every 2h), sources-check.yml (weekly), tests.yml
+.github/workflows/ post.yml (every 2h), sources-check.yml (weekly), tests.yml, render.yml (sample posts with real photos,
+                   pushed to a renders/ branch), fetch-pages.yml (dev helper)
 docs/SETUP.md      keys, Facebook token, Metricool, GitHub secrets, go-live checklist
 ```
