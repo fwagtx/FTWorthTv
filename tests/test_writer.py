@@ -15,9 +15,11 @@ def test_template_writer_covers_every_kind(settings, now, tmp_path):
         assert copy.caption and len(copy.caption) < 900
         assert "http" not in copy.caption and "#" not in copy.caption
         assert "{photo_credit}" in copy.first_comment and story.url in copy.first_comment
-        assert 5 <= len(copy.hashtags) <= 8 and all(t.startswith("#") for t in copy.hashtags)
+        assert copy.hashtags == []                                   # dallas style: no hashtags on Facebook
         assert len(copy.headline) <= 64
-        assert "Follow @FortWorthTexasTV" in copy.caption or "Tickets" in copy.caption
+        assert "Follow us on Instagram @FortWorthTexasTV" in copy.caption
+        body = copy.caption.split("\n\nFollow us")[0]
+        assert "📍" not in body and "•" not in body and len(body) <= 420
         kinds_seen.add(story.source_kind)
     assert {"rss", "nws_alert", "event", "event_roundup"} <= kinds_seen
 
@@ -26,11 +28,15 @@ def test_alert_template_mentions_end_time(settings, now, tmp_path):
     kept, _ = filter_stories(example_stories(settings, now), settings, State(tmp_path / "s.json"), now)
     alert = next(s for s in kept if s.source_kind == "nws_alert")
     copy = template_copy(alert, settings, now)
+    assert copy.caption.startswith("Severe Thunderstorm Warning issued for Tarrant, TX until")
+    assert copy.caption.rstrip().endswith("🚨")
+    settings.brand["caption"]["style"] = "detailed"
+    copy = template_copy(alert, settings, now)
     assert copy.caption.startswith("⚠️ Severe Thunderstorm Warning")
-    assert "until" in copy.caption and "PM" in copy.caption or "AM" in copy.caption
 
 
 def test_finalize_strips_urls_and_hashtags_and_fills_defaults(settings, now, tmp_path):
+    settings.brand["caption"]["hashtags"] = True
     kept, _ = filter_stories(example_stories(settings, now), settings, State(tmp_path / "s.json"), now)
     story = kept[0]
     raw = PostCopy(headline="A very long headline that keeps going and going well past sixty characters.", caption="Hook #FortWorth https://x.y/z\n\n\n\nmore",
@@ -45,3 +51,21 @@ def test_finalize_strips_urls_and_hashtags_and_fills_defaults(settings, now, tmp
 def test_system_prompt_carries_brand(settings):
     prompt = build_system_prompt(settings)
     assert "Fort Worth Texas TV" in prompt and "@FortWorthTexasTV" in prompt and "{photo_credit}" in prompt
+
+
+
+def test_dallas_caption_shapes(settings, now, tmp_path):
+    from ftworthtv.models import Story
+    from ftworthtv.writer import dallas_caption, finalize, template_copy
+    s = Story(id="x", source="Fort Worth Report", source_kind="rss", title="New barbecue joint opens on Magnolia Avenue in Near Southside",
+              summary="A family-run smokehouse opened its doors on Magnolia Avenue this week. Lines wrapped around the block.", url="https://x/y", category="food")
+    assert dallas_caption(s, settings, now, "food") == ["New barbecue joint opens on Magnolia Avenue in Near Southside. A family-run smokehouse opened its doors on Magnolia Avenue this week."]
+    t = Story(id="t", source="FOX 4", source_kind="rss", title="Crash shuts down northbound I-35W near downtown Fort Worth during morning rush",
+              summary="All northbound lanes were closed after a multi-vehicle crash.", url="https://x/z", category="traffic")
+    assert dallas_caption(t, settings, now, "traffic") == ["Crash shuts down northbound I-35W near downtown Fort Worth during morning rush 🚨"]
+    w = Story(id="w", source="Fort Worth Police Department", source_kind="wanted", title="WANTED: Sample Person", summary="", url="https://x/w", category="crime",
+              extra={"agency": "Fort Worth Police Department", "name": "Sample Person", "charge": "Aggravated Robbery", "reward": "$2,000", "tip_phone": "817-469-TIPS (8477)"})
+    lines = dallas_caption(w, settings, now, "crime")
+    assert lines[0].startswith("Fort Worth police are looking for Sample Person, wanted for aggravated robbery.")
+    out = finalize(template_copy(t, settings, now), t, settings)
+    assert out.caption.endswith("Follow us on Instagram @FortWorthTexasTV") and out.hashtags == []

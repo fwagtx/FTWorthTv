@@ -10,7 +10,7 @@ from dateutil import parser as dtparse
 
 from .config import Settings
 from .models import CATEGORIES, PostCopy, Story
-from .textutil import clean_hashtag, fmt_time, relative_day, smart_headline, truncate
+from .textutil import clean_hashtag, collapse_ws, fmt_time, relative_day, smart_headline, truncate
 
 log = logging.getLogger(__name__)
 
@@ -30,8 +30,25 @@ HASHTAG_RE = re.compile(r"(?<!\w)#\w+")
 
 
 # --------------------------------------------------------------------------- prompt
+DALLAS_CAPTION_RULES = """    Write it EXACTLY like the Dallas Texas TV page: one or two plain sentences in present tense, the way a local texts a
+    friend. Real examples: "Kid Cudi joins Kanye at AT&T" / "Netherlands fans have taken over Dallas" /
+    "Things got heated between Cowboys and 49ers fans at Texas Live during the game. Arlington police responded to the scene. 🚨" /
+    "Dallas was ranked the top U.S. Thanksgiving destination for 2026".
+    One sentence gets no trailing period. No hook line, no bullet points, no "📍" line, no hashtags, no URLs, no follow line
+    (we append "Follow us on Instagram" ourselves). At most ONE emoji, and only 🚨 for incidents/police or 😂 for a funny moment.
+    Under 220 characters. For WANTED posts: "<City> police are looking for <name>, wanted for <charge>. Crime Stoppers is
+    offering up to <reward> for information leading to an arrest 🚨" then a second line with the tip phone."""
+DETAILED_CAPTION_RULES = """    Line 1 = the hook, under 90 characters (this is what shows before "See more").
+    Then 1-3 short lines with the key facts (who / what / where / when) taken ONLY from the source text.
+    Then a "📍 <City>, TX" line (or the neighborhood: Stockyards, Near Southside, West 7th, Arlington...).
+    End with a follow call to action such as "Follow {handle} for more 📲" (vary the wording).
+    1-3 emojis total, no hashtags, no URLs, under 500 characters."""
+
+
 def build_system_prompt(settings: Settings) -> str:
     b = settings.brand
+    style = (b.get("caption", {}) or {}).get("style", "dallas")
+    caption_rules = DALLAS_CAPTION_RULES if style == "dallas" else DETAILED_CAPTION_RULES.replace("{handle}", str(b.get("handle")))
     return f"""You write social media posts for "{b.get('page_name')}" ({b.get('handle')}), a Fort Worth, Texas Facebook/Instagram page
 built in the style of the big local-entertainment pages (Dallas Texas TV: "The home of DTX entertainment", 600K+ followers).
 Tagline: {b.get('tagline')}
@@ -46,11 +63,7 @@ OUTPUT FIELDS
 - category: one of {", ".join(CATEGORIES)}.
 - headline: <= 60 characters, plain words, no emoji, no hashtags, no trailing period. It is printed on the photo card.
 - caption: the Facebook caption.
-    Line 1 = the hook, under 90 characters (this is what shows before "See more").
-    Then 1-3 short lines with the key facts (who / what / where / when) taken ONLY from the source text.
-    Then a "📍 <City>, TX" line (or the neighborhood: Stockyards, Near Southside, West 7th, Arlington...).
-    End with a follow call to action such as "Follow {b.get('handle')} for more 📲" (vary the wording).
-    1-3 emojis total, no hashtags, no URLs, under 500 characters.
+{caption_rules}
 - first_comment: exactly this shape:
     Source: <outlet name> <url>
     {{photo_credit}}
@@ -183,6 +196,69 @@ def guess_location(story: Story, settings: Settings) -> str:
     return f"{settings.brand.get('city', 'Fort Worth')}, {settings.brand.get('state', 'TX')}"
 
 
+def _tidy(sentence: str) -> str:
+    return collapse_ws(sentence).rstrip(" .")
+
+
+def _first_sentence(text: str, limit: int = 170) -> str:
+    text = collapse_ws(text)
+    m = re.match(r"(.+?[.!?])(\s|$)", text)
+    first = (m.group(1) if m else text).strip()
+    return first if len(first) <= limit else ""
+
+
+def agency_phrase(agency: str) -> str:
+    """'Fort Worth Police Department' -> 'Fort Worth police are', 'Texas DPS' -> 'Texas DPS is'."""
+    a = agency.replace("Police Department", "police").strip()
+    return f"{a} are" if a.lower().endswith("police") else f"{a} is"
+
+
+def dallas_caption(story: Story, settings: Settings, now: datetime, category: str) -> list[str]:
+    """One or two plain sentences, the way the Dallas Texas TV page writes: 'Kid Cudi joins Kanye at AT&T',
+    'Things got heated between Cowboys and 49ers fans at Texas Live during the game. Arlington police responded to the scene. 🚨'"""
+    kind = story.source_kind
+    x = story.extra
+    city = settings.brand.get("city", "Fort Worth")
+    if kind == "nws_alert":
+        ends = x.get("ends")
+        until = f" until {fmt_time(dtparse.isoparse(ends), settings.tz)}" if ends else ""
+        return [f"{x.get('event', 'Weather alert')} issued for {x.get('area', 'Tarrant County')}{until} 🚨"]
+    if kind == "nws_forecast":
+        high, short = x.get("high"), (x.get("short") or "").lower()
+        return [f"{short.capitalize()} and a high of {high} in {city} today" if high and short else _tidy(story.title)]
+    if kind == "event":
+        start = x.get("start")
+        when = relative_day(dtparse.isoparse(start), now, settings.tz).lower() if start else (x.get("when") or "")
+        artist = story.title.split(" at ")[0]
+        return [f"{artist} at {x.get('venue', city)} {when}. Tickets in the comments 🎟️"]
+    if kind == "event_roundup":
+        return [f"This weekend in {city}:"] + [f"{e.get('when', '')} – {e.get('title', '')}" for e in x.get("events", [])[:6]]
+    if kind == "wanted":
+        return [f"{agency_phrase(x.get('agency', 'Police'))} looking for {x.get('name')}, wanted for {str(x.get('charge', '')).lower()}. "
+                f"Crime Stoppers is offering up to {x.get('reward')} for information leading to an arrest 🚨",
+                f"Call {x.get('tip_phone')} or submit a tip at 469tips.com. You stay anonymous."]
+    if kind == "arrest_log":
+        entries = x.get("entries", [])
+        return [f"Felony arrests in {city} over the last 24 hours:"] + \
+               [f"{e.get('name')}{', ' + str(e['age']) if e.get('age') else ''} – {e.get('charge') or 'charges pending'}" for e in entries[:8]] + \
+               [settings.brand.get("crime", {}).get("disclaimer", "")]
+    if kind == "reddit":
+        return [f"{_tidy(story.title)} (via r/FortWorth)"]
+    # regular stories
+    first = _tidy(story.title)
+    second = _first_sentence(story.summary) if story.summary else ""
+    if second and second.lower()[:30] == first.lower()[:30]:
+        second = ""
+    somber = is_somber(story)
+    if len(first) < 75 and second:
+        text = f"{first}. {second}"
+    else:
+        text = first
+    if not somber and category in ("crime", "traffic", "breaking"):
+        text += " 🚨"
+    return [text]
+
+
 def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
     b = settings.brand
     handle = b.get("handle", "@FortWorthTexasTV")
@@ -266,6 +342,8 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
     hashtags = settings.hashtags_for(category)
     if kind == "wanted":
         hashtags = ["#Wanted", "#CrimeStoppers"] + hashtags
+    if (settings.brand.get("caption", {}) or {}).get("style", "dallas") == "dallas":
+        lines = dallas_caption(story, settings, now, category)
     return PostCopy(
         skip=False, skip_reason="", category=category if category in CATEGORIES else "other",
         headline=headline, caption="\n\n".join(l for l in lines if l), first_comment=first_comment,
@@ -275,21 +353,28 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
 
 # --------------------------------------------------------------------------- finalize
 def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
+    cap_cfg = settings.brand.get("caption", {}) or {}
     caption = URL_RE.sub("", copy.caption)
     caption = HASHTAG_RE.sub("", caption)
     caption = re.sub(r"[ \t]+\n", "\n", caption)
     caption = re.sub(r"\n{3,}", "\n\n", caption).strip()
     if len(caption) > 900:
         caption = truncate(caption, 900)
-    tags = [clean_hashtag(t) for t in copy.hashtags]
+    if cap_cfg.get("style", "dallas") == "dallas":
+        handle = settings.brand.get("instagram_handle") or settings.brand.get("handle", "")
+        cta = str(cap_cfg.get("cta", "Follow us on Instagram {instagram_handle}")).format(instagram_handle=handle, handle=settings.brand.get("handle", handle))
+        if handle and handle.lower() not in caption.lower():
+            caption = f"{caption}\n\n{cta}".strip()
+    tags = [clean_hashtag(t) for t in copy.hashtags] if cap_cfg.get("hashtags", False) else []
     tags = [t for t in tags if t]
     text = story.text()
-    for topic, topic_tags in TOPIC_HASHTAGS.items():
-        if topic in text:
-            tags.extend(t for t in topic_tags if t not in tags)
-    for t in settings.hashtags_for(copy.category):
-        if t not in tags:
-            tags.append(t)
+    if cap_cfg.get("hashtags", False):
+        for topic, topic_tags in TOPIC_HASHTAGS.items():
+            if topic in text:
+                tags.extend(t for t in topic_tags if t not in tags)
+        for t in settings.hashtags_for(copy.category):
+            if t not in tags:
+                tags.append(t)
     seen: set[str] = set()
     tags = [t for t in tags if not (t.lower() in seen or seen.add(t.lower()))][:8]
     first_comment = copy.first_comment.strip()

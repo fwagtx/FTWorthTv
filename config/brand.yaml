@@ -31,6 +31,15 @@ crime:
   disclaimer: "Charges are accusations. All suspects are presumed innocent until proven guilty in a court of law."
   credit_agency: true                # "Photo: Fort Worth Police Department" on the card and in the first comment
 
+# How the caption reads.
+#   dallas   = exactly like the Dallas Texas TV page: one or two plain sentences, then "Follow us on Instagram @handle".
+#              No hashtags, no bullet points, no 📍 line, at most one emoji (🚨 for incidents, 😂 for funny moments).
+#   detailed = hook / facts / 📍 line / follow CTA (the earlier format)
+caption:
+  style: dallas
+  cta: "Follow us on Instagram {instagram_handle}"
+  hashtags: false        # the Dallas page posts no hashtags on Facebook; true puts them in the first comment
+
 # Visual identity for the photo cards (hex)
 colors:
   primary: "#14182B"   # deep navy backdrop / gradient
@@ -39,8 +48,12 @@ colors:
   muted: "#D7D9E0"
 
 card:
-  size: [1080, 1350]      # 4:5 portrait: the biggest footprint in the Facebook / Instagram feed
-  watermark: true         # "FTW TV" badge top-left
+  style: plain            # plain = the photo as-is with a small @handle watermark, like the Dallas page; headline = text overlay card
+  watermark_handle: true  # small "@FortWorthTexasTV" in the corner of plain photos (their videos carry one)
+  max_side: 1440          # plain photos are posted at their own aspect ratio, long side capped here
+  placeholder_when_no_photo: false   # plain style: a story without a usable photo becomes a link post instead of a fake skyline
+  size: [1080, 1350]      # headline style only: 4:5 portrait
+  watermark: true         # headline style only: "FTW TV" badge top-left
   show_source_line: true  # tiny "Source: Fort Worth Report" line at the bottom of the card
   show_photo_credit: true # tiny photographer credit on the card (Pexels / Wikimedia / NWS)
 

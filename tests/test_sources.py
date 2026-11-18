@@ -144,10 +144,15 @@ def test_wanted_story_renders_as_contained_mugshot_card(settings, now, tmp_path)
     story = person_story(person, {"name": "Texas DPS"}, "https://www.dps.texas.gov/x", now, "Fort Worth")
     story.category = "crime"
     copy, writer = write_copy(story, settings, now)
-    assert copy.caption.startswith("🚨 WANTED in Fort Worth: Sample Local") and "#Wanted" in copy.hashtags
+    assert copy.caption.startswith("Texas DPS is looking for Sample Local, wanted for") and copy.hashtags == []
+    assert copy.caption.endswith("Follow us on Instagram @FortWorthTexasTV")
     settings.offline = False  # the data: URI needs no network
     draft = PostDraft(story=story, copy=copy, writer=writer)
     asset = plan_image(draft, settings, State(tmp_path / "s.json"), tmp_path / "w")
     assert asset.provider == "source" and asset.license == "official"
+    with Image.open(asset.path) as im:   # plain style: the booking photo as-is (upscaled), never cropped
+        assert im.height > im.width and min(im.size) >= 720
+    settings.brand["card"]["style"] = "headline"
+    asset = plan_image(draft, settings, State(tmp_path / "s2.json"), tmp_path / "w2")
     with Image.open(asset.path) as im:
         assert im.size == (1080, 1350)

@@ -34,3 +34,13 @@ def test_photo_family_treats_crops_as_the_same_photo():
     b = PhotoCandidate(id="commons-2", url="", credit="", license="", provider="wikimedia",
                        source_url="https://commons.wikimedia.org/wiki/File:Twice_-_Dickies_Arena,_2022_(cropped).jpg")
     assert a.family == b.family
+
+
+
+def test_render_plain_keeps_aspect_and_adds_watermark(settings, tmp_path):
+    from ftworthtv.images.card import render_plain
+    photo = tmp_path / "mug.png"
+    Image.new("RGB", (288, 432), (120, 160, 200)).save(photo)
+    out = render_plain(photo, tmp_path / "plain.jpg", brand=settings.brand, fonts_dir=settings.fonts_dir, watermark="@FortWorthTexasTV")
+    with Image.open(out) as im:
+        assert im.format == "JPEG" and min(im.size) >= 720 and abs(im.width / im.height - 288 / 432) < 0.01

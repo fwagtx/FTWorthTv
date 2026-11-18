@@ -17,7 +17,8 @@ class DryRunPublisher(Publisher):
         self.run_dir = Path(run_dir)
 
     def publish(self, draft: PostDraft) -> PublishResult:
-        folder = draft.image.path.parent if draft.image else self.run_dir / draft.story.id
+        from ..textutil import slugify
+        folder = draft.image.path.parent if draft.image else next((p for p in sorted(self.run_dir.glob(f"*-{slugify(draft.story.title)}")) if p.is_dir()), self.run_dir / draft.story.id)
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "caption.txt").write_text(draft.caption_text() + "\n", encoding="utf-8")
         (folder / "first_comment.txt").write_text(draft.first_comment_text() + "\n", encoding="utf-8")

@@ -246,3 +246,29 @@ def render_card(*, background: Path | None, headline: str, category_label: str, 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     base.convert("RGB").save(out_path, "JPEG", quality=90, optimize=True)
     return out_path
+
+
+def render_plain(background: Path, out_path: Path, *, brand: dict, fonts_dir: Path, watermark: str | None = None,
+                 max_side: int = 1440, min_side: int = 720) -> Path:
+    """The photo as-is (own aspect ratio), like the Dallas page posts: no headline, no badge, just an optional small @handle."""
+    with Image.open(background) as src:
+        img = src.convert("RGB")
+    w, h = img.size
+    if min(w, h) < min_side:  # small agency photos (booking photos, radar) get upscaled so Facebook does not blur them
+        scale = min_side / min(w, h)
+        img = img.resize((round(w * scale), round(h * scale)), Image.LANCZOS)
+    if max(img.size) > max_side:
+        scale = max_side / max(img.size)
+        img = img.resize((round(img.width * scale), round(img.height * scale)), Image.LANCZOS)
+    if watermark:
+        layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        d = ImageDraw.Draw(layer)
+        font = load_font(fonts_dir, bold=True, size=max(22, int(img.width * 0.028)))
+        tw = d.textlength(watermark, font=font)
+        x, y = img.width - tw - int(img.width * 0.025), img.height - font.size - int(img.height * 0.025)
+        d.text((x + 2, y + 2), watermark, font=font, fill=(0, 0, 0, 150))
+        d.text((x, y), watermark, font=font, fill=(255, 255, 255, 215))
+        img = Image.alpha_composite(img.convert("RGBA"), layer).convert("RGB")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    img.save(out_path, "JPEG", quality=92, optimize=True)
+    return out_path

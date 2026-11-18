@@ -71,6 +71,7 @@ def cmd_preview(args) -> int:
     settings.offline = True
     settings.publisher = "dryrun"
     settings.max_posts = args.max or 4
+    settings.brand.setdefault("card", {})["placeholder_when_no_photo"] = True  # demo data has no photos to fetch
     now = dtparse.isoparse(args.now).astimezone(timezone.utc) if args.now else datetime.now(timezone.utc)
     report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
     print(report.summary())

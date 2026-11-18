@@ -23,6 +23,7 @@ def settings(tmp_path: Path) -> Settings:
     env = {"FTWTV_PUBLISHER": "dryrun", "FTWTV_OUT_DIR": str(tmp_path / "out"), "FTWTV_STATE_PATH": str(tmp_path / "state" / "posted.json")}
     s = Settings.load(root=ROOT, env=env)
     s.offline = True
+    s.brand.setdefault("card", {})["placeholder_when_no_photo"] = True  # offline tests have no photos to fetch
     return s
 
 

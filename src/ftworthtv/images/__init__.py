@@ -9,7 +9,7 @@ from ..models import CATEGORY_LABELS, ImageAsset, PostDraft
 from ..sources import cameras
 from ..state import State
 from ..textutil import fmt_time, to_local
-from .card import render_card
+from .card import render_card, render_plain
 from .fetch import download_image
 from .providers import find_photo
 
@@ -32,8 +32,9 @@ def _download(url: str, dest: Path, headers: dict | None = None) -> Path | None:
         return None
 
 
-def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path, exclude_photos: set[str] | None = None) -> ImageAsset:
-    """Always returns an ImageAsset: a real licensed/public photo when possible, our branded placeholder otherwise."""
+def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path, exclude_photos: set[str] | None = None) -> ImageAsset | None:
+    """A real licensed/public photo when possible. In `plain` style a story without a photo returns None (-> link post);
+    in `headline` style the branded placeholder card is used instead."""
     story, copy = draft.story, draft.copy
     workdir.mkdir(parents=True, exist_ok=True)
     brand = settings.brand
@@ -112,6 +113,22 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                 credit, license_, provider, photo_id, source_url = cand.credit, cand.license, cand.provider, cand.id, cand.source_url
                 if exclude_photos is not None:
                     exclude_photos.update({cand.id, cand.family})
+
+    card_cfg = brand.get("card", {}) or {}
+    if card_cfg.get("style", "plain") == "plain":
+        if background is None:
+            if not card_cfg.get("placeholder_when_no_photo", False):
+                return None
+        else:
+            handle = brand.get("instagram_handle") or brand.get("handle")
+            out = render_plain(background, workdir / "photo.jpg", brand=brand, fonts_dir=settings.fonts_dir,
+                               watermark=handle if card_cfg.get("watermark_handle", True) else None,
+                               max_side=int(card_cfg.get("max_side", 1440)))
+            from PIL import Image as _Image
+            with _Image.open(out) as im:
+                width, height = im.size
+            return ImageAsset(path=out, credit=credit, license=license_, provider=provider, source_url=source_url, photo_id=photo_id,
+                              width=width, height=height)
 
     mood = {"nws_forecast": "sunrise", "nws_alert": "storm", "event": "dusk", "event_roundup": "dusk"}.get(story.source_kind) or \
         {"food": "day", "business": "day", "community": "day", "weather": "day", "culture": "sunrise", "sports": "dusk"}.get(copy.category, "night")

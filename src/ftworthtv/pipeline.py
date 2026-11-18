@@ -116,6 +116,9 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             draft.mode = "photo"
             try:
                 draft.image = plan_image(draft, settings, state, workdir, exclude_photos=used_photos)
+                if draft.image is None:
+                    workdir.mkdir(parents=True, exist_ok=True)
+                    draft.mode, draft.link = ("link", story.url) if story.url else ("text", None)
                 if draft.image and draft.image.photo_id:
                     used_photos.add(draft.image.photo_id)
                 crime_cfg = settings.brand.get("crime", {}) or {}
