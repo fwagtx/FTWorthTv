@@ -1,0 +1,127 @@
+{
+  "daily": {
+    "2026-11-21": 8
+  },
+  "daily_by_category": {
+    "2026-11-21": {
+      "business": 1,
+      "community": 1,
+      "crime": 1,
+      "culture": 1,
+      "events": 1,
+      "other": 1,
+      "sports": 1,
+      "weather": 1
+    }
+  },
+  "flags": {},
+  "last_post_at": "2026-11-21T20:00:00+00:00",
+  "posted": {
+    "0483ca217fa88587": {
+      "at": "2026-11-21T20:00:00+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/04-wanted-joshua-rodriguez",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "2c2ccee9a4db2847": {
+      "at": "2026-11-21T20:00:00+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/05-free-fun-events-in-arlington-november-19-25-2026",
+      "publisher": "dryrun",
+      "source": "City of Arlington",
+      "title": "Free & Fun Events in Arlington: November 19 - 25, 2026",
+      "url": "https://www.arlingtontx.gov/News-Articles/2026/Free-Fun-Events-in-Arlington-November-19-25-2026"
+    },
+    "597a35e53e14c31b": {
+      "at": "2026-11-21T20:00:00+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/06-90-year-old-mowing-lawns-to-get-by-in-south-fort",
+      "publisher": "dryrun",
+      "source": "WFAA",
+      "title": "90-year-old mowing lawns to get by in South Fort Worth sparks community support",
+      "url": "https://www.wfaa.com/article/news/local/tarrant-county/90-year-old-mowing-lawns-make-ends-meet-south-fort-worth-sparks-community-support/287-91e5a724-a0c1-4fc8-8534-23e1425748bb"
+    },
+    "7807a20c560cba14": {
+      "at": "2026-11-21T20:00:00+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/07-tarrant-county-bans-tax-abatements-for-data-cent",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Tarrant County bans tax abatements for data centers",
+      "url": "https://fortworthreport.org/2026/11/17/tarrant-county-bans-tax-abatements-for-data-centers/"
+    },
+    "903f16254122f1d1": {
+      "at": "2026-11-21T20:00:00+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/08-new-h-e-b-store-north-of-fort-worth-to-open-in-t",
+      "publisher": "dryrun",
+      "source": "CultureMap Fort Worth",
+      "title": "New H-E-B store north of Fort Worth to open in time for 2026 holidays",
+      "url": "https://fortworth.culturemap.com/news/restaurants-bars/heb-denton-opening-date-december16/"
+    },
+    "forecast-2026-11-17": {
+      "at": "2026-11-21T20:00:00+00:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/01-fort-worth-forecast-for-tuesday-november-17",
+      "publisher": "dryrun",
+      "source": "FOX Weather",
+      "title": "Fort Worth forecast for Tuesday, November 17",
+      "url": "https://www.foxweather.com/local-weather/texas/fort-worth"
+    },
+    "tm-funkytown-showdown-2026-11-22": {
+      "at": "2026-11-21T20:00:00+00:00",
+      "category": "sports",
+      "kind": "event",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/02-women-s-funkytown-showdown-at-dickies-arena",
+      "publisher": "dryrun",
+      "source": "Ticketmaster",
+      "title": "Women's Funkytown Showdown at Dickies Arena",
+      "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
+    },
+    "tm-ty-myers-2026-11-21": {
+      "at": "2026-11-21T20:00:00+00:00",
+      "category": "events",
+      "kind": "event",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/03-ty-myers-the-legal-tour-2026-at-dickies-arena",
+      "publisher": "dryrun",
+      "source": "Ticketmaster",
+      "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+      "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
+    }
+  },
+  "total_posts": 8,
+  "used_photos": [
+    "commons-9674590",
+    "commons-27551003",
+    "commons-1211079",
+    "commons-6963865",
+    "commons-21750861",
+    "commons-133454898"
+  ],
+  "version": 1
+}
