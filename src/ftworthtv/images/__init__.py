@@ -74,7 +74,11 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             background, credit, license_, provider, label = cam.path, cam.credit, cam.license, cam.provider, "LIVE TRAFFIC"
 
     if background is None and not settings.offline:
-        cand = find_photo(copy.image_query, settings, state, exclude=exclude_photos)
+        queries = [copy.image_query]
+        venue = story.extra.get("venue")
+        if story.source_kind in ("event", "event_roundup") and venue:  # a photo of the venue beats a random concert
+            queries = [f"{venue} {brand.get('city', 'Fort Worth')}", venue, copy.image_query]
+        cand = find_photo(queries, settings, state, exclude=exclude_photos)
         if cand:
             background = _download(cand.url, workdir / "photo")
             if background:

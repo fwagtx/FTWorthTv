@@ -93,13 +93,14 @@ def _search(query: str, settings) -> list[PhotoCandidate]:
     return candidates
 
 
-def find_photo(query: str, settings, state: State | None = None, exclude: set[str] | None = None) -> PhotoCandidate | None:
+def find_photo(query: "str | list[str]", settings, state: State | None = None, exclude: set[str] | None = None) -> PhotoCandidate | None:
     """Pexels first (best quality, simplest license), Wikimedia Commons as the fallback.
 
-    Tries the writer's query, then generic city queries, and skips photos used earlier in this run or recently posted.
+    Tries the given query/queries in order, then generic city queries, and skips photos used earlier in this run or recently posted.
     """
     city = settings.brand.get("city", "Fort Worth")
-    queries = [query or "", f"{city} skyline", f"{city} Texas downtown"]
+    base = [query] if isinstance(query, str) else list(query or [])
+    queries = [q or "" for q in base] + [f"{city} skyline", f"{city} Texas downtown"]
     tried: set[str] = set()
     for q in queries:
         q = re.sub(r"\s+", " ", q).strip()
