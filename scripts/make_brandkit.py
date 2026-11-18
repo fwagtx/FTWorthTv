@@ -74,13 +74,16 @@ def draw_skyline(draw: ImageDraw.ImageDraw, box: tuple[float, float, float, floa
 
 
 LOGO_DIR = ROOT / "assets" / "brand" / "logo-options"
-LOGO_CHOICE = "b-sunset"     # a-longhorn | b-sunset | c-badge  (rendered by scripts/make_logo_options.py)
+LOGO_CHOICE = "b-skyline"    # b-skyline | d-longhorn | e-courthouse | g-sign | a-horns | c-badge  (scripts/make_logo_options.py)
 
 
 def mark(size: int, body, screen, city, ground, text: str | None, text_color, windows=None) -> Image.Image:
     """The brand mark on a transparent square. Uses the chosen vector logo (light / dark / mono, with or without the
     caption) when it has been rendered; otherwise falls back to the simple drawn TV."""
     way = "dark" if body == PAPER else ("mono" if body == INK else "light")
+    custom = ROOT / "assets" / "brand" / "logo-custom.png"      # drop a designer's / ChatGPT logo here and it drives the kit
+    if custom.exists():
+        return custom_mark(custom, size, way)
     rendered = LOGO_DIR / f"{LOGO_CHOICE}-{way}-{'full' if text else 'mark'}-1024.png"
     if rendered.exists():
         with Image.open(rendered) as im:
@@ -107,6 +110,34 @@ def mark(size: int, body, screen, city, ground, text: str | None, text_color, wi
         tw = d.textlength(text, font=f)
         d.text(((S - tw) / 2, S * 0.79), text, font=f, fill=text_color)
     return img
+
+
+def custom_mark(path: Path, size: int, way: str) -> Image.Image:
+    """A supplied square logo: near-white pixels become transparent; 'mono' turns it into a black silhouette;
+    'dark' puts the colour art on a white disc so it still reads on navy."""
+    with Image.open(path) as im:
+        im = im.convert("RGBA")
+    px = im.load()
+    w, h = im.size
+    if all(px[x, y][3] == 255 for x, y in ((0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1))):   # opaque white background
+        for y in range(h):
+            for x in range(w):
+                r, g, b, a = px[x, y]
+                if min(r, g, b) > 238:
+                    px[x, y] = (r, g, b, 0)
+    side = max(w, h)
+    sq = Image.new("RGBA", (side, side), (0, 0, 0, 0)); sq.alpha_composite(im, ((side - w) // 2, (side - h) // 2))
+    sq = sq.resize((size, size), Image.LANCZOS)
+    if way == "mono":
+        alpha = sq.getchannel("A")
+        return Image.merge("RGBA", (Image.new("L", sq.size, 15), Image.new("L", sq.size, 20), Image.new("L", sq.size, 25), alpha))
+    if way == "dark":
+        disc = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+        ImageDraw.Draw(disc).ellipse([0, 0, size - 1, size - 1], fill=PAPER)
+        inner = sq.resize((int(size * 0.8), int(size * 0.8)), Image.LANCZOS)
+        disc.alpha_composite(inner, (int(size * 0.1), int(size * 0.1)))
+        return disc
+    return sq
 
 
 def circle_profile(size: int, bg, m: Image.Image, ring=None) -> Image.Image:

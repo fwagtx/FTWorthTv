@@ -19,17 +19,69 @@ only reads `assets/logo.png` (the post-card avatar), which the script also write
 
 ## 2. Logo system (`assets/brand/`)
 
-The mark is **"Sunset skyline"**: a rounded TV set whose screen shows the Fort Worth skyline (Burnett Plaza, Wells Fargo
-Tower, The Tower's pyramid roof, the courthouse clock tower) against a navy-to-gold-to-orange sunset with a low sun, and
-FTWTV in Inter Display Black under it. It is drawn as vector SVG (`assets/brand/logo-options/b-sunset-*.svg`) and rendered
-to PNG by `scripts/make_logo_options.py`, so it scales to any size. It is an original mark, not a copy of the Dallas page's
-TV logo, so there is nothing to clear with them.
+The default mark is **"Fort Worth skyline at sunset"**: a rounded TV set whose screen shows downtown Fort Worth as a solid
+silhouette, left to right from the Trinity side: the Tarrant County Courthouse clock tower, Carter Burgess Plaza's setbacks,
+The Tower's pyramid crown and spire, Burnett Plaza's notched top (the tallest), D.R. Horton Tower's chamfered crown, the two
+City Center towers, Wells Fargo Tower's steps and the Frost Tower's slanted roof, against a navy-gold-orange sunset with a
+low sun; FTWTV in Inter Display Black under it. It is built from the known shapes of those buildings, not traced from a
+photo, so it is a recognisable abstraction rather than a portrait of the skyline.
 
-Two alternates ship in `assets/brand/logo-options/` and the comparison is `options-sheet.jpg`:
-**A "Longhorn TV"** (the antennae are longhorn horns, FTW on screen; the most legible at 32 px) and
-**C "Badge"** (a round seal, FORT WORTH ★ TEXAS TV around a TV with the lone star; good as a stamp or watermark).
-To switch the whole kit to one of them, change `LOGO_CHOICE` in `scripts/make_brandkit.py` and run
+Six directions ship as vector SVG in `assets/brand/logo-options/` (light / dark / one-colour, with and without the caption)
+and `options-sheet.jpg` compares them at full size and as 200 / 96 / 48 / 32 px avatars:
+
+| Key | Direction | Why |
+|---|---|---|
+| `b-skyline` | Fort Worth skyline at sunset (default) | the Dallas page's idea, made Fort Worth |
+| `d-longhorn` | Cowtown longhorn on the sunset screen with the lone star | Fort Worth is Cowtown; reads at 48 px |
+| `e-courthouse` | the Tarrant County Courthouse on the screen | the one building every local knows |
+| `g-sign` | Stockyards-style marquee sign, FORT WORTH / TEXAS TV, "Where the West begins" | western, warm, works as a banner |
+| `a-horns` | TV with longhorn-horn antennae and FTW on screen | letters stay legible at 32 px |
+| `c-badge` | round seal FORT WORTH ★ TEXAS TV around a TV with the star | stamp, watermark, merch |
+
+Switch the whole kit: set `LOGO_CHOICE` in `scripts/make_brandkit.py`, then
 `python scripts/make_logo_options.py && python scripts/make_brandkit.py`.
+
+**Using a logo made elsewhere (ChatGPT, a designer):** save it as `assets/brand/logo-custom.png` (square, on plain white or
+transparent) and run `python scripts/make_brandkit.py`. The kit then builds every asset from it: near-white background is
+removed, the one-colour version is derived as a black silhouette, and on navy it sits on a white disc.
+
+### Prompts for ChatGPT image generation
+
+Paste the master prompt first, then iterate with the follow-ups. Ask for the art **without any text** when a model mangles
+letters; FTWTV is added in the kit in Inter Black.
+
+**Master prompt (skyline TV):**
+
+> Flat vector logo for a local news and entertainment social media page called Fort Worth Texas TV. A retro television
+> set with rounded corners, a V of two antenna lines on top and two small feet, drawn as one solid dark navy shape
+> (#14182B). Inside the screen, the real downtown Fort Worth, Texas skyline as a clean solid navy silhouette, seen from the
+> west across the Trinity River: the Tarrant County Courthouse with its clock tower on the left, Burnett Plaza (the tallest,
+> boxy, notched top), The Tower with its stepped top, pyramid crown and spire, D.R. Horton Tower, the two Fort Worth City
+> Center towers, Wells Fargo Tower, and the Frost Tower with its slanted roof on the right. Behind the skyline a smooth
+> sunset gradient from deep navy at the top through warm gold (#F2B134) to orange (#E8743B) at the bottom, with a low pale
+> sun. Under the TV the letters FTWTV in a heavy geometric sans-serif like Inter Black, same navy. Centered on a plain pure
+> white background with generous margin. No other text, no watermark, no photo textures, no 3D, no shadows, no gradients
+> except inside the screen, crisp edges, must stay readable as a 48 px round profile picture. Square 1:1. Do not draw
+> Dallas: no Reunion Tower ball, no Bank of America Plaza outline, no generic cityscape.
+
+**Variants (swap the screen):**
+
+> … Inside the screen, a Texas longhorn head facing forward with wide horns that sweep out and turn up, solid navy
+> silhouette, a small white lone star in the top-left corner of the screen, on the same sunset gradient …
+
+> … Inside the screen, the Tarrant County Courthouse in Fort Worth (1895 pink granite Renaissance Revival courthouse with
+> its central clock tower and dome) as a solid navy silhouette with white arched windows, on the same sunset gradient …
+
+> Flat vector logo: a western marquee sign in the spirit of the Fort Worth Stockyards gateway, a navy rounded rectangle
+> with a gold frame and a row of gold marquee bulbs, FORT WORTH in big gold block letters, TEXAS TV in white spaced capitals
+> under it, a small navy TV set with a gold star on its screen sitting on top of the sign, WHERE THE WEST BEGINS in small
+> navy capitals under the sign. Plain white background, no other text, flat, no 3D.
+
+**Follow-ups:**
+
+> Same logo, no text at all, mark only.  ·  Same logo, white TV body on a solid navy #14182B background.  ·  Same logo in
+> one colour, black on white.  ·  Make the horns thicker and the sun lower.  ·  Keep everything, make the buildings
+> 20 % taller so the skyline fills the screen.
 
 | File | Use |
 |---|---|
@@ -41,7 +93,7 @@ To switch the whole kit to one of them, change `LOGO_CHOICE` in `scripts/make_br
 | `profile-dark-1024.png` | alternate profile picture (navy disc, gold ring) |
 | `wordmark-navy.png`, `wordmark-white.png` | horizontal lockup FORT WORTH / TEXAS TV + tagline, for covers, intros, email |
 | `watermark-handle.png` | the @handle pill for the corner of videos and reels |
-| `logo-options/*.svg` | the vector sources (light / dark / mono × full / mark-only) for a designer or a print shop |
+| `logo-options/*.svg` | the vector sources for a designer or a print shop |
 
 Rules: clear space of one antenna height around the mark; never smaller than 32 px (use the mark only below 64 px);
 never stretched, never recoloured outside navy / white / black with the sunset screen; never on busy photos without the pill.

@@ -139,6 +139,185 @@ def option_c(c: dict, with_caption: bool) -> str:
     return wrap(svg)
 
 
+# ---------------------------------------------------------------------------------------------- Fort Worth, specifically
+def fort_worth_skyline(x0: float, y0: float, w: float, h: float, fill: str) -> str:
+    """The downtown Fort Worth silhouette as locals know it, left to right from the Trinity side: the Tarrant County
+    Courthouse clock tower, Carter Burgess Plaza's setbacks, The Tower's pyramid crown and spire, Burnett Plaza's notched
+    top (the tallest), D.R. Horton Tower's chamfered crown, the two City Center towers, Wells Fargo Tower's steps and the
+    Frost Tower's slanted roof, with low blocks between them."""
+    base = y0 + h
+    out = []
+    def rect(x, wd, ht, dy=0.0):
+        out.append(f'<rect x="{x0 + w * x:.1f}" y="{base - h * ht - h * dy:.1f}" width="{w * wd:.1f}" height="{h * ht:.1f}" fill="{fill}"/>')
+    def poly(pts):
+        out.append('<polygon points="' + " ".join(f"{x0 + w * px:.1f},{base - h * py:.1f}" for px, py in pts) + f'" fill="{fill}"/>')
+    # courthouse: wide block, central tower, dome, finial
+    rect(0.00, 0.17, 0.20); rect(0.065, 0.04, 0.34)
+    out.append(f'<ellipse cx="{x0 + w * 0.085:.1f}" cy="{base - h * 0.34:.1f}" rx="{w * 0.024:.1f}" ry="{h * 0.045:.1f}" fill="{fill}"/>')
+    rect(0.081, 0.008, 0.42)
+    rect(0.18, 0.05, 0.16)
+    # Carter Burgess Plaza: three setbacks
+    rect(0.24, 0.10, 0.46); rect(0.255, 0.07, 0.52); rect(0.27, 0.04, 0.56)
+    rect(0.35, 0.04, 0.22)
+    # The Tower: shaft, setback, pyramid, spire
+    rect(0.40, 0.09, 0.62); rect(0.41, 0.07, 0.66)
+    poly([(0.41, 0.66), (0.48, 0.66), (0.445, 0.76)])
+    rect(0.442, 0.006, 0.86)
+    # Burnett Plaza: tallest, notched crown
+    rect(0.50, 0.12, 0.78); rect(0.50, 0.03, 0.84); rect(0.59, 0.03, 0.84)
+    rect(0.63, 0.03, 0.26)
+    # D.R. Horton Tower: chamfered crown
+    rect(0.665, 0.10, 0.64)
+    poly([(0.665, 0.64), (0.765, 0.64), (0.765, 0.69), (0.745, 0.72), (0.685, 0.72), (0.665, 0.69)])
+    # City Center I & II: stepped glass boxes
+    rect(0.775, 0.06, 0.56); rect(0.785, 0.04, 0.60)
+    rect(0.84, 0.05, 0.50); rect(0.848, 0.034, 0.54)
+    # Wells Fargo Tower: two steps
+    rect(0.895, 0.06, 0.48); rect(0.905, 0.04, 0.52)
+    # Frost Tower: slanted roof
+    poly([(0.955, 0.0), (1.0, 0.0), (1.0, 0.44), (0.955, 0.40)])
+    return "".join(out)
+
+
+def option_b2(c: dict, with_caption: bool) -> str:
+    """Sunset skyline, Fort Worth edition."""
+    body, screen, fg, accent, cap = c["body"], c["screen"], c["fg"], c["accent"], c["caption"]
+    ty = 250 if with_caption else 200
+    th = 500 if with_caption else 600
+    mono = c["body"] == INK
+    grad = ('<defs><linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">'
+            f'<stop offset="0" stop-color="{SKY}"/><stop offset="0.55" stop-color="{GOLD}"/><stop offset="1" stop-color="{ORANGE}"/>'
+            '</linearGradient></defs>')
+    sx, sy, sw, sh = 140 + 34, ty + 34, 720 - 68, th - 68
+    sun = "" if mono else f'<circle cx="{sx + sw * 0.30:.0f}" cy="{sy + sh * 0.50:.0f}" r="{sh * 0.15:.0f}" fill="{PAPER}" opacity="0.85"/>'
+    city = fort_worth_skyline(sx + 30, sy + sh * 0.12, sw - 60, sh * 0.76, body if not mono else INK)
+    ground = f'<rect x="{sx + 22}" y="{sy + sh * 0.88:.0f}" width="{sw - 44}" height="{sh * 0.03:.0f}" fill="{accent if mono else body}"/>'
+    ant = (f'<g stroke="{body}" stroke-width="30" stroke-linecap="round" fill="none">'
+           f'<path d="M 500 {ty} L 380 {ty - 150}"/><path d="M 500 {ty} L 620 {ty - 150}"/></g><circle cx="500" cy="{ty}" r="30" fill="{body}"/>')
+    svg = grad + f'<rect x="140" y="{ty}" width="720" height="{th}" rx="64" fill="{body}"/>' \
+        + f'<rect x="{sx}" y="{sy}" width="{sw}" height="{sh}" rx="38" fill="{screen if mono else "url(#sun)"}"/>' + sun + city + ground \
+        + f'<rect x="284" y="{ty + th - 2}" width="72" height="34" fill="{body}"/><rect x="644" y="{ty + th - 2}" width="72" height="34" fill="{body}"/>' + ant
+    if with_caption:
+        svg += caption(930, "FTWTV", cap, size=150, spacing=-2)
+    return wrap(svg)
+
+
+def taper(p0, p1, p2, p3, w0: float, w1: float, n: int = 28) -> str:
+    """A filled polygon that follows a cubic Bezier, w0 thick at the start tapering to w1 at the tip."""
+    import math
+    pts = []
+    for i in range(n + 1):
+        t = i / n
+        x = (1 - t) ** 3 * p0[0] + 3 * (1 - t) ** 2 * t * p1[0] + 3 * (1 - t) * t ** 2 * p2[0] + t ** 3 * p3[0]
+        y = (1 - t) ** 3 * p0[1] + 3 * (1 - t) ** 2 * t * p1[1] + 3 * (1 - t) * t ** 2 * p2[1] + t ** 3 * p3[1]
+        dx = 3 * (1 - t) ** 2 * (p1[0] - p0[0]) + 6 * (1 - t) * t * (p2[0] - p1[0]) + 3 * t ** 2 * (p3[0] - p2[0])
+        dy = 3 * (1 - t) ** 2 * (p1[1] - p0[1]) + 6 * (1 - t) * t * (p2[1] - p1[1]) + 3 * t ** 2 * (p3[1] - p2[1])
+        L = math.hypot(dx, dy) or 1
+        nx, ny = -dy / L, dx / L
+        wdt = (w0 + (w1 - w0) * t) / 2
+        pts.append(((x + nx * wdt, y + ny * wdt), (x - nx * wdt, y - ny * wdt)))
+    left = [a for a, _ in pts]
+    right = [b for _, b in pts][::-1]
+    return " ".join(f"{x:.1f},{y:.1f}" for x, y in left + right)
+
+
+def longhorn(cx: float, cy: float, scale: float, fill: str) -> str:
+    """A longhorn head: wide tapered horns that sweep out and turn up, ears, a long face and muzzle."""
+    s = scale
+    horn_l = taper((cx - 30 * s, cy - 20 * s), (cx - 170 * s, cy - 95 * s), (cx - 330 * s, cy - 30 * s), (cx - 405 * s, cy - 200 * s), 96 * s, 12 * s)
+    horn_r = taper((cx + 30 * s, cy - 20 * s), (cx + 170 * s, cy - 95 * s), (cx + 330 * s, cy - 30 * s), (cx + 405 * s, cy - 200 * s), 96 * s, 12 * s)
+    return (f'<g fill="{fill}"><polygon points="{horn_l}"/><polygon points="{horn_r}"/>'
+            f'<ellipse cx="{cx - 72 * s:.1f}" cy="{cy + 10 * s:.1f}" rx="{46 * s:.1f}" ry="{22 * s:.1f}" transform="rotate(-20 {cx - 72 * s:.1f} {cy + 10 * s:.1f})"/>'
+            f'<ellipse cx="{cx + 72 * s:.1f}" cy="{cy + 10 * s:.1f}" rx="{46 * s:.1f}" ry="{22 * s:.1f}" transform="rotate(20 {cx + 72 * s:.1f} {cy + 10 * s:.1f})"/>'
+            f'<ellipse cx="{cx:.1f}" cy="{cy + 30 * s:.1f}" rx="{70 * s:.1f}" ry="{105 * s:.1f}"/>'
+            f'<ellipse cx="{cx:.1f}" cy="{cy + 120 * s:.1f}" rx="{54 * s:.1f}" ry="{46 * s:.1f}"/></g>')
+
+
+def option_d(c: dict, with_caption: bool) -> str:
+    """Cowtown: a longhorn on the sunset screen with the lone star."""
+    body, screen, fg, accent, cap = c["body"], c["screen"], c["fg"], c["accent"], c["caption"]
+    ty = 250 if with_caption else 200
+    th = 500 if with_caption else 600
+    mono = c["body"] == INK
+    grad = ('<defs><linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">'
+            f'<stop offset="0" stop-color="{SKY}"/><stop offset="0.55" stop-color="{GOLD}"/><stop offset="1" stop-color="{ORANGE}"/></linearGradient></defs>')
+    sx, sy, sw, sh = 174, ty + 34, 652, th - 68
+    star = f'<polygon points="{star_points(sx + sw * 0.15, sy + sh * 0.2, 26)}" fill="{PAPER if not mono else INK}"/>'
+    head = longhorn(500, sy + sh * 0.50, sh / 600 * 1.05, body if not mono else INK)
+    ant = (f'<g stroke="{body}" stroke-width="30" stroke-linecap="round" fill="none">'
+           f'<path d="M 500 {ty} L 380 {ty - 150}"/><path d="M 500 {ty} L 620 {ty - 150}"/></g><circle cx="500" cy="{ty}" r="30" fill="{body}"/>')
+    svg = grad + f'<rect x="140" y="{ty}" width="720" height="{th}" rx="64" fill="{body}"/>' \
+        + f'<rect x="{sx}" y="{sy}" width="{sw}" height="{sh}" rx="38" fill="{screen if mono else "url(#sun)"}"/>' + star + head \
+        + f'<rect x="284" y="{ty + th - 2}" width="72" height="34" fill="{body}"/><rect x="644" y="{ty + th - 2}" width="72" height="34" fill="{body}"/>' + ant
+    if with_caption:
+        svg += caption(930, "FTWTV", cap, size=150, spacing=-2)
+    return wrap(svg)
+
+
+def option_e(c: dict, with_caption: bool) -> str:
+    """The Tarrant County Courthouse on the screen: the building every local recognises."""
+    body, screen, fg, accent, cap = c["body"], c["screen"], c["fg"], c["accent"], c["caption"]
+    ty = 250 if with_caption else 200
+    th = 500 if with_caption else 600
+    mono = c["body"] == INK
+    grad = ('<defs><linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">'
+            f'<stop offset="0" stop-color="{SKY}"/><stop offset="0.55" stop-color="{GOLD}"/><stop offset="1" stop-color="{ORANGE}"/></linearGradient></defs>')
+    sx, sy, sw, sh = 174, ty + 34, 652, th - 68
+    ink = body if not mono else INK
+    base = sy + sh * 0.86
+    cx = 500
+    parts = [f'<rect x="{sx + sw * 0.12:.0f}" y="{base - sh * 0.30:.0f}" width="{sw * 0.76:.0f}" height="{sh * 0.30:.0f}" fill="{ink}"/>',     # main block
+             f'<rect x="{sx + sw * 0.08:.0f}" y="{base - sh * 0.34:.0f}" width="{sw * 0.84:.0f}" height="{sh * 0.05:.0f}" fill="{ink}"/>',     # cornice
+             f'<rect x="{cx - sw * 0.09:.0f}" y="{base - sh * 0.62:.0f}" width="{sw * 0.18:.0f}" height="{sh * 0.32:.0f}" fill="{ink}"/>',    # clock tower
+             f'<circle cx="{cx}" cy="{base - sh * 0.50:.0f}" r="{sw * 0.045:.0f}" fill="{PAPER if not mono else PAPER}"/>',                   # clock face
+             f'<path d="M {cx - sw * 0.10:.0f} {base - sh * 0.62:.0f} Q {cx} {base - sh * 0.86:.0f} {cx + sw * 0.10:.0f} {base - sh * 0.62:.0f} Z" fill="{ink}"/>',  # dome
+             f'<rect x="{cx - 4}" y="{base - sh * 0.92:.0f}" width="8" height="{sh * 0.14:.0f}" fill="{ink}"/>',                                # finial
+             f'<rect x="{sx + sw * 0.08:.0f}" y="{base:.0f}" width="{sw * 0.84:.0f}" height="{sh * 0.03:.0f}" fill="{accent if mono else ink}"/>']
+    for i in range(7):   # arched windows
+        wx = sx + sw * (0.17 + i * 0.11)
+        parts.append(f'<rect x="{wx:.0f}" y="{base - sh * 0.22:.0f}" width="{sw * 0.05:.0f}" height="{sh * 0.14:.0f}" rx="{sw * 0.025:.0f}" fill="{PAPER if not mono else PAPER}"/>')
+    ant = (f'<g stroke="{body}" stroke-width="30" stroke-linecap="round" fill="none">'
+           f'<path d="M 500 {ty} L 380 {ty - 150}"/><path d="M 500 {ty} L 620 {ty - 150}"/></g><circle cx="500" cy="{ty}" r="30" fill="{body}"/>')
+    svg = grad + f'<rect x="140" y="{ty}" width="720" height="{th}" rx="64" fill="{body}"/>' \
+        + f'<rect x="{sx}" y="{sy}" width="{sw}" height="{sh}" rx="38" fill="{screen if mono else "url(#sun)"}"/>' + "".join(parts) \
+        + f'<rect x="284" y="{ty + th - 2}" width="72" height="34" fill="{body}"/><rect x="644" y="{ty + th - 2}" width="72" height="34" fill="{body}"/>' + ant
+    if with_caption:
+        svg += caption(930, "FTWTV", cap, size=150, spacing=-2)
+    return wrap(svg)
+
+
+def option_g(c: dict, with_caption: bool) -> str:
+    """Stockyards-style sign: a western marquee with bulbs, FORT WORTH big, TEXAS TV under it, a small TV on top."""
+    body, screen, fg, accent, cap = c["body"], c["screen"], c["fg"], c["accent"], c["caption"]
+    mono = c["body"] == INK
+    gold = accent
+    sign_fill = body
+    text_main = gold if not mono else PAPER
+    text_sub = PAPER if body != PAPER else NAVY
+    svg = (f'<rect x="60" y="330" width="880" height="420" rx="48" fill="{sign_fill}"/>'
+           f'<rect x="92" y="362" width="816" height="356" rx="30" fill="none" stroke="{gold}" stroke-width="8"/>')
+    # marquee bulbs along the frame
+    bulbs = []
+    for i in range(16):
+        x = 110 + i * 52
+        bulbs.append(f'<circle cx="{x}" cy="345" r="9" fill="{gold}"/><circle cx="{x}" cy="735" r="9" fill="{gold}"/>')
+    for j in range(7):
+        y = 395 + j * 52
+        bulbs.append(f'<circle cx="75" cy="{y}" r="9" fill="{gold}"/><circle cx="925" cy="{y}" r="9" fill="{gold}"/>')
+    svg += "".join(bulbs)
+    svg += (f'<text x="500" y="545" text-anchor="middle" font-family="{FONT}" font-weight="900" font-size="128" textLength="700" lengthAdjust="spacingAndGlyphs" fill="{text_main}">FORT WORTH</text>'
+            f'<text x="500" y="672" text-anchor="middle" font-family="{FONT}" font-weight="800" font-size="88" letter-spacing="16" fill="{text_sub}">TEXAS TV</text>')
+    # small TV on top of the sign
+    svg += (f'<g stroke="{sign_fill}" stroke-width="22" stroke-linecap="round" fill="none"><path d="M 500 150 L 440 70"/><path d="M 500 150 L 560 70"/></g>'
+            f'<rect x="400" y="150" width="200" height="150" rx="30" fill="{sign_fill}"/>'
+            f'<rect x="420" y="170" width="160" height="110" rx="18" fill="{screen if mono else gold}"/>'
+            f'<polygon points="{star_points(500, 228, 42)}" fill="{sign_fill}"/>')
+    if with_caption:
+        svg += f'<text x="500" y="880" text-anchor="middle" font-family="{FONT}" font-weight="700" font-size="54" letter-spacing="12" fill="{cap}">WHERE THE WEST BEGINS</text>'
+    return wrap(svg)
+
+
+
 def star_points(cx: float, cy: float, r: float) -> str:
     import math
     pts = []
@@ -153,10 +332,18 @@ def wrap(inner: str) -> str:
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000">{inner}</svg>'
 
 
+OPTIONS = {"b-skyline": option_b2, "d-longhorn": option_d, "e-courthouse": option_e, "g-sign": option_g,
+           "a-horns": option_a, "c-badge": option_c}
+LABELS = {"b-skyline": "B  Fort Worth skyline at sunset", "d-longhorn": "D  Cowtown longhorn", "e-courthouse": "E  Tarrant County Courthouse",
+          "g-sign": "G  Stockyards-style sign", "a-horns": "A  Horn antennae", "c-badge": "C  Badge"}
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
+    for stale in OUT.glob("b-sunset-*"):
+        stale.unlink()
     files = []
-    for key, fn in (("a-longhorn", option_a), ("b-sunset", option_b), ("c-badge", option_c)):
+    for key, fn in OPTIONS.items():
         for way, colors in WAYS.items():
             for shape, with_cap in (("full", True), ("mark", False)):
                 p = OUT / f"{key}-{way}-{shape}.svg"
@@ -173,7 +360,7 @@ def contact_sheet() -> None:
     from PIL import Image, ImageDraw, ImageFont
     NAVY, PAPER = (20, 24, 43), (255, 255, 255)
     f = ImageFont.truetype(str(ROOT / "assets" / "fonts" / "LiberationSans-Bold.ttf"), 30)
-    rows = [("a-longhorn", "A  Longhorn TV"), ("b-sunset", "B  Sunset skyline"), ("c-badge", "C  Badge")]
+    rows = list(LABELS.items())
     tile = 420
     sheet = Image.new("RGB", (4 * (tile + 20) + 20, len(rows) * (tile + 70) + 20), (235, 235, 235))
     d = ImageDraw.Draw(sheet)
