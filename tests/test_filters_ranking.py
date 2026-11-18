@@ -61,3 +61,13 @@ def test_ranking_puts_severe_weather_first_and_pick_is_diverse(settings, now, tm
 def test_keywords_match_whole_words_only():
     assert infer_category(_story("Fitch upgrades Fort Worth's Drainage Rev Bonds to AAA")) != "weather"
     assert infer_category(_story("Heavy rain floods Fort Worth streets")) == "weather"
+
+
+def test_culture_calendar_post_outranks_a_plain_rss_item_in_its_category(settings, now):
+    from datetime import date
+    from ftworthtv.sources.calendar import active_moments, load_moments, moment_story
+    m, start, idx = next(x for x in active_moments(load_moments(settings), date(2026, 11, 21)) if x[0]["slug"] == "parade-of-lights")
+    culture = moment_story(m, start, idx, now, "Fort Worth"); culture.category = "culture"; culture.relevance = 0
+    rss = _story("Free & Fun Events in Arlington: November 19 - 25, 2026", "Stay informed.", always_relevant=True, weight=0.6, published=now)
+    rss.category = "culture"; rss.relevance = 2
+    assert rank([rss, culture], now)[0] is culture

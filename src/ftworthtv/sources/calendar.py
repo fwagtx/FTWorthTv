@@ -56,7 +56,7 @@ def moment_story(m: dict, start: date, idx: int, now: datetime, city: str) -> St
         category_hint=m.get("category", "culture"),
         image_policy="none",
         always_relevant=True,
-        weight=float(m.get("weight", 0.9)),
+        weight=float(m.get("weight", 1.1)),
         extra={"image_query": m.get("image_query", f"{city} skyline"), "name": m.get("name"), "slug": m["slug"]},
     )
 
