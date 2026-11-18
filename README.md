@@ -87,6 +87,20 @@ workflow with `only_kinds`).
 
 ---
 
+## Two looks: "dallas" (default) and "detailed"
+
+`config/brand.yaml` has two switches that decide how a post looks:
+
+* `caption.style: dallas` — one or two plain sentences, present tense, no hashtags, no bullet points, no 📍 line, at most one
+  emoji (🚨 for incidents, 😂 for funny moments), then `Follow us on Instagram @FortWorthTexasTV`. That is how the Dallas page
+  writes ("Kid Cudi joins Kanye at AT&T", "Things got heated between Cowboys and 49ers fans at Texas Live during the game.
+  Arlington police responded to the scene. 🚨"). `detailed` is the hook / facts / 📍 / CTA format.
+* `card.style: plain` — the photo as-is at its own aspect ratio with a small `@FortWorthTexasTV` watermark, no headline overlay,
+  no badge, exactly like the Dallas page's media. A story without a usable photo becomes a link post instead of a fake graphic.
+  `headline` is the branded 1080×1350 card with the headline on the photo (useful for stories where the photo is generic).
+
+Source credit, photo credit and the presumption-of-innocence line stay in the first comment in both styles.
+
 ## What a run produces
 
 `ftworthtv preview --max 4` (offline demo data) gives, in ~2 seconds:
