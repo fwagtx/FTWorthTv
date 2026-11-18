@@ -1,0 +1,50 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T16:58:37.131837+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-094337/02-a-fort-worth-shelter-pet-finds-her-home-in-parad/post.jpg",
+    "credit": "Photo: City of Fort Worth",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.fortworthtexas.gov/news/2026/11/A-Fort-Worth-shelter-pet-finds-her-home-in-paradise"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "A Fort Worth shelter pet finds her home in paradise",
+    "caption": "A Fort Worth shelter pet finds her home in paradise. A shelter pet is enjoying at her beautiful home in Crowley.\n\nMost days, Breezy can be found lounging by the backyard pool alongside her three canine siblings.",
+    "first_comment": "Source: City of Fort Worth https://www.fortworthtexas.gov/news/2026/11/A-Fort-Worth-shelter-pet-finds-her-home-in-paradise\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Crowley, TX"
+  },
+  "story": {
+    "id": "9efb82c47efa1aad",
+    "source": "City of Fort Worth",
+    "source_kind": "rss",
+    "title": "A Fort Worth shelter pet finds her home in paradise",
+    "summary": "A shelter pet is enjoying at her beautiful home in Crowley. Most days, Breezy can be found lounging by the backyard pool alongside her three canine siblings.",
+    "url": "https://www.fortworthtexas.gov/news/2026/11/A-Fort-Worth-shelter-pet-finds-her-home-in-paradise",
+    "published": "2026-11-18T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.fortworthtexas.gov/files/assets/public/v/1/city-news-breezy-story-fwacc.png",
+    "image_credit": "Photo: City of Fort Worth",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.8,
+    "extra": {
+      "listing_image": "https://www.fortworthtexas.gov/files/assets/public/v/1/city-news-breezy-story-fwacc.png",
+      "generic_image": false,
+      "article_fetched": true
+    },
+    "category": "community",
+    "relevance": 3,
+    "score": 1.0692
+  }
+}
