@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
+<head>
+	<!-- Published by OpenCities, 1.38.0.1 -->
+
+    
+        
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="theme-color" content="#FFFFFF"/>
+    <title>Home - Fort Worth Police</title>
+	<meta name="generator" content="OpenCities - https://granicus.com/product/opencities" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using mobile-web-app-capable for now to enable full-screen experience on supported platforms -->
+    <!-- Note: This tag works mainly on Android Chrome. It does NOT enable full-screen mode on iOS Safari. -->
+    <!-- For iOS, the correct tag is: <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- TODO: Monitor for updated meta tag standards from Apple or other browser vendors -->
+    <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="description" content="The Fort Worth Police Department is a municipal law enforcement agency of the City of Fort Worth. " />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://police.fortworthtexas.gov/home" />
+    <meta property="og:title" content="Fort Worth Police" />
+    <meta property="og:description" content="The Fort Worth Police Department is a municipal law enforcement agency of the City of Fort Worth. " />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Fort Worth Police" />
+    <meta property="twitter:description" content="The Fort Worth Police Department is a municipal law enforcement agency of the City of Fort Worth. " />
+    <link rel="canonical" href="https://police.fortworthtexas.gov/home" />
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/files/ocfavicon/Police/apple-touch-icon.png?V=638445503070787444">
+<link rel="icon" type="image/png" sizes="32x32" href="/files/ocfavicon/Police/favicon-32x32.png?V=638445503070787444">
+<link rel="icon" type="image/png" sizes="16x16" href="/files/ocfavicon/Police/favicon-16x16.png?V=638445503070787444">
+<link rel="manifest" href="/files/ocfavicon/Police/site.webmanifest?V=638445503070787444">
+<link rel="shortcut icon" href="/files/ocfavicon/Police/favicon.ico?V=638445503070787444">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-config" content="/files/ocfavicon/Police/browserconfig.xml?V=638445503070787444">
+    <script>
+        (function () {
+            if (window.__UNLOAD_LAZY_PATCH__) return;
+            window.__UNLOAD_LAZY_PATCH__ = true;
+
+            var supportsPageHide = ("onpagehide" in window);
+            var mappedType = supportsPageHide ? "pagehide" : "beforeunload";
+            var nativeAdd = window.addEventListener;
+            var nativeRemove = window.removeEventListener;
+            var unloadMap = null;
+            var patched = false;
+
+            function ensurePatched() {
+                if (patched) return;
+                unloadMap = new WeakMap();
+
+                window.addEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = function (evt) {
+                            if (supportsPageHide && evt.persisted) return;
+                            listener.call(this, evt);
+                        };
+                        unloadMap.set(listener, wrapped);
+                        return nativeAdd.call(this, mappedType, wrapped, options);
+                    }
+                    return nativeAdd.call(this, type, listener, options);
+                };
+
+                window.removeEventListener = function (type, listener, options) {
+                    if (type === "unload") {
+                        var wrapped = unloadMap.get(listener);
+                        if (wrapped) {
+                            nativeRemove.call(this, mappedType, wrapped, options);
+                            unloadMap.delete(listener);
+                        }
+                        return;
+                    }
+                    return nativeRemove.call(this, type, listener, options);
+                };
+
+                var orig = null;
+                Object.defineProperty(window, "onunload", {
+                    configurable: true, enumerable: true,
+                    get: function () { return orig; },
+                    set: function (h) {
+                        orig = h;
+                        if (typeof h === "function") window.addEventListener("unload", h);
+                    }
+                });
+                patched = true;
+            }
+
+            window.addEventListener = function (type, listener, options) {
+                if (type === "unload") {
+                    ensurePatched();
+                    return window.addEventListener(type, listener, options);
+                }
+                return nativeAdd.call(this, type, listener, options);
+            };
+
+            window.removeEventListener = function (type, listener, options) {
+                if (type === "unload" && !patched) {
+                    return;
+                }
+                return nativeRemove.call(this, type, listener, options);
+            };
+
+            function patchTelerik() {
+                ensurePatched();
+                var ns = window.RadAjaxNamespace;
+                if (!ns || !ns.EventManager || !ns.EventManager.Add || ns.EventManager.__UnloadPatched) return;
+                var origAdd = ns.EventManager.Add;
+                ns.EventManager.Add = function (el, evtName, handler, clientId) {
+                    if (el === window && evtName === "unload") {
+                        return window.addEventListener("unload", handler);
+                    }
+                    return origAdd.call(this, el, evtName, handler, clientId);
+                };
+                ns.EventManager.__UnloadPatched = true;
+            }
+
+            if (window.RadAjaxNamespace)
+                patchTelerik();
+            else (window.requestIdleCallback || function (cb)
+            {
+                setTimeout(cb, 120);
+            })(patchTelerik);
+        })();
+    </script>
+    <!-- Preconnecting to Google Fonts servers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Defer Roboto font loading to avoid render-blocking -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const robotoLink = document.createElement('link');
+            robotoLink.rel = 'stylesheet';
+            robotoLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap';
+            document.head.appendChild(robotoLink);
+        });
+    </script>
+
+    <style>
+        .gm-style, .gm-style * {
+            font-family: 'Roboto', system-ui, -apple-system, "Segoe UI", Arial, sans-serif !important;
+        }
+    </style>
+
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+        
+            <script type="text/javascript">
+                window.__oc_flags_ImprovedBreakpointEventHandling = true;
+            </script>
+            
+        
+    
+    
+    
+        <script type="text/javascript">
+            var __metaQueryBreakpoints = {
+                'sc-size-4': '(max-width: 480px)',
+                'sc-size-3': '(min-width: 480px) and (max-width: 768px)',
+                'sc-size-2': '(min-width: 768px) and (max-width: 992px)',
+                'sc-size-1': '(min-width: 992px)'
+            }
+
+            var __ocSizePoints = [
+                { min: 0, name: 'sc-size-4' },
+                { min: 480, name: 'sc-size-3' },
+                { min: 768, name: 'sc-size-2' },
+                { min: 992, name: 'sc-size-1' }
+            ];
+
+        </script>
+    
+
+    <!-- Framework Section -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/files/templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/jquery-3.7.1.min.js?seamlessts=639289420720387909" ><\/script>')</script>
+
+    <!--Google Maps API Loader – Improved Version to avoid Warning
+    This script loads the Google Maps JavaScript API using a dynamic and async method.
+    It replaces the old static <script> tag to avoid performance warnings from Google.
+
+    Dynamically creates the <script> tag with loading = async for better performance
+    Builds the API URL with required libraries(places, geometry, marker, geocoding)
+    Uses a Promise and callback(google.maps.__ib__) to confirm when the script is ready
+
+    It Avoids Google’s warning about direct script loading
+    Improves page load speed by loading the API asynchronously-->
+
+    
+        <script>
+            (function (root) {
+                root.OpenCities = root.OpenCities || {};
+                if (!root.OpenCities.GoogleMapsLoader) {
+                    root.OpenCities.GoogleMapsLoader = {
+                        _cbs: [],
+                        _ready: false,
+                        onReady: function (cb) {
+                            if (this._ready) { try { cb(); } catch (e) { console.error(e); } }
+                            else if (typeof cb === 'function') this._cbs.push(cb);
+                        },
+                        _fire: function () {
+                            if (this._ready) return;
+                            this._ready = true;
+                            var q = this._cbs.splice(0);
+                            for (var i = 0; i < q.length; i++) {
+                                try { q[i](); } catch (e) { console.error(e); }
+                            }
+                        }
+                    };
+                }
+            })(window);
+
+            (g => {
+                var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__",
+                    m = document, b = window;
+                b = b[c] || (b[c] = {});
+                var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams,
+                    u = () => h || (h = new Promise(async (resolve, reject) => {
+                        a = m.createElement("script");
+                        e.set("libraries", [...r] + "");
+                        for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+                        e.set("callback", c + ".maps." + q);
+                        a.src = "https://maps." + c + "apis.com/maps/api/js?" + e.toString();
+                        a.loading = "async";
+                        a.async = true;
+                        a.defer = true;
+                        d[q] = resolve;
+                        a.onerror = () => reject(Error(p + " could not load."));
+                        a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+                        m.head.append(a);
+                    }));
+                if (d[l]) {
+                    console.warn(p + " only loads once. Ignoring duplicate load.");
+                } else {
+                    d[l] = (f, ...n) => (r.add(f), u().then(() => d[l](f, ...n)));
+                }
+            })({
+                key: "AIzaSyCteORUk2a6pomusYOHkEvqeRd1Q0hgJU4",
+                v: "3.65"
+            });
+
+            (async () => {
+                try {
+                    if (!google?.maps?.importLibrary) return;
+
+                    if (!window.OpenCities.__mapsLibsPromise) {
+                        window.OpenCities.__mapsLibsPromise = Promise.all([
+                            google.maps.importLibrary('maps'),
+                            google.maps.importLibrary('places'),
+                            google.maps.importLibrary('geocoding'),
+                            google.maps.importLibrary('marker'),
+                            google.maps.importLibrary('geometry')
+                        ]);
+                    }
+                    await window.OpenCities.__mapsLibsPromise;
+
+                    if (window.OpenCities?.GoogleMapsLoader) {
+                        window.OpenCities.GoogleMapsLoader._fire();
+                    }
+                } catch (err) {
+                    console.error('Google Maps failed to initialise', err);
+                }
+            })();
+        </script>
+    
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/modernizr.custom.710f3bf.js?seamlessts=639289420720387909" defer></script>
+    
+    <!--// End Framework Section -->
+    <!-- OpenCities Section -->
+    <script>
+        var OpenCities = OpenCities || {};
+        OpenCities.Paths = {
+            SiteTemplate: '/files/templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/',
+            ThemePath: '/files/templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/'
+        };
+    </script>
+    <script src='/ocapi/72cf1fd0-3b1d-422c-b3a4-7acd718220e6/en-US/websitesettings.js'></script>
+    <script src="/files/templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/oc_head.js?applied=20250318051804"></script>
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/oc_grid.css~oc_style.css~oc_wizard_style.css~oc_main.css~oc_forms.css~oc_wizard.css~oc_wizard_menu.css~oc_main_s1.css~oc_wizard_s1.css~oc_wizard_menu_s1.css~oc_grid_s1.css~OcScriptCombine_Minify0?uniqueid=20250318051804" rel="stylesheet" type="text/css">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/client_style.css~client.css~client_menu.css~client_s1.css~client_menu_s1.css~client_forms.css~OcScriptCombine_Minify0?uniqueid=20250318051804" rel="stylesheet" type="text/css">
+    <script>
+(function (BackgroundSettings, $, undefined) {
+    BackgroundSettings.initialise = function () {
+        this.Application = {"CSSSelector":".content-outer-container","EnableFade":false,"MediaType":"image"};
+    };
+} (OpenCities.BackgroundSettings = OpenCities.BackgroundSettings || {}, jQuery));
+OpenCities.BackgroundSettings.initialise();
+</script>
+    
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<link href="/files/oc-templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/oc_print.css~client_print.css~OcScriptCombine_Minify0?uniqueid=20250318051804" rel="stylesheet" type="text/css" media="print">
+    <!-- Script Combine. To enter debug mode for this browser session, enter OcScriptCombineDebug=true as a querystring -->
+<script src="/files/oc-templates/00000000-0000-0000-0000-000000000000/cdd071cc-6dcd-45be-8646-3c3af637a81d/v/300/external_plugins.js~oc_form_helper.js~oc_main.js~plugins.js~oc_main_init.js~OcScriptCombine_Minify0?uniqueid=20250318051804" defer="true"></script>
+    <script async src="https://siteimproveanalytics.com/js/siteanalyze_15203328.js"></script>
+    
+
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DYTCK-JM9C8-ED4EP-C3GGK-Z575H",function(){function e(){if(!r){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.appendChild(e),r=!0}}function t(e){r=!0;var n,t,a,i,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",i=(a.frameElement||a).style,i.width=0,i.height=0,i.border=0,i.display="none",o.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void 0;",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=14,window.BOOMR.url=n+"DYTCK-JM9C8-ED4EP-C3GGK-Z575H";var i=document.currentScript||document.getElementsByTagName("script")[0],o=i.parentNode,r=!1,d=document.createElement("link");if(d.relList&&"function"==typeof d.relList.supports&&d.relList.supports("preload")&&"as"in d)window.BOOMR.snippetMethod="p",d.href=window.BOOMR.url,d.rel="preload",d.as="script",d.addEventListener("load",e),d.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!r)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.appendChild(d);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="crenlmfyd2las2x453kq-f-d0eb39adf-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"41","ak.cp":"1680976","ak.ai":parseInt("1075935",10),"ak.ol":"0","ak.cr":7,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"4292910f","ak.r":49523,"ak.a2":n,"ak.m":"dscb","ak.n":"essl","ak.cport":37956,"ak.gh":"23.203.55.201","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1794961109","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==0CIoNgiAWy4F0y6NNRBYiiMSTKsm7yCvglI6vp7ttW9TinnKLpUcHVPf5iJgHVDJawxx9DihIuFYO2ymBo3CozHYfdMFCUp7vcfEGjtmEdm7ykDmdrsV2YQtgZHxbxHbE2l1jSA7GChog7ckJxw8KJUBj3dh9n/wcCQVx5hhHoNf51GvlQXQkhLvXs5m7gSIOZs0UMAHfSd5x3CqrZHUd2fSC3fM0V2uyS35jh9eMm+cQsDLLFGEAyYy+J03BgVH6qV55MM+c8ErGJAwkuCmQ4gVVE9VCKz8/km4Uz92Dr411/ApGk79iVki336CZQzWJNxCLZ9bzPbf0AoD/wyyUarC1NPy/niVURJB8u6m1BqwmK5s273dmc/IUIFGz2DX+lzHJvQP052jApSicQAIc1wCAVxlLhzp8aeb4eyinQU=","ak.pv":"369","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body class="body layout-modern  site-search-always-visble  content-type-oc-profile content-template-oc-default group-template-oc-empty-with-default-header page-name-home page-sequence-1 page-depth-1 page-section-1 website-type-defaultsubsite device-desktop " id="body-top">
+    <div id="skip-to-content-container">
+        <a href="#main-content" class="visuallyhidden focusable" id="skip-to-content-link">Skip to main content</a>
+    </div>
+    <script>
+        // OCNOW-11988 (Cursor): Proactively focus skip link when returning from browser chrome.
+        // Must run inline (not deferred oc_main.js) so focus is intercepted before NVDA speaks footer.
+        (function () {
+            var awaitingReentry = false;
+            var inertSupported = 'inert' in HTMLElement.prototype;
+
+            function isExplicitlyOutsideDocument(node) {
+                return node != null && !document.documentElement.contains(node);
+            }
+
+            function getSkipContainer() {
+                return document.getElementById('skip-to-content-container');
+            }
+
+            function getSkipLink() {
+                return document.getElementById('skip-to-content-link');
+            }
+
+            function applyGuard() {
+                awaitingReentry = true;
+                if (!inertSupported) {
+                    return;
+                }
+                var skipContainer = getSkipContainer();
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    if (children[i] !== skipContainer) {
+                        children[i].setAttribute('inert', '');
+                    }
+                }
+            }
+
+            function clearGuard() {
+                awaitingReentry = false;
+                if (!inertSupported) {
+                    return;
+                }
+                var children = document.body.children;
+                for (var i = 0; i < children.length; i++) {
+                    children[i].removeAttribute('inert');
+                }
+            }
+
+            function isSkipLinkElement(target) {
+                if (!target) {
+                    return false;
+                }
+                var skipContainer = getSkipContainer();
+                return target.id === 'skip-to-content-link' ||
+                    (skipContainer && skipContainer.contains(target));
+            }
+
+            function focusSkipLink() {
+                var skipLink = getSkipLink();
+                if (!skipLink) {
+                    return;
+                }
+                if (window.scrollY > 0) {
+                    window.scrollTo(0, 0);
+                }
+                skipLink.focus({ preventScroll: true });
+            }
+
+            function scheduleGuardIfDocumentLostFocus() {
+                window.setTimeout(function () {
+                    if (!document.hasFocus()) {
+                        applyGuard();
+                    }
+                }, 0);
+            }
+
+            document.addEventListener('focusout', function (e) {
+                if (isExplicitlyOutsideDocument(e.relatedTarget)) {
+                    applyGuard();
+                }
+            }, true);
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Tab') {
+                    scheduleGuardIfDocumentLostFocus();
+                } else if (e.key === 'F6' || (e.key === 'l' && e.ctrlKey)) {
+                    scheduleGuardIfDocumentLostFocus();
+                }
+            }, true);
+
+            window.addEventListener('focus', function () {
+                if (!awaitingReentry) {
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+            }, true);
+
+            document.addEventListener('focusin', function (e) {
+                var reentryFromChrome = awaitingReentry || isExplicitlyOutsideDocument(e.relatedTarget);
+                if (!reentryFromChrome) {
+                    return;
+                }
+                if (isSkipLinkElement(e.target)) {
+                    clearGuard();
+                    return;
+                }
+                applyGuard();
+                focusSkipLink();
+                clearGuard();
+            }, true);
+        })();
+    </script>
+    <form name="mainForm" method="post" action="/home" id="mainForm">
+<input type="hidden" name="ctl04_seamless_script_manager_TSM" id="ctl04_seamless_script_manager_TSM" value="" />
+<input type="hidden" name="__SEAMLESSVIEWSTATE" id="__SEAMLESSVIEWSTATE" value="H4sIAAAAAAAEAAGQLG/TIFa0f4ueZ0ytdahqMejNKvAVumMuaejQwHHWC6Zd6bQHUq/vR3MdB+vB57CYBcMOAH62dgfKa7JwUkIkwY8LY5dF+0sQtPN36s3N0izUBtw2DwZ9lOc1duwDwcFOExUHhukXLPv7zJ1Cs40in6ai6tcj0Aiy/NnyuWKp+VC9c2xzij3AD9Tdrlks62Z6q1blOQdGXVR55IMKbGNk/PtNzjLr+a+qG1mrdQj/xS3sUKrW8gSbylXeZo8CJYg3jPX1v7Qq+qk1FkBR56qg6ttYCYFco3+7YCqtf1dtujMkAfPhzX6JgPeIOOtrlIvcmWKGzWUuNVdb474/rI2MjAzhLCDJxv5CGXZST2Fbw8YfK/Erf4JN/GL4KhfB08q4KeMho8qe2C5g125MM2Ya0XYR4uLq3cB61SONMJ4AbCgqNysg5PNJT0TlqWsOBHZvAkprAWf3oCWA92ULFIcZtzarAHlbzIfRgSzYbFZOdDJDV4x+EXPK3WIt8qqbJ2k/Y4nbhEGbVquuw+Bqo4usrakXA3eJidMSTkLkEgdUMtKRSVpP28eG+/HA6+6ZxoxTGhBTB01Upcv/QKKiqOOfzttdXv8fWA4h2yPUr2KrJpB3qTJ+AhjocBidt8zHKohWiBVLVVcXzvUUZ4vHJ1lSVFYR+vX0DftZCFVxWridnl7pD0eafw5d8z5nc/S88pddwQBLgYAU1n6RhTPqjpfdYssZ365yZLYO1TpLvEqCbhAeEHZXV2sqbOmeKewUaKgNB7O2Ky7hREBQmk9DFggRtGjQLytnDg2/HsDBxLdt54BYDlwmZb2g7tHBMkg+2U0sc+BrYvwvnsu5OKTCfDTOuOHYgoxqJXNUSjeTjfDUM2z0u5OOcbjp8ZdCb6ZMbPUfTRYj/NFNSCqSP5AL36H5ECQO7x7gVzfiOFxoPpiN6CAAkJHk8/Ol1BXlsVm6EAEajlIBREhBIa9Qc/hYjCetriphHA/j4mMZ713ccFTdEUP+UxBlANy/jXysu6r3sqb0iFkUNtoUbKH4e+W4osyzBBW0xEhkVX04ln9psJ84fSJY58IwiW6SuljtyttONLV0WWT5OrgzrAdxBDxmObHO/Ml+r3ZQPPMh+eKMmloGlFI/2MwzCcuEasC/B6HjTshDpc1f4elVuO4ub1ZncW2Q5bYLCGYB0kBrSZ50r28m9JB0xvEuweL0M8F/su8H6o4xn6ZIUZSqqCzj+2YFSsTN9Q/tpQL5bWjKVGJw48d2bW0hQVpcE4UPzXxmMvuhDcMoHAiMh9Vaq58Nn9PJewd45OPEfyvoAvFbOB4pMu0yaHMgYoLdRsfEp7I7/QMh5FC5jFU5FmM3U428NWvD0S0ch/Bm1B/atQ7ibcl+QuF2LZgO46yhDuJICeGKTR29/vDGvjHLVHQV4DQQsw52PrBDVSa3zLLNKS5tzAx5vRCdO/5FQfgenSq7BY5WF5/9LrGk+iLkSFXEEyA9HGPy76SpBhpPfV0MjMhj7PwQmro+RKgzMT/+A119L6vAKJq8M92/Dsr0HatAgo6YGgd3lAaPCgq4LYtojaqaXRXmLl8g0xxBNemZ5haAQEKNJna41C+s+qyEiIDTj91mN0hQc9oRxQeximOUYLAoeYj3GlPt2GBSBlB18NRKXMgX5dFrO+n3oW0E8WVqJ3MaP1PXiFJ+xg/Ur4FKWwR8hSWQqaXC6OQ75SsO9kqM1u4k6gsyoQ4KYfClM4J/V0grYeqYpfw4lk2Sgz0ua4AHN6g4/qaS48Frt3rSDrIzhMKzRkTjFmgZybcV0D4SA1httprJ4AGjxF1JU0quA5IWl+muJlPbi/QCZv4d4nuf5YA0LSHJguroWDoVYkXusgAnaemIfAR9qyVbSnUPwWJt1t3QUL3GknohLO47Qa4UGUq0vr5Zzo3kK0nalnnipvFcg26EpXPqUIu6AcT21IpKHCWlQD/w5ZURkAxtHtuEEuA+c/RZkR6/hKemHqBlID34BfK1yy+kA3ZNl4Jl5Lhf+VW3eV4OE2umPX4+2JY8RHIHxNZPllhAND5Wgst9yveSEMW4Ulp+G5sB45lUBfTKEZ992f5Kz2tA2NwUUSqo5zt8ipXHpuh0X1oyVfB98f80L/ZveYnI2iMQadL7gCNqIIVTKe9YoxWS75vFRqDJIDizmTwtXQCGDcceuPu+t1go8oZNd9IRk4jt4B6vltSyHmd++oYVomNUhPfxQOEGgW1OJtVr+vmbuzeASmRB5G6nVw1Xefbucc02FhcIBo6y81qKTsVujikLyFi0KxF3cPtG3Hs7WHlG7zDylW6FC+S7LvVydzK+BQYFLVMoybonTx/GscPDJGZWh4TAh8OcbzqYMgid7egmoHqa4b9g6E+Yyu32qp5wHbeciddzt9dNL7yz3KDDrrI5JmGCsLyQeB+di/DJBsvRmbG+QDsY0DO6a679Bo5VXEa8ugLVhNw6szzztrPunixj2gYojUXjdd0GKHseIffwUcJ+JVEg8ojwM5ekpwyvmlVtyCK33FDYwUhahC2p6/jmzXwPPEv7K86goMO1SZ/G7ewMJ0DHDplsxzZTd9v6+bsy/GMcfjKHs1ZkeeKlwHpMEAQtd/RhVBrYxzczGVL+nm7J2UDetraqtCF8J+fu9K3glVLs2yQBOXUpXBgfAB9pNWaZRP4+FKgwuaOW5vAWruYbxLj0orsWmm4jK6EiNapkyylHA5Q3pjjg9gIRp5jXaPRuBrU03o9S2u8AeAPS2tQZmk76JTU4waXyWeylZNKiGW2hIa+RiedICHHGWy/TXBH/F/L0AVut2n0MJGGq/Bp3af3PCVVGZkUibRHPSPn9jiQdUOS+AQ7lz94uiyKEEUjL26370Rm/aR6Chhw39mzOi84f4ymV5/YE9WVX10Szgy1h3TpUEiZ+lWjcCWgLkd+1TZMg+TbhsrlodkVtn+l7OwPUwCfIojOp4k1hRkQ7cqiI+LWAQKcUzzU9iFt5OY1i3BkdRi04R04GAfe+wmx8o3DmmxuErtXMs+L8AmMb63wy308WZoGQ3d3xy3NWV6QYdXzLmRbFimIlOP6B6vHSaATTT+AkgiLM1isqVOr529QYIyey6eYPRBbgTdjITXPtHSxw9b54KpMK/WfwxHRRjIyMoDZtXt/g602ALs1wIhO64JweagypIdKT685pZa2jeaSU5v9wQx5Yy0dTOGEuKHVNLR4pCGFGKLjFMKwfkwOuV1gvqMluecsYN3DJVG8mnuYwOwzepodSRl1saHPPDVBOb14+yghuruJNOloBfD5j3gtiS7pd1gtONi+RL0nw/dMJbRNw4GpsRns7WGqPj+DEIer42LEbmUvZdiAHHqSwzT0jensi7OdJzi3JVC+37Y1nrxV0AT+SL++kpru9mIkw8MHE8PtT3XgLw52ZmZ8fDezpIKV+G81Lj6H+CA5807/0PKugyRtqqrzTc9Tf9KeY0nJlbeFQouaLcLxz7eGJVh9Uf0P9uS5QVMjNyb7RpQfMn4jbm4WeHy8DDwnoEjrVvFn0bozDdTQrgyJDm3iE1SPE6oPAs8TO6DR3TJwNYpSwagIo/ii22uls0rc8r26rBctNkW506tqfoka38MG0JjAKcfDcvjf4Zpe2Ax4/iH8XIC+d+Bp3LtXp8FViwE1oz9avJL7gg1fLH0wJzqaCoaZUzVZ3u2pHuKkTzPKX3MX3+VX0CaBfen53rrvaaNmon6DgMbyoMM/Q9+ZLRcAdkm9/UUOU1+bCyiI9J0EImsI8pWEnjSxe4THcglNQ0w5qAevLakeD/jJH06vboM5RZI576Er+oDduUXRyvcHdFwVCczmqz5+c3oYVtsf8YiRAmEniAPI5uwu4lDl0aYBsd6KYy6LqnehEpxTiFx7KguOJtmKYZV7DSTi+DrJik7DGHAGGYYAAXcf2rdFASaJKbo4epIY76HWZ9DWqbfk9W6HI4Rrg73Geqoi8+yN6+CEF0u9IUV7S53RBMD6xj3E6jGwed/0cEO/oxpZSt1CqKMnOSTV/uByVIZz6VFuYahLNgf1Fu4buEiyFKh5lKHNZLSlcI14yDfzhDWberdvzY7fh4oQrxBIZ1oe3kDZSW0CNN9lz6mECjxlXYgJsS+h1sPuWHNl7Iym+89peNCD3pmvCizyuSBOywVUZlsn98GDQTc35/aGp+siArzXBLFCFoCU5BWsY0S1Bdw4kw13+okZePSuIdSKYXeNgIdManjlNrZzMcdIcrr9WNNBcYX5J6YGwNNGlsg2UFSvEjF0+KToA73yZr3rMcC1vJFBmrm/9tIfLobP52GyEV7tNucn5tqqA39rNfj0PsbthlBwHxbkuFqSQKDyLOyY1Qa5Ww5lxucUqxK4Q5Nt1qYwK2Lkg3vDtwgW22/w1axKigetacBpAu7YxckBnG3f0CgDgfbX1dCgCa680Q3rlY6cn2kknGjFwi4dDn6eRYjFm57lYS86vI2QBiKrmElBvDZ7eSJhPupnvJLpHX7pchK6OgzdYXCgeH8YqY5Dk0g/bgvSRWpkTI2adZjgpI354lpFcu7Nmi57bFR72sTKMcBJJJ0cBQMjP0zifSujUsbglYKtWwa7l2Ph8hRyvffWsHcLOw0/x0ljVXRU+6H+WGRq2F1tu5olfyYEYLmFQ+rUcpjiSW89Nbotx1fbuuUWsFVU/4EUx5er067Mxv3/I0C4ZyUS10nNjernXrOgmQRtl7PQEggJszQXXvOgyieqWUCuM3cOe8KemAZ/TDw+uxCVmh2mymLq+rw8rAuc1iYH16zvxQItP4DAFOWc3gupBDLMvt/B95US3/kAdAnV4+bvjn2fi0xpIrO7be1Iu81CWtegEsS53TNyMTDekqKwrsJPzjjHp3IGp+O7Zjb0bm9p/9kGdW0S5fWL+EUi403RFRJJ8NLgBceBfbWNb0A1HeIl3VJoZhIr2aM6MYwaEwBDcNxOOr9E4uQ/MMSd6KRif172PBCqnG78F3hrFBIN8Nh/kM7Aq6FX2HU0VZGnwjc5ZjtFVzYxBAUkbO4f4EI9qA2z3+fQVGYz1FxON1FPy93w2j4oT2D4a2S9XbLk/dpr5c2Wrk6Q7TE72pRoRiv6ojTLzihHvh4PjfbgjUzcdURg9E9ypKRPIzE2i35ksUxh/pbNQdc/9YTXnTxWie0yh++3lYp7hWUjotNna8pSDjTDvXxHY26WJFh2yRETMqWT9GzYvNaWMPFy34dK04zjCuGjpmrZw3ccPW8jNS9ytpGo9/uslffh1MqqD+QbTwP/iAkRGlypUIU4aUod2ve8Dgfj2ZFN7NvqZabHF/xdQaKrfMLX/YEfcZEK1jfV5ilnxtKB3KFvW3EA/IYGUcgtKbhq+ejzCAjCa9dNNcVUUnSSv/ai54pBGiZtx9CFuUle8Zck0hAVswsh5KuJCUylgPggyEkUAVAbmHOMOXK/KRdIp6rkASD6wy/YV8al+SgtoODvw/P3thAZ18Jiya6DvtZ2sBEQ8LXeValZ115l4B5YSzll4n48l4/0DzWCsHTi1Sr07Cz3qDeAdPhGPP7h08AC/Bb/WF0cq6NOW3xCoN9Q4FY/2N4MIXygQzylOAZgIuELASFp4DDM0TgRz0u5/eEO3hfdjDzF9XOzlmZBWtu4ETTmZKXlJOVWNkQQtZ6as1/Y966MrciEJ+7dcrftsca+u0r7i9aknVehfsEN+SL0czzVvtaYbBzWRZnP3DMxduYl9KuWV+kTrHUCB2bmLVMGRa3YHy7nFYocc768WKWom1uM9N8ktPU30lVcgglsIRrUD9j+T43dxY0qyFugkrRJFop+4qCVqMc4cxnJLE2nomv7Y7txK5fxhOQT3E/NF1OQuTwT9iJewY6CSt0L7k2M+VZFkN2rsr2GJj5te5TseIvBW9BK7XkwmhmHtVkxyJ3PuQT5ytzmw9PY9CJFQVgAoopdsjbjx4ZaeQ5ZQx+RPIl3BFs90AEgXwjaWThDXrztga62YRDpEMhH7GoaxmYguxKGQBj31H7Uenn8ItZ3TUfIqG58NepYksVlICFWcNaj9hsoA/NH0pJXiWXozxFrPIBlHCUPI53BpuVoHtKQaVUjdNQH334QZ7QV2jEJLXHf5W18VIaUOQO5Kb9fDcUyJYPUkmQHdt5VABP5Ue/ZXNbaVbDnjeNER/6FwjR50jRm8NlQ9RtvcgodijakyFz6tSiVTZe/ixEF235cmU6sqaa2IrXmnoZSbADy9pAojR4OkyB9dTXIQ6BM+gBN9ea9771XoggO0sU0S0R4h2P9uHpPrU1JE4FvW6fHrbSHLuyqBP2bvMmzzEImm2r1YlfNwNjSGiFWrHEVOfyExGDEnuCN6mBlp6X1zaMXiw1WVwE0ZweSkfmhT4OAZT5OoKafSR/WWEP09XlamYJSRUV9KPFQhKl7TYWRNi/su+lVJVmxLKvv7IJRwmVPQt6s5ux0flsKWRYybM0t3h3RarGMtc/w4iltzA0F7gPWXxRT6gJt/YCy6KqC/b+QoEbffS3O3KDs7tmPZDiiIqU6gZtv5LZQ7lh/VOUZsmdzILPxOdIV41kdyxqOaBLsArWn2rKizs2t4Ahd5n8VOC4xRn11otK8npjgHi53Q65IvLEvC/uaqPRsp3WV/imJuNzyKd3JbIzQMYOg335kVNpCsWyO8bixiGANGQGK5kZpN+AyTLVJtQu1UcW3fPIm36aO1csSy477g6uikDdZqymfHZ6k/uFnJZI4Zb0umG3TvHoOL2l+GaEtM4RrQBSbPFeYK+G6iK5daXiob06i+Xi4s/PrxgktJy500Pel6aLbPzuU1L8021bpPs/kbvOcc2RXHYevwLDLdCjxLA8yfvkP4PuRFuOjAlc2Gm+0apBZ8X5GR6jLsX9ItCA+aBg1nb2pW0WX+o2nYEiMmQg+CezcG3b3FwvDqnm4ZKf+87rWm4Io78+LtuI6u+HrRD7eOFSQT3uOBvobgZe9wpxs1li07hdg1iKNtkwkq7Bqj9xC+ffgU+gNdXa6dtJXq+Q1S7jf0PYgs2VzDW0tRUpFfxddF0uGhcrrZENorFA7Iv4CLm4X8iSkRKtuRPmsBOQ9pZTvTg03Z48s3ELqLzWz6llxcaPnvAEyspsTAZl4lBAsp/4WTBFj528nAVrNjFRaxLx0j9a0CEJ4/xwWn6AbYv2WOT4ILZqgCAmoW1hJh/WdFrAczF3Prg/e/mVWVAIsfqpGiIgwFAmAjzwETpnZtxI4P7ACJYx2+c1rlQ91lFAj+MlCNExB15p8OCue3RYFzZU1jQYAp9QFv4gAggR6D2uo1+5T6r82IBmVwl0/O3I8XePKsf5B9I/0VQ1yMJjmIsz3KnkBzD5yGNk4hQVFOY/rxnOZ1NyHrz0qsB0B+n5UeTYiczkFXp5v+IBqMDBMVW+jSlczmw8YpLxFypCOVeowfezOnW3mtxoOmp+PSWVNfD05SCheu2rJLHEyhzmKMyjO7bZHx9NZ/12t9+H9KOHC97GTKHSdrd831SRla7//we6E/iEheJsIrQQwdkx4WbEzGSansd5muQu1xoukxkXwn4Jm+RvykhZbu1UXdbkstZWAXzitmEa+QNT7YVO7NlfYABQulLOLcvJTJKPxSGg2nqgkJoHcUHlln8XS5ANnrgJ/uYbc1VvSfg2Bnl9mzkw+1QboV7zeSEHX1R/dC9At2WTA8rKHDqBBOjia/x4y9LHIXvJPt33keNIdldnMN+mDYaz8b/Jc3sQyWc9fDc9PSzTW9rajWypnweYTeFxXAAxJLK8SGygZc5+JuBv0jqrZ4Hs2HlrSYbh6gMR42ja7VmHOPioFD4trOrLHypfZ907YXRsrbm9gHRxILOctor7/QuoFDdBvXLG6iVhq0wXlRFDd7a0l3tkZba/DRU/Y/RvAmTCoeC8KfC1kcyc84VmZ6ll2D74SGIF5hW8/WOZJu/8ijoSiGmwH6+LDUoE6Jx+cj3TTHFoOTiV28/JKGUehbUpuM3mftn8ErV7Vi+eRwIDbvGy3h2F/7YzxnFiesvMV9Yi+lYRRR/CQ0uSjfvOM7to42kJ9Xhnh9U7K7XqGzhG4D76XYMwGU4j7M4MWKe0f7UOiQ20BPFWtyu6pSQdNZpi8DRmF3rSrDjJ1KyssCou68LVjjLM8kBa4odqS7r6Zg5+sGBL9jfh1mjr6Q3NHf7ihJQWohKbcY2dRIVVNnU+w5A7vT0L3jh+KOr7NT6P1C4BfL7tYje5iIWnyfgoJOuurprwsR0a8zxW8734KJyKUZGfDxC8wWpkM6HplDiv8D2gySL/qChCJYZDCNQvIcmNIzxMniFZAoplBtnCYrJUcRLLdWn/cHMlsJVjXP1JLF60HeEfafxm90CqKKUwnHoIIRnEDdV6oMQllIe1rT+fyzknm65k/dBifpyL+gTRr8hJ5kaD2wgs7qLj/N3n/qD7Uz28LIw8+8DJL93f+ikDreaZiqLx9PYUwj/AaDp40cKW0MIUwfojTYPiHJPam1C6qEzzxoHLRaX/+6XknX7jixbsPkBIrx89MzKn69NUfACoo2BRhPb/ypkxnuYu9eiJJJhDt4aXeW7KpFgSVwWwrYKMqggOK1UIw9/TDpHY88o1fdsbVwQL08RHz24YliqaZjMynVNuh+85ot384J3ewArC0caBawUu0o1DuQzf816U9W0qHnfkEUCrUoXvU+sa6NbpTm4Wpw1bVyyQ+I7wcsz3wOJU44k3LYYfjbRGu19gdTK6da2UZQaKAwmYA6Jk4ruRYWZqQUdxnC07TyrjyDytLCFRDnyBRk+Py+qfWhaivvimsPmRUfk95oJrnAlxFUnBPZN2tO8+C/pBUtoDHO4hB6PICg7ZAoPrQ88+n+gmrH+MfPZ9MMUusrIu8yPOVjfXtf8VuOGgrXT05gTKFUoK/nU39VnaBvYe3sd3Fxc9ODCb4jeD7zh9D2MFeTUcNSTsgIwcqZEnqqMtKKjPc1JQG0+39HWHiFtB1grM74fajzhVIzTPPsQUdWDXbUm6IMP1JUkj/n+giAo6c1eJWnki0ubs0k3dUhEicXfOPEoC8h9fiJUobIp63MAvv0h8AxNUdtNO/ieFKBCoqUeO4kxxilolHSDmhVZWYOF7e3kJC4sphi+CFNd6c6UOmVmPVJcJffJ+UrZMrniOZW88u2Sc8cVCVoEQ4YlP98w98ZSQ8PAtar/K4bbt2W7k6apwqp7YsqSDxBW3CF9qF1icPq3cfBcalxkuiUzMN2ULRo759gq+WBDCSoXYCCuhw/m1ukHc8QJqFFLo5kTmO6tvyXU6vi2abI1FyJiqzn9sMuN62QkVoRQueei3INejFmGwCTFt62mNWR8K2zfLW0yegWZuh+Pqowl+mD8fwqDgudom2i6dMu1GgFvNwH6Or8Gm7v15Is4VjavrBr8aLMDdpk5RhR4S1SCDCc5q5ElLRKhZa+zDnYXpuxT2hTJdK6zipo27/E9ouA9taIO/ka5ZDCJrMeGtW6Mw7l10TxMD7dzVoJcgZ6aANtD7vCeC3ZpXGDRxgEDiY2e5YYwGsjhftKrze0pVNVPA5XwGUtG5ICOvEQOcE2zk1WQTqnZ/E/msCClj+3e8Ql64rweUYNXO/fHXMJTMORZ2/9ZZU2EWDYauDiocbxjnrItFpMzQmlV1QA6+EidQEIIszkA+KCPBDtc8NnnQxOKfVLxxhDJD+oMPsq+QE/+KDvONeSffLusKtyFp7vt3gw7uTvhyeysUtym7Bbk6XmH4b6o40yEVbiB/dMR/aw7hYLDZV5+IO7OFJhdyxrN+gKD01+5v4IrOkS296STzyi3V2cMYy8zegr5L2+jwLT22B5qeRK8PoMg73oNLxx6BVTgZraEkhPRrRAqLL9efwH1ZZZg/YEI9K/eDXHefPna3V1UDQsPO+3pkAhkuabxyZmE1tTkWUgmLMXMmIibMTZ8sUcdKu25+g/86WOB0Kv0PBa4DDiQKgWE1/IHDhNUvXv5C4F9EsZ4O3CMMmRbkZlyko9/QO6eq8p5ahxUrT8kGKs9RdgvAfUw2NZ///Th8WvQumbx3I44DYdDB4ydfqz1QM1WY4k03HJ2OrNLkPEhJDRLqQP4IUMv4Kdevq6kW0jGlKOqA+s95m5PrjcYdrjK4/h7uXRZtx/iXduA+M4ZlHgJvy9cSWziZrPKimOwe2EPb2D239bsjTrJDkiVP0J5wHdMtfdVLRBc9hpI72uwRY9MxKXjRH1oxYD0hfxgv7huFvEVe/2iGwYLiEXpiFuKbghr7nG+0thSRoAsOMUG9K7XXhdMaiGFsgO2CUbsWAJKEcYroNvT6bpeBjraOvdkKYbd+KtDPfSvLroNtyOr8bsPPVi9q5ZljwG35zHWpujbLJuJ+f2vO+W+UCQUN7VG7WOu04AZXGbqD96BngQpDe/oZRF6y3NUY8GJ/EtMzQ/6F+uKrVK3ZgyFXXtla37/ohLBREwYOIY+us++Eja5syh9++CBdxITNPxVAmju+grI7//I0p6BMhhyafbCstKKoOgsL+i+k/caJtJhijcFYQ53bc80jgHSB7uDFTL/vflDNYTUIaL5bKxXXS885tX6s1g8FRfhsGVS9glVaTPpng+3EDRyqYzVEgf05cqKwIKg1XJEyh+GfqyKhZk22jYqnBKRthnGkPuLZnTWQI6Za2ASE9VY8j0VInc/cplQqWSYlSJ2Y4uaG1V791uwfSicbNSzIhhZKljbQwpnGBLFMotszsdJsqAL58bO+f97mamCE4JMaHlaycW5Zw3o21BlvwZ+eZmRuw7Se+TrR86TsZJu3mJcWFsaziNhYJyWGoKCpyex24uey/XGDmUe4rsMaAJdgXmbKI16sfnaZVpLELKW3u9SuKS2kHwSW7QX2lpPNnrgcG6L+drsy2IBmuXBI5Fg0S3yrx4COjoMuGOcryZZvlQv9wc1s4TJGWfqQ4uUy5A/Sh1GStGNGDGkh/zEk27C/Awtm7sdu5jtY1rvb/Toulla2F5m4z3sB+192sQFMvMncMtHkQocyEBWe7Fyzya553bTqeeeopR5HEiAFStQN6jfOiXhltt2foNr3oPIqSK9+fjcsx64ihIDbRw7bxgWAbwMkcu6qwmyff+lSiAlQlzHD9zIabU5vITNc/NksZzbc1vt5EOfirrOTpxDuUqecjWwi2kKm3xFXkjLXXdQREOdwmFFcKw0BDyqD2k2zq5oWqMIQsooaJ1btg0cXchajt5D7tJh53Plm6icHzYnUvjhxdAXRKPtSKc5dZjwC8kXixugwHrkPItXr0GPXOIO2lxf/haUWURD1oLHpt7obP3NoLt0crpuSzqMWDnzuZKORnDFzy2Di+Xm4Z43ZWBJJ2BdMvfhfzThLdKQ1Pa19hX1gPPPLWWu00tfgSISZw3bGIEmXps0L9Xr5NIyFfewPDf5UahpDN0GU25kBLBeiHgKBk1r6Xl+CuAecBK/PBZg8MJMsP7jtt50GWoY0rkZ67UTAPt+USlH0rL7b8DTJbrTkJ7RHgA4y8daF5jjADtNrTCeSort5326wjC9Q5AOXfXCwitHt2zYIpULeU8ID679U2Ika6U54sQz3stsPF1+n45r+2L8SowgAWaQnYNUDEbWdNmFUvgr3rNsZeo0gAoo3mkDeViFQ7pdEAkILowi6GovIZKMTZOWyo+wzVdkPuAOsFEy9/DROnl2DGVZ55A0b5ZpevG7z8vin99HJV4wIZCUBX8vlauNuAmd/h8fQ0xnhmtFd45V9uInW82Pv350IhgduKZbi3G4EbcEWLOWMf3pp7NAdQsetFBcip5QhbH6j7PbAdJY8nPKKMX5MGeZhW+0FwMSV2ZthANP5eKwkK66PC6btEBKq1aUrbiKHWF0pVKe90v811CkohwqHTO4k4BbF30MpsS2dft26K0YAXeZrhy30OazpZJ+Or/vZ0gX9MmM6KMIFz+ItBfEcJQUXUz97NKm+lyOQ2+GADoRDMq6QKi10tQd1ejRjektCHrSGvsNZ6YzPSHFPfZq/wBJ9Un1S1FjM6DcMYBaQp56eQQDAnWi/LDElmJwFgGx5MLmo56crfwNErdXToVPvf3OVVHy3y1y/IDTYOPolJW8s5h9hfvNKfa1KcZP0msvEg0NxEJbiSqUt6Hesc+zNxvLhP09VPfKCyV4I/t/VL0xbsnhVSaKbmBPPD5zGihiztxxc/ISYggHeVrpVZly7Qx9PJ/OslYWds1ZwN9ivlxGHK3qI8Jvnn5+oKvnR7zJ2Ni5Juf2v2XgXSc7up7YrECn1g01ZXXtJJdxOlzSrm27Xnu2Wqu3bw7AbdVLDSjPZtN++BXUS9egnLbja0rpy3vG3m2wskhTSmz03lgKiNzh1hrzdgTVEc2MY7EyfM9689Eri3/7bCFoN/Y8OGkbRBbPHkkF2Odj5ci5/1ebjujLO/HmXEz4V7CE3U3fzOE1bCEY0AxRrW4CGf5PyQJFlgEKuTheQqsD1CLKuq9+fKCwo6gQKVar1WjxqwtLO2kL730EFr4291+dI+r2MsOdlqjNK2iMgGhE8G3PwfP+ahz2sObTm/xBrLa6ZpoOVg5k1bRZd1COd9WFOGq6i4lv+R7iP8WWgbN1xCdouGpVCt5MIzcebMEEOLrnxTPbovP8VgcPANlCfSgTfZklAL7Xlw9JKQyILJ1DacE1ZNXmhrFU+NjKN504gOeLJ6/s8zZLM3SIPW8Hif58WKX1wldQG244Pj+XzrgigRooGBnfemYYh83JLEiKxpiJEjN5w96C4zjbzeCjPEHF8OY6aXGJ+bsWOUZ8xp16vVlvgWK3fJFOUU2sqFj0HA7C6jed9ow8jPFFQNpnpfCy41bqDGDHkukLj450a0bjIqKcXMvzGmOKvimC9EC65UiGRz0i5uD0bXYxHaskccQr95cxJKndV+KHOue59AbTQVy7MnECTbzo0ymrcKOO+qCf1ql9O1jhVZvhJNMkd3alVSqSu9S9pyZ8HBphZc2XPrHqhpENu8v3yv8+zMLV8mNqKUss5dxjeImbRGgnuWBzvtfu8S1clvn2V4TeqKPi0xKaFvjtStcXDCp/sNJCcF0DNdj9zCg3MQkrKeXWBBNl+LVqickp9X7Pmq7oIRMFgekNk3uWoqY2pTkv5fg56FC/HUlDRCIcStAn4v+ceuX4MPzkwgA+yAOE7oP9FbykvYER7kGIXRyLsG7b7qr89ERHgCt05l5vmMAT2oJop6nrMim9YErLNtP4tAiS2AY/wBd8BJgFzCJmgvEJQAo86xCH4Hp+7JtzWqi7QlKXRvDgW/rvAEkltHtxgN8IA+zKuPmLmT1zLN6AMI0bco2/dmYv+HuI+4EEpEp6XiRECWqkbzaEQr/VtaJ6dm+g7hjjthNM/HvM/F2jJG2Wef5gYkio/uV3585s4aR/SEiHlwUelaiOJiKuOj1Si8RqDEknQwSoYSU663bICWDma7hR9E3h4zN2BBda7oCEW+4hVo5YNuVojW7DWGjHTQV8Frifv49Z9WOm1AebZcpTAeNttGcb8/4ZsV9m9YQlQ6O3s2DfYk8aLAr5x0c3xbE33mNCFcpTFyId6IW3P1RrOlmVIqQ9C9gux7t33rLQAorzfDRjdvAsLq/1EFfVkn1uWok/P+UL3h1wMlDnJEYzWR3fuyqk2b/x4By93FcA9K6eC5qep3tLsKL/73Z064cId3akNAbi79bdyLdIN+nehbq/weHy42ujOGjQicmYHYXZP/BW7Z8TF3zMe8DY3pReKFMlamlZRud60EGCtqyCYTDdR5nRampKdFLg4pdMuRFA6jaM60ar//DhHo8ne0lP8iOBEYhai7c1Z8Z9puQGARmpopjxO9F8fmwag1ByB5NmlibYSjWgAdINp8BgEXGcbmG/j3lmD4QaRUGOswe+edTSFlLOfISFujse9DnZuXbps961GMYFIocunvWJEix9t1gSGKuqXa8fbWGP1eJXK24sZe9bHHov7DO28UsnD6qJw1v3nRi0BmeOpAtoR2dALfZNoRWuwBmZT+kfPSSpsCGP0iQFrgbnlZs6XZr33oehMQHY5lx34Ll3Rejdmn89Lu6fYAjeWwtvkVNKCWdJoPBdIEmmzVGVZ16HMihOw28S7muX6F09VWy1JUG3Y0PCRHl3xNbAIOGUyOm/2x9YpBB5NMGmQLcbJIMJLksfTkqbE+wwVCaLlpkQfvAZ6r9LLda29ZZl4oEXfAda5weVF49+K10d+QICjdkl4EHiTffoOTmD2dVbfsUeNGiR2FWhQ1nZVQi+kUdPAw4FvzQ/zvUoX+sWpDzmE1YQZct/Nr/ilpZyRhB6nZs4QSJxK0lx1btD0UGiHKncmDtVbP5v9+Ao/rsSawz6KJARz1FvPQTAMfSqHw+vxP82IvWVW5l/CGo0QcEOucxD0d9OvJFKFZD18gvAwrsj0hQ+W9Zot/Rbrb/GE3xoyYZIvzvBu2oHS44m69FC9EFO0acCAFbi0JjohiviA03KoFe6fb7dPdEp1HPImiJWO4bjj2SDbV5bfmazvq7YeB989SpmXMMAdlJJwc5cCCvFzrN4V7AGVQ6d9M1iy0TPE2Py5jRPdsk10Qcgn4JuaePxKXALZG67Lwvq0BmKaXWe0obCYZj5to3/qbGMObqezreoAJQuMK59DgZMXJmImiRnZft72y5Netf1lgDpgz39GQJzZ25wgIchEsmhXwqxOOtZUW/wq8UhItKAyPmZvsQUd5OjETtqu2A0ALHQs79yEbsVlBABw8Ae/8Pg/rPSi7pUBPIw2s2dMq0B3O95Fco0pbBaNzRiKoUHoz4Euj9EN27Gs23DEhiY2/XCw3Y3eD0xHfDQZLwDY984sSSedaJbd3v7HLM6JmD2Fl1/RW/+FZA0DoCf9/oAHdHXldjmDWjTaTLoLlN/9v8azsRK+iIp6WrSDshbTR3TVTNTMfxs1ntqmtMOitFrnspZsYSNmtVaS5j76efW5YHeoAtD4ffCKeZrhK5gLzX3fdIjsn9mlxTXL+zGBi8fanThjt7svqilbGSa5Qew16GisE+F95a1j4vLMA4w/W2p2j5jgsuVZ7+jykqGfS9UAxrg/iJtnFiYoFqNQqNCFJ0694CdEpNdYY65PeH7rACWqHZK/6A9Ax6RuX/NestbEFwFJiIEpbxxGzlAhkrUezr5jTBycypdKF313sjodTzL8InbdeLlqZdJT8BPXTvuAgMYsdgvuictyoSMQOlBrxzum2ikCwAAA==" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl04_seamless_script_manager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-GB%3add3ac3d5-1e29-4112-8fed-529caffa8f24%3aea597d4b%3bOpenCities.CustomControls%3aen-GB%3a7197b077-b068-4a69-9481-a6cf2e7718f9%3a8e1d32bf" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=EYVjNsQ7oYmzBqCI0dkEyYe0LYmPcVFL4WPcQCXhKfQwUqkAT7lLra0za-OLMuUUcCyPINdTVMHIWti96-8R_oN-trjXUUZnJRzckxTjid4ecctwwEJyNI-05jZYvXHBRiEKL0MUQMEyEJ2FXanyE1uBk88RxZ1wVK6AUn9D4v8rW-LNx2OOtB8vE3hC8P0jk4XZt7GAPiCeYQolxUlwFZA8cuOfgd4u08OASxFdh8mChz3A0YHhuwRrXGVlulfs9SJVkAvulhjdHYIIp1SRohDxt9acTwxUQrOlxuxC847b00zOOWg9SlpwD_iBuQQ1rOK9WH9O_wN9c2TXm4GeXaQHHT4yQ9IlzZXw6th8ch3f-k_n1yYeeurDMbwChXW1Vh_7rpu00kgmegsg9w2J3ququXIPfy2Gq8IscVTmtwouupfmUzAOicU_yESgQ-dG0" type="text/javascript"></script>
+    
+<script type="text/javascript">
+    try{
+        function SeamlessEndRequestHandler(sender, args) {
+            try {
+                var dataItems = args.get_dataItems();
+                if(dataItems.ctl04_seamless_script_manager)
+                    document.getElementById('__SEAMLESSVIEWSTATE').value = dataItems.ctl04_seamless_script_manager;
+            }
+            catch (e) { }
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(SeamlessEndRequestHandler);
+    }
+    catch (e) { }
+</script>
+
+    <div class="unsupported-browser-warning js-element"></div>
+    
+    <div hidden>
+        <span id="new-window-0">opens in new tab or window </span>
+    </div>
+    <div class="overlay-container"></div>
+    
+    <div class="background-container">
+        <div class="page-container">
+            <!-- OC Layout Element GROUP TEMPLATE -->
+            <!--groupTemplateStart--><header>
+            
+            <div class="toolbar-outer-container">
+  <div class="toolbar-inner-container clearfix">
+    <div class="toolbar-item toolbar-quicklinks toolbar-display-dropdown">
+	<button type="button" aria-controls="toolbar-quicklinks-drop-down" aria-expanded="false" class="toolbar-button toolbar-button-quicklinks js-element"><span>Quick Links</span><i aria-hidden="true"></i></button>	
+	<div id="toolbar-quicklinks-drop-down" class="toolbar-drop-down toolbar-quicklinks-drop-down clearfix">
+		<ul>
+		  <li><a href="https://police.fortworthtexas.gov/Contact" class="oc-icon-b oc-i--none link-type-internal"><span>Contact Us</span></a></li><li><a href=" https://www.facebook.com/InsideFWPD" class="oc-icon-b oc-i-facebook link-type-external" target="_blank"><span>Facebook</span></a></li><li><a href="https://www.instagram.com/fortworthpd/" class="oc-icon-b oc-i-instagram link-type-external" target="_blank"><span>Instagram</span></a></li><li><a href="https://twitter.com/fortworthpd" class="oc-icon-b oc-i-x link-type-external" target="_blank"><span>X</span></a></li><li><a href="https://www.linkedin.com/company/fwpd" class="oc-icon-b oc-i-linkedin link-type-external" target="_blank"><span>LinkedIn</span></a></li><li><a href="https://www.youtube.com/user/InsideFWPD" class="oc-icon-b oc-i-youtube link-type-external" target="_blank"><span>YouTube</span></a></li>
+		</ul>
+	</div>
+</div><div class="toolbar-item toolbar-language notranslate toolbar-display-dropdown"><div class="no-js-element">
+		  <ul>
+		    <li id="toolbar-language-option-en-us-noscript"><a href="https://police.fortworthtexas.gov/home?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English (United States)<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+          </ul>
+		</div>
+	<button type="button" role="combobox" aria-controls="toolbar-language-drop-down" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="none" aria-labelledby="toolbar-language-label" class="toolbar-button toolbar-button-language js-element">  
+        <span class="toolbar-language-globe-icon" aria-hidden="true"></span>
+        <span id="toolbar-language-label" class="current-language">
+            Select a language to translate to
+		</span>
+		<i aria-hidden="true"></i>
+	</button>
+	<div id="toolbar-language-drop-down" role="listbox" aria-label="Available languages" class="toolbar-drop-down toolbar-language-drop-down js-element clearfix">
+		<ul role="group">
+		    <li role="presentation"><a id="toolbar-language-option-en-us" role="option" aria-selected="true" href="https://police.fortworthtexas.gov/home?oc_lang=en-US" class="lang-item lang-en-us" data-translate-to="en-us" lang="en-US">English (United States)<span class="visuallyhidden"> Select this as your preferred language</span></a></li>
+        </ul>
+	</div></div>
+  </div>
+</div>
+            <div class="header-outer-container">
+    <div class="header-container header-layout-2  clearfix">
+			<div class="header-site-logo">
+				<a href="https://police.fortworthtexas.gov/home" lang="en-US" aria-label="Fort Worth Police - home - Logo">
+				</a>
+			</div>
+		    <div class="header-website-settings">
+                <button id="btn-mob-nav" type="button" aria-expanded="false" aria-controls="nav">
+                    <i aria-hidden="true"></i><span class="side-menu-btn-text">Menu</span>
+                </button>
+        	</div>
+			
+			<div class="header-search-control-container" id="header-search">
+				<div class="search-inner-container">
+					<div class="sc-search-panel">
+	<label for="ctl07_txtSearch" id="ctl07_lblSearch" class="sc-search-label">Search</label><input name="ctl07$txtSearch" type="text" id="ctl07_txtSearch" class="sc-search-text" placeholder="Find almost anything on our website" /><input type="submit" name="ctl07$btnSearch" value="Search" id="ctl07_btnSearch" class="sc-search-button" />
+</div>
+					<div role="status" id="predictiveResults"></div>
+				</div>
+			</div>
+    </div>
+</div>
+<div class="navigation-outer-container">
+	<div id="nav" role="navigation" class="navigation-container navigation-container-option-1" data-menu-type="horizontal" aria-label="primary">
+        <div class="grid">
+            <div class="col-xs-12">                
+                <ul class="sf-menu mega-menu" id="sc-main-menu"><li class="nav-section-quarters-1   first-item nav-item-seq-1">
+<a href="https://police.fortworthtexas.gov/Patrol" class="nav-level-1 nav-has-children"  target="">
+	<i class="item-icon" aria-hidden="true"></i><span class="item-text">Patrol</span>
+</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-1" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-1" class="second-level-container ch-6">
+
+          
+            <li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/central-division" class=""  target="">Central Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/east-division" class=""  target="">East Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/north-division" class=""  target="">North Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/northwest-division" class=""  target="">Northwest Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/south-division" class=""  target="">South Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Patrol/west-division" class=""  target="">West Division</a></li></ul></li>
+          
+            <li class="nav-section-quarters-1   nav-item-seq-2">
+<a href="https://police.fortworthtexas.gov/Support-Services" class="nav-level-1 nav-has-children"  target="">Support Services</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-2" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-2" class="second-level-container ch-20">
+
+          
+            <li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/air-support" class=""  target="">Air Support</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/auto-pound" class=""  target="">Auto Pound</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/civilian-response-unit" class=""  target="">Civilian Response Unit (CRU)</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/commercial-vehicle-enforcement" class=""  target="">Commercial Vehicle Enforcement (CVE)</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/crisis-intervention-team" class=""  target="">Crisis Intervention Team</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/digital-forensic" class=""  target="">Digital Forensics</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/forensic-science" class=""  target="">Forensic Science</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/fugitive-unit" class=""  target="">Fugitive Unit</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/human-trafficking" class=""  target="">Human Trafficking/ICAC Unit</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/intelligence-section" class=""  target="">Intelligence Section</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/mounted-patrol" class=""  target="">Mounted Patrol</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/professional-standards-division" class=""  target="">Professional Standards Division</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/seer" class=""  target="">Special Events/Emergency Response (SEER)</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/sex-offender-registration-and-tracking" class=""  target="">Sex Offender Registration and Tracking</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/swat" class=""  target="">SWAT (Special Weapons & Tactics)</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/tactical-medic" class=""  target="">Tactical Medic Unit</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/tarrant-county-5-stones-taskforce" class=""  target="">Tarrant County 5 Stones Taskforce</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/technology-services" class=""  target="">Technology Services</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/vice-unit" class=""  target="">Vice Unit</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Support-Services/wellness-unit-resources" class=""  target="">Wellness Unit & Resources</a></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-3">
+<a href="https://police.fortworthtexas.gov/Crime-Public-Info" class="nav-level-1 nav-has-children"  target="">Crime & Public Info</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-3" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-3" class="second-level-container ch-10">
+
+          
+            <li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Public-Relations-Office" class=""  target="">Public Relations Office</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center" class="nav-has-children"  target="">Crime Data Center</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-2" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center/crime-reports"  target="_self">Crime Reports</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center/crimemapping"  target="_blank">Crime Mapping</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center/One-Address"  target="">One Address</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center/open-data-portal"  target="_blank">Open Data Portal</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center/open-records-center"  target="_blank">Open Records Center</a></li></ul></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources" class="nav-has-children"  target="">Crime Prevention and Resources</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-3" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/fort-worth-safe"  target="_blank">#FortWorthSafe</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/crime-prevention-unit"  target="_blank">Crime Prevention Unit</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/crime-free-multi-housing-program"  target="_blank">Crime Free Multi-Housing Program</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/handle-with-care"  target="">Handle With Care Initiative</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/illegal-gunfire"  target="">Illegal Gunfire</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/sex-offender-residency-ordinance"  target="">Sex Offender Residency Ordinance</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Prevention-and-Resources/victim-assistance"  target="">Victim Assistance</a></li></ul></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Jail-Inmate-List-Recent-Arrests" class=""  target="_self">Jail Inmate List/Recent Arrests</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted" class=""  target="">Most Wanted</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/offenderwatch" class=""  target="_blank">OffenderWatch®</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Cold-Cases-Landing" class="nav-has-children"  target="">Cold Cases</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-7" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Cold-Cases-Landing/Cold-Cases"  target="">Homicides</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Cold-Cases-Landing/Missing-Persons"  target="">Missing Persons</a></li></ul></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/FWPD-Strategic-Plan" class=""  target="">Strategic Plan</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/General-Orders" class=""  target="">General Orders</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports" class="nav-has-children"  target="">Department Reports and Transparency</a><button aria-label="Expand" aria-controls="sc-menu-third-level-nav-item-seq-3-nav-item-seq-10" class="mobnav-subarrow-child"><i aria-hidden="true"></i>
+              </button>
+<ul  id="sc-menu-third-level-nav-item-seq-3-nav-item-seq-10" class="third-level-container">
+          
+            <li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Annual-Reports"  target="">Annual</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Arbitration-Reports"  target="">Arbitration</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Crime-Reports"  target="">Crime Reports</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Demographics-Diversity"  target="">Demographics/Diversity</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Drone-Reports"  target="">Drones</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Officer-Involved-Shootings"  target="">Officer Involved Shootings</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Racial-Profiling-Report"  target="">Racial Profiling</a></li><li  class="third-level-item  "><a href="https://police.fortworthtexas.gov/Crime-Public-Info/Department-Reports/Use-of-Force-Reports"  target="">Use of Force</a></li></ul></li></ul></li>
+          
+            <li class="nav-section-quarters-2   nav-item-seq-4">
+<a href="https://police.fortworthtexas.gov/get-involved" class="nav-level-1 nav-has-children"  target="">Get Involved</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-4" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-4" class="second-level-container ch-15">
+
+          
+            <li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/active-shooter-response-training" class=""  target="">Active Shooter Response Training</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/police-cadet-program" class=""  target="">Cadet Program</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/cert" class=""  target="">Community Emergency Response Team (CERT)</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/citizens-on-patrol" class=""  target="">Citizens on Patrol</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/citizens-police-academy" class=""  target="">Citizens Police Academy</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/Cold-Cases-Link" class=""  target="_self">Cold Cases</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/community-camera-program" class=""  target="_blank">Community Camera Program</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/community-forums" class=""  target="">Community Forums</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/crime-prevention-unit" class=""  target="">Crime Prevention Unit</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/police-activities-league" class=""  target="">Fort Worth Police Activities League</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/explorer-program" class=""  target="">Fort Worth Police Explorer Program</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/police-internship-program" class=""  target="">Internship Program</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/police-and-clergy-coalition" class=""  target="">Police and Clergy Coalition</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/National-Night-Out" class=""  target="">National Night Out</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/get-involved/ride-in-program" class=""  target="">Ride-In Program</a></li></ul></li>
+          
+            <li class="nav-section-quarters-3   nav-item-seq-5">
+<a href="https://police.fortworthtexas.gov/How-Do-I" class="nav-level-1 nav-has-children"  target="">How Do I...</a>
+<button aria-label="Expand" aria-controls="sc-menu-second-level-nav-item-seq-5" aria-haspopup="true" class="mobnav-subarrow" ><i aria-hidden="true"></i></button>
+<ul id="sc-menu-second-level-nav-item-seq-5" class="second-level-container ch-11">
+
+          
+            <li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Contact-NPO-Beat-Officer" class=""  target="">Contact my NPO/Beat Officer?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/File-Compliment-Complaint" class=""  target="_self">File a Compliment or Complaint?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/File-a-Report" class=""  target="_self">File a Police Report?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Get-Copy-My-Offense-Report" class=""  target="_self">Get a Copy of My Offense Report?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Find-Towed-Vehicle" class=""  target="_self">Find My Towed Vehicle?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Locate-Sex-Offenders" class=""  target="_blank">Locate Sex Offenders Near Me?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Submit-Tip" class=""  target="_blank">Submit a Tip?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/File-Open-Records-Request" class=""  target="_blank">File an Open Records Request?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Register-Surveillance-Cameras" class=""  target="_blank">Register My Surveillance Camera(s)?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/Get-Copy-Accident-Report" class=""  target="">Get a Copy of My Accident Report?</a></li><li class="second-level-item  "><a href="https://police.fortworthtexas.gov/How-Do-I/View-answers-other-FAQs" class=""  target="_self">View Answers to Other FAQs?</a></li></ul></li>
+          
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+            </header>
+            <div class="content-outer-container">
+                <div id="main" role="main" class="main-outer-container no-background clearfix">
+                        <div class="content-main-container">
+                                                    
+                            <!-- OC Layout Element Conent Template -->
+                            <!--normalTemplateStart--><div class="visuallyhidden"><h1 class='oc-page-title '>Home</h1></div><div id="main-content"><section class="row-index-1"><div class="row-container full-width clearfix"><div class="row-content-container full-width clearfix"><div id="Slider" class="slideshow-widget profile-slideshow slideshow-layout-2" data-source-folder-name="slider" data-animation-style="fade" ><div class="controls"></div><div class="slides"><article id="Slider-panel-1" class="slide slide-1 anchor-image-CC"  style="background-image:url('/files/assets/police/v/1/slider/2026/rc300142-recruits-dedicationrun-edited-2.jpg')" >
+	<a href="https://police.fortworthtexas.gov/recruting" target="_blank" class="anchor-or-span">
+	
+		<div class="slide-text">
+			<div class="slide-text-inner">
+				<h2 class="sub-title">Welcome to the Fort Worth Police Department</h2>
+      
+				<p >Please use this website to learn more about the department, online services available, recruiting, volunteer opportunities, and more</p>
+			</div>
+		</div>
+	
+		<img src="/files/assets/police/v/1/slider/2026/rc300142-recruits-dedicationrun-edited-2.jpg" alt="RC300142-Recruits-DedicationRun-edited-2.jpg" />	
+	</a>
+</article>
+          <article id="Slider-panel-2" class="slide slide-2 anchor-image-CC"  style="background-image:url('/files/assets/police/v/1/slider/2026/citonpatrol5_edited.jpg')" >
+	<a href="https://police.fortworthtexas.gov/get-involved" target="_self" class="anchor-or-span">
+	
+		<div class="slide-text">
+			<div class="slide-text-inner">
+				<h2 class="sub-title">Welcome to the Fort Worth Police Department</h2>
+      
+				<p >We appreciate all of our volunteers who help keep their neighborhoods safe!  Please see the Get Involved section for information on these programs</p>
+			</div>
+		</div>
+	
+		<img src="/files/assets/police/v/1/slider/2026/citonpatrol5_edited.jpg" alt="CitOnPatrol5_Edited.jpg" />	
+	</a>
+</article>
+          <article id="Slider-panel-3" class="slide slide-3 anchor-image-CC"  style="background-image:url('/files/assets/police/v/1/slider/2025/december/motors.jpg')" >
+	<a href="https://police.fortworthtexas.gov/recruting" target="_blank" class="anchor-or-span">
+	
+		<div class="slide-text">
+			<div class="slide-text-inner">
+				<h2 class="sub-title">Welcome to the Fort Worth Police Department</h2>
+      
+				<p >The Fort Worth Police Department reminds you to please stay safe on the roads</p>
+			</div>
+		</div>
+	
+		<img src="/files/assets/police/v/1/slider/2025/december/motors.jpg" alt="Motors.jpg" />	
+	</a>
+</article>
+          <article id="Slider-panel-4" class="slide slide-4 anchor-image-CC"  style="background-image:url('/files/assets/police/v/1/slider/2026/rc301603-k9-copper_edited.jpg')" >
+	<a href="https://www.facebook.com/InsideFWPD/videos/back-in-december-k-9-copper-joined-the-fort-worth-police-department-and-today-he/920178557434026/" target="_blank" class="anchor-or-span">
+	
+		<div class="slide-text">
+			<div class="slide-text-inner">
+				<h2 class="sub-title">Welcome to the Fort Worth Police Department</h2>
+      
+				<p >Please help us welcome Copper, the newest K-9 addition to the Fort Worth Police Department</p>
+			</div>
+		</div>
+	
+		<img src="/files/assets/police/v/1/slider/2026/rc301603-k9-copper_edited.jpg" alt="RC301603-K9-Copper_Edited.jpg" />	
+	</a>
+</article>
+          </div></div></div></div></section><section class="row-index-2"><div class="row-container full-width clearfix"><div class="row-content-container fixed-width clearfix">
+<div class="do-it-online do-it-online-format-10 top-task-homepage top-task-homepage-format-10 clearfix" data-total-results="6"><div class="grid"><div class="col-xs-12 col-m-4 col-lg-2">
+			<a href="https://police.fortworthtexas.gov/onlineservices/file-a-police-report" class="profile-list item-0" target="_self" >
+				<i class="item-icon file-a-report" aria-hidden="true"></i>
+				<h2>File a Police Report</h2>
+			</a>
+		</div><div class="col-xs-12 col-m-4 col-lg-2">
+			<a href="https://joinfwpd.com/" class="profile-list item-1" target="_blank" >
+				<i class="item-icon recruiting" aria-hidden="true"></i>
+				<h2>Recruiting</h2>
+			</a>
+		</div><div class="col-xs-12 col-m-4 col-lg-2">
+			<a href="https://pdapps.fortworthtexas.gov/Reports/default.aspx" class="profile-list item-2" target="_self" >
+				<i class="item-icon report-search-engine" aria-hidden="true"></i>
+				<h2>Search Police Reports</h2>
+			</a>
+		</div><div class="col-xs-12 col-m-4 col-lg-2">
+			<a href="https://police.fortworthtexas.gov/ccpd" class="profile-list item-3" target="_self" >
+				<i class="item-icon file-a-report" aria-hidden="true"></i>
+				<h2>Crime Control and Prevention District</h2>
+			</a>
+		</div><div class="col-xs-12 col-m-4 col-lg-2">
+			<a href="https://police.fortworthtexas.gov/Support-Services/auto-pound" class="profile-list item-4" target="_self" >
+				<i class="item-icon auto-pound" aria-hidden="true"></i>
+				<h2>Auto Pound</h2>
+			</a>
+		</div><div class="col-xs-12 col-m-4 col-lg-2">
+			<a href="https://police.fortworthtexas.gov/Contact" class="profile-list item-5" target="_self" >
+				<i class="item-icon crime-reports" aria-hidden="true"></i>
+				<h2>Contact</h2>
+			</a>
+		</div></div></div>
+
+</div></div></section><section class="row-index-3"><div class="row-container fixed-width clearfix"><div class="row-content-container fixed-width clearfix"><div data-oc-tabs-name="tabs" class="tab-group profile-featured-links"><div id="tabs-body" class="tab-group-body"><div class="no-js-element clearfix tabs-header for-panel-1 tab-type-homepage-news-listing ">
+    <h1 class="item-text" >News</h1>
+</div>
+<div id="panel-1" class="tabs-panel clearfix tab-type-homepage-news-listing " >
+    
+    <div class="profile-listing-container  profile-news-listing-container profile-news-listing-option-1 clearfix"><div class="profile-tabbed-listing profile-news-listing clearfix" data-total-results="3">
+<div class="grid">
+        <div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_8300_block_N_Riverside_Dr" class="profile-list item-0 homepage-pin" >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=homepagelisting&w=480&h=263">
+  <img class="large-thumbnail-image" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_8300_block_n_riverside_dr/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272" alt=""/>
+  </picture>
+		<h2>Homicide Investigation at 8300 block of N. Riverside Dr.</h2>
+		<p class="published-on small-text">Published on September 26, 2026</p>
+		<p>FORT WORTH, TX - The Fort Worth Police Department is investigating a homicide that occurred in North Division. On Saturday, September 26, 2026, at approximately 3:36 a.m., officers were called to a shooting at a residence located at the 8300 block of N. Riverside Dr.</p>
+	</a>
+</div><div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://police.fortworthtexas.gov/news-articles/2026/MurderSuicide_2200_block_Whistler_Creek_Drive" class="profile-list item-1 homepage-pin" >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272">
+  <source srcset="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=homepagelisting&w=480&h=263">
+  <img class="large-thumbnail-image" src="/files/content/police/v/2/news-articles/2026/murdersuicide_2200_block_whistler_creek_drive/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272" alt=""/>
+  </picture>
+		<h2>Murder/Suicide at 2200 block of Whistler Creek Drive</h2>
+		<p class="published-on small-text">Published on September 24, 2026</p>
+		<p>FORT WORTH, TX - The Fort Worth Police Department is investigating a Murder/Suicide that occurred in North Division.<br/>On Wednesday, September 23, 2026, at 8:52 p.m., officers were on scene of a Welfare Check located in an apartment community in the 2200 block of Whistler Creek Drive.</p>
+	</a>
+</div><div class="col-xs-12 col-m-6 col-lg-4">
+	<a href="https://police.fortworthtexas.gov/news-articles/2026/Homicide_Investigation_4300_block_Martin_St" class="profile-list item-2 homepage-pin" >		
+		
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=homepagelisting&w=345&h=189">
+  <source media="(min-width: 768px)" srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272">
+  <source srcset="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=homepagelisting&w=480&h=263">
+  <img class="large-thumbnail-image" src="/files/content/police/v/1/news-articles/2026/homicide_investigation_4300_block_martin_st/news-release-sized-for-x.jpg?dimension=homepagelisting&w=496&h=272" alt=""/>
+  </picture>
+		<h2>Homicide Investigation at 4300 block of Martin St.</h2>
+		<p class="published-on small-text">Published on September 20, 2026</p>
+		<p>FORT WORTH, TX - On Sunday, September 20, 2026, at 3:32 a.m., officers were called to a shooting in the 4300 block of Martin St.</p>
+	</a>
+</div></div>
+</div>
+<a href="https://police.fortworthtexas.gov/News-articles" class="panel-button">View more news</a></div>
+        
+    
+</div><div class="no-js-element clearfix tabs-header for-panel-2 tab-type-default ">
+    <h1 class="item-text" >Media Access</h1>
+</div>
+<div id="panel-2" class="tabs-panel clearfix tab-type-default ">
+    <div class="wysiwyg-content body-content" ><div><style>
+#panel-2  {
+       
+        background-color: rgba(255,255,255,0.7) !important;
+    }
+</style></div>
+<div id="gtx-trans" style="position: absolute; left: -26px; top: 62px;">
+<div class="gtx-trans-icon"></div>
+</div>
+
+</div>
+    
+    <div class="wysiwyg-content subpage-content" ><table align="center">
+<tbody>
+<tr>
+<td class="" style="width: 15%; border-color: rgb(191, 191, 191); border-width: 2px; border-style: solid; text-align: center; vertical-align: top;"><br />
+<p style="text-align: center;">The Fort Worth <strong>Public Safety Media Portal</strong> can be accessed by authorized members of the media by using the link below:</p>
+<p style="text-align: center;"><a href="https://pdapps.fortworthtexas.gov/MediaPortal/login.aspx?ReturnUrl=%2fMediaPortal%2fDefault.aspx" class="styled-button-calltoaction" target="_blank">Public Safety Media Portal Login</a></p>
+</td>
+<td class="" style="width: 15%; border-color: rgb(191, 191, 191); border-width: 2px; border-style: solid; text-align: center; vertical-align: top;"><br />
+<p style="text-align: center;">The Fort Worth <strong>Open Records Center</strong> can be accessed by using the link below:</p>
+<p style="text-align: center;"><a href="https://www.fortworthtexas.gov/departments/communications/records" class="styled-button-calltoaction" target="_blank">Open Records Center</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div><div class="no-js-element clearfix tabs-header for-panel-3 tab-type-default ">
+    <h1 class="item-text" >Social Media</h1>
+</div>
+<div id="panel-3" class="tabs-panel clearfix tab-type-default ">
+    <div class="wysiwyg-content body-content" ><div><div class="container" >
+    <div class="row">
+    
+    
+        <div class="col-m-6 col-sm-6 col-xs-12 mx-auto" align="center"  >
+         
+            <div>
+<div id="fb-root" style="padding:10px;"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v22.0"></script>
+
+<div class="fb-page" data-href="https://www.facebook.com/InsideFWPD" data-tabs="timeline,events" data-width="380" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/InsideFWPD" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/InsideFWPD">Fort Worth Police Department</a></blockquote></div>
+<p>&nbsp;</p>
+</div>
+</div>
+
+  <div class="col-m-6 col-sm-6 col-xs-12 mx-auto" align="center" >
+    
+            <div style="padding:20px 0px;">
+<a class="twitter-timeline" data-width="380" data-height="600" href="https://twitter.com/fortworthpd?ref_src=twsrc%5Etfw">Tweets by fortworthpd</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>&nbsp;</p>
+</div>
+</div>
+
+
+
+</div>
+</div></div>
+
+</div>
+    
+    
+</div></div></div></div></div></section><section class="row-index-4"><div class="row-container fixed-width clearfix"><div class="row-content-container fixed-width clearfix"><div class="profile-featured-panels profile-featured-panel-format-2  clearfix" role="region" aria-label="Featured Content" data-total-results="1"><div class="grid"><div class="col-xs-12 col-s-6 col-m-4"><a href="https://police.fortworthtexas.gov/About-FWPD-Landing" class="profile-featured-panel clearfix" target="_self" >
+		<div class="panel-image">
+       <picture>
+  <source media="(min-width: 992px)" srcset="/files/assets/police/v/1/about-fwpd/images/rc301393_1.jpg?dimension=homepagefeaturecontent&w=984&h=390">
+  <source media="(min-width: 768px)" srcset="/files/assets/police/v/1/about-fwpd/images/rc301393_1.jpg?dimension=homepagefeaturecontent&w=984&h=390">
+  <source srcset="/files/assets/police/v/1/about-fwpd/images/rc301393_1.jpg?dimension=homepagefeaturecontent&w=984&h=390">
+  <img class="large-thumbnail-image" src="/files/assets/police/v/1/about-fwpd/images/rc301393_1.jpg?dimension=homepagefeaturecontent&w=984&h=390" alt=""/>
+  </picture></div> 
+		<h2>About the Fort Worth Police Department</h2>
+		<p class="panel-text">Learn more about the department and its history</p>
+	</a></div></div></div></div></div></section><section class="row-index-5"><div class="row-container fixed-width clearfix"><div class="row-content-container fixed-width clearfix">
+
+<div class="embed-code-homepage-call-to-action-desc">
+<div class='homepage-call-to-action-desc' role="region" aria-label="Call to action with a description">
+<div class="cta-item">
+	<h2 class="cta-item-title">Join The City of Fort Worth Police Department</h2>
+	<p class="cta-item-description">We have a road map laid out to simplify your journey to becoming a member of our team. Learn about the requirements and benefits of joining the Fort Worth PD today.</p>
+	<div class="cta-item-link"><a href="https://www.fortworthtexas.gov/job-board"  target="_blank" >Job Board</a></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+</div></div></section></div><!--normalTemplateEnd-->
+                        </div>
+                        <div class="back-to-top-container text-center">
+                            <a href="#body-top" id="back-to-top"><i aria-hidden="true"></i><span class="js-visuallyhidden">Back to top</span></a>
+                        </div>
+                </div>
+            </div><!--groupTemplateEnd-->
+            <footer>
+                
+                    <div class="footer-outer-container footer-first-row">
+                        <div class="footer-container clearfix">
+                            <div class="grid grid-pad">
+                                <div class="col-xs-12 col-s-6 col-m-6 col-lg-3 address-container" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Contact Us</h3>
+			
+	<p><a href="https://police.fortworthtexas.gov/Contact">FWPD Contact List</a></p>
+<p><strong><br /></strong>FWPD Main Line:&nbsp;<strong>&nbsp;<a href="tel:3104567890"></a></strong><a href="tel:8173924200">817-392-4200</a><strong style="font-size: 1em;">&nbsp;&nbsp;<br /></strong><span style="font-size: 1em;">Non-Emergency</span><span style="font-size: 1em;">:&nbsp;&nbsp;</span><a href="tel:8173924222" style="font-size: 1em;">817-392-4222</a><br />
+<span style="font-size: 1em;">Emergency</span><span style="font-size: 1em;">:&nbsp; Dial</span> <a href="tel:911" style="font-size: 1em;">911</a></p>
+
+
+	<ul class="footer-links with-icons ">   </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-6 col-lg-3 social-media-container" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Share &amp; Connect</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-facebook-new">
+	<a href="https://www.facebook.com/InsideFWPD" target="_blank"  >
+<i aria-hidden="true"></i>Like us on Facebook
+</a>
+</li>
+          <li class="footer-link-twitter-new">
+	<a href="https://x.com/fortworthpd" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Twitter
+</a>
+</li>
+          <li class="footer-link-instagram-new">
+	<a href="https://www.instagram.com/fortworthpd" target="_blank"  >
+<i aria-hidden="true"></i>Follow us on Instagram
+</a>
+</li>
+          <li class="footer-link-youtube">
+	<a href="https://www.youtube.com/@InsideFWPD" target="_blank"  >
+<i aria-hidden="true"></i>Watch YouTube
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://public.govdelivery.com/accounts/TXFTWORTH/subscriber/topics" target="_blank"  >
+<i aria-hidden="true"></i>Subscribe to Newsletters
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-6 col-lg-3" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Resources</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-">
+	<a href="https://www.fortworthtexas.gov/job-board" target="_blank"  >
+<i aria-hidden="true"></i>Careers
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://police.fortworthtexas.gov/Crime-Public-Info/Crime-Data-Center" target="_blank"  >
+<i aria-hidden="true"></i>Crime Data Center
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://joinfwpd.com" target="_blank"  >
+<i aria-hidden="true"></i>Recruiting
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://police.fortworthtexas.gov/Support-Services/wellness-unit-resources" target="_self"  >
+<i aria-hidden="true"></i>Wellness Unit & Resources
+</a>
+</li>
+           </ul>
+	
+</div><div class="col-xs-12 col-s-6 col-m-6 col-lg-3" >
+	
+			<h2 class="visuallyhidden">Site Footer</h2>
+			<h3 class="footer-title">Quick Links</h3>
+			
+	
+	<ul class="footer-links with-icons ">  <li class="footer-link-">
+	<a href="https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted" target="_self"  >
+<i aria-hidden="true"></i>Most Wanted
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://police.fortworthtexas.gov/How-Do-I/File-Compliment-Complaint" target="_self"  >
+<i aria-hidden="true"></i>File Complaint/Compliment
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://www.fortworthtexas.gov/departments/communications/customercare/myfw" target="_blank"  >
+<i aria-hidden="true"></i>MyFW App
+</a>
+</li>
+          <li class="footer-link-">
+	<a href="https://police.fortworthtexas.gov/How-Do-I/Get-Copy-Accident-Report" target="_self"  >
+<i aria-hidden="true"></i>Get Accident Reports
+</a>
+</li>
+           </ul>
+	
+</div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="footer-outer-container footer-second-row">
+                    <div class="footer-container clearfix">
+                        <div class="grid grid-pad footer-secondary-links">
+                            <div class="col-xs-12 col-m-7">
+                                
+                                    <div><a href="https://police.fortworthtexas.gov/policies" target="_self"  >Disclaimer & Copyright</a>&nbsp;| <a href="https://police.fortworthtexas.gov/privacy-policy" target="_self"  >Privacy Statement</a>&nbsp;| <a href="https://police.fortworthtexas.gov/sitemap" target="_self"  >Sitemap</a>&nbsp;| <a href="https://police.fortworthtexas.gov/a-z-Index" target="_self"  >A - Z Index</a>&nbsp;| <a href="https://us.openforms.com/Form/d005cb58-090b-4e8c-bd4a-ac42ba9d2581" target="_blank"  >Web Suggestions</a></div>
+                                
+                            </div>
+                            <div class="col-xs-12 col-m-5 powered-by">
+                                <div class="right">
+                                    &copy; 2026 Fort Worth Police&nbsp;|&nbsp;<span class="powered-by">Powered by <a href="https://granicus.com/solution/govaccess/opencities/" target="_blank">Granicus</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/files/oc-resources/1cab6839-bc0a-4b8d-9936-27b063b1889c/JsTextSnippets.js?ocsvclang=en-US" type="text/javascript"></script><script>OpenCitiesResourceStrings["Sys Js Dates Past event dates"] = "Past event dates";OpenCitiesResourceStrings["Sys Js Get Updates"] = "Get updates";</script>
+    
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SKMWLW5GDH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SKMWLW5GDH');
+</script>
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.__TsmHiddenField = $get('ctl04_seamless_script_manager_TSM');//]]>
+</script>
+</form>
+</body>
+</html>
