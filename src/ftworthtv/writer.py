@@ -223,7 +223,10 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         lines = [f"{when_word} at {story.extra.get('venue', 'Fort Worth')} 🎟️", story.title.split(" at ")[0],
                  story.extra.get("when", ""), "Tickets in the comments 👇", f"📍 {story.extra.get('city', 'Fort Worth')}, TX", cta]
         first_comment = f"🎟️ Tickets: {story.url}\n{{photo_credit}}\nDM us your videos & photos 📲"
-        image_query = "concert crowd lights"
+        genre = str(story.extra.get("genre", "")).lower()
+        image_query = {"country": "country music concert stage", "basketball": "basketball arena game", "rodeo": "rodeo arena bull riding",
+                       "comedy": "comedy show stage microphone", "hockey": "hockey arena", "football": "football stadium crowd",
+                       "hip-hop/rap": "hip hop concert crowd", "pop": "pop concert lights", "rock": "rock concert crowd"}.get(genre, "concert crowd lights")
     elif kind == "event_roundup":
         lines = ["This weekend in Fort Worth 🎟️"] + [f"• {e.get('when', '')} – {e.get('title', '')}" for e in story.extra.get("events", [])[:6]]
         lines += ["Tickets in the comments 👇", cta]

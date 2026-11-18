@@ -24,7 +24,7 @@ def _download(url: str, dest: Path, headers: dict | None = None) -> Path | None:
         return None
 
 
-def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path) -> ImageAsset:
+def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path, exclude_photos: set[str] | None = None) -> ImageAsset:
     """Always returns an ImageAsset: a real licensed/public photo when possible, our branded placeholder otherwise."""
     story, copy = draft.story, draft.copy
     workdir.mkdir(parents=True, exist_ok=True)
@@ -74,7 +74,7 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             background, credit, license_, provider, label = cam.path, cam.credit, cam.license, cam.provider, "LIVE TRAFFIC"
 
     if background is None and not settings.offline:
-        cand = find_photo(copy.image_query, settings, state)
+        cand = find_photo(copy.image_query, settings, state, exclude=exclude_photos)
         if cand:
             background = _download(cand.url, workdir / "photo")
             if background:

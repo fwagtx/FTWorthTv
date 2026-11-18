@@ -78,9 +78,7 @@ def search_wikimedia(query: str, *, limit: int = 15) -> list[PhotoCandidate]:
     return out
 
 
-def find_photo(query: str, settings, state: State | None = None) -> PhotoCandidate | None:
-    """Pexels first (best quality, simplest license), Wikimedia Commons as the fallback. Skips recently used photos."""
-    query = re.sub(r"\s+", " ", query or "").strip() or f"{settings.brand.get('city', 'Fort Worth')} skyline"
+def _search(query: str, settings) -> list[PhotoCandidate]:
     candidates: list[PhotoCandidate] = []
     if settings.pexels_api_key:
         try:
@@ -92,8 +90,26 @@ def find_photo(query: str, settings, state: State | None = None) -> PhotoCandida
             candidates = search_wikimedia(query)
         except Exception as exc:
             log.warning("wikimedia search failed for %r: %s", query, exc)
-    for cand in candidates:
-        if state and state.photo_recently_used(cand.id):
+    return candidates
+
+
+def find_photo(query: str, settings, state: State | None = None, exclude: set[str] | None = None) -> PhotoCandidate | None:
+    """Pexels first (best quality, simplest license), Wikimedia Commons as the fallback.
+
+    Tries the writer's query, then generic city queries, and skips photos used earlier in this run or recently posted.
+    """
+    city = settings.brand.get("city", "Fort Worth")
+    queries = [query or "", f"{city} skyline", f"{city} Texas downtown"]
+    tried: set[str] = set()
+    for q in queries:
+        q = re.sub(r"\s+", " ", q).strip()
+        if not q or q.lower() in tried:
             continue
-        return cand
-    return candidates[0] if candidates else None
+        tried.add(q.lower())
+        for cand in _search(q, settings):
+            if exclude and cand.id in exclude:
+                continue
+            if state and state.photo_recently_used(cand.id):
+                continue
+            return cand
+    return None

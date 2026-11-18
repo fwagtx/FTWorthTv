@@ -89,6 +89,7 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
     # 3. write + illustrate
     publisher_label = (publisher_name or settings.publisher).lower()
     drafts: list[PostDraft] = []
+    used_photos: set[str] = set()
     for story in pick(ranked, max(k, 1) * 3):
         if len(drafts) >= k and not story.is_urgent:
             break
@@ -108,7 +109,9 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         else:
             draft.mode = "photo"
             try:
-                draft.image = plan_image(draft, settings, state, workdir)
+                draft.image = plan_image(draft, settings, state, workdir, exclude_photos=used_photos)
+                if draft.image and draft.image.photo_id:
+                    used_photos.add(draft.image.photo_id)
             except Exception as exc:
                 log.warning("image pipeline failed for %s: %s", story.title[:60], exc)
                 draft.mode, draft.link = "link", story.url
