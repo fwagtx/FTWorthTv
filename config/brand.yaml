@@ -20,6 +20,7 @@ timezone: "America/Chicago"
 # one-liner local news; crime and politics kept small. Caps are posts per day per category (severe weather is exempt).
 content_mix:
   caps_per_day: {crime: 2, politics: 0, business: 2, community: 3, traffic: 3, weather: 3, events: 3, culture: 3, food: 2, sports: 3, breaking: 4, other: 1}
+  # see docs/CONTENT_PLAYBOOK.md for the Dallas page's pillars and how each one is sourced here
 culture_calendar:
   enabled: true           # config/culture.yaml: Stock Show, Juneteenth, State Fair, Halloween, Parade of Lights, heat/freeze memes...
 
