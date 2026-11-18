@@ -103,6 +103,42 @@ letters; FTWTV is added in the kit in Inter Black.
 Rules: clear space of one antenna height around the mark; never smaller than 32 px (use the mark only below 64 px);
 never stretched, never recoloured outside navy / white / black with the sunset screen; never on busy photos without the pill.
 
+## 2b. Typographic identity (set for "Fort Worth Daily")
+
+`assets/brand/type/` is the no-illustration alternative: real type, measured from the font files, no gradients, no
+skyline, nothing that looks generated. Built by `python scripts/make_logo_daily.py`; the name is a parameter, so
+`--top "FORT WORTH" --main "TEXAS TV" --mono FTW` re-sets the whole system for another name in one command.
+
+| File | What it is |
+|---|---|
+| `monogram-*.png` / `.svg` | FWD in Inter Display Black on a rounded navy square, the D in gold. FWD = Fort Worth Daily, and it reads "forward". |
+| `avatar-*` | the same monogram on a disc: the profile picture on every network, legible at 32 px |
+| `stacked-*` | FORT WORTH (tracked, semibold) over a gold rule over DAILY (black): the main wordmark |
+| `lockup-*` | monogram beside the stacked wordmark: covers, video intros, the website header |
+| `masthead-*` | Fort Worth Daily in Bitstream Charter between two gold rules, "FORT WORTH, TEXAS" under it: the newspaper voice for the About page, email, print |
+| `sheet.jpg` | everything at once, with the avatar at 200 / 96 / 48 / 32 px and a mock Facebook page header |
+
+Light = navy on white, dark = white on navy, mono = one colour. Rules: the gold is only ever the D, the rule and the
+masthead lines; never put the wordmark on a photo without the navy block behind it; never set it in another typeface.
+
+### If you would rather have ChatGPT draw it
+
+Paste this, then iterate with the follow-ups. Generated letterforms are the usual failure, so ask for the mark first and
+let the kit set the words in Inter.
+
+> Design a logo for "Fort Worth Daily", a local news and entertainment page in Fort Worth, Texas. Typographic, flat,
+> editorial: the kind of identity a serious digital newsroom uses, not an illustration. Two colours only: dark navy
+> #14182B and a single gold accent #F2B134 on white. Primary mark: the monogram FWD in a heavy geometric grotesque
+> (like Inter Display Black or Helvetica Now Black), tightly tracked, white on a rounded navy square, with only the D in
+> gold. Wordmark: FORT WORTH in small, widely tracked semibold capitals above a thin gold rule, and DAILY in very heavy
+> capitals below, left aligned, both navy. Show the monogram alone, the wordmark alone, and the two locked up side by
+> side, all on plain white with generous margins. No gradients, no shadows, no bevels, no 3D, no textures, no skyline,
+> no longhorn, no stars, no TV sets, no mockups on business cards or phones, no extra words. Crisp vector edges.
+> Square 1:1 for the monogram, wide for the lockup.
+
+Follow-ups: "Same, white on solid navy." · "Same, one colour black on white." · "Make the D a touch heavier so it
+matches the F and W." · "Show the monogram on a circle for a profile picture."
+
 ## 3. Colour
 
 | Token | Hex | Use |
