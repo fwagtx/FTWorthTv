@@ -1,0 +1,50 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T16:36:51.902795+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-092151/02-free-fun-events-in-arlington-november-19-25-2026/quote.jpg",
+    "credit": "Photo: City of Arlington",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.arlingtontx.gov/News-Articles/2026/Free-Fun-Events-in-Arlington-November-19-25-2026"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "Free & Fun Events in Arlington: November 19 - 25, 2026",
+    "caption": "Free & Fun Events in Arlington: November 19 - 25, 2026\n\nFollow us on Instagram @FortWorthTexasTV",
+    "first_comment": "Source: City of Arlington https://www.arlingtontx.gov/News-Articles/2026/Free-Fun-Events-in-Arlington-November-19-25-2026\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Arlington Texas downtown",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "2c2ccee9a4db2847",
+    "source": "City of Arlington",
+    "source_kind": "rss",
+    "title": "Free & Fun Events in Arlington: November 19 - 25, 2026",
+    "summary": "Stay informed with this twice-weekly e-newsletter sent right to your inbox. Enjoy these free and fun events scheduled across The American Dream City from November 19-25, 2026. Check back each week for a new list of family-friendly activities! Texas Authors Book Club: “The Raven: A Biography of Sam Houston” by Marquis James Explore Texas history through literature at the Texas Authors Book Club on Thursday, Nov. 19, at 6:30 p.m. at Fielder Museum , 1616 W. Abram St. This month’s discussion features The Raven: A Biography of Sam Houston by Marquis James, winner of the 1930 Pulitzer Prize for Nonfiction. The book offers a sweeping look at Sam Houston’s extraordinary life and the turbulent, ambitious spirit of 19th-century America. Copies are not provided but may be available through the Arlington Public Library, Half Price Books or online retailers. Native American Artist Discussion with…",
+    "url": "https://www.arlingtontx.gov/News-Articles/2026/Free-Fun-Events-in-Arlington-November-19-25-2026",
+    "published": "2026-11-18T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.arlingtontx.gov/files/assets/city/v/1/news/2026/free-fun-in-arlington-2026.jpg",
+    "image_credit": "Photo: City of Arlington",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.6,
+    "extra": {
+      "listing_image": "https://www.arlingtontx.gov/files/assets/city/v/1/news/2026/free-fun-in-arlington-2026.jpg",
+      "generic_image": false,
+      "article_fetched": true
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.9315
+  }
+}

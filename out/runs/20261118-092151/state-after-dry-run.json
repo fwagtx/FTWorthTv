@@ -1,0 +1,126 @@
+{
+  "daily": {
+    "2026-11-18": 8
+  },
+  "daily_by_category": {
+    "2026-11-18": {
+      "business": 1,
+      "community": 1,
+      "crime": 1,
+      "culture": 1,
+      "events": 1,
+      "other": 1,
+      "sports": 1,
+      "weather": 1
+    }
+  },
+  "flags": {},
+  "last_post_at": "2026-11-18T15:21:51.902795+00:00",
+  "posted": {
+    "0483ca217fa88587": {
+      "at": "2026-11-18T15:21:51.902795+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-092151/03-wanted-joshua-rodriguez",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "2c2ccee9a4db2847": {
+      "at": "2026-11-18T15:21:51.902795+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-092151/02-free-fun-events-in-arlington-november-19-25-2026",
+      "publisher": "dryrun",
+      "source": "City of Arlington",
+      "title": "Free & Fun Events in Arlington: November 19 - 25, 2026",
+      "url": "https://www.arlingtontx.gov/News-Articles/2026/Free-Fun-Events-in-Arlington-November-19-25-2026"
+    },
+    "60d55a93545c9c0b": {
+      "at": "2026-11-18T15:21:51.902795+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-092151/04-protect-your-drains-this-holiday-and-bring-us-yo",
+      "publisher": "dryrun",
+      "source": "City of Fort Worth",
+      "title": "Protect your drains this holiday and bring us your grease!",
+      "url": "https://www.fortworthtexas.gov/news/2026/11/Protect-your-drains-this-holiday"
+    },
+    "7be27b45a3d3be02": {
+      "at": "2026-11-18T15:21:51.902795+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-092151/05-cowboys-strip-play-calling-duties-from-defensive",
+      "publisher": "dryrun",
+      "source": "NBC 5 DFW",
+      "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
+      "url": "https://www.nbcdfw.com/news/sports/blue-star/cowboys-strip-play-calling-duties-from-defensive-coordinator-christian-parker/4107747/"
+    },
+    "ba59b8f091889b52": {
+      "at": "2026-11-18T15:21:51.902795+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-092151/08-goodwill-north-central-texas-announces-new-hasle",
+      "publisher": "dryrun",
+      "source": "Fort Worth Business Press",
+      "title": "GOODWILL NORTH CENTRAL TEXAS ANNOUNCES NEW HASLET STORE AND DONATION CENTER",
+      "url": "https://fortworthbusiness.com/featured/goodwill-north-central-texas-announces-new-haslet-store-and-donation-center/"
+    },
+    "de91223c43b5448d": {
+      "at": "2026-11-18T15:21:51.902795+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-092151/06-she-vanished-in-1982-her-father-spent-thousands",
+      "publisher": "dryrun",
+      "source": "WFAA",
+      "title": "She vanished in 1982. Her father spent thousands searching for answers after her car was found at DFW Airport",
+      "url": "https://www.wfaa.com/article/news/local/texas-missing/kathy-goad-texas-missing-dfw-airport/285-2ec2c050-13c2-4f8c-afaa-a038c256056e"
+    },
+    "f208a8106704af35": {
+      "at": "2026-11-18T15:21:51.902795+00:00",
+      "category": "events",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-092151/07-fort-worth-parade-of-lights-2026-street-closures",
+      "publisher": "dryrun",
+      "source": "CultureMap Fort Worth",
+      "title": "Fort Worth Parade of Lights 2026: Street closures, parking & more tips",
+      "url": "https://fortworth.culturemap.com/news/entertainment/parade-lights-2026-street-closures/"
+    },
+    "forecast-2026-11-18": {
+      "at": "2026-11-18T15:21:51.902795+00:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-092151/01-fort-worth-forecast-for-wednesday-november-18",
+      "publisher": "dryrun",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Wednesday, November 18",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    }
+  },
+  "total_posts": 8,
+  "used_photos": [
+    "openverse-bbf39cca-7bc5-4c08-b727-068267cf2714",
+    "commons-15818629",
+    "openverse-31368c58-b21b-4be2-85c6-6127ab59e23c",
+    "openverse-b3866cf2-a571-4ee9-8ae4-50030f3cbe6d",
+    "openverse-bda9fcfe-3da2-4e03-b981-b1440479f1ef"
+  ],
+  "version": 1
+}

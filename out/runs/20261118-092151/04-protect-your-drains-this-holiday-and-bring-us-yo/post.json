@@ -1,0 +1,50 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T19:06:51.902795+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-092151/04-protect-your-drains-this-holiday-and-bring-us-yo/quote.jpg",
+    "credit": "Photo: City of Fort Worth",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.fortworthtexas.gov/news/2026/11/Protect-your-drains-this-holiday"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Protect your drains this holiday and bring us your grease!",
+    "caption": "Protect your drains this holiday and bring us your grease!. Nothing beats a nice home-cooked dinner with your loved ones during the holidays.\n\nFollow us on Instagram @FortWorthTexasTV",
+    "first_comment": "Source: City of Fort Worth https://www.fortworthtexas.gov/news/2026/11/Protect-your-drains-this-holiday\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "60d55a93545c9c0b",
+    "source": "City of Fort Worth",
+    "source_kind": "rss",
+    "title": "Protect your drains this holiday and bring us your grease!",
+    "summary": "Nothing beats a nice home-cooked dinner with your loved ones during the holidays. But all those tasty dishes come with a side of fats, oils and grease that can become a big problem if they end up in your drains. The issue with grease: When fats, oils and grease (FOGs) are poured down the drain, they can build up and harden in pipes, which can cause blockage, pipe bursts and home flooding. The City of Fort Worth is participating in the 2026 Holiday Grease Roundup campaign, hosted by the North Central Texas Council of Governments (NCTCOG). You can bring your FOGs to the City of Fort Worth’s four Drop-Off Stations and the Environmental Collection Center for disposal through Saturday, Jan. 30, 2027. Why participate? By recycling FOGs with the City of Fort Worth, you are diverting a valuable resource from landfills that can be processed into alternative fuel. It also protects household…",
+    "url": "https://www.fortworthtexas.gov/news/2026/11/Protect-your-drains-this-holiday",
+    "published": "2026-11-18T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.fortworthtexas.gov/files/assets/public/v/1/environmental-services/solid-waste/images/envd-solid-waste-holiday-grease-roundup-thumbnail-graphic-2026.jpg",
+    "image_credit": "Photo: City of Fort Worth",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.8,
+    "extra": {
+      "listing_image": "https://www.fortworthtexas.gov/files/assets/public/v/1/environmental-services/solid-waste/images/envd-solid-waste-holiday-grease-roundup-thumbnail-graphic-2026.jpg",
+      "generic_image": false,
+      "article_fetched": true
+    },
+    "category": "community",
+    "relevance": 1,
+    "score": 0.8748
+  }
+}
