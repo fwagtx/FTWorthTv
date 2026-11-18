@@ -150,6 +150,7 @@ ftworthtv run                  # posts via FTWTV_PUBLISHER (dryrun | facebook | 
 
 Full setup (Facebook token that never expires, Metricool, keys, GitHub secrets, go-live checklist): **[docs/SETUP.md](docs/SETUP.md)**.
 What the Dallas page posts, pillar by pillar, and how each pillar is sourced for Fort Worth: **[docs/CONTENT_PLAYBOOK.md](docs/CONTENT_PLAYBOOK.md)**.
+Exactly what the owner must provide to go live, in order: **[docs/GO_LIVE.md](docs/GO_LIVE.md)**.
 
 ---
 
