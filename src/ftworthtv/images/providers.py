@@ -234,6 +234,13 @@ def search_wikimedia_category(category: str, *, limit: int = 25) -> list[PhotoCa
 
 
 PERFORMANCE_WORDS = ("concert", "live", "performing", "performs", "tour", "festival", "show", "gig", "on stage", "onstage")
+UNSAFE_PHOTO_WORDS = ("lingerie", "bikini", "nude", "naked", "sexy", "underwear", "playboy", "strip", "topless", "swimsuit", "lfl",
+                      "porn", "erotic", "fetish", "lap dance", "hooters", "burlesque", "corpse", "dead body", "gore", "nazi", "kkk")
+
+
+def unsafe_photo(cand: "PhotoCandidate") -> bool:
+    blob = " ".join([cand.alt or "", cand.credit or "", cand.source_url or "", cand.url or ""]).lower()
+    return any(w in blob for w in UNSAFE_PHOTO_WORDS)
 
 
 def provider_order(settings) -> list[str]:
@@ -291,6 +298,8 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             continue
         tried.add(q.lower())
         for cand in _search(q, settings):
+            if unsafe_photo(cand):
+                continue
             if exclude and (cand.id in exclude or cand.family in exclude):
                 continue
             name = cand.source_url.rsplit("/", 1)[-1].lower().replace("_", " ")

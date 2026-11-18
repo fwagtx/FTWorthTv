@@ -85,3 +85,13 @@ def test_provider_chain_falls_through_to_keyless_providers(settings, monkeypatch
     settings.pexels_api_key = settings.unsplash_access_key = settings.flickr_api_key = settings.pixabay_api_key = None
     found = providers._search("Fort Worth skyline", settings)
     assert calls == ["openverse", "wikimedia"] and found[0].provider == "wikimedia"
+
+
+def test_unsafe_photos_are_filtered(settings, monkeypatch):
+    from ftworthtv.images import providers
+    bad = providers.PhotoCandidate(id="openverse-1", url="https://x/a.jpg", credit="Photo: A", license="openverse-cc", provider="openverse",
+                                   source_url="https://flickr.com/p/1", alt="Lingerie Football League game")
+    good = providers.PhotoCandidate(id="openverse-2", url="https://x/b.jpg", credit="Photo: B", license="openverse-cc", provider="openverse",
+                                    source_url="https://flickr.com/p/2", alt="AT&T Stadium exterior")
+    monkeypatch.setattr(providers, "_search", lambda q, s: [bad, good])
+    assert providers.find_photo("football stadium Texas", settings).id == "openverse-2"

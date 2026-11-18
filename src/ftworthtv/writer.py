@@ -351,6 +351,31 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
     return [text]
 
 
+TOPIC_IMAGE_QUERIES = [  # first match wins; specific landmarks before generic beats
+    ("parade of lights", "Fort Worth Parade of Lights"), ("parade", "holiday parade downtown night"), ("stockyards", "Fort Worth Stockyards"),
+    ("dickies arena", "category:Dickies Arena"), ("at&t stadium", "category:AT&T Stadium"), ("cowboys", "category:AT&T Stadium"),
+    ("globe life", "category:Globe Life Field"), ("rangers", "category:Globe Life Field"), ("tcu", "category:Amon G. Carter Stadium"),
+    ("horned frogs", "category:Amon G. Carter Stadium"), ("mavericks", "category:American Airlines Center"), ("stars", "hockey arena ice"),
+    ("texas motor speedway", "category:Texas Motor Speedway"), ("sundance square", "Sundance Square Fort Worth"),
+    ("cultural district", "Fort Worth Cultural District"), ("kimbell", "Kimbell Art Museum"), ("botanic garden", "Fort Worth Botanic Garden"),
+    ("zoo", "Fort Worth Zoo"), ("trinity river", "Trinity River Fort Worth"), ("panther island", "Trinity River Fort Worth"),
+    ("west 7th", "Fort Worth West 7th"), ("magnolia", "Fort Worth Near Southside"), ("near southside", "Fort Worth Near Southside"),
+    ("downtown", "Fort Worth downtown"), ("dfw airport", "DFW Airport terminal"), ("i-35w", "Fort Worth highway I-35W"),
+    ("35w", "Fort Worth highway I-35W"), ("loop 820", "Texas highway traffic"), ("goodwill", "thrift store"), ("h-e-b", "H-E-B grocery store"),
+    ("barbecue", "Texas barbecue brisket"), ("bbq", "Texas barbecue brisket"), ("taco", "street tacos"), ("brewery", "craft beer taproom"),
+    ("thanksgiving", "Thanksgiving dinner table"), ("christmas", "Christmas lights downtown"), ("halloween", "Halloween decorations"),
+    ("police", "police car lights"), ("arlington", "Arlington Texas downtown"), ("haslet", "Fort Worth suburb"), ("keller", "Keller Texas"),
+]
+
+
+def topic_image_query(story: Story, default: str) -> str:
+    text = story.text()
+    for key, query in TOPIC_IMAGE_QUERIES:
+        if key in text:
+            return query
+    return default
+
+
 def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
     b = settings.brand
     handle = b.get("handle", "@FortWorthTexasTV")
@@ -439,6 +464,8 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
     hashtags = settings.hashtags_for(category)
     if kind == "wanted":
         hashtags = ["#Wanted", "#CrimeStoppers"] + hashtags
+    if kind in ("rss", "reddit"):
+        image_query = topic_image_query(story, image_query)
     if (settings.brand.get("caption", {}) or {}).get("style", "dallas") == "dallas":
         lines = dallas_caption(story, settings, now, category)
     return PostCopy(

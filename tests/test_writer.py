@@ -105,3 +105,12 @@ def test_all_caps_titles_are_tidied(settings, now):
     from ftworthtv.writer import dallas_caption
     s = Story(id="g", source="Fort Worth Business Press", source_kind="rss", title="GOODWILL NORTH CENTRAL TEXAS ANNOUNCES NEW HASLET STORE AND DONATION CENTER", summary="", url="https://x/g", category="business")
     assert dallas_caption(s, settings, now, "business") == ["Goodwill North Central Texas Announces New Haslet Store And Donation Center"]
+
+
+def test_topic_image_queries(settings, now):
+    from ftworthtv.models import Story
+    from ftworthtv.writer import template_copy
+    s = Story(id="p", source="CultureMap", source_kind="rss", title="Fort Worth Parade of Lights 2026: street closures, parking & more", summary="", url="https://x/p", category="events")
+    assert template_copy(s, settings, now).image_query == "Fort Worth Parade of Lights"
+    c = Story(id="c", source="NBC 5", source_kind="rss", title="Cowboys trade football for food service in Thanksgiving tradition", summary="", url="https://x/c", category="sports")
+    assert template_copy(c, settings, now).image_query == "category:AT&T Stadium"
