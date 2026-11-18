@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-085129/01-fort-worth-forecast-for-wednesday-november-18/photo.jpg",
+    "credit": "Photo: JoshBerglund19 (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/79877212@N00/348693151"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Sunny, high near 69°",
+    "caption": "Sunny and a high of 69 in Fort Worth today\n\nFollow us on Instagram @FortWorthTexasTV",
+    "first_comment": "Source: National Weather Service https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline sunrise",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "forecast-2026-11-18",
+    "source": "National Weather Service Fort Worth",
+    "source_kind": "nws_forecast",
+    "title": "Fort Worth forecast for Wednesday, November 18",
+    "summary": "Today: Sunny, high near 69°F. Wind 0 to 5 mph SE. Tonight: Mostly Clear, low near 49°. Sunny. High near 69, with temperatures falling to around 67 in the afternoon. Southeast wind 0 to 5 mph.",
+    "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308",
+    "published": "2026-11-18T14:49:31.021926+00:00",
+    "category_hint": "weather",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": "public-domain",
+    "image_policy": "none",
+    "official": true,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "high": 69,
+      "short": "Sunny",
+      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+      "low": 49,
+      "pop": 0,
+      "wind": "0 to 5 mph"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 1.95
+  }
+}

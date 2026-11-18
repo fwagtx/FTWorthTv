@@ -1,0 +1,48 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T19:51:29.869183+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-085129/05-she-vanished-in-1982-her-father-spent-thousands/photo.jpg",
+    "credit": "Photo: Grant Wickes (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/52457073@N08/7417143460"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "She vanished in 1982. Her father spent thousands searching…",
+    "caption": "She vanished in 1982. Her father spent thousands searching for answers after her car was found at DFW Airport\n\nFollow us on Instagram @FortWorthTexasTV",
+    "first_comment": "Source: WFAA https://www.wfaa.com/article/news/local/texas-missing/kathy-goad-texas-missing-dfw-airport/285-2ec2c050-13c2-4f8c-afaa-a038c256056e\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "DFW Airport terminal",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "de91223c43b5448d",
+    "source": "WFAA",
+    "source_kind": "rss",
+    "title": "She vanished in 1982. Her father spent thousands searching for answers after her car was found at DFW Airport",
+    "summary": "After Kathy Brownfield Goad disappeared from Fort Worth in 1982, her parents enlisted a Kentucky detective who traveled to Texas.",
+    "url": "https://www.wfaa.com/article/news/local/texas-missing/kathy-goad-texas-missing-dfw-airport/285-2ec2c050-13c2-4f8c-afaa-a038c256056e",
+    "published": "2026-11-18T11:58:48+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/KHOU/images/f42466ac-dbc2-44eb-a3f3-9a0be72dc35a/20261107T223156/f42466ac-dbc2-44eb-a3f3-9a0be72dc35a_750x422.jpg",
+    "image_credit": "Photo: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: local"
+    },
+    "category": "other",
+    "relevance": 3,
+    "score": 0.6758
+  }
+}

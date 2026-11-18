@@ -1,0 +1,50 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T18:36:29.869183+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-085129/04-recycle-right-all-year-long/photo.jpg",
+    "credit": "Photo: City of Fort Worth",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.fortworthtexas.gov/news/2026/11/america-recycles-day"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Recycle right, all year long",
+    "caption": "Recycle right, all year long. America Recycles Day may be over, but recycling doesn’t stop there.\n\nFollow us on Instagram @FortWorthTexasTV",
+    "first_comment": "Source: City of Fort Worth https://www.fortworthtexas.gov/news/2026/11/america-recycles-day\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "e126745b9f444c0c",
+    "source": "City of Fort Worth",
+    "source_kind": "rss",
+    "title": "Recycle right, all year long",
+    "summary": "America Recycles Day may be over, but recycling doesn’t stop there. Love where you live, get educated and practice recycling every day, not just once a year.",
+    "url": "https://www.fortworthtexas.gov/news/2026/11/america-recycles-day",
+    "published": "2026-11-18T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.fortworthtexas.gov/files/assets/public/v/1/news/images/city-news-envi-america-recycles-day-exhibit.jpg",
+    "image_credit": "Photo: City of Fort Worth",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.8,
+    "extra": {
+      "listing_image": "https://www.fortworthtexas.gov/files/assets/public/v/1/news/images/city-news-envi-america-recycles-day-exhibit.jpg",
+      "generic_image": false,
+      "article_fetched": true
+    },
+    "category": "community",
+    "relevance": 0,
+    "score": 0.7776
+  }
+}
