@@ -1,0 +1,61 @@
+# 200
+# START YOAST BLOCK
+# ---------------------------
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+
+# OpenAI
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: OAIUser-Agent
+# Anthropic
+User-agent: anthropic-ai
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Claude-Web
+User-agent: ClaudeBot
+# Google AI &amp; ML
+User-agent: Google-CloudVertexBot
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: GoogleOther-Image
+User-agent: GoogleOther-Video
+# Meta AI
+User-agent: Meta-ExternalAgent
+User-agent: Meta-ExternalFetcher
+User-agent: Meta-WebIndexer
+# Perplexity
+User-agent: Perplexity-User
+User-agent: PerplexityBot
+# Other Major AI &amp; Core Scrapers
+User-agent: AI2Bot
+User-agent: Amazonbot
+User-agent: Andibot
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: CCBot
+User-agent: cohere-ai
+User-agent: Diffbot
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: Omgili
+User-agent: Omgilibot
+User-agent: YouBot
+# Niche AI, ML Data &amp; Scraper Frameworks
+User-agent: EchoboxBot
+User-agent: MyCentralAIScraperBot
+User-agent: news-please
+User-agent: quillbot.com
+User-agent: Quora-Bot
+User-agent: Scrapy
+User-agent: SeekrBot
+Disallow: /
+
+
+Sitemap: https://www.dallasobserver.com/sitemap_index.xml
+Sitemap: https://storyconsole.dallasobserver.com/sitemap_index.xml
+# ---------------------------
+# END YOAST BLOCK

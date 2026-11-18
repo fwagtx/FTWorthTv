@@ -1,0 +1,7 @@
+SKIP (robots.txt disallows) https://www.dmagazine.com/frontburner/2021/06/my-new-guilty-pleasure-dallas-texas-tv/
+200   836678  https://www.modash.io/find-influencers/tiktok/united-states/texas/dallas  -> https://www.modash.io/find-influencers/tiktok/united-states/texas/dallas
+200   216152  https://www.dallasobserver.com/arts/the-best-tiktokers-from-dallas-11935210  -> https://www.dallasobserver.com/arts-culture/the-best-tiktokers-from-dallas-11935210/
+200   260570  https://www.dallasobserver.com/news/  -> https://www.dallasobserver.com/news/
+200   176174  https://www.dallasobserver.com/category/news/police-law-enforcement/  -> https://www.dallasobserver.com/category/news/police-law-enforcement/
+200   181883  https://www.dallasobserver.com/category/news/education/  -> https://www.dallasobserver.com/category/news/education/
+200   174980  https://www.dallasobserver.com/category/news/politics-government/  -> https://www.dallasobserver.com/category/news/politics-government/
