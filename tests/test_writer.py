@@ -77,3 +77,24 @@ def test_submitted_clip_credit_matches_dallas_shape(settings, now):
     s = Story(id="c", source="Submission", source_kind="rss", title="Large fire on I-35W and Western Center this afternoon", summary="",
               url="", category="breaking", extra={"credit": "IG/ username"})
     assert dallas_caption(s, settings, now, "breaking") == ["Large fire on I-35W and Western Center this afternoon 🚨 (via IG/ username)"]
+
+
+def test_claude_code_writer_parses_headless_output(settings, now, tmp_path, monkeypatch):
+    import json, os, stat
+    from ftworthtv.models import Story
+    from ftworthtv.writer import write_copy
+    fake = tmp_path / "claude"
+    inner = {"skip": False, "skip_reason": "", "category": "food", "headline": "New BBQ on Magnolia", "caption": "New barbecue spot just opened on Magnolia Avenue",
+             "first_comment": "Source: Fort Worth Report https://x/y\n{photo_credit}", "hashtags": [], "image_query": "Texas barbecue plate", "location": "Fort Worth, TX"}
+    fake.write_text("#!/bin/sh\nprintf '%s' '" + json.dumps({"type": "result", "subtype": "success", "result": json.dumps(inner)}).replace("'", "'\"'\"'") + "'\n")
+    fake.chmod(fake.stat().st_mode | stat.S_IEXEC)
+    monkeypatch.setenv("PATH", f"{tmp_path}{os.pathsep}{os.environ['PATH']}")
+    settings.claude_code_oauth_token = "sk-ant-oat01-test"
+    settings.writer = "auto"
+    story = Story(id="s", source="Fort Worth Report", source_kind="rss", title="New barbecue joint opens on Magnolia Avenue", summary="", url="https://x/y", category="food")
+    copy, writer = write_copy(story, settings, now)
+    assert writer == "claude-code" and copy.caption.startswith("New barbecue spot just opened on Magnolia Avenue")
+    assert copy.caption.endswith("Follow us on Instagram @FortWorthTexasTV")
+    settings.writer = "template"
+    _, writer = write_copy(story, settings, now)
+    assert writer == "template"

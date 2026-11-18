@@ -58,6 +58,8 @@ class Settings:
     state_path: Path = Path("state/posted.json")
     max_posts: int = 2
     since_hours: int = 36
+    writer: str = "auto"                       # auto | template | claude_code | claude_api
+    claude_code_oauth_token: str | None = None # from `claude setup-token` (Pro/Max subscription), used by headless Claude Code
     anthropic_api_key: str | None = None
     model: str = "claude-opus-5-5"
     effort: str = "medium"
@@ -75,6 +77,7 @@ class Settings:
     fb_place_id: str | None = None
     fb_app_id: str | None = None
     fb_app_secret: str | None = None
+    ig_user_id: str | None = None              # Instagram Business account id linked to the Page (free cross-posting)
     metricool_user_token: str | None = None
     metricool_user_id: str | None = None
     metricool_blog_id: str | None = None
@@ -143,6 +146,8 @@ class Settings:
             state_path=root / str(pick("FTWTV_STATE_PATH", "state/posted.json")),
             max_posts=int(pick("FTWTV_MAX_POSTS", brand.get("posting", {}).get("max_posts_per_run", 2))),
             since_hours=int(pick("FTWTV_SINCE_HOURS", sources.get("relevance", {}).get("max_age_hours", 36))),
+            writer=str(pick("FTWTV_WRITER", "auto")).lower(),
+            claude_code_oauth_token=pick("CLAUDE_CODE_OAUTH_TOKEN"),
             anthropic_api_key=pick("ANTHROPIC_API_KEY"),
             model=str(pick("FTWTV_MODEL", "claude-opus-5-5")),
             effort=str(pick("FTWTV_EFFORT", "medium")),
@@ -160,6 +165,7 @@ class Settings:
             fb_place_id=pick("FB_PLACE_ID"),
             fb_app_id=pick("FB_APP_ID"),
             fb_app_secret=pick("FB_APP_SECRET"),
+            ig_user_id=pick("IG_USER_ID"),
             metricool_user_token=pick("METRICOOL_USER_TOKEN"),
             metricool_user_id=pick("METRICOOL_USER_ID"),
             metricool_blog_id=pick("METRICOOL_BLOG_ID"),

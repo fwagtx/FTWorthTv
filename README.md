@@ -180,16 +180,17 @@ Everything is configuration:
 * `config/sources.yaml` — every feed/API, per-source weight and image policy, NWS zone/radar, Ticketmaster venues, Reddit, traffic
   cameras, Fort Worth keyword list, blocklist, excluded categories (politics by default, like the Dallas page).
 
-### The caption writer
+### The caption writer (three backends, all optional)
 
-With `ANTHROPIC_API_KEY` set, `writer.py` asks Claude (`claude-opus-5-5` by default, `FTWTV_MODEL` to change) for a structured
-`PostCopy`: hook-first caption, 60-char headline for the card, hashtags, a stock-photo search query, a category, and a `skip` flag
-with a reason. The system prompt carries the brand voice and hard rules (never invent facts, no links/hashtags in the caption,
-📍 line, follow CTA, kind-specific rules for alerts/forecasts/events). Server-side refusal fallback is enabled; if the API is down,
-rate-limited or declines, the deterministic template writer takes over, so a run never fails because of the AI. Cost is roughly a
-cent per post.
+1. **Claude Code with your Pro/Max subscription (free with the subscription).** Run `claude setup-token` once on your computer,
+   store the token as the `CLAUDE_CODE_OAUTH_TOKEN` secret, and the workflow installs Claude Code and asks it for each caption
+   headlessly (`claude -p … --output-format json`). No pay-as-you-go API bill; ten posts a day is a rounding error on the plan.
+2. **Anthropic API** (`ANTHROPIC_API_KEY`, pay-as-you-go, about a cent per post) — same prompt through the SDK with structured output.
+3. **Template writer** — deterministic, free, no network. Used automatically whenever 1 and 2 are unavailable, so a run never
+   fails because of the AI. Every sample in this README came from it.
 
-Without a key the template writer produces solid, factual captions (that is what the demo above used).
+`FTWTV_WRITER` = `auto` (default order above) | `template` | `claude_code` | `claude_api`. The prompt carries the brand voice and
+hard rules (never invent facts, Dallas-style one or two sentences, no hashtags, kind-specific rules for alerts, events, WANTED).
 
 ### Photos, legally
 
@@ -211,9 +212,10 @@ look repetitive. No AI-generated imagery is used anywhere.
   with the source + hashtags. Multiple posts in one run are *scheduled* (`scheduled_publish_time`) ~75 min apart instead of landing
   together. Optional `FB_PLACE_ID` location-tags every post. `ftworthtv fb-token` turns a Graph Explorer user token into a Page
   token that does not expire. No App Review is needed to post to a Page you admin.
-* **metricool** — schedules through Metricool's scheduler API (Facebook + Instagram in one call, `METRICOOL_NETWORKS`). Metricool
-  needs public image URLs, so the workflow commits the cards first and serves them from `raw.githubusercontent.com`
-  (`MEDIA_BASE_URL`, public repo). Needs Metricool's API add-on.
+* **Instagram (free)** — set `IG_USER_ID` (the Instagram Business account linked to the Page) and `MEDIA_BASE_URL`; the facebook
+  publisher then cross-posts each photo through the Instagram Graph API (`/media` → `/media_publish`). The workflow commits the
+  images first so they have a public URL on `raw.githubusercontent.com` (public repo).
+* **metricool** — optional, only if you already pay for Metricool's API add-on; schedules Facebook + Instagram in one call.
 * **dryrun** — writes everything to `out/` and nothing leaves the machine. The GitHub workflow always runs phase 1 as a dry run and
   only then publishes (`ftworthtv publish latest`), so you can also insert a human review step between the two.
 
@@ -242,11 +244,17 @@ Built and tested in a sandbox that could not reach the public internet beyond pa
 * The Dallas page itself could not be opened from the sandbox (facebook.com was blocked); its description above comes from search
   results, its own post titles and its other profiles.
 
+## What it costs
+
+Nothing. Public GitHub repo = unlimited Actions minutes; NWS, Ticketmaster, Openverse, Wikimedia, Unsplash, Flickr, Pixabay and
+the Facebook/Instagram Graph APIs are free; captions come from Claude Code on a Pro/Max subscription or from the free template
+writer. The only paid things in this repo are optional and off by default: the Anthropic pay-as-you-go API and Metricool.
+
 ## Roadmap (not built yet)
 
 1. **Submissions inbox** → the missing "viral video" ingredient: Page DMs via the Messenger API (or an email/Google Form) → Claude
    vision screens for safety → one-tap approve → auto-credit "📸 via @user". The posting half already exists.
-2. **Instagram direct** (Content Publishing API) for people not on Metricool. Today Instagram is covered through Metricool.
+2. **Instagram Reels** (video) — photo cross-posting is built; Reels need the resumable video upload.
 3. **Weather Reels** — `weather_radar_video: true` already turns the NWS radar loop into an MP4; needs `publish_video` on the token.
 4. **Fort Worth open data** — weekly crime map / restaurant inspection cards from `data.fortworthtexas.gov`.
 5. **Engagement loop** — read insights, learn the best hours per category, auto-tune `brand.yaml`.

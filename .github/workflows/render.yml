@@ -45,6 +45,8 @@ jobs:
       OPENVERSE_CLIENT_ID: ${{ secrets.OPENVERSE_CLIENT_ID }}
       OPENVERSE_CLIENT_SECRET: ${{ secrets.OPENVERSE_CLIENT_SECRET }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      FTWTV_WRITER: ${{ vars.FTWTV_WRITER || 'auto' }}
       NWS_USER_AGENT: ${{ secrets.NWS_USER_AGENT || 'FTWorthTv/0.1 (github actions render)' }}
       FTWTV_ENABLE_ARREST_LOG: ${{ inputs.arrest_log }}
       FTWTV_WANTED_MAX_PER_RUN: ${{ inputs.wanted_max }}
@@ -55,6 +57,9 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -q -e .
+      - name: Install Claude Code for subscription-backed captions (only when CLAUDE_CODE_OAUTH_TOKEN is set)
+        if: env.CLAUDE_CODE_OAUTH_TOKEN != ''
+        run: npm install -g @anthropic-ai/claude-code
       - name: Render
         run: |
           NOW_ARG=""

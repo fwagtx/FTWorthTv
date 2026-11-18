@@ -24,7 +24,7 @@ Then copy `.env.example` to `.env` and fill in keys as you get them. `ftworthtv 
 | none | Openverse + Wikimedia Commons | used automatically with no key; Openverse rate-limits anonymous use, so add a key above for a busy page |
 | `TICKETMASTER_API_KEY` | https://developer.ticketmaster.com/ (instant, 5 000 calls/day) | concerts, rodeo, TCU, Dickies Arena with event images and ticket links |
 | `NWS_USER_AGENT` | nothing to sign up for | the National Weather Service only asks that you identify your app, e.g. `FTWorthTv/0.1 (contact: you@example.com)` |
-| `ANTHROPIC_API_KEY` | https://console.anthropic.com/ | optional. Claude writes the captions in the Dallas-Texas-TV voice; without it the template writer is used. About $0.01 per post. |
+| `CLAUDE_CODE_OAUTH_TOKEN` | run `claude setup-token` in Claude Code on your computer (Pro/Max subscription) | optional, free with the subscription: Claude writes the captions in the Dallas-Texas-TV voice. Without it the template writer is used. (`ANTHROPIC_API_KEY` is the pay-as-you-go alternative; not needed.) |
 
 Now a real dry run against the live sources:
 
@@ -59,9 +59,11 @@ keywords) until you like what you see. This loop is where the page's personality
 5. Optional: `FB_PLACE_ID` tags every post with a location. Find Fort Worth's Place ID by searching `/search?type=place&q=Fort Worth, Texas`
    in the Explorer, or leave it empty.
 
-## 4. Metricool instead of (or in addition to) the Graph API (10 min)
+## 4. Instagram for free, or Metricool (optional, paid add-on)
 
-Good if you want Instagram too, approval from your phone, or Metricool's analytics.
+Free route: make the repo public, link an Instagram Business account to the Page, add `instagram_basic` + `instagram_content_publish`
+to the token, set `IG_USER_ID` and `MEDIA_BASE_URL=https://raw.githubusercontent.com/<owner>/<repo>/<branch>`. The facebook publisher
+cross-posts every photo. The rest of this section is only for people who already pay for Metricool's API add-on.
 
 1. Add a brand in Metricool for the new Page and connect Facebook (and Instagram Business).
 2. Metricool's API needs the API add-on (Advanced/Custom plans). Settings → API → **user token**. Your `userId` is the number in

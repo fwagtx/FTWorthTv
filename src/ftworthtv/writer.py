@@ -121,7 +121,7 @@ def story_payload(story: Story, settings: Settings, now: datetime) -> dict:
 
 # --------------------------------------------------------------------------- claude
 def claude_copy(story: Story, settings: Settings, now: datetime) -> PostCopy | None:
-    if not settings.anthropic_api_key:
+    if not settings.anthropic_api_key or settings.writer not in ("auto", "claude_api"):
         return None
     try:
         import anthropic
@@ -157,6 +157,62 @@ def claude_copy(story: Story, settings: Settings, now: datetime) -> PostCopy | N
         log.warning("claude declined to write this one (%s); using template writer", response.stop_reason)
         return None
     return response.parsed_output
+
+
+# --------------------------------------------------------------------------- claude code (subscription, no API bill)
+JSON_FIELDS = "skip (boolean), skip_reason (string), category (string), headline (string), caption (string), first_comment (string), hashtags (array of strings), image_query (string), location (string)"
+
+
+def _extract_json(text: str) -> dict | None:
+    text = text.strip()
+    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text, flags=re.S)
+    start, end = text.find("{"), text.rfind("}")
+    if start == -1 or end == -1:
+        return None
+    try:
+        return json.loads(text[start:end + 1])
+    except json.JSONDecodeError:
+        return None
+
+
+def claude_code_copy(story: Story, settings: Settings, now: datetime) -> PostCopy | None:
+    """Write the caption with headless Claude Code (`claude -p`) authenticated by a Pro/Max subscription token.
+
+    Needs the `claude` CLI on the runner and CLAUDE_CODE_OAUTH_TOKEN from `claude setup-token`. No pay-as-you-go API key.
+    """
+    import os
+    import shutil
+    import subprocess
+    if settings.writer not in ("auto", "claude_code"):
+        return None
+    token = settings.claude_code_oauth_token or os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")
+    binary = shutil.which("claude")
+    if not token or not binary:
+        return None
+    prompt = (build_system_prompt(settings) + "\n\nWrite the post for this story. Reply with ONLY one JSON object (no prose, no code fence) "
+              f"with exactly these keys: {JSON_FIELDS}.\n\nSTORY:\n" + json.dumps(story_payload(story, settings, now), ensure_ascii=False, indent=2))
+    env = {**os.environ, "CLAUDE_CODE_OAUTH_TOKEN": token}
+    env.pop("ANTHROPIC_API_KEY", None)  # make sure the subscription token is what gets used
+    try:
+        proc = subprocess.run([binary, "-p", prompt, "--output-format", "json", "--max-turns", "1"],
+                              capture_output=True, text=True, timeout=180, env=env)
+    except (subprocess.TimeoutExpired, OSError) as exc:
+        log.warning("claude code writer failed to run: %s", exc)
+        return None
+    if proc.returncode != 0:
+        log.warning("claude code exited %s: %s", proc.returncode, (proc.stderr or proc.stdout)[-300:])
+        return None
+    outer = _extract_json(proc.stdout) or {}
+    result = outer.get("result") if isinstance(outer, dict) and "result" in outer else proc.stdout
+    data = _extract_json(result if isinstance(result, str) else json.dumps(result))
+    if not data:
+        log.warning("claude code returned no JSON; using template writer")
+        return None
+    try:
+        return PostCopy(**{k: v for k, v in data.items() if k in PostCopy.model_fields})
+    except Exception as exc:  # pydantic validation
+        log.warning("claude code JSON did not validate (%s); using template writer", exc)
+        return None
 
 
 # --------------------------------------------------------------------------- template
@@ -424,8 +480,12 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
 
 
 def write_copy(story: Story, settings: Settings, now: datetime) -> tuple[PostCopy, str]:
-    copy = claude_copy(story, settings, now)
-    writer = "claude"
+    copy, writer = None, "template"
+    if settings.writer != "template":
+        copy = claude_code_copy(story, settings, now)
+        writer = "claude-code"
+        if copy is None:
+            copy, writer = claude_copy(story, settings, now), "claude-api"
     if copy is None:
         copy, writer = template_copy(story, settings, now), "template"
     if copy.skip:

@@ -42,7 +42,10 @@ jobs:
       FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
       FB_PLACE_ID: ${{ vars.FB_PLACE_ID }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      FTWTV_WRITER: ${{ vars.FTWTV_WRITER || 'auto' }}
       FTWTV_MODEL: ${{ vars.FTWTV_MODEL || 'claude-opus-5-5' }}
+      IG_USER_ID: ${{ vars.IG_USER_ID }}
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
       UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       FLICKR_API_KEY: ${{ secrets.FLICKR_API_KEY }}
@@ -66,11 +69,15 @@ jobs:
       - name: Install
         run: pip install -q -e .
 
+      - name: Install Claude Code for subscription-backed captions (only when CLAUDE_CODE_OAUTH_TOKEN is set)
+        if: env.CLAUDE_CODE_OAUTH_TOKEN != ''
+        run: npm install -g @anthropic-ai/claude-code
+
       - name: Generate posts (phase 1, always a dry run on disk)
         run: python -m ftworthtv run --publisher dryrun
 
-      - name: Commit images so Metricool can fetch them (metricool only)
-        if: env.FTWTV_PUBLISHER == 'metricool'
+      - name: Commit images so Metricool / Instagram can fetch them from a public URL
+        if: env.FTWTV_PUBLISHER == 'metricool' || env.IG_USER_ID != ''
         run: |
           git config user.name "ftworthtv-bot"
           git config user.email "ftworthtv-bot@users.noreply.github.com"

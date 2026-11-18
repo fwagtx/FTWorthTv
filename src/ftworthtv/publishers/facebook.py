@@ -86,8 +86,27 @@ class FacebookPublisher(Publisher):
                 detail += " + first comment"
             except (FacebookError, requests.RequestException) as exc:
                 detail += f" (first comment failed: {exc})"
+        if s.ig_user_id and draft.mode == "photo" and draft.image and not scheduled:
+            detail += " · " + self.cross_post_instagram(draft, caption)
         url = f"https://www.facebook.com/{post_id}" if post_id else None
         return PublishResult(ok=True, publisher=self.name, post_id=post_id, url=url, detail=detail)
+
+    def cross_post_instagram(self, draft: PostDraft, caption: str) -> str:
+        """Free Instagram publishing through the Graph API: needs IG_USER_ID (Business account linked to the Page),
+        the same Page token with instagram_basic + instagram_content_publish, and the image on a public URL."""
+        from .base import public_media_url
+        image_url = public_media_url(draft, self.settings)
+        if not image_url:
+            return "instagram skipped (set MEDIA_BASE_URL so the image has a public URL)"
+        w, h = draft.image.width or 0, draft.image.height or 0
+        if w and h and not (0.8 <= w / h <= 1.91):
+            return f"instagram skipped (aspect {w}x{h} outside 4:5..1.91:1)"
+        try:
+            container = self._post(f"{self.settings.ig_user_id}/media", {"image_url": image_url, "caption": caption})
+            published = self._post(f"{self.settings.ig_user_id}/media_publish", {"creation_id": container.get("id")})
+            return f"instagram published ({published.get('id')})"
+        except (FacebookError, requests.RequestException) as exc:
+            return f"instagram failed: {exc}"
 
 
 # ---- token helpers for `ftworthtv fb-token` --------------------------------------------------------

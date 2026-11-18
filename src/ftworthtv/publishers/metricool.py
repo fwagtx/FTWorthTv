@@ -27,13 +27,8 @@ class MetricoolPublisher(Publisher):
 
     def media_url(self, draft: PostDraft) -> str | None:
         """Metricool needs a PUBLIC URL for media. We serve committed images from MEDIA_BASE_URL (e.g. raw.githubusercontent.com)."""
-        if not draft.image or not self.settings.media_base_url:
-            return None
-        try:
-            rel = draft.image.path.resolve().relative_to(self.settings.root.resolve()).as_posix()
-        except ValueError:
-            return None
-        return self.settings.media_base_url.rstrip("/") + "/" + rel
+        from .base import public_media_url
+        return public_media_url(draft, self.settings)
 
     def publish(self, draft: PostDraft) -> PublishResult:
         s = self.settings

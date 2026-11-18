@@ -1,14 +1,15 @@
 # Go-live checklist: exactly what is needed, in order
 
 Everything below is something only the page owner can do (accounts, keys, approvals). The automation is already built,
-tested and pushed; once these are in place it posts by itself.
+tested and pushed; once these are in place it posts by itself. **Nothing here costs money**: every account is a free tier and
+the captions use the Claude subscription you already have.
 
 ## A. Five decisions (2 minutes, just answer them)
 
 | # | Decision | Default if you say nothing |
 |---|----------|----------------------------|
 | 1 | Page name and handles | "Fort Worth Texas TV", Facebook `@FortWorthTexasTV`, Instagram `@FortWorthTexasTV` (check the handle is free) |
-| 2 | Posting path | Facebook Graph API directly (free). Metricool instead if you want Instagram in the same post and phone approval |
+| 2 | Posting path | Facebook Graph API directly (free); Instagram cross-posting through the same free API (set `IG_USER_ID`) |
 | 3 | Crime content | WANTED bulletins on (1/day), felony arrest log off, sex-offense cases filtered out |
 | 4 | Volume | up to 2 posts per run, 10 per day, quiet 11pm–6am Central |
 | 5 | Sponsor line | none until you have a sponsor ("Official partner of …" every 5th post) |
@@ -23,7 +24,7 @@ tested and pushed; once these are in place it posts by itself.
 | (none) | Openverse and Wikimedia Commons | 0 | already used automatically when no key is set |
 | `TICKETMASTER_API_KEY` | developer.ticketmaster.com → create app → Consumer Key | 5 min | real event/artist images and ticket links for Dickies Arena, Billy Bob's, Texas Live |
 | `NWS_USER_AGENT` | nothing to sign up for; just the text `FTWorthTv/0.1 (contact: you@yourdomain.com)` | 0 | the weather service requires an identifying string |
-| `ANTHROPIC_API_KEY` | console.anthropic.com → API keys (add $20 of credit) | 5 min | captions in the Dallas voice instead of the template; about a cent a post |
+| `CLAUDE_CODE_OAUTH_TOKEN` | on your computer, in Claude Code: `claude setup-token` (uses your Pro/Max subscription, no API bill) | 2 min | captions in the Dallas voice instead of the template |
 
 ## C. Facebook Page + a token that doesn't expire (20–30 minutes)
 
@@ -45,10 +46,16 @@ tested and pushed; once these are in place it posts by itself.
 5. Flip the variable to `facebook` (or `metricool`). Done: it runs every 2 hours.
 6. Housekeeping: delete the `renders/*` and `pages/*` branches (sample renders), or tell me to.
 
-## E. Metricool instead of direct Facebook (optional, 10 minutes)
+## E. Instagram, free (10 minutes)
 
-Secrets `METRICOOL_USER_TOKEN`, `METRICOOL_USER_ID`, `METRICOOL_BLOG_ID` (API add-on on your plan), variable `METRICOOL_NETWORKS = facebook,instagram`,
-variable `MEDIA_BASE_URL = https://raw.githubusercontent.com/fwagtx/FTWorthTv/main` (repo must be public for Metricool to fetch the images).
+1. Make the repo **public** (Settings → General → Danger zone → Change visibility). That also gives unlimited free Actions minutes.
+2. Convert the Instagram account to Business/Creator and link it to the Page (Instagram → Settings → Business tools → Connect Page).
+3. When generating the token in C3, also tick `instagram_basic` and `instagram_content_publish`.
+4. Find the Instagram account id: Graph API Explorer → `GET /{page-id}?fields=instagram_business_account`.
+5. Variables: `IG_USER_ID = <that id>`, `MEDIA_BASE_URL = https://raw.githubusercontent.com/fwagtx/FTWorthTv/main`.
+   Photos whose aspect ratio Instagram rejects (taller than 4:5) are skipped on Instagram and still posted on Facebook.
+
+(Metricool is supported but needs their paid API add-on, so it is not part of the free setup.)
 
 ## F. The missing ingredient: the inbox (your call on tooling, 30 minutes to set up)
 
