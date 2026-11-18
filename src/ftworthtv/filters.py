@@ -50,11 +50,18 @@ def relevance_score(story: Story, keywords: list[str]) -> int:
     return score
 
 
+OBIT_TITLE_RE = re.compile(r"\b(19|20)\d{2}\b.*[–\-—].*\b(19|20)\d{2}\b")   # "Jane Doe – June 29, 1932 – Nov. 8, 2026"
+
+
 def blocked(story: Story, blocklist: list[str]) -> str | None:
     text = story.text()
     for term in blocklist or []:
         if term.lower() in text:
             return term
+    if OBIT_TITLE_RE.search(story.title) and len(story.title) < 90:
+        return "obituary (name + life dates)"
+    if re.search(r"/obit", story.url or "", re.I) or re.search(r"\b(passed away|in loving memory|funeral services?)\b", text):
+        return "obituary"
     return None
 
 

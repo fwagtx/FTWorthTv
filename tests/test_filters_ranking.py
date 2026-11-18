@@ -71,3 +71,9 @@ def test_culture_calendar_post_outranks_a_plain_rss_item_in_its_category(setting
     rss = _story("Free & Fun Events in Arlington: November 19 - 25, 2026", "Stay informed.", always_relevant=True, weight=0.6, published=now)
     rss.category = "culture"; rss.relevance = 2
     assert rank([rss, culture], now)[0] is culture
+
+
+def test_obituaries_are_blocked_even_without_the_word():
+    assert blocked(_story("Pamela Rose Hiles – June 29, 1932 – Nov. 8, 2026"), []) is not None
+    assert blocked(_story("Eddie Ray Brewer - Dec. 8, 1952 - Nov. 14, 2026"), []) is not None
+    assert blocked(_story("Fort Worth marks 150 years since 1876 railroad arrival, celebrates through 2026"), []) is None

@@ -98,3 +98,10 @@ def test_claude_code_writer_parses_headless_output(settings, now, tmp_path, monk
     settings.writer = "template"
     _, writer = write_copy(story, settings, now)
     assert writer == "template"
+
+
+def test_all_caps_titles_are_tidied(settings, now):
+    from ftworthtv.models import Story
+    from ftworthtv.writer import dallas_caption
+    s = Story(id="g", source="Fort Worth Business Press", source_kind="rss", title="GOODWILL NORTH CENTRAL TEXAS ANNOUNCES NEW HASLET STORE AND DONATION CENTER", summary="", url="https://x/g", category="business")
+    assert dallas_caption(s, settings, now, "business") == ["Goodwill North Central Texas Announces New Haslet Store And Donation Center"]

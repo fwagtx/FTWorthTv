@@ -266,7 +266,11 @@ def guess_location(story: Story, settings: Settings) -> str:
 
 
 def _tidy(sentence: str) -> str:
-    return collapse_ws(sentence).rstrip(" .")
+    text = collapse_ws(sentence).rstrip(" .")
+    letters = [c for c in text if c.isalpha()]
+    if len(letters) > 12 and sum(c.isupper() for c in letters) / len(letters) > 0.85:   # ALL-CAPS press-release title
+        text = " ".join(w if (len(w) <= 3 and w.isupper() and w not in ("NEW", "AND", "THE", "FOR")) else w.capitalize() for w in text.split())
+    return text
 
 
 BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "read more", "learn more", "stay informed", "follow us",
