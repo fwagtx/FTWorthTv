@@ -1,0 +1,948 @@
+{
+  "started": "2026-11-21T20:00:00+00:00",
+  "candidates": 227,
+  "posts": [
+    {
+      "title": "Parade of Lights rolls through downtown Fort Worth this Sunday 🎄",
+      "source": "Fort Worth Texas TV",
+      "kind": "culture",
+      "category": "events",
+      "mode": "photo",
+      "writer": "template",
+      "score": 2.1931,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/01-parade-of-lights-rolls-through-downtown-fort-wor",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": null,
+      "image": "out/runs/20261121-140000/01-parade-of-lights-rolls-through-downtown-fort-wor/photo.jpg"
+    },
+    {
+      "title": "Fort Worth forecast for Tuesday, November 17",
+      "source": "FOX Weather",
+      "kind": "nws_forecast",
+      "category": "weather",
+      "mode": "photo",
+      "writer": "template",
+      "score": 1.95,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/02-fort-worth-forecast-for-tuesday-november-17",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-21T21:15:00+00:00",
+      "image": "out/runs/20261121-140000/02-fort-worth-forecast-for-tuesday-november-17/photo.jpg"
+    },
+    {
+      "title": "Women's Funkytown Showdown at Dickies Arena",
+      "source": "Ticketmaster",
+      "kind": "event",
+      "category": "sports",
+      "mode": "photo",
+      "writer": "template",
+      "score": 1.6209,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/03-women-s-funkytown-showdown-at-dickies-arena",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-21T22:30:00+00:00",
+      "image": "out/runs/20261121-140000/03-women-s-funkytown-showdown-at-dickies-arena/photo.jpg"
+    },
+    {
+      "title": "WANTED: Joshua Rodriguez",
+      "source": "Fort Worth Police Department",
+      "kind": "wanted",
+      "category": "crime",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.9295,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/04-wanted-joshua-rodriguez",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-21T23:45:00+00:00",
+      "image": "out/runs/20261121-140000/04-wanted-joshua-rodriguez/photo.jpg"
+    },
+    {
+      "title": "Free & Fun Events in Arlington: November 19 - 25, 2026",
+      "source": "City of Arlington",
+      "kind": "rss",
+      "category": "culture",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.0055,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/05-free-fun-events-in-arlington-november-19-25-2026",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-22T01:00:00+00:00",
+      "image": "out/runs/20261121-140000/05-free-fun-events-in-arlington-november-19-25-2026/photo.jpg"
+    },
+    {
+      "title": "90-year-old mowing lawns to get by in South Fort Worth sparks community support",
+      "source": "WFAA",
+      "kind": "rss",
+      "category": "community",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.0016,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/06-90-year-old-mowing-lawns-to-get-by-in-south-fort",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-22T02:15:00+00:00",
+      "image": "out/runs/20261121-140000/06-90-year-old-mowing-lawns-to-get-by-in-south-fort/photo.jpg"
+    },
+    {
+      "title": "Tarrant County bans tax abatements for data centers",
+      "source": "Fort Worth Report",
+      "kind": "rss",
+      "category": "other",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.0015,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/07-tarrant-county-bans-tax-abatements-for-data-cent",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-22T03:30:00+00:00",
+      "image": "out/runs/20261121-140000/07-tarrant-county-bans-tax-abatements-for-data-cent/photo.jpg"
+    },
+    {
+      "title": "New H-E-B store north of Fort Worth to open in time for 2026 holidays",
+      "source": "CultureMap Fort Worth",
+      "kind": "rss",
+      "category": "business",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.0008,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/08-new-h-e-b-store-north-of-fort-worth-to-open-in-t",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-22T04:45:00+00:00",
+      "image": "out/runs/20261121-140000/08-new-h-e-b-store-north-of-fort-worth-to-open-in-t/photo.jpg"
+    }
+  ],
+  "skipped_by_writer": [],
+  "dropped": [
+    {
+      "title": "USPS semi-truck ends up partially over I-35W railing in Fort Worth due to wet weather",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Where to eat in Fort Worth: 5 tasty new restaurants to try",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "A first look at Beverly's Downtown, Fort Worth's new underground Mexican restaurant",
+      "source": "PaperCity Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Horned Frogs get back on winning track with 20-10 win over Kansas State",
+      "source": "ABC News (AP)",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Arlington mayor outlines city’s oil and gas limitations, environmental goals at town hall",
+      "source": "Fort Worth Report",
+      "reason": "excluded category: politics"
+    },
+    {
+      "title": "Residents, former GOP Tarrant County judge applaud Democratic midterm wins",
+      "source": "Fort Worth Report",
+      "reason": "excluded category: politics"
+    },
+    {
+      "title": "‘He risked a lot to support me’: Tarrant Commissioners honor legacy of Haltom City Mayor An Truong",
+      "source": "Fort Worth Report",
+      "reason": "excluded category: politics"
+    },
+    {
+      "title": "Republican candidate asks Texas Supreme Court to block election of Democrat over eligibility concerns",
+      "source": "Fort Worth Report",
+      "reason": "excluded category: politics"
+    },
+    {
+      "title": "Friendsgiving leads 7 best food and drink events in Fort Worth this week",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "K-pop sensation Stray Kids find their way to Arlington on 2027 tour",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "5 fresh Fort Worth restaurant openings for November and more top stories",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "This Fort Worth restaurant news is stuffed with closures and openings",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "CultureMap City Rink spins into DFW with festive opening weekend",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Cosmic Baseball's neon-lit takeover tour makes first stop in Arlington",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "DFW declared No. 2 worst airport for flight delays and cancellations",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Fort Worth Botanic Garden debuts new cafe with garden-inspired fare",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Jeff Goldblum narrates docuseries about Cliburn competition in Fort Worth",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Plan a festive getaway to Grapevine, the Christmas Capital of Texas",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Country star Morgan Wallen books 2 nights in Arlington on 2027 tour",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "These are the 12 best things to do in Fort Worth this weekend",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "New sewing store in Grapevine fills void left by JoAnn Fabrics closure",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Blitzen’s Bar returns to Omni Fort Worth for another season of holiday cheer",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "New air taxi network to land at major Dallas-Fort Worth airports in 2027",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Iconic British rock band New Order brings 2027 tour to Fort Worth",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "5 Ways Fort Worth Households Can Lower Their Electricity Bill This Summer",
+      "source": "Fort Worth Weekly",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Best Texas Online Casino Sites for 2027",
+      "source": "Fort Worth Weekly",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Q Cinema Is Back!",
+      "source": "Fort Worth Weekly",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Mouse: She’s the One",
+      "source": "Fort Worth Weekly",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "How a Hidden-Prize Format Took Over Poker Tournaments in Just a Few Years",
+      "source": "Fort Worth Weekly",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Sportsbot 3000",
+      "source": "Fort Worth Weekly",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Something Like Human",
+      "source": "Fort Worth Weekly",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "AI Jobs",
+      "source": "Fort Worth Weekly",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Eat, Drink, Use AI?",
+      "source": "Fort Worth Weekly",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Timothy Mulvaney Appointed as Interim Dean at Texas A&M School of Law",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Texas Non-Compete Rules for Healthcare Practitioners: What to Put in Your Employment Agreements",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Lena Pope Expands In-home Counseling Services to Denton County Through Texas Bar Foundation Grant",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Ten-Year F-35 Deal Anchors $9 Billion Annual Economic Engine Across Fort Worth and North Texas",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Groundbreaking for the new MLK Jr. Community Center set for Nov. 16",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Calling for Nominations: Great Women of Texas",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Dallas-based JSX to launch daily nonstop flights between Dallas Love Field and New York City",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Wreaths Across America needs 40,000 sponsorships in less than 14 days for DFW National Cemetery",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Nationwide Emergency Alert System test to interrupt TV and radio programming on Tuesday",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "United Airlines operations return to normal following system outage",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Dallas Weather: Clear skies, chilly temperatures and Leonid meteor shower peak",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "How to capture the Leonid meteor shower on your iPhone",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Venezuelan man who threatened to cut victim's fingers off during 2024 Dallas robbery sentenced",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Dallas apartment fire sends 1 person to hospital",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Carrollton police officer placed on leave amid audit on Flock camera activity",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "US loses measles elimination status as cases rise in North Texas",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Irving double murder suspect found dead in Honduran jail cell",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Suspect injured after police chase ends in crash with FedEx truck in Mesquite",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "A Democrat won election to Texas House after suspending campaign. Now, her GOP opponent is challenging",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Grapevine installs Christmas tree ahead of 38th annual Carol of Lights event",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "blocklist: rape"
+    },
+    {
+      "title": "Pedestrian critically injured in North Richland Hills crash",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Frisco gold Cybertruck case included in federal crackdown on veteran benefit fraud",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Allen ISD names lone finalist for next superintendent",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "McKinney leaders could face recall vote after petition reaches enough signatures",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "'I don't know': Plano mayor unsure of Stars move after venue tax proposition fails",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Denton home catches fire during SWAT standoff involving home invasion suspect",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Former teacher of the year in Lewisville ISD arrested for child sex crimes",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "blocklist: child sex"
+    },
+    {
+      "title": "North Texas EMS provider to pay $2.2M to settle federal lawsuit over strict 'no beard' policy",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Fugitive wanted for domestic abuse and rape captured in Denton",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Former NBA player J.R. Smith arrested in North Texas",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Rockwall ISD middle school student detained for making terroristic threat",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Grand Prairie sued over canceled Muslim holiday event at Epic Waters water park",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Red Oak residents push back against plans for more data centers",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Blood pressure medication recalled nationwide over possible metal contamination",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Carrollton woman escapes house fire as neighbors rush to help",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Sick alligator? Not quite. Officers in Southeast Texas respond to runaway pool floatie",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Cynthia Erivo to host ‘Christmas in Rockefeller Center' tree-lighting special on NBC",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Pioneering North Texas golf instructor remembered for opening doors for others",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Tarrant County voters confront outgoing leaders, call for change after election",
+      "source": "NBC 5 DFW",
+      "reason": "excluded category: politics"
+    },
+    {
+      "title": "Willie Nelson on a near-death experience, Dolly Parton, James Talarico and his book, ‘The Last Leaf'",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Trump faces criticism as allies press the White House for answers on tech problems",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Here's exactly how much leafy greens to eat daily to support brain health, according to a dietitian",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Ray Tintori, filmmaker and boyfriend of ‘SNL' alum Heidi Gardner, dies at 43",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Special election looms for Nathan Johnson's Texas Senate seat",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "California bans Waymo vehicles from state freeways, saying they pose an ‘imminent hazard'",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "2 hospitalized after ATV crash at Red Oak construction site",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Classified NSA network went down, but no indication it was an attack, sources say",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Denton resident shot in home invasion, person in custody, police say",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Do school phone bans help students learn? So far, gains are ‘modest'",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Father says teacher forced daughter to prove she was on her menstrual cycle to use bathroom",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Apple outages appear to be resolved after internal update takes popular services offline",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "David Beckham sues for $41M after fragrance sold in gas stations and discount stores",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Fraud lawsuit against Selena Gomez's mental health company voluntarily dropped",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "McDonald's launches new epic new Home Alone meal for the holidays: Here's what it comes with",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Jensen Huang says he would be ‘honored' to return as Nvidia's CEO",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Tiger Woods returning to competition for first time in 2 years at Bahamas tournament",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "AI for texts and cards? When using a chatbot for personal messages crosses a line",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "California lifeguard recalls braving relentless waves in rescue caught on video",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Grocer surprises Texans with $1 million in gift cards",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Who is playing in NFL Week 11? Here's the full schedule",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "McKinney recall effort moves forward after petition gathers enough signatures",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Trump arrives in Philippines to talk trade and seek respite from troubles at home",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Florida's stormwater ponds become floating solar farms as costs fall and demand rises",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "9 best fruits that may help lower dementia risk and protect brain health",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "From zero down to lower rates: What veterans should know before buying a home",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Garland boxing coach faces additional charge after police identify second alleged victim",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "U.S. loses measles-elimination status, erasing decades of progress",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Miami Heat bringing ‘GTA 6' to life with special Vice City Night",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Doctors are raising concerns about U.S. babies born with measles",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Inside T-Mobile's North Texas emergency response operation",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Legal battle brewing over Tarrant County Texas House election",
+      "source": "NBC 5 DFW",
+      "reason": "excluded category: politics"
+    },
+    {
+      "title": "Garland police identify second victim in sexual assault investigation of youth boxing coach",
+      "source": "NBC 5 DFW",
+      "reason": "blocklist: sexual assault"
+    },
+    {
+      "title": "Mother of 4 fatally shot while driving on Dallas freeway",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Bipartisan bill targets a painful gap: 12 more weeks of unpaid leave for US parents with NICU babies",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "United Airlines says it has resolved a ‘widespread system outage'",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Texas bills would restrict how police use license plate readers",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "AP Player of the Week: Jelani McDonald of Texas intercepted 3 passes in win over LSU",
+      "source": "NBC 5 DFW",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Natural gas pipeline damaged by construction in Terrell, police say",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "West Texas man arrested after allegedly locking employees inside business, threatening them with gun",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Governor-elect Gina Hinojosa criticizes TEA takeover following Beaumont ISD leadership change",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Former North Texas educator arrested, charged with child sex crimes",
+      "source": "WFAA",
+      "reason": "blocklist: child sex"
+    },
+    {
+      "title": "Red Oak to vote on expanding Compass data center campus as lawsuit over May approval is pending",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Deep Ellum community works to attract visitors and keep businesses open following after deadly shootings",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Home invasion suspect arrested following brief standoff, Denton police say",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Legendary pro wrestler, promoter 'Cowboy' Bill Watts dies at 87",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "DeSoto ISD names Elna Davis as superintendent amid projected $21M budget deficit",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "South Dallas traffic stop for missing license plate leads to drug, gun bust",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Collin County man sentenced to 90 years in prison for dark web child exploitation",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "DeSoto residents face billing confusion amid water rate increase and new system issues",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "This North Texas city is getting a new Goodwill store and donation center",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "JSX launches daily nonstop charter flights between Dallas and New York City starting at $799",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Republicans spent years remaking Texas courts in their image. Voters unraveled it in one election.",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "A $3 billion dementia fund languishes a year after Texas voters approved it",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Texas cities and counties forgo $1 billion in local taxes to data centers in exchange for minimal job guarantees",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Dogs responsible for killing 3 animals at Houston-area high school barn, district says",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Some Fort Hood shooting survivors denied chance to witness gunman's execution",
+      "source": "WFAA",
+      "reason": "blocklist: execution"
+    },
+    {
+      "title": "Texas bills target license plate reader cameras as experts debate bans, restrictions",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Popular restaurant chain closes North Texas location after 31 years in business",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Robert Bond vanished from a Houston townhome in 2024. His family fears he'll never come home",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Female police officers sue City of Dallas, alleging sex discrimination, retaliation",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Texas DPS to compete in HYROX Dallas competition, first time in department history",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Venezuelan man sentenced to 20 years in prison for violent Dallas home invasion, kidnapping",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Ken Paxton’s office drops lawsuit seeking to ban Muslim civil rights group in Texas",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "H-E-B announces Denton store grand opening date",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Fire damages Dallas apartments, sends 1 to hospital for smoke exposure",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Wilmer-Hutchins High School's football team defies odds with playoff victory under new coach",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "DART to launch new safety and security measures",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Fugitive arrested in Honduras in connection to 2024 North Texas murders killed himself in prison, officials say",
+      "source": "WFAA",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Deep Ellum music venue announces closure after 11 years",
+      "source": "WFAA",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Attacker shot after assaulting 2 people in northeast Dallas, according to police",
+      "source": "WFAA",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Hello world!",
+      "source": "Crime Stoppers of Tarrant County",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Homicide Investigation 2600 Block of Swale Dr",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Homicide Investigation at 8300 block of N. Riverside Dr.",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Murder/Suicide at 2200 block of Whistler Creek Drive",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Homicide Investigation at 4300 block of Martin St.",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Homicide Investigation at 6300 Sloop St.",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Homicide Investigation 6000 block of Oakland Hills Dr",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Homicide- Road Rage Shooting Arrest",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Homicide Investigation - 3700 IH 20",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Homicide Investigation - 5600 Talons Crest Cir.",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Homicide on 1400 block of Carol Oaks Lane",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Tee off before the feast: Thanksgiving Turkey Shoot at Rockwood",
+      "source": "City of Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "City Council sets Tuesday work session, meeting",
+      "source": "City of Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Fort Worth celebrates recognition as a Certified Texas Scenic City",
+      "source": "City of Fort Worth",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Arlington Announces Kirk Franklin’s 150th Holiday Celebration Concert",
+      "source": "City of Arlington",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "The Arlin Brings Boutique Hotel Experience to Arlington",
+      "source": "City of Arlington",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "Celebra las Fiestas con Tres Eventos Navideños en Arlington",
+      "source": "City of Arlington",
+      "reason": "older than 120h"
+    },
+    {
+      "title": "WANTED: Rafael Garcia",
+      "source": "Fort Worth Police Department",
+      "reason": "blocklist: sexual assault"
+    },
+    {
+      "title": "WANTED: Jose Castro Solis",
+      "source": "Fort Worth Police Department",
+      "reason": "blocklist: sexual assault"
+    }
+  ],
+  "notes": []
+}

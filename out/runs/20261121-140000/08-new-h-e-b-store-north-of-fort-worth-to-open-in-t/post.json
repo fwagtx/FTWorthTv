@@ -1,0 +1,48 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T04:45:00+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/08-new-h-e-b-store-north-of-fort-worth-to-open-in-t/photo.jpg",
+    "credit": "Photo: TexasMates via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth_Sunset.jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "New H-E-B store north of Fort Worth to open in time",
+    "caption": "New H-E-B store north of Fort Worth to open in time for 2026 holidays. Grocery giant H-E-B has an early Christmas gift for North Texas shoppers: A new store in Denton is opening December 16, the company says.\n\nFollow us on Instagram @FortWorthTexasTV",
+    "first_comment": "Source: CultureMap Fort Worth https://fortworth.culturemap.com/news/restaurants-bars/heb-denton-opening-date-december16/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "903f16254122f1d1",
+    "source": "CultureMap Fort Worth",
+    "source_kind": "rss",
+    "title": "New H-E-B store north of Fort Worth to open in time for 2026 holidays",
+    "summary": "Grocery giant H-E-B has an early Christmas gift for North Texas shoppers: A new store in Denton is opening December 16, the company says.",
+    "url": "https://fortworth.culturemap.com/news/restaurants-bars/heb-denton-opening-date-december16/",
+    "published": "2026-11-17T13:30:03+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: CultureMap Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.9,
+    "extra": {
+      "feed_title": "CultureMap Fort Worth"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.0008
+  }
+}

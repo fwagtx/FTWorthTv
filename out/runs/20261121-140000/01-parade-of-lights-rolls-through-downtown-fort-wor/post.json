@@ -1,0 +1,50 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-140000/01-parade-of-lights-rolls-through-downtown-fort-wor/photo.jpg",
+    "credit": "Photo: Billy Hathorn via Wikimedia Commons (CC BY-SA 3.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:MVI_2798_Fort_Worth_skyline_from_Cultural_District.jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "events",
+    "headline": "Parade of Lights",
+    "caption": "Parade of Lights rolls through downtown Fort Worth this Sunday 🎄\n\nFollow us on Instagram @FortWorthTexasTV",
+    "first_comment": "More: https://www.fortworthparadeoflights.org/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown Christmas lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "culture-parade-of-lights-2026-0",
+    "source": "Fort Worth Texas TV",
+    "source_kind": "culture",
+    "title": "Parade of Lights rolls through downtown Fort Worth this Sunday 🎄",
+    "summary": "Parade of Lights",
+    "url": "https://www.fortworthparadeoflights.org/",
+    "published": "2026-11-21T20:00:00+00:00",
+    "category_hint": "events",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": null,
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.1,
+    "extra": {
+      "image_query": "Fort Worth downtown Christmas lights",
+      "name": "Parade of Lights",
+      "slug": "parade-of-lights"
+    },
+    "category": "events",
+    "relevance": 2,
+    "score": 2.1931
+  }
+}
