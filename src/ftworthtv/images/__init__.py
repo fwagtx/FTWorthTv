@@ -76,8 +76,11 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
     if background is None and not settings.offline:
         queries = [copy.image_query]
         venue = story.extra.get("venue")
-        if story.source_kind in ("event", "event_roundup") and venue:  # a photo of the venue beats a random concert
-            queries = [f"{venue} {brand.get('city', 'Fort Worth')}", venue, copy.image_query]
+        if story.source_kind in ("event", "event_roundup") and venue:
+            # a photo of the venue building beats a random concert; never another artist's show at that venue
+            from .providers import PERFORMANCE_WORDS
+            queries = [(f"{venue} exterior", PERFORMANCE_WORDS), (f"{venue} building", PERFORMANCE_WORDS),
+                       (f"{venue} {brand.get('city', 'Fort Worth')}", PERFORMANCE_WORDS), copy.image_query]
         cand = find_photo(queries, settings, state, exclude=exclude_photos)
         if cand:
             background = _download(cand.url, workdir / "photo")

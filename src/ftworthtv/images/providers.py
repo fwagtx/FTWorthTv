@@ -86,6 +86,9 @@ def search_wikimedia(query: str, *, limit: int = 15) -> list[PhotoCandidate]:
     return out
 
 
+PERFORMANCE_WORDS = ("concert", "live", "performing", "performs", "tour", "festival", "show", "gig", "on stage", "onstage")
+
+
 def _search(query: str, settings) -> list[PhotoCandidate]:
     candidates: list[PhotoCandidate] = []
     if settings.pexels_api_key:
@@ -110,13 +113,19 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
     base = [query] if isinstance(query, str) else list(query or [])
     queries = [q or "" for q in base] + [f"{city} skyline", f"{city} Texas downtown"]
     tried: set[str] = set()
-    for q in queries:
-        q = re.sub(r"\s+", " ", q).strip()
+    for item in queries:
+        avoid: tuple[str, ...] = ()
+        if isinstance(item, tuple):  # (query, words that disqualify a result's file name)
+            item, avoid = item[0], tuple(item[1])
+        q = re.sub(r"\s+", " ", item or "").strip()
         if not q or q.lower() in tried:
             continue
         tried.add(q.lower())
         for cand in _search(q, settings):
             if exclude and (cand.id in exclude or cand.family in exclude):
+                continue
+            name = cand.source_url.rsplit("/", 1)[-1].lower().replace("_", " ")
+            if avoid and any(w in name for w in avoid):
                 continue
             if state and state.photo_recently_used(cand.id):
                 continue
