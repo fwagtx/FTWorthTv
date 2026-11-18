@@ -12,7 +12,15 @@ from ..textutil import strip_html
 log = logging.getLogger(__name__)
 
 PEXELS_API = "https://api.pexels.com/v1/search"
+UNSPLASH_API = "https://api.unsplash.com/search/photos"
+PIXABAY_API = "https://pixabay.com/api/"
+OPENVERSE_API = "https://api.openverse.org/v1/images/"
+OPENVERSE_TOKEN_API = "https://api.openverse.org/v1/auth_tokens/token/"
+FLICKR_API = "https://www.flickr.com/services/rest/"
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
+FLICKR_LICENSES = {"4": "CC BY 2.0", "5": "CC BY-SA 2.0", "7": "No known copyright restrictions", "9": "CC0", "10": "Public Domain Mark"}
+OPENVERSE_OK = ("cc0", "pdm", "by", "by-sa")
+DEFAULT_PROVIDER_ORDER = ["pexels", "unsplash", "flickr", "pixabay", "openverse", "wikimedia"]
 OK_LICENSES = ("cc by", "cc0", "public domain", "pd", "cc-by", "no restrictions")
 
 
@@ -27,6 +35,7 @@ class PhotoCandidate:
     width: int = 0
     height: int = 0
     alt: str = ""
+    download_hook: str | None = None   # Unsplash: URL to ping when the photo is used
 
     @property
     def family(self) -> str:
@@ -90,6 +99,121 @@ def _candidates_from_pages(payload: dict) -> list[PhotoCandidate]:
     return out
 
 
+# ---- Unsplash (free key: unsplash.com/developers; license: free commercial use, credit requested) ----
+def parse_unsplash(payload: dict) -> list[PhotoCandidate]:
+    out = []
+    for r in payload.get("results", []) or []:
+        urls = r.get("urls", {}) or {}
+        url = urls.get("regular") or urls.get("full")
+        if not url:
+            continue
+        user = r.get("user", {}) or {}
+        out.append(PhotoCandidate(
+            id=f"unsplash-{r.get('id')}", url=url, credit=f"Photo: {user.get('name', 'Unsplash photographer')} on Unsplash",
+            license="unsplash", provider="unsplash", source_url=(r.get("links", {}) or {}).get("html", "https://unsplash.com"),
+            width=int(r.get("width", 0)), height=int(r.get("height", 0)), alt=(r.get("alt_description") or "")[:200],
+        ))
+        out[-1].download_hook = (r.get("links", {}) or {}).get("download_location")  # Unsplash asks apps to ping this on use
+    return out
+
+
+def search_unsplash(query: str, access_key: str, *, per_page: int = 15, orientation: str = "portrait") -> list[PhotoCandidate]:
+    payload = http.get_json(UNSPLASH_API, params={"query": query, "per_page": per_page, "orientation": orientation, "content_filter": "high"},
+                            headers={"Authorization": f"Client-ID {access_key}", "Accept-Version": "v1"})
+    return parse_unsplash(payload)
+
+
+# ---- Pixabay (free key: pixabay.com/api/docs; Pixabay Content License: free commercial use) ----
+def parse_pixabay(payload: dict) -> list[PhotoCandidate]:
+    out = []
+    for h in payload.get("hits", []) or []:
+        url = h.get("largeImageURL") or h.get("webformatURL")
+        if not url:
+            continue
+        out.append(PhotoCandidate(
+            id=f"pixabay-{h.get('id')}", url=url, credit=f"Photo: {h.get('user', 'Pixabay contributor')} via Pixabay",
+            license="pixabay", provider="pixabay", source_url=h.get("pageURL", "https://pixabay.com"),
+            width=int(h.get("imageWidth", 0)), height=int(h.get("imageHeight", 0)), alt=(h.get("tags") or "")[:200],
+        ))
+    return out
+
+
+def search_pixabay(query: str, api_key: str, *, per_page: int = 20, orientation: str = "vertical") -> list[PhotoCandidate]:
+    payload = http.get_json(PIXABAY_API, params={"key": api_key, "q": query, "image_type": "photo", "orientation": orientation,
+                                                 "per_page": per_page, "safesearch": "true"})
+    return parse_pixabay(payload)
+
+
+# ---- Openverse (no key needed; aggregates Flickr/Wikimedia/etc. Creative Commons photos) ----
+_openverse_token: dict = {}
+
+
+def _openverse_headers(settings) -> dict:
+    cid, secret = getattr(settings, "openverse_client_id", None), getattr(settings, "openverse_client_secret", None)
+    if not (cid and secret):
+        return {}
+    import time
+    if _openverse_token.get("exp", 0) > time.time() + 60:
+        return {"Authorization": f"Bearer {_openverse_token['token']}"}
+    try:
+        resp = http.session().post(OPENVERSE_TOKEN_API, data={"client_id": cid, "client_secret": secret, "grant_type": "client_credentials"}, timeout=20)
+        resp.raise_for_status()
+        data = resp.json()
+        _openverse_token.update(token=data["access_token"], exp=time.time() + int(data.get("expires_in", 3600)))
+        return {"Authorization": f"Bearer {data['access_token']}"}
+    except Exception as exc:
+        log.info("openverse token failed (continuing anonymously): %s", exc)
+        return {}
+
+
+def parse_openverse(payload: dict) -> list[PhotoCandidate]:
+    out = []
+    for r in payload.get("results", []) or []:
+        lic = str(r.get("license", "")).lower()
+        if lic not in OPENVERSE_OK or not r.get("url"):
+            continue
+        if int(r.get("width") or 0) and int(r.get("width") or 0) < 900:
+            continue
+        lic_label = {"cc0": "CC0", "pdm": "Public Domain", "by": "CC BY", "by-sa": "CC BY-SA"}[lic] + (f" {r.get('license_version')}" if r.get("license_version") and lic in ("by", "by-sa") else "")
+        src = (r.get("source") or "openverse").replace("_", " ").title()
+        out.append(PhotoCandidate(
+            id=f"openverse-{r.get('id')}", url=r["url"], credit=f"Photo: {r.get('creator') or 'unknown'} ({lic_label}) via {src}",
+            license="openverse-cc", provider="openverse", source_url=r.get("foreign_landing_url") or "https://openverse.org",
+            width=int(r.get("width") or 0), height=int(r.get("height") or 0), alt=(r.get("title") or "")[:200],
+        ))
+    return out
+
+
+def search_openverse(query: str, settings=None, *, page_size: int = 20) -> list[PhotoCandidate]:
+    headers = _openverse_headers(settings) if settings is not None else {}
+    payload = http.get_json(OPENVERSE_API, params={"q": query, "license_type": "commercial", "page_size": page_size, "mature": "false"}, headers=headers)
+    return parse_openverse(payload)
+
+
+# ---- Flickr (free key: flickr.com/services/apps/create; CC-licensed photos only) ----
+def parse_flickr(payload: dict) -> list[PhotoCandidate]:
+    out = []
+    for ph in (payload.get("photos", {}) or {}).get("photo", []) or []:
+        url = ph.get("url_l") or ph.get("url_c")
+        lic = FLICKR_LICENSES.get(str(ph.get("license")))
+        if not url or not lic:
+            continue
+        out.append(PhotoCandidate(
+            id=f"flickr-{ph.get('id')}", url=url, credit=f"Photo: {ph.get('ownername', 'Flickr user')} ({lic}) via Flickr",
+            license="flickr-cc", provider="flickr", source_url=f"https://www.flickr.com/photos/{ph.get('owner')}/{ph.get('id')}",
+            width=int(ph.get("width_l") or ph.get("width_c") or 0), height=int(ph.get("height_l") or ph.get("height_c") or 0), alt=(ph.get("title") or "")[:200],
+        ))
+    return out
+
+
+def search_flickr(query: str, api_key: str, *, per_page: int = 20) -> list[PhotoCandidate]:
+    payload = http.get_json(FLICKR_API, params={
+        "method": "flickr.photos.search", "api_key": api_key, "text": query, "license": "4,5,7,9,10", "sort": "relevance",
+        "content_type": 1, "safe_search": 1, "media": "photos", "extras": "url_l,url_c,owner_name,license", "per_page": per_page,
+        "format": "json", "nojsoncallback": 1})
+    return parse_flickr(payload)
+
+
 def search_wikimedia(query: str, *, limit: int = 15) -> list[PhotoCandidate]:
     params = {
         "action": "query", "format": "json", "formatversion": 2,
@@ -112,25 +236,39 @@ def search_wikimedia_category(category: str, *, limit: int = 25) -> list[PhotoCa
 PERFORMANCE_WORDS = ("concert", "live", "performing", "performs", "tour", "festival", "show", "gig", "on stage", "onstage")
 
 
+def provider_order(settings) -> list[str]:
+    cfg = (settings.brand.get("photos", {}) or {}).get("providers") if hasattr(settings, "brand") else None
+    return list(cfg or DEFAULT_PROVIDER_ORDER)
+
+
 def _search(query: str, settings) -> list[PhotoCandidate]:
-    candidates: list[PhotoCandidate] = []
     if query.lower().startswith("category:"):   # Commons category lookup (venues, landmarks)
         try:
             return search_wikimedia_category(query.split(":", 1)[1].strip())
         except Exception as exc:
             log.warning("wikimedia category failed for %r: %s", query, exc)
             return []
-    if settings.pexels_api_key:
+    keyed = {
+        "pexels": lambda: search_pexels(query, settings.pexels_api_key) if settings.pexels_api_key else [],
+        "unsplash": lambda: search_unsplash(query, settings.unsplash_access_key) if getattr(settings, "unsplash_access_key", None) else [],
+        "flickr": lambda: search_flickr(query, settings.flickr_api_key) if getattr(settings, "flickr_api_key", None) else [],
+        "pixabay": lambda: search_pixabay(query, settings.pixabay_api_key) if getattr(settings, "pixabay_api_key", None) else [],
+        "openverse": lambda: search_openverse(query, settings),
+        "wikimedia": lambda: search_wikimedia(query),
+    }
+    for name in provider_order(settings):
+        fn = keyed.get(name)
+        if not fn:
+            continue
         try:
-            candidates = search_pexels(query, settings.pexels_api_key)
+            found = fn()
         except Exception as exc:
-            log.warning("pexels search failed for %r: %s", query, exc)
-    if not candidates:
-        try:
-            candidates = search_wikimedia(query)
-        except Exception as exc:
-            log.warning("wikimedia search failed for %r: %s", query, exc)
-    return candidates
+            log.warning("%s search failed for %r: %s", name, query, exc)
+            continue
+        if found:
+            log.info("photo: %s gave %d result(s) for %r", name, len(found), query)
+            return found
+    return []
 
 
 def find_photo(query: "str | list[str]", settings, state: State | None = None, exclude: set[str] | None = None) -> PhotoCandidate | None:

@@ -17,7 +17,11 @@ Then copy `.env.example` to `.env` and fill in keys as you get them. `ftworthtv 
 
 | Key | Where | Why |
 |---|---|---|
-| `PEXELS_API_KEY` | https://www.pexels.com/api/ (instant) | real, licensed photos of Fort Worth for news cards. Free for commercial use, no attribution required (we credit anyway). |
+| `UNSPLASH_ACCESS_KEY` | https://unsplash.com/developers (instant) | sharp licensed photos; we credit "Photo: Name on Unsplash" and register the download as their API asks |
+| `FLICKR_API_KEY` | https://www.flickr.com/services/apps/create (instant) | Creative Commons photos; the deepest local coverage |
+| `PIXABAY_API_KEY` | https://pixabay.com/api/docs/ (instant) | backup pool |
+| `PEXELS_API_KEY` | https://www.pexels.com/api/ | only if you already have one: new keys were paused in Nov 2026 |
+| none | Openverse + Wikimedia Commons | used automatically with no key; Openverse rate-limits anonymous use, so add a key above for a busy page |
 | `TICKETMASTER_API_KEY` | https://developer.ticketmaster.com/ (instant, 5 000 calls/day) | concerts, rodeo, TCU, Dickies Arena with event images and ticket links |
 | `NWS_USER_AGENT` | nothing to sign up for | the National Weather Service only asks that you identify your app, e.g. `FTWorthTv/0.1 (contact: you@example.com)` |
 | `ANTHROPIC_API_KEY` | https://console.anthropic.com/ | optional. Claude writes the captions in the Dallas-Texas-TV voice; without it the template writer is used. About $0.01 per post. |

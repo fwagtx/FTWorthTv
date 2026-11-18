@@ -116,6 +116,12 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                 credit, license_, provider, photo_id, source_url = cand.credit, cand.license, cand.provider, cand.id, cand.source_url
                 if exclude_photos is not None:
                     exclude_photos.update({cand.id, cand.family})
+                if cand.download_hook and settings.unsplash_access_key:  # Unsplash API guideline: register the download
+                    try:
+                        from .. import http as _http
+                        _http.get(cand.download_hook, headers={"Authorization": f"Client-ID {settings.unsplash_access_key}"}, timeout=10)
+                    except Exception:
+                        pass
 
     card_cfg = brand.get("card", {}) or {}
     if card_cfg.get("style", "plain") == "plain":

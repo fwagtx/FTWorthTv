@@ -39,7 +39,7 @@ on some posts. The photos and videos come from three places: **people who DM the
 | Concerts / rodeo / Dickies Arena / Billy Bob's | Ticketmaster Discovery API: real event images + ticket links, Thursday "This weekend in Fort Worth" roundup | ✅ free key |
 | "635 Today" traffic pics | Traffic story + matching TxDOT camera snapshot (LIVE photo) | ✅ once you paste camera URLs |
 | Captions in their voice, emoji, 📍 location, "Follow us" CTA | Claude writer with brand voice + guardrails (never invents facts, skips unsafe stories) or template writer | ✅ |
-| Real photos on every post | Pexels (free commercial license) / Wikimedia Commons (CC) photos of Fort Worth + headline card; NWS radar; event images | ✅ |
+| Real photos on every post | Unsplash / Flickr CC / Pixabay / Pexels (any free key) or Openverse + Wikimedia Commons (no key) photos of Fort Worth; NWS radar; event images | ✅ |
 | Hashtags + source link in first comment, posts spaced out, quiet hours, daily cap, no repeats | built in | ✅ |
 | Sponsor line every Nth post | `sponsor:` in `config/brand.yaml` | ✅ |
 | Mugshot / WANTED posts like the DFW crime pages | FWPD Most Wanted, Arlington PD "Cash for Crooks", Texas DPS 10 Most Wanted: the agency's own photo, charge, Crime Stoppers reward + tip line | ✅ no key needed |
@@ -196,11 +196,11 @@ Without a key the template writer produces solid, factual captions (that is what
 | Story type | Photo | License |
 |---|---|---|
 | NWS alert | Latest KFWS radar image (`radar.weather.gov`) | public domain |
-| Forecast | Licensed Fort Worth skyline photo | Pexels / CC |
+| Forecast | Licensed Fort Worth skyline photo | Unsplash / Flickr CC / Pixabay / Openverse |
 | Ticketmaster event | Event/artist image from the Discovery API, linked to tickets | API terms (promotional use) |
 | City of Fort Worth / FWPD release | Their photo (`image_policy: source_image`), credited | government release |
 | Traffic story with a matching camera | Live TxDOT snapshot | public |
-| Any other outlet story | Licensed photo matching the writer's `image_query`, outlet credited in the first comment, or a link post | Pexels / CC |
+| Any other outlet story | Licensed photo matching the writer's `image_query`, outlet credited in the first comment, or a link post | Unsplash / Flickr CC / Pixabay / Openverse |
 
 Photographer credit is printed on the card and in the first comment. Recently used photos are remembered so the feed does not
 look repetitive. No AI-generated imagery is used anywhere.

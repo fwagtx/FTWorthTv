@@ -48,6 +48,11 @@ caption:
   cta: "Follow us on Instagram {instagram_handle}"
   hashtags: false        # the Dallas page posts no hashtags on Facebook; true puts them in the first comment
 
+# Licensed photo providers, tried in this order until one returns results. Keys are optional per provider;
+# openverse and wikimedia need none. (Pexels paused new API keys in Nov 2026, so it is just one option among six.)
+photos:
+  providers: [pexels, unsplash, flickr, pixabay, openverse, wikimedia]
+
 # Visual identity for the photo cards (hex)
 colors:
   primary: "#14182B"   # deep navy backdrop / gradient

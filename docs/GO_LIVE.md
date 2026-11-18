@@ -17,7 +17,10 @@ tested and pushed; once these are in place it posts by itself.
 
 | Secret name | Where to get it | Time | Why |
 |---|---|---|---|
-| `PEXELS_API_KEY` | pexels.com/api → "Get started" | 2 min | real, well-matched Fort Worth photos instead of Wikimedia luck |
+| `UNSPLASH_ACCESS_KEY` | unsplash.com/developers → New Application → Access Key | 3 min | sharp, well-matched photos; first choice now that Pexels paused new keys |
+| `FLICKR_API_KEY` | flickr.com/services/apps/create → Apply for a non-commercial key | 3 min | Creative Commons photos with the deepest Fort Worth coverage (Stockyards, TCU, Dickies Arena, concerts) |
+| `PIXABAY_API_KEY` | pixabay.com → sign up → pixabay.com/api/docs shows your key | 2 min | backup pool, no attribution required |
+| (none) | Openverse and Wikimedia Commons | 0 | already used automatically when no key is set |
 | `TICKETMASTER_API_KEY` | developer.ticketmaster.com → create app → Consumer Key | 5 min | real event/artist images and ticket links for Dickies Arena, Billy Bob's, Texas Live |
 | `NWS_USER_AGENT` | nothing to sign up for; just the text `FTWorthTv/0.1 (contact: you@yourdomain.com)` | 0 | the weather service requires an identifying string |
 | `ANTHROPIC_API_KEY` | console.anthropic.com → API keys (add $20 of credit) | 5 min | captions in the Dallas voice instead of the template; about a cent a post |

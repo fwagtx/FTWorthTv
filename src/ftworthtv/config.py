@@ -62,6 +62,11 @@ class Settings:
     model: str = "claude-opus-5-5"
     effort: str = "medium"
     pexels_api_key: str | None = None
+    unsplash_access_key: str | None = None
+    flickr_api_key: str | None = None
+    pixabay_api_key: str | None = None
+    openverse_client_id: str | None = None
+    openverse_client_secret: str | None = None
     ticketmaster_api_key: str | None = None
     nws_user_agent: str = "FTWorthTv/0.1 (contact: set NWS_USER_AGENT)"
     fb_page_id: str | None = None
@@ -142,6 +147,11 @@ class Settings:
             model=str(pick("FTWTV_MODEL", "claude-opus-5-5")),
             effort=str(pick("FTWTV_EFFORT", "medium")),
             pexels_api_key=pick("PEXELS_API_KEY"),
+            unsplash_access_key=pick("UNSPLASH_ACCESS_KEY"),
+            flickr_api_key=pick("FLICKR_API_KEY"),
+            pixabay_api_key=pick("PIXABAY_API_KEY"),
+            openverse_client_id=pick("OPENVERSE_CLIENT_ID"),
+            openverse_client_secret=pick("OPENVERSE_CLIENT_SECRET"),
             ticketmaster_api_key=pick("TICKETMASTER_API_KEY"),
             nws_user_agent=str(pick("NWS_USER_AGENT", "FTWorthTv/0.1 (contact: set NWS_USER_AGENT)")),
             fb_page_id=pick("FB_PAGE_ID"),
