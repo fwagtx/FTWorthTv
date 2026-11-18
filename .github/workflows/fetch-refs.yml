@@ -1,0 +1,44 @@
+# Dev helper: pull openly licensed Fort Worth skyline / landmark reference photos from Wikimedia Commons into a
+# `refs/<run>` branch, so the logo silhouette can be traced from real photos on a machine without internet access.
+name: Fetch logo reference photos
+
+on:
+  workflow_dispatch:
+    inputs:
+      queries:
+        description: "optional: search queries, separated by |"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q requests
+      - name: Fetch
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.queries }}" ]; then
+            IFS='|' read -r -a Q <<< "${{ inputs.queries }}"
+            python scripts/fetch_skyline_refs.py out/refs "${Q[@]}"
+          else
+            python scripts/fetch_skyline_refs.py out/refs
+          fi
+      - name: Push
+        run: |
+          BRANCH="refs/${GITHUB_RUN_NUMBER}"
+          git config user.name "ftworthtv-bot"
+          git config user.email "ftworthtv-bot@users.noreply.github.com"
+          git checkout -q --orphan "$BRANCH"
+          git rm -r -q --cached . >/dev/null
+          git add -f out/refs
+          git commit -q -m "refs: open-licence reference photos [skip ci]"
+          git push -u origin "$BRANCH"
