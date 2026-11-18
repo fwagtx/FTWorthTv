@@ -24,7 +24,7 @@ the captions use the Claude subscription you already have.
 | (none) | Openverse and Wikimedia Commons | 0 | already used automatically when no key is set |
 | `TICKETMASTER_API_KEY` | developer.ticketmaster.com → create app → Consumer Key | 5 min | real event/artist images and ticket links for Dickies Arena, Billy Bob's, Texas Live |
 | `NWS_USER_AGENT` | nothing to sign up for; just the text `FTWorthTv/0.1 (contact: you@yourdomain.com)` | 0 | the weather service requires an identifying string |
-| `CLAUDE_CODE_OAUTH_TOKEN` | on your computer, in Claude Code: `claude setup-token` (uses your Pro/Max subscription, no API bill) | 2 min | captions in the Dallas voice instead of the template |
+| `CLAUDE_CODE_OAUTH_TOKEN` | on your computer, in Claude Code: `claude setup-token` (uses your Pro/Max subscription, no API bill) | 2 min | captions in the Dallas voice instead of the template. Each caption is one short headless Claude Code call (about 40K tokens of plan usage, well under a Max plan's daily allowance at 10 posts a day) |
 
 ## C. Facebook Page + a token that doesn't expire (20–30 minutes)
 

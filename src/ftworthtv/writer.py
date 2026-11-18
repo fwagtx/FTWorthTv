@@ -193,9 +193,11 @@ def claude_code_copy(story: Story, settings: Settings, now: datetime) -> PostCop
               f"with exactly these keys: {JSON_FIELDS}.\n\nSTORY:\n" + json.dumps(story_payload(story, settings, now), ensure_ascii=False, indent=2))
     env = {**os.environ, "CLAUDE_CODE_OAUTH_TOKEN": token}
     env.pop("ANTHROPIC_API_KEY", None)  # make sure the subscription token is what gets used
+    import tempfile
     try:
-        proc = subprocess.run([binary, "-p", prompt, "--output-format", "json", "--max-turns", "1"],
-                              capture_output=True, text=True, timeout=180, env=env)
+        with tempfile.TemporaryDirectory() as scratch:  # empty cwd: no repo files or CLAUDE.md get pulled into the context
+            proc = subprocess.run([binary, "-p", prompt, "--output-format", "json", "--max-turns", "1"],
+                                  capture_output=True, text=True, timeout=180, env=env, cwd=scratch)
     except (subprocess.TimeoutExpired, OSError) as exc:
         log.warning("claude code writer failed to run: %s", exc)
         return None
