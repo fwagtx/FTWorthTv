@@ -1,0 +1,112 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T05:36:56.611579+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/05-fort-worth-arrest-log-8-felony-bookings-in-the-l/card.jpg",
+    "credit": "Photo: Tony Webster from Minneapolis, Minnesota tony@tonywebster.co via Wikimedia Commons (CC BY-SA 2.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Red_and_Blue_Lights_-_BLM_4th_Precinct_Minneapolis_Police_(23493416345).jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Fort Worth Arrest Log: 8 Felony Bookings",
+    "caption": "Fort Worth arrest log 🚔 Felony bookings, last 24 hours\n\n• Walder, Kevin Dwayne Bernard, 27 — ARSON INTEND DAMAGE HAB/PLACE OF WORSHIP IAT\n\n• Chandler, Jermaine Eugene, 22 — Agg Robbery\n\n• Howard, Jamarion, 22 — Agg Robbery\n\n• Ahmed-Darby, Dominick Dejean, 29 — Aggravated Assault causes serious bodily injury-Family violence\n\n• Henderson, Adreon Ledell, 35 — OT WARRANT Out of Town Warrant-F*\n\n• Sanchez, Rebecca, 33 — Robbery\n\n• Grays, Antuan Le, 36 — Burglary Habitation\n\n• Sesay, Abdul, 29 — (G) Prohibited Sub/Item in Corr Facility\n\nCharges are accusations. All suspects are presumed innocent until proven guilty in a court of law.\n\nFollow @FortWorthTexasTV for more 📲",
+    "first_comment": "Source: Fort Worth Police Department public arrest records https://pdapps.fortworthtexas.gov/OnlineServices/Reports/RecentArrests\n{photo_credit}",
+    "hashtags": [
+      "#FortWorth",
+      "#FortWorthPolice",
+      "#FTW",
+      "#DFW",
+      "#Texas"
+    ],
+    "image_query": "police car lights night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "arrests-2026-11-17",
+    "source": "Fort Worth Police Department",
+    "source_kind": "arrest_log",
+    "title": "Fort Worth arrest log: 8 felony bookings in the last 24 hours",
+    "summary": "• Walder, Kevin Dwayne Bernard, 27 — ARSON INTEND DAMAGE HAB/PLACE OF WORSHIP IAT\n• Chandler, Jermaine Eugene, 22 — Agg Robbery (+1 more)\n• Howard, Jamarion, 22 — Agg Robbery (+1 more)\n• Ahmed-Darby, Dominick Dejean, 29 — Aggravated Assault causes serious bodily injury-Family violence (+1 more)\n• Henderson, Adreon Ledell, 35 — OT WARRANT Out of Town Warrant-F* (+2 more)\n• Sanchez, Rebecca, 33 — Robbery\n• Grays, Antuan Le, 36 — Burglary Habitation\n• Sesay, Abdul, 29 — (G) Prohibited Sub/Item in Corr Facility (+1 more)",
+    "url": "https://pdapps.fortworthtexas.gov/OnlineServices/Reports/RecentArrests",
+    "published": "2026-11-18T00:34:53.686686+00:00",
+    "category_hint": "crime",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": null,
+    "image_policy": "none",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.8,
+    "extra": {
+      "entries": [
+        {
+          "name": "Walder, Kevin Dwayne Bernard",
+          "age": 27,
+          "charge": "ARSON INTEND DAMAGE HAB/PLACE OF WORSHIP IAT",
+          "degree": "F1",
+          "status": "In Custody | FWPD Detention Facility, 350 W. Belknap St, Fort Worth, TX"
+        },
+        {
+          "name": "Chandler, Jermaine Eugene",
+          "age": 22,
+          "charge": "Agg Robbery",
+          "degree": "F1",
+          "status": "In Custody | FWPD Detention Facility, 350 W. Belknap St, Fort Worth, TX"
+        },
+        {
+          "name": "Howard, Jamarion",
+          "age": 22,
+          "charge": "Agg Robbery",
+          "degree": "F1",
+          "status": "In Custody | FWPD Detention Facility, 350 W. Belknap St, Fort Worth, TX"
+        },
+        {
+          "name": "Ahmed-Darby, Dominick Dejean",
+          "age": 29,
+          "charge": "Aggravated Assault causes serious bodily injury-Family violence",
+          "degree": "F2",
+          "status": "In Custody | FWPD Detention Facility, 350 W. Belknap St, Fort Worth, TX"
+        },
+        {
+          "name": "Henderson, Adreon Ledell",
+          "age": 35,
+          "charge": "OT WARRANT Out of Town Warrant-F*",
+          "degree": "F2",
+          "status": "In Custody | FWPD Detention Facility, 350 W. Belknap St, Fort Worth, TX"
+        },
+        {
+          "name": "Sanchez, Rebecca",
+          "age": 33,
+          "charge": "Robbery",
+          "degree": "F2",
+          "status": "In Custody | FWPD Detention Facility, 350 W. Belknap St, Fort Worth, TX"
+        },
+        {
+          "name": "Grays, Antuan Le",
+          "age": 36,
+          "charge": "Burglary Habitation",
+          "degree": "F2",
+          "status": "In Custody | FWPD Detention Facility, 350 W. Belknap St, Fort Worth, TX"
+        },
+        {
+          "name": "Sesay, Abdul",
+          "age": 29,
+          "charge": "(G) Prohibited Sub/Item in Corr Facility",
+          "degree": "F3",
+          "status": "Magistration at 0900"
+        }
+      ],
+      "total_scanned": 85
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.9
+  }
+}

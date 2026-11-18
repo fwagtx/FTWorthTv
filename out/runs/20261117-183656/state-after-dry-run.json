@@ -1,0 +1,74 @@
+{
+  "daily": {
+    "2026-11-17": 5
+  },
+  "flags": {},
+  "last_post_at": "2026-11-18T00:36:56.611579+00:00",
+  "posted": {
+    "0483ca217fa88587": {
+      "at": "2026-11-18T00:36:56.611579+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/01-wanted-joshua-rodriguez",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "1ded7f0dcbd84c1e": {
+      "at": "2026-11-18T00:36:56.611579+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/02-wanted-ivelis-valentin",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Ivelis Valentin",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "56865477238e9092": {
+      "at": "2026-11-18T00:36:56.611579+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/04-wanted-bria-greer",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Bria Greer",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "611b556b32e8e241": {
+      "at": "2026-11-18T00:36:56.611579+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/03-wanted-kenneth-gaines",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Kenneth Gaines",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "arrests-2026-11-17": {
+      "at": "2026-11-18T00:36:56.611579+00:00",
+      "category": "crime",
+      "kind": "arrest_log",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/05-fort-worth-arrest-log-8-felony-bookings-in-the-l",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "Fort Worth arrest log: 8 felony bookings in the last 24 hours",
+      "url": "https://pdapps.fortworthtexas.gov/OnlineServices/Reports/RecentArrests"
+    }
+  },
+  "total_posts": 5,
+  "used_photos": [
+    "commons-46134367"
+  ],
+  "version": 1
+}

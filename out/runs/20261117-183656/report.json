@@ -1,0 +1,100 @@
+{
+  "started": "2026-11-18T00:36:56.611579+00:00",
+  "candidates": 21,
+  "posts": [
+    {
+      "title": "WANTED: Joshua Rodriguez",
+      "source": "Fort Worth Police Department",
+      "kind": "wanted",
+      "category": "crime",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.9295,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/01-wanted-joshua-rodriguez",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": null,
+      "image": "out/runs/20261117-183656/01-wanted-joshua-rodriguez/card.jpg"
+    },
+    {
+      "title": "WANTED: Ivelis Valentin",
+      "source": "Fort Worth Police Department",
+      "kind": "wanted",
+      "category": "crime",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.9295,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/02-wanted-ivelis-valentin",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-18T01:51:56.611579+00:00",
+      "image": "out/runs/20261117-183656/02-wanted-ivelis-valentin/card.jpg"
+    },
+    {
+      "title": "WANTED: Kenneth Gaines",
+      "source": "Fort Worth Police Department",
+      "kind": "wanted",
+      "category": "crime",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.9295,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/03-wanted-kenneth-gaines",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-18T03:06:56.611579+00:00",
+      "image": "out/runs/20261117-183656/03-wanted-kenneth-gaines/card.jpg"
+    },
+    {
+      "title": "WANTED: Bria Greer",
+      "source": "Fort Worth Police Department",
+      "kind": "wanted",
+      "category": "crime",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.9295,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/04-wanted-bria-greer",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-18T04:21:56.611579+00:00",
+      "image": "out/runs/20261117-183656/04-wanted-bria-greer/card.jpg"
+    },
+    {
+      "title": "Fort Worth arrest log: 8 felony bookings in the last 24 hours",
+      "source": "Fort Worth Police Department",
+      "kind": "arrest_log",
+      "category": "crime",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.9,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261117-183656/05-fort-worth-arrest-log-8-felony-bookings-in-the-l",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": "2026-11-18T05:36:56.611579+00:00",
+      "image": "out/runs/20261117-183656/05-fort-worth-arrest-log-8-felony-bookings-in-the-l/card.jpg"
+    }
+  ],
+  "skipped_by_writer": [],
+  "dropped": [
+    {
+      "title": "WANTED: Rafael Garcia",
+      "source": "Fort Worth Police Department",
+      "reason": "blocklist: sexual assault"
+    },
+    {
+      "title": "WANTED: Jose Castro Solis",
+      "source": "Fort Worth Police Department",
+      "reason": "blocklist: sexual assault"
+    }
+  ],
+  "notes": []
+}
