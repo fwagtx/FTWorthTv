@@ -39,13 +39,13 @@ def cover(img: Image.Image, size: tuple[int, int]) -> Image.Image:
 def contain(img: Image.Image, size: tuple[int, int], bg: tuple[int, int, int]) -> Image.Image:
     """Fit the whole image inside the canvas (radar maps must not be cropped)."""
     tw, th = size
-    scale = min(tw / img.width, (th * 0.78) / img.height)
+    scale = min((tw * 0.9) / img.width, (th * 0.62) / img.height)
     resized = img.resize((max(1, round(img.width * scale)), max(1, round(img.height * scale))), Image.LANCZOS)
     canvas = Image.new("RGB", size, bg)
     # blurred, darkened copy of the image as the backdrop so the letterbox is not flat
     backdrop = cover(img, size).filter(ImageFilter.GaussianBlur(28))
     canvas.paste(Image.blend(backdrop, Image.new("RGB", size, bg), 0.55))
-    canvas.paste(resized, ((tw - resized.width) // 2, int(th * 0.08)))
+    canvas.paste(resized, ((tw - resized.width) // 2, int(th * 0.09)))
     return canvas
 
 

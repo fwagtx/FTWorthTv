@@ -16,6 +16,14 @@ from .providers import find_photo
 log = logging.getLogger(__name__)
 
 
+def short_agency(name: str) -> str:
+    """'Fort Worth Police Department' -> 'FWPD', 'Texas DPS' stays."""
+    words = [w for w in name.replace("-", " ").split() if w[0].isupper()]
+    if len(words) >= 3 and "Police" in words:
+        return "".join(w[0] for w in words)
+    return name
+
+
 def _download(url: str, dest: Path, headers: dict | None = None) -> Path | None:
     try:
         return download_image(url, dest, headers=headers)
@@ -81,7 +89,7 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         label, subline = "ARREST LOG", story.source.upper()
     if story.source_kind == "wanted":
         label = "WANTED"
-        subline = f"{story.extra.get('agency', story.source)} · {story.extra.get('charge', '')}"[:70]
+        subline = f"{story.extra.get('charge', '')} · {short_agency(story.extra.get('agency', story.source))}"[:70]
 
     if background is None and copy.category == "traffic":
         cam = cameras.snapshot_for(story, settings, workdir)
