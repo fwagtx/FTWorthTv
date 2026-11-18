@@ -104,8 +104,8 @@ def test_quote_card_renders_with_and_without_photo(settings, tmp_path):
     out = render_quote_card(author="Fort Worth Police Department", handle="@fortworthpd", when="2h", text="WANTED: Sample Person\nWanted for aggravated robbery.",
                             photo=photo, out_path=tmp_path / "q.jpg", brand=settings.brand, fonts_dir=settings.fonts_dir, watermark="@FortWorthTexasTV",
                             footer="Source: police.fortworthtexas.gov")
-    with Image.open(out) as im:
-        assert im.size == (1080, 1350)
+    with Image.open(out) as im:   # width is fixed, height follows the card between square and 4:5
+        assert im.width == 1080 and 1080 <= im.height <= 1350
     out2 = render_quote_card(author="Fort Worth Report", handle="@FortWorthReport", when="Nov 18", text="A headline with no photo at all " * 4,
                              photo=None, out_path=tmp_path / "q2.jpg", brand=settings.brand, fonts_dir=settings.fonts_dir)
     assert out2.exists()

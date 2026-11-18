@@ -4,6 +4,8 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 
+from PIL import Image
+
 from ..config import Settings
 from ..models import CATEGORY_LABELS, ImageAsset, PostDraft
 from ..sources import cameras
@@ -16,49 +18,63 @@ from .providers import find_photo
 log = logging.getLogger(__name__)
 
 
-def quote_fields(story, settings) -> tuple[str, str | None, str, str]:
-    """(author, source line, quoted text, when) for the post-inside-a-post card.
+def quote_fields(story, settings) -> tuple[str, str | None, str, str, bool]:
+    """(author, source line, quoted text, when, bold_first_line) for the post-inside-a-post card.
 
     The card quotes the source's own public text (headline + first sentence, or the bulletin fields) under the source's name.
     The grey line shows where that text comes from: the real @handle when the story *is* a social post (extra.post_url),
-    otherwise the website domain. No platform logos, no invented engagement numbers."""
+    otherwise the website domain. No platform logos, no invented engagement numbers. Paragraphs are separated by a blank
+    line; the renderer shows later paragraphs only when they fit whole."""
+    import re
     from urllib.parse import urlparse
     from ..textutil import fmt_time, to_local, smart_headline
-    from ..writer import _first_sentence
+    from ..writer import _first_sentence, _tidy
     brand = settings.brand
     handles = (brand.get("card", {}) or {}).get("quoted_handles", {}) or {}
     x = story.extra
     kind = story.source_kind
+    bold = False
     when = ""
     if story.published:
         local = to_local(story.published, settings.tz)
         when = fmt_time(story.published, settings.tz) if kind in ("nws_alert", "nws_forecast") else local.strftime("%b %d").replace(" 0", " ")
     if kind == "wanted":
         author = x.get("agency", story.source)
-        text = f"WANTED: {x.get('name')}\nWanted for {str(x.get('charge', '')).lower()}.\nCrime Stoppers will pay up to {x.get('reward')} for information leading to an arrest. Call {x.get('tip_phone')}. Tipsters stay anonymous."
+        bold = True
+        text = (f"WANTED: {x.get('name')}\nWanted for {str(x.get('charge', '')).lower()}.\n"
+                f"Crime Stoppers will pay up to {x.get('reward')} for information leading to an arrest. Call {x.get('tip_phone')}.")
     elif kind == "nws_alert":
         author = "NWS Fort Worth"
-        text = f"{x.get('event', 'Weather alert')} for {x.get('area', 'Tarrant County')}. " + (_first_sentence(x.get("instruction", "")) or "")
+        bold = True
+        text = f"{x.get('event', 'Weather alert')} for {x.get('area', 'Tarrant County')}" + (f" until {x.get('ends_text')}" if x.get("ends_text") else "") + "."
+        instr = _first_sentence(x.get("instruction", "")) if x.get("instruction") else ""
+        if instr:
+            text += f"\n\n{instr}"
     elif kind == "nws_forecast":
         author = "NWS Fort Worth"
-        detail = _first_sentence(story.summary) if story.summary else ""
-        text = f"Today: {x.get('short', '')}, high near {x.get('high', '')}°." + (f"\n{detail}" if detail else "")
+        text = f"Today: {x.get('short', '')}, high near {x.get('high', '')}°." + (f" Wind {x['wind']}." if x.get("wind") else "")
+        m = re.search(r"Tonight: ([^.]+)\.", story.summary or "")
+        if m:
+            tonight = m.group(1)
+            text += f"\nTonight: {tonight[0] + tonight[1:].lower() if tonight else ''}."
     elif kind in ("event", "event_roundup"):
         author = x.get("venue") or story.source
+        bold = True
         text = f"{story.title.split(' at ')[0]}\n{x.get('when', '')}" + (f" · {x.get('venue')}" if x.get("venue") else "")
     elif kind == "arrest_log":
         author = story.source
-        text = story.title + "\n" + "\n".join(f"• {e.get('name')} – {e.get('charge')}" for e in x.get("entries", [])[:6])
+        bold = True
+        text = story.title + "\n" + "\n".join(f"• {e.get('name')} – {_tidy(str(e.get('charge', '')))}" for e in x.get("entries", [])[:6])
     else:
         author = story.source
         first = _first_sentence(story.summary) if story.summary else ""
-        head = smart_headline(story.title, 110)
+        head = _tidy(smart_headline(story.title, 110))
         text = head + (f"\n\n{first}" if first and first.lower()[:30] != head.lower()[:30] else "")
     if x.get("post_url"):
         line = handles.get(author) or handles.get(story.source) or urlparse(x["post_url"]).netloc.replace("www.", "")
     else:
         line = urlparse(story.url).netloc.replace("www.", "") if story.url else None
-    return author, line, text.strip(), when
+    return author, line, text.strip(), when, bold
 
 
 def quote_footer(story, credit: str | None) -> str | None:
@@ -180,14 +196,16 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
     card_cfg = brand.get("card", {}) or {}
     style = card_cfg.get("style", "plain")
     if style == "quoted" and story.source_kind not in ("culture",):
-        author, handle, text, when = quote_fields(story, settings)
+        author, handle, text, when, bold = quote_fields(story, settings)
         out = render_quote_card(author=author, handle=handle, when=when, text=text, photo=background, out_path=workdir / "quote.jpg",
-                                brand=brand, fonts_dir=settings.fonts_dir,
+                                brand=brand, fonts_dir=settings.fonts_dir, bold_first_line=bold,
                                 watermark=(brand.get("instagram_handle") or brand.get("handle")) if card_cfg.get("watermark_handle", True) else None,
                                 footer=quote_footer(story, credit if provider != "placeholder" else None))
+        with Image.open(out) as im:
+            w, h = im.size
         return ImageAsset(path=out, credit=credit if provider != "placeholder" else f"Card: {brand.get('short_name', 'FTW TV')}",
                           license=license_ if provider != "placeholder" else "card", provider=provider if provider != "placeholder" else "quote",
-                          source_url=source_url, photo_id=photo_id, width=1080, height=1350)
+                          source_url=source_url, photo_id=photo_id, width=w, height=h)
     if style in ("plain", "quoted"):
         if background is None:
             if not card_cfg.get("placeholder_when_no_photo", False):

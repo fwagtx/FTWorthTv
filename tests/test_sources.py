@@ -148,6 +148,9 @@ def test_wanted_story_renders_as_contained_mugshot_card(settings, now, tmp_path)
     assert copy.caption.endswith("Follow us on Instagram @FortWorthTexasTV")
     settings.offline = False  # the data: URI needs no network
     draft = PostDraft(story=story, copy=copy, writer=writer)
+    asset = plan_image(draft, settings, State(tmp_path / "s0.json"), tmp_path / "w0")
+    assert asset.provider == "source" and asset.license == "official" and asset.path.name == "quote.jpg"   # default: quoted card
+    settings.brand["card"]["style"] = "plain"
     asset = plan_image(draft, settings, State(tmp_path / "s.json"), tmp_path / "w")
     assert asset.provider == "source" and asset.license == "official"
     with Image.open(asset.path) as im:   # plain style: the booking photo as-is (upscaled), never cropped

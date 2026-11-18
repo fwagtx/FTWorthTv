@@ -70,7 +70,10 @@ def _clean_artist(raw: str) -> str:
     a = re.sub(r"\s*assumed\s*\(based on copyright claims\)\.?", "", a, flags=re.I)
     a = re.sub(r"^User:", "", a.strip())
     a = re.sub(r"\s*\(talk\)", "", a)
-    a = a.strip(" .,-")
+    a = re.sub(r"\S+@\S+\.\w+", "", a)                       # e-mail addresses some uploaders put in the author field
+    a = re.sub(r"\s+from\s+[A-Z][\w.]*(?:[ ,]+[A-Z][\w.]*)*\s*$", "", a)   # "Jane Doe from Austin, Texas. USA"
+    a = re.sub(r"\s+from\s+[A-Z][\w.]*(?:[ ,]+[A-Z][\w.]*)*(?=\s|$)", "", a)
+    a = re.sub(r"\s{2,}", " ", a).strip(" .,-")
     return a[:60] or "Wikimedia Commons contributor"
 
 

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import colorsys
 import random
+import re
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -275,8 +276,8 @@ def render_plain(background: Path, out_path: Path, *, brand: dict, fonts_dir: Pa
 
 
 def _initials(name: str) -> str:
-    words = [w for w in name.replace("-", " ").split() if w[0].isalpha()]
-    return "".join(w[0] for w in words[:2]).upper() or "FW"
+    words = [w for w in name.replace("-", " ").split() if w[0].isalpha() and w.lower() not in ("of", "the", "and", "for", "at")]
+    return "".join(w[0] for w in words[:3 if len(words) >= 3 else 2]).upper() or "FW"
 
 
 def _avatar_color(name: str) -> tuple[int, int, int]:
@@ -284,22 +285,36 @@ def _avatar_color(name: str) -> tuple[int, int, int]:
     return palette[sum(map(ord, name)) % len(palette)]
 
 
-def _wrap_lines(draw, text: str, font, max_width: int, max_lines: int) -> list[str]:
-    out: list[str] = []
-    for para in text.split("\n"):
-        lines = wrap_text(draw, para, font, max_width) if para.strip() else [""]
-        out.extend(lines)
-    if len(out) > max_lines:
-        out = out[:max_lines]
-        out[-1] = out[-1].rstrip(".,;:") + "…"
-    return out
+def _quote_lines(draw, text: str, font, max_width: int, max_lines: int) -> list[str]:
+    """Paragraphs are separated by a blank line. The first paragraph is always shown (cut with an ellipsis if it must be);
+    later paragraphs are added only when they fit completely, so the card never ends mid-sentence."""
+    paras = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
+    if not paras:
+        return [""]
+    def wrap_para(para: str) -> list[str]:
+        out: list[str] = []
+        for ln in para.split("\n"):
+            out.extend(wrap_text(draw, ln, font, max_width) if ln.strip() else [""])
+        return out
+    lines = wrap_para(paras[0])
+    if len(lines) > max_lines:
+        lines = lines[:max_lines]
+        lines[-1] = lines[-1].rstrip(".,;:") + "…"
+    for para in paras[1:]:
+        extra = wrap_para(para)
+        if len(lines) + 1 + len(extra) <= max_lines:
+            lines += [""] + extra
+        else:
+            break
+    return lines
 
 
 def render_quote_card(*, author: str, handle: str | None, when: str, text: str, photo: Path | None, out_path: Path, brand: dict,
                       fonts_dir: Path, watermark: str | None = None, footer: str | None = None,
-                      size: tuple[int, int] | None = None) -> Path:
+                      size: tuple[int, int] | None = None, bold_first_line: bool = False) -> Path:
     """A post inside a post: the source's post (author, handle, text, photo) as a white card on a feed-colored background,
-    the way a shared post looks. No platform logos, no badges, no invented like/comment counts."""
+    the way a shared post looks. No platform logos, no badges, no invented like/comment counts.
+    The canvas is 1080 wide; its height follows the card, between square (1080) and 4:5 (1350)."""
     W, H = tuple(size or (1080, 1350))
     bg, card, ink, muted, line = (240, 242, 245), (255, 255, 255), (5, 5, 5), (101, 103, 107), (228, 230, 235)
     margin, pad, radius = 54, 44, 30
@@ -317,8 +332,9 @@ def render_quote_card(*, author: str, handle: str | None, when: str, text: str, 
     if photo and Path(photo).exists():
         with Image.open(photo) as im:
             photo_img = im.convert("RGB")
-    max_text_lines = 5 if photo_img is not None else 12
-    lines = _wrap_lines(draw, text, text_font, inner_w, max_text_lines)
+    max_text_lines = 6 if photo_img is not None else 12
+    bold_font = load_font(fonts_dir, bold=True, size=44)
+    lines = _quote_lines(draw, text, text_font, inner_w, max_text_lines)
     line_h = int(text_font.size * 1.3)
     header_h = 104
     text_h = line_h * len(lines)
@@ -345,7 +361,11 @@ def render_quote_card(*, author: str, handle: str | None, when: str, text: str, 
         photo_h = photo_img.height
     card_h = 2 * pad + header_h + text_h + (photo_h + 28 if photo_img is not None else 0) + footer_h
     card_h = min(card_h, H - 2 * margin)
-    y0 = (H - card_h) // 2
+    if size is None:  # tighten the canvas to the card: no big empty bands in the feed
+        H = max(1080, min(1350, card_h + 2 * margin + 44))
+        canvas = Image.new("RGB", (W, H), bg)
+        draw = ImageDraw.Draw(canvas)
+    y0 = (H - card_h - 44) // 2
     x0 = margin
 
     # shadow + card
@@ -371,8 +391,8 @@ def render_quote_card(*, author: str, handle: str | None, when: str, text: str, 
 
     # text
     ty = y0 + pad + header_h
-    for ln in lines:
-        draw.text((x0 + pad, ty), ln, font=text_font, fill=ink)
+    for i, ln in enumerate(lines):
+        draw.text((x0 + pad, ty), ln, font=bold_font if (bold_first_line and i == 0) else text_font, fill=ink)
         ty += line_h
 
     # photo with rounded corners

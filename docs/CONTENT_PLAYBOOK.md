@@ -34,6 +34,22 @@ link previews, bullet lists, city-council process stories, obituaries, press-rel
   surface (@dallastexas_tv ≈ 1.6M followers vs 647K on Facebook), which is why every post pushes Instagram. One sponsor
   (a law firm) is credited as "official partner" across all accounts.
 
+## 1b. The format that carries most of their feed: a post inside a post
+
+Scroll Dallas Texas TV and most media is not a photo they took. It is somebody else's post, shown inside theirs, with their
+one-line caption above it: a DPD or Dallas Fire bulletin, a WFAA/FOX 4 headline, a venue's show announcement, a fan's
+Instagram story from the stands. Two mechanics produce that look, and the pipeline does both:
+
+| What they do | What we do | Where |
+|---|---|---|
+| Share another page's public Facebook post (Facebook nests it) | `extra.facebook_post_url` → Facebook publisher posts it as a share | `publishers/facebook.py`, mode `share` |
+| Post a screenshot of a tweet / headline / bulletin as the photo | `card.style: quoted` renders the source's post as a card: name, domain or @handle, date, their text, their photo | `images/card.py: render_quote_card` |
+
+Rules the quoted card follows so it is never a fake screenshot: it quotes the source's *own* public text (headline + first
+sentence, or the bulletin fields), names the real source and where the text came from, shows no platform logo and no invented
+engagement numbers, and keeps photo credits inside the card when the photo is not the source's. Booking photos are contained,
+never cropped.
+
 ## 2. The Fort Worth copy: pillar → automated source → example post
 
 | Pillar | Fort Worth source (in this repo) | Example output |

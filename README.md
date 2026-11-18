@@ -87,7 +87,7 @@ workflow with `only_kinds`).
 
 ---
 
-## Two looks: "dallas" (default) and "detailed"
+## The looks: "dallas" captions, and "quoted" / "plain" / "headline" media
 
 `config/brand.yaml` has two switches that decide how a post looks:
 
@@ -95,9 +95,20 @@ workflow with `only_kinds`).
   emoji (🚨 for incidents, 😂 for funny moments), then `Follow us on Instagram @FortWorthTexasTV`. That is how the Dallas page
   writes ("Kid Cudi joins Kanye at AT&T", "Things got heated between Cowboys and 49ers fans at Texas Live during the game.
   Arlington police responded to the scene. 🚨"). `detailed` is the hook / facts / 📍 / CTA format.
+* `card.style: quoted` (default) — **a post inside a post.** The Dallas page's most common format is their one-line caption on
+  top and, as the media, somebody else's post: a police department's bulletin, a station's headline, a venue's announcement,
+  a fan's photo. We render that nested post ourselves: a white card on the feed-grey background with the source's name,
+  the domain (or real @handle when the story *is* a social post), the date, the source's own headline / bulletin text and
+  the photo. Tall photos (booking photos, phone screenshots) are contained on a blurred backdrop, never cropped. No platform
+  logos, no invented like counts. A stock / Creative-Commons photo carries its credit inside the card; a source's own photo
+  (police release, Ticketmaster, NWS radar) does not need one. Culture-calendar posts keep the plain photo.
 * `card.style: plain` — the photo as-is at its own aspect ratio with a small `@FortWorthTexasTV` watermark, no headline overlay,
-  no badge, exactly like the Dallas page's media. A story without a usable photo becomes a link post instead of a fake graphic.
-  `headline` is the branded 1080×1350 card with the headline on the photo (useful for stories where the photo is generic).
+  no badge. A story without a usable photo becomes a link post instead of a fake graphic.
+* `card.style: headline` — the branded 1080×1350 card with the headline on the photo (useful when the photo is generic).
+
+When a story comes with a **public facebook.com post URL** (`extra.facebook_post_url`, e.g. a submission or a page you follow),
+the Facebook publisher posts it as a *share*: Facebook itself renders the original post nested inside ours, which is the
+literal "post inside a post". Metricool has no share type, so there the URL becomes a link preview.
 
 Source credit, photo credit and the presumption-of-innocence line stay in the first comment in both styles.
 
