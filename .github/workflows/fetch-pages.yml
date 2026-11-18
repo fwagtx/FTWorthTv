@@ -29,7 +29,8 @@ jobs:
           BRANCH="pages/${GITHUB_RUN_NUMBER}"
           git config user.name "ftworthtv-bot"
           git config user.email "ftworthtv-bot@users.noreply.github.com"
-          git checkout -b "$BRANCH"
+          git checkout -q --orphan "$BRANCH"
+          git rm -r -q --cached . >/dev/null
           git add -f out/pages
           git commit -q -m "pages: fetched for inspection [skip ci]"
           git push -u origin "$BRANCH"
