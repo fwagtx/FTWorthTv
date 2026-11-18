@@ -265,6 +265,12 @@ def guess_location(story: Story, settings: Settings) -> str:
     return f"{settings.brand.get('city', 'Fort Worth')}, {settings.brand.get('state', 'TX')}"
 
 
+def _join(first: str, second: str) -> str:
+    """Two sentences, one space apart; no stray period after a title that already ends with ! or ?"""
+    sep = " " if first.endswith(("!", "?", "…", ".", '."', "!\"", "?\"")) else ". "
+    return f"{first}{sep}{second}"
+
+
 def _tidy(sentence: str) -> str:
     text = collapse_ws(sentence).rstrip(" .")
     letters = [c for c in text if c.isalpha()]
@@ -340,7 +346,7 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
         second = ""
     somber = is_somber(story)
     if len(first) < 75 and second:
-        text = f"{first}. {second}"
+        text = _join(first, second)
     else:
         text = first
     if not somber and category in ("crime", "traffic", "breaking"):
