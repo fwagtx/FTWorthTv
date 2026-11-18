@@ -28,6 +28,14 @@ class PhotoCandidate:
     height: int = 0
     alt: str = ""
 
+    @property
+    def family(self) -> str:
+        """Same photo in another crop/size ("Foo.jpg" vs "Foo (cropped).jpg") should count as the same photo."""
+        name = self.source_url.rsplit("/", 1)[-1].lower()
+        name = re.sub(r"\.(jpe?g|png|webp|tiff?)$", "", name)
+        name = re.sub(r"[_(\s-]*(cropped|crop|edit(ed)?|retouched|\d+px)[_)\s-]*", "", name)
+        return re.sub(r"[^a-z0-9]", "", name) or self.id
+
 
 def search_pexels(query: str, api_key: str, *, per_page: int = 15, orientation: str = "portrait") -> list[PhotoCandidate]:
     payload = http.get_json(PEXELS_API, params={"query": query, "per_page": per_page, "orientation": orientation},
@@ -108,7 +116,7 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             continue
         tried.add(q.lower())
         for cand in _search(q, settings):
-            if exclude and cand.id in exclude:
+            if exclude and (cand.id in exclude or cand.family in exclude):
                 continue
             if state and state.photo_recently_used(cand.id):
                 continue

@@ -83,6 +83,8 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             background = _download(cand.url, workdir / "photo")
             if background:
                 credit, license_, provider, photo_id, source_url = cand.credit, cand.license, cand.provider, cand.id, cand.source_url
+                if exclude_photos is not None:
+                    exclude_photos.update({cand.id, cand.family})
 
     mood = {"nws_forecast": "sunrise", "nws_alert": "storm", "event": "dusk", "event_roundup": "dusk"}.get(story.source_kind) or \
         {"food": "day", "business": "day", "community": "day", "weather": "day", "culture": "sunrise", "sports": "dusk"}.get(copy.category, "night")

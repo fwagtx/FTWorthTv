@@ -25,3 +25,12 @@ def test_placeholder_is_deterministic(settings):
     a = placeholder_background((200, 250), settings.brand["colors"], seed="x")
     b = placeholder_background((200, 250), settings.brand["colors"], seed="x")
     assert a.tobytes() == b.tobytes()
+
+
+def test_photo_family_treats_crops_as_the_same_photo():
+    from ftworthtv.images.providers import PhotoCandidate
+    a = PhotoCandidate(id="commons-1", url="", credit="", license="", provider="wikimedia",
+                       source_url="https://commons.wikimedia.org/wiki/File:Twice_-_Dickies_Arena,_2022.jpg")
+    b = PhotoCandidate(id="commons-2", url="", credit="", license="", provider="wikimedia",
+                       source_url="https://commons.wikimedia.org/wiki/File:Twice_-_Dickies_Arena,_2022_(cropped).jpg")
+    assert a.family == b.family
