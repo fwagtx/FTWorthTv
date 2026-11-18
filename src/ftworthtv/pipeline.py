@@ -4,6 +4,7 @@ from __future__ import annotations
 import html
 import json
 import logging
+import os
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -95,7 +96,8 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             break
         if (quiet or not gap_ok or cap_left <= 0) and not story.is_urgent:
             continue
-        if story.source_kind == "wanted" and sum(1 for d in drafts if d.story.source_kind == "wanted") >= int((settings.sources.get("wanted", {}) or {}).get("max_per_run", 1)):
+        wanted_cap = int(os.environ.get("FTWTV_WANTED_MAX_PER_RUN") or (settings.sources.get("wanted", {}) or {}).get("max_per_run", 1))
+        if story.source_kind == "wanted" and sum(1 for d in drafts if d.story.source_kind == "wanted") >= wanted_cap:
             continue
         copy, writer = write_copy(story, settings, now)
         if copy.skip:

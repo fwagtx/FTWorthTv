@@ -23,6 +23,9 @@ on:
       arrest_log:
         description: "include the FWPD felony arrest-log post (true|false)"
         default: "false"
+      wanted_max:
+        description: "max WANTED posts in this run"
+        default: "1"
 
 permissions:
   contents: write
@@ -36,6 +39,7 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       NWS_USER_AGENT: ${{ secrets.NWS_USER_AGENT || 'FTWorthTv/0.1 (github actions render)' }}
       FTWTV_ENABLE_ARREST_LOG: ${{ inputs.arrest_log }}
+      FTWTV_WANTED_MAX_PER_RUN: ${{ inputs.wanted_max }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
