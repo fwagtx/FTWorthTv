@@ -9,8 +9,10 @@ only reads `assets/logo.png` (the post-card avatar), which the script also write
 | | |
 |---|---|
 | Name | **Fort Worth Texas TV** |
-| Short name | FTWTV (on the mark), FTW TV (in prose) |
-| Handle (all platforms) | **@FortWorthTexasTV** — fallbacks if taken: @FortWorthTXTV, @FTWTexasTV, @FWTexasTV, @FortWorthTV_ |
+| Short name | FTW TV in prose; the marks say FORT WORTH |
+| Handle (all platforms) | **@FortWorthTXTV** (13 characters: X caps usernames at 15, so @FortWorthTexasTV cannot be used there; one handle everywhere beats two). Fallbacks: @FTWTexasTV, @FWTexasTV. Set it in `config/brand.yaml` (`handle`, `instagram_handle`) and rerun the kit. |
+| Names to avoid | "FWTV" and "Fort Worth TV": FWTV is the City of Fort Worth's own government channel. Nothing on the marks says FWTV or FTWTV. |
+| Alternative brand name | **Cowtown TV** (@CowtownTV fits everywhere) or Panther City TV: more ownable and registrable, less searchable than the label. |
 | Tagline | The home of Fort Worth entertainment |
 | Category | Media/News Company (Facebook) · Entertainment website / Media (Instagram, X, TikTok) |
 | Location | Fort Worth, TX |
@@ -19,12 +21,15 @@ only reads `assets/logo.png` (the post-card avatar), which the script also write
 
 ## 2. Logo system (`assets/brand/`)
 
-The default mark is **"Fort Worth skyline at sunset"**: a rounded TV set whose screen shows downtown Fort Worth as a solid
-silhouette, left to right from the Trinity side: the Tarrant County Courthouse clock tower, Carter Burgess Plaza's setbacks,
-The Tower's pyramid crown and spire, Burnett Plaza's notched top (the tallest), D.R. Horton Tower's chamfered crown, the two
-City Center towers, Wells Fargo Tower's steps and the Frost Tower's slanted roof, against a navy-gold-orange sunset with a
-low sun; FTWTV in Inter Display Black under it. It is built from the known shapes of those buildings, not traced from a
-photo, so it is a recognisable abstraction rather than a portrait of the skyline.
+The default mark is **"Fort Worth skyline at sunset"**: a rounded TV set whose screen shows the real downtown skyline as a
+solid silhouette, against a navy-gold-orange sunset with a low sun, and FORT WORTH in Inter Display Black under it.
+The silhouette is **traced from a photograph**, not drawn from memory: `scripts/trace_skyline.py` walks every column of a
+clear-sky photo and stops at the roofline, then simplifies the outline. The source is the classic view from Trinity Park
+looking east ("Downtown Fort Worth Skyline.jpg" by DerekAyala27, CC BY 4.0, Wikimedia Commons; outline stored with its
+credit in `assets/brand/skyline-traced.json`, the trace shown on the photo in `assets/brand/skyline-trace-overlay.jpg`).
+An east-side outline from I-35W (Billy Hathorn, CC BY-SA 3.0) is in `skyline-traced-east.json`; rename it to
+`skyline-traced.json` to use that view instead. The reference photos live on the `brandrefs/2` branch
+(`scripts/fetch_skyline_refs.py`, `.github/workflows/fetch-refs.yml`), all PD / CC0 / CC BY / CC BY-SA with credits.
 
 Six directions ship as vector SVG in `assets/brand/logo-options/` (light / dark / one-colour, with and without the caption)
 and `options-sheet.jpg` compares them at full size and as 200 / 96 / 48 / 32 px avatars:
@@ -150,22 +155,36 @@ news headline, the photo. First comment: `Source: <outlet> <url>`, the photo cre
 presumption-of-innocence line on any wanted/arrest post. The playbook (`docs/CONTENT_PLAYBOOK.md`) has the content mix and
 the daily rhythm; the README has the switches.
 
-## 8. Creating the socials — checklist
+## 8. Which socials, and why
+
+| Priority | Network | Role | How it is fed |
+|---|---|---|---|
+| 1 | **Facebook Page** | the audience; where the Dallas page's format performs | automated from day one (Metricool) |
+| 1 | **Instagram** (+ Threads) | same posts, plus stories from the story template | automated from day one (Metricool) |
+| 2 | **X** | the wire: police, stations and reporters post and quote there first; the post card *is* the X look; claim the handle before someone else does | automated (Metricool posts to X on the paid plan); expect small reach for a year |
+| 3 | **TikTok** | video only; claim the handle, post manually when there is a clip | manual |
+| 4 | YouTube Shorts | later, with video | manual |
+| – | LinkedIn, Pinterest, Snapchat | not for this page | – |
+
+Cadence once live: Facebook six to ten posts a day, X mirrors all of them, Instagram two or three feed posts plus stories,
+TikTok only with real clips.
+
+## 9. Creating the socials — checklist
 
 1. **Facebook Page** (business.facebook.com → Create Page): name `Fort Worth Texas TV`, category *Media/News Company*,
    bio from §6, profile `profile-light-1024.png`, cover `cover-facebook-1640x624.png`, username `FortWorthTexasTV`,
    location Fort Worth, TX. In Page settings turn on messaging (the "DM us" line) and add the email for tips.
-2. **Instagram** (Business account): username `FortWorthTexasTV`, bio from §6, profile picture, link the Page
+2. **Instagram** (Business account): username `FortWorthTXTV`, bio from §6, profile picture, link the Page
    (Settings → Linked accounts) so cross-posting and Metricool work. Upload the six highlight covers as the first story of
    each highlight (News, Events, Food, Weather, Sports, Wanted).
-3. **X**: handle `FortWorthTexasTV`, header `cover-x-1500x500.png`, bio from §6, location Fort Worth, TX.
-4. **TikTok**: username `fortworthtexastv`, bio from §6, same profile picture (video only; the pipeline does not post there yet).
+3. **X**: handle `FortWorthTXTV` (15-character limit), header `cover-x-1500x500.png`, bio from §6, location Fort Worth, TX.
+4. **TikTok**: username `fortworthtxtv`, bio from §6, same profile picture (video only; the pipeline does not post there yet).
 5. **YouTube** (optional now): channel `Fort Worth Texas TV`, banner `cover-youtube-2560x1440.png`.
 6. **Threads** comes with the Instagram account.
 7. Take the same handle everywhere the same day, even for networks you will not use yet.
 8. Then follow `docs/GO_LIVE.md`: connect the Page and Instagram in Metricool, add the GitHub secrets, flip the schedule on.
 
-## 9. Legal lines to keep
+## 10. Legal lines to keep
 
 - Wanted / arrest posts always carry: *Charges are accusations. All suspects are presumed innocent until proven guilty in a court of law.*
 - Stock and Creative-Commons photos are credited in the first comment (`card.photo_credit_on_card: true` moves the credit onto the card).

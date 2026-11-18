@@ -111,7 +111,7 @@ def option_b(c: dict, with_caption: bool) -> str:
         + f'<rect x="{sx}" y="{sy}" width="{sw}" height="{sh}" rx="38" fill="{screen_fill}"/>' + sun + city + ground \
         + f'<rect x="284" y="{ty + th - 2}" width="72" height="34" fill="{body}"/><rect x="644" y="{ty + th - 2}" width="72" height="34" fill="{body}"/>' + ant
     if with_caption:
-        svg += caption(930, "FTWTV", cap, size=150, spacing=-2)
+        svg += caption(930, "FORT WORTH", cap, size=112, spacing=4)
     return wrap(svg)
 
 
@@ -135,7 +135,7 @@ def option_c(c: dict, with_caption: bool) -> str:
             f'<polygon points="{star_points(500, ty + th / 2 + 6, 92)}" fill="{accent}"/>'
             f'<rect x="{tx + 70}" y="{ty + th - 2}" width="50" height="26" fill="{fg}"/><rect x="{tx + tw - 120}" y="{ty + th - 2}" width="50" height="26" fill="{fg}"/>')
     if with_caption:
-        svg += (f'<text x="500" y="760" text-anchor="middle" font-family="{FONT}" font-weight="900" font-size="96" letter-spacing="2" fill="{fg}">FTWTV</text>')
+        svg += (f'<text x="500" y="752" text-anchor="middle" font-family="{FONT}" font-weight="900" font-size="74" letter-spacing="8" fill="{fg}">TEXAS TV</text>')
     return wrap(svg)
 
 
@@ -217,7 +217,7 @@ def option_b2(c: dict, with_caption: bool) -> str:
         + f'<rect x="{sx}" y="{sy}" width="{sw}" height="{sh}" rx="38" fill="{screen if mono else "url(#sun)"}"/>' + sun + city + ground \
         + f'<rect x="284" y="{ty + th - 2}" width="72" height="34" fill="{body}"/><rect x="644" y="{ty + th - 2}" width="72" height="34" fill="{body}"/>' + ant
     if with_caption:
-        svg += caption(930, "FTWTV", cap, size=150, spacing=-2)
+        svg += caption(930, "FORT WORTH", cap, size=112, spacing=4)
     return wrap(svg)
 
 
@@ -269,7 +269,7 @@ def option_d(c: dict, with_caption: bool) -> str:
         + f'<rect x="{sx}" y="{sy}" width="{sw}" height="{sh}" rx="38" fill="{screen if mono else "url(#sun)"}"/>' + star + head \
         + f'<rect x="284" y="{ty + th - 2}" width="72" height="34" fill="{body}"/><rect x="644" y="{ty + th - 2}" width="72" height="34" fill="{body}"/>' + ant
     if with_caption:
-        svg += caption(930, "FTWTV", cap, size=150, spacing=-2)
+        svg += caption(930, "FORT WORTH", cap, size=112, spacing=4)
     return wrap(svg)
 
 
@@ -301,7 +301,7 @@ def option_e(c: dict, with_caption: bool) -> str:
         + f'<rect x="{sx}" y="{sy}" width="{sw}" height="{sh}" rx="38" fill="{screen if mono else "url(#sun)"}"/>' + "".join(parts) \
         + f'<rect x="284" y="{ty + th - 2}" width="72" height="34" fill="{body}"/><rect x="644" y="{ty + th - 2}" width="72" height="34" fill="{body}"/>' + ant
     if with_caption:
-        svg += caption(930, "FTWTV", cap, size=150, spacing=-2)
+        svg += caption(930, "FORT WORTH", cap, size=112, spacing=4)
     return wrap(svg)
 
 

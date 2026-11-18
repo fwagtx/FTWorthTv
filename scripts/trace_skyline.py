@@ -8,7 +8,6 @@ Writes out.json, out.svg (preview silhouette) and out-overlay.jpg (the profile d
 from __future__ import annotations
 
 import argparse
-import colorsys
 import json
 import math
 from pathlib import Path
@@ -16,37 +15,45 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter
 
 
-def sky_mask(im: Image.Image) -> list[list[bool]]:
-    """True where a pixel looks like sky: bright and either low-saturation or blue."""
+def profile(im: Image.Image, drop: int = 26, sat_jump: float = 0.22, min_run: int = 6) -> list[int]:
+    """Walk down every column from the top (pure sky in the crop) and stop where the pixel gets clearly darker or more
+    saturated than the running sky colour: that is the roofline, even for glass towers that reflect the sky. Clouds stay
+    sky because they are brighter, not darker. The result is smoothed across columns to drop antennas and wires."""
     w, h = im.size
     px = im.load()
-    mask = [[False] * w for _ in range(h)]
-    for y in range(h):
-        for x in range(w):
-            r, g, b = px[x, y][:3]
-            hh, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
-            blue = 0.5 <= hh <= 0.72
-            mask[y][x] = (v > 0.52 and s < 0.33) or (blue and v > 0.35 and s < 0.85)
-    return mask
-
-
-def profile(mask: list[list[bool]], min_run: int = 7) -> list[int]:
-    """For each column, the y of the first run of min_run non-sky pixels from the top (the skyline)."""
-    h, w = len(mask), len(mask[0])
     ys = []
     for x in range(w):
+        sky_bright: list[int] = []
+        sky_sat: list[float] = []
         y_found = h - 1
-        run = 0
-        for y in range(h):
-            if not mask[y][x]:
-                run += 1
-                if run >= min_run:
-                    y_found = y - min_run + 1
+        y = 0
+        while y < h:
+            r, g, b = px[x, y][:3]
+            mx, mn = max(r, g, b), min(r, g, b)
+            sat = 0.0 if mx == 0 else (mx - mn) / mx
+            if len(sky_bright) < 6:
+                sky_bright.append(mx); sky_sat.append(sat); y += 1
+                continue
+            ref_b = sorted(sky_bright[-24:])[len(sky_bright[-24:]) // 2]
+            ref_s = sorted(sky_sat[-24:])[len(sky_sat[-24:]) // 2]
+            darker = mx < ref_b - drop
+            more_sat = sat > ref_s + sat_jump and mx < 235
+            if darker or more_sat:
+                # confirm: the next pixels stay non-sky (skip wires / noise)
+                ok = 0
+                for yy in range(y, min(h, y + min_run)):
+                    r2, g2, b2 = px[x, yy][:3]
+                    mx2, mn2 = max(r2, g2, b2), min(r2, g2, b2)
+                    s2 = 0.0 if mx2 == 0 else (mx2 - mn2) / mx2
+                    if mx2 < ref_b - drop or (s2 > ref_s + sat_jump and mx2 < 235):
+                        ok += 1
+                if ok >= min_run - 1:
+                    y_found = y
                     break
-            else:
-                run = 0
+                y += 1
+                continue
+            sky_bright.append(mx); sky_sat.append(sat); y += 1
         ys.append(y_found)
-    # median filter over columns to drop antennas' single-pixel spikes and noise
     out = []
     k = 3
     for x in range(w):
@@ -88,8 +95,7 @@ def main() -> None:
     scale = 1400 / im.width
     im = im.resize((1400, max(1, int(im.height * scale))), Image.LANCZOS).filter(ImageFilter.GaussianBlur(0.6))
     w, h = im.size
-    mask = sky_mask(im)
-    ys = profile(mask)
+    ys = profile(im)
     pts = [(float(x), float(y)) for x, y in enumerate(ys)]
     simp = rdp(pts, a.eps)
     # normalise: x 0..1 across the crop, y 0 = top of crop, 1 = base (bottom of crop)
