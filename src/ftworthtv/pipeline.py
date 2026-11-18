@@ -108,6 +108,9 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             if used_today >= int(caps[cat]):
                 report.skipped.append((story, f"daily cap for {cat} reached"))
                 continue
+        if not settings.offline and story.source_kind == "rss" and not story.official and len(story.summary or "") < 160:
+            from .sources.article import enrich_summary
+            enrich_summary(story)      # the feed gave a teaser: read the article lead so the caption is a real summary
         copy, writer = write_copy(story, settings, now)
         if copy.skip:
             report.skipped.append((story, copy.skip_reason or "writer skipped"))

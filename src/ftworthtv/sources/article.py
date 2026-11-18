@@ -84,3 +84,19 @@ def enrich(story: Story) -> Story:
         story.published = info["published"]
     story.extra["article_fetched"] = True
     return story
+
+
+def enrich_summary(story: Story, min_len: int = 160) -> Story:
+    """For any outlet: when the feed gave only a teaser, read the article's description and lead paragraphs so the caption
+    can be a real two-paragraph summary. Text only: a non-official outlet's photo is never taken."""
+    if len(story.summary or "") >= min_len or not story.url:
+        return story
+    try:
+        info = fetch_article(story.url)
+    except Exception as exc:
+        log.info("article fetch failed for %s: %s", story.url, exc)
+        return story
+    lead = " ".join(part for part in (info.get("description", ""), info.get("summary", "")) if part)
+    if len(lead) > len(story.summary or ""):
+        story.summary = truncate(lead, 900)
+    return story

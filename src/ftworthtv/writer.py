@@ -336,6 +336,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
             continue
         if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")):
             continue
+        if any(_similar(part, prev) for prev in out):     # og:description often repeats the first paragraph
+            continue
         out.append(part)
         if len(out) >= max_n:
             break
