@@ -1,0 +1,35 @@
+# Dev helper: download public agency pages (and a few news links from each) into a `pages/<run>` branch,
+# so their HTML can be inspected from a machine without internet access.
+name: Fetch pages for inspection
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "space separated URLs"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q requests
+      - name: Fetch
+        run: python scripts/fetch_pages.py out/pages ${{ inputs.urls }}
+      - name: Push
+        run: |
+          BRANCH="pages/${GITHUB_RUN_NUMBER}"
+          git config user.name "ftworthtv-bot"
+          git config user.email "ftworthtv-bot@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add -f out/pages
+          git commit -q -m "pages: fetched for inspection [skip ci]"
+          git push -u origin "$BRANCH"
