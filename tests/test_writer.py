@@ -69,3 +69,11 @@ def test_dallas_caption_shapes(settings, now, tmp_path):
     assert lines[0].startswith("Fort Worth police are looking for Sample Person, wanted for aggravated robbery.")
     out = finalize(template_copy(t, settings, now), t, settings)
     assert out.caption.endswith("Follow us on Instagram @FortWorthTexasTV") and out.hashtags == []
+
+
+def test_submitted_clip_credit_matches_dallas_shape(settings, now):
+    from ftworthtv.models import Story
+    from ftworthtv.writer import dallas_caption
+    s = Story(id="c", source="Submission", source_kind="rss", title="Large fire on I-35W and Western Center this afternoon", summary="",
+              url="", category="breaking", extra={"credit": "IG/ username"})
+    assert dallas_caption(s, settings, now, "breaking") == ["Large fire on I-35W and Western Center this afternoon 🚨 (via IG/ username)"]

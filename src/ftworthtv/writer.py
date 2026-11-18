@@ -283,6 +283,9 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
         text = first
     if not somber and category in ("crime", "traffic", "breaking"):
         text += " 🚨"
+    credit = story.extra.get("credit")          # submitted clips: "(via IG/ username)" exactly like the Dallas page
+    if credit:
+        text += f" (via {credit})"
     return [text]
 
 

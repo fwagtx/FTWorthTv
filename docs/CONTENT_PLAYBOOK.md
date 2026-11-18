@@ -24,11 +24,15 @@ link previews, bullet lists, city-council process stories, obituaries, press-rel
 - One sentence, present tense, no trailing period; two sentences only when there is a second fact ("… during the game.
   Arlington police responded to the scene. 🚨").
 - Media is the phone video or the photo itself. Their own `@DallasTexasTV` watermark on videos. Location tag on the post.
-- Credit the person who filmed it inline: "(via IG/ gameinsidegame)", "(via @COURT STENS)".
+- Credit the person who filmed it inline, always the same shape: "Views from the sky tonight across DFW (via IG/ its_me_gabriela_)",
+  "Large fire on Dallas North Tollway and Spring Valley this afternoon (via IG/ brentlindeman)", "Beyoncé arrives at AT&T Stadium
+  ahead of her show tonight (via IG/ gameinsidegame)". The formula is `<what> <where> <when> (via IG/ user)`.
 - Instagram cross-promo: "Full video on our Instagram @DallasTexasTV" / "Follow us on Instagram @DallasTexasTV".
 - Emoji: at most one, 🚨 for incidents, 😂 for funny; most posts have none.
 - Cadence: roughly 6–10 posts a day on X (19.6K posts since Feb 2020); Facebook gets the strongest 3–6.
-- Sub-brands for volume: @dallastexastvsports, @dallasmicdup (street interviews), DTX TV Media.
+- Sub-brands for volume: @dallastexastvsports, @dallasmicdup (street interviews, 232K), DTX TV Media. Instagram is their biggest
+  surface (@dallastexas_tv ≈ 1.6M followers vs 647K on Facebook), which is why every post pushes Instagram. One sponsor
+  (a law firm) is credited as "official partner" across all accounts.
 
 ## 2. The Fort Worth copy: pillar → automated source → example post
 
@@ -64,8 +68,9 @@ Severe weather alerts post immediately whenever they fire, quiet hours 11pm–6a
 ## 4. What still needs a human to reach Dallas-level reach
 
 1. **The viral tier (pillar 1) is crowd-sourced.** Build the inbox: "DM us your videos & photos 📲" is already in every first
-   comment. A Google Form or a Page-inbox webhook plus a one-tap approve step would feed `ftworthtv run --stories` directly;
-   the credit line "(via @user)" belongs in the caption like Dallas does it.
+   comment. A Google Form or a Page-inbox webhook plus a one-tap approve step would feed `ftworthtv run --stories` directly.
+   A submitted story carries `"extra": {"credit": "IG/ username"}` and the caption comes out exactly in the Dallas shape:
+   `Large fire on I-35W and Western Center this afternoon (via IG/ username)`.
 2. **Celebrity sightings** come from the same inbox.
 3. **"Full video on our Instagram"** needs Instagram publishing (Metricool path works today).
 4. **Street interviews / mic'd up** sub-brand is a separate production.
