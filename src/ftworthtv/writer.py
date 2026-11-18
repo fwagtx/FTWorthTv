@@ -30,14 +30,21 @@ HASHTAG_RE = re.compile(r"(?<!\w)#\w+")
 
 
 # --------------------------------------------------------------------------- prompt
-DALLAS_CAPTION_RULES = """    Write it EXACTLY like the Dallas Texas TV page: one or two plain sentences in present tense, the way a local texts a
-    friend. Real examples: "Kid Cudi joins Kanye at AT&T" / "Netherlands fans have taken over Dallas" /
-    "Things got heated between Cowboys and 49ers fans at Texas Live during the game. Arlington police responded to the scene. 🚨" /
-    "Dallas was ranked the top U.S. Thanksgiving destination for 2026".
-    One sentence gets no trailing period. No hook line, no bullet points, no "📍" line, no hashtags, no URLs, no follow line
-    (we append "Follow us on Instagram" ourselves). At most ONE emoji, and only 🚨 for incidents/police or 😂 for a funny moment.
-    Under 220 characters. For WANTED posts: "<City> police are looking for <name>, wanted for <charge>. Crime Stoppers is
-    offering up to <reward> for information leading to an arrest 🚨" then a second line with the tip phone."""
+DALLAS_CAPTION_RULES = """    Write it EXACTLY like the Dallas Texas TV page: a plain, factual summary of the story in 2 to 4 short sentences, split
+    into two short paragraphs (a blank line between them). Paragraph 1 = what happened: who, what, where, when. Paragraph 2 =
+    the key detail, a short direct quote from the article if there is one, the reaction, or what happens next.
+    Real examples:
+      "Rep. Eddie Morales Jr. of Eagle Pass filed House Bill 410. It would make it illegal for ICE agents in Texas to cover their faces.
+
+       Supporters say agents should be identifiable. ICE says masks protect agents from being targeted."
+      "Texas Lt. Gov.-elect Vikki Goodwin says a bill to regulate THC will be one of her top priorities when lawmakers meet in
+       January. "I'm not interested in a full ban on THC," she said.
+
+       Incoming Agriculture Commissioner Clayton Tucker went further. He called hemp a possible "saving grace" for Texas farmers."
+    Facts only from the source text; never invent a quote. No hook line, no bullet points, no "📍" line, no hashtags, no URLs,
+    no "follow us" line, no questions to the audience. At most ONE emoji, and only 🚨 at the end of paragraph 1 for incidents
+    or police activity. Under 450 characters. For WANTED posts: "<City> police are looking for <name>, wanted for <charge>.
+    Crime Stoppers is offering up to <reward> for information leading to an arrest 🚨" then a second paragraph with the tip phone."""
 DETAILED_CAPTION_RULES = """    Line 1 = the hook, under 90 characters (this is what shows before "See more").
     Then 1-3 short lines with the key facts (who / what / where / when) taken ONLY from the source text.
     Then a "📍 <City>, TX" line (or the neighborhood: Stockyards, Near Southside, West 7th, Arlington...).
@@ -61,7 +68,9 @@ OUTPUT FIELDS
   children, sexual assault, suicide, pure national politics, press-release spam, a paywalled teaser with no facts, or not actually
   about Fort Worth / Tarrant County / the nearby suburbs. Otherwise skip=false and skip_reason="".
 - category: one of {", ".join(CATEGORIES)}.
-- headline: <= 60 characters, plain words, no emoji, no hashtags, no trailing period. It is printed on the photo card.
+- headline: the one-line news headline printed on our post card under the page name, <= 110 characters, the way a news tweet
+  reads: "New Texas bill filed would ban ICE agents from wearing masks/face coverings", "New Texas leaders say THC rules are a
+  top priority for 2027". Sentence case, plain words, no emoji, no hashtags, no trailing period.
 - caption: the Facebook caption.
 {caption_rules}
 - first_comment: exactly this shape:
@@ -279,7 +288,7 @@ def _tidy(sentence: str) -> str:
     return text
 
 
-BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "read more", "learn more", "stay informed", "follow us",
+BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "read more", "learn more", "stay informed", "follow us", "check back",
                "sponsored", "advertis", "click to", "watch the video", "see the full")
 
 
@@ -290,6 +299,56 @@ def _first_sentence(text: str, limit: int = 170) -> str:
     if any(w in first.lower() for w in BOILERPLATE) or len(first) < 25:
         return ""
     return first if len(first) <= limit else ""
+
+
+_ABBREVIATIONS = {"rep", "sen", "gov", "lt", "jr", "sr", "mr", "mrs", "ms", "dr", "st", "ave", "blvd", "rd", "hwy", "no", "vs", "inc", "co",
+                  "corp", "ltd", "mt", "ft", "capt", "sgt", "det", "cmdr", "col", "gen", "pvt", "u.s", "a.m", "p.m", "jan", "feb", "mar",
+                  "apr", "jun", "jul", "aug", "sep", "sept", "oct", "nov", "dec", "e.g", "i.e", "etc", "tx", "dept"}
+
+
+def _split_sentences(text: str) -> list[str]:
+    """Sentence split that survives 'Rep. Eddie Morales Jr.', 'Lt. Gov.-elect', 'U.S.' and quotes after the period."""
+    out, start = [], 0
+    for m in re.finditer(r"[.!?][\"”’)]*(?=\s+[A-Z0-9\"“(])", text):
+        before = text[start:m.start()]
+        last = re.findall(r"[A-Za-z.]+$", before)
+        tok = (last[0] if last else "").lower().strip(".")
+        if (len(tok) == 1 and tok.isalpha()) or tok in _ABBREVIATIONS:
+            continue
+        out.append(text[start:m.end()].strip())
+        start = m.end()
+    tail = text[start:].strip()
+    if tail:
+        out.append(tail)
+    return out
+
+
+def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> list[str]:
+    """Complete, boilerplate-free sentences from the lead of an article summary, in order (later paragraphs of a scraped
+    page can belong to another item, so only the first `lead` characters are considered)."""
+    out: list[str] = []
+    text = collapse_ws(text or "")
+    if len(text) > lead:
+        cut = text.rfind(". ", 0, lead)
+        text = text[:cut + 1] if cut > 0 else text[:lead]
+    for part in _split_sentences(text):
+        if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")):
+            continue
+        if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")):
+            continue
+        out.append(part)
+        if len(out) >= max_n:
+            break
+    return out
+
+
+def _similar(a: str, b: str) -> bool:
+    """Does sentence b just restate title a? (RSS summaries often open with the title.)"""
+    wa = {w for w in re.findall(r"[a-z0-9']+", a.lower()) if len(w) > 2}
+    wb = {w for w in re.findall(r"[a-z0-9']+", b.lower()) if len(w) > 2}
+    if not wa or not wb:
+        return False
+    return a.lower()[:30] == b.lower()[:30] or len(wa & wb) / len(wa | wb) >= 0.5
 
 
 def agency_phrase(agency: str) -> str:
@@ -319,7 +378,9 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
                 return [f"Freezing tonight in {city}, low of {int(low)} 🥶"]
         except (TypeError, ValueError):
             pass
-        return [f"{short.capitalize()} and a high of {high} in {city} today" if high and short else _tidy(story.title)]
+        tonight = re.search(r"Tonight: ([^.]+)\.", story.summary or "")
+        night = f" {tonight.group(1)[0] + tonight.group(1)[1:].lower()} tonight." if tonight else ""
+        return [f"{short.capitalize()} and a high of {high} in {city} today.{night}" if high and short else _tidy(story.title)]
     if kind == "event":
         start = x.get("start")
         rd = relative_day(dtparse.isoparse(start), now, settings.tz) if start else (x.get("when") or "")
@@ -339,22 +400,26 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
                [settings.brand.get("crime", {}).get("disclaimer", "")]
     if kind == "reddit":
         return [f"{_tidy(story.title)} (via r/FortWorth)"]
-    # regular stories
+    # regular stories: a 2-4 sentence factual summary in two short paragraphs, like
+    # "Rep. Eddie Morales Jr. of Eagle Pass filed House Bill 410. It would make it illegal for ICE agents in Texas to cover
+    #  their faces." / "Supporters say agents should be identifiable. ICE says masks protect agents from being targeted."
     first = _tidy(story.title)
-    second = _first_sentence(story.summary) if story.summary else ""
-    if second and second.lower()[:30] == first.lower()[:30]:
-        second = ""
-    somber = is_somber(story)
-    if len(first) < 75 and second:
-        text = _join(first, second)
+    sents = _sentences(story.summary) if story.summary else []
+    if sents and _similar(first, sents[0]):
+        pool = sents                      # the summary already opens with the headline: don't say it twice
+    elif sents:
+        pool = [first + ("" if first.endswith(("!", "?", ".")) else ".")] + sents
     else:
-        text = first
+        pool = [first]                    # nothing but a title: one plain line, no trailing period ("Kid Cudi joins Kanye at AT&T")
+    pool = pool[:4]
+    p1, p2 = " ".join(pool[:2]), " ".join(pool[2:4])
+    somber = is_somber(story)
     if not somber and category in ("crime", "traffic", "breaking"):
-        text += " 🚨"
+        p1 += " 🚨"
     credit = story.extra.get("credit")          # submitted clips: "(via IG/ username)" exactly like the Dallas page
     if credit:
-        text += f" (via {credit})"
-    return [text]
+        p1 += f" (via {credit})"
+    return [p for p in (p1, p2) if p]
 
 
 TOPIC_IMAGE_QUERIES = [  # first match wins; specific landmarks before generic beats
@@ -395,7 +460,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
                    "events": "concert crowd lights", "food": "Texas barbecue plate", "sports": "football stadium Texas",
                    "culture": "Fort Worth Stockyards", "community": "Fort Worth downtown street", "business": "Fort Worth skyline day",
                    "breaking": "Fort Worth downtown night"}.get(category, "Fort Worth skyline")
-    headline = smart_headline(story.title, 60)
+    headline = _tidy(smart_headline(story.title, 110))
 
     if kind == "nws_alert":
         ends = story.extra.get("ends")
@@ -404,7 +469,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         if story.extra.get("instruction"):
             lines.append(truncate(story.extra["instruction"], 220))
         lines += ["Stay safe out there, Fort Worth 💜", cta]
-        headline = truncate(f"{story.extra.get('event', 'Weather Alert')}{until}", 60, "")
+        headline = truncate(f"{story.extra.get('event', 'Weather alert')} issued for {story.extra.get('area', 'Tarrant County')}{until}", 110, "")
         first_comment = f"Source: National Weather Service {story.url}\n{{photo_credit}}"
         image_query = "storm clouds Texas"
     elif kind == "nws_forecast":
@@ -413,7 +478,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         if low:
             lines.append(f"Tonight: low near {low}°")
         lines += [f"📍 {location}", cta]
-        headline = truncate(f"{short}, high near {high}°" if high and short else "Today's Fort Worth forecast", 60, "")
+        headline = truncate(f"Fort Worth forecast: {str(short).lower()}, high near {high}" if high and short else "Today's Fort Worth forecast", 110, "")
         first_comment = f"Source: National Weather Service {story.url}\n{{photo_credit}}"
         image_query = "Fort Worth skyline sunrise"
     elif kind == "event":
@@ -422,6 +487,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         lines = [f"{when_word} at {story.extra.get('venue', 'Fort Worth')} 🎟️", story.title.split(" at ")[0],
                  story.extra.get("when", ""), "Tickets in the comments 👇", f"📍 {story.extra.get('city', 'Fort Worth')}, TX", cta]
         first_comment = f"🎟️ Tickets: {story.url}\n{{photo_credit}}\nDM us your videos & photos 📲"
+        headline = truncate(f"{story.title.split(' at ')[0].split(':')[0].strip()} at {story.extra.get('venue', 'Fort Worth')}, {story.extra.get('when', when_word)}", 110, "")
         genre = str(story.extra.get("genre", "")).lower()
         image_query = {"country": "country music concert stage", "basketball": "basketball arena game", "rodeo": "rodeo arena bull riding",
                        "comedy": "comedy show stage microphone", "hockey": "hockey arena", "football": "football stadium crowd",
@@ -429,7 +495,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
     elif kind == "event_roundup":
         lines = ["This weekend in Fort Worth 🎟️"] + [f"• {e.get('when', '')} – {e.get('title', '')}" for e in story.extra.get("events", [])[:6]]
         lines += ["Tickets in the comments 👇", cta]
-        headline = "This Weekend in Fort Worth"
+        headline = "This weekend in Fort Worth"
         first_comment = "🎟️ Tickets:\n" + "\n".join(f"{e.get('title', '')}: {e.get('url', '')}" for e in story.extra.get("events", [])[:6]) + "\n{photo_credit}"
     elif kind == "wanted":
         x = story.extra
@@ -438,7 +504,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
                  f"Wanted by the {x.get('agency')} for {x.get('charge')}.",
                  f"Crime Stoppers will pay up to {x.get('reward')} for information leading to an arrest. Call {x.get('tip_phone')} or submit a tip at 469tips.com. You stay anonymous.",
                  f"📍 {city_name}, TX", "Share this post 🔁"]
-        headline = truncate(f"WANTED: {x.get('name')}", 60, "")
+        headline = truncate(f"{agency_phrase(x.get('agency', 'Police')).replace(' are', '').replace(' is', '')} searching for {x.get('name')}, wanted for {str(x.get('charge', '')).lower()}", 110, "")
         first_comment = f"Source: {x.get('agency')} most wanted {story.url}\n{{photo_credit}}\nTips: {x.get('tip_url')}"
         location = f"{city_name}, TX"
     elif kind == "arrest_log":
@@ -446,12 +512,12 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         lines = [f"Fort Worth arrest log 🚔 Felony bookings, last {story.title.split('last ')[-1] if 'last ' in story.title else '24 hours'}"]
         lines += [f"• {e.get('name')}{', ' + str(e['age']) if e.get('age') else ''} — {e.get('charge') or 'charges pending'}" for e in entries[:8]]
         lines += [settings.brand.get("crime", {}).get("disclaimer", "All suspects are presumed innocent until proven guilty."), cta]
-        headline = f"Fort Worth Arrest Log: {len(entries)} Felony Bookings"
+        headline = f"{len(entries)} felony arrests in Fort Worth over the last 24 hours"
         first_comment = f"Source: Fort Worth Police Department public arrest records {story.url}\n{{photo_credit}}"
         image_query = "police car lights night"
     elif kind == "culture":
         lines = [story.title.strip(), f"📍 {location}", cta]
-        headline = truncate(story.extra.get("name") or story.title, 60, "")
+        headline = truncate(re.sub(r"[^\w\s,.'&:/()-]", "", story.title).strip(), 110, "") or truncate(story.extra.get("name") or story.title, 110, "")
         first_comment = (f"More: {story.url}\n" if story.url else "") + "{photo_credit}\nDM us your videos & photos 📲"
         image_query = story.extra.get("image_query", image_query)
     elif kind == "reddit":
@@ -492,8 +558,8 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
         caption = truncate(caption, 900)
     if cap_cfg.get("style", "dallas") == "dallas":
         handle = settings.brand.get("instagram_handle") or settings.brand.get("handle", "")
-        cta = str(cap_cfg.get("cta", "Follow us on Instagram {instagram_handle}")).format(instagram_handle=handle, handle=settings.brand.get("handle", handle))
-        if handle and handle.lower() not in caption.lower():
+        cta = str(cap_cfg.get("cta") or "").format(instagram_handle=handle, handle=settings.brand.get("handle", handle)).strip()
+        if cta and handle and handle.lower() not in caption.lower():
             caption = f"{caption}\n\n{cta}".strip()
     tags = [clean_hashtag(t) for t in copy.hashtags] if cap_cfg.get("hashtags", False) else []
     tags = [t for t in tags if t]
@@ -513,9 +579,9 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
     if "{photo_credit}" not in first_comment:
         first_comment += "\n{photo_credit}"
     headline = re.sub(r"[#@]", "", copy.headline).strip().rstrip(".")
-    headline = truncate(headline, 64, "…") if len(headline) > 64 else headline
+    headline = smart_headline(headline, 120) if len(headline) > 120 else headline
     return copy.model_copy(update={"caption": caption, "hashtags": tags, "first_comment": first_comment,
-                                   "headline": headline or truncate(story.title, 60, "")})
+                                   "headline": headline or smart_headline(story.title, 110)})
 
 
 def write_copy(story: Story, settings: Settings, now: datetime) -> tuple[PostCopy, str]:

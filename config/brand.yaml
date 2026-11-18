@@ -45,7 +45,7 @@ crime:
 #   detailed = hook / facts / 📍 line / follow CTA (the earlier format)
 caption:
   style: dallas
-  cta: "Follow us on Instagram {instagram_handle}"
+  cta: ""                  # the Dallas page's captions carry no follow line; set e.g. "Follow us on Instagram {instagram_handle}" to add one
   hashtags: false        # the Dallas page posts no hashtags on Facebook; true puts them in the first comment
 
 # Licensed photo providers, tried in this order until one returns results. Keys are optional per provider;
@@ -61,9 +61,13 @@ colors:
   muted: "#D7D9E0"
 
 card:
-  style: quoted           # quoted = a post inside a post: the source's post (author, handle, text, photo) as a white card, the way a
-                          #          shared post looks on Facebook; plain = the photo as-is with a small @handle watermark;
-                          #          headline = text overlay card. Culture-calendar posts always use the plain photo.
+  style: tweet            # tweet  = OUR post as the Dallas Texas TV page does it: white card, our logo + page name + @handle, a one-line
+                          #          news headline, then the photo with rounded corners (the "post inside a post" look)
+                          # quoted = the SOURCE's post rendered as a card (name, domain, their text, photo)
+                          # plain  = the photo as-is with a small @handle watermark;  headline = text overlay card
+  logo: assets/logo.png   # square PNG used as the avatar on the card (drop in your real logo; scripts/make_logo.py drew this one)
+  verified_badge: false   # the Dallas page shows Meta's blue check because it is verified; turn on only once this page is
+  photo_credit_on_card: false   # credits for stock / Creative-Commons photos stay in the first comment (true = small grey line on the card)
   quoted_handles:         # shown under the author only when the story is itself a social post (extra.post_url); otherwise the
                           # card shows the website domain the quoted text really comes from
     Fort Worth Police Department: "@fortworthpd"

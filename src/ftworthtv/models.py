@@ -69,7 +69,7 @@ class PostCopy(BaseModel):
     skip: bool = Field(default=False, description="true if this story should not be posted")
     skip_reason: str = Field(default="", description="why it was skipped, empty if not skipped")
     category: Category = Field(default="other")
-    headline: str = Field(description="<= 60 chars, no emoji/hashtags, for the photo overlay")
+    headline: str = Field(description="<= 110 chars, the one-line news headline printed on the post card, sentence case, no emoji/hashtags, no trailing period")
     caption: str = Field(description="the Facebook caption, hook first, under 500 chars, no hashtags, no URLs")
     first_comment: str = Field(default="", description="source line + photo credit placeholder {photo_credit}")
     hashtags: list[str] = Field(default_factory=list, description="5-8 hashtags like #FortWorth")

@@ -36,21 +36,30 @@ link previews, bullet lists, city-council process stories, obituaries, press-rel
 
 ## 1b. The format that carries most of their feed: a post inside a post
 
-Scroll Dallas Texas TV and most media is not a photo they took. It is somebody else's post, shown inside theirs, with their
-one-line caption above it: a DPD or Dallas Fire bulletin, a WFAA/FOX 4 headline, a venue's show announcement, a fan's
-Instagram story from the stands. Two mechanics produce that look, and the pipeline does both:
+Two real posts from the page (Nov 2026), measured from screenshots:
 
-| What they do | What we do | Where |
-|---|---|---|
-| Share another page's public Facebook post (Facebook nests it) | `extra.facebook_post_url` → Facebook publisher posts it as a share | `publishers/facebook.py`, mode `share` |
-| Post a screenshot of a tweet / headline / bulletin as the photo | `card.style: quoted` renders the source's post as a card: name, domain or @handle, date, their text, their photo | `images/card.py: render_quote_card` |
+**Caption** (above the media, two short paragraphs, plain facts, a quote when the article has one, nothing else):
 
-Rules the quoted card follows so it is never a fake screenshot: it quotes the source's *own* public text (headline + first
-sentence, or the bulletin fields), names the real source and where the text came from, shows no platform logo and no invented
-engagement numbers, and keeps photo credits inside the card when the photo is not the source's. Booking photos are contained,
-never cropped.
+> Rep. Eddie Morales Jr. of Eagle Pass filed House Bill 410. It would make it illegal for ICE agents in Texas to cover their faces.
+>
+> Supporters say agents should be identifiable. ICE says masks protect agents from being targeted.
 
-## 2. The Fort Worth copy: pillar → automated source → example post
+> Texas Lt. Gov.-elect Vikki Goodwin says a bill to regulate THC will be one of her top priorities when lawmakers meet in January. "I'm not interested in a full ban on THC," she said.
+>
+> Incoming Agriculture Commissioner Clayton Tucker went further. He called hemp a possible "saving grace" for Texas farmers.
+
+**Media**: a screenshot-style card of *their own* post. White, edge to edge. Top left their round logo (about 7% of the
+width), "Dallas Texas TV" in bold with the blue check, "@DallasTexasTV" in grey under it. Then one headline line in plain
+(not bold) type, about 3% of the width tall, wrapping to two lines: "New Texas bill filed would ban ICE agents from wearing
+masks/face coverings", "New Texas leaders say THC rules are a top priority for 2027". Then the photo with rounded corners,
+3:2, inset about 13.5% on each side. No date, no like counts, no platform logo. The whole image is about 1.3:1.
+
+What the pipeline does with it: `card.style: tweet` renders exactly that card for every post (`images/card.py:
+render_tweet_card`) with our logo, "Fort Worth Texas TV", "@FortWorthTexasTV", the writer's `headline` and the photo; the
+caption writer follows the two-paragraph rule above (`writer.py: DALLAS_CAPTION_RULES` for Claude, `dallas_caption` for the
+template). The blue check is off until the page is verified (`card.verified_badge`).
+
+## 2. The Fort Worth copy: pillar → automated source → example post## 2. The Fort Worth copy: pillar → automated source → example post
 
 | Pillar | Fort Worth source (in this repo) | Example output |
 |--------|----------------------------------|----------------|

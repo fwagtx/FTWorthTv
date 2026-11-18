@@ -14,8 +14,9 @@ the captions use the Claude subscription you already have.
 | 4 | Volume | up to 2 posts per run, 10 per day, quiet 11pm–6am Central |
 | 5 | Sponsor line | none until you have a sponsor ("Official partner of …" every 5th post) |
 
-6. **Media look** — `card.style: quoted` (default: the source's post rendered as a card inside ours, the Dallas "post inside a
-   post" look), `plain` (just the photo + watermark) or `headline` (text on the photo). Change it in `config/brand.yaml`.
+6. **Logo** — replace `assets/logo.png` with the real page logo (square PNG). It is the avatar on every post card
+   (`card.style: tweet`, the Dallas look: our logo + name + handle, one headline line, the photo). Turn on
+   `card.verified_badge` only once Meta verifies the page.
 
 ## B. Free keys (15 minutes total) → paste as GitHub secrets
 

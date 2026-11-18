@@ -118,3 +118,31 @@ def test_quoted_style_is_used_by_the_planner(settings, now, tmp_path):
     settings.max_posts = 3
     report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
     assert all(d.image and d.image.path.name == "quote.jpg" for d in report.drafts if d.story.source_kind != "culture")
+
+
+def test_tweet_card_matches_the_reference_layout(settings, tmp_path):
+    from ftworthtv.images.card import render_tweet_card
+    photo = tmp_path / "p.jpg"
+    Image.new("RGB", (1500, 1000), (60, 110, 60)).save(photo)
+    out = render_tweet_card(name="Fort Worth Texas TV", handle="@FortWorthTexasTV", headline="New Texas leaders say THC rules are a top priority for 2027",
+                            photo=photo, logo=settings.root / "assets" / "logo.png", out_path=tmp_path / "post.jpg", fonts_dir=settings.fonts_dir)
+    with Image.open(out) as im:
+        assert im.width == 1200 and 1.2 < im.width / im.height < 1.45     # landscape, like their screenshots (about 1.3:1)
+        assert im.getpixel((5, 5)) == (255, 255, 255)                      # white card edge to edge
+    tall = tmp_path / "tall.jpg"
+    Image.new("RGB", (600, 900), (120, 60, 60)).save(tall)
+    out2 = render_tweet_card(name="Fort Worth Texas TV", handle="@FortWorthTexasTV", headline="Fort Worth police searching for a sample person",
+                             photo=tall, logo=None, out_path=tmp_path / "post2.jpg", fonts_dir=settings.fonts_dir, verified=True, credit="Photo: x")
+    with Image.open(out2) as im:
+        assert im.height <= int(1200 * 0.73 * 1.1) + 400                   # tall photo is contained, not stretched down the page
+    out3 = render_tweet_card(name="Fort Worth Texas TV", handle="@FortWorthTexasTV", headline="Text-only post", photo=None, logo=None,
+                             out_path=tmp_path / "post3.jpg", fonts_dir=settings.fonts_dir)
+    assert out3.exists()
+
+
+def test_default_style_is_our_post_card(settings, now, tmp_path):
+    from ftworthtv.examples import example_stories
+    from ftworthtv.pipeline import run
+    settings.max_posts = 3
+    report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
+    assert all(d.image and d.image.path.name == "post.jpg" for d in report.drafts)

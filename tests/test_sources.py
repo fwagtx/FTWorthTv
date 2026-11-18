@@ -145,11 +145,11 @@ def test_wanted_story_renders_as_contained_mugshot_card(settings, now, tmp_path)
     story.category = "crime"
     copy, writer = write_copy(story, settings, now)
     assert copy.caption.startswith("Texas DPS is looking for Sample Local, wanted for") and copy.hashtags == []
-    assert copy.caption.endswith("Follow us on Instagram @FortWorthTexasTV")
+    assert "Call " in copy.caption and "#" not in copy.caption and "Follow us" not in copy.caption
     settings.offline = False  # the data: URI needs no network
     draft = PostDraft(story=story, copy=copy, writer=writer)
     asset = plan_image(draft, settings, State(tmp_path / "s0.json"), tmp_path / "w0")
-    assert asset.provider == "source" and asset.license == "official" and asset.path.name == "quote.jpg"   # default: quoted card
+    assert asset.provider == "source" and asset.license == "official" and asset.path.name == "post.jpg"   # default: our post card
     settings.brand["card"]["style"] = "plain"
     asset = plan_image(draft, settings, State(tmp_path / "s.json"), tmp_path / "w")
     assert asset.provider == "source" and asset.license == "official"

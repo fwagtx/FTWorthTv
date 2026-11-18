@@ -16,8 +16,8 @@ def test_template_writer_covers_every_kind(settings, now, tmp_path):
         assert "http" not in copy.caption and "#" not in copy.caption
         assert "{photo_credit}" in copy.first_comment and story.url in copy.first_comment
         assert copy.hashtags == []                                   # dallas style: no hashtags on Facebook
-        assert len(copy.headline) <= 64
-        assert "Follow us on Instagram @FortWorthTexasTV" in copy.caption
+        assert len(copy.headline) <= 120
+        assert "Follow us" not in copy.caption                        # no follow line, like the Dallas captions
         body = copy.caption.split("\n\nFollow us")[0]
         assert "📍" not in body and "•" not in body and len(body) <= 420
         kinds_seen.add(story.source_kind)
@@ -45,7 +45,7 @@ def test_finalize_strips_urls_and_hashtags_and_fills_defaults(settings, now, tmp
     assert "http" not in out.caption and "#" not in out.caption and "\n\n\n" not in out.caption
     assert out.hashtags[:2] == ["#one", "#two"] and len(out.hashtags) <= 8
     assert story.url in out.first_comment and "{photo_credit}" in out.first_comment
-    assert len(out.headline) <= 65
+    assert len(out.headline) <= 121
 
 
 def test_system_prompt_carries_brand(settings):
@@ -59,16 +59,17 @@ def test_dallas_caption_shapes(settings, now, tmp_path):
     from ftworthtv.writer import dallas_caption, finalize, template_copy
     s = Story(id="x", source="Fort Worth Report", source_kind="rss", title="New barbecue joint opens on Magnolia Avenue in Near Southside",
               summary="A family-run smokehouse opened its doors on Magnolia Avenue this week. Lines wrapped around the block.", url="https://x/y", category="food")
-    assert dallas_caption(s, settings, now, "food") == ["New barbecue joint opens on Magnolia Avenue in Near Southside. A family-run smokehouse opened its doors on Magnolia Avenue this week."]
+    assert dallas_caption(s, settings, now, "food") == ["New barbecue joint opens on Magnolia Avenue in Near Southside. A family-run smokehouse opened its doors on Magnolia Avenue this week.",
+                                                        "Lines wrapped around the block."]
     t = Story(id="t", source="FOX 4", source_kind="rss", title="Crash shuts down northbound I-35W near downtown Fort Worth during morning rush",
               summary="All northbound lanes were closed after a multi-vehicle crash.", url="https://x/z", category="traffic")
-    assert dallas_caption(t, settings, now, "traffic") == ["Crash shuts down northbound I-35W near downtown Fort Worth during morning rush 🚨"]
+    assert dallas_caption(t, settings, now, "traffic") == ["Crash shuts down northbound I-35W near downtown Fort Worth during morning rush. All northbound lanes were closed after a multi-vehicle crash. 🚨"]
     w = Story(id="w", source="Fort Worth Police Department", source_kind="wanted", title="WANTED: Sample Person", summary="", url="https://x/w", category="crime",
               extra={"agency": "Fort Worth Police Department", "name": "Sample Person", "charge": "Aggravated Robbery", "reward": "$2,000", "tip_phone": "817-469-TIPS (8477)"})
     lines = dallas_caption(w, settings, now, "crime")
     assert lines[0].startswith("Fort Worth police are looking for Sample Person, wanted for aggravated robbery.")
     out = finalize(template_copy(t, settings, now), t, settings)
-    assert out.caption.endswith("Follow us on Instagram @FortWorthTexasTV") and out.hashtags == []
+    assert "Follow us" not in out.caption and out.hashtags == [] and out.caption.endswith("🚨")
 
 
 def test_submitted_clip_credit_matches_dallas_shape(settings, now):
@@ -94,7 +95,7 @@ def test_claude_code_writer_parses_headless_output(settings, now, tmp_path, monk
     story = Story(id="s", source="Fort Worth Report", source_kind="rss", title="New barbecue joint opens on Magnolia Avenue", summary="", url="https://x/y", category="food")
     copy, writer = write_copy(story, settings, now)
     assert writer == "claude-code" and copy.caption.startswith("New barbecue spot just opened on Magnolia Avenue")
-    assert copy.caption.endswith("Follow us on Instagram @FortWorthTexasTV")
+    assert "Follow us" not in copy.caption
     settings.writer = "template"
     _, writer = write_copy(story, settings, now)
     assert writer == "template"

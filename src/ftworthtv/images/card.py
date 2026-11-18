@@ -415,3 +415,98 @@ def render_quote_card(*, author: str, handle: str | None, when: str, text: str, 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(out_path, "JPEG", quality=92, optimize=True)
     return out_path
+
+
+def _verified_badge(draw: ImageDraw.ImageDraw, x: int, cy: int, size: int) -> None:
+    """A plain blue disc with a white check (no platform artwork)."""
+    r = size // 2
+    draw.ellipse([x, cy - r, x + size, cy + r], fill=(29, 155, 240))
+    w = max(3, size // 9)
+    pts = [(x + size * 0.28, cy + size * 0.02), (x + size * 0.44, cy + size * 0.20), (x + size * 0.74, cy - size * 0.20)]
+    draw.line(pts, fill=(255, 255, 255), width=w, joint="curve")
+
+
+def render_tweet_card(*, name: str, handle: str, headline: str, photo: Path | None, logo: Path | None, out_path: Path,
+                      fonts_dir: Path, verified: bool = False, credit: str | None = None, width: int = 1200) -> Path:
+    """Our own post, the way the Dallas Texas TV page posts media: a white card with our avatar, page name and @handle,
+    a one-line news headline in plain type, then the photo with rounded corners. No date, no counts, no platform logo.
+    Proportions are measured from their posts: ~13.5% side padding, headline ~3.2% of the width, 3:2 photo below."""
+    W = width
+    pad_x, pad_top, pad_bottom = int(W * 0.135), int(W * 0.03), int(W * 0.014)
+    ink, muted, border, white = (15, 20, 25), (83, 100, 113), (207, 217, 222), (255, 255, 255)
+    content_w = W - 2 * pad_x
+    name_font = load_font(fonts_dir, bold=True, size=int(W * 0.0285))
+    handle_font = load_font(fonts_dir, bold=False, size=int(W * 0.0245))
+    head_font = load_font(fonts_dir, bold=False, size=int(W * 0.0315))
+    credit_font = load_font(fonts_dir, bold=False, size=int(W * 0.018))
+    avatar = int(W * 0.073)
+
+    probe = ImageDraw.Draw(Image.new("RGB", (W, 8)))
+    lines = wrap_text(probe, " ".join(headline.split()), head_font, content_w)
+    if len(lines) > 4:
+        lines = lines[:4]
+        lines[-1] = lines[-1].rstrip(".,;:") + "…"
+    line_h = int(head_font.size * 1.36)
+    head_y = pad_top + avatar + int(W * 0.040)
+    photo_y = head_y + line_h * len(lines) + int(W * 0.037)
+
+    photo_img = None
+    if photo and Path(photo).exists():
+        with Image.open(photo) as im:
+            photo_img = im.convert("RGB")
+        scale = content_w / photo_img.width
+        natural_h = int(photo_img.height * scale)
+        cap = int(content_w * 1.1)
+        if natural_h <= cap:
+            photo_img = photo_img.resize((content_w, max(1, natural_h)), Image.LANCZOS)
+        else:  # tall photo: contain on a blurred copy of itself, never crop a face
+            box = cover(photo_img, (content_w, cap)).filter(ImageFilter.GaussianBlur(26))
+            box = Image.blend(box, Image.new("RGB", box.size, (22, 24, 30)), 0.3)
+            fs = cap / photo_img.height
+            fitted = photo_img.resize((max(1, int(photo_img.width * fs)), cap), Image.LANCZOS)
+            box.paste(fitted, ((content_w - fitted.width) // 2, 0))
+            photo_img = box
+    credit_h = (credit_font.size + int(W * 0.014)) if (credit and photo_img is not None) else 0
+    H = photo_y + (photo_img.height if photo_img is not None else -int(W * 0.02)) + credit_h + pad_bottom
+
+    canvas = Image.new("RGB", (W, H), white)
+    draw = ImageDraw.Draw(canvas)
+    # avatar
+    ax, ay = pad_x, pad_top
+    mask = Image.new("L", (avatar, avatar), 0)
+    ImageDraw.Draw(mask).ellipse([0, 0, avatar - 1, avatar - 1], fill=255)
+    if logo and Path(logo).exists():
+        with Image.open(logo) as lg:
+            lg = lg.convert("RGBA").resize((avatar, avatar), Image.LANCZOS)
+        flat = Image.new("RGB", (avatar, avatar), white)
+        flat.paste(lg, (0, 0), lg)
+        canvas.paste(flat, (ax, ay), mask)
+    else:
+        draw.ellipse([ax, ay, ax + avatar, ay + avatar], fill=(20, 24, 43))
+        f = load_font(fonts_dir, bold=True, size=int(avatar * 0.4))
+        tw = draw.textlength(_initials(name), font=f)
+        draw.text((ax + avatar / 2 - tw / 2, ay + avatar / 2 - f.size * 0.58), _initials(name), font=f, fill=white)
+    # name, badge, handle
+    tx = ax + avatar + int(W * 0.02)
+    draw.text((tx, ay + int(avatar * 0.02)), name, font=name_font, fill=ink)
+    if verified:
+        nw = draw.textlength(name, font=name_font)
+        _verified_badge(draw, int(tx + nw + name_font.size * 0.3), int(ay + avatar * 0.02 + name_font.size * 0.58), int(name_font.size * 0.9))
+    draw.text((tx, ay + int(avatar * 0.50)), handle, font=handle_font, fill=muted)
+    # headline
+    y = head_y
+    for ln in lines:
+        draw.text((pad_x, y), ln, font=head_font, fill=ink)
+        y += line_h
+    # photo with rounded corners and a hairline border
+    if photo_img is not None:
+        radius = int(W * 0.0175)
+        m = Image.new("L", photo_img.size, 0)
+        ImageDraw.Draw(m).rounded_rectangle([0, 0, photo_img.width - 1, photo_img.height - 1], radius=radius, fill=255)
+        canvas.paste(photo_img, (pad_x, photo_y), m)
+        draw.rounded_rectangle([pad_x, photo_y, pad_x + photo_img.width - 1, photo_y + photo_img.height - 1], radius=radius, outline=border, width=2)
+        if credit:
+            draw.text((pad_x, photo_y + photo_img.height + int(W * 0.008)), credit, font=credit_font, fill=muted)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    canvas.save(out_path, "JPEG", quality=93, optimize=True)
+    return out_path

@@ -11,7 +11,7 @@ from ..models import CATEGORY_LABELS, ImageAsset, PostDraft
 from ..sources import cameras
 from ..state import State
 from ..textutil import fmt_time, to_local
-from .card import render_card, render_plain, render_quote_card
+from .card import render_card, render_plain, render_quote_card, render_tweet_card
 from .fetch import download_image
 from .providers import find_photo
 
@@ -194,7 +194,20 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                         pass
 
     card_cfg = brand.get("card", {}) or {}
-    style = card_cfg.get("style", "plain")
+    style = card_cfg.get("style", "tweet")
+    if style == "tweet":
+        logo = settings.root / str(card_cfg.get("logo") or brand.get("logo") or "assets/logo.png")
+        own_photo = provider in ("placeholder", "source", "nws", "ticketmaster")
+        show_credit = bool(card_cfg.get("photo_credit_on_card", False)) and not own_photo
+        headline = copy.headline or story.title
+        out = render_tweet_card(name=brand.get("page_name", ""), handle=brand.get("instagram_handle") or brand.get("handle") or "",
+                                headline=headline, photo=background, logo=logo, out_path=workdir / "post.jpg", fonts_dir=settings.fonts_dir,
+                                verified=bool(card_cfg.get("verified_badge", False)), credit=credit if show_credit else None)
+        with Image.open(out) as im:
+            w, h = im.size
+        return ImageAsset(path=out, credit=credit if provider != "placeholder" else f"Card: {brand.get('short_name', 'FTW TV')}",
+                          license=license_ if provider != "placeholder" else "card", provider=provider if provider != "placeholder" else "card",
+                          source_url=source_url, photo_id=photo_id, width=w, height=h)
     if style == "quoted" and story.source_kind not in ("culture",):
         author, handle, text, when, bold = quote_fields(story, settings)
         out = render_quote_card(author=author, handle=handle, when=when, text=text, photo=background, out_path=workdir / "quote.jpg",

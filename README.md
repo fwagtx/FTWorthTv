@@ -87,30 +87,31 @@ workflow with `only_kinds`).
 
 ---
 
-## The looks: "dallas" captions, and "quoted" / "plain" / "headline" media
+## The look: exactly the Dallas Texas TV post
 
-`config/brand.yaml` has two switches that decide how a post looks:
+Every post has two parts, copied from how that page posts (see `docs/CONTENT_PLAYBOOK.md`, section 1b, for the measured reference):
 
-* `caption.style: dallas` — one or two plain sentences, present tense, no hashtags, no bullet points, no 📍 line, at most one
-  emoji (🚨 for incidents, 😂 for funny moments), then `Follow us on Instagram @FortWorthTexasTV`. That is how the Dallas page
-  writes ("Kid Cudi joins Kanye at AT&T", "Things got heated between Cowboys and 49ers fans at Texas Live during the game.
-  Arlington police responded to the scene. 🚨"). `detailed` is the hook / facts / 📍 / CTA format.
-* `card.style: quoted` (default) — **a post inside a post.** The Dallas page's most common format is their one-line caption on
-  top and, as the media, somebody else's post: a police department's bulletin, a station's headline, a venue's announcement,
-  a fan's photo. We render that nested post ourselves: a white card on the feed-grey background with the source's name,
-  the domain (or real @handle when the story *is* a social post), the date, the source's own headline / bulletin text and
-  the photo. Tall photos (booking photos, phone screenshots) are contained on a blurred backdrop, never cropped. No platform
-  logos, no invented like counts. A stock / Creative-Commons photo carries its credit inside the card; a source's own photo
-  (police release, Ticketmaster, NWS radar) does not need one. Culture-calendar posts keep the plain photo.
-* `card.style: plain` — the photo as-is at its own aspect ratio with a small `@FortWorthTexasTV` watermark, no headline overlay,
-  no badge. A story without a usable photo becomes a link post instead of a fake graphic.
-* `card.style: headline` — the branded 1080×1350 card with the headline on the photo (useful when the photo is generic).
+1. **The caption** (`caption.style: dallas`): a plain, factual summary of the story in 2 to 4 short sentences, split into
+   two short paragraphs. No hook line, no bullets, no 📍 line, no hashtags, no URLs, no follow line (set `caption.cta` to add
+   one). At most one emoji, 🚨 for incidents. Example from their page: *"Rep. Eddie Morales Jr. of Eagle Pass filed House
+   Bill 410. It would make it illegal for ICE agents in Texas to cover their faces."* then *"Supporters say agents should be
+   identifiable. ICE says masks protect agents from being targeted."* The Claude writer produces this from the article; the
+   template writer builds it from the article lead (title + complete sentences, boilerplate filtered).
+2. **The media** (`card.style: tweet`, the default): **our own post as a card**, the "post inside a post" look. A white card
+   with our logo, "Fort Worth Texas TV" and "@FortWorthTexasTV", a one-line news headline in plain type ("New Texas leaders
+   say THC rules are a top priority for 2027"), then the photo with rounded corners. Proportions are measured from their
+   screenshots (1200 px wide, about 1.3:1 with a 3:2 photo). No date, no counts, no platform logo. Tall photos (booking
+   photos) are contained on a blurred backdrop, never cropped. `card.logo` points at the avatar PNG (`assets/logo.png` is a
+   placeholder drawn by `scripts/make_logo.py`; drop in the real logo). `card.verified_badge` draws the blue check once the
+   page is verified. Stock / Creative-Commons photo credits stay in the first comment (`card.photo_credit_on_card: true`
+   prints a small grey line on the card instead).
 
-When a story comes with a **public facebook.com post URL** (`extra.facebook_post_url`, e.g. a submission or a page you follow),
-the Facebook publisher posts it as a *share*: Facebook itself renders the original post nested inside ours, which is the
-literal "post inside a post". Metricool has no share type, so there the URL becomes a link preview.
+Other media styles stay available: `quoted` (the *source's* post rendered as a card: their name, domain, text and photo),
+`plain` (the photo as-is with a small watermark) and `headline` (text on the photo). When a story carries a public
+facebook.com post URL (`extra.facebook_post_url`), the Facebook publisher posts it as a *share* and Facebook nests the
+original post itself; Metricool turns it into a link preview.
 
-Source credit, photo credit and the presumption-of-innocence line stay in the first comment in both styles.
+Source credit, photo credit and the presumption-of-innocence line go in the first comment.
 
 ## What a run produces
 
