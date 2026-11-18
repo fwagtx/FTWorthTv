@@ -56,7 +56,8 @@ def cmd_run(args) -> int:
         if not args.no_sources:
             from .sources import collect
             stories += collect(settings, now or datetime.now(timezone.utc))
-    report = run(settings, now=now, stories=stories, publisher_name=args.publisher)
+    only = [k.strip() for k in (args.only_kinds or "").split(",") if k.strip()] or None
+    report = run(settings, now=now, stories=stories, publisher_name=args.publisher, only_kinds=only)
     print(report.summary())
     print(f"preview: {report.run_dir / 'preview.html'}")
     return 0 if all(r.ok for r in report.results) else 1
@@ -171,6 +172,7 @@ def build_parser() -> argparse.ArgumentParser:
     common(r)
     r.add_argument("--stories", help="JSON file of extra stories to consider (real headlines, submissions)")
     r.add_argument("--no-sources", action="store_true", help="with --stories: use only the JSON stories, skip the feeds")
+    r.add_argument("--only-kinds", help="comma list of source kinds to consider, e.g. wanted,arrest_log (preview one source)")
     r.set_defaults(func=cmd_run)
     pv = sub.add_parser("preview", help="demo on bundled example stories, no network/keys needed")
     common(pv)

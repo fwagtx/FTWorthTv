@@ -57,7 +57,7 @@ def in_quiet_hours(local: datetime, window) -> bool:
 
 
 def run(settings: Settings, *, now: datetime | None = None, stories: list[Story] | None = None,
-        publisher_name: str | None = None) -> RunReport:
+        publisher_name: str | None = None, only_kinds: list[str] | None = None) -> RunReport:
     now = now or datetime.now(timezone.utc)
     local = now.astimezone(settings.tz)
     day = local.date().isoformat()
@@ -69,6 +69,8 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
 
     # 1. collect + filter + rank
     stories = collect(settings, now) if stories is None else stories
+    if only_kinds:
+        stories = [s for s in stories if s.source_kind in only_kinds]
     report.candidates = len(stories)
     kept, report.dropped = filter_stories(stories, settings, state, now)
     ranked = rank(kept, now)

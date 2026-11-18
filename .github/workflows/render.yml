@@ -26,6 +26,9 @@ on:
       wanted_max:
         description: "max WANTED posts in this run"
         default: "1"
+      only_kinds:
+        description: "comma list of source kinds to keep, e.g. wanted,arrest_log (blank = all)"
+        default: ""
 
 permissions:
   contents: write
@@ -53,7 +56,9 @@ jobs:
           if [ -n "${{ inputs.now }}" ]; then NOW_ARG="--now ${{ inputs.now }}"; fi
           SRC_ARG="--no-sources"
           if [ "${{ inputs.live_sources }}" = "true" ]; then SRC_ARG=""; fi
-          python -m ftworthtv -v run --stories "${{ inputs.stories }}" $SRC_ARG --dry-run --max "${{ inputs.max_posts }}" --since-hours "${{ inputs.since_hours }}" $NOW_ARG
+          KINDS_ARG=""
+          if [ -n "${{ inputs.only_kinds }}" ]; then KINDS_ARG="--only-kinds ${{ inputs.only_kinds }}"; fi
+          python -m ftworthtv -v run --stories "${{ inputs.stories }}" $SRC_ARG --dry-run --max "${{ inputs.max_posts }}" --since-hours "${{ inputs.since_hours }}" $NOW_ARG $KINDS_ARG
       - name: Push renders to a branch
         run: |
           RUN=$(ls -d out/runs/* | tail -1)

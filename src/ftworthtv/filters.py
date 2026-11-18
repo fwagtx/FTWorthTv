@@ -43,9 +43,9 @@ def relevance_score(story: Story, keywords: list[str]) -> int:
     score = 0
     for kw in keywords:
         kw = kw.lower()
-        if kw in title:
+        if _has_word(kw, title):
             score += 2
-        elif kw in summary:
+        elif _has_word(kw, summary):
             score += 1
     return score
 
@@ -58,13 +58,25 @@ def blocked(story: Story, blocklist: list[str]) -> str | None:
     return None
 
 
+_WORD_RE: dict[str, "re.Pattern[str]"] = {}
+
+
+def _has_word(word: str, text: str) -> bool:
+    """Whole-word match so 'rain' does not fire on 'drainage' or 'art' on 'party'."""
+    pat = _WORD_RE.get(word)
+    if pat is None:
+        pat = _WORD_RE[word] = re.compile(r"(?<![a-z0-9])" + re.escape(word.strip()) + r"(?![a-z0-9])", re.I)
+    return bool(pat.search(text))
+
+
 def infer_category(story: Story) -> str:
     text = story.text()
+    title = story.title.lower()
     best, best_hits = None, 0
     for cat, words in CATEGORY_KEYWORDS.items():
-        hits = sum(1 for w in words if w in text)
+        hits = sum(1 for w in words if _has_word(w, text))
         # title hits count double
-        hits += sum(1 for w in words if w in story.title.lower())
+        hits += sum(1 for w in words if _has_word(w, title))
         if hits > best_hits:
             best, best_hits = cat, hits
     if story.category_hint and (best_hits == 0 or story.category_hint in ("weather", "events", "sports", "crime")):

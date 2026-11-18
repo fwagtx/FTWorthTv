@@ -56,3 +56,8 @@ def test_ranking_puts_severe_weather_first_and_pick_is_diverse(settings, now, tm
     assert len(picked) == 4
     cats = [p.category for p in picked if not p.is_urgent]
     assert len(cats) == len(set(cats))   # no duplicate categories among non-urgent picks
+
+
+def test_keywords_match_whole_words_only():
+    assert infer_category(_story("Fitch upgrades Fort Worth's Drainage Rev Bonds to AAA")) != "weather"
+    assert infer_category(_story("Heavy rain floods Fort Worth streets")) == "weather"
