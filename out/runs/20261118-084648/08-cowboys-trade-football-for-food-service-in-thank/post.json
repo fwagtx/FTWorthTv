@@ -1,0 +1,48 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T23:31:48.609830+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-084648/08-cowboys-trade-football-for-food-service-in-thank/photo.jpg",
+    "credit": "Photo: John Pozadzides (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/97705426@N00/4041399903"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Cowboys trade football for food service",
+    "caption": "Cowboys trade football for food service in Thanksgiving tradition. Dak Prescott and his teammates traded the football field for food service, serving an early Thanksgiving meal to Salvation Army clients and spending time with fans.\n\nFollow us on Instagram @FortWorthTexasTV",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/cowboys-trade-football-for-food-service-in-thanksgiving-tradition/4107526/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "d65da06093eb5de1",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Cowboys trade football for food service in Thanksgiving tradition",
+    "summary": "Dak Prescott and his teammates traded the football field for food service, serving an early Thanksgiving meal to Salvation Army clients and spending time with fans.",
+    "url": "https://www.nbcdfw.com/news/local/cowboys-trade-football-for-food-service-in-thanksgiving-tradition/4107526/",
+    "published": "2026-11-17T03:58:35+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/dak-prescott.png?fit=1028,578&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.0941
+  }
+}

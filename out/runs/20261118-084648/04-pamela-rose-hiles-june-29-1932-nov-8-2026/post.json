@@ -1,0 +1,48 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T18:31:48.609830+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-084648/04-pamela-rose-hiles-june-29-1932-nov-8-2026/photo.jpg",
+    "credit": "Photo: Ken Lund (CC BY-SA 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/75683070@N00/68218446"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Pamela Rose Hiles – June 29, 1932 – Nov. 8, 2026",
+    "caption": "Pamela Rose Hiles – June 29, 1932 – Nov. 8, 2026\n\nFollow us on Instagram @FortWorthTexasTV",
+    "first_comment": "Source: Fort Worth Report https://fortworthreport.org/2026/11/18/pamela-rose-hiles-june-29-1932-november-8-2026/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "bd99781d669037dd",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Pamela Rose Hiles – June 29, 1932 – Nov. 8, 2026",
+    "summary": "Pamela R. Hiles, 94, of Fort Worth, passed away Sunday, Nov. 8, 2026, at the Community Health Care Center of Texas in Fort Worth, following a brief illness.",
+    "url": "https://fortworthreport.org/2026/11/18/pamela-rose-hiles-june-29-1932-november-8-2026/",
+    "published": "2026-11-18T11:35:17+00:00",
+    "category_hint": null,
+    "image_url": "https://i0.wp.com/fortworthreport.org/wp-content/uploads/2026/11/9651747_fbs_980e9711.jpg?fit=200%2C200&amp;ssl=1",
+    "image_credit": "Photo: Fort Worth Report",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report"
+    },
+    "category": "community",
+    "relevance": 1,
+    "score": 0.8115
+  }
+}

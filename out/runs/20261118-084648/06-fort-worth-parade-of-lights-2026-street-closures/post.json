@@ -1,0 +1,48 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-18T21:01:48.609830+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-084648/06-fort-worth-parade-of-lights-2026-street-closures/photo.jpg",
+    "credit": "Photo: Incase. (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/62021300@N00/2720494170"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "events",
+    "headline": "Fort Worth Parade of Lights 2026: Street closures",
+    "caption": "Fort Worth Parade of Lights 2026: Street closures, parking & more tips. Downtown Fort Worth will sparkle and shine with holiday spirit when the 44th annual GM Financial Parade of Lights marches through the streets on Sunday, November 22.\n\nFollow us on Instagram @FortWorthTexasTV",
+    "first_comment": "Source: CultureMap Fort Worth https://fortworth.culturemap.com/news/entertainment/parade-lights-2026-street-closures/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "concert crowd lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "f208a8106704af35",
+    "source": "CultureMap Fort Worth",
+    "source_kind": "rss",
+    "title": "Fort Worth Parade of Lights 2026: Street closures, parking & more tips",
+    "summary": "Downtown Fort Worth will sparkle and shine with holiday spirit when the 44th annual GM Financial Parade of Lights marches through the streets on Sunday, November 22.",
+    "url": "https://fortworth.culturemap.com/news/entertainment/parade-lights-2026-street-closures/",
+    "published": "2026-11-17T20:05:25+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: CultureMap Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.9,
+    "extra": {
+      "feed_title": "CultureMap Fort Worth"
+    },
+    "category": "events",
+    "relevance": 2,
+    "score": 0.3388
+  }
+}
