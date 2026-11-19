@@ -1,0 +1,51 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T21:20:00+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/09-tarrant-area-food-bank-hosts-thanksgiving-mega-f/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Arlington_June_2020_3_(AT%26T_Stadium).jpg",
+    "photo_id": "lib-arlington-june-2020-3-at-t-stadium-jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Tarrant Area Food Bank hosts Thanksgiving mega food distribution at AT&T Stadium",
+    "caption": "The Tarrant Area Food Bank and the Goodyear Cotton Bowl Classic are distributing food to 5,000 families at AT&T Stadium on Thursday morning. A Tarrant area food bank is working to make sure families in need have a meal this Thanksgiving.\n\nFOX 4's Alex Boyer has more. ARLINGTON, Texas - The Tarrant Area Food Bank is partnering with the Goodyear Cotton Bowl Classic to provide Thanksgiving meals to more than 5,000 North Texas families.",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth https://www.fox4news.com/good-day/tarrant-area-food-bank-hosts-thanksgiving-mega-food-distribution-att-stadium\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "204e11f78e7566d5",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "rss",
+    "title": "Tarrant Area Food Bank hosts Thanksgiving mega food distribution at AT&T Stadium",
+    "summary": "The Tarrant Area Food Bank and the Goodyear Cotton Bowl Classic are distributing food to 5,000 families at AT&T Stadium on Thursday morning. A Tarrant area food bank is working to make sure families in need have a meal this Thanksgiving. FOX 4's Alex Boyer has more. ARLINGTON, Texas - The Tarrant Area Food Bank is partnering with the Goodyear Cotton Bowl Classic to provide Thanksgiving meals to more than 5,000 North Texas families. The organizations are hosting a massive food distribution event Thursday morning outside AT&T Stadium in Arlington. The seventh annual Thanksgiving Mega Mobile Market runs from 8 a.m. to noon, or until supplies run out. Volunteers are handing out food in Lot 4, just east of the stadium near the corner of Cowboys Way and AT&T Way. The event is free and open to anyone who needs it. Organizers say people do not need to show an ID or documentation to receive…",
+    "url": "https://www.fox4news.com/good-day/tarrant-area-food-bank-hosts-thanksgiving-mega-food-distribution-att-stadium",
+    "published": "2026-11-19T12:19:28+00:00",
+    "category_hint": null,
+    "image_url": "https://static.fox4news.com/www.fox4news.com/content/uploads/2026/11/5397tz-thanksgiving-mega-mobile-market_00.00.00.12.jpg",
+    "image_credit": "Photo: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "Latest News | FOX 4 News",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 4,
+    "score": 0.5606
+  }
+}

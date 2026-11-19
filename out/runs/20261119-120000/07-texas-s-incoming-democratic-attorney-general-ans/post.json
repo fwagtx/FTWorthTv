@@ -1,0 +1,51 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T20:30:00+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/07-texas-s-incoming-democratic-attorney-general-ans/post.jpg",
+    "credit": "Photo: Oleg Yunakov via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:2026-05-26_-_Texas_State_Capitol_-_01.jpg",
+    "photo_id": "lib-2026-05-26-texas-state-capitol-01-jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Texas’s Incoming Democratic Attorney General Answers Our Biggest Questions",
+    "caption": "Nathan Johnson spoke to ‘Texas Monthly’ about reversing Paxton, not acting like Ted Cruz, and taking on the world’s richest man. Attorney General-elect Nathan Johnson at the Capitol, on November 16, 2026.\n\nPhotograph by Christopher Lee By Eric Benson Eric Benson Eric Benson is a senior writer at Texas Monthly seeking out the people and ideas that are powering the state.",
+    "first_comment": "Source: Texas Monthly https://www.texasmonthly.com/news-politics/attorney-general-nathan-johnson-interview/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "08f2110b740bb986",
+    "source": "Texas Monthly",
+    "source_kind": "rss",
+    "title": "Texas’s Incoming Democratic Attorney General Answers Our Biggest Questions",
+    "summary": "Nathan Johnson spoke to ‘Texas Monthly’ about reversing Paxton, not acting like Ted Cruz, and taking on the world’s richest man. Nathan Johnson talks to Texas Monthly about reversing Ken Paxton, pushing back against the border wall, and taking on the world’s richest man. Attorney General-elect Nathan Johnson at the Capitol, on November 16, 2026. Photograph by Christopher Lee By Eric Benson Eric Benson Eric Benson is a senior writer at Texas Monthly seeking out the people and ideas that are powering the state. For the last two decades, there were several immutable facts of American life: The sky was blue, your afternoon flight was delayed, and the Texas attorney general’s office was the eight-hundred-pound gorilla of the country’s conservative legal movement . Under Greg Abbott, who served as attorney general from 2002 to 2015, and his successor, Ken Paxton, the Texas AG’s office pushed…",
+    "url": "https://www.texasmonthly.com/news-politics/attorney-general-nathan-johnson-interview/",
+    "published": "2026-11-19T12:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://img.texasmonthly.com/2026/11/nathan-johnson-attorney-general-tmt-2.jpg?auto=compress&amp;crop=faces&amp;fit=scale&amp;fm=pjpg&amp;h=640&amp;ixlib=php-3.3.1&amp;q=45&amp;w=1024&amp;wpsize=large",
+    "image_credit": "Photo: Texas Monthly",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.48999999999999994,
+    "extra": {
+      "feed_title": "Texas Monthly",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.2641
+  }
+}

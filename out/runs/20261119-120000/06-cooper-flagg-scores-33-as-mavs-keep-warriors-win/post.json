@@ -1,0 +1,51 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T20:05:00+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/06-cooper-flagg-scores-33-as-mavs-keep-warriors-win/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_June_2016_33_(Tarrant_County_Courthouse).jpg",
+    "photo_id": "lib-fort-worth-june-2016-33-tarrant-county-courthouse-jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
+    "caption": "The higher-than-anticipated pricing signals broad investor enthusiasm for AI stocks even amid some market uncertainty stemming from the departure of Nvidia’s CEO and worries about an AI bubble. But the bigger test will be how Anthropic fares on the stock market.\n\nAnthropic said the offering consists of 980 million shares, roughly 956 million sold by the company and the rest by selling stockholders.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/dallas-mavericks/cooper-flagg-scores-33-as-mavericks-keep-warriors-winless-since-stephen-currys-injury/4108189/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "727a28e05fabf606",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
+    "summary": "Anthropic is set to begin trading on the Nasdaq on Thursday after pricing its IPO at $83 per share, valuing the artificial intelligence giant at $1.5 trillion and surpassing SpaceX as the largest initial public offering on record. The higher-than-anticipated pricing signals broad investor enthusiasm for AI stocks even amid some market uncertainty stemming from the departure of Nvidia’s CEO and worries about an AI bubble. But the bigger test will be how Anthropic fares on the stock market. Anthropic said the offering consists of 980 million shares, roughly 956 million sold by the company and the rest by selling stockholders. Proceeds totaling $81 billion put Anthropic’s IPO ahead of SpaceX…",
+    "url": "https://www.nbcdfw.com/news/sports/dallas-mavericks/cooper-flagg-scores-33-as-mavericks-keep-warriors-winless-since-stephen-currys-injury/4108189/",
+    "published": "2026-11-19T07:39:51+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/52798004895-1080pnbcstations.jpg?quality=85&strip=all&fit=1920,1080",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.2678
+  }
+}

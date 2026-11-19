@@ -1,0 +1,311 @@
+{
+  "daily": {
+    "2026-11-18": 1,
+    "2026-11-19": 19
+  },
+  "daily_by_category": {
+    "2026-11-18": {
+      "business": 1
+    },
+    "2026-11-19": {
+      "business": 1,
+      "community": 3,
+      "crime": 1,
+      "culture": 2,
+      "events": 1,
+      "other": 3,
+      "politics": 2,
+      "sports": 3,
+      "traffic": 2,
+      "weather": 1
+    }
+  },
+  "daily_by_scope": {
+    "2026-11-18": {
+      "local": 1
+    },
+    "2026-11-19": {
+      "dfw": 3,
+      "local": 11,
+      "national": 1,
+      "texas": 4
+    }
+  },
+  "flags": {},
+  "last_post_at": "2026-11-19T18:00:00+00:00",
+  "posted": {
+    "0483ca217fa88587": {
+      "at": "2026-11-19T13:10:00+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742237",
+      "post_url": null,
+      "posted_at": "2026-11-19T13:10:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "08f2110b740bb986": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/07-texas-s-incoming-democratic-attorney-general-ans",
+      "publisher": "dryrun",
+      "source": "Texas Monthly",
+      "title": "Texas’s Incoming Democratic Attorney General Answers Our Biggest Questions",
+      "url": "https://www.texasmonthly.com/news-politics/attorney-general-nathan-johnson-interview/"
+    },
+    "10161f1a60b419f9": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/05-fire-breaks-out-at-reverchon-park-in-dallas-slow",
+      "publisher": "dryrun",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Fire breaks out at Reverchon Park in Dallas, slowing tollway traffic",
+      "url": "https://www.fox4news.com/news/fire-breaks-out-reverchon-park-dallas-slowing-tollway-traffic"
+    },
+    "204e11f78e7566d5": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/09-tarrant-area-food-bank-hosts-thanksgiving-mega-f",
+      "publisher": "dryrun",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Tarrant Area Food Bank hosts Thanksgiving mega food distribution at AT&T Stadium",
+      "url": "https://www.fox4news.com/good-day/tarrant-area-food-bank-hosts-thanksgiving-mega-food-distribution-att-stadium"
+    },
+    "24b87d7eea5e8a9f": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/04-these-are-the-14-best-things-to-do-in-fort-worth",
+      "publisher": "dryrun",
+      "source": "CultureMap Fort Worth",
+      "title": "These are the 14 best things to do in Fort Worth this weekend",
+      "url": "https://fortworth.culturemap.com/news/entertainment/weekend-events-11-19-26/"
+    },
+    "2e8d6e753426167e": {
+      "at": "2026-11-19T04:30:00+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742199",
+      "post_url": null,
+      "posted_at": "2026-11-19T04:30:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "Barnes & Noble returns to central Fort Worth, opening in West 7th District",
+      "url": "https://fortworthreport.org/2026/11/18/barnes-noble-returns-to-central-fort-worth-opening-in-west-7th-district/"
+    },
+    "331393c0463e766b": {
+      "at": "2026-11-19T16:40:00+00:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433763067",
+      "post_url": null,
+      "posted_at": "2026-11-19T16:40:00+00:00",
+      "publisher": "metricool",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Voters will likely decide Dallas City Hall’s future in May election",
+      "url": "https://www.fox4news.com/news/voters-will-likely-decide-dallas-city-halls-future-may-election"
+    },
+    "3b0f1374a667b201": {
+      "at": "2026-11-19T13:45:00+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742281",
+      "post_url": null,
+      "posted_at": "2026-11-19T13:45:00+00:00",
+      "publisher": "metricool",
+      "source": "KVUE Austin",
+      "title": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
+      "url": "https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492"
+    },
+    "5c66a6acb6a731ee": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/08-senate-and-house-lawmakers-added-as-cosponsors-t",
+      "publisher": "dryrun",
+      "source": "Deadline",
+      "title": "Senate And House Lawmakers Added As Cosponsors To New Federal Film & TV Incentive Legislation",
+      "url": "https://deadline.com/2026/11/federal-film-incentive-senate-house-cosponsors-1237228481/"
+    },
+    "727a28e05fabf606": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/06-cooper-flagg-scores-33-as-mavs-keep-warriors-win",
+      "publisher": "dryrun",
+      "source": "NBC 5 DFW",
+      "title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
+      "url": "https://www.nbcdfw.com/news/sports/dallas-mavericks/cooper-flagg-scores-33-as-mavericks-keep-warriors-winless-since-stephen-currys-injury/4108189/"
+    },
+    "7be27b45a3d3be02": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/11-cowboys-strip-play-calling-duties-from-defensive",
+      "publisher": "dryrun",
+      "source": "NBC 5 DFW",
+      "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
+      "url": "https://www.nbcdfw.com/news/sports/blue-star/cowboys-strip-play-calling-duties-from-defensive-coordinator-christian-parker/4107747/"
+    },
+    "b7d958555f9a76c9": {
+      "at": "2026-11-19T16:05:00+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433763022",
+      "post_url": null,
+      "posted_at": "2026-11-19T16:05:00+00:00",
+      "publisher": "metricool",
+      "source": "KXAN Austin",
+      "title": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
+      "url": "https://www.kxan.com/news/texas/declining-enrollment-texas/"
+    },
+    "be30deab42bde11a": {
+      "at": "2026-11-19T14:55:00+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433743687",
+      "post_url": null,
+      "posted_at": "2026-11-19T14:55:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "Tarrant County to mark 25 years of celebrating National Adoption Day",
+      "url": "https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/"
+    },
+    "e2bbe323b0da4a7a": {
+      "at": "2026-11-19T14:20:00+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742331",
+      "post_url": null,
+      "posted_at": "2026-11-19T14:20:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "Northwest ISD approves revised high school boundaries after parents speak out",
+      "url": "https://fortworthreport.org/2026/11/18/northwest-isd-approves-revised-high-school-boundaries-after-parents-speak-out/"
+    },
+    "f288f7af12924966": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/10-utah-visits-tcu-close-to-big-12-title-game-with",
+      "publisher": "dryrun",
+      "source": "NBC 5 DFW",
+      "title": "Utah visits TCU, close to Big 12 title game with Scalley part of all 10-0 starts",
+      "url": "https://www.nbcdfw.com/news/sports/ncaaf/no-2-utah-visits-tcu-close-to-big-12-title-game-berth-with-scalley-part-of-all-10-0-starts/4108205/"
+    },
+    "f6005c351dbbb80d": {
+      "at": "2026-11-19T15:30:00+00:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433743723",
+      "post_url": null,
+      "posted_at": "2026-11-19T15:30:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
+      "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/"
+    },
+    "forecast-2026-11-17": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/01-fort-worth-forecast-for-tuesday-november-17",
+      "publisher": "dryrun",
+      "source": "FOX Weather",
+      "title": "Fort Worth forecast for Tuesday, November 17",
+      "url": "https://www.foxweather.com/local-weather/texas/fort-worth"
+    },
+    "manual-gta-vi-launch-2026-11-19": {
+      "at": "2026-11-19T13:10:00+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on launch morning",
+      "post_id": "433774363",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "national",
+      "source": "PlayStation Blog",
+      "title": "Grand Theft Auto VI is out today on PS5 and Xbox",
+      "url": "https://blog.playstation.com/2026/11/18/grand-theft-auto-vi-launches-tomorrow-november-19/"
+    },
+    "tm-funkytown-showdown-2026-11-22": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "sports",
+      "kind": "event",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/02-women-s-funkytown-showdown-at-dickies-arena",
+      "publisher": "dryrun",
+      "source": "Ticketmaster",
+      "title": "Women's Funkytown Showdown at Dickies Arena",
+      "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
+    },
+    "tm-ty-myers-2026-11-21": {
+      "at": "2026-11-19T18:00:00+00:00",
+      "category": "events",
+      "kind": "event",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/03-ty-myers-the-legal-tour-2026-at-dickies-arena",
+      "publisher": "dryrun",
+      "source": "Ticketmaster",
+      "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+      "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
+    }
+  },
+  "total_posts": 20,
+  "used_photos": [
+    "lib-supercell-thunderstorm-over-needmore-texas-may-4-2019-jpg",
+    "openverse-7e1d8977-8515-410c-9f2e-207bced77474",
+    "openverse-27e4962f-c0b5-44a1-9f3b-c73311317d85",
+    "lib-thanksgiving-turkey-on-platter-jpg",
+    "lib-enie-exilence-jpg",
+    "lib-fort-worth-june-2016-33-tarrant-county-courthouse-jpg",
+    "lib-2026-05-26-texas-state-capitol-01-jpg",
+    "lib-2026-05-26-texas-state-capitol-06-jpg",
+    "lib-arlington-june-2020-3-at-t-stadium-jpg",
+    "lib-texas-christian-university-june-2017-01-winthrop-rockefeller",
+    "lib-at-t-stadium-inside-dec-2025-jpg"
+  ],
+  "version": 1
+}

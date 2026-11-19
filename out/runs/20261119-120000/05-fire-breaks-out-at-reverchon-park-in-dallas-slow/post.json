@@ -1,0 +1,51 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T19:40:00+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/05-fire-breaks-out-at-reverchon-park-in-dallas-slow/post.jpg",
+    "credit": "Photo: SilverBullet X via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:ENIE_EXILENCE.jpg",
+    "photo_id": "lib-enie-exilence-jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "traffic",
+    "headline": "Fire breaks out at Reverchon Park in Dallas, slowing tollway traffic",
+    "caption": "A morning fire in a parking lot at Reverchon Park caused traffic delays along the Dallas North Tollway on Thursday. A large fire at Reverchon Park is sending smoke over the Dallas North Tollway Thursday morning.\n\nAround 6 a.m. Thursday, a significant fire broke out in a parking lot on the far western edge of Reverchon Park. TxDOT cameras captured heavy smoke wafting near the northbound Dallas North Tollway ramp coming from Interstate 35E, causing delays for drivers in the area.",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth https://www.fox4news.com/news/fire-breaks-out-reverchon-park-dallas-slowing-tollway-traffic\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Texas highway traffic night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "10161f1a60b419f9",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "rss",
+    "title": "Fire breaks out at Reverchon Park in Dallas, slowing tollway traffic",
+    "summary": "A morning fire in a parking lot at Reverchon Park caused traffic delays along the Dallas North Tollway on Thursday. A large fire at Reverchon Park is sending smoke over the Dallas North Tollway Thursday morning. DALLAS - A morning fire in a parking lot at Reverchon Park caused traffic delays along the Dallas North Tollway on Thursday. Around 6 a.m. Thursday, a significant fire broke out in a parking lot on the far western edge of Reverchon Park. TxDOT cameras captured heavy smoke wafting near the northbound Dallas North Tollway ramp coming from Interstate 35E, causing delays for drivers in the area. Dallas Fire-Rescue department has not shared what was burning in the parking lot or how the fire started. The Source: The information in this article comes from FOX 4's Chip Waggoner. Trending Now 2 hurt after ATV hits portable toilet at Red Oak data center site Frisco gold Cybertruck case…",
+    "url": "https://www.fox4news.com/news/fire-breaks-out-reverchon-park-dallas-slowing-tollway-traffic",
+    "published": "2026-11-19T12:33:11+00:00",
+    "category_hint": null,
+    "image_url": "https://static.fox4news.com/www.fox4news.com/content/uploads/2026/11/41975572121-72.jpg",
+    "image_credit": "Photo: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "Latest News | FOX 4 News",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "traffic",
+    "relevance": 2,
+    "score": 0.5991
+  }
+}

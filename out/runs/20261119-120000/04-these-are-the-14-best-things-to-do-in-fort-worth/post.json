@@ -1,0 +1,51 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T19:15:00+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-120000/04-these-are-the-14-best-things-to-do-in-fort-worth/post.jpg",
+    "credit": "Photo: slgckgc via Wikimedia Commons (CC BY 2.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Thanksgiving_Turkey_on_platter.jpg",
+    "photo_id": "lib-thanksgiving-turkey-on-platter-jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "These are the 14 best things to do in Fort Worth this weekend",
+    "caption": "The weekend before Thanksgiving brings lots of holiday events in and around Fort Worth, including an ice skating rink, a theater production, a large market, a light display, a concert, fun in a theme park, and a parade. Other choices include a tribute to a Rat Packer, screenings of an acclaimed new film, a symphony concert, three country concerts, and a women's basketball showcase.",
+    "first_comment": "Source: CultureMap Fort Worth https://fortworth.culturemap.com/news/entertainment/weekend-events-11-19-26/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "holiday parade downtown night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "24b87d7eea5e8a9f",
+    "source": "CultureMap Fort Worth",
+    "source_kind": "rss",
+    "title": "These are the 14 best things to do in Fort Worth this weekend",
+    "summary": "The weekend before Thanksgiving brings lots of holiday events in and around Fort Worth, including an ice skating rink, a theater production, a large market, a light display, a concert, fun in a theme park, and a parade. Other choices include a tribute to a Rat Packer, screenings of an acclaimed new film, a symphony concert, three country concerts, and a women's basketball showcase.",
+    "url": "https://fortworth.culturemap.com/news/entertainment/weekend-events-11-19-26/",
+    "published": "2026-11-19T12:00:03+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: CultureMap Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.9,
+    "extra": {
+      "feed_title": "CultureMap Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.6582
+  }
+}
