@@ -1,0 +1,134 @@
+{
+  "daily": {
+    "2026-11-18": 8
+  },
+  "daily_by_category": {
+    "2026-11-18": {
+      "business": 1,
+      "community": 1,
+      "crime": 1,
+      "culture": 1,
+      "food": 1,
+      "other": 1,
+      "politics": 1,
+      "traffic": 1
+    }
+  },
+  "daily_by_scope": {
+    "2026-11-18": {
+      "dfw": 1,
+      "local": 7
+    }
+  },
+  "flags": {},
+  "last_post_at": "2026-11-19T03:39:51.238540+00:00",
+  "posted": {
+    "0483ca217fa88587": {
+      "at": "2026-11-19T03:39:51.238540+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-213951/03-wanted-joshua-rodriguez",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "2e8d6e753426167e": {
+      "at": "2026-11-19T03:39:51.238540+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-213951/01-barnes-noble-returns-to-central-fort-worth-openi",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Barnes & Noble returns to central Fort Worth, opening in West 7th District",
+      "url": "https://fortworthreport.org/2026/11/18/barnes-noble-returns-to-central-fort-worth-opening-in-west-7th-district/"
+    },
+    "41427ecf033fd177": {
+      "at": "2026-11-19T03:39:51.238540+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-213951/04-ate-days-of-thanksgiving-love",
+      "publisher": "dryrun",
+      "source": "Fort Worth Weekly",
+      "title": "Ate Days of Thanksgiving Love",
+      "url": "https://www.fwweekly.com/2026/11/18/ate-days-of-thanksgiving-love/"
+    },
+    "5dabac8adcd013f1": {
+      "at": "2026-11-19T03:39:51.238540+00:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-213951/02-north-texas-election-leaves-city-council-in-lega",
+      "publisher": "dryrun",
+      "source": "WFAA",
+      "title": "North Texas election leaves city council in legal quagmire after recalled mayor, city council members break quorum",
+      "url": "https://www.wfaa.com/article/news/politics/north-texas-election-leaves-fate-city-council-in-legal-quagmire-after-recalled-mayor-city-council-members-break-quorum/287-ed57b4f5-2fda-4e8e-9a47-cc53e90ee48a"
+    },
+    "979eb8c0e61a3f87": {
+      "at": "2026-11-19T03:39:51.238540+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-213951/08-fort-worth-band-takes-on-taboo-subject-for-new-s",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth band takes on taboo subject for new single",
+      "url": "https://fortworthreport.org/2026/11/18/fort-worth-band-takes-on-taboo-subject-for-new-single/"
+    },
+    "bcd34c163cef11b3": {
+      "at": "2026-11-19T03:39:51.238540+00:00",
+      "category": "food",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-213951/05-snazzy-new-arlington-hotel-includes-restaurant-f",
+      "publisher": "dryrun",
+      "source": "CultureMap Fort Worth",
+      "title": "Snazzy new Arlington hotel includes restaurant from hot Dallas celeb chef",
+      "url": "https://fortworth.culturemap.com/news/travel/arlin-hotel-arlington-kent-rathbun/"
+    },
+    "be30deab42bde11a": {
+      "at": "2026-11-19T03:39:51.238540+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-213951/06-tarrant-county-to-mark-25-years-of-celebrating-n",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Tarrant County to mark 25 years of celebrating National Adoption Day",
+      "url": "https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/"
+    },
+    "f6005c351dbbb80d": {
+      "at": "2026-11-19T03:39:51.238540+00:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-213951/07-this-will-affect-me-greatly-transit-users-questi",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
+      "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/"
+    }
+  },
+  "total_posts": 8,
+  "used_photos": [
+    "openverse-dc876e04-722d-4d55-a5d7-d13ded06520f",
+    "openverse-bbf39cca-7bc5-4c08-b727-068267cf2714",
+    "openverse-10781556-b8ac-42d0-b965-2528cdea27d8",
+    "openverse-9f8706ec-5d52-4f20-be15-5c55d47e3420",
+    "openverse-de38cb4c-5f5f-4f45-9656-f17b177b7e8a",
+    "openverse-cbabb62e-dc6b-47cc-a3dd-a266279d97f5",
+    "openverse-176bf003-f72d-4224-b0e3-1282cc99893a"
+  ],
+  "version": 1
+}

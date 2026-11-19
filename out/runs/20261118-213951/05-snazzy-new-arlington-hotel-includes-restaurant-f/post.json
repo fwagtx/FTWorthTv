@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T05:19:51.238540+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-213951/05-snazzy-new-arlington-hotel-includes-restaurant-f/post.jpg",
+    "credit": "Photo: La Citta Vita (CC BY-SA 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/49539505@N04/6044604666"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "food",
+    "headline": "Snazzy new Arlington hotel includes restaurant from hot Dallas celeb chef",
+    "caption": "It's goodbye, Crowne Plaza and hello, Arlin, a colorful new hotel with a celebrity chef-run restaurant debuting in Arlington. The murals in the atrium of The Arlin hotel in Arlington.\n\nOfficially called The Arlin, a Tribute Portfolio Hotel , the hotel at 2700 E. Lamar Blvd. is now welcoming guests, following a makeover of the former Crowne Plaza hotel's guest rooms, lobby, and atrium.",
+    "first_comment": "Source: CultureMap Fort Worth https://fortworth.culturemap.com/news/travel/arlin-hotel-arlington-kent-rathbun/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Arlington Texas downtown",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "bcd34c163cef11b3",
+    "source": "CultureMap Fort Worth",
+    "source_kind": "rss",
+    "title": "Snazzy new Arlington hotel includes restaurant from hot Dallas celeb chef",
+    "summary": "It's goodbye, Crowne Plaza and hello, Arlin, a colorful new hotel with a celebrity chef-run restaurant debuting in Arlington. The murals in the atrium of The Arlin hotel in Arlington. It's goodbye, Crowne Plaza and hello, Arlin , a colorful new hotel with a celebrity chef-run restaurant debuting in Arlington. Officially called The Arlin, a Tribute Portfolio Hotel , the hotel at 2700 E. Lamar Blvd. is now welcoming guests, following a makeover of the former Crowne Plaza hotel's guest rooms, lobby, and atrium. By the end of the year, the Arlin also will debut Champagne Cowboy , an upscale Tex-Mex restaurant developed by four-time James Beard Award nominee and Dallas celebrity chef Kent Rathbun , a release says. The hotel, Arlington's only full-service Marriott property, has 200 guest rooms, including 184 suites. “We set out to create a hotel that captures the unique spirit of Texas while…",
+    "url": "https://fortworth.culturemap.com/news/travel/arlin-hotel-arlington-kent-rathbun/",
+    "published": "2026-11-18T16:43:46+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: CultureMap Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.9,
+    "extra": {
+      "feed_title": "CultureMap Fort Worth",
+      "scope": "local"
+    },
+    "category": "food",
+    "relevance": 2,
+    "score": 0.3841
+  }
+}
