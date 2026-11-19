@@ -40,6 +40,7 @@ def load_draft(folder: Path) -> PostDraft | None:
                            source_url=im.get("source_url"), photo_id=im.get("photo_id"))   # so the publish phase remembers used photos
     draft = PostDraft(story=story, copy=copy, writer=meta.get("writer", "unknown"), mode=meta.get("mode", "photo"), image=image,
                       video_path=Path(meta["video"]) if meta.get("video") else None, link=meta.get("link"),
+                      story_path=Path(meta["story_image"]) if meta.get("story_image") else None,
                       scheduled_at=dtparse.isoparse(meta["scheduled_at"]) if meta.get("scheduled_at") else None)
     return draft
 

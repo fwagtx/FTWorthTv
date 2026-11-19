@@ -88,5 +88,52 @@ class MetricoolPublisher(Publisher):
         data = payload.get("data", payload) if isinstance(payload, dict) else {}
         post_id = str(data.get("id")) if isinstance(data, dict) and data.get("id") else None
         url = data.get("plannerUrl") if isinstance(data, dict) else None
-        return PublishResult(ok=True, publisher=self.name, post_id=post_id, url=url,
-                             detail=f"scheduled for {local.strftime('%Y-%m-%d %H:%M %Z')} on {', '.join(networks)}")
+        detail = f"scheduled for {local.strftime('%Y-%m-%d %H:%M %Z')} on {', '.join(networks)}"
+        story_id = self.publish_story(draft, local, networks)
+        if story_id:
+            detail += f"; story {story_id}"
+        return PublishResult(ok=True, publisher=self.name, post_id=post_id, url=url, detail=detail)
+
+    def publish_story(self, draft: PostDraft, post_local: datetime, networks: list[str]) -> str | None:
+        """The same post as a Story a couple of minutes after the feed post (no caption: stories carry none)."""
+        s = self.settings
+        cfg = s.brand.get("stories", {}) or {}
+        if not cfg.get("enabled", True) or not draft.story_path:
+            return None
+        from .base import public_url_for
+        url = public_url_for(draft.story_path, s)
+        wanted = [n for n in (cfg.get("networks") or ["facebook", "instagram"]) if n in networks]
+        if not url or not wanted or not self.wait_public(url):
+            log.warning("story skipped for %s (no public image or no story network)", draft.story.title[:60])
+            return None
+        when = post_local + timedelta(minutes=int(cfg.get("delay_minutes", 2)))
+        body = {
+            "providers": [{"network": n} for n in wanted],
+            "publicationDate": {"dateTime": when.strftime("%Y-%m-%dT%H:%M:%S"), "timezone": str(s.tz)},
+            "text": "",
+            "media": [url],
+            "mediaAltText": [draft.copy.headline],
+            "autoPublish": bool(s.metricool_autopublish),
+            "draft": False,
+            "firstCommentText": "",
+            "shortener": False,
+            "descendants": [],
+            "smartLinkData": {"ids": []},
+            "hasNotReadNotes": False,
+        }
+        if "facebook" in wanted:
+            body["facebookData"] = {"type": "STORY"}
+        if "instagram" in wanted:
+            body["instagramData"] = {"type": "STORY"}
+        try:
+            resp = requests.post(API, params={"blogId": s.metricool_blog_id, "userId": s.metricool_user_id},
+                                 headers={"X-Mc-Auth": s.metricool_user_token, "Content-Type": "application/json"},
+                                 json=body, timeout=90)
+            payload = resp.json() if resp.content else {}
+            if not resp.ok:
+                raise MetricoolError(f"HTTP {resp.status_code}: {str(payload)[:300]}")
+        except (requests.RequestException, ValueError, MetricoolError) as exc:
+            log.warning("story for %s failed: %s", draft.story.title[:60], exc)
+            return None
+        data = payload.get("data", payload) if isinstance(payload, dict) else {}
+        return str(data.get("id")) if isinstance(data, dict) and data.get("id") else "ok"

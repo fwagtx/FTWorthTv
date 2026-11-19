@@ -99,6 +99,11 @@ card:
   show_photo_credit: true # tiny photographer credit on the card (Pexels / Wikimedia / NWS)
 
 # How the posting cadence behaves
+stories:                        # every post also goes out as a Story (1080x1920: the card on charcoal), a couple of minutes later
+  enabled: true
+  delay_minutes: 2
+  networks: [facebook, instagram]
+
 posting:
   max_posts_per_run: 1          # the scheduler runs every 10 minutes; min_minutes_between_posts spaces the feed
   peak_hours_local: [7, 8, 9, 10, 11, 16]   # the reference page's morning wave (7-11am) and 4pm wave: 2 per run then

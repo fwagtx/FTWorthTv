@@ -72,3 +72,33 @@ def test_metricool_builds_public_media_url(monkeypatch, tmp_path, settings):
     assert captured["body"]["media"] == [f"https://raw.githubusercontent.com/me/repo/main/{rel}"]
     assert captured["body"]["providers"] == [{"network": "facebook"}, {"network": "instagram"}]
     assert captured["body"]["facebookData"] == {"type": "POST"} and captured["body"]["publicationDate"]["timezone"] == "America/Chicago"
+
+
+def test_story_image_and_metricool_story(monkeypatch, tmp_path, settings):
+    from ftworthtv.images.card import render_story
+    from PIL import Image
+    card = tmp_path / "post.jpg"
+    Image.new("RGB", (1200, 1000), (200, 200, 200)).save(card)
+    out = render_story(card, tmp_path / "story.jpg", brand=settings.brand, fonts_dir=settings.fonts_dir, logo=settings.root / "assets/logo.png")
+    with Image.open(out) as im:
+        assert im.size == (1080, 1920)
+    settings.metricool_user_token, settings.metricool_user_id, settings.metricool_blog_id = "t", "1", "2"
+    settings.root = tmp_path
+    settings.media_base_url = "https://raw.githubusercontent.com/me/repo/main"
+    settings.metricool_networks = ["facebook", "instagram"]
+    calls = []
+
+    def fake_post(url, params=None, headers=None, json=None, timeout=None):
+        calls.append(json)
+        return FakeResponse({"data": {"id": 40 + len(calls), "plannerUrl": "https://app.metricool.com/planner/x"}})
+
+    monkeypatch.setattr(requests, "post", fake_post)
+    monkeypatch.setattr(requests, "head", lambda url, **kw: FakeResponse({}, status=200))
+    pub = MetricoolPublisher(settings)
+    draft = _draft(tmp_path, settings)
+    draft.story_path = out
+    result = pub.publish(draft)
+    assert result.ok and len(calls) == 2
+    story = calls[1]
+    assert story["facebookData"] == {"type": "STORY"} and story["instagramData"] == {"type": "STORY"} and story["text"] == ""
+    assert story["media"][0].endswith("/story.jpg") and "story 42" in result.detail

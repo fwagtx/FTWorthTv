@@ -31,6 +31,7 @@ class DryRunPublisher(Publisher):
                       "provider": draft.image.provider, "source_url": draft.image.source_url,
                       "photo_id": draft.image.photo_id} if draft.image else None,
             "video": str(draft.video_path) if draft.video_path else None,
+            "story_image": str(draft.story_path) if draft.story_path else None,
             "copy": draft.copy.model_dump(), "story": story,
         }
         (folder / "post.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False, default=str) + "\n", encoding="utf-8")

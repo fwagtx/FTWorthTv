@@ -513,3 +513,58 @@ def render_tweet_card(*, name: str, handle: str, headline: str, photo: Path | No
     out_path.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(out_path, "JPEG", quality=93, optimize=True)
     return out_path
+
+
+def render_story(card: Path, out_path: Path, *, brand: dict, fonts_dir: Path, logo: Path | None = None) -> Path:
+    """The same post as a 1080x1920 Story: our card on the brand's charcoal, with the page name on top and a
+    'full story on our page' line at the bottom. Everything important sits inside the 250-1670 px band that
+    Instagram's and Facebook's story overlays leave visible."""
+    W, H = 1080, 1920
+    colors = brand.get("colors", {}) or {}
+    bg = _hex(colors.get("primary", "#26282E"))
+    accent = _hex(colors.get("accent", "#2F5BFF"))
+    paper = _hex(colors.get("text", "#F7F7F5"))
+    muted = _hex(colors.get("muted", "#B9BCC6"))
+    canvas = Image.new("RGB", (W, H), bg)
+    draw = ImageDraw.Draw(canvas)
+    margin = 70
+    # header: avatar, name, handle, a short accent bar (the identity's overbar)
+    top = 270
+    av = 112
+    if logo and Path(logo).exists():
+        with Image.open(logo) as lg:
+            lg = lg.convert("RGBA").resize((av, av), Image.LANCZOS)
+        mask = Image.new("L", (av, av), 0)
+        ImageDraw.Draw(mask).ellipse([0, 0, av - 1, av - 1], fill=255)
+        canvas.paste(lg, (margin, top), mask)
+    name_font = load_font(fonts_dir, bold=True, size=50)
+    handle_font = load_font(fonts_dir, bold=False, size=36)
+    draw.text((margin + av + 28, top + 4), brand.get("page_name", "Fort Worth Daily"), font=name_font, fill=paper)
+    draw.text((margin + av + 28, top + 66), brand.get("instagram_handle") or brand.get("handle", ""), font=handle_font, fill=muted)
+    draw.rounded_rectangle([margin, top + av + 34, margin + 180, top + av + 46], radius=6, fill=accent)
+    # the card, fitted into the band below the header
+    band_top, band_bottom = top + av + 90, 1610
+    with Image.open(card) as im:
+        im = im.convert("RGB")
+        scale = min((W - 2 * margin + 20) / im.width, (band_bottom - band_top) / im.height)
+        im = im.resize((max(1, round(im.width * scale)), max(1, round(im.height * scale))), Image.LANCZOS)
+    radius = 30
+    mask = Image.new("L", im.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, im.width - 1, im.height - 1], radius=radius, fill=255)
+    x0 = (W - im.width) // 2
+    y0 = band_top + (band_bottom - band_top - im.height) // 2
+    shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).rounded_rectangle([x0 + 8, y0 + 16, x0 + im.width + 8, y0 + im.height + 16], radius=radius, fill=(0, 0, 0, 90))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(18))
+    canvas.paste(shadow, (0, 0), shadow)
+    canvas.paste(im, (x0, y0), mask)
+    # footer
+    foot_font = load_font(fonts_dir, bold=False, size=34)
+    foot_bold = load_font(fonts_dir, bold=True, size=34)
+    draw.text((margin, 1640), "Full story on our page", font=foot_font, fill=muted)
+    handle = brand.get("instagram_handle") or brand.get("handle", "")
+    tw = draw.textlength(handle, font=foot_bold)
+    draw.text((W - margin - tw, 1640), handle, font=foot_bold, fill=paper)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    canvas.save(out_path, "JPEG", quality=90, optimize=True)
+    return out_path

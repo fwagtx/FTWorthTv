@@ -12,7 +12,7 @@ python -m ftworthtv run --publisher dryrun || { echo "generation failed"; exit 0
 
 if [ "$PUBLISHER" = "metricool" ] || [ -n "${IG_USER_ID:-}" ]; then
   shopt -s nullglob
-  files=(out/runs/*/*/post.jpg out/runs/*/*/card.jpg out/runs/*/*/photo.jpg out/runs/*/*/quote.jpg)
+  files=(out/runs/*/*/post.jpg out/runs/*/*/card.jpg out/runs/*/*/photo.jpg out/runs/*/*/quote.jpg out/runs/*/*/story.jpg)
   if [ ${#files[@]} -gt 0 ]; then
     git add -f "${files[@]}"
     git diff --cached --quiet || (git commit -q -m "media: post images $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]" && git push -q)

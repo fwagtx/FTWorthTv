@@ -166,6 +166,16 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                     draft.mode, draft.link = ("link", story.url) if story.url else ("text", None)
                 if draft.image and draft.image.photo_id:
                     used_photos.add(draft.image.photo_id)
+                stories_cfg = settings.brand.get("stories", {}) or {}
+                if draft.image and stories_cfg.get("enabled", True) and Path(draft.image.path).exists():
+                    try:
+                        from .images.card import render_story
+                        card_cfg = settings.brand.get("card", {}) or {}
+                        logo = settings.root / str(card_cfg.get("logo") or settings.brand.get("logo") or "assets/logo.png")
+                        draft.story_path = render_story(Path(draft.image.path), workdir / "story.jpg", brand=settings.brand,
+                                                        fonts_dir=settings.fonts_dir, logo=logo)
+                    except Exception as exc:
+                        log.warning("story image failed for %s: %s", story.title[:60], exc)
                 crime_cfg = settings.brand.get("crime", {}) or {}
                 if copy.category == "crime" and draft.image and draft.image.provider == "source" and crime_cfg.get("disclaimer"):
                     draft.copy = copy.model_copy(update={"first_comment": copy.first_comment.rstrip() + "\n" + crime_cfg["disclaimer"]})
