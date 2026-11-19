@@ -191,7 +191,8 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                     tier = ("national", 0.6)
                     story.extra["national_term"] = hit
             if tier is None:
-                dropped.append((story, f"not local enough (relevance {story.relevance} < {min_rel})"))
+                why = "national outlet, no watchlist or shared big-moment term" if story.extra.get("national") else f"not local enough (relevance {story.relevance} < {min_rel})"
+                dropped.append((story, why))
                 continue
             cat = infer_category(story)
             if tier[0] == "texas" and cat in ("crime", "traffic", "food", "events") and not any(w in story.text() for w in STATEWIDE_WORDS):

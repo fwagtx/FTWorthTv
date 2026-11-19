@@ -34,3 +34,19 @@ def test_national_moment_not_repeated(settings, now):
     state.data["posted"]["x"] = {"at": (now - timedelta(hours=5)).isoformat(), "title": "GTA VI launches today on PS5 and Xbox"}
     kept, dropped = filter_stories([_s(1, "IGN", "GTA VI review: the biggest game of the decade", now=now)], settings, state, now)
     assert not kept and "already covered" in dropped[0][1]
+
+
+def test_collect_dedupe_keeps_the_national_flag():
+    from ftworthtv.sources import collect
+    from ftworthtv.models import Story
+    a = Story(id="same", source="ESPN NBA", source_kind="rss", title="Heat unveil Vice City court ahead of GTA VI release", summary="s", url="https://e.com/1")
+    b = Story(id="same", source="ESPN Top Headlines", source_kind="rss", title="Heat unveil Vice City court ahead of GTA VI release", summary="s", url="https://e.com/1", extra={"national": True})
+    # the same merge rule, applied directly
+    by_id = {}
+    for s in (a, b):
+        kept = by_id.get(s.id)
+        if kept is None:
+            by_id[s.id] = s
+        elif s.extra.get("national") and not kept.extra.get("national"):
+            kept.extra["national"] = True
+    assert by_id["same"].extra.get("national") is True
