@@ -52,6 +52,12 @@ def test_video_gate_is_cautious():
     station = {"name": "FOX 4", "title_must_name_place": True}
     assert wanted_title(station, "Fort Worth police investigate overnight shooting", g)
     assert not wanted_title(station, "Heavy rain floods streets in Houston suburbs", g)
+    assert not wanted_title(station, "Vehicle crashes into Dallas home overnight, injuring four.", g)     # Dallas alone is not our beat
+    assert not wanted_title(station, "Dallas ISD to vote on closing 6 schools amid budget deficit", g)
+    assert not wanted_title(station, "Cold Front Approaches Texas Ahead of Thanksgiving", g)              # nor Texas alone
+    assert wanted_title(station, "Warming trend continues through weekend in North Texas", g)             # the region as a whole is
+    assert wanted_title(station, "Arlington police release video from Cowboys game arrest", g)
+    assert not wanted_title({"name": "City of Arlington"}, "Arlington Eats at Mariano's Hacienda", {"skip_in_title": ["eats at"]})
     team = {"name": "Dallas Cowboys", "require_any_in_title": ["highlights", "recap", "wins", "press conference"]}
     assert wanted_title(team, "Cowboys vs. 49ers highlights | Week 11", g)
     assert not wanted_title(team, "Mic'd up: a day with the rookies", g)

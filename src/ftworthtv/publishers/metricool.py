@@ -52,9 +52,12 @@ class MetricoolPublisher(Publisher):
             if not self.wait_public(u):
                 return PublishResult(ok=False, publisher=self.name, detail=f"image not reachable at {u}")
         networks = list(s.metricool_networks)
+        is_video = draft.mode == "video" and bool(media)
         if not media and "instagram" in networks:
             log.warning("Instagram needs an image; dropping it for this post (set MEDIA_BASE_URL)")
             networks = [n for n in networks if n != "instagram"]
+        if is_video and "instagram" in networks and not self.instagram_takes_video(draft):
+            networks = [n for n in networks if n != "instagram"]   # the clip goes to Facebook; Reels only for portrait clips, when enabled
         text = draft.caption_text()
         if draft.mode in ("link", "share") or not media:   # Metricool has no share type: the post URL goes in the text as a link preview
             text += f"\n\n{draft.link or draft.story.url}"
@@ -73,9 +76,11 @@ class MetricoolPublisher(Publisher):
             "hasNotReadNotes": False,
         }
         if "facebook" in networks:
-            body["facebookData"] = {"type": "POST"}
+            body["facebookData"] = {"type": "POST"}             # an mp4 in an ordinary post is a Facebook video post
         if "instagram" in networks:
-            body["instagramData"] = {"type": "POST"}
+            body["instagramData"] = {"type": "REEL" if is_video else "POST"}
+        if not networks:
+            return PublishResult(ok=False, publisher=self.name, detail="no network takes this post")
         try:
             resp = requests.post(API, params={"blogId": s.metricool_blog_id, "userId": s.metricool_user_id},
                                  headers={"X-Mc-Auth": s.metricool_user_token, "Content-Type": "application/json"},
@@ -93,6 +98,19 @@ class MetricoolPublisher(Publisher):
         if story_id:
             detail += f"; story {story_id}"
         return PublishResult(ok=True, publisher=self.name, post_id=post_id, url=url, detail=detail)
+
+    def instagram_takes_video(self, draft: PostDraft) -> bool:
+        """Instagram gets a native clip only as a Reel, only when brand.video.instagram is on, and only portrait clips: a
+        square radar loop or a landscape phone clip would be padded or cropped there, so it stays a Facebook video."""
+        cfg = self.settings.brand.get("video", {}) or {}
+        if not cfg.get("instagram", False):
+            log.info("Instagram skipped for the clip (video.instagram is off); Facebook gets it")
+            return False
+        from ..images.video import is_portrait
+        if not draft.video_path or not is_portrait(draft.video_path):
+            log.info("Instagram skipped for the clip: not portrait")
+            return False
+        return True
 
     def publish_story(self, draft: PostDraft, post_local: datetime, networks: list[str]) -> str | None:
         """The same post as a Story a couple of minutes after the feed post (no caption: stories carry none)."""

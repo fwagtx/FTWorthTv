@@ -405,6 +405,10 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
     kind = story.source_kind
     x = story.extra
     city = settings.brand.get("city", "Fort Worth")
+    if kind == "submission":                 # a viewer's clip: their words, where, and the credit
+        credit = x.get("credit") or "a viewer"
+        text = _tidy(story.summary or story.title)
+        return [truncate(text, 400, "…"), f"📍 {x.get('where') or city}", f"🎥 Video: {credit}"]
     if kind == "video":                      # a YouTube link post: WATCH line, the channel's own first sentence, the credit
         channel = x.get("channel") or story.source
         lead = _first_sentence(story.summary or "", 200)
@@ -563,6 +567,12 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         headline = truncate(re.sub(r"[^\w\s,.'&:/()-]", "", story.title).strip(), 110, "") or truncate(story.extra.get("name") or story.title, 110, "")
         first_comment = (f"More: {story.url}\n" if story.url else "") + "{photo_credit}\nDM us your videos & photos 📲"
         image_query = story.extra.get("image_query", image_query)
+    elif kind == "submission":
+        credit = story.extra.get("credit") or "a viewer"
+        where = story.extra.get("where") or location
+        lines = [truncate(_tidy(story.summary or story.title), 400, "…"), f"📍 {where}", f"🎥 Video: {credit}", cta]
+        headline = truncate(story.title, 110, "")
+        first_comment = f"🎥 {credit}\n{{photo_credit}}\nDM us your videos & photos 📲"
     elif kind == "video":
         channel = story.extra.get("channel") or story.source
         lead = _first_sentence(story.summary or "", 200)
@@ -608,6 +618,7 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
     if not cap_cfg.get("emoji", True):
         caption = EMOJI_RE.sub("", caption)
         caption = re.sub(r"[ \t]+\n", "\n", caption)
+        caption = re.sub(r"\n[ \t]+", "\n", caption)          # "📍 Keller" -> "Keller", not " Keller"
         caption = re.sub(r"[ \t]{2,}", " ", caption).strip()
     if cap_cfg.get("style", "dallas") == "dallas":
         handle = settings.brand.get("instagram_handle") or settings.brand.get("handle", "")

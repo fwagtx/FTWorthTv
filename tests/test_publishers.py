@@ -102,3 +102,56 @@ def test_story_image_and_metricool_story(monkeypatch, tmp_path, settings):
     story = calls[1]
     assert story["facebookData"] == {"type": "STORY"} and story["instagramData"] == {"type": "STORY"} and story["text"] == ""
     assert story["media"][0].endswith("/story.jpg") and "story 42" in result.detail
+
+
+def test_metricool_video_post_uses_the_hosted_clip(monkeypatch, tmp_path, settings):
+    settings.metricool_user_token, settings.metricool_user_id, settings.metricool_blog_id = "t", "1", "2"
+    settings.root = tmp_path
+    settings.media_base_url = "https://raw.githubusercontent.com/me/repo/main"
+    settings.metricool_networks = ["facebook", "instagram"]
+    calls = []
+
+    def fake_post(url, params=None, headers=None, json=None, timeout=None):
+        calls.append(json)
+        return FakeResponse({"data": {"id": 7, "plannerUrl": "https://app.metricool.com/planner/7"}})
+
+    monkeypatch.setattr(requests, "post", fake_post)
+    monkeypatch.setattr(requests, "head", lambda url, **kw: FakeResponse({}, status=200))
+    draft = _draft(tmp_path, settings)
+    draft.mode, draft.image = "video", None
+    draft.video_path = tmp_path / "clip.mp4"
+    draft.video_path.write_bytes(b"\x00" * 100)
+    draft.video_url = "https://github.com/me/repo/releases/download/media-2026-11/r1-01-clip.mp4"
+    result = MetricoolPublisher(settings).publish(draft)
+    body = calls[-1]
+    assert result.ok and body["media"] == [draft.video_url] and body["facebookData"] == {"type": "POST"}
+    assert body["providers"] == [{"network": "facebook"}] and "instagramData" not in body     # video.instagram is off by default
+    assert "https://example.com/a" not in body["text"]                                         # a video post carries no link
+    # with Reels on and a portrait clip, Instagram gets a REEL
+    settings.brand["video"] = {"instagram": True}
+    import ftworthtv.images.video as video
+    monkeypatch.setattr(video, "video_dimensions", lambda path: (720, 1280))
+    MetricoolPublisher(settings).publish(draft)
+    assert calls[-1]["instagramData"] == {"type": "REEL"} and calls[-1]["providers"] == [{"network": "facebook"}, {"network": "instagram"}]
+    monkeypatch.setattr(video, "video_dimensions", lambda path: (1920, 1080))                 # landscape: Facebook only
+    MetricoolPublisher(settings).publish(draft)
+    assert calls[-1]["providers"] == [{"network": "facebook"}]
+
+
+def test_queue_reads_the_clip_url_left_by_the_cycle_script(tmp_path, settings):
+    import json as _json
+    from ftworthtv.queue import load_draft
+    folder = tmp_path / "01-clip"
+    folder.mkdir()
+    (folder / "clip.mp4").write_bytes(b"\x00" * 10)
+    (folder / "video_url.txt").write_text("https://github.com/me/repo/releases/download/media-2026-11/x.mp4\n")
+    story = {"id": "submission:abc", "source": "Viewer video", "source_kind": "submission", "title": "Hail in Keller", "summary": "Hail in Keller tonight.",
+             "url": "", "published": "2026-11-19T20:00:00+00:00", "extra": {"credit": "Jane"}}
+    copy = {"headline": "Hail in Keller", "caption": "Hail in Keller tonight.\n\n📍 Keller\n🎥 Video: Jane", "first_comment": "🎥 Jane\n{photo_credit}", "category": "weather"}
+    (folder / "post.json").write_text(_json.dumps({"mode": "video", "writer": "template", "video": "clip.mp4", "copy": copy, "story": story}))
+    draft = load_draft(folder)
+    assert draft.mode == "video" and draft.video_path == folder / "clip.mp4" and draft.video_url.endswith("/x.mp4")
+    from ftworthtv.checks import preflight
+    assert preflight(draft, network=False) == []
+    draft.video_url, draft.video_path = None, folder / "missing.mp4"
+    assert "video post without a clip" in preflight(draft, network=False)

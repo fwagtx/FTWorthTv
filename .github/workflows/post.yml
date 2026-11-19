@@ -22,6 +22,22 @@ on:
         description: "max posts this run (blank = config)"
         required: false
         default: ""
+      only_kinds:
+        description: "comma list of source kinds to consider, e.g. submission,video (blank = all)"
+        required: false
+        default: ""
+      submissions_csv:
+        description: "override the viewer-video sheet CSV URL for this run (validation)"
+        required: false
+        default: ""
+      host_clips:
+        description: "1 = upload clips to the media release even on a dry run (validation)"
+        required: false
+        default: ""
+      now:
+        description: "pretend it is this UTC time, e.g. 2026-11-20T15:00:00+00:00 (validation, dry runs only)"
+        required: false
+        default: ""
 
 concurrency:
   group: ftworthtv-post
@@ -58,6 +74,12 @@ jobs:
       METRICOOL_BLOG_ID: ${{ secrets.METRICOOL_BLOG_ID }}
       METRICOOL_NETWORKS: ${{ vars.METRICOOL_NETWORKS || 'facebook,instagram' }}
       METRICOOL_AUTOPUBLISH: ${{ vars.METRICOOL_AUTOPUBLISH || 'true' }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      FTWTV_ONLY_KINDS: ${{ inputs.only_kinds }}
+      FTWTV_SUBMISSIONS_CSV_URL: ${{ inputs.submissions_csv }}
+      FTWTV_HOST_CLIPS: ${{ inputs.host_clips }}
+      FTWTV_NOW: ${{ inputs.publisher == 'dryrun' && inputs.now || '' }}
       NWS_USER_AGENT: ${{ secrets.NWS_USER_AGENT || 'FTWorthTv/0.1 (github actions)' }}
     steps:
       - uses: actions/checkout@v4

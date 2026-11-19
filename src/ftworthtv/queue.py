@@ -42,6 +42,11 @@ def load_draft(folder: Path) -> PostDraft | None:
                       video_path=Path(meta["video"]) if meta.get("video") else None, link=meta.get("link"),
                       story_path=Path(meta["story_image"]) if meta.get("story_image") else None,
                       scheduled_at=dtparse.isoparse(meta["scheduled_at"]) if meta.get("scheduled_at") else None)
+    if draft.video_path and not draft.video_path.is_absolute():
+        draft.video_path = folder / draft.video_path
+    url_file = folder / "video_url.txt"                      # cycle.sh uploads the clip to a GitHub release and leaves its URL here
+    if url_file.exists() and url_file.read_text(encoding="utf-8").strip().startswith("http"):
+        draft.video_url = url_file.read_text(encoding="utf-8").strip()
     return draft
 
 

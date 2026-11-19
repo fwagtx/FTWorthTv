@@ -17,7 +17,10 @@ class Publisher:
 
 
 def public_media_url(draft: PostDraft, settings: Settings) -> str | None:
-    """Public URL of the post image once the workflow has committed it (MEDIA_BASE_URL + path inside the repo)."""
+    """Public URL of the post media: the clip uploaded by cycle.sh for a video post (video_url.txt), else the committed
+    image (MEDIA_BASE_URL + path inside the repo)."""
+    if draft.mode == "video" and (draft.video_url or draft.video_path):
+        return draft.video_url or public_url_for(draft.video_path, settings)
     if not draft.image:
         return None
     return public_url_for(draft.image.path, settings)

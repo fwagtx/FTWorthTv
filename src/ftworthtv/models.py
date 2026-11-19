@@ -100,6 +100,7 @@ class PostDraft:
     mode: Literal["photo", "link", "share", "video", "text"] = "photo"   # share = a public facebook.com post URL, rendered nested by Facebook
     image: Optional[ImageAsset] = None
     video_path: Optional[Path] = None
+    video_url: Optional[str] = None            # public URL of the clip once cycle.sh has uploaded it (release asset)
     story_path: Optional[Path] = None         # the same post as a 1080x1920 Story image
     link: Optional[str] = None                # for link posts
     scheduled_at: Optional[datetime] = None   # None = publish now

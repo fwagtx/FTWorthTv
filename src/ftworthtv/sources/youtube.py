@@ -30,9 +30,14 @@ NS = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/sche
 SKIP_TITLE = ("live stream", "livestream", "#live", "live:", "watch live", "full game", "full episode", "full show")
 
 
-PLACE_WORDS = ("fort worth", "tarrant", "arlington", "ft. worth", "ft worth", "tcu", "keller", "southlake", "mansfield", "grand prairie",
+PLACE_WORDS = ("fort worth", "ft. worth", "ft worth", "tarrant", "tcu", "arlington", "keller", "southlake", "mansfield", "grand prairie",
                "burleson", "haslet", "north richland hills", "hurst", "euless", "bedford", "grapevine", "weatherford", "benbrook",
-               "white settlement", "saginaw", "crowley", "azle", "dfw", "north texas", "dallas", "texas")
+               "white settlement", "saginaw", "crowley", "azle", "colleyville", "watauga", "forest hill", "river oaks", "lake worth",
+               "aledo", "granbury", "cleburne", "denton", "roanoke", "trophy club", "westlake", "flower mound", "lewisville",
+               "dfw", "dallas-fort worth", "dallas/fort worth", "north texas", "metroplex", "cowtown", "panther island", "stockyards",
+               "alliance airport", "dickies arena", "globe life", "at&t stadium")
+# a station's video must name our side of the Metroplex or the region as a whole: "Dallas" or "Texas" alone is not enough
+# (a crash into a Dallas home or a Dallas ISD vote is not Fort Worth news, however good the video)
 
 
 def wanted_title(cfg: dict, title: str, global_cfg: dict | None = None) -> bool:

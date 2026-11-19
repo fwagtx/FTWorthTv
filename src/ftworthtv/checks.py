@@ -8,6 +8,8 @@ bulletin's agency page is read again so a captured fugitive is never posted.
 """
 from __future__ import annotations
 
+from pathlib import Path
+
 import logging
 import re
 from urllib.parse import urlparse
@@ -72,7 +74,7 @@ def source_text(story: Story) -> str:
 TEMPLATE_PHRASES = ("crime stoppers", "submit a tip", "you stay anonymous", "tickets in the comments", "stay safe out there",
                     "national weather service", "good morning, fort worth", "this weekend in fort worth", "dm us", "follow ",
                     "share this post", "presumed innocent", "charges are accusations", "we'll share updates")
-STRUCTURED_KINDS = ("nws_alert", "nws_forecast", "event", "event_roundup", "wanted", "arrest_log", "culture", "video")
+STRUCTURED_KINDS = ("nws_alert", "nws_forecast", "event", "event_roundup", "wanted", "arrest_log", "culture", "video", "submission")
 _TIME_RE = re.compile(r"\b\d{1,2}:\d{2}\b")
 
 
@@ -160,4 +162,6 @@ def preflight(draft: PostDraft, *, network: bool = True) -> list[str]:
             problems.append(gone)
     if draft.mode == "photo" and draft.image is None:
         problems.append("photo post without an image")
+    if draft.mode == "video" and not draft.video_url and not (draft.video_path and Path(draft.video_path).exists()):
+        problems.append("video post without a clip")
     return problems

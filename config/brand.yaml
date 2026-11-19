@@ -99,6 +99,9 @@ card:
   show_photo_credit: true # tiny photographer credit on the card (Pexels / Wikimedia / NWS)
 
 # How the posting cadence behaves
+video:                          # native clips (viewer submissions, the radar loop): Facebook always; Instagram as a Reel only when
+  instagram: false              # this is on AND the clip is portrait. Off until a first Reel has been checked by hand.
+
 stories:                        # every post also goes out as a Story (1080x1920: the card on charcoal), a couple of minutes later
   enabled: true
   delay_minutes: 2

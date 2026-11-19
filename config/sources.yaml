@@ -316,7 +316,9 @@ youtube:
   # require_any_in_title: a team's video gets in only when it is a result, a highlight package or a move, never hype or "mic'd up"
   # skip_in_title: hours-long recordings and filler
   skip_in_title: ["meeting", "work session", "session", "agenda", "hearing", "forum", "town hall", "podcast", "trivia", "mic'd", "mic’d",
-                  "cheerleader", "giveaway", "sponsored", "ad:", "promo", "teaser", "ask the", "behind the scenes", "vlog", "weekly recap"]
+                  "cheerleader", "giveaway", "sponsored", "ad:", "promo", "teaser", "ask the", "behind the scenes", "vlog", "weekly recap",
+                  "spotlight", "eats at", "employee", "adopt", "pet of the", "job fair", "volunteer", "newsletter",
+                  "throwback", "happy ", "congrat", "thank you", "shout-out", "shoutout", "wrap-up", "wrap up"]
   channels:
     - {name: City of Fort Worth, id: UCG4ZjL-JpSqwPoxd5yNpMGA, handle: "@CityofFortWorth", always_relevant: true, official: true, category_hint: community, weight: 0.9}
     - {name: Tarrant County, id: UCreZ2-bXXetuRiKZAtXcNNA, handle: "@TarrantCountyTX", always_relevant: true, official: true, category_hint: community, weight: 0.7}
@@ -339,6 +341,18 @@ youtube:
     - {name: Dallas Mavericks, require_any_in_title: [highlights, recap, "final", "wins", "win ", "beat", "defeat", "press conference", "postgame", "introduc", "signs", "trade", "injury", "walk-off", "overtime", "game-winn"], id: UCwMUtT-zjoJOrtNmSWoMo0w, handle: "@dallasmavs", category_hint: sports, weight: 0.6}
     - {name: Dallas Stars, require_any_in_title: [highlights, recap, "final", "wins", "win ", "beat", "defeat", "press conference", "postgame", "introduc", "signs", "trade", "injury", "walk-off", "overtime", "game-winn"], id: UCxfgTxo6HUmnZkxHWFV5T-A, handle: "@DallasStars", category_hint: sports, weight: 0.6}
     - {name: FC Dallas, require_any_in_title: [highlights, recap, "final", "wins", "win ", "beat", "defeat", "press conference", "postgame", "introduc", "signs", "trade", "injury", "walk-off", "overtime", "game-winn"], id: UCE2JDtOSy6R-9dwkGIWgyEA, handle: "@FCDallas", category_hint: sports, weight: 0.5}
+
+# Viewer clips, approved by hand. "DM us your videos" brings clips in; a person checks the sender shot it and agreed to its
+# use, saves the file in the public uploads folder and adds a row to the sheet. Only rows with consent = yes AND approved = yes
+# are posted (once, natively, credited in the caption and the first comment). Never station or creator video: those are
+# shared as YouTube links above. See docs/GO_LIVE.md "Viewer video".
+submissions:
+  enabled: true
+  csv_url: ""                 # the sheet as CSV: https://docs.google.com/spreadsheets/d/<id>/export?format=csv (shared: anyone with the link)
+  upload_folder: "https://drive.google.com/drive/folders/1rypsOoFBGzDTekZXptuIQvIiCaQdBZXQ"   # where approved clips are saved (public)
+  max_per_day: 2
+  max_mb: 200                 # bigger clips are skipped (Facebook takes up to 1 GB, but a phone clip should be trimmed anyway)
+  max_age_days: 14            # a row approved long after the fact is not news
 
 relevance:
   min_relevance: 2

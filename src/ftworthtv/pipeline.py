@@ -91,6 +91,7 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
     non_local_day_left = int(mix.get("non_local_per_day", 8)) - state.non_local_posts_on(day)
     national_day_left = int(mix.get("national_per_day", 2)) - state.posts_on_scope(day, "national")
     videos_day_left = int((settings.sources.get("youtube", {}) or {}).get("max_per_day", 4)) - state.posts_on_kind(day, "video")
+    clips_day_left = int((settings.sources.get("submissions", {}) or {}).get("max_per_day", 2)) - state.posts_on_kind(day, "submission")
     if quiet:
         report.notes.append(f"quiet hours ({local.strftime('%H:%M')} local): only severe weather posts")
     if not gap_ok:
@@ -121,6 +122,11 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                 report.skipped.append((story, "video share used (a few a day, one a run)"))
                 continue
             videos_day_left -= 1
+        if story.source_kind == "submission":
+            if clips_day_left <= 0 or any(d.story.source_kind == "submission" for d in drafts):
+                report.skipped.append((story, "viewer clip used (a couple a day, one a run)"))
+                continue
+            clips_day_left -= 1
         if story.extra.get("scope", "local") != "local" and not story.is_urgent:
             if non_local_left <= 0 or non_local_day_left <= 0:
                 report.skipped.append((story, "DFW/Texas share used (per run or per day)"))
@@ -140,7 +146,7 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if not settings.offline and story.source_kind == "rss" and not story.official and len(story.summary or "") < 160:
             from .sources.article import enrich_summary
             enrich_summary(story)      # the feed gave a teaser: read the article lead so the caption is a real summary
-        copy, writer = write_copy(story, settings, now)
+        copy, writer = write_copy(story, settings, now, force_template=story.source_kind == "submission")   # a viewer's words stay theirs
         if copy.skip:
             report.skipped.append((story, copy.skip_reason or "writer skipped"))
             continue
@@ -160,6 +166,11 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if story.extra.get("facebook_post_url"):   # submissions / sources that give us a public post: share it as a nested post
             draft.mode, draft.link = "share", story.extra["facebook_post_url"]
             workdir.mkdir(parents=True, exist_ok=True)
+        elif story.source_kind == "submission" and story.extra.get("video_path") and Path(story.extra["video_path"]).exists():
+            workdir.mkdir(parents=True, exist_ok=True)       # the clip itself is the post: cycle.sh hosts it, the publisher posts it
+            import shutil
+            draft.video_path = Path(shutil.copyfile(story.extra["video_path"], workdir / "clip.mp4"))
+            draft.mode = "video"
         elif story.source_kind in ("reddit", "video") or (story.source_kind == "rss" and story.image_policy == "none" and link_mode):
             draft.mode, draft.link = "link", story.url     # a YouTube link: Facebook renders the channel's video, playable, credited
             workdir.mkdir(parents=True, exist_ok=True)
