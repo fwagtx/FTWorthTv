@@ -8,8 +8,8 @@
 
 page_name: "Fort Worth Daily"
 short_name: "FWD"
-handle: "@FortWorthDaily"
-instagram_handle: "@FortWorthDaily"
+handle: "@fortworthdailytv"             # Facebook page name is "Fort Worth Daily"; this handle is what we print
+instagram_handle: "@fortworthdailytv"   # the Instagram account; shown on every post card
 tagline: "Fort Worth, every day."
 bio: "Independent news, culture and entertainment for Fort Worth. Every day. DM us your videos & photos 📲"
 city: "Fort Worth"
@@ -96,7 +96,7 @@ card:
 posting:
   max_posts_per_run: 2
   min_minutes_between_posts: 75
-  daily_cap: 10
+  daily_cap: 12
   quiet_hours_local: [23, 6]   # no posts from 11pm to 6am Central (severe weather still posts)
   daily_forecast_hour_local: 7 # "Good morning Fort Worth" weather post once a day (needs no API key)
   weekend_events_roundup: true # Thursday evening "This weekend in Fort Worth" (needs Ticketmaster key)

@@ -11,7 +11,7 @@ name: Post to Fort Worth Texas TV
 
 on:
   schedule:
-    - cron: "17 */2 * * *"        # every 2 hours, UTC. Quiet hours (11pm-6am Central) are enforced by config/brand.yaml.
+    - cron: "17 * * * *"          # hourly, UTC. Quiet hours (11pm-6am Central) and the daily cap are enforced by config/brand.yaml.
   workflow_dispatch:
     inputs:
       publisher:

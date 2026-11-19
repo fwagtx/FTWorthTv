@@ -52,10 +52,30 @@ DETAILED_CAPTION_RULES = """    Line 1 = the hook, under 90 characters (this is 
     1-3 emojis total, no hashtags, no URLs, under 500 characters."""
 
 
+def reference_examples(settings: Settings, limit: int = 12) -> str:
+    """Real captions from the reference page (config/caption_examples.json, written by scripts/ingest_reference_posts.py)."""
+    path = settings.root / "config" / "caption_examples.json"
+    if not path.exists():
+        return ""
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return ""
+    lines = []
+    for r in rows[:limit]:
+        cap = str(r.get("caption", "")).strip().replace("\n\n", " / ").replace("\n", " / ")
+        if cap:
+            lines.append(f"- [{r.get('category', 'other')}] {cap[:300]}" + (f"  (card: {r['headline']})" if r.get("headline") else ""))
+    if not lines:
+        return ""
+    return "\nREAL CAPTIONS FROM THE REFERENCE PAGE (match this voice and length; never copy them):\n" + "\n".join(lines) + "\n"
+
+
 def build_system_prompt(settings: Settings) -> str:
     b = settings.brand
     style = (b.get("caption", {}) or {}).get("style", "dallas")
     caption_rules = DALLAS_CAPTION_RULES if style == "dallas" else DETAILED_CAPTION_RULES.replace("{handle}", str(b.get("handle")))
+    examples = reference_examples(settings)
     return f"""You write social media posts for "{b.get('page_name')}" ({b.get('handle')}), a Fort Worth, Texas Facebook/Instagram page
 built in the style of the big local-entertainment pages (Dallas Texas TV: "The home of DTX entertainment", 600K+ followers).
 Tagline: {b.get('tagline')}
@@ -84,7 +104,7 @@ OUTPUT FIELDS
   Prefer Fort Worth landmarks when the story is about the city itself.
 - location: "City, TX" best guess from the story, default "Fort Worth, TX".
 
-WHAT THIS PAGE POSTS (copied from what the Dallas page does; keep this mix in mind when writing)
+{examples}WHAT THIS PAGE POSTS (copied from what the Dallas page does; keep this mix in mind when writing)
 - "right now" moments: wrecks and closures on I-35W/I-30/820, storms, lightning, snow, flooding, fights at games, concerts
   ("Kid Cudi joins Kanye at AT&T"), fans taking over the city, funny street scenes ("how does this happen 😂")
 - one-liner local news: rankings ("Fort Worth was ranked..."), openings ("Nine new stores are coming to..."), closings,

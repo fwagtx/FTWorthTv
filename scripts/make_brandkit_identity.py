@@ -19,7 +19,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from make_identity import DIRECTIONS, FONT_DIR, ROOT, g, measure, mono_a, mono_b, mono_c, svg, wordmark  # noqa: E402
 
 MONO = {"A": mono_a, "B": mono_b, "C": mono_c}
-NAME, HANDLE, TAGLINE = "Fort Worth Daily", "@FortWorthDaily", "Fort Worth, every day."
+import yaml as _yaml
+_brand = _yaml.safe_load((ROOT / "config" / "brand.yaml").read_text(encoding="utf-8"))
+NAME, HANDLE, TAGLINE = _brand.get("page_name", "Fort Worth Daily"), _brand.get("instagram_handle") or _brand.get("handle", "@fortworthdailytv"), _brand.get("tagline", "Fort Worth, every day.")
 SANS = "Archivo"
 
 
@@ -145,7 +147,8 @@ def main():
     out = ROOT / "assets" / "brand" / f"kit-{key}"
     out.mkdir(parents=True, exist_ok=True)
     for old in out.glob("*"):
-        old.unlink()
+        if old.is_file():
+            old.unlink()
     card = next(iter(sorted((ROOT / "out").glob("tweet-renders/0*/post.jpg"))), None)
     files = {
         "cover-facebook-1640x624": (cover(key, 1640, 624, 1100, 624), 1640),
