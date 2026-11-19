@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T10:15:27.166861+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-220027/16-broadway-bank-expands-to-southlake-adds-bankers/post.jpg",
+    "credit": "Photo: QuesterMark (CC BY-SA 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/52855156@N00/3493056948"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Broadway Bank expands to Southlake, adds bankers",
+    "caption": "Broadway Bank expands to Southlake, adds bankers. Broadway Bank is advancing its North Texas commercial banking presence with three strategic hires, including veteran banking executive Seth Allen as senior vice president and Southlake market president.",
+    "first_comment": "Source: Fort Worth Report https://fortworthreport.org/2026/11/18/broadway-bank-expands-to-southlake-adds-bankers/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Southlake, TX"
+  },
+  "story": {
+    "id": "fafd20ca6f662bcb",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Broadway Bank expands to Southlake, adds bankers",
+    "summary": "Broadway Bank is advancing its North Texas commercial banking presence with three strategic hires, including veteran banking executive Seth Allen as senior vice president and Southlake market president. The appointments […]",
+    "url": "https://fortworthreport.org/2026/11/18/broadway-bank-expands-to-southlake-adds-bankers/",
+    "published": "2026-11-18T23:59:03+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/ITEM-Attachment-001-851e2cdbce754f9cb8edff1893e0807b-1.pdf-300x169.jpg",
+    "image_credit": "Photo: Fort Worth Report",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "scope": "local"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.589
+  }
+}

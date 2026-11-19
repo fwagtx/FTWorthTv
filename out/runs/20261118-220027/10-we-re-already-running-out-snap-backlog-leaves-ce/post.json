@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T07:45:27.166861+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-220027/10-we-re-already-running-out-snap-backlog-leaves-ce/post.jpg",
+    "credit": "Photo: longhorndave (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/99255685@N00/4893050328"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
+    "caption": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid. A local mother said she struggled to keep groceries in the house while waiting for her SNAP benefits to be renewed.",
+    "first_comment": "Source: KVUE Austin https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3b0f1374a667b201",
+    "source": "KVUE Austin",
+    "source_kind": "rss",
+    "title": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
+    "summary": "A local mother said she struggled to keep groceries in the house while waiting for her SNAP benefits to be renewed.",
+    "url": "https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492",
+    "published": "2026-11-19T03:05:48+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/KVUE/images/e7fb7721-5b1c-4b53-8e59-9b6a3cfe6310/20261119T022342/e7fb7721-5b1c-4b53-8e59-9b6a3cfe6310_750x422.jpg",
+    "image_credit": "Photo: KVUE Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "KVUE RSS Feed: local",
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.3544
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T11:05:27.166861+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-220027/18-lsff-that-s-a-wrap/post.jpg",
+    "credit": "Photo: pointnshoot (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/18244673@N00/334897287"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "food",
+    "headline": "LSFF: That’s a Wrap",
+    "caption": "The 20th Lone Star Film Festival (LSFF), funded in part by presenting sponsor the Fort Worth Film Commission, brought a lot of gems to town last week. If you’re missing this, you’re missing out on some great cinema.\n\nAmpersand Filmmakers Lounge hosted several gatherings throughout the festival, including “coffee talks” with the founder of Dallas […] The post LSFF: That’s a Wrap appeared first on Fort Worth Weekly .",
+    "first_comment": "Source: Fort Worth Weekly https://www.fwweekly.com/2026/11/18/lsff-thats-a-wrap/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Texas barbecue plate",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "384e530ef705aa37",
+    "source": "Fort Worth Weekly",
+    "source_kind": "rss",
+    "title": "LSFF: That’s a Wrap",
+    "summary": "The 20th Lone Star Film Festival (LSFF), funded in part by presenting sponsor the Fort Worth Film Commission, brought a lot of gems to town last week. If you’re missing this, you’re missing out on some great cinema. Ampersand Filmmakers Lounge hosted several gatherings throughout the festival, including “coffee talks” with the founder of Dallas […] The post LSFF: That’s a Wrap appeared first on Fort Worth Weekly .",
+    "url": "https://www.fwweekly.com/2026/11/18/lsff-thats-a-wrap/",
+    "published": "2026-11-18T22:06:45+00:00",
+    "category_hint": "culture",
+    "image_url": "https://www.fwweekly.com/wp-content/uploads/2026/11/LSFF-As-Far-Back-as-I-Can-Remember-QA.jpg",
+    "image_credit": "Photo: Fort Worth Weekly",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Fort Worth Weekly",
+      "scope": "local"
+    },
+    "category": "food",
+    "relevance": 1,
+    "score": 0.4185
+  }
+}

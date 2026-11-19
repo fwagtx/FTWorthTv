@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T05:15:27.166861+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-220027/04-barnes-noble-returns-to-central-fort-worth-openi/post.jpg",
+    "credit": "Photo: Jonathan Silverberg (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/53011234@N00/35617903105"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Barnes & Noble returns to central Fort Worth, opening in West 7th District",
+    "caption": "Booksellers said the demand for physical bookstores remains strong, while the retailer plans more openings in Texas. Barnes & Noble held a ribbon-cutting ceremony Wednesday for a new bookstore at Montgomery Plaza on Carroll Street in the West 7th District.\n\nStore manager Rebecca Ruiz said the 19,500-square-foot store, one of five planned openings in Texas this year, exceeds the others in size and includes a Starbucks cafe with an ample dining section.",
+    "first_comment": "Source: Fort Worth Report https://fortworthreport.org/2026/11/18/barnes-noble-returns-to-central-fort-worth-opening-in-west-7th-district/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth West 7th",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "2e8d6e753426167e",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Barnes & Noble returns to central Fort Worth, opening in West 7th District",
+    "summary": "Booksellers said the demand for physical bookstores remains strong, while the retailer plans more openings in Texas. Enjoy reading the news again. Join over 110,000 neighbors who count on our newsletters for stories happening in your backyard. Sign up for free . Barnes & Noble held a ribbon-cutting ceremony Wednesday for a new bookstore at Montgomery Plaza on Carroll Street in the West 7th District. Store manager Rebecca Ruiz said the 19,500-square-foot store, one of five planned openings in Texas this year, exceeds the others in size and includes a Starbucks cafe with an ample dining section. “It is one of the larger locations of the new stores,” Ruiz, who has worked for the company for over 30 years, said.“We do have seating, where we can do Q&A, author signings. We have a bit more space.” It’s the second new store in Fort Worth this month. On Nov. 4, Barnes & Noble opened a…",
+    "url": "https://fortworthreport.org/2026/11/18/barnes-noble-returns-to-central-fort-worth-opening-in-west-7th-district/",
+    "published": "2026-11-19T02:15:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/BN-feature-photo-225x300.jpg",
+    "image_credit": "Photo: Fort Worth Report",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "scope": "local"
+    },
+    "category": "business",
+    "relevance": 4,
+    "score": 1.1264
+  }
+}
