@@ -24,6 +24,7 @@ SKIP_WORDS = ("map", "logo", "flag", "seal", "diagram", "chart", "poster", "scre
               "drawing", "painting", "sketch", "1900", "1910", "1920", "1930", "1940", "1950", "1960", "1970", "1980")
 PER_TOPIC = 6
 MIN_WIDTH = 1100
+PACE = 1.2          # seconds between requests to Commons
 
 # topic -> (Commons categories to try, search queries to try)
 TOPICS: dict[str, tuple[list[str], list[str]]] = {
@@ -105,16 +106,33 @@ def main() -> None:
     cands: list[dict] = []
     seen: set[str] = set()
 
+    def get(url: str, **kw) -> requests.Response:
+        """Commons rate-limits bursts (HTTP 429): wait and retry, and pace every call."""
+        for attempt in range(6):
+            r = s.get(url, timeout=60, **kw)
+            if r.status_code != 429:
+                time.sleep(PACE)
+                return r
+            wait = float(r.headers.get("Retry-After") or 0) or (10 * (attempt + 1))
+            print(f"429 from Commons, waiting {wait:.0f}s")
+            time.sleep(wait)
+        r.raise_for_status()
+        return r
+
     def pages_for(params: dict) -> list[dict]:
         base = {"action": "query", "format": "json", "formatversion": 2, "prop": "imageinfo",
-                "iiprop": "url|size|mime|extmetadata", "iiurlwidth": 1600}
-        r = s.get(API, params={**base, **params}, timeout=40)
+                "iiprop": "url|size|mime|extmetadata", "iiurlwidth": 1400}
+        r = get(API, params={**base, **params})
         r.raise_for_status()
         return list((r.json().get("query", {}) or {}).get("pages", []) or [])
 
     def keep(topic: str, page: dict, how: str) -> bool:
         info = (page.get("imageinfo") or [{}])[0]
         title = page.get("title", "")
+        if how.startswith("search:"):
+            words = [w for w in re.findall(r"[a-z0-9']+", how[7:].lower()) if w not in ("texas", "the", "of", "at", "in", "and", "store", "building")]
+            if sum(1 for w in words if w in title.lower()) < min(2, len(words)):
+                return False
         meta = info.get("extmetadata", {}) or {}
         lic = re.sub(r"<[^>]+>", "", (meta.get("LicenseShortName", {}) or {}).get("value", "")).strip()
         mime, w, h = info.get("mime", ""), int(info.get("width") or 0), int(info.get("height") or 0)
@@ -127,7 +145,7 @@ def main() -> None:
             return False
         url = info.get("thumburl") or info["url"]
         try:
-            r = s.get(url, timeout=60)
+            r = get(url)
             if not r.ok or len(r.content) < 30_000:
                 return False
         except Exception as exc:
@@ -161,7 +179,6 @@ def main() -> None:
                     break
                 if keep(topic, page, f"category:{cat}"):
                     kept += 1
-            time.sleep(0.3)
         for q in queries:
             if kept >= PER_TOPIC:
                 break
@@ -176,7 +193,6 @@ def main() -> None:
                     break
                 if keep(topic, page, f"search:{q}"):
                     kept += 1
-            time.sleep(0.3)
         print(f"{topic}: {kept} file(s)")
     (out / "candidates.json").write_text(json.dumps(cands, indent=1, ensure_ascii=False), encoding="utf-8")
     print(f"{len(cands)} candidates in {out}")
