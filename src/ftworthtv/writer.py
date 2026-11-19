@@ -86,7 +86,8 @@ VOICE
 
 OUTPUT FIELDS
 - skip / skip_reason: skip=true if the story is a bad fit for an upbeat local entertainment & news page: obituaries, graphic harm to
-  children, sexual assault, suicide, pure national politics, press-release spam, a paywalled teaser with no facts, or not actually
+  children, sexual assault, suicide, pure national politics, press-release spam, a paywalled teaser with no facts, or (when scope is
+  "local") not actually
   about Fort Worth / Tarrant County / the nearby suburbs. Otherwise skip=false and skip_reason="".
 - category: one of {", ".join(CATEGORIES)}.
 - headline: the one-line news headline printed on our post card under the page name, <= 110 characters, the way a news tweet
@@ -105,7 +106,12 @@ OUTPUT FIELDS
   Prefer Fort Worth landmarks when the story is about the city itself.
 - location: "City, TX" best guess from the story, default "Fort Worth, TX".
 
-{examples}WHAT THIS PAGE POSTS (copied from what the Dallas page does; keep this mix in mind when writing)
+{examples}SCOPE: "local" stories are Fort Worth / Tarrant County / Arlington. "dfw" and "texas" stories are the wider beat the Dallas
+page also covers every day: Texas teams (Cowboys, Rangers, Mavericks, Stars, Texans, Astros, Spurs, Longhorns, Aggies, Texas
+Tech, TCU, SMU), new Texas bills and the governor, H-E-B, Buc-ee's, Whataburger, gas prices, outages, statewide weather. Keep
+them, and write them for a Fort Worth reader (say what it means here when that is natural; never pretend it happened here).
+
+WHAT THIS PAGE POSTS (copied from what the Dallas page does; keep this mix in mind when writing)
 - "right now" moments: wrecks and closures on I-35W/I-30/820, storms, lightning, snow, flooding, fights at games, concerts
   ("Kid Cudi joins Kanye at AT&T"), fans taking over the city, funny street scenes ("how does this happen 😂")
 - one-liner local news: rankings ("Fort Worth was ranked..."), openings ("Nine new stores are coming to..."), closings,
@@ -135,6 +141,7 @@ def story_payload(story: Story, settings: Settings, now: datetime) -> dict:
         "url": story.url,
         "published_central": fmt_time(story.published, settings.tz) if story.published else None,
         "category_hint": story.category or story.category_hint,
+        "scope": story.extra.get("scope", "local"),       # local | dfw | texas
         "now_central": now.astimezone(settings.tz).strftime("%A %Y-%m-%d %I:%M %p"),
     }
     extra = {k: v for k, v in story.extra.items() if k in ("severity", "event", "area", "ends", "instruction", "venue", "when",

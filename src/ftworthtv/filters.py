@@ -166,6 +166,8 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 continue
             story.extra["scope"] = tier[0]
             story.weight *= tier[1]
+            if infer_category(story) == "sports":        # Texas teams are followed like local news
+                story.weight = min(story.weight / tier[1] * 0.9, story.weight * 1.3)
             story.relevance = min_rel
         story.category = infer_category(story)
         if story.category in excluded:

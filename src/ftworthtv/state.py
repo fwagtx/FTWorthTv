@@ -47,6 +47,11 @@ class State:
     def posts_on_by_category(self, day: str, category: str) -> int:
         return int(self.data.get("daily_by_category", {}).get(day, {}).get(category, 0))
 
+    def non_local_posts_on(self, day: str) -> int:
+        """DFW-wide and Texas-wide posts made on `day` (the share of the feed that is not Fort Worth / Tarrant County)."""
+        by_scope = self.data.get("daily_by_scope", {}).get(day, {})
+        return int(by_scope.get("dfw", 0)) + int(by_scope.get("texas", 0))
+
     def photo_recently_used(self, photo_id: str | None) -> bool:
         return bool(photo_id) and photo_id in self.data.get("used_photos", [])
 
@@ -92,6 +97,9 @@ class State:
         cat = draft.copy.category or "other"
         by_cat = self.data.setdefault("daily_by_category", {}).setdefault(day, {})
         by_cat[cat] = int(by_cat.get(cat, 0)) + 1
+        scope = story.extra.get("scope", "local")
+        by_scope = self.data.setdefault("daily_by_scope", {}).setdefault(day, {})
+        by_scope[scope] = int(by_scope.get(scope, 0)) + 1
         self.data["total_posts"] = self.total_posts + 1
         if draft.image and draft.image.photo_id:
             used = self.data.setdefault("used_photos", [])
@@ -105,7 +113,7 @@ class State:
         stale = [k for k, v in posted.items() if datetime.fromisoformat(v["at"]) < cutoff]
         for k in stale:
             del posted[k]
-        for key in ("daily", "daily_by_category"):
+        for key in ("daily", "daily_by_category", "daily_by_scope"):
             daily = self.data.get(key, {})
             for day in [d for d in daily if d < cutoff.date().isoformat()]:
                 del daily[day]

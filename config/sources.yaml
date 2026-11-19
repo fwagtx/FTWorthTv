@@ -17,6 +17,72 @@ rss:
     weight: 0.8
     image_policy: none
     verify: true
+  # ---- Texas-wide news and sports (the Dallas page posts these daily); kept only when the DFW/Texas tier matches ----
+  - name: Texas Monthly
+    url: https://www.texasmonthly.com/feed/
+    weight: 0.7
+    image_policy: none
+    verify: true
+  - name: KXAN Austin
+    url: https://www.kxan.com/feed/
+    weight: 0.6
+    image_policy: none
+    verify: true
+  - name: KHOU 11 Houston
+    url: https://www.khou.com/feeds/syndication/rss/news/local
+    weight: 0.6
+    image_policy: none
+    verify: true
+  - name: KVUE Austin
+    url: https://www.kvue.com/feeds/syndication/rss/news/local
+    weight: 0.6
+    image_policy: none
+    verify: true
+  - name: KENS 5 San Antonio
+    url: https://www.kens5.com/feeds/syndication/rss/news/local
+    weight: 0.6
+    image_policy: none
+    verify: true
+  - name: WFAA Sports
+    url: https://www.wfaa.com/feeds/syndication/rss/sports
+    weight: 0.8
+    image_policy: none
+    verify: true
+  - name: ESPN NFL
+    url: https://www.espn.com/espn/rss/nfl/news
+    weight: 0.7
+    image_policy: none
+    verify: true
+  - name: ESPN NBA
+    url: https://www.espn.com/espn/rss/nba/news
+    weight: 0.7
+    image_policy: none
+    verify: true
+  - name: ESPN MLB
+    url: https://www.espn.com/espn/rss/mlb/news
+    weight: 0.7
+    image_policy: none
+    verify: true
+  - name: ESPN NHL
+    url: https://www.espn.com/espn/rss/nhl/news
+    weight: 0.6
+    image_policy: none
+    verify: true
+  - name: ESPN College Football
+    url: https://www.espn.com/espn/rss/ncf/news
+    weight: 0.7
+    image_policy: none
+    verify: true
+  - name: Texas Rangers (MLB.com)
+    url: https://www.mlb.com/rangers/feeds/news/rss.xml
+    weight: 0.8
+    image_policy: none
+    verify: true
+  - name: Houston Astros (MLB.com)
+    url: https://www.mlb.com/astros/feeds/news/rss.xml
+    weight: 0.6
+    image_policy: none
+    verify: true
   - name: Fort Worth Report
     url: https://fortworthreport.org/feed/
     weight: 1.0
@@ -263,6 +329,12 @@ relevance:
   exclude_categories: []
   # stories that are not about Fort Worth / Tarrant County but are DFW-wide or Texas-wide (the Dallas page posts these
   # daily: new Texas bills, H-E-B, gas prices, outages, Cowboys). Two keyword hits keep a story at a lower weight.
-  dfw_keywords: [dallas, dfw, "north texas", plano, frisco, denton, irving, grapevine, southlake, keller, mansfield, "grand prairie", burleson, weatherford, cowboys, rangers, mavericks, "fc dallas", "dallas stars", "at&t stadium", "globe life", "dfw airport"]
-  texas_keywords: [texas, texans, austin, houston, "san antonio", "texas bill", "bill filed", lawmakers, legislature, governor, "h-e-b", "buc-ee", whataburger, "texas tech", longhorns, aggies, "state fair", ercot, "texas dps", "texas rangers"]
+  dfw_keywords: [dallas, dfw, "north texas", plano, frisco, denton, irving, grapevine, southlake, keller, mansfield, "grand prairie", burleson, weatherford,
+                 cowboys, "dak prescott", "jerry jones", rangers, "texas rangers", mavericks, mavs, "dallas stars", "fc dallas", "dallas wings", smu, mustangs, "unt", "mean green",
+                 "at&t stadium", "globe life", "american airlines center", "dfw airport", "texas motor speedway"]
+  # statewide: teams, the capitol, the brands and places every Texan follows (two keyword hits keep a story at a lower weight)
+  texas_keywords: [texas, texans, austin, houston, "san antonio", "el paso", lubbock, waco, galveston, "corpus christi", "college station",
+                   "texas bill", "bill filed", lawmakers, legislature, governor, "lt. gov", abbott, "texas senate", "texas house", "state rep", "state sen",
+                   "h-e-b", "buc-ee", whataburger, "texas lottery", ercot, "texas dps", "texas a&m", aggies, longhorns, "texas tech", "red raiders", baylor, "houston cougars", "ut austin",
+                   astros, rockets, spurs, "houston texans", "c.j. stroud", "state fair", sxsw, spacex, starbase, tesla]
   max_age_hours: 36

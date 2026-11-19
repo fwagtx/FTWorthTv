@@ -21,8 +21,9 @@ timezone: "America/Chicago"
 content_mix:
   # from the study of 120 Dallas Texas TV posts: sports 24%, other (outages, gaming, rankings, prices) 19%, weather 15%,
   # Texas bills/politics 12% (their best-performing topic), business 8%, events 8%, crime 7%, culture 4%, traffic 3%
-  caps_per_day: {sports: 5, other: 3, weather: 3, politics: 3, business: 3, events: 3, crime: 2, culture: 2, traffic: 2, food: 2, community: 3, breaking: 4}
-  non_local_per_run: 1         # DFW-wide or Texas-wide stories: at most one per run (they are weighted lower too)
+  caps_per_day: {sports: 6, other: 3, weather: 3, politics: 3, business: 3, events: 3, crime: 2, culture: 2, traffic: 2, food: 2, community: 3, breaking: 4}
+  non_local_per_run: 1         # DFW-wide or Texas-wide stories: at most one per run ...
+  non_local_per_day: 8         # ... and eight a day: Texas teams, new Texas bills, H-E-B, gas prices, outages, like the Dallas page
   # see docs/CONTENT_PLAYBOOK.md for the Dallas page's pillars and how each one is sourced here
 culture_calendar:
   enabled: true           # config/culture.yaml: Stock Show, Juneteenth, State Fair, Halloween, Parade of Lights, heat/freeze memes...

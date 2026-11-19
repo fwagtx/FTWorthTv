@@ -99,3 +99,14 @@ def test_same_story_from_two_outlets_is_posted_once(settings, now, tmp_path):
                      url="https://x/2", published=now, always_relevant=True)]
     kept, dropped = filter_stories(stories, settings, state, now)
     assert not kept and "another outlet" in dropped[0][1]
+
+
+def test_non_local_share_is_counted_per_day(settings, now, tmp_path):
+    from ftworthtv.models import PostCopy, PostDraft, PublishResult, Story
+    state = State(tmp_path / "s.json")
+    day = now.date().isoformat()
+    for i, scope in enumerate(("texas", "dfw", "local")):
+        story = Story(id=f"n{i}", source="x", source_kind="rss", title=f"Story {i} with enough words here", summary="", url=f"https://x/{i}", extra={"scope": scope})
+        draft = PostDraft(story=story, copy=PostCopy(headline="h", caption="c", category="sports"), writer="template")
+        state.record(draft, PublishResult(ok=True, publisher="dryrun", detail="", post_id=None, url=None), now, day)
+    assert state.non_local_posts_on(day) == 2 and state.posts_on(day) == 3

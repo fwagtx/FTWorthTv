@@ -42,8 +42,13 @@ workflow write captions through your Pro/Max subscription instead of a paid API 
 - **Events:** Ticketmaster for Dickies Arena, Billy Bob's, Texas Live and the Stockyards; the culture calendar
   (Stock Show, Juneteenth, Parade of Lights, Main Street Arts Festival, heat and freeze days).
 - **Crime:** official wanted bulletins (FWPD, Arlington PD, DPS), never scraped jail records.
-- **Beyond:** Arlington and Tarrant County are in by default; the Cowboys, Rangers and Mavericks are in through the DFW
-  outlets. To widen further, add keywords to `config/sources.yaml` → `relevance`.
+- **Texas and beyond, like the Dallas page:** up to eight posts a day from outside Tarrant County. Teams: Cowboys, Rangers,
+  Mavericks, Stars, FC Dallas, Wings, SMU, TCU, Texans, Astros, Rockets, Spurs, Longhorns, Aggies, Texas Tech, Baylor (ESPN
+  league feeds, WFAA Sports, the Rangers' and Astros' own feeds). Statewide news: new Texas bills and the governor, H-E-B,
+  Buc-ee's, Whataburger, gas prices, outages, ERCOT (The Texas Tribune, KERA, Texas Monthly, KXAN, KVUE, KHOU, KENS 5).
+  A story from that beat needs two matching keywords, is weighted a little below local news, and is written for a Fort Worth
+  reader. Widen or narrow it in `config/sources.yaml` → `relevance.dfw_keywords` / `texas_keywords` and
+  `config/brand.yaml` → `content_mix.non_local_per_day`.
 - **Submissions:** the first comment asks for videos and photos. Pick an inbox (Google Form or Page messages) and I wire
   approved submissions into the queue with the "(via IG/ user)" credit.
 
