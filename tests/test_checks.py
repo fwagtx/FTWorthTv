@@ -62,3 +62,15 @@ def test_wanted_recheck(monkeypatch):
 def test_preflight_offline_only_checks_text():
     d = PostDraft(story=_story(), copy=_copy("The subsidized rides cost about $28 each, Crawford said."), writer="template", mode="link", link="https://example.com/story")
     assert preflight(d, network=False) == []
+
+
+def test_parse_article_picks_the_story_block_not_the_teaser():
+    from ftworthtv.sources.article import parse_article
+    html = ('<html><head><meta property="og:title" content="Cooper Flagg scores 33 as Mavs beat Warriors">'
+            '<meta property="og:description" content="Cooper Flagg scored a career-high 33 points on Wednesday night."></head><body>'
+            '<article><p>Anthropic said the offering consists of 980 million shares and signals investor enthusiasm for AI stocks.</p></article>'
+            '<article><p>Cooper Flagg scored a career-high 33 points on Wednesday night as the Mavericks beat the Warriors 118-104.</p>'
+            '<p>Golden State has not won since Stephen Curry was injured earlier this month.</p></article></body></html>')
+    info = parse_article(html, "https://example.com/story")
+    assert info["summary"].startswith("Cooper Flagg scored a career-high 33 points")
+    assert "Anthropic" not in info["summary"]

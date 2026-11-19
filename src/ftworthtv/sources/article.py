@@ -35,7 +35,7 @@ def parse_article(html: str, base_url: str) -> dict:
     body = html
     # news pages carry several <article> blocks (teasers, "trending", the story itself): take the one that contains the
     # page's own description, else the longest; never the first one found
-    blocks = [m.group(2) for m in re.finditer(r"<article[^>]*>(.*?)</article>", html, re.I | re.S)]
+    blocks = [m.group(1) for m in re.finditer(r"<article[^>]*>(.*?)</article>", html, re.I | re.S)]
     if not blocks:
         m = re.search(r"<main[^>]*>(.*?)</main>", html, re.I | re.S)
         blocks = [m.group(1)] if m else []
