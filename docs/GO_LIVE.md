@@ -1,38 +1,39 @@
-# Go live: exactly what I need to start posting
+# Go live: where things stand and what is still needed
 
-Page: **Fort Worth Daily** on Facebook, **@fortworthdailytv** on Instagram. The automation is built, tested and pushed.
-It cannot post until the items marked **YOU** exist, because they are accounts and keys only the owner can create. Nothing
-here costs money: free tiers plus the Claude subscription and the Metricool plan you already have.
+Page: **Fort Worth Daily** on Facebook, **@fortworthdailytv** on Instagram, both connected to the Metricool brand
+(brand id 8208939, timezone America/Chicago). The first posts were scheduled through Metricool on Nov 18-19, 2026.
+Nothing here costs money: free tiers plus the Claude subscription and the Metricool plan you already have.
 
-## 1. What I need from you (about 45 minutes, once)
+## 1. Still needed for the schedule to run on its own (about ten minutes, once)
 
-| # | Item | Where | What to give me |
-|---|---|---|---|
-| 1 | **YOU** · Facebook Page and Instagram linked | Meta Business Suite → the Page → Linked accounts | confirmation that @fortworthdailytv is a Business/Creator account linked to the Page |
-| 2 | **YOU** · Metricool brand | Metricool → add brand "Fort Worth Daily" → connect Facebook Page + Instagram | the brand's **blog id** (number in the planner URL), your **user id**, and a **user token** (Settings → API) |
-| 3 | **YOU** · GitHub repo public + default branch `main` | repo Settings → General | needed so images have public URLs for Metricool and Actions minutes are unlimited (free) |
-| 4 | **YOU** · GitHub secrets | repo Settings → Secrets and variables → Actions → Secrets | `METRICOOL_USER_TOKEN`, `METRICOOL_USER_ID`, `METRICOOL_BLOG_ID`, `CLAUDE_CODE_OAUTH_TOKEN` (see §2), `NWS_USER_AGENT` (any identifying text with a contact email) |
-| 5 | **YOU** · GitHub variables | same page → Variables | `FTWTV_PUBLISHER = dryrun` to start, `METRICOOL_NETWORKS = facebook,instagram`, `MEDIA_BASE_URL = https://raw.githubusercontent.com/fwagtx/FTWorthTv/main`, `METRICOOL_AUTOPUBLISH = false` if you want one-tap approval on your phone for every post at first |
-| 6 | **YOU** · free photo keys (optional but recommended) | unsplash.com/developers, flickr.com/services/apps/create, pixabay.com/api/docs | secrets `UNSPLASH_ACCESS_KEY`, `FLICKR_API_KEY`, `PIXABAY_API_KEY`. Without them Openverse and Wikimedia Commons are used (works, fewer photos) |
-| 7 | **YOU** · Ticketmaster key (optional) | developer.ticketmaster.com | secret `TICKETMASTER_API_KEY` for Dickies Arena, Billy Bob's and Texas Live event posts with real artist art |
-| 8 | **YOU** · the reference study (optional, makes the voice exact) | docs/REFERENCE_STUDY.md | the JSON from Claude for Chrome |
-| 9 | ME · everything else | this repo | I flip the schedule on, watch the first day, and tune sources, caps and captions |
+The GitHub workflow `.github/workflows/post.yml` already runs every 30 minutes on the default branch
+(`claude/practical-mccarthy-mi4jkw`) in dry-run mode. It starts publishing the moment these exist:
 
-### The Claude token (step 4, two minutes)
-On your computer, in a terminal with Claude Code installed: `claude setup-token`. It prints a long token that lets the
-workflow write captions through your Pro/Max subscription instead of a paid API key. Paste it as the secret
-`CLAUDE_CODE_OAUTH_TOKEN`. Without it the template writer runs (plainer captions, still correct).
+| # | Where | What |
+|---|---|---|
+| 1 | Metricool → Settings (gear) → **API** | copy the **user token** |
+| 2 | GitHub repo → Settings → Secrets and variables → Actions → **Secrets** | `METRICOOL_USER_TOKEN` = that token · `METRICOOL_USER_ID` = `5456294` · `METRICOOL_BLOG_ID` = `8208939` |
+| 3 | same page → **Variables** | `FTWTV_PUBLISHER` = `metricool` · `MEDIA_BASE_URL` = `https://raw.githubusercontent.com/fwagtx/FTWorthTv/claude/practical-mccarthy-mi4jkw` |
+| 4 | optional, better captions | secret `CLAUDE_CODE_OAUTH_TOKEN` from `claude setup-token` on your computer (uses your Claude subscription; without it the template writer runs) |
+| 5 | optional | variable `METRICOOL_AUTOPUBLISH` = `false` if you want to approve every post on your phone at first; secret `NWS_USER_AGENT` = any text with a contact email, for weather alerts; photo keys `UNSPLASH_ACCESS_KEY`, `FLICKR_API_KEY`, `PIXABAY_API_KEY` |
 
-## 2. What happens once those exist
+Variables `METRICOOL_NETWORKS` (`facebook,instagram`) and `METRICOOL_AUTOPUBLISH` (`true`) already have the right defaults.
+If the Metricool API tab is not on your plan, say so: the fallback is a scheduled Claude task that posts through the
+Metricool connector instead (more of your Claude usage, no token).
 
-1. I run the workflow once with `FTWTV_PUBLISHER = dryrun` and send you the preview page of that run's posts.
-2. You flip the variable to `metricool`. With `METRICOOL_AUTOPUBLISH = false`, every post lands in Metricool for your approval;
-   with `true`, it publishes itself.
-3. The schedule runs **every 30 minutes** (`.github/workflows/post.yml`), one post per run and two during the 7-11am and 4pm waves, 20 a day, quiet from 11pm to 6am Central.
-   Severe weather bypasses the quiet hours. Wanted bulletins are capped at one a day; the felony arrest log is off.
-4. Every post: the two-paragraph summary caption, our card (FWD avatar, Fort Worth Daily, @fortworthdailytv, headline, photo),
-   and a first comment with the source link, the photo credit and the presumption-of-innocence line where it applies.
-5. After the first week, send me the Page insights export (reach per post) and I tune the mix to what the audience answered.
+## 2. What runs once that is in
+
+1. Every 30 minutes (`7,37 * * * *` UTC) the workflow pulls the feeds, police, city and NWS sources, ranks what is new,
+   writes the caption and the card, commits the image so Metricool can fetch it, then schedules the post for a few
+   minutes later on Facebook + Instagram with the source, photo credit and the presumption-of-innocence line in the
+   first comment.
+2. One post per run, two in the 7-11am and 4pm waves, up to 20 a day, quiet from 11pm to 6am Central. Severe weather
+   bypasses the quiet hours. Wanted bulletins are capped at one a day; the felony arrest log is off.
+3. Photos: the official photo when the source is a government release (police, city, NWS); otherwise the verified
+   Fort Worth photo library (`assets/photos`, filed by subject: Central Station for transit, the courthouse for a
+   verdict, City Hall for council, the Capitol for a Texas bill, the skyline otherwise); search engines only for food,
+   concerts and culture, and never a photo labelled with another city.
+4. After the first week, send the Page insights export (reach per post) and the mix gets tuned to what the audience answered.
 
 ## 3. What is covered ("everything Fort Worth and beyond")
 
@@ -47,13 +48,12 @@ workflow write captions through your Pro/Max subscription instead of a paid API 
   (Austin, Dallas, UTSA, UTEP), Texas A&M, Texas Tech, Baylor, SMU, UNT, Texas State, Houston (ESPN league and college feeds,
   WFAA Sports, the Rangers' and Astros' own feeds). Worth-posting gate for all of it: two matching keywords, fresher than
   30 hours, not a trivia / podcast / gallery filler item, results and moves ranked above previews, one per story across
-  outlets, and the daily share of eight. Statewide news: new Texas bills and the governor, H-E-B,
-  Buc-ee's, Whataburger, gas prices, outages, ERCOT (The Texas Tribune, KERA, Texas Monthly, KXAN, KVUE, KHOU, KENS 5).
-  A story from that beat needs two matching keywords, is weighted a little below local news, and is written for a Fort Worth
-  reader. Widen or narrow it in `config/sources.yaml` → `relevance.dfw_keywords` / `texas_keywords` and
+  outlets, no other-metro crime or traffic, and the daily share of eight. Statewide news: new Texas bills and the governor,
+  H-E-B, Buc-ee's, Whataburger, gas prices, outages, ERCOT (The Texas Tribune, KERA, Texas Monthly, KXAN, KVUE, KHOU, KENS 5).
+  Widen or narrow it in `config/sources.yaml` → `relevance.dfw_keywords` / `texas_keywords` and
   `config/brand.yaml` → `content_mix.non_local_per_day`.
-- **Submissions:** the first comment asks for videos and photos. Pick an inbox (Google Form or Page messages) and I wire
-  approved submissions into the queue with the "(via IG/ user)" credit.
+- **Submissions:** the first comment asks for videos and photos. Pick an inbox (Google Form or Page messages) and approved
+  submissions go into the queue with the "(via IG/ user)" credit.
 
 ## 4. Not yet, and why
 

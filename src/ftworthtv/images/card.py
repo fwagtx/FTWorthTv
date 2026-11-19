@@ -457,7 +457,10 @@ def render_tweet_card(*, name: str, handle: str, headline: str, photo: Path | No
         scale = content_w / photo_img.width
         natural_h = int(photo_img.height * scale)
         cap = int(content_w * 1.1)
-        if natural_h <= cap:
+        floor = int(content_w * 0.52)
+        if natural_h < floor:      # a panorama would be a thin strip: crop it to 2:1 like a news site does
+            photo_img = cover(photo_img, (content_w, floor))
+        elif natural_h <= cap:
             photo_img = photo_img.resize((content_w, max(1, natural_h)), Image.LANCZOS)
         else:  # tall photo: contain on a blurred copy of itself, never crop a face
             box = cover(photo_img, (content_w, cap)).filter(ImageFilter.GaussianBlur(26))

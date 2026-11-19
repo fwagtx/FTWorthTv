@@ -30,11 +30,27 @@ class MetricoolPublisher(Publisher):
         from .base import public_media_url
         return public_media_url(draft, self.settings)
 
+    @staticmethod
+    def wait_public(url: str, *, tries: int = 12, pause: float = 5.0) -> bool:
+        """raw.githubusercontent.com can lag a few seconds behind a push; Metricool fetches the image at once."""
+        import time
+        for _ in range(tries):
+            try:
+                if requests.head(url, timeout=20, allow_redirects=True).status_code == 200:
+                    return True
+            except requests.RequestException:
+                pass
+            time.sleep(pause)
+        return False
+
     def publish(self, draft: PostDraft) -> PublishResult:
         s = self.settings
         when = draft.scheduled_at or (datetime.now(timezone.utc) + timedelta(minutes=5))
         local = when.astimezone(s.tz)
         media = [u for u in [self.media_url(draft)] if u]
+        for u in media:
+            if not self.wait_public(u):
+                return PublishResult(ok=False, publisher=self.name, detail=f"image not reachable at {u}")
         networks = list(s.metricool_networks)
         if not media and "instagram" in networks:
             log.warning("Instagram needs an image; dropping it for this post (set MEDIA_BASE_URL)")
