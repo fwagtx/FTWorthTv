@@ -1,0 +1,10 @@
+SKIP (robots.txt disallows) https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html
+200   216202  https://www.npr.org/2026/11/19/nx-s1-6042558/anthropic-ipo-breaks-records-100-billion  -> https://www.npr.org/2026/11/19/nx-s1-6042558/anthropic-ipo-breaks-records-100-billion
+200   368193  https://www.npr.org/sections/news/  -> https://www.npr.org/sections/news/
+200   641828  https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/  -> https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/
+200   641828  https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/#site-header:83  -> https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/#site-header:83
+200   641828  https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/#icon-more  -> https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/#icon-more
+200   641828  https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/#x  -> https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/#x
+200   641828  https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/#icon-nav-close  -> https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/#icon-nav-close
+200   211233  https://www.foxbusiness.com/markets/anthropic-begins-trading-nasdaq-record-breaking-ipo  -> https://www.foxbusiness.com/markets/anthropic-begins-trading-nasdaq-record-breaking-ipo
+200   587682  https://www.nbcnews.com/business/markets/live-blog/anthropic-ipo-live-updates-rcna610159  -> https://www.nbcnews.com/business/markets/live-blog/anthropic-ipo-live-updates-rcna610159
