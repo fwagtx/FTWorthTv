@@ -37,7 +37,7 @@ def load_draft(folder: Path) -> PostDraft | None:
         if not path.exists() and (folder / "card.jpg").exists():
             path = folder / "card.jpg"
         image = ImageAsset(path=path, credit=im.get("credit", ""), license=im.get("license", ""), provider=im.get("provider", ""),
-                           source_url=im.get("source_url"))
+                           source_url=im.get("source_url"), photo_id=im.get("photo_id"))   # so the publish phase remembers used photos
     draft = PostDraft(story=story, copy=copy, writer=meta.get("writer", "unknown"), mode=meta.get("mode", "photo"), image=image,
                       video_path=Path(meta["video"]) if meta.get("video") else None, link=meta.get("link"),
                       scheduled_at=dtparse.isoparse(meta["scheduled_at"]) if meta.get("scheduled_at") else None)

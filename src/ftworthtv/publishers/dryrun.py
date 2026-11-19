@@ -28,7 +28,8 @@ class DryRunPublisher(Publisher):
             "mode": draft.mode, "writer": draft.writer, "link": draft.link,
             "scheduled_at": draft.scheduled_at.isoformat() if draft.scheduled_at else None,
             "image": {"path": str(draft.image.path), "credit": draft.image.credit, "license": draft.image.license,
-                      "provider": draft.image.provider, "source_url": draft.image.source_url} if draft.image else None,
+                      "provider": draft.image.provider, "source_url": draft.image.source_url,
+                      "photo_id": draft.image.photo_id} if draft.image else None,
             "video": str(draft.video_path) if draft.video_path else None,
             "copy": draft.copy.model_dump(), "story": story,
         }
