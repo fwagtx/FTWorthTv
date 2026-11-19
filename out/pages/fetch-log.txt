@@ -1,0 +1,15 @@
+200  1029496  https://www.youtube.com/@FortWorthPolice  -> https://www.youtube.com/@FortWorthPolice
+404      755  https://www.youtube.com/@wfaachannel8  -> https://www.youtube.com/@wfaachannel8
+200  2602899  https://www.youtube.com/@WFAA8  -> https://www.youtube.com/wfaa
+404      755  https://www.youtube.com/@GoFrogs  -> https://www.youtube.com/@GoFrogs
+404      755  https://www.youtube.com/@TCUAthletics  -> https://www.youtube.com/@TCUAthletics
+404      755  https://www.youtube.com/@fortworthstartelegram  -> https://www.youtube.com/@fortworthstartelegram
+404      755  https://www.youtube.com/@TexasDPSOfficial  -> https://www.youtube.com/@TexasDPSOfficial
+404      755  https://www.youtube.com/@FWISD  -> https://www.youtube.com/@FWISD
+200  1867771  https://www.youtube.com/@CityofArlington  -> https://www.youtube.com/@CityofArlington
+200  1052197  https://www.youtube.com/@ArlingtonTexas  -> https://www.youtube.com/@ArlingtonTexas
+404      755  https://www.youtube.com/@dickiesarenafw  -> https://www.youtube.com/@dickiesarenafw
+404      755  https://www.youtube.com/@TexasRangers  -> https://www.youtube.com/@TexasRangers
+404      755  https://www.youtube.com/@ArlingtonPoliceTX  -> https://www.youtube.com/@ArlingtonPoliceTX
+200  1106986  https://www.youtube.com/@NWSFortWorth  -> https://www.youtube.com/@NWSFortWorth
+404      755  https://www.youtube.com/@TCUHornedFrogs  -> https://www.youtube.com/@TCUHornedFrogs
