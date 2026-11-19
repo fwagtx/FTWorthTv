@@ -1,0 +1,153 @@
+{
+  "daily": {
+    "2026-11-18": 10
+  },
+  "daily_by_category": {
+    "2026-11-18": {
+      "business": 1,
+      "community": 1,
+      "crime": 1,
+      "culture": 1,
+      "food": 2,
+      "other": 2,
+      "sports": 1,
+      "traffic": 1
+    }
+  },
+  "flags": {},
+  "last_post_at": "2026-11-19T03:19:29.329295+00:00",
+  "posted": {
+    "036b7e3fe9f61ada": {
+      "at": "2026-11-19T03:19:29.329295+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/04-notes-and-news",
+      "publisher": "dryrun",
+      "source": "Fort Worth Weekly",
+      "title": "Notes and News",
+      "url": "https://www.fwweekly.com/2026/11/18/notes-and-news-7/"
+    },
+    "0483ca217fa88587": {
+      "at": "2026-11-19T03:19:29.329295+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/02-wanted-joshua-rodriguez",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "2e8d6e753426167e": {
+      "at": "2026-11-19T03:19:29.329295+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/01-barnes-noble-returns-to-central-fort-worth-openi",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Barnes & Noble returns to central Fort Worth, opening in West 7th District",
+      "url": "https://fortworthreport.org/2026/11/18/barnes-noble-returns-to-central-fort-worth-opening-in-west-7th-district/"
+    },
+    "548ff391d9c0b1bd": {
+      "at": "2026-11-19T03:19:29.329295+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/03-trackdown-baseball-bat-bandits-steal-thousands-f",
+      "publisher": "dryrun",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Trackdown: Baseball bat bandits steal thousands from multiple Academy stores in Tarrant County",
+      "url": "https://www.fox4news.com/news/trackdown-baseball-bat-bandits-academy-fort-worth"
+    },
+    "69a70b4ed9e55887": {
+      "at": "2026-11-19T03:19:29.329295+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/06-coalition-hand-delivers-thousands-of-petition-si",
+      "publisher": "dryrun",
+      "source": "WFAA",
+      "title": "Coalition hand delivers thousands of petition signatures to save Dallas City Hall",
+      "url": "https://www.wfaa.com/article/news/local/dallas-county/coalition-hand-delivers-thousands-of-petition-signatures-to-save-dallas-city-hall/287-5491ae14-66d1-437f-b230-15117a8e5536"
+    },
+    "979eb8c0e61a3f87": {
+      "at": "2026-11-19T03:19:29.329295+00:00",
+      "category": "food",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/09-fort-worth-band-takes-on-taboo-subject-for-new-s",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth band takes on taboo subject for new single",
+      "url": "https://fortworthreport.org/2026/11/18/fort-worth-band-takes-on-taboo-subject-for-new-single/"
+    },
+    "9efb82c47efa1aad": {
+      "at": "2026-11-19T03:19:29.329295+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/07-a-fort-worth-shelter-pet-finds-her-home-in-parad",
+      "publisher": "dryrun",
+      "source": "City of Fort Worth",
+      "title": "A Fort Worth shelter pet finds her home in paradise",
+      "url": "https://www.fortworthtexas.gov/news/2026/11/A-Fort-Worth-shelter-pet-finds-her-home-in-paradise"
+    },
+    "bcd34c163cef11b3": {
+      "at": "2026-11-19T03:19:29.329295+00:00",
+      "category": "food",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/05-snazzy-new-arlington-hotel-includes-restaurant-f",
+      "publisher": "dryrun",
+      "source": "CultureMap Fort Worth",
+      "title": "Snazzy new Arlington hotel includes restaurant from hot Dallas celeb chef",
+      "url": "https://fortworth.culturemap.com/news/travel/arlin-hotel-arlington-kent-rathbun/"
+    },
+    "be30deab42bde11a": {
+      "at": "2026-11-19T03:19:29.329295+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/10-tarrant-county-to-mark-25-years-of-celebrating-n",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Tarrant County to mark 25 years of celebrating National Adoption Day",
+      "url": "https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/"
+    },
+    "f6005c351dbbb80d": {
+      "at": "2026-11-19T03:19:29.329295+00:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/08-this-will-affect-me-greatly-transit-users-questi",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
+      "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/"
+    }
+  },
+  "total_posts": 10,
+  "used_photos": [
+    "openverse-dc876e04-722d-4d55-a5d7-d13ded06520f",
+    "openverse-7601ad5a-aaeb-432e-a21d-3ed93c8a1649",
+    "openverse-bbf39cca-7bc5-4c08-b727-068267cf2714",
+    "openverse-9f8706ec-5d52-4f20-be15-5c55d47e3420",
+    "openverse-477ee5d1-d88c-4497-bde9-bf9265dd5188",
+    "openverse-cbabb62e-dc6b-47cc-a3dd-a266279d97f5",
+    "openverse-7a0d5939-492e-42cd-8b8a-2c3a5239cd48",
+    "openverse-de38cb4c-5f5f-4f45-9656-f17b177b7e8a"
+  ],
+  "version": 1
+}

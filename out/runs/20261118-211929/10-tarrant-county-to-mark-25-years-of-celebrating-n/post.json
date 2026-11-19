@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T09:19:29.329295+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-211929/10-tarrant-county-to-mark-25-years-of-celebrating-n/post.jpg",
+    "credit": "Photo: Boston Public Library (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/24029425@N06/6985443759"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Tarrant County to mark 25 years of celebrating National Adoption Day",
+    "caption": "Tarrant County to mark 25 years of celebrating National Adoption Day. The county joins 400-plus U.S. communities in helping to raise awareness of over 100,000 children waiting to be adopted from foster care.\n\nEnjoy reading the news again. By her best estimates, LaTonya Green has parented about 75 children.",
+    "first_comment": "Source: Fort Worth Report https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Arlington Texas downtown",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "be30deab42bde11a",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Tarrant County to mark 25 years of celebrating National Adoption Day",
+    "summary": "The county joins 400-plus U.S. communities in helping to raise awareness of over 100,000 children waiting to be adopted from foster care. Enjoy reading the news again. Join over 110,000 neighbors who count on our newsletters for stories happening in your backyard. Sign up for free . By her best estimates, LaTonya Green has parented about 75 children. The 59-year-old southwest Arlington hairstylist has known since she was a teenage mother that she wanted to spend her life helping children. In the decades since, most of them came to her home for a period of months or years and then moved on to other phases of their lives. But a few times, the bond she formed with a child became lifelong and official. In addition to birthing two children, she has adopted four — two from an aunt who passed away and two from the foster system. On Friday, she will officially become a mother of six when she…",
+    "url": "https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/",
+    "published": "2026-11-19T02:50:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2024/10/Gladney-Center_Oct25_CamiloDiaz0308-300x200.jpg",
+    "image_credit": "Photo: Fort Worth Report",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "scope": "local"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.9061
+  }
+}
