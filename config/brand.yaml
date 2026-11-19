@@ -100,7 +100,7 @@ card:
 
 # How the posting cadence behaves
 posting:
-  max_posts_per_run: 1          # the scheduler runs every 30 minutes
+  max_posts_per_run: 1          # the scheduler runs every 10 minutes; min_minutes_between_posts spaces the feed
   peak_hours_local: [7, 8, 9, 10, 11, 16]   # the reference page's morning wave (7-11am) and 4pm wave: 2 per run then
   peak_max_posts_per_run: 2
   min_minutes_between_posts: 25

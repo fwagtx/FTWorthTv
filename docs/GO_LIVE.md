@@ -6,7 +6,7 @@ Nothing here costs money: free tiers plus the Claude subscription and the Metric
 
 ## 1. Still needed for the schedule to run on its own (about ten minutes, once)
 
-The GitHub workflow `.github/workflows/post.yml` already runs every 30 minutes on the default branch
+The GitHub workflow `.github/workflows/post.yml` already runs every 10 minutes on the default branch
 (`claude/practical-mccarthy-mi4jkw`) in dry-run mode. It starts publishing the moment these exist:
 
 | # | Where | What |
