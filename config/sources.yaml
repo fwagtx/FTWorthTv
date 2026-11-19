@@ -345,6 +345,12 @@ relevance:
     - live blog
     - "photos:"
     - "gallery:"
+    - "replay:"
+    - "streams daily"
+    - "wfaa+"
+    - "kfaa"
+    - "watch live:"
+    - "listen:"
   # the study showed "New Texas bill filed would..." posts are the reference page's best performers: state and local
   # politics stay in (cap 3/day); national partisan fights are kept out by the blocklist above
   exclude_categories: []

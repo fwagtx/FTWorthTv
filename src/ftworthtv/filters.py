@@ -13,7 +13,7 @@ log = logging.getLogger(__name__)
 
 # keyword heuristics used before Claude refines the category (and as the only signal in template mode)
 CATEGORY_KEYWORDS: dict[str, list[str]] = {
-    "weather": ["storm", "tornado", "thunder", "hail", "flood", "freeze", "ice ", "snow", "heat advisory", "weather",
+    "weather": ["storm", "tornado", "thunder", "hail", "flood", "freeze", "ice storm", "icy", "sleet", "freezing rain", "snow", "heat advisory", "weather",
                 "forecast", "rain", "wind advisory", "cold front", "warning for"],
     "traffic": ["crash", "wreck", "i-35w", "35w", "i-30", "i-20", "loop 820", "highway", "lanes closed", "road closure",
                 "traffic", "pileup", "18-wheeler", "trinity metro", "texrail", "dfw airport delays"],
