@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T09:16:37.007916+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/13-this-will-affect-me-greatly-transit-users-questi/post.jpg",
+    "credit": "Photo: Dbergere via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_Intermodal_Transportation_Center.jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "traffic",
+    "headline": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
+    "caption": "Trinity Metro’s board of directors approved cuts to the agency’s On-Demand program that eliminate some areas from service. Paul David Williams wonders how he will get home with his groceries.",
+    "first_comment": "Source: Fort Worth Report https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Texas highway traffic night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "f6005c351dbbb80d",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
+    "summary": "Trinity Metro’s board of directors approved cuts to the agency’s On-Demand program that eliminate some areas from service. Enjoy reading the news again. Join over 110,000 neighbors who count on our newsletters for stories happening in your backyard. Sign up for free . Paul David Williams wonders how he will get home with his groceries. The 70-year-old south Fort Worth resident, who lives on a fixed Social Security income, is upset that Trinity Metro transit agency approved changes Monday to the On-Demand microtransit service that will eliminate the closest grocery store to his home from the Southside zone. Williams said he will be forced to walk with his groceries two blocks from the Walmart Neighborhood Market at 717 W. Berry St. to get picked up by the rideshare van under the changes that go into effect in January. The Walmart at 2900 Renaissance Square — about 4 miles from Williams’…",
+    "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/",
+    "published": "2026-11-18T23:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2025/07/IMG_5977-1024x683-1-300x200.jpg",
+    "image_credit": "Photo: Fort Worth Report",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "scope": "local"
+    },
+    "category": "traffic",
+    "relevance": 2,
+    "score": 0.7814
+  }
+}

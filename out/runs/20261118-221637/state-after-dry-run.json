@@ -1,0 +1,216 @@
+{
+  "daily": {
+    "2026-11-18": 14
+  },
+  "daily_by_category": {
+    "2026-11-18": {
+      "business": 1,
+      "community": 2,
+      "crime": 2,
+      "culture": 2,
+      "events": 1,
+      "food": 1,
+      "other": 1,
+      "politics": 1,
+      "sports": 1,
+      "traffic": 1,
+      "weather": 1
+    }
+  },
+  "daily_by_scope": {
+    "2026-11-18": {
+      "dfw": 2,
+      "local": 9,
+      "texas": 3
+    }
+  },
+  "flags": {},
+  "last_post_at": "2026-11-19T04:16:37.007916+00:00",
+  "posted": {
+    "0483ca217fa88587": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/12-wanted-joshua-rodriguez",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "1cc5adc16ae6882e": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/08-hunger-games-prequel-sunrise-on-the-reaping-gets",
+      "publisher": "dryrun",
+      "source": "CultureMap Fort Worth",
+      "title": "Hunger Games prequel Sunrise on the Reaping gets trapped in nostalgia",
+      "url": "https://fortworth.culturemap.com/news/entertainment/hunger-games-sunrise-reaping-review/"
+    },
+    "2e8d6e753426167e": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/04-barnes-noble-returns-to-central-fort-worth-openi",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Barnes & Noble returns to central Fort Worth, opening in West 7th District",
+      "url": "https://fortworthreport.org/2026/11/18/barnes-noble-returns-to-central-fort-worth-opening-in-west-7th-district/"
+    },
+    "331393c0463e766b": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/07-voters-will-likely-decide-dallas-city-hall-s-fut",
+      "publisher": "dryrun",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Voters will likely decide Dallas City Hall’s future in May election",
+      "url": "https://www.fox4news.com/news/voters-will-likely-decide-dallas-city-halls-future-may-election"
+    },
+    "87bda397d4c1eadb": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/05-north-texas-officer-placed-on-leave-following-fl",
+      "publisher": "dryrun",
+      "source": "WFAA",
+      "title": "North Texas officer placed on leave following Flock audit, police say",
+      "url": "https://www.wfaa.com/article/news/local/dallas-county/north-texas-officer-placed-on-leave-following-flock-audit-police-say/287-e833ae64-7236-42cf-abdd-dd934d3d10f3"
+    },
+    "979eb8c0e61a3f87": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/14-fort-worth-band-takes-on-taboo-subject-for-new-s",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth band takes on taboo subject for new single",
+      "url": "https://fortworthreport.org/2026/11/18/fort-worth-band-takes-on-taboo-subject-for-new-single/"
+    },
+    "b7d958555f9a76c9": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/06-largest-enrollment-drop-in-texas-recorded-histor",
+      "publisher": "dryrun",
+      "source": "KXAN Austin",
+      "title": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
+      "url": "https://www.kxan.com/news/texas/declining-enrollment-texas/"
+    },
+    "be30deab42bde11a": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/11-tarrant-county-to-mark-25-years-of-celebrating-n",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Tarrant County to mark 25 years of celebrating National Adoption Day",
+      "url": "https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/"
+    },
+    "c1cfc38cbaa2a1c1": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "food",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/10-this-puerto-rican-barbecue-truck-is-changing-san",
+      "publisher": "dryrun",
+      "source": "Texas Monthly",
+      "title": "This Puerto Rican Barbecue Truck Is Changing San Antonio’s Barbecue Scene",
+      "url": "https://www.texasmonthly.com/bbq/bucan-rodeo-san-antonio/"
+    },
+    "cf2f83276cf2b092": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/09-could-you-have-a-penny-worth-235-000-rare-1943-c",
+      "publisher": "dryrun",
+      "source": "KHOU 11 Houston",
+      "title": "Could you have a penny worth $235,000? Rare 1943 coin makes its way to Houston shop",
+      "url": "https://www.khou.com/article/news/local/rare-expensive-penny-houston-texas/285-9e4f895f-4f6e-4f38-9b4f-a4321be63696"
+    },
+    "f6005c351dbbb80d": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/13-this-will-affect-me-greatly-transit-users-questi",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
+      "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/"
+    },
+    "forecast-2026-11-17": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/01-fort-worth-forecast-for-tuesday-november-17",
+      "publisher": "dryrun",
+      "source": "FOX Weather",
+      "title": "Fort Worth forecast for Tuesday, November 17",
+      "url": "https://www.foxweather.com/local-weather/texas/fort-worth"
+    },
+    "tm-funkytown-showdown-2026-11-22": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "sports",
+      "kind": "event",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/02-women-s-funkytown-showdown-at-dickies-arena",
+      "publisher": "dryrun",
+      "source": "Ticketmaster",
+      "title": "Women's Funkytown Showdown at Dickies Arena",
+      "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
+    },
+    "tm-ty-myers-2026-11-21": {
+      "at": "2026-11-19T04:16:37.007916+00:00",
+      "category": "events",
+      "kind": "event",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/03-ty-myers-the-legal-tour-2026-at-dickies-arena",
+      "publisher": "dryrun",
+      "source": "Ticketmaster",
+      "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+      "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
+    }
+  },
+  "total_posts": 14,
+  "used_photos": [
+    "lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
+    "openverse-7e1d8977-8515-410c-9f2e-207bced77474",
+    "openverse-6ab43d94-a6c2-4e85-bd5f-81f2cdfaeab1",
+    "lib-fort-worth-june-2016-09-main-street-jpg",
+    "lib-fort-worth-june-2016-16-city-hall-jpg",
+    "lib-fort-worth-june-2016-43-sundance-square-plaza-jpg",
+    "lib-downtown-fort-worth-jpg",
+    "openverse-176bf003-f72d-4224-b0e3-1282cc99893a",
+    "lib-fort-worth-courthouse-jpg",
+    "openverse-f91ebae8-75c2-4b9f-865f-0c7ccedf3f53",
+    "lib-fort-worth-june-2016-32-tarrant-county-courthouse-jpg",
+    "lib-fort-worth-intermodal-transportation-center-jpg",
+    "openverse-984119a7-7144-4b5f-b1dd-bd71dcb6d195"
+  ],
+  "version": 1
+}

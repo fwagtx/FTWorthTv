@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T04:41:37.007916+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/02-women-s-funkytown-showdown-at-dickies-arena/post.jpg",
+    "credit": "Photo: sludgegulper (CC BY-SA 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/28179929@N08/4952252504"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Women's Funkytown Showdown at Dickies Arena, Sun, Nov 22 12:00 PM",
+    "caption": "Women's Funkytown Showdown at Dickies Arena this Sunday. Tickets in the comments",
+    "first_comment": "🎟️ Tickets: https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "basketball arena game",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "tm-funkytown-showdown-2026-11-22",
+    "source": "Ticketmaster",
+    "source_kind": "event",
+    "title": "Women's Funkytown Showdown at Dickies Arena",
+    "summary": "Elite women's college basketball comes to Dickies Arena on Sunday, Nov. 22 starting at noon: TCU vs. Utah State and Texas vs. Ohio State.",
+    "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330",
+    "published": "2026-11-17T12:00:00+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": "ticketmaster",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "venue": "Dickies Arena",
+      "city": "Fort Worth",
+      "when": "Sun, Nov 22 12:00 PM",
+      "start": "2026-11-22T18:00:00+00:00",
+      "genre": "Basketball",
+      "ticket_url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330",
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 5,
+    "score": 1.6209
+  }
+}

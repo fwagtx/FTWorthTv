@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T06:21:37.007916+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/06-largest-enrollment-drop-in-texas-recorded-histor/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_June_2016_43_(Sundance_Square_Plaza).jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
+    "caption": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says. Texas lost about 135,000 students from last school year, outpacing pandemic-era declines, education commissioner Mike Morath said.",
+    "first_comment": "Source: KXAN Austin https://www.kxan.com/news/texas/declining-enrollment-texas/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "b7d958555f9a76c9",
+    "source": "KXAN Austin",
+    "source_kind": "rss",
+    "title": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
+    "summary": "Texas lost about 135,000 students from last school year, outpacing pandemic-era declines, education commissioner Mike Morath said.",
+    "url": "https://www.kxan.com/news/texas/declining-enrollment-texas/",
+    "published": "2026-11-19T03:14:31+00:00",
+    "category_hint": null,
+    "image_url": "https://www.kxan.com/wp-content/uploads/sites/40/2025/06/2606-SBOE-Meeting-OA-0018.png?w=850",
+    "image_credit": "Photo: KXAN Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "KXAN Austin",
+      "scope": "texas"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.545
+  }
+}

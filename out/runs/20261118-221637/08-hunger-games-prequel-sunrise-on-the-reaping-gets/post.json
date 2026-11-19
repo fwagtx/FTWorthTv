@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T07:11:37.007916+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/08-hunger-games-prequel-sunrise-on-the-reaping-gets/post.jpg",
+    "credit": "Photo: dph1110 (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/56181704@N00/471774448"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "Hunger Games prequel Sunrise on the Reaping gets trapped in nostalgia",
+    "caption": "Hunger Games prequel Sunrise on the Reaping gets trapped in nostalgia",
+    "first_comment": "Source: CultureMap Fort Worth https://fortworth.culturemap.com/news/entertainment/hunger-games-sunrise-reaping-review/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "1cc5adc16ae6882e",
+    "source": "CultureMap Fort Worth",
+    "source_kind": "rss",
+    "title": "Hunger Games prequel Sunrise on the Reaping gets trapped in nostalgia",
+    "summary": "The Hunger Games was at the forefront of the young adult dystopian craze of the 2000s and 2010s, with the book trilogy by Suzanne Collins being adapted into four blockbuster films that collectively made almost $3 billion. With that kind of success, it’s no wonder that Collins and Lionsgate have tried to milk more out of the franchise in the form of prequels, first with The Ballad of Songbirds and Snakes and now with Sunrise on the Reaping .",
+    "url": "https://fortworth.culturemap.com/news/entertainment/hunger-games-sunrise-reaping-review/",
+    "published": "2026-11-18T22:00:02+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: CultureMap Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.9,
+    "extra": {
+      "feed_title": "CultureMap Fort Worth",
+      "scope": "local"
+    },
+    "category": "culture",
+    "relevance": 0,
+    "score": 0.4359
+  }
+}

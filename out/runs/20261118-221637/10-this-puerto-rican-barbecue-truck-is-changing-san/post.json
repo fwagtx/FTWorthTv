@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T08:01:37.007916+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/10-this-puerto-rican-barbecue-truck-is-changing-san/post.jpg",
+    "credit": "Photo: heatheronhertravels (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/22446827@N02/6934117148"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "food",
+    "headline": "This Puerto Rican Barbecue Truck Is Changing San Antonio’s Barbecue Scene",
+    "caption": "Bucán Rodeo creates dishes that are comforting yet novel. Bucán Rodeo introduces mesquite-smoked meat into pernil, arroz con pollo, and ropa vieja, creating dishes that are comforting yet novel.\n\nBy Daniel Vaughn Daniel Vaughn Daniel Vaughn is the country’s first barbecue editor, and he has eaten more barbecue than you have. A tray with sliced brisket, mofongo, pernil, ropa vieja, and more from Bucán Rodeo, in San Antonio.",
+    "first_comment": "Source: Texas Monthly https://www.texasmonthly.com/bbq/bucan-rodeo-san-antonio/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Texas barbecue brisket",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c1cfc38cbaa2a1c1",
+    "source": "Texas Monthly",
+    "source_kind": "rss",
+    "title": "This Puerto Rican Barbecue Truck Is Changing San Antonio’s Barbecue Scene",
+    "summary": "Bucán Rodeo creates dishes that are comforting yet novel. Bucán Rodeo introduces mesquite-smoked meat into pernil, arroz con pollo, and ropa vieja, creating dishes that are comforting yet novel. By Daniel Vaughn Daniel Vaughn Daniel Vaughn is the country’s first barbecue editor, and he has eaten more barbecue than you have. A tray with sliced brisket, mofongo, pernil, ropa vieja, and more from Bucán Rodeo, in San Antonio. Photograph by Daniel Vaughn Digital subscribers can listen to this article. Subscribe today for unlimited access to Texas Monthly . Already a subscriber? Log in . On New Year’s Day 2025, Michael Barrera-Pacheco and Roy “RJ” Baker Jr. combined forces for a pop-up that married the Puerto Rican cuisine of Barrera-Pacheco’s Bomba with smoked meats from Baker’s Bitch’n Rodeo. Soon after, they left their previous concepts, bought a food truck together, and called their…",
+    "url": "https://www.texasmonthly.com/bbq/bucan-rodeo-san-antonio/",
+    "published": "2026-11-18T12:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://img.texasmonthly.com/2026/11/bucan-rodeo-1.jpg?auto=compress&amp;crop=faces&amp;fit=scale&amp;fm=pjpg&amp;h=640&amp;ixlib=php-3.3.1&amp;q=45&amp;w=1024&amp;wpsize=large",
+    "image_credit": "Photo: Texas Monthly",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.48999999999999994,
+    "extra": {
+      "feed_title": "Texas Monthly",
+      "scope": "texas"
+    },
+    "category": "food",
+    "relevance": 2,
+    "score": 0.0981
+  }
+}

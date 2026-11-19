@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T07:36:37.007916+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-221637/09-could-you-have-a-penny-worth-235-000-rare-1943-c/post.jpg",
+    "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_Courthouse.jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Could you have a penny worth $235,000? Rare 1943 coin makes its way to Houston shop",
+    "caption": "A rare World War II-era penny is valued at $235,000. A Houston coin expert explains what makes it so valuable and how to check your own spare change.",
+    "first_comment": "Source: KHOU 11 Houston https://www.khou.com/article/news/local/rare-expensive-penny-houston-texas/285-9e4f895f-4f6e-4f38-9b4f-a4321be63696\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "cf2f83276cf2b092",
+    "source": "KHOU 11 Houston",
+    "source_kind": "rss",
+    "title": "Could you have a penny worth $235,000? Rare 1943 coin makes its way to Houston shop",
+    "summary": "A rare World War II-era penny is valued at $235,000. A Houston coin expert explains what makes it so valuable and how to check your own spare change.",
+    "url": "https://www.khou.com/article/news/local/rare-expensive-penny-houston-texas/285-9e4f895f-4f6e-4f38-9b4f-a4321be63696",
+    "published": "2026-11-19T01:30:36+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/KHOU/images/ee7a1c23-0e28-4982-b24b-0996f6ad038b/20261119T010241/ee7a1c23-0e28-4982-b24b-0996f6ad038b_750x422.jpg",
+    "image_credit": "Photo: KHOU 11 Houston",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "KHOU RSS Feed: local",
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.286
+  }
+}
