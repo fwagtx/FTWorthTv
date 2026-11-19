@@ -18,7 +18,7 @@ from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 LIB_DIR = ROOT / "assets" / "photos"
-MAX_W = 1400
+MAX_W = 1280
 
 
 def load_candidates(paths: list[str]) -> dict[str, dict]:
@@ -65,7 +65,7 @@ def main() -> None:
             im = ImageOps.exif_transpose(im).convert("RGB")
             if im.width > MAX_W:
                 im = im.resize((MAX_W, int(im.height * MAX_W / im.width)), Image.LANCZOS)
-            im.save(dest, "JPEG", quality=82, optimize=True)
+            im.save(dest, "JPEG", quality=80, optimize=True)
             w, h = im.size
         entries[pid] = {"id": pid, "file": dest.relative_to(ROOT).as_posix(), "topic": topic, "title": c.get("title", name),
                         "credit": c["credit"], "license": "wikimedia-cc", "licence_name": c.get("license", ""),
