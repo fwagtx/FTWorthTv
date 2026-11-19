@@ -1,0 +1,10 @@
+# 200
+User-agent: *
+Disallow: /core/*
+Disallow: /r/*
+Disallow: /mnt/*
+Disallow: /tag/*
+Sitemap: https://fortworth.culturemap.com/sitemap.xml
+Sitemap: https://fortworth.culturemap.com/sitemap_sections.xml
+Sitemap: https://fortworth.culturemap.com/sitemap_video.xml
+Sitemap: https://fortworth.culturemap.com/sitemap_news.xml
