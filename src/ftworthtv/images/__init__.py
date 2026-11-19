@@ -170,28 +170,50 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         if cam:
             background, credit, license_, provider, label = cam.path, cam.credit, cam.license, cam.provider, "LIVE TRAFFIC"
 
-    if background is None and not settings.offline:
-        queries = [copy.image_query]
-        venue = story.extra.get("venue")
-        if story.source_kind in ("event", "event_roundup") and venue:
-            # generic genre photo first; a venue photo only when the file is clearly of the building, never another artist's show
-            from .providers import PERFORMANCE_WORDS
-            venue_words = tuple(w for w in venue.lower().split() if len(w) > 2)
-            queries = [(f"category:{venue}", PERFORMANCE_WORDS), copy.image_query,
-                       (f"{venue} exterior", PERFORMANCE_WORDS, venue_words), (f"{venue} building", PERFORMANCE_WORDS, venue_words)]
-        cand = find_photo(queries, settings, state, exclude=exclude_photos)
-        if cand:
-            background = _download(cand.url, workdir / "photo")
-            if background:
-                credit, license_, provider, photo_id, source_url = cand.credit, cand.license, cand.provider, cand.id, cand.source_url
-                if exclude_photos is not None:
-                    exclude_photos.update({cand.id, cand.family})
-                if cand.download_hook and settings.unsplash_access_key:  # Unsplash API guideline: register the download
-                    try:
-                        from .. import http as _http
-                        _http.get(cand.download_hook, headers={"Authorization": f"Client-ID {settings.unsplash_access_key}"}, timeout=10)
-                    except Exception:
-                        pass
+    if background is None:
+        # 1. the verified photo library (Central Station for a Trinity Metro story, the courthouse for a verdict ...);
+        # 2. search providers, which never get to show another city's skyline on a Fort Worth story;
+        # food, concerts and culture go to the providers first because the library cannot carry those subjects.
+        from .library import PROVIDER_FIRST, avoid_words_for, pick as pick_library, topics_for
+        scope = str(story.extra.get("scope", "local"))
+        lib_topics = topics_for(story.text(), copy.category, scope)
+        avoid = avoid_words_for(story.text())
+        library_first = copy.category not in PROVIDER_FIRST and story.source_kind not in ("event", "event_roundup")
+
+        def from_library():
+            return pick_library(settings.root, lib_topics, used=exclude_photos,
+                                recently_used=state.photo_recently_used if state is not None else None)
+
+        lib_photo = from_library() if library_first else None
+        if lib_photo is None and not settings.offline:
+            queries = [copy.image_query]
+            venue = story.extra.get("venue")
+            if story.source_kind in ("event", "event_roundup") and venue:
+                # generic genre photo first; a venue photo only when the file is clearly of the building, never another artist's show
+                from .providers import PERFORMANCE_WORDS
+                venue_words = tuple(w for w in venue.lower().split() if len(w) > 2)
+                queries = [(f"category:{venue}", PERFORMANCE_WORDS), copy.image_query,
+                           (f"{venue} exterior", PERFORMANCE_WORDS, venue_words), (f"{venue} building", PERFORMANCE_WORDS, venue_words)]
+            cand = find_photo(queries, settings, state, exclude=exclude_photos, avoid_words=avoid)
+            if cand:
+                background = _download(cand.url, workdir / "photo")
+                if background:
+                    credit, license_, provider, photo_id, source_url = cand.credit, cand.license, cand.provider, cand.id, cand.source_url
+                    if exclude_photos is not None:
+                        exclude_photos.update({cand.id, cand.family})
+                    if cand.download_hook and settings.unsplash_access_key:  # Unsplash API guideline: register the download
+                        try:
+                            from .. import http as _http
+                            _http.get(cand.download_hook, headers={"Authorization": f"Client-ID {settings.unsplash_access_key}"}, timeout=10)
+                        except Exception:
+                            pass
+        if background is None and lib_photo is None:
+            lib_photo = from_library()
+        if background is None and lib_photo is not None:
+            background = lib_photo.path
+            credit, license_, provider, photo_id, source_url = lib_photo.credit, lib_photo.license, "library", lib_photo.id, lib_photo.source_url
+            if exclude_photos is not None:
+                exclude_photos.add(lib_photo.id)
 
     card_cfg = brand.get("card", {}) or {}
     style = card_cfg.get("style", "tweet")

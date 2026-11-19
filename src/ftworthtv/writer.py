@@ -319,7 +319,8 @@ def _tidy(sentence: str) -> str:
 BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "read more", "learn more", "stay informed", "follow us", "check back",
                "enjoy reading the news again", "welcome to the", "pick something out of this list", "this article", "photo by", "courtesy of",
                "biweekly", "weekly column", "in this week", "scroll down",
-               "sponsored", "advertis", "click to", "watch the video", "see the full")
+               "sponsored", "advertis", "click to", "watch the video", "see the full", "continue reading", "appeared first on",
+               "the post ", "related:", "more:", "also read")
 
 
 def _first_sentence(text: str, limit: int = 170) -> str:

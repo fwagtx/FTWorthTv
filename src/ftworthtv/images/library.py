@@ -1,0 +1,157 @@
+"""A curated library of verified, openly licensed photos of Fort Worth (and the Texas places the page covers).
+
+Search engines return "Texas" photos that locals recognise as Houston or Dallas in a second. The library is the opposite:
+every file in assets/photos/library.json was looked at and filed under a subject, so a Trinity Metro story gets Central
+Station, a court story gets the Tarrant County Courthouse and a statewide bill gets the Capitol. The pipeline tries the
+library first for the subjects it knows; search providers remain the fallback for everything else (food, concerts ...).
+"""
+from __future__ import annotations
+
+import json
+import logging
+import random
+from dataclasses import dataclass
+from pathlib import Path
+
+log = logging.getLogger(__name__)
+
+# (phrases in the story text, library topic) - first match wins; specific places before generic beats
+TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
+    (("trinity metro", "texrail", "tex rail", "bus route", "bus rider", "transit", "central station", "microtransit"), "transit"),
+    (("tarrant county courthouse", "adoption day", "jury", "verdict", "sentenced", "guilty", "lawsuit", "indicted", "trial ", "district judge", "courtroom"), "courthouse"),
+    (("dickies arena",), "dickies-arena"),
+    (("will rogers", "stock show"), "will-rogers"),
+    (("at&t stadium", "cowboys"), "att-stadium"),
+    (("globe life", "rangers"), "globe-life-field"),
+    (("american airlines center", "mavericks", "mavs", "dallas stars"), "aac"),
+    (("fc dallas", "toyota stadium"), "toyota-stadium"),
+    (("texas motor speedway", "nascar", "indycar"), "texas-motor-speedway"),
+    (("tcu", "horned frogs", "amon g. carter", "amon carter stadium"), "tcu"),
+    (("ut arlington", "uta ", "uta mavericks", "texas-arlington"), "uta"),
+    (("nrg stadium", "houston texans", "texans "), "nrg-stadium"),
+    (("daikin park", "minute maid", "astros"), "daikin-park"),
+    (("toyota center", "rockets"), "toyota-center"),
+    (("frost bank center", "spurs"), "frost-bank-center"),
+    (("longhorns", "ut austin", "university of texas at austin", "darrell k royal"), "ut-austin"),
+    (("texas a&m", "aggies", "kyle field"), "texas-am"),
+    (("texas tech", "red raiders"), "texas-tech"),
+    (("baylor", "mclane stadium"), "baylor"),
+    (("smu", "mustangs", "southern methodist"), "smu"),
+    (("north texas", "unt ", "mean green"), "unt"),
+    (("sundance square",), "sundance-square"),
+    (("stockyards", "rodeo", "cattle drive"), "stockyards"),
+    (("kimbell",), "kimbell"),
+    (("modern art museum", "the modern"), "modern"),
+    (("bass hall", "bass performance hall"), "bass-hall"),
+    (("fort worth zoo", "zoo "), "zoo"),
+    (("botanic garden", "botanical garden"), "botanic-garden"),
+    (("water gardens",), "water-gardens"),
+    (("convention center",), "convention-center"),
+    (("dfw airport", "dfw international", "d/fw airport"), "dfw-airport"),
+    (("alliance airport",), "alliance"),
+    (("trinity river", "panther island", "trinity trails", "river trail"), "trinity-river"),
+    (("h-e-b", "heb "), "heb"),
+    (("buc-ee",), "bucees"),
+    (("whataburger",), "whataburger"),
+    (("ercot", "power grid", "power outage", "outages", "blackout"), "power"),
+    (("gas prices", "gasoline", "price of gas", "pump prices"), "gas"),
+    (("snap benefits", "snap ", "food bank", "food stamps", "grocery", "groceries"), "grocery"),
+    (("property tax", "tax rate", "budget", "salary", "salaries", "wages", "raise", "cost of living", "paycheck"), "money"),
+    (("election", "ballot", "early voting", "polls open", "runoff", "voters"), "voting"),
+    (("isd", "school district", "school board", "enrollment", "students", "teachers", "superintendent", "classroom", "high school", "elementary"), "schools"),
+    (("city council", "city hall", "council members", "councilmember", "ordinance", "city manager", "mayor "), "city-hall"),
+    (("hospital", "medical center", "jps health", "texas health", "cook children", "baylor scott", "er visits", "patients"), "hospital"),
+    (("fire department", "firefighters", "house fire", "apartment fire", "fire crews", "blaze"), "fire"),
+    (("jail", "inmate", "detention center", "booked into"), "jail"),
+    (("i-35w", "i-30", "i-20", "i-820", "loop 820", "highway", "freeway", "lanes", "crash", "wreck", "pileup", "road closure", "txdot", "interstate"), "highway"),
+    (("police", "fwpd", "officers", "shooting", "shot ", "stabbing", "robbery", "homicide", "murder", "arrested", "suspect", "wanted", "carjack", "burglar", "theft"), "police"),
+    (("tornado", "thunderstorm", "severe storm", "hail", "lightning", "storms", "flash flood", "wind advisory"), "storm"),
+    (("ice storm", "sleet", "freezing rain", "winter storm", "snow", "hard freeze", "freeze warning", "wind chill"), "ice"),
+    (("heat advisory", "excessive heat", "triple digit", "heat wave", "100 degrees"), "heat"),
+    (("barbecue", "bbq", "brisket"), "bbq"),
+    (("taco", "tacos", "taqueria"), "tacos"),
+    (("apartments", "apartment complex", "mixed-use", "development", "construction", "developer", "rezoning"), "apartments"),
+    (("home prices", "housing", "homebuyers", "mortgage", "homeowners", "neighborhood"), "housing"),
+    (("legislature", "lawmakers", "texas house", "texas senate", "governor", "abbott", "state rep", "state sen", "bill filed", "signed into law", "capitol", "attorney general", "paxton"), "capitol"),
+    (("arlington",), "arlington"),
+    (("san antonio",), "san-antonio-skyline"),
+    (("houston",), "houston-skyline"),
+    (("austin",), "austin-skyline"),
+    (("dallas",), "dallas-skyline"),
+]
+# when nothing above matches: by category, then by scope
+CATEGORY_DEFAULTS = {"traffic": ["highway"], "crime": ["police"], "politics": ["city-hall"], "weather": ["storm", "skyline"],
+                     "business": ["downtown", "skyline"], "community": ["downtown", "sundance-square", "skyline"],
+                     "breaking": ["skyline-night", "skyline"], "sports": ["skyline"], "other": ["skyline", "downtown"]}
+SCOPE_DEFAULTS = {"local": ["skyline", "downtown", "sundance-square", "skyline-night"], "dfw": ["dallas-skyline", "skyline"],
+                  "texas": ["capitol", "skyline"]}
+PROVIDER_FIRST = {"food", "events", "culture"}     # subjects the library cannot carry well; search engines go first
+
+_cache: dict[str, list[dict]] = {}
+
+
+@dataclass
+class LibraryPhoto:
+    id: str
+    path: Path
+    topic: str
+    credit: str
+    license: str
+    source_url: str | None
+
+
+def load_library(root: Path) -> list[dict]:
+    key = str(root)
+    if key not in _cache:
+        p = root / "assets" / "photos" / "library.json"
+        try:
+            _cache[key] = json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
+        except Exception as exc:
+            log.warning("photo library unreadable: %s", exc)
+            _cache[key] = []
+    return _cache[key]
+
+
+def topics_for(text: str, category: str, scope: str) -> list[str]:
+    """Ordered library topics worth trying for a story: specific subject first, then category and scope defaults."""
+    low = " " + (text or "").lower() + " "
+    out: list[str] = []
+    for phrases, topic in TOPIC_RULES:
+        if any(p in low for p in phrases) and topic not in out:
+            out.append(topic)
+            if len(out) >= 2:
+                break
+    # a statewide story about Houston should not get the Fort Worth skyline, and vice versa: city rules already ran above
+    for t in CATEGORY_DEFAULTS.get(category, []) + SCOPE_DEFAULTS.get(scope, SCOPE_DEFAULTS["local"]):
+        if t not in out:
+            out.append(t)
+    return out
+
+
+def pick(root: Path, topics: list[str], *, used: set[str] | None = None, recently_used=None, rng: random.Random | None = None) -> LibraryPhoto | None:
+    """The first topic with a photo not used in this run or recently; a random one among its files for variety."""
+    lib = load_library(root)
+    if not lib:
+        return None
+    rng = rng or random.Random()
+    used = used or set()
+    for topic in topics:
+        have = [e for e in lib if e.get("topic") == topic and e.get("id") not in used and (root / e["file"]).exists()]
+        fresh = [e for e in have if not (recently_used and recently_used(e.get("id")))]
+        pool = fresh or have      # a correct photo seen a few days ago beats a wrong one
+        if pool:
+            e = rng.choice(pool)
+            return LibraryPhoto(id=e["id"], path=root / e["file"], topic=topic, credit=e.get("credit", "Photo: Wikimedia Commons"),
+                                license=e.get("license", "wikimedia-cc"), source_url=e.get("source_url"))
+    return None
+
+
+OTHER_PLACES = ("houston", "dallas", "austin", "san antonio", "el paso", "lubbock", "waco", "odessa", "midland", "galveston",
+                "corpus christi", "amarillo", "plano", "frisco", "mckinney", "denton", "oklahoma", "new york", "chicago",
+                "los angeles", "toronto", "london", "seattle", "atlanta", "phoenix", "denver", "miami", "boston", "kansas city")
+
+
+def avoid_words_for(text: str) -> tuple[str, ...]:
+    """Place names a search-engine photo must not carry for this story (every city the story itself does not mention)."""
+    low = (text or "").lower()
+    return tuple(p for p in OTHER_PLACES if p not in low)

@@ -28,15 +28,20 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
                "parade", "fireworks", "mayfest", "oktoberfest", "arts festival", "tickets", "show at", "comedy"],
     "culture": ["museum", "kimbell", "amon carter", "modern art", "stockyards", "cattle drive", "sundance square", "cultural district",
                 "band", "album", "single", "song", "singer", "residency", "music", "mural", "artist",
-                "zoo", "botanic", "theater", "theatre", "gallery", "mural", "history", "historic"],
+                "zoo", "botanic", "theater", "theatre", "gallery", "mural", "historic", "film", "cinema", "documentary", "film festival"],
     "business": ["headquarters", "development", "jobs", "layoffs", "opening", "expansion", "investment", "real estate",
                  "apartments", "retail", "store", "company", "startup", "acquisition"],
     "politics": ["city council", "council vote", "mayor", "election", "ballot", "campaign", "legislature", "governor", "senate",
                  "congress", "republican", "democrat", "isd board", "school board", "trustees", "bond election", "ordinance"],
-    "community": ["volunteer", "nonprofit", "fundraiser", "community", "neighborhood", "school", "students", "library", "park",
-                  "church", "celebration", "holiday", "christmas", "thanksgiving"],
+    "community": ["volunteer", "nonprofit", "fundraiser", "community", "neighborhood", "school", "schools", "students", "library", "park",
+                  "church", "celebration", "holiday", "christmas", "thanksgiving", "enrollment", "isd", "superintendent", "teachers",
+                  "teacher", "classroom", "campus", "families", "foster", "adoption"],
     "breaking": ["breaking", "developing", "evacuat", "explosion", "massive fire", "amber alert", "active shooter"],
 }
+
+
+STATEWIDE_WORDS = ("amber alert", "manhunt", "statewide", "across texas", "texas dps", "border patrol", "cartel", "human smuggling",
+                   "ercot", "interstate 35 ", "i-35 ", "texas rangers investigat")
 
 
 _STOP = {"the", "a", "an", "of", "in", "on", "at", "to", "for", "and", "or", "with", "after", "as", "by", "is", "are", "was", "be",
@@ -164,9 +169,13 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             if tier is None:
                 dropped.append((story, f"not local enough (relevance {story.relevance} < {min_rel})"))
                 continue
+            cat = infer_category(story)
+            if tier[0] == "texas" and cat in ("crime", "traffic") and not any(w in story.text() for w in STATEWIDE_WORDS):
+                dropped.append((story, "other-metro crime/traffic, not statewide"))   # a San Antonio DWI verdict is not Fort Worth news
+                continue
             story.extra["scope"] = tier[0]
             story.weight *= tier[1]
-            if infer_category(story) == "sports":        # Texas teams are followed like local news
+            if cat == "sports":        # Texas teams are followed like local news
                 story.weight = min(story.weight / tier[1] * 0.9, story.weight * 1.3)
             story.relevance = min_rel
         story.category = infer_category(story)

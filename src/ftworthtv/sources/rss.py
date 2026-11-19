@@ -10,7 +10,7 @@ import feedparser
 from .. import http
 from ..config import Settings
 from ..models import Story
-from ..textutil import stable_id, strip_html, truncate
+from ..textutil import collapse_ws, stable_id, strip_html, truncate
 
 log = logging.getLogger(__name__)
 _IMG_RE = re.compile(r"<img[^>]+src=[\"']([^\"']+)[\"']", re.I)
@@ -46,6 +46,16 @@ def _entry_image(entry) -> str | None:
     return m.group(1) if m else None
 
 
+_FEED_NOISE = re.compile(r"\s*(The post .{0,200}? appeared first on .{0,80}?(\.|$)|Continue reading\b.*$|Read more\b.*$|The article .{0,200}? appeared first on .{0,80}?(\.|$))", re.I)
+
+
+def clean_feed_text(text: str) -> str:
+    """WordPress feeds append 'The post X appeared first on Y.' and truncate with '[…]'; neither belongs in a caption."""
+    text = _FEED_NOISE.sub("", text or "")
+    text = re.sub(r"\s*\[(…|\.\.\.|&hellip;)\]\s*", " … ", text)
+    return collapse_ws(text)
+
+
 def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
     """Parse one feed's body into Stories. Pure function so it is testable without network."""
     parsed = feedparser.parse(content)
@@ -56,9 +66,9 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
         title = strip_html(entry.get("title") or "")
         if not link or not title:
             continue
-        summary = strip_html(entry.get("summary") or "")
+        summary = clean_feed_text(strip_html(entry.get("summary") or ""))
         if not summary and entry.get("content"):
-            summary = strip_html(entry["content"][0].get("value", ""))
+            summary = clean_feed_text(strip_html(entry["content"][0].get("value", "")))
         stories.append(Story(
             id=stable_id("rss", entry.get("id") or link),
             source=name,
