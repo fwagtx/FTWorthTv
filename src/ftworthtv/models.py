@@ -61,7 +61,8 @@ class Story:
     @property
     def is_urgent(self) -> bool:
         """Severe weather and breaking news skip the spacing between posts and the quiet hours."""
-        return (self.source_kind == "nws_alert" and self.severity in ("severe", "extreme")) or (self.category or "") == "breaking"
+        local = (self.extra or {}).get("scope", "local") in ("local", "dfw")
+        return (self.source_kind == "nws_alert" and self.severity in ("severe", "extreme")) or ((self.category or "") == "breaking" and local)
 
 
 class PostCopy(BaseModel):

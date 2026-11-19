@@ -1,7 +1,7 @@
 {
   "daily": {
     "2026-11-18": 1,
-    "2026-11-19": 7
+    "2026-11-19": 8
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -10,7 +10,7 @@
     "2026-11-19": {
       "community": 1,
       "crime": 1,
-      "culture": 1,
+      "culture": 2,
       "other": 2,
       "politics": 1,
       "traffic": 1
@@ -23,11 +23,12 @@
     "2026-11-19": {
       "dfw": 1,
       "local": 4,
+      "national": 1,
       "texas": 2
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-19T16:40:00+00:00",
+  "last_post_at": "2026-11-19T17:15:00+00:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -140,9 +141,23 @@
       "source": "Fort Worth Report",
       "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
       "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/"
+    },
+    "manual-gta-vi-launch-2026-11-19": {
+      "at": "2026-11-19T13:10:00+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on launch morning",
+      "post_id": "433774363",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "national",
+      "source": "PlayStation Blog",
+      "title": "Grand Theft Auto VI is out today on PS5 and Xbox",
+      "url": "https://blog.playstation.com/2026/11/18/grand-theft-auto-vi-launches-tomorrow-november-19/"
     }
   },
-  "total_posts": 8,
+  "total_posts": 9,
   "used_photos": [],
   "version": 1
 }

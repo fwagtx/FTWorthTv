@@ -422,7 +422,9 @@ relevance:
   watchlist: ["gta vi", "gta 6", "grand theft auto vi", "grand theft auto 6", "super bowl", "world series", "nba finals", "stanley cup final",
               "world cup final", "college football playoff", "the oscars", "oscar winners", "grammys", "grammy winners", "powerball jackpot",
               "mega millions jackpot", "spotify wrapped", "thanksgiving day parade", "black friday", "cyber monday", "daylight saving",
-              "government shutdown", "new year's eve", "halftime show", "eras tour", "playstation 6", "switch 2", "iphone 18", "iphone 19"]
+              "government shutdown", "new year's eve", "halftime show", "eras tour", "playstation 6", "switch 2", "iphone 18", "iphone 19",
+              "cma awards", "acm awards", "academy awards", "oscars", "march madness", "final four", "nfl draft", "nba draft", "heisman trophy",
+              "time person of the year", "macy's parade", "rose parade", "ball drop"]
   # a big-moment term counts only when at least `national_min_outlets` national outlets carry it in the same run
   national_keywords: ["release date", "out now", "launches today", "launch day", "trailer", "box office", "record-breaking", "breaks record",
                       "series finale", "season finale", "final season", "premiere date", "announces tour", "tour dates", "stadium tour",

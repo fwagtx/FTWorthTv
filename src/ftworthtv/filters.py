@@ -37,7 +37,8 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
     "community": ["volunteer", "nonprofit", "fundraiser", "community", "neighborhood", "school", "schools", "students", "library", "park",
                   "church", "celebration", "holiday", "christmas", "thanksgiving", "enrollment", "isd", "superintendent", "teachers",
                   "teacher", "classroom", "campus", "families", "foster", "adoption"],
-    "breaking": ["breaking", "developing", "evacuat", "explosion", "massive fire", "amber alert", "active shooter"],
+    "breaking": ["breaking:", "breaking news", "developing:", "developing story", "evacuat", "explosion", "massive fire", "amber alert",
+                 "active shooter", "lockdown", "shelter in place"],   # "breaking records" is not breaking news
 }
 
 
