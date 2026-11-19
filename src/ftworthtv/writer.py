@@ -439,10 +439,8 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
     #  their faces." / "Supporters say agents should be identifiable. ICE says masks protect agents from being targeted."
     first = _tidy(story.title)
     sents = _sentences(story.summary) if story.summary else []
-    if len(sents) >= 2 or (sents and _similar(first, sents[0])):
+    if sents:
         pool = sents                      # the article lead tells the story; the headline is already on the card
-    elif sents:
-        pool = [first + ("" if first.endswith(("!", "?", ".")) else ".")] + sents
     else:
         pool = [first]                    # nothing but a title: one plain line, no trailing period ("Kid Cudi joins Kanye at AT&T")
     pool = pool[:4]

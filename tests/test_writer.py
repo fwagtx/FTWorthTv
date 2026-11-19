@@ -59,7 +59,8 @@ def test_dallas_caption_shapes(settings, now, tmp_path):
     s = Story(id="x", source="Fort Worth Report", source_kind="rss", title="New barbecue joint opens on Magnolia Avenue in Near Southside",
               summary="A family-run smokehouse opened its doors on Magnolia Avenue this week. Lines wrapped around the block.", url="https://x/y", category="food")
     # "Lines wrapped around the block." is five words: too short to be a real sentence, so the title leads and it is dropped
-    assert dallas_caption(s, settings, now, "food") == ["New barbecue joint opens on Magnolia Avenue in Near Southside. A family-run smokehouse opened its doors on Magnolia Avenue this week."]
+    # the headline is on the card; the caption carries the article's own sentence (never the headline again)
+    assert dallas_caption(s, settings, now, "food") == ["A family-run smokehouse opened its doors on Magnolia Avenue this week."]
     t = Story(id="t", source="FOX 4", source_kind="rss", title="Crash shuts down northbound I-35W near downtown Fort Worth during morning rush",
               summary="All northbound lanes were closed after a multi-vehicle crash.", url="https://x/z", category="traffic")
     assert dallas_caption(t, settings, now, "traffic") == ["Crash shuts down northbound I-35W near downtown Fort Worth during morning rush. All northbound lanes were closed after a multi-vehicle crash."]

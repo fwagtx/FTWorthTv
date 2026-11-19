@@ -170,8 +170,8 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 dropped.append((story, f"not local enough (relevance {story.relevance} < {min_rel})"))
                 continue
             cat = infer_category(story)
-            if tier[0] == "texas" and cat in ("crime", "traffic") and not any(w in story.text() for w in STATEWIDE_WORDS):
-                dropped.append((story, "other-metro crime/traffic, not statewide"))   # a San Antonio DWI verdict is not Fort Worth news
+            if tier[0] == "texas" and cat in ("crime", "traffic", "food", "events") and not any(w in story.text() for w in STATEWIDE_WORDS):
+                dropped.append((story, f"other-metro {cat}, not statewide"))   # a San Antonio DWI verdict or food truck is not Fort Worth news
                 continue
             story.extra["scope"] = tier[0]
             story.weight *= tier[1]

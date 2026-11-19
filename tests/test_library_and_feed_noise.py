@@ -18,6 +18,9 @@ def test_library_topics_put_the_subject_first():
     # a Houston story never gets the Fort Worth skyline by default
     assert "houston-skyline" in topics_for("Houston council votes on new budget", "politics", "texas")[:3]
     assert topics_for("Something happened", "other", "local")[0] == "skyline"
+    # a Dallas City Hall story must not get Fort Worth City Hall or the Fort Worth skyline
+    t = topics_for("Voters will decide Dallas City Hall's future in May", "politics", "dfw")
+    assert "city-hall" not in t and "skyline" not in t and "dallas-skyline" in t[:2]
 
 
 def test_other_city_words_are_avoided():

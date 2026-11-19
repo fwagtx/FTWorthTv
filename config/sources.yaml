@@ -102,7 +102,7 @@ rss:
   - name: CultureMap Fort Worth
     url: https://fortworth.culturemap.com/feeds/news/
     weight: 0.9
-    always_relevant: true
+    verify: true              # the feed carries national reviews and Dallas items too; keep what names a local place
     category_hint: culture
     image_policy: none
   - name: Fort Worth Weekly

@@ -62,6 +62,7 @@ def test_metricool_builds_public_media_url(monkeypatch, tmp_path, settings):
         return FakeResponse({"data": {"id": 42, "plannerUrl": "https://app.metricool.com/planner/42"}})
 
     monkeypatch.setattr(requests, "post", fake_post)
+    monkeypatch.setattr(requests, "head", lambda url, **kw: FakeResponse({}, status=200))   # the image is "public"
     pub = MetricoolPublisher(settings)
     draft = _draft(tmp_path, settings)
     result = pub.publish(draft)
