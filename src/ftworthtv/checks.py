@@ -150,6 +150,18 @@ def wanted_still_listed(story: Story, *, timeout: int = 20) -> str | None:
     return None
 
 
+OWN_PHOTO_PROVIDERS = ("source", "nws", "ticketmaster", "camera", "placeholder", "card", "quote")
+
+
+def photo_subject_problem(draft: PostDraft) -> str | None:
+    """A library or stock photo must still show what the headline is about (checked again at publish time)."""
+    if draft.mode != "photo" or not draft.image or draft.image.provider in OWN_PHOTO_PROVIDERS:
+        return None
+    from .images.subject import subject_fits
+    ok, why = subject_fits(draft.story.title, draft.story.text(), draft.copy.category, draft.image.subject)
+    return None if ok else f"photo does not show the subject: {why}"
+
+
 def preflight(draft: PostDraft, *, network: bool = True) -> list[str]:
     """Everything that must hold right before a post is handed to the publisher."""
     problems = caption_problems(draft.copy, draft.story, writer=draft.writer)
@@ -162,6 +174,9 @@ def preflight(draft: PostDraft, *, network: bool = True) -> list[str]:
             problems.append(gone)
     if draft.mode == "photo" and draft.image is None:
         problems.append("photo post without an image")
+    wrong = photo_subject_problem(draft)
+    if wrong:
+        problems.append(wrong)
     if draft.mode == "video" and not draft.video_url and not (draft.video_path and Path(draft.video_path).exists()):
         problems.append("video post without a clip")
     return problems

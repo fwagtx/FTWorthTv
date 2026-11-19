@@ -170,35 +170,62 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         if cam:
             background, credit, license_, provider, label = cam.path, cam.credit, cam.license, cam.provider, "LIVE TRAFFIC"
 
+    subject_label: str | None = None if background is None else "own"
     if background is None:
-        # 1. the verified photo library (Central Station for a Trinity Metro story, the courthouse for a verdict ...);
-        # 2. search providers, which never get to show another city's skyline on a Fort Worth story;
-        # food, concerts and culture go to the providers first because the library cannot carry those subjects.
+        # The photo must show what the headline is about (images/subject.py). A named subject gets its own library topic
+        # or a provider photo whose file name carries the subject's words; an institution gets the beat that depicts it
+        # (buses for a school district); a story with no named subject gets the beats and the city as before; and when
+        # nothing verified exists the card goes out with no photo rather than the wrong one.
         from .library import PROVIDER_FIRST, avoid_words_for, pick as pick_library, topics_for
+        from .subject import plan_subject
         scope = str(story.extra.get("scope", "local"))
-        lib_topics = topics_for(story.text(), copy.category, scope, title=story.title)
+        sp = plan_subject(story.title, story.text(), copy.category)
+        if sp.mode == "entity":
+            lib_topics = list(sp.entity_topics)
+        elif sp.mode == "institution":
+            lib_topics = list(sp.fallback_topics)
+        elif sp.mode == "search":
+            lib_topics = []
+        else:
+            lib_topics = topics_for(story.text(), copy.category, scope, title=story.title)
+        log.info("photo subject for %r: %s (%s)", story.title[:60], sp.mode, sp.primary or ", ".join(lib_topics[:3]))
         avoid = avoid_words_for(story.text())
         library_first = copy.category not in PROVIDER_FIRST and story.source_kind not in ("event", "event_roundup")
 
         def from_library():
+            if not lib_topics:
+                return None
             return pick_library(settings.root, lib_topics, used=exclude_photos,
                                 recently_used=state.photo_recently_used if state is not None else None)
 
+        def label_for_library(photo):
+            return f"topic:{photo.topic}" if sp.mode in ("entity", "institution") else f"beat:{photo.topic}"
+
         lib_photo = from_library() if library_first else None
         if lib_photo is None and not settings.offline:
-            queries = [copy.image_query]
-            venue = story.extra.get("venue")
-            if story.source_kind in ("event", "event_roundup") and venue:
-                # generic genre photo first; a venue photo only when the file is clearly of the building, never another artist's show
-                from .providers import PERFORMANCE_WORDS
-                venue_words = tuple(w for w in venue.lower().split() if len(w) > 2)
-                queries = [(f"category:{venue}", PERFORMANCE_WORDS), copy.image_query,
-                           (f"{venue} exterior", PERFORMANCE_WORDS, venue_words), (f"{venue} building", PERFORMANCE_WORDS, venue_words)]
-            cand = find_photo(queries, settings, state, exclude=exclude_photos, avoid_words=avoid)
-            if cand:
+            if sp.mode in ("entity", "search"):
+                queries = [(name, (), tuple(w for w in name.lower().split() if len(w) > 2)) for name in sp.search_names[:2]]
+                labels = [f"entity:{name.lower()}" for name in sp.search_names[:2]]
+            elif sp.mode == "institution":
+                queries, labels = [], []
+            else:
+                queries, labels = [copy.image_query], [f"beat:{copy.image_query}"]
+                venue = story.extra.get("venue")
+                if story.source_kind in ("event", "event_roundup") and venue:
+                    # generic genre photo first; a venue photo only when the file is clearly of the building, never another artist's show
+                    from .providers import PERFORMANCE_WORDS
+                    venue_words = tuple(w for w in venue.lower().split() if len(w) > 2)
+                    queries = [(f"category:{venue}", PERFORMANCE_WORDS), copy.image_query,
+                               (f"{venue} exterior", PERFORMANCE_WORDS, venue_words), (f"{venue} building", PERFORMANCE_WORDS, venue_words)]
+                    labels = [f"entity:{venue.lower()}", f"beat:{copy.image_query}", f"entity:{venue.lower()}", f"entity:{venue.lower()}"]
+            for query, lab in zip(queries, labels):
+                cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=avoid)
+                if not cand:
+                    continue
                 background = _download(cand.url, workdir / "photo")
                 if background:
                     credit, license_, provider, photo_id, source_url = cand.credit, cand.license, cand.provider, cand.id, cand.source_url
+                    subject_label = lab
                     if exclude_photos is not None:
                         exclude_photos.update({cand.id, cand.family})
                     if cand.download_hook and settings.unsplash_access_key:  # Unsplash API guideline: register the download
@@ -207,13 +234,17 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                             _http.get(cand.download_hook, headers={"Authorization": f"Client-ID {settings.unsplash_access_key}"}, timeout=10)
                         except Exception:
                             pass
+                    break
         if background is None and lib_photo is None:
             lib_photo = from_library()
         if background is None and lib_photo is not None:
             background = lib_photo.path
             credit, license_, provider, photo_id, source_url = lib_photo.credit, lib_photo.license, "library", lib_photo.id, lib_photo.source_url
+            subject_label = label_for_library(lib_photo)
             if exclude_photos is not None:
                 exclude_photos.add(lib_photo.id)
+        if background is None:
+            log.info("no verified photo of %r: the card goes out without one", sp.primary or story.title[:60])
 
     card_cfg = brand.get("card", {}) or {}
     style = card_cfg.get("style", "tweet")
@@ -229,7 +260,7 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             w, h = im.size
         return ImageAsset(path=out, credit=credit if provider != "placeholder" else f"Card: {brand.get('short_name', 'FTW TV')}",
                           license=license_ if provider != "placeholder" else "card", provider=provider if provider != "placeholder" else "card",
-                          source_url=source_url, photo_id=photo_id, width=w, height=h)
+                          source_url=source_url, photo_id=photo_id, width=w, height=h, subject=subject_label)
     if style == "quoted" and story.source_kind not in ("culture",):
         author, handle, text, when, bold = quote_fields(story, settings)
         out = render_quote_card(author=author, handle=handle, when=when, text=text, photo=background, out_path=workdir / "quote.jpg",
@@ -240,7 +271,7 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             w, h = im.size
         return ImageAsset(path=out, credit=credit if provider != "placeholder" else f"Card: {brand.get('short_name', 'FTW TV')}",
                           license=license_ if provider != "placeholder" else "card", provider=provider if provider != "placeholder" else "quote",
-                          source_url=source_url, photo_id=photo_id, width=w, height=h)
+                          source_url=source_url, photo_id=photo_id, width=w, height=h, subject=subject_label)
     if style in ("plain", "quoted"):
         if background is None:
             if not card_cfg.get("placeholder_when_no_photo", False):
@@ -254,7 +285,7 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             with _Image.open(out) as im:
                 width, height = im.size
             return ImageAsset(path=out, credit=credit, license=license_, provider=provider, source_url=source_url, photo_id=photo_id,
-                              width=width, height=height)
+                              width=width, height=height, subject=subject_label)
 
     mood = {"nws_forecast": "sunrise", "nws_alert": "storm", "event": "dusk", "event_roundup": "dusk"}.get(story.source_kind) or \
         {"food": "day", "business": "day", "community": "day", "weather": "day", "culture": "sunrise", "sports": "dusk"}.get(copy.category, "night")
@@ -265,4 +296,5 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         subline=subline, fit=fit, logo_path=settings.assets_dir / "logo.png", mood=mood,
     )
     return ImageAsset(path=out, credit=credit, license=license_, provider=provider, source_url=source_url, photo_id=photo_id,
-                      width=brand.get("card", {}).get("size", [1080, 1350])[0], height=brand.get("card", {}).get("size", [1080, 1350])[1])
+                      width=brand.get("card", {}).get("size", [1080, 1350])[0], height=brand.get("card", {}).get("size", [1080, 1350])[1],
+                      subject=subject_label)

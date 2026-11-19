@@ -80,6 +80,7 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("home prices", "housing", "homebuyers", "mortgage", "homeowners", "neighborhood"), "housing"),
     (("legislature", "lawmakers", "texas house", "texas senate", "governor", "abbott", "state rep", "state sen", "bill filed", "signed into law", "capitol", "attorney general", "paxton"), "capitol"),
     # the national beat
+    (("anthropic", "claude ai", "dario amodei"), "anthropic"),
     (("ipo", "initial public offering", "nasdaq", "nyse", "wall street", "stock market", "dow jones", "s&p 500", "shares soar", "shares fall", "market cap"), "stock-market"),
     (("gta vi", "gta 6", "grand theft auto", "playstation", "xbox", "nintendo", "switch 2", "video game", "rockstar games", "steam"), "gaming"),
     (("powerball", "mega millions", "jackpot", "lottery"), "lottery"),
@@ -137,7 +138,7 @@ def load_library(root: Path) -> list[dict]:
     return _cache[key]
 
 
-FORT_WORTH_ONLY = {"skyline", "skyline-night", "downtown", "sundance-square", "courthouse", "city-hall", "transit", "stockyards",
+FORT_WORTH_ONLY = {"skyline", "skyline-night", "downtown", "sundance-square", "courthouse", "city-hall", "transit", "stockyards", "police", "fire",
                    "trinity-river", "highway", "police", "fire", "hospital", "water-gardens", "convention-center", "kimbell", "modern",
                    "bass-hall", "zoo", "botanic-garden", "will-rogers", "dickies-arena"}
 OTHER_CITIES = ("dallas", "houston", "austin", "san antonio", "arlington", "denton", "plano", "frisco", "carrollton", "irving",

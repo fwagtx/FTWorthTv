@@ -90,6 +90,7 @@ class ImageAsset:
     photo_id: Optional[str] = None
     width: int = 0
     height: int = 0
+    subject: Optional[str] = None   # why this photo: "entity:tcu" | "topic:tcu-football" | "beat:police" | "own" (the story's own image)
 
 
 @dataclass

@@ -1,0 +1,57 @@
+from ftworthtv.images.subject import entities, plan_subject, subject_fits
+
+
+def test_headline_subjects():
+    assert entities("Anthropic's $81.3 billion IPO is the largest ever; shares open at $111.50 on the Nasdaq", "Anthropic raised money.") == ["Anthropic", "Nasdaq"]
+    assert entities("Largest enrollment drop in Texas' recorded history means challenges for public schools, Morath says", "Mike Morath said.") == ["Texas"]
+    assert entities("Northwest ISD approves revised high school boundaries after parents speak out") == ["Northwest ISD"]
+    assert entities("Fort Worth police set new policies for Flock cameras", "Flock cameras.") == ["Fort Worth police", "Flock"]
+
+
+def test_plan_picks_the_subject_not_the_venue():
+    ipo = plan_subject("Anthropic's $81.3 billion IPO is the largest ever; shares open at $111.50 on the Nasdaq", "Anthropic raised $81.3 billion.", "business")
+    assert ipo.mode == "entity" and ipo.primary == "Anthropic" and ipo.entity_topics == ["anthropic"]   # never the exchange building
+    tcu = plan_subject("Utah visits TCU, close to Big 12 title game", "Utah comes to Fort Worth.", "sports")
+    assert tcu.mode == "entity" and tcu.entity_topics[0] == "tcu-football"
+    isd = plan_subject("Northwest ISD approves revised high school boundaries after parents speak out", "", "community")
+    assert isd.mode == "entity" and isd.entity_topics == ["northwest-isd"]
+    schools = plan_subject("Largest enrollment drop in Texas' recorded history means challenges for public schools, Morath says", "Mike Morath said.", "community")
+    assert schools.mode == "beat"
+    gta = plan_subject("Grand Theft Auto VI is out today on PS5 and Xbox", "", "culture")
+    assert gta.mode == "institution" and gta.fallback_topics == ["gaming"]
+    dallas = plan_subject("Voters will likely decide Dallas City Hall's future in May election", "", "politics")
+    assert dallas.mode == "search" and dallas.search_names == ["Dallas City Hall"]        # Fort Worth City Hall must not stand in
+    flock = plan_subject("Fort Worth police set new policies for Flock cameras", "Flock cameras.", "crime")
+    assert flock.mode == "institution" and flock.fallback_topics == ["police"]
+
+
+def test_publish_time_check_rejects_a_photo_that_rhymes_with_the_story():
+    title, body = "Anthropic's $81.3 billion IPO is the largest ever; shares open at $111.50 on the Nasdaq", "Anthropic raised $81.3 billion."
+    assert subject_fits(title, body, "business", "beat:stock-market")[0] is False
+    assert subject_fits(title, body, "business", "topic:anthropic")[0] is True
+    assert subject_fits(title, body, "business", "entity:anthropic")[0] is True
+    assert subject_fits(title, body, "business", None)[0] is False
+    assert subject_fits("Utah visits TCU, close to Big 12 title game", "", "sports", "topic:tcu-football")[0] is True
+    assert subject_fits("Utah visits TCU, close to Big 12 title game", "", "sports", "topic:tcu")[0] is True
+    assert subject_fits("Utah visits TCU, close to Big 12 title game", "", "sports", "beat:skyline")[0] is False
+
+
+def test_pipeline_records_the_subject_and_holds_a_mismatch(settings, now):
+    from datetime import timedelta
+    from ftworthtv.checks import preflight
+    from ftworthtv.models import Story
+    from ftworthtv.pipeline import run
+    tcu = Story(id="t1", source="NBC 5 DFW", source_kind="rss", title="Utah visits TCU, close to Big 12 title game",
+                summary="No. 2 Utah comes to Fort Worth on Saturday night and can clinch a spot in the Big 12 championship game with a win over TCU.",
+                url="https://example.com/tcu", published=now - timedelta(hours=2), category_hint="sports", extra={"scope": "local"})
+    ant = Story(id="a1", source="CBS News", source_kind="rss", title="Anthropic's $81.3 billion IPO is the largest ever; shares open at $111.50 on the Nasdaq",
+                summary="Anthropic raised $81.3 billion as part of its IPO. Shares opened at $111.50 on the Nasdaq.",
+                url="https://example.com/ant", published=now - timedelta(hours=1), category_hint="business", extra={"scope": "national", "national": True}, always_relevant=True)
+    settings.max_posts = 2
+    report = run(settings, now=now, stories=[tcu, ant], publisher_name="dryrun")
+    by = {d.story.id: d for d in report.drafts}
+    assert by["t1"].image.subject == "topic:tcu-football" and "tcu-football" in str(by["t1"].image.path.name or "") or "amon-g-carter" in str(by["t1"].image.photo_id)
+    assert by["a1"].image is not None and by["a1"].image.provider in ("card", "placeholder", "library")   # no Nasdaq tower: a bare card or an Anthropic photo
+    assert preflight(by["t1"], network=False) == []
+    by["t1"].image.subject = "beat:stock-market"
+    assert any("photo does not show the subject" in p for p in preflight(by["t1"], network=False))
