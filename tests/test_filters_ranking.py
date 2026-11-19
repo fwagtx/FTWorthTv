@@ -30,11 +30,18 @@ def test_filter_pipeline_on_examples(settings, now, tmp_path):
     kept, dropped = filter_stories(stories, settings, state, now)
     reasons = {s.title: r for s, r in dropped}
     assert any("blocklist" in r for t, r in reasons.items() if t.startswith("Obituary"))
-    assert "excluded category: politics" in reasons["Fort Worth City Council approves budget after marathon meeting"]
-    assert "not local enough" in reasons["Dallas ISD trustees debate new school start times"]
-    assert "not local enough" in reasons["Texas Legislature weighs statewide property tax changes"]
     titles = {s.title for s in kept}
+    by_title = {s.title: s for s in kept}
+    # the study: state/local politics is the reference page's best topic, so it stays (capped per day in brand.yaml)
+    assert "Fort Worth City Council approves budget after marathon meeting" in titles
+    assert by_title["Fort Worth City Council approves budget after marathon meeting"].category == "politics"
+    # DFW-wide and Texas-wide stories are kept at a lower weight with a non-local scope, instead of being dropped
+    dallas = by_title.get("Dallas ISD trustees debate new school start times")
+    texas = by_title.get("Texas Legislature weighs statewide property tax changes")
+    assert dallas is not None and dallas.extra.get("scope") == "dfw" and dallas.weight < 1.0
+    assert texas is not None and texas.extra.get("scope") == "texas" and texas.weight < dallas.weight
     assert "Arlington police arrest suspect after chase ends near AT&T Stadium" in titles   # Arlington counts as local
+    assert by_title["Arlington police arrest suspect after chase ends near AT&T Stadium"].extra.get("scope") == "local"
     assert all(s.category for s in kept)
 
 

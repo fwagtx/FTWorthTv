@@ -1,0 +1,55 @@
+{
+ "source": "Reference",
+ "posts_studied": 3,
+ "days_covered": 2,
+ "posts_per_day": 1.5,
+ "hour_of_day_central": {
+  "0": 0,
+  "1": 0,
+  "2": 0,
+  "3": 0,
+  "4": 0,
+  "5": 0,
+  "6": 0,
+  "7": 0,
+  "8": 0,
+  "9": 1,
+  "10": 0,
+  "11": 0,
+  "12": 0,
+  "13": 0,
+  "14": 0,
+  "15": 1,
+  "16": 0,
+  "17": 0,
+  "18": 1,
+  "19": 0,
+  "20": 0,
+  "21": 0,
+  "22": 0,
+  "23": 0
+ },
+ "busiest_hours_central": [
+  15,
+  18,
+  9
+ ],
+ "media_mix": {
+  "photo": 0.667,
+  "video": 0.333
+ },
+ "category_mix": {
+  "politics": 0.333,
+  "weather": 0.333,
+  "culture": 0.333
+ },
+ "caption_chars_median": 122,
+ "caption_chars_p90": 122,
+ "captions_with_emoji": 0.333,
+ "share_screenshot_cards": 0.667,
+ "suggested_caps_per_day": {
+  "weather": 4,
+  "culture": 4,
+  "politics": 0
+ }
+}

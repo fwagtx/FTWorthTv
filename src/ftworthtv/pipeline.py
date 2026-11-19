@@ -81,7 +81,11 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
     min_gap = timedelta(minutes=int(posting.get("min_minutes_between_posts", 75)))
     gap_ok = state.last_post_at is None or (now - state.last_post_at) >= min_gap
     cap_left = int(posting.get("daily_cap", 10)) - state.posts_on(day)
-    k = max(0, min(settings.max_posts, cap_left))
+    per_run = settings.max_posts
+    if local.hour in (posting.get("peak_hours_local") or []):       # the reference page's 7-11am and 4pm waves
+        per_run = max(per_run, int(posting.get("peak_max_posts_per_run", per_run)))
+    k = max(0, min(per_run, cap_left))
+    non_local_left = int((settings.brand.get("content_mix", {}) or {}).get("non_local_per_run", 1))
     if quiet:
         report.notes.append(f"quiet hours ({local.strftime('%H:%M')} local): only severe weather posts")
     if not gap_ok:
@@ -103,6 +107,11 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             continue
         caps = (settings.brand.get("content_mix", {}) or {}).get("caps_per_day", {}) or {}
         cat = story.category or "other"
+        if story.extra.get("scope", "local") != "local" and not story.is_urgent:
+            if non_local_left <= 0:
+                report.skipped.append((story, "DFW/Texas share for this run used"))
+                continue
+            non_local_left -= 1
         if cat in caps and not story.is_urgent:
             used_today = state.posts_on_by_category(day, cat) + sum(1 for d in drafts if (d.copy.category or "other") == cat)
             if used_today >= int(caps[cat]):

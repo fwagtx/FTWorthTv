@@ -19,7 +19,10 @@ timezone: "America/Chicago"
 # Daily content mix, copied from the Dallas page's balance: mostly "right now" moments, culture/events, fan culture and
 # one-liner local news; crime and politics kept small. Caps are posts per day per category (severe weather is exempt).
 content_mix:
-  caps_per_day: {crime: 2, politics: 0, business: 2, community: 3, traffic: 3, weather: 3, events: 3, culture: 3, food: 2, sports: 3, breaking: 4, other: 1}
+  # from the study of 120 Dallas Texas TV posts: sports 24%, other (outages, gaming, rankings, prices) 19%, weather 15%,
+  # Texas bills/politics 12% (their best-performing topic), business 8%, events 8%, crime 7%, culture 4%, traffic 3%
+  caps_per_day: {sports: 5, other: 3, weather: 3, politics: 3, business: 3, events: 3, crime: 2, culture: 2, traffic: 2, food: 2, community: 3, breaking: 4}
+  non_local_per_run: 1         # DFW-wide or Texas-wide stories: at most one per run (they are weighted lower too)
   # see docs/CONTENT_PLAYBOOK.md for the Dallas page's pillars and how each one is sourced here
 culture_calendar:
   enabled: true           # config/culture.yaml: Stock Show, Juneteenth, State Fair, Halloween, Parade of Lights, heat/freeze memes...
@@ -46,7 +49,8 @@ crime:
 caption:
   style: dallas
   cta: ""                  # the Dallas page's captions carry no follow line; set e.g. "Follow us on Instagram {instagram_handle}" to add one
-  hashtags: false        # the Dallas page posts no hashtags on Facebook; true puts them in the first comment
+  hashtags: false
+  emoji: false             # the reference page's captions carry no emoji; any the writer adds are stripped        # the Dallas page posts no hashtags on Facebook; true puts them in the first comment
 
 # Licensed photo providers, tried in this order until one returns results. Keys are optional per provider;
 # openverse and wikimedia need none. (Pexels paused new API keys in Nov 2026, so it is just one option among six.)
@@ -95,9 +99,11 @@ card:
 # How the posting cadence behaves
 posting:
   max_posts_per_run: 2
-  min_minutes_between_posts: 75
-  daily_cap: 12
-  quiet_hours_local: [23, 6]   # no posts from 11pm to 6am Central (severe weather still posts)
+  peak_hours_local: [7, 8, 9, 10, 11, 16]   # the reference page's morning wave (7-11am) and 4pm wave: 3 per run then
+  peak_max_posts_per_run: 3
+  min_minutes_between_posts: 40
+  daily_cap: 20                # the reference page runs 20-24 a day
+  quiet_hours_local: [23, 6]   # their output runs 5:45am-10:30pm; no posts 11pm-6am Central (severe weather still posts)
   daily_forecast_hour_local: 7 # "Good morning Fort Worth" weather post once a day (needs no API key)
   weekend_events_roundup: true # Thursday evening "This weekend in Fort Worth" (needs Ticketmaster key)
   # news_photo_mode controls what we do for stories from news outlets whose photos we do NOT own:

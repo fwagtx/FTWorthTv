@@ -7,6 +7,16 @@
 #   source_image  the source's image may be used in our posts (government / public-domain / API terms allow it)
 
 rss:
+  - name: The Texas Tribune
+    url: https://feeds.texastribune.org/feeds/main/
+    weight: 0.8
+    image_policy: none
+    verify: true                   # statewide: new bills, the governor, ERCOT; kept only when the Texas tier matches
+  - name: KERA News
+    url: https://www.keranews.org/news.rss
+    weight: 0.8
+    image_policy: none
+    verify: true
   - name: Fort Worth Report
     url: https://fortworthreport.org/feed/
     weight: 1.0
@@ -246,6 +256,13 @@ relevance:
     - obituary
     - obituaries
     - execution
-  # categories we skip by default (the Dallas page stays out of politics)
-  exclude_categories: ["politics"]
+    - trump
+    - white house
+  # the study showed "New Texas bill filed would..." posts are the reference page's best performers: state and local
+  # politics stay in (cap 3/day); national partisan fights are kept out by the blocklist above
+  exclude_categories: []
+  # stories that are not about Fort Worth / Tarrant County but are DFW-wide or Texas-wide (the Dallas page posts these
+  # daily: new Texas bills, H-E-B, gas prices, outages, Cowboys). Two keyword hits keep a story at a lower weight.
+  dfw_keywords: [dallas, dfw, "north texas", plano, frisco, denton, irving, grapevine, southlake, keller, mansfield, "grand prairie", burleson, weatherford, cowboys, rangers, mavericks, "fc dallas", "dallas stars", "at&t stadium", "globe life", "dfw airport"]
+  texas_keywords: [texas, texans, austin, houston, "san antonio", "texas bill", "bill filed", lawmakers, legislature, governor, "h-e-b", "buc-ee", whataburger, "texas tech", longhorns, aggies, "state fair", ercot, "texas dps", "texas rangers"]
   max_age_hours: 36

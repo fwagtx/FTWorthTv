@@ -25,26 +25,27 @@ TOPIC_HASHTAGS = {
     "texas motor speedway": ["#TexasMotorSpeedway"], "i-35w": ["#I35W"], "35w": ["#I35W"], "arlington": ["#Arlington"],
     "near southside": ["#NearSouthside"], "magnolia": ["#MagnoliaAve"], "west 7th": ["#West7th"], "cultural district": ["#CulturalDistrict"],
 }
+EMOJI_RE = re.compile(r"[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F]")
 URL_RE = re.compile(r"https?://\S+")
 HASHTAG_RE = re.compile(r"(?<!\w)#\w+")
 
 
 # --------------------------------------------------------------------------- prompt
-DALLAS_CAPTION_RULES = """    Write it EXACTLY like the Dallas Texas TV page: a plain, factual summary of the story in 2 to 4 short sentences, split
-    into two short paragraphs (a blank line between them). Paragraph 1 = what happened: who, what, where, when. Paragraph 2 =
-    the key detail, a short direct quote from the article if there is one, the reaction, or what happens next.
-    Real examples:
-      "Rep. Eddie Morales Jr. of Eagle Pass filed House Bill 410. It would make it illegal for ICE agents in Texas to cover their faces.
-
-       Supporters say agents should be identifiable. ICE says masks protect agents from being targeted."
-      "Texas Lt. Gov.-elect Vikki Goodwin says a bill to regulate THC will be one of her top priorities when lawmakers meet in
-       January. "I'm not interested in a full ban on THC," she said.
-
-       Incoming Agriculture Commissioner Clayton Tucker went further. He called hemp a possible "saving grace" for Texas farmers."
-    Facts only from the source text; never invent a quote. No hook line, no bullet points, no "📍" line, no hashtags, no URLs,
-    no "follow us" line, no questions to the audience. At most ONE emoji, and only 🚨 at the end of paragraph 1 for incidents
-    or police activity. Under 450 characters. For WANTED posts: "<City> police are looking for <name>, wanted for <charge>.
-    Crime Stoppers is offering up to <reward> for information leading to an arrest 🚨" then a second paragraph with the tip phone."""
+DALLAS_CAPTION_RULES = """    Write it EXACTLY like the Dallas Texas TV page (120 of their posts studied, Nov 2026): a plain news brief in one to
+    three short paragraphs, median 250 characters, never over 400. The caption NEVER repeats the card headline; it tells
+    the story in fuller form. Two house shapes, pick whichever fits:
+      (a) wire style: a lead sentence with the news, then one line of context.
+          "Waymo has temporarily suspended driverless freeway rides in Austin and other U.S. markets following safety
+           concerns after several of its vehicles entered active crash scenes.\n\nThe company says surface-street rides continue."
+      (b) plain local style: short sentences, then a closing "what happens next" line with a date when there is one.
+          "Rep. Eddie Morales Jr. of Eagle Pass filed House Bill 410. It would make it illegal for ICE agents in Texas to
+           cover their faces.\n\nLawmakers take it up when the session starts Jan. 12."
+    Attribute inline, the way they do ("according to ESPN", "a WalletHub study found", "the city says"); never a "via"
+    line, never a URL. No emoji at all in the caption (their captions have none). No hashtags, no hook line, no bullets,
+    no "📍" line, no follow line, no questions to the audience. Facts only from the source text; never invent a quote.
+    For WANTED posts: "<City> police are looking for <name>, wanted for <charge>. Crime Stoppers is offering up to
+    <reward> for information leading to an arrest." then a second paragraph with the tip phone.
+    The headline (printed on the card) may start with "BREAKING:" for genuinely breaking news, otherwise plain."""
 DETAILED_CAPTION_RULES = """    Line 1 = the hook, under 90 characters (this is what shows before "See more").
     Then 1-3 short lines with the key facts (who / what / where / when) taken ONLY from the source text.
     Then a "📍 <City>, TX" line (or the neighborhood: Stockyards, Near Southside, West 7th, Arlington...).
@@ -388,7 +389,8 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
     if kind == "nws_alert":
         ends = x.get("ends")
         until = f" until {fmt_time(dtparse.isoparse(ends), settings.tz)}" if ends else ""
-        return [f"{x.get('event', 'Weather alert')} issued for {x.get('area', 'Tarrant County')}{until} 🚨"]
+        instr = _first_sentence(x.get("instruction", "")) if x.get("instruction") else ""
+        return [f"The National Weather Service has issued a {x.get('event', 'weather alert')} for {x.get('area', 'Tarrant County')}{until}.", instr]
     if kind == "culture":
         return [_tidy(story.title) if not story.title.rstrip().endswith(("🐂", "🏃", "🇲🇽", "⛳", "✊🏾", "🎆", "🥵", "🐸", "🎡", "💀🌼", "🎃", "🎬", "🎄", "🦃", "🥶")) else story.title.strip()]
     if kind == "nws_forecast":
@@ -413,7 +415,7 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
         return [f"This weekend in {city}:"] + [f"{e.get('when', '')} – {e.get('title', '')}" for e in x.get("events", [])[:6]]
     if kind == "wanted":
         return [f"{agency_phrase(x.get('agency', 'Police'))} looking for {x.get('name')}, wanted for {str(x.get('charge', '')).lower()}. "
-                f"Crime Stoppers is offering up to {x.get('reward')} for information leading to an arrest 🚨",
+                f"Crime Stoppers is offering up to {x.get('reward')} for information leading to an arrest.",
                 f"Call {x.get('tip_phone')} or submit a tip at 469tips.com. You stay anonymous."]
     if kind == "arrest_log":
         entries = x.get("entries", [])
@@ -435,12 +437,6 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
         pool = [first]                    # nothing but a title: one plain line, no trailing period ("Kid Cudi joins Kanye at AT&T")
     pool = pool[:4]
     p1, p2 = " ".join(pool[:2]), " ".join(pool[2:4])
-    somber = is_somber(story)
-    if not somber and category in ("crime", "traffic", "breaking"):
-        p1 += " 🚨"
-    credit = story.extra.get("credit")          # submitted clips: "(via IG/ username)" exactly like the Dallas page
-    if credit:
-        p1 += f" (via {credit})"
     return [p for p in (p1, p2) if p]
 
 
@@ -578,6 +574,10 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
     caption = re.sub(r"\n{3,}", "\n\n", caption).strip()
     if len(caption) > 900:
         caption = truncate(caption, 900)
+    if not cap_cfg.get("emoji", True):
+        caption = EMOJI_RE.sub("", caption)
+        caption = re.sub(r"[ \t]+\n", "\n", caption)
+        caption = re.sub(r"[ \t]{2,}", " ", caption).strip()
     if cap_cfg.get("style", "dallas") == "dallas":
         handle = settings.brand.get("instagram_handle") or settings.brand.get("handle", "")
         cta = str(cap_cfg.get("cta") or "").format(instagram_handle=handle, handle=settings.brand.get("handle", handle)).strip()
@@ -596,6 +596,8 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
     seen: set[str] = set()
     tags = [t for t in tags if not (t.lower() in seen or seen.add(t.lower()))][:8]
     first_comment = copy.first_comment.strip()
+    if story.extra.get("credit") and story.extra["credit"] not in first_comment:
+        first_comment = f"🎥 {story.extra['credit']}\n" + first_comment       # submitted clips are credited here, not in the caption
     if story.url and story.url not in first_comment and story.source_kind != "culture":
         first_comment = f"Source: {story.source} {story.url}\n" + first_comment
     if "{photo_credit}" not in first_comment:

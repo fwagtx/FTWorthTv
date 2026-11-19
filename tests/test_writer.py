@@ -28,7 +28,7 @@ def test_alert_template_mentions_end_time(settings, now, tmp_path):
     kept, _ = filter_stories(example_stories(settings, now), settings, State(tmp_path / "s.json"), now)
     alert = next(s for s in kept if s.source_kind == "nws_alert")
     copy = template_copy(alert, settings, now)
-    assert copy.caption.startswith("Severe Thunderstorm Warning issued for Tarrant, TX until")
+    assert copy.caption.startswith("The National Weather Service has issued a Severe Thunderstorm Warning for Tarrant, TX until")
     assert copy.caption.rstrip().endswith("🚨")
     settings.brand["caption"]["style"] = "detailed"
     copy = template_copy(alert, settings, now)
@@ -63,7 +63,7 @@ def test_dallas_caption_shapes(settings, now, tmp_path):
                                                         "Lines wrapped around the block."]
     t = Story(id="t", source="FOX 4", source_kind="rss", title="Crash shuts down northbound I-35W near downtown Fort Worth during morning rush",
               summary="All northbound lanes were closed after a multi-vehicle crash.", url="https://x/z", category="traffic")
-    assert dallas_caption(t, settings, now, "traffic") == ["Crash shuts down northbound I-35W near downtown Fort Worth during morning rush. All northbound lanes were closed after a multi-vehicle crash. 🚨"]
+    assert dallas_caption(t, settings, now, "traffic") == ["Crash shuts down northbound I-35W near downtown Fort Worth during morning rush. All northbound lanes were closed after a multi-vehicle crash."]
     w = Story(id="w", source="Fort Worth Police Department", source_kind="wanted", title="WANTED: Sample Person", summary="", url="https://x/w", category="crime",
               extra={"agency": "Fort Worth Police Department", "name": "Sample Person", "charge": "Aggravated Robbery", "reward": "$2,000", "tip_phone": "817-469-TIPS (8477)"})
     lines = dallas_caption(w, settings, now, "crime")
@@ -77,7 +77,10 @@ def test_submitted_clip_credit_matches_dallas_shape(settings, now):
     from ftworthtv.writer import dallas_caption
     s = Story(id="c", source="Submission", source_kind="rss", title="Large fire on I-35W and Western Center this afternoon", summary="",
               url="", category="breaking", extra={"credit": "IG/ username"})
-    assert dallas_caption(s, settings, now, "breaking") == ["Large fire on I-35W and Western Center this afternoon 🚨 (via IG/ username)"]
+    assert dallas_caption(s, settings, now, "breaking") == ["Large fire on I-35W and Western Center this afternoon"]
+    from ftworthtv.writer import finalize, template_copy
+    out = finalize(template_copy(s, settings, now), s, settings)
+    assert "via" not in out.caption and "IG/ username" in out.first_comment        # credit lives in the first comment now
 
 
 def test_claude_code_writer_parses_headless_output(settings, now, tmp_path, monkeypatch):

@@ -122,9 +122,22 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             dropped.append((story, f"blocklist: {term}"))
             continue
         story.relevance = relevance_score(story, keywords)
+        story.extra.setdefault("scope", "local")
         if not story.always_relevant and story.relevance < min_rel:
-            dropped.append((story, f"not local enough (relevance {story.relevance} < {min_rel})"))
-            continue
+            # the Dallas page is Dallas-first but posts DFW and Texas-wide stories every day (new Texas bills, H-E-B,
+            # gas prices, outages). Keep those at a lower weight and a lower share; drop the rest.
+            tier = None
+            for name, mult in (("dfw", 0.85), ("texas", 0.7)):
+                tier_keys = rel.get(f"{name}_keywords", []) or []
+                if tier_keys and relevance_score(story, tier_keys) >= 2:
+                    tier = (name, mult)
+                    break
+            if tier is None:
+                dropped.append((story, f"not local enough (relevance {story.relevance} < {min_rel})"))
+                continue
+            story.extra["scope"] = tier[0]
+            story.weight *= tier[1]
+            story.relevance = min_rel
         story.category = infer_category(story)
         if story.category in excluded:
             dropped.append((story, f"excluded category: {story.category}"))

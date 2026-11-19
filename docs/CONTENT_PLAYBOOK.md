@@ -59,6 +59,19 @@ render_tweet_card`) with our logo, "Fort Worth Daily", "@FortWorthDaily", the wr
 caption writer follows the two-paragraph rule above (`writer.py: DALLAS_CAPTION_RULES` for Claude, `dallas_caption` for the
 template). The blue check is off until the page is verified (`card.verified_badge`).
 
+## 1c. What the study of 120 of their posts showed (Nov 13–18, 2026) and what changed because of it
+
+| Finding (from `study/dallas-texas-tv.json`, ingested by `scripts/ingest_reference_posts.py`) | What the pipeline now does |
+|---|---|
+| 20–24 posts a day, from about 5:45am to 10:30pm; busiest 7–11am with a second wave at 4pm | hourly runs, 2 per run and 3 during the 7–11am and 4pm hours, cap 20 a day, quiet 11pm–6am |
+| every one of the 120 posts is the same screenshot card: their logo, name and handle, a one-line headline, a photo | `card.style: tweet` for every post (unchanged) |
+| the caption never repeats the headline; 1–3 short paragraphs, median 257 characters, 90th percentile 397 | the writer's rules and examples (`config/caption_examples.json`, their 40 best captions) |
+| no hashtags, no emoji in captions, no "via" lines; sources credited inline ("according to ESPN") | `caption.emoji: false` strips any emoji; submission credits moved to the first comment |
+| topic mix: sports 24 %, outages/gaming/rankings/prices 19 %, weather 15 %, Texas bills and politics 12 %, business 8 %, events 8 %, crime 7 % | `caps_per_day` re-set to that mix; politics allowed (state and local only) |
+| the best-performing topic is "New Texas bill filed would…" (3–4× the reactions of sports); H-E-B, gas prices and school posts also lead | DFW-wide and Texas-wide stories are now kept at a lower weight, one per run, with The Texas Tribune and KERA added as sources |
+| live game coverage: preview, touchdowns, halftime, final, next-day quotes, every 15–45 minutes | not built yet; needs a live-score source (ESPN's public scoreboard) and is the next feature |
+| video is pushed to the comments ("Video in comments") or linked as an Instagram reel in their own first comment | the first comment already carries links; clips from the inbox will go there |
+
 ## 2. The Fort Worth copy: pillar → automated source → example post## 2. The Fort Worth copy: pillar → automated source → example post
 
 | Pillar | Fort Worth source (in this repo) | Example output |
