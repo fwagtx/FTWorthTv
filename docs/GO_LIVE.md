@@ -6,7 +6,7 @@ Nothing here costs money: free tiers plus the Claude subscription and the Metric
 
 ## 1. Still needed for the schedule to run on its own (about ten minutes, once)
 
-The GitHub workflow `.github/workflows/post.yml` already runs every 10 minutes on the default branch
+The watcher workflow (`.github/workflows/watch.yml`) already runs continuously on the default branch
 (`claude/practical-mccarthy-mi4jkw`) in dry-run mode. It starts publishing the moment these exist:
 
 | # | Where | What |
@@ -23,7 +23,10 @@ Metricool connector instead (more of your Claude usage, no token).
 
 ## 2. What runs once that is in
 
-1. Every 10 minutes the workflow pulls the feeds, police, city and NWS sources, ranks what is new,
+1. A watcher (`.github/workflows/watch.yml`) polls the feeds, police, city and NWS sources every seven minutes inside one
+   long run and starts the next run before it ends, so it never depends on GitHub's cron (which dropped most scheduled runs
+   here). If the chain ever breaks, a half-hourly cron restarts it, and so can you: Actions → "Watch and post" → Run workflow.
+   Each cycle ranks what is new,
    writes the caption and the card, commits the image so Metricool can fetch it, then schedules the post for a few
    minutes later on Facebook + Instagram with the source, photo credit and the presumption-of-innocence line in the
    first comment.

@@ -1,0 +1,110 @@
+# The watcher: one run polls the sources every few minutes for up to about five hours, then starts the next run before it
+# ends, so the page reacts to news within minutes. GitHub's cron is only a backstop that restarts the chain if it broke:
+# scheduled runs are dropped under load (three runs in a day was typical here), so they cannot carry the cadence.
+#
+# Same repository settings as post.yml (Settings -> Secrets and variables -> Actions). Restart by hand: Actions -> "Watch and post" -> Run workflow.
+name: Watch and post
+
+on:
+  workflow_dispatch:
+    inputs:
+      iterations:
+        description: "cycles in this run"
+        default: "32"
+      interval:
+        description: "seconds to wait between cycles"
+        default: "420"
+      chain:
+        description: "start the next run when this one ends (true|false)"
+        default: "true"
+  schedule:
+    - cron: "11,41 * * * *"        # backstop only: restart the watcher if no run is active
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  restart:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Start the watcher if none is running
+        run: |
+          active=$(gh run list --workflow watch.yml --status in_progress --json databaseId --jq 'length')
+          queued=$(gh run list --workflow watch.yml --status queued --json databaseId --jq 'length')
+          waiting=$(gh run list --workflow watch.yml --status waiting --json databaseId --jq 'length')
+          echo "active=$active queued=$queued waiting=$waiting"
+          if [ "$active" = "0" ] && [ "$queued" = "0" ] && [ "$waiting" = "0" ]; then
+            gh workflow run watch.yml --ref "${{ github.ref_name }}"
+            echo "watcher started"
+          fi
+
+  watch:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    concurrency:
+      group: ftworthtv-post
+      cancel-in-progress: false
+    env:
+      FTWTV_PUBLISHER: ${{ vars.FTWTV_PUBLISHER || 'dryrun' }}
+      FTWTV_MAX_POSTS: ${{ vars.FTWTV_MAX_POSTS || '2' }}
+      MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+      FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+      FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+      FB_PLACE_ID: ${{ vars.FB_PLACE_ID }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      FTWTV_WRITER: ${{ vars.FTWTV_WRITER || 'auto' }}
+      FTWTV_MODEL: ${{ vars.FTWTV_MODEL || 'claude-opus-5-5' }}
+      IG_USER_ID: ${{ vars.IG_USER_ID }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+      FLICKR_API_KEY: ${{ secrets.FLICKR_API_KEY }}
+      PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+      OPENVERSE_CLIENT_ID: ${{ secrets.OPENVERSE_CLIENT_ID }}
+      OPENVERSE_CLIENT_SECRET: ${{ secrets.OPENVERSE_CLIENT_SECRET }}
+      TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+      METRICOOL_USER_TOKEN: ${{ secrets.METRICOOL_USER_TOKEN }}
+      METRICOOL_USER_ID: ${{ secrets.METRICOOL_USER_ID }}
+      METRICOOL_BLOG_ID: ${{ secrets.METRICOOL_BLOG_ID }}
+      METRICOOL_NETWORKS: ${{ vars.METRICOOL_NETWORKS || 'facebook,instagram' }}
+      METRICOOL_AUTOPUBLISH: ${{ vars.METRICOOL_AUTOPUBLISH || 'true' }}
+      NWS_USER_AGENT: ${{ secrets.NWS_USER_AGENT || 'FTWorthTv/0.1 (github actions)' }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: pip install -q -e .
+      - name: Install Claude Code for subscription-backed captions (only when CLAUDE_CODE_OAUTH_TOKEN is set)
+        if: env.CLAUDE_CODE_OAUTH_TOKEN != ''
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Watch the sources and post
+        run: |
+          n="${{ inputs.iterations }}"; wait="${{ inputs.interval }}"
+          for i in $(seq 1 "$n"); do
+            echo "::group::cycle $i of $n at $(date -u +%H:%M:%SZ)"
+            bash scripts/cycle.sh
+            echo "::endgroup::"
+            if [ "$i" -lt "$n" ]; then sleep "$wait"; fi
+          done
+      - name: Hand over to the next watcher
+        if: always() && inputs.chain == 'true'
+        run: gh workflow run watch.yml --ref "${{ github.ref_name }}"
+      - name: Upload the last run output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: watch-${{ github.run_number }}
+          path: out/
+          retention-days: 7
