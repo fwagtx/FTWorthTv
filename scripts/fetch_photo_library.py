@@ -43,6 +43,7 @@ TOPICS: dict[str, tuple[list[str], list[str]]] = {
     "fwisd": (["Fort Worth Independent School District"], ["Paschal High School Fort Worth", "Arlington Heights High School Fort Worth", "Fort Worth ISD school"]),
     "school-bus": (["School buses in Texas"], ["yellow school bus Texas", "school bus Texas"]),
     "stock-market": (["Nasdaq MarketSite", "New York Stock Exchange building"], ["Nasdaq MarketSite Times Square", "New York Stock Exchange facade", "Wall Street bull statue"]),
+    "anthropic": (["Anthropic (company)", "Dario Amodei", "Claude (language model)"], ["Dario Amodei", "Anthropic logo", "Anthropic AI company", "Claude Anthropic"]),
     "classroom": (["Classrooms in Texas", "Empty classrooms"], ["empty classroom desks", "school hallway lockers"]),
     "uta": (["University of Texas at Arlington"], ["University of Texas at Arlington campus"]),
     "dickies-arena": (["Dickies Arena"], ["Dickies Arena Fort Worth"]),
@@ -161,8 +162,12 @@ def main() -> None:
         lic = re.sub(r"<[^>]+>", "", (meta.get("LicenseShortName", {}) or {}).get("value", "")).strip()
         mime, w, h = info.get("mime", ""), int(info.get("width") or 0), int(info.get("height") or 0)
         low = title.lower()
-        if title in seen or not info.get("url") or mime not in ("image/jpeg", "image/png"):
+        if title in seen or not info.get("url") or mime not in ("image/jpeg", "image/png", "image/svg+xml"):
             return False
+        if mime == "image/svg+xml":
+            if not info.get("thumburl"):
+                return False
+            mime, w, h = "image/png", max(w, 1400), max(h, 600)   # the API renders a 1400 px PNG of the vector
         if any(x in low for x in SKIP_WORDS) or not lic or not any(k in lic.lower() for k in OK_LICENSES) or "nc" in lic.lower() or "nd" in lic.lower():
             return False
         if w < MIN_WIDTH or h < 600 or w / max(h, 1) > 3.2 or h / max(w, 1) > 1.6:
