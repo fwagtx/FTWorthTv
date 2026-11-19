@@ -162,6 +162,38 @@ def banner_dusk() -> str:
     return svg(W, H, body, bg=d["ink"])
 
 
+def banner_mark(dark: bool) -> str:
+    """The monogram oversized, nothing else but a small line: a brand that is sure of itself."""
+    d = DIRECTIONS[KEY]
+    bg, fg, muted = (d["ink"], d["paper"], "#B9BCC6") if dark else (d["paper"], d["ink"], "#6B6F7A")
+    from make_identity import mono_b
+    body_m, (w, h) = mono_b(fg, fg)
+    s = 430 / h                                        # 430 px tall -> ~905 px wide, well inside the phone slice
+    x = (W - w * s) / 2; y = 60
+    body = g(body_m, x, y, s)
+    body += text(W / 2, H - 46, f"FORT WORTH DAILY   ·   {HANDLE}", 600, 22, muted, 0.22, "middle", wdth=100)
+    return svg(W, H, body, bg=bg)
+
+
+def banner_statement() -> str:
+    """The promise line as the headline, two lines of wide Archivo, the lockup small above it, a blue full stop."""
+    d = DIRECTIONS[KEY]
+    bg, fg = d["paper"], d["ink"]
+    b, lw, lh = lockup_body(KEY, fg, d["accent"], bg, mono_h=80)
+    s = min(1.0, 330 / lw)
+    x = SAFE_X0 + 20
+    body = g(b, x, 70, s)
+    size, lhh = 78, 94
+    for i, line in enumerate(("If it happened", "in Fort Worth,")):
+        body += text(x, 232 + i * lhh, line, 600, size, fg, -0.01, wdth=112)
+    body += text(x, 232 + 2 * lhh, "it's here", 600, size, fg, -0.01, wdth=112)
+    import make_identity as mi
+    wide = mi.measure("it's here", "Archivo", size, (112, 600), -0.01)
+    body += f'<rect x="{x + wide + 8:.0f}" y="{232 + 2 * lhh - 18}" width="18" height="18" fill="{d["accent"]}"/>'
+    body += text(x + 2, 232 + 2 * lhh + 70, "Independent news, events, food and weather for Fort Worth, Tarrant County and Arlington. Every day.", 500, 22, "#6B6F7A", 0.01, wdth=100)
+    return svg(W, H, body, bg=bg)
+
+
 def preview(names: list[str]) -> None:
     f = ImageFont.truetype("/usr/share/fonts/opentype/inter/Inter-Medium.otf", 22)
     rows = []
@@ -182,7 +214,8 @@ def preview(names: list[str]) -> None:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    files = {"cover-dusk-1640x624": banner_dusk(), "cover-feed-1640x624": banner_feed(), "cover-caption-1640x624": banner_caption(),
+    files = {"cover-mark-dark-1640x624": banner_mark(True), "cover-mark-light-1640x624": banner_mark(False), "cover-statement-1640x624": banner_statement(),
+             "cover-dusk-1640x624": banner_dusk(), "cover-feed-1640x624": banner_feed(), "cover-caption-1640x624": banner_caption(),
              "cover-photo-1640x624": banner_photo(), "cover-charcoal-1640x624": banner_type(True), "cover-light-1640x624": banner_type(False)}
     paths = []
     for n, s in files.items():
