@@ -1,7 +1,7 @@
 {
   "daily": {
     "2026-11-18": 1,
-    "2026-11-19": 13
+    "2026-11-19": 14
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -14,7 +14,8 @@
       "other": 2,
       "politics": 1,
       "sports": 3,
-      "traffic": 1
+      "traffic": 1,
+      "business": 1
     }
   },
   "daily_by_scope": {
@@ -24,7 +25,7 @@
     "2026-11-19": {
       "dfw": 3,
       "local": 7,
-      "national": 1,
+      "national": 2,
       "texas": 2
     }
   },
@@ -226,9 +227,23 @@
       "source": "PlayStation Blog",
       "title": "Grand Theft Auto VI is out today on PS5 and Xbox",
       "url": "https://blog.playstation.com/2026/11/18/grand-theft-auto-vi-launches-tomorrow-november-19/"
+    },
+    "manual-anthropic-ipo-2026-11-19": {
+      "at": "2026-11-19T20:00:00+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on IPO day",
+      "post_id": null,
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "national",
+      "source": "CBS News",
+      "title": "Anthropic goes public in record $81.3 billion IPO, shares open at $111.50",
+      "url": "https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/"
     }
   },
-  "total_posts": 14,
+  "total_posts": 15,
   "used_photos": [],
   "version": 1
 }
