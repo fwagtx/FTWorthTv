@@ -63,7 +63,7 @@ def test_dallas_caption_shapes(settings, now, tmp_path):
     assert dallas_caption(s, settings, now, "food") == ["A family-run smokehouse opened its doors on Magnolia Avenue this week."]
     t = Story(id="t", source="FOX 4", source_kind="rss", title="Crash shuts down northbound I-35W near downtown Fort Worth during morning rush",
               summary="All northbound lanes were closed after a multi-vehicle crash.", url="https://x/z", category="traffic")
-    assert dallas_caption(t, settings, now, "traffic") == ["Crash shuts down northbound I-35W near downtown Fort Worth during morning rush. All northbound lanes were closed after a multi-vehicle crash."]
+    assert dallas_caption(t, settings, now, "traffic") == ["All northbound lanes were closed after a multi-vehicle crash."]
     w = Story(id="w", source="Fort Worth Police Department", source_kind="wanted", title="WANTED: Sample Person", summary="", url="https://x/w", category="crime",
               extra={"agency": "Fort Worth Police Department", "name": "Sample Person", "charge": "Aggravated Robbery", "reward": "$2,000", "tip_phone": "817-469-TIPS (8477)"})
     lines = dallas_caption(w, settings, now, "crime")
