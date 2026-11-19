@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import logging
 import re
+import unicodedata
 from datetime import datetime
 
 from .config import Settings
@@ -141,10 +142,14 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
     national_terms = [w.lower() for w in (rel.get("national_keywords", []) or [])]
     min_outlets = int(rel.get("national_min_outlets", 2))
     # how many national outlets carry each big-moment term right now: one outlet is a story, several is a moment
+    def _plain(title: str) -> str:   # feeds use non-breaking spaces, curly quotes and emoji: match on plain text
+        t = unicodedata.normalize("NFKC", title or "").lower().replace("’", "'").replace("‘", "'")
+        return re.sub(r"\s+", " ", t)
+
     term_outlets: dict[str, set[str]] = {}
     for s in stories:
         if s.extra.get("national"):
-            t = s.title.lower()
+            t = _plain(s.title)
             for term in national_terms:
                 if term in t:
                     term_outlets.setdefault(term, set()).add(s.source)
@@ -178,7 +183,7 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                     tier = (name, mult)
                     break
             if tier is None and story.extra.get("national"):
-                title = story.title.lower()
+                title = _plain(story.title)
                 hit = next((w for w in watchlist if w in title), None)
                 if hit is None:
                     hit = next((t for t in national_terms if t in title and len(term_outlets.get(t, ())) >= min_outlets), None)
