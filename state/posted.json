@@ -1,18 +1,19 @@
 {
   "daily": {
     "2026-11-18": 1,
-    "2026-11-19": 8
+    "2026-11-19": 13
   },
   "daily_by_category": {
     "2026-11-18": {
       "business": 1
     },
     "2026-11-19": {
-      "community": 1,
+      "community": 3,
       "crime": 1,
       "culture": 2,
       "other": 2,
       "politics": 1,
+      "sports": 3,
       "traffic": 1
     }
   },
@@ -21,14 +22,14 @@
       "local": 1
     },
     "2026-11-19": {
-      "dfw": 1,
-      "local": 4,
+      "dfw": 3,
+      "local": 7,
       "national": 1,
       "texas": 2
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-19T17:15:00+00:00",
+  "last_post_at": "2026-11-19T22:00:00+00:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -43,6 +44,34 @@
       "source": "Fort Worth Police Department",
       "title": "WANTED: Joshua Rodriguez",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "204e11f78e7566d5": {
+      "at": "2026-11-19T14:20:00+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand, verified against the article",
+      "post_id": "434256416",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "local",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Tarrant Area Food Bank hosts Thanksgiving mega food distribution at AT&T Stadium",
+      "url": "https://www.fox4news.com/good-day/tarrant-area-food-bank-hosts-thanksgiving-mega-food-distribution-att-stadium"
+    },
+    "24b87d7eea5e8a9f": {
+      "at": "2026-11-19T22:00:00+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand, verified against the article",
+      "post_id": "434256897",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "local",
+      "source": "CultureMap Fort Worth",
+      "title": "These are the 14 best things to do in Fort Worth this weekend",
+      "url": "https://fortworth.culturemap.com/news/entertainment/weekend-events-11-19-26/"
     },
     "2e8d6e753426167e": {
       "at": "2026-11-19T04:30:00+00:00",
@@ -86,6 +115,34 @@
       "title": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
       "url": "https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492"
     },
+    "727a28e05fabf606": {
+      "at": "2026-11-19T19:15:00+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand, verified against the article",
+      "post_id": "434256672",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "dfw",
+      "source": "NBC 5 DFW",
+      "title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
+      "url": "https://www.nbcdfw.com/news/sports/dallas-mavericks/cooper-flagg-scores-33-as-mavericks-keep-warriors-winless-since-stephen-currys-injury/4108189/"
+    },
+    "7be27b45a3d3be02": {
+      "at": "2026-11-19T18:30:00+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand, verified against the article",
+      "post_id": "434256538",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "dfw",
+      "source": "NBC 5 DFW",
+      "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
+      "url": "https://www.nbcdfw.com/news/sports/blue-star/cowboys-strip-play-calling-duties-from-defensive-coordinator-christian-parker/4107747/"
+    },
     "b7d958555f9a76c9": {
       "at": "2026-11-19T16:05:00+00:00",
       "category": "culture",
@@ -128,6 +185,20 @@
       "title": "Northwest ISD approves revised high school boundaries after parents speak out",
       "url": "https://fortworthreport.org/2026/11/18/northwest-isd-approves-revised-high-school-boundaries-after-parents-speak-out/"
     },
+    "f288f7af12924966": {
+      "at": "2026-11-19T21:00:00+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand, verified against the article",
+      "post_id": "434256784",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "local",
+      "source": "NBC 5 DFW",
+      "title": "Utah visits TCU, close to Big 12 title game with Scalley part of all 10-0 starts",
+      "url": "https://www.nbcdfw.com/news/sports/ncaaf/no-2-utah-visits-tcu-close-to-big-12-title-game-berth-with-scalley-part-of-all-10-0-starts/4108205/"
+    },
     "f6005c351dbbb80d": {
       "at": "2026-11-19T15:30:00+00:00",
       "category": "traffic",
@@ -157,7 +228,7 @@
       "url": "https://blog.playstation.com/2026/11/18/grand-theft-auto-vi-launches-tomorrow-november-19/"
     }
   },
-  "total_posts": 9,
+  "total_posts": 14,
   "used_photos": [],
   "version": 1
 }
