@@ -1,0 +1,140 @@
+{
+  "daily": {
+    "2026-11-18": 1,
+    "2026-11-19": 7
+  },
+  "daily_by_category": {
+    "2026-11-18": {
+      "business": 1
+    },
+    "2026-11-19": {
+      "community": 1,
+      "crime": 1,
+      "culture": 1,
+      "other": 2,
+      "politics": 1,
+      "traffic": 1
+    }
+  },
+  "daily_by_scope": {
+    "2026-11-18": {
+      "local": 1
+    },
+    "2026-11-19": {
+      "dfw": 1,
+      "local": 4,
+      "texas": 2
+    }
+  },
+  "flags": {},
+  "last_post_at": "2026-11-19T16:40:00+00:00",
+  "posted": {
+    "0483ca217fa88587": {
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742237",
+      "post_url": null,
+      "posted_at": "2026-11-19T13:10:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "2e8d6e753426167e": {
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742199",
+      "post_url": null,
+      "posted_at": "2026-11-19T04:30:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "Barnes & Noble returns to central Fort Worth, opening in West 7th District",
+      "url": "https://fortworthreport.org/2026/11/18/barnes-noble-returns-to-central-fort-worth-opening-in-west-7th-district/"
+    },
+    "331393c0463e766b": {
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433763067",
+      "post_url": null,
+      "posted_at": "2026-11-19T16:40:00+00:00",
+      "publisher": "metricool",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Voters will likely decide Dallas City Hall’s future in May election",
+      "url": "https://www.fox4news.com/news/voters-will-likely-decide-dallas-city-halls-future-may-election"
+    },
+    "3b0f1374a667b201": {
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742281",
+      "post_url": null,
+      "posted_at": "2026-11-19T13:45:00+00:00",
+      "publisher": "metricool",
+      "source": "KVUE Austin",
+      "title": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
+      "url": "https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492"
+    },
+    "b7d958555f9a76c9": {
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433763022",
+      "post_url": null,
+      "posted_at": "2026-11-19T16:05:00+00:00",
+      "publisher": "metricool",
+      "source": "KXAN Austin",
+      "title": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
+      "url": "https://www.kxan.com/news/texas/declining-enrollment-texas/"
+    },
+    "be30deab42bde11a": {
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433743687",
+      "post_url": null,
+      "posted_at": "2026-11-19T14:55:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "Tarrant County to mark 25 years of celebrating National Adoption Day",
+      "url": "https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/"
+    },
+    "e2bbe323b0da4a7a": {
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742331",
+      "post_url": null,
+      "posted_at": "2026-11-19T14:20:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "Northwest ISD approves revised high school boundaries after parents speak out",
+      "url": "https://fortworthreport.org/2026/11/18/northwest-isd-approves-revised-high-school-boundaries-after-parents-speak-out/"
+    },
+    "f6005c351dbbb80d": {
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433743723",
+      "post_url": null,
+      "posted_at": "2026-11-19T15:30:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
+      "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/"
+    }
+  },
+  "total_posts": 8,
+  "used_photos": [],
+  "version": 1
+}
