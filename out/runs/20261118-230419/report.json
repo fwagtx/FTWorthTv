@@ -1,0 +1,1012 @@
+{
+  "started": "2026-11-19T05:04:19.939781+00:00",
+  "candidates": 664,
+  "posts": [],
+  "skipped_by_writer": [],
+  "dropped": [
+    {
+      "title": "USPS semi-truck ends up partially over I-35W railing in Fort Worth due to wet weather",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "2 minors killed, 3 others seriously injured after van crashes and catches fire in Fort Worth",
+      "source": "NBC 5 DFW",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "UT Southwestern a step closer to opening of Radiation Oncology center",
+      "source": "Fort Worth Report",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Where to eat in Fort Worth: 5 tasty new restaurants to try",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "A first look at Beverly's Downtown, Fort Worth's new underground Mexican restaurant",
+      "source": "PaperCity Fort Worth",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Horned Frogs get back on winning track with 20-10 win over Kansas State",
+      "source": "ABC News (AP)",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Clear skies, chilly temps and the Leonid meteor shower peaks tonight over North Texas",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Newsmax Fears Fox Freeze-Out on Roku if Merger Is Not Blocked",
+      "source": "Variety",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Ella Langley Breaks a CMA Awards Record by Winning Six in One Night, Including Entertainer of the Year: The Complete List of Winners",
+      "source": "Variety",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Jason Blum and James Wan Discuss Why Horror Is Hollywood’s Hottest Genre and How ‘Obsession’ Hit Big at Blumhouse Atomic’s Business of Fear",
+      "source": "Variety",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Why ‘GTA’ Has Never Been Adapted for Film or TV: ‘We Prefer to Control Our Own Destiny,’ Take-Two CEO Says",
+      "source": "Variety",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Chris Pratt to Star in Sci-Fi Family Drama ‘The Traveler,’ Inks First-Look Producing Deal at Paramount (EXCLUSIVE)",
+      "source": "Variety",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Pierce Brosnan Welcomes Robert Pattinson Into the James Bond Family: ‘You Are Going to Be Magnificent’",
+      "source": "Variety",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Michelle Monaghan and Justin Theroux to Star in ‘Sleepover’ From Blumhouse Atomic and Universal",
+      "source": "Variety",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "The Time Robert Pattinson Snuck Around Rikers Island (and Why It Could Help Him With James Bond)",
+      "source": "The Hollywood Reporter",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Rob Lowe Asked Ben Shapiro to Cast Him in ‘Confession’: “I’ve Worked With Left-Wing Writers. Why Wouldn’t I Work With Right-Wing Writers?”",
+      "source": "The Hollywood Reporter",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "SkyShowtime to Shut Down, CEO Exiting",
+      "source": "The Hollywood Reporter",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Chris Pratt to Star in Sci-Fi Movie ‘The Traveler’ as He Inks Paramount First-Look",
+      "source": "The Hollywood Reporter",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "New Sam’s Club-Exclusive Home Decor Just Dropped: Shop Our Top Picks From the Collection",
+      "source": "The Hollywood Reporter",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Bryan Freedman Sued Over Hush-Money Deals Shielding Michael Jackson Estate",
+      "source": "The Hollywood Reporter",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Blumhouse Atomic’s ‘Sleepover’ to Star Michelle Monaghan, Justin Theroux",
+      "source": "The Hollywood Reporter",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "‘Secret Lives of Mormon Wives’ EPs on How ‘Orange County’ Became the First Franchise Extension, Season 2 Hopes and “Exploring” More Spinoffs",
+      "source": "The Hollywood Reporter",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Rose Byrne on What Lured Her to ‘The Good Daughter’ and Why That Complicated Ending Wraps the Series",
+      "source": "The Hollywood Reporter",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Ella Langley & More Record-Setters at the 2026 CMA Awards",
+      "source": "Billboard",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Ella Langley Wins Entertainer of the Year, Capping a Dominant Night at 2026 CMA Awards",
+      "source": "Billboard",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Miranda Lambert and Ella Langley Perform Their Fierce Collaboration ‘Snakeskin Boots’ at CMA Awards 2026",
+      "source": "Billboard",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Lainey Wilson Takes Brief Break From Hosting CMA Awards To Live Debut New Song ‘Just a Woman’",
+      "source": "Billboard",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Glen Powell & Leslie Powell Reveal Who Surprised Him During Filming of ‘The Comeback King’ | CMA Awards 2026",
+      "source": "Billboard",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Ella Langley Delivers a Powerfully Unplugged ‘Loving Life Again’ at the 2026 CMA Awards",
+      "source": "Billboard",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Luke Combs Reveals He Originally Had 40 Songs on ‘The Way I Am’ | CMA Awards 2026",
+      "source": "Billboard",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "GNJB’s ‘Love Reason’ Hits No. 1 on Japan Hot 100 as Akira Senju’s ‘Beppan Gireikyoku’ From ‘VIVANT’ Debuts",
+      "source": "Billboard",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "GTA 6 Launch Causes Massive Spike in Traffic for Internet Provider Xfinity",
+      "source": "IGN",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Burger King’s Chocolate Whopper Prank Is Being Turned Into a Real Burger",
+      "source": "IGN",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "DevGamm Awards 2026 Winners Revealed",
+      "source": "IGN",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "New Avengers: Doomsday Posters Reveal Key Characters and Tease Thor’s Odinforce",
+      "source": "IGN",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Today’s Best Deals: Stellar Blade, Zelda: Ocarina of Time, and $100 Gift Cards",
+      "source": "IGN",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "The Wachowskis Move to Reclaim The Matrix Rights From Skydance",
+      "source": "IGN",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Robert Downey Jr. Teases Avengers: Doomsday With New Behind the Scenes Footage",
+      "source": "IGN",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "AI-Fueled Game Development Just Needs a Toy Story-Style Hit to Be Accepted, Former Take-Two CEO Says",
+      "source": "IGN",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "The nation’s largest school districts consider ditching Google Search",
+      "source": "The Verge",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Democrats skip a vote on adding Brendan Carr’s adviser to the FCC",
+      "source": "The Verge",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Absolute Batman can save DC Studios",
+      "source": "The Verge",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Trump’s latest land grab is an AI hub in the Philippines",
+      "source": "The Verge",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Nvidia’s rise, visualized",
+      "source": "The Verge",
+      "reason": "title too short to be a story"
+    },
+    {
+      "title": "Instagram now lets you edit your stories after you post them",
+      "source": "The Verge",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "The leaked Lenovo Legion Go Beam could be the affordable handheld we need",
+      "source": "The Verge",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Timothée Chalamet Addresses Possibility Of A ‘Call Me by Your Name’ Sequel: “Never Say Never”",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Everything We Know About The ‘Hunger Games: Sunrise On The Reaping’ Movie So Far",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Netflix Renews Unscripted Show ‘Physical: Asia’ For Second Season As Franchise Expands",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "CMA Awards Voters Choose Ella Langley, As Singer Walks Away With Six Trophies",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Larry Poindexter Dies: ‘S.W.A.T.’, ‘JAG’ & ‘Days Of Our Lives’ Actor Was 66",
+      "source": "Deadline",
+      "reason": "blocklist: obituary"
+    },
+    {
+      "title": "Rob Lowe Defends Taking Lead In Ben Shapiro’s ‘Confession’: “Why Wouldn’t I?”",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Horror Box Office, Driven 50% By Blumhouse Atomic Movies, Hits Near $2.5 Billion YTD",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Pierce Brosnan Bonds With Robert Pattinson Over 007 Role",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Chris Pratt To Star In Paramount’s Feature Take Of Joseph Eckert Novel ‘The Traveler’",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Rain-Related Evacuation Warnings Issued For The Palisades & Parts Of Malibu, The Hollywood Hills, Altadena, Calabasas & Santa Clarita",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Paramount+ Orders ‘Clandestine’ Drama Series Starring Brit Marling & Tilda Swinton From ‘The OA’ Creators",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "‘Primetime’ Cinematographer & Editor On Making Robert Pattinson Look Like A “Superhero” & Breakdown Viral Meme Catchphrase",
+      "source": "Deadline",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Anthropic IPO raises record $81.3 billion on strong AI demand",
+      "source": "NPR News",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "The law releasing the Epstein files passed one year ago. What do his victims say?",
+      "source": "NPR News",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Why the Nvidia scandal is a national security issue",
+      "source": "NPR News",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Democrats nominate Jeffries for speaker, prep investigations into Trump's orbit",
+      "source": "NPR News",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "After Nepal's epic flood, they're restoring their community ... and their lives",
+      "source": "NPR News",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Democratic Black women take over almost all state agencies in Georgia soon",
+      "source": "NPR News",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "As overdose deaths fall, White House makes misleading claims about who deserves credit",
+      "source": "NPR News",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Karl Kani dressed hip-hop royalty for decades. Now he's telling his own story",
+      "source": "NPR News",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Got a canceled flight? 7 clever ways to get rebooked fast",
+      "source": "NPR News",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Democrats formally nominate Hakeem Jeffries for speaker of the House",
+      "source": "NPR News",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Luis takes court for LSU amid eligibility drama, coming off bench",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Playing hardball: Commish says MLB owners won't OK deal without cap as lockout looms",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Ravens' Humphrey apologizes for 'criminals' quip about Baltimore; mayor responds",
+      "source": "ESPN Top Headlines",
+      "reason": "blocklist: podcast"
+    },
+    {
+      "title": "Giants RB Skattebo to nix backflips in wake of Hutchinson's injury",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "South Carolina star QB Sellers set to play vs. No. 1 Georgia",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Ex-U.S. coach Arena: Federation doesn't 'have a clue' how to replace Poch",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "🔥 Heat unveil 'A Night in Vice City' court ahead of GTA VI release",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Passan's MLB offseason preview: Latest intel on top free agents, where Skubal will sign",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "MLB free agency tracker: 2026-27 offseason trades, moves",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "NBA Power Rankings: One wild stat for all 30 teams",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "QB rankings for all 68 Power 4 college football teams",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "What are the conference title game clinching scenarios for Week 12?",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Reid's midseason 2027 NFL mock draft: Four QBs and a trade to shake things up",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Which team will land the No. 1 pick? Our look at a five-franchise race",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Breaking down Players Era 8: Day 2 brings two marquee semifinal matchups",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "The numbers behind Illinois' historic rout of Duke at Cameron Indoor Stadium",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Bracketology: Louisville leaps to top line as UConn falls",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Seven things Solak thinks: Burrow for MVP? Lions in trouble?",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Who's on the CFP bubble after the committee's third ranking?",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "CFP committee releases its third top 25 and bracket",
+      "source": "ESPN Top Headlines",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "The Connor McDavid Scoring Tracker: Can the Oilers' superstar break 200 points?",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Inside the complicated offseason -- and history -- of Will Wade, RJ Luis Jr. and LSU",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Pochettino gets a fitting, emotional send-off from USMNT",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "USMNT player ratings: Pulisic's stunning goal gives Poch the perfect farewell",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Bottom 10: Things go south in Carolina -- and a tribute to a legend",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "World Cup 2030 Early Power Rankings: Spain still No. 1? No USMNT in top 15",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Why Packers can't protect Jordan Love or rush successfully",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "'It's part of my heart': Inside Travis Kelce's love affair with Arrowhead Stadium",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Matchup rankings for Week 11: Why you should start one 49er, but sit another",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Facts vs. Feelings: Bye-mageddon means getting comfortable with the uncomfortable",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Hot stove analysis of key offseason moves",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Chelsea's defense shines, but will scoring woes be their undoing in UWCL?",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Real Madrid need more sharpness in order to compete with UWCL's best",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "How fallen giants and their fans bounce back from scandal -- and relegation",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Reranked: Who is the MVP for each of the top Premier League clubs?",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Mammoth, Avalanche dress for the elements with Winter Classic reveals",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "The rebuild and redemption of Liam Lawson, F1's comeback kid",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Men: Darius Fulghum upsets Diego Pacheco to enter top 10",
+      "source": "ESPN Top Headlines",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Women: Zamorano climbs at atomweight with dominant win",
+      "source": "ESPN Top Headlines",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "MMA pound-for-pound rankings: Harrison, Nunes in a league of their own",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "MMA divisional rankings: Kayla Harrison is back and in top form",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "What's going on with the Big Ten? One Heisman favorite, one title game underdog",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Transfer rumors, news: Liverpool, Bayern battle for Gladbach teen Mohya",
+      "source": "ESPN Top Headlines",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Sen. John Cornyn blocks Trump nominee for federal judge in Texas",
+      "source": "The Texas Tribune",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Gov.-elect Gina Hinojosa says she talked border with Trump, will roll back Abbott executive orders on H-1B visas, THC",
+      "source": "The Texas Tribune",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
+      "source": "The Texas Tribune",
+      "reason": "already posted from another outlet: Largest enrollment drop in Texas’ recorded history means cha"
+    },
+    {
+      "title": "TribCast: Dade Phelan on the future of the House and the GOP",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Ken Paxton drops out of doctor’s lawsuit against the Texas Medical Board",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Texas regulators are resuming environmental permits for data centers",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Ken Paxton’s office ends lawsuit seeking to ban Muslim civil rights group in Texas",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Ken Paxton’s office drops lawsuit accusing NCAA of deceptive marketing of women’s sports",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "A $3 billion dementia fund languishes a year after Texas voters approved it",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Texas cities and counties forgo $1 billion in taxes to data centers in exchange for few job guarantees",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Republicans spent years remaking Texas courts in their image. Voters unraveled it in one election.",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Shift in Texas leadership offers hope that delayed Austin light rail will gain momentum",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Texas’ next schools chief is poised to be an educator. Teachers, parents say it’s past due.",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Meet the cancer survivor, immigrant and “Lord of the Pigs” who is Texas’ next land commissioner",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Texas maternal death rate drops to pre-pandemic levels as mental health becomes the leading cause",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "GOP candidate seeks to block Dem’s win amid eligibility question",
+      "source": "The Texas Tribune",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "This Puerto Rican Barbecue Truck Is Changing San Antonio’s Barbecue Scene",
+      "source": "Texas Monthly",
+      "reason": "other-metro food, not statewide"
+    },
+    {
+      "title": "And God Said, ‘Let There Be Reality Dating Shows.’ And There Was ‘The Vow.’",
+      "source": "Texas Monthly",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "The Daily Crossword: November 18, 2026",
+      "source": "Texas Monthly",
+      "reason": "blocklist: crossword"
+    },
+    {
+      "title": "Word Wrangler: November 18, 2026",
+      "source": "Texas Monthly",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "‘Where the River Took Us’ Makes Apple Podcasts’ Best Shows of 2026 List",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Why Kevin Bacon Shot His New Comedy-Horror Movie in the Antiques Capital of Texas",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "We Obtained a Week’s Worth of Body Camera Footage From a Texas State Trooper Who Turns Immigrants Over to ICE",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Can Gina Hinojosa Lower Texans’ Electricity Bills?",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "The Daily Crossword: November 17, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Word Wrangler: November 17, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "A Sneak Peek at the Sprawling New Park Coming to the Austin Area",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "What Does Blue Texas Mean for the University of Texas?",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "The Superstar and The Team Manager",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Hot Dr Pepper Is the Midcentury Recipe We Need to Bring Back",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "The Daily Crossword: November 16, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Word Wrangler: November 16, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "The Daily Crossword: November 15, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Word Wrangler: November 15, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "The Daily Crossword: November 14, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Word Wrangler: November 14, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "A Famous Barbacoa Trailer Just Rolled into Austin",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "The Daily Crossword: November 13, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Word Wrangler: November 13, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Exclusive: Texas’s New Leaders Could Ground SpaceX",
+      "source": "Texas Monthly",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "GAO: Major AI platforms generated viable plans for mass-casualty attacks",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Warming continues, but two cold fronts knock us down",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Musk on midterms spending: 'I feel pretty foolish'",
+      "source": "KXAN Austin",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Recognizing hearing loss in a loved one this Thanksgiving",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "‘It really scared me’: Driver shot at on I-35 in south Austin. How common is this?",
+      "source": "KXAN Austin",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Waymo suspends all rides on freeways after California banned the vehicles from its state freeways",
+      "source": "KXAN Austin",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Part 3: The 'pass-through lakes' and Llano River | Paradise vs. pain",
+      "source": "KXAN Austin",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Supporters pack City Hall as Austin weighs agreement to preserve Muny",
+      "source": "KXAN Austin",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Manor ISD employees to receive one-time stipend",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Round Rock church challenges lawsuit's claim it was 'alter ego' for convicted ex-pastor",
+      "source": "KXAN Austin",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "ACC makes TIME's 2027 list of America's best community colleges",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Austin Police search for man accused of assaulting security guard",
+      "source": "KXAN Austin",
+      "reason": "other-metro crime, not statewide"
+    },
+    {
+      "title": "2026 Friendsgiving Challenge: Pick a team, donate to Central Texas Food Bank",
+      "source": "KXAN Austin",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
+      "source": "KXAN Austin",
+      "reason": "already posted"
+    },
+    {
+      "title": "Users report PlayStation issues hours before ‘GTA VI’ drop",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Tech outage onslaught triggers doomsday prep purchases",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Missing 2-year-old reunited with family after deputies find her in Florida pond",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Peanut butter revenge? Florida man arrested over letter",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "What's the difference between song and record of the year at the Grammys?",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Student injured, another student detained after incident involving scissors, district says",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Video: Waymo drives on San Diego trolley tracks, reverses through crossing guard rail",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Where you live in Harris County could mean a 20-year difference in life expectancy, report finds",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Juvenile in custody after boy shot inside Humble McDonald’s, police say",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Jersey Village water pressure recovering as city investigates cause",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "What sparked the Clean Harbors explosion? Investigators say key questions remain",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "'I'm still numb' | Family questions deadly Crosby road rage shooting involving constable's office dispatcher",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "‘I’m one of those miracles’ | Veterans celebrate Harris County treatment court graduation",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Lockdown lifted at Houston-area hospital",
+      "source": "KHOU 11 Houston",
+      "reason": "other-metro crime, not statewide"
+    },
+    {
+      "title": "$5,000 reward offered in hit-and-run that left Channelview teen dead",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "At least 1 arrested after chase extends from Houston to Winnie, HPD says",
+      "source": "KHOU 11 Houston",
+      "reason": "other-metro crime, not statewide"
+    },
+    {
+      "title": "Meet the four finalists for this year's Lombardi Award",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Worker recovering after explosion at hazardous waste facility in Deer Park area",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Portillo's has closed these three locations in the Houston area",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "'I just heard a pop' | Neighbors react after 8-month-old baby shot in northwest Houston",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "15 defendants, including Houston woman, charged in nationwide VA benefits fraud crackdown",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "School districts make changes after failing to report bus crashes",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "HPD: 40-year-old man seriously injured after argument turns violent in southeast Houston",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Harris County Sheriff's Office prepares for ICE agreement under new Texas law",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Nearly 300 people charged in South Texas immigration, border enforcement cases between Nov. 6-12",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "1 dead in crash involving 18-wheeler near Westpark Tollway in Cinco Ranch area",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Deadly shooting at Katy-area Airbnb prompts new security measures, concerns from neighbors",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "8-month-old accidentally shot inside northwest Harris County apartment, deputies say",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "New Texas A&M rules limit where e-scooters can go on campus",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Pct. 6 Constable's Office dispatcher involved in deadly road rage shooting on Highway 90, HCSO says",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Kitten adopted after The Woodlands firefighters rescued it from drainage pipe",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Man who fled to Ecuador to avoid prosecution brought back to Texas after 8 years, GCSO says",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Texas flu cases climb as doctors warn of an early holiday surge",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Robert Bond vanished from a Houston townhome in 2024. His family fears he'll never come home",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    },
+    {
+      "title": "Driver caught after fleeing deadly southwest Houston crash, police say",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 24h"
+    }
+  ],
+  "notes": [
+    "quiet hours (23:04 local): only severe weather posts",
+    "too soon since the last post: only severe weather posts"
+  ]
+}
