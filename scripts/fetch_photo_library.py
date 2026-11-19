@@ -94,6 +94,22 @@ TOPICS: dict[str, tuple[list[str], list[str]]] = {
     "apartments": ([], ["apartment construction Texas"]),
     "housing": ([], ["suburban houses Texas"]),
     "jail": (["Tarrant County Jail"], ["jail cell bars"]),
+    # the national "big moments" beat: launches, finales, tours, holidays, jackpots
+    "gaming": (["PlayStation 5", "Xbox Series X", "Video game controllers", "DualSense"], ["video game controller", "gaming console"]),
+    "concert": (["Concert audiences", "Concert crowds"], ["concert crowd stage lights"]),
+    "movies": (["Movie theaters in Texas", "Cinema auditoriums"], ["movie theater auditorium seats"]),
+    "streaming": (["Television remote controls"], ["television remote couch"]),
+    "lottery": (["Powerball", "Lottery tickets"], ["lottery ticket"]),
+    "thanksgiving": (["Thanksgiving dinners"], ["Thanksgiving turkey dinner"]),
+    "christmas": (["Christmas lights in Texas", "Christmas lights"], ["Christmas lights house night"]),
+    "fireworks": (["Fireworks in Texas"], ["fireworks display night"]),
+    "parade": (["Macy's Thanksgiving Day Parade"], ["Thanksgiving Day Parade balloon"]),
+    "shopping": (["Black Friday"], ["Black Friday shopping crowd"]),
+    "smartphone": (["IPhone 17", "IPhone 16"], ["smartphone in hand"]),
+    "nfl": (["Super Bowl LIX", "Vince Lombardi Trophy"], ["NFL football field"]),
+    "space": (["SpaceX Starship", "Starbase"], ["SpaceX Starship launch"]),
+    "eclipse": (["Solar eclipse of April 8, 2024 in Texas"], ["total solar eclipse corona"]),
+    "music": (["Vinyl records"], ["vinyl record turntable"]),
 }
 
 
