@@ -1,0 +1,52 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-083000/01-gta-6-shatters-streaming-records-before-it-even/post.jpg",
+    "credit": "Photo: Sergey Galyonkin via Wikimedia Commons (CC BY-SA 2.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Playstation_Dualsense_controller.jpg",
+    "photo_id": "lib-playstation-dualsense-controller-jpg"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "breaking",
+    "headline": "GTA 6 Shatters Streaming Records Before It Even Launches Globally",
+    "caption": "GTA 6 is already breaking records, despite not having even been out for a full day yet. According to StreamCharts, GTA 6 shattered livestreaming viewership records following its release in New Zealand.\n\nStreamers began grinding the game at the earliest hours of the morning here in the United States thanks to handy loopholes on Xbox, allowing them to get a head start on things. As of 12:30 UTC today, the game crossed 6.38 million concurrent viewers across Twitch, YouTube, and Kick.",
+    "first_comment": "Source: IGN https://www.ign.com/articles/gta-6-shatters-streaming-records-before-it-even-launches-globally\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "6e52b4812266ae53",
+    "source": "IGN",
+    "source_kind": "rss",
+    "title": "GTA 6 Shatters Streaming Records Before It Even Launches Globally",
+    "summary": "GTA 6 is already breaking records, despite not having even been out for a full day yet. GTA 6 is already breaking records, despite not having even been out for a full day yet. According to StreamCharts, GTA 6 shattered livestreaming viewership records following its release in New Zealand. Streamers began grinding the game at the earliest hours of the morning here in the United States thanks to handy loopholes on Xbox, allowing them to get a head start on things. As of 12:30 UTC today, the game crossed 6.38 million concurrent viewers across Twitch, YouTube, and Kick. This is nearly four times the previous record holder, which was Valorant's closed beta. Twitch also provided first details about the game's performance using its own internal data to IGN. Twitch recently revealed to IGN that GTA 5 has accumulated 9 billion hours watched over the course of its entire lifetime, making it an…",
+    "url": "https://www.ign.com/articles/gta-6-shatters-streaming-records-before-it-even-launches-globally",
+    "published": "2026-11-18T18:43:45+00:00",
+    "category_hint": null,
+    "image_url": "https://assets-prd.ignimgs.com/2026/11/18/gta-6-jason-aura-1795024506669.jpg",
+    "image_credit": "Photo: IGN",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "IGN All",
+      "national": true,
+      "scope": "national",
+      "national_term": "gta 6"
+    },
+    "category": "breaking",
+    "relevance": 2,
+    "score": 0.0703
+  }
+}
