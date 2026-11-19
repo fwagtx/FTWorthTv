@@ -17,7 +17,8 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
                 "forecast", "rain", "wind advisory", "cold front", "warning for"],
     "traffic": ["crash", "wreck", "i-35w", "35w", "i-30", "i-20", "loop 820", "highway", "lanes closed", "road closure",
                 "traffic", "pileup", "18-wheeler", "trinity metro", "texrail", "dfw airport delays"],
-    "crime": ["police", "shooting", "shot", "arrested", "arrest", "stabbing", "robbery", "homicide", "murder", "suspect",
+    "crime": ["police", "shooting", "shot", "arrested", "arrest", "stabbing", "robbery", "homicide", "murder", "suspect", "steal", "stole",
+              "stolen", "theft", "thieves", "bandit", "burglar", "carjack", "wanted", "sentenced", "indicted",
               "fwpd", "deputies", "sheriff", "charged with", "manhunt", "burglary", "carjack"],
     "sports": ["tcu", "horned frogs", "frogs", "cowboys", "rangers", "mavericks", "stars", "fc dallas", "texas motor speedway",
                "nascar", "indycar", "rodeo", "stock show", "panther city", "pga", "colonial", "golf", "football", "basketball", "baseball"],
@@ -26,6 +27,7 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
     "events": ["concert", "festival", "tour", "live at", "dickies arena", "billy bob", "bass hall", "will rogers", "fair",
                "parade", "fireworks", "mayfest", "oktoberfest", "arts festival", "tickets", "show at", "comedy"],
     "culture": ["museum", "kimbell", "amon carter", "modern art", "stockyards", "cattle drive", "sundance square", "cultural district",
+                "band", "album", "single", "song", "singer", "residency", "music", "mural", "artist",
                 "zoo", "botanic", "theater", "theatre", "gallery", "mural", "history", "historic"],
     "business": ["headquarters", "development", "jobs", "layoffs", "opening", "expansion", "investment", "real estate",
                  "apartments", "retail", "store", "company", "startup", "acquisition"],
@@ -120,6 +122,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         term = blocked(story, blocklist)
         if term:
             dropped.append((story, f"blocklist: {term}"))
+            continue
+        if story.source_kind == "rss" and not story.official and len(story.title.split()) < 4:
+            dropped.append((story, "title too short to be a story"))         # "Notes and News", column stubs
             continue
         story.relevance = relevance_score(story, keywords)
         story.extra.setdefault("scope", "local")

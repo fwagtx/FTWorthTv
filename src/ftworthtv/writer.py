@@ -310,6 +310,8 @@ def _tidy(sentence: str) -> str:
 
 
 BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "read more", "learn more", "stay informed", "follow us", "check back",
+               "enjoy reading the news again", "welcome to the", "pick something out of this list", "this article", "photo by", "courtesy of",
+               "biweekly", "weekly column", "in this week", "scroll down",
                "sponsored", "advertis", "click to", "watch the video", "see the full")
 
 
@@ -334,7 +336,7 @@ def _split_sentences(text: str) -> list[str]:
         before = text[start:m.start()]
         last = re.findall(r"[A-Za-z.]+$", before)
         tok = (last[0] if last else "").lower().strip(".")
-        if (len(tok) == 1 and tok.isalpha()) or tok in _ABBREVIATIONS:
+        if (len(tok) == 1 and tok.isalpha()) or tok in _ABBREVIATIONS or "." in tok:   # "I.M." Pei, "U.S.", "a.m."
             continue
         out.append(text[start:m.end()].strip())
         start = m.end()
@@ -353,7 +355,7 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
         cut = text.rfind(". ", 0, lead)
         text = text[:cut + 1] if cut > 0 else text[:lead]
     for part in _split_sentences(text):
-        if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")):
+        if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")) or len(part.split()) < 6:
             continue
         if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")):
             continue
@@ -429,8 +431,8 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
     #  their faces." / "Supporters say agents should be identifiable. ICE says masks protect agents from being targeted."
     first = _tidy(story.title)
     sents = _sentences(story.summary) if story.summary else []
-    if sents and _similar(first, sents[0]):
-        pool = sents                      # the summary already opens with the headline: don't say it twice
+    if len(sents) >= 2 or (sents and _similar(first, sents[0])):
+        pool = sents                      # the article lead tells the story; the headline is already on the card
     elif sents:
         pool = [first + ("" if first.endswith(("!", "?", ".")) else ".")] + sents
     else:
