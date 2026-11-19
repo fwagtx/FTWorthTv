@@ -157,8 +157,7 @@ def banner_dusk() -> str:
     s = min(1.0, 520 / lw)
     x, y = SAFE_X0 + 24, 52
     body += g(b, x, y, s)
-    body += text(x + 6, H - 86, "If it happened in Fort Worth, it's here.", 500, 40, d["paper"], 0.01, wdth=112)
-    body += text(x + 6, H - 40, f"{HANDLE}   ·   News · events · food · weather, every day", 500, 23, "#D5D8E0", 0.04, wdth=100)
+    # nothing else on the photo: the bio carries the promise line, the profile picture carries the mark again
     body += text(SAFE_X1 - 10, H - 18, "Photo: David, CC BY 2.0", 500, 16, "#C9CCD6", 0.02, "end", wdth=100)
     return svg(W, H, body, bg=d["ink"])
 
