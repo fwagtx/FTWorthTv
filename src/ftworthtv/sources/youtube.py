@@ -12,6 +12,8 @@ config/sources.yaml:
 """
 from __future__ import annotations
 
+import re
+
 import logging
 import xml.etree.ElementTree as ET
 from datetime import datetime
@@ -33,11 +35,16 @@ SKIP_TITLE = ("live stream", "livestream", "#live", "live:", "watch live", "full
 PLACE_WORDS = ("fort worth", "ft. worth", "ft worth", "tarrant", "tcu", "arlington", "keller", "southlake", "mansfield", "grand prairie",
                "burleson", "haslet", "north richland hills", "hurst", "euless", "bedford", "grapevine", "weatherford", "benbrook",
                "white settlement", "saginaw", "crowley", "azle", "colleyville", "watauga", "forest hill", "river oaks", "lake worth",
-               "aledo", "granbury", "cleburne", "denton", "roanoke", "trophy club", "westlake", "flower mound", "lewisville",
-               "dfw", "dallas-fort worth", "dallas/fort worth", "north texas", "metroplex", "cowtown", "panther island", "stockyards",
-               "alliance airport", "dickies arena", "globe life", "at&t stadium")
-# a station's video must name our side of the Metroplex or the region as a whole: "Dallas" or "Texas" alone is not enough
-# (a crash into a Dallas home or a Dallas ISD vote is not Fort Worth news, however good the video)
+               "aledo", "roanoke", "trophy club", "westlake", "dfw", "dallas-fort worth", "dallas/fort worth", "north texas",
+               "metroplex", "cowtown", "panther island", "stockyards", "alliance airport", "dickies arena", "globe life", "at&t stadium")
+# a station's video must name our side of the Metroplex or the region as a whole: "Dallas", "Denton" or "Texas" alone is
+# not enough (a crash into a Dallas home or a Dallas ISD vote is not Fort Worth news, however good the video)
+_CHANNEL_SUFFIX = re.compile(r"\s*[|–-]\s*(?:[^|–-]*\b(?:nbc|fox|wfaa|cbs|kera|news|dfw|weather update)\b[^|–-]*)$", re.I)
+
+
+def place_text(title: str) -> str:
+    """The title without a trailing station tag: 'Car crashes into Dallas home | NBC DFW' must not pass on 'DFW'."""
+    return _CHANNEL_SUFFIX.sub("", title or "").strip()
 
 
 def wanted_title(cfg: dict, title: str, global_cfg: dict | None = None) -> bool:
@@ -47,7 +54,7 @@ def wanted_title(cfg: dict, title: str, global_cfg: dict | None = None) -> bool:
     skip = list((global_cfg or {}).get("skip_in_title", []) or []) + list(cfg.get("skip_in_title", []) or [])
     if any(s in low for s in SKIP_TITLE) or any(str(s).lower() in low for s in skip):
         return False
-    if cfg.get("title_must_name_place") and not any(p in low for p in PLACE_WORDS):
+    if cfg.get("title_must_name_place") and not any(p in place_text(low) for p in PLACE_WORDS):
         return False
     need = cfg.get("require_any_in_title")
     if need and not any(str(w).lower() in low for w in need):

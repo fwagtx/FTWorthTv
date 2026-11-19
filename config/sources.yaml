@@ -348,7 +348,7 @@ youtube:
 # shared as YouTube links above. See docs/GO_LIVE.md "Viewer video".
 submissions:
   enabled: true
-  csv_url: ""                 # the sheet as CSV: https://docs.google.com/spreadsheets/d/<id>/export?format=csv (shared: anyone with the link)
+  csv_url: "https://docs.google.com/spreadsheets/d/1PZ4Uqlrwm8upZEaGPhDidVadadMH0ekTkQMDRwR7S6w/export?format=csv"   # the sheet as CSV: https://docs.google.com/spreadsheets/d/<id>/export?format=csv (shared: anyone with the link)
   upload_folder: "https://drive.google.com/drive/folders/1rypsOoFBGzDTekZXptuIQvIiCaQdBZXQ"   # where approved clips are saved (public)
   max_per_day: 2
   max_mb: 200                 # bigger clips are skipped (Facebook takes up to 1 GB, but a phone clip should be trimmed anyway)

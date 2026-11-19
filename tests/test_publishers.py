@@ -155,3 +155,29 @@ def test_queue_reads_the_clip_url_left_by_the_cycle_script(tmp_path, settings):
     assert preflight(draft, network=False) == []
     draft.video_url, draft.video_path = None, folder / "missing.mp4"
     assert "video post without a clip" in preflight(draft, network=False)
+
+
+def test_metricool_refused_video_falls_back_to_the_card(monkeypatch, tmp_path, settings):
+    settings.metricool_user_token, settings.metricool_user_id, settings.metricool_blog_id = "t", "1", "2"
+    settings.root = tmp_path
+    settings.media_base_url = "https://raw.githubusercontent.com/me/repo/main"
+    settings.metricool_networks = ["facebook", "instagram"]
+    calls = []
+
+    def fake_post(url, params=None, headers=None, json=None, timeout=None):
+        calls.append(json)
+        if json["media"] and json["media"][0].endswith(".mp4"):
+            return FakeResponse({"error": "video rejected"}, status=400)
+        return FakeResponse({"data": {"id": 9, "plannerUrl": "https://app.metricool.com/planner/9"}})
+
+    monkeypatch.setattr(requests, "post", fake_post)
+    monkeypatch.setattr(requests, "head", lambda url, **kw: FakeResponse({}, status=200))
+    draft = _draft(tmp_path, settings)                       # a radar-loop alert: the card exists, the clip is extra
+    draft.mode = "video"
+    draft.video_path = tmp_path / "radar.mp4"
+    draft.video_path.write_bytes(b"\x00" * 100)
+    draft.video_url = "https://github.com/me/repo/releases/download/media-2026-11/r1-01-radar.mp4"
+    result = MetricoolPublisher(settings).publish(draft)
+    assert result.ok and result.post_id == "9" and len(calls) == 2
+    assert calls[0]["media"][0].endswith("radar.mp4") and calls[1]["media"][0].endswith("card.jpg")
+    assert calls[1]["providers"] == [{"network": "facebook"}, {"network": "instagram"}]   # the photo post keeps Instagram

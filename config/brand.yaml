@@ -115,6 +115,7 @@ posting:
   daily_cap: 20                # the reference page runs 20-24 a day
   quiet_hours_local: [23, 6]   # their output runs 5:45am-10:30pm; no posts 11pm-6am Central (severe weather still posts)
   daily_forecast_hour_local: 7 # "Good morning Fort Worth" weather post once a day (needs no API key)
+  weather_radar_video: true    # severe alerts carry the NWS radar loop (public domain) as a short video; the card goes out if it fails
   weekend_events_roundup: true # Thursday evening "This weekend in Fort Worth" (needs Ticketmaster key)
   # news_photo_mode controls what we do for stories from news outlets whose photos we do NOT own:
   #   card = native photo post: licensed stock/Wikimedia photo of Fort Worth + headline overlay, source link in first comment  (looks like the Dallas page)

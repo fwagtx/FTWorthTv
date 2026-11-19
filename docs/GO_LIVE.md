@@ -73,11 +73,30 @@ Metricool connector instead (more of your Claude usage, no token).
   (release date, box office, series finale, tour dates, dies at, Netflix, iPhone, SpaceX ...) that at least two of those outlets
   are running at the same time. Crime and traffic from elsewhere never qualify, and a moment is posted once, not once per outlet.
   Edit `config/sources.yaml` → `relevance.watchlist` / `national_keywords` and `config/brand.yaml` → `content_mix.national_per_day`.
-- **Submissions:** the first comment asks for videos and photos. Pick an inbox (Google Form or Page messages) and approved
-  submissions go into the queue with the "(via IG/ user)" credit.
+- **Video from other channels (shared, never copied):** 21 public YouTube channels are watched: City of Fort Worth, Tarrant
+  County, Trinity Metro, Fort Worth police, City of Arlington, NWS Fort Worth, Fort Worth Report, Visit Fort Worth, the
+  Stockyards, the Zoo, TxDOT, FOX 4, NBC 5, WFAA, CBS Texas, KERA, Cowboys, Rangers, Mavericks, Stars, FC Dallas. A new
+  upload becomes a Facebook post carrying the YouTube link (it plays in the feed, credited to the channel, link in the first
+  comment); the file is never downloaded or re-uploaded, so the channel keeps its views and there is nothing for Rights
+  Manager to flag. The gate is strict: newer than 12 hours; no live streams, full games, meetings, podcasts or filler; a
+  station's video only when its own title names Fort Worth, a Tarrant-side city or the region (DFW, North Texas), so a crash
+  into a Dallas home or a Dallas ISD vote does not qualify; a team's video only for results, highlights, press conferences
+  and roster moves. Three a day, one per cycle, Facebook only (Instagram does not take links). Tune `config/sources.yaml` → `youtube`.
+- **Viewer video (posted natively, credited):** the first comment asks for clips. When one arrives by DM you check the two
+  things no program can, that the sender shot it and agrees to it being posted with credit, then save the file in the Drive
+  folder **Fort Worth Daily — viewer video uploads** and add a row to the sheet **Fort Worth Daily — viewer videos** (credit,
+  caption, where, the file's Drive link, consent = yes, approved = yes). The next cycle downloads the clip, hosts it on a
+  GitHub release (`media-YYYY-MM`) and posts it as a Facebook video with the credit in the caption and the first comment;
+  two a day at most, each row posted once. Instagram gets it as a Reel only when `config/brand.yaml` → `video.instagram` is
+  on and the clip is portrait (off until you have checked the first one). **One step left for you:** in Google Drive, share
+  the uploads folder as *Anyone with the link → Viewer* (the sheet and the clips inside inherit it); the automation was not
+  allowed to grant that itself. Until then the sheet reads as a sign-in page and the source only logs a warning.
+- **Radar video:** on a severe alert the NWS Fort Worth radar loop (public domain) becomes a short MP4 and goes out as a
+  video post instead of the card; if the video is refused, the card goes out. `config/brand.yaml` → `posting.weather_radar_video`.
 
 ## 4. Not yet, and why
 
 - **X:** claim @fortworthdaily or @FortWorthDaily when you can; Metricool posts there too once connected.
-- **TikTok / Reels:** the pipeline does not produce video yet. Fan clips from the inbox are the way in.
+- **TikTok:** not connected. **Reels:** native clips can go to Instagram as Reels (`config/brand.yaml` → `video.instagram`),
+  kept off until the first one has been checked by hand. Station and creator video is never re-uploaded as a Reel.
 - **Website:** GitHub Pages site generated from the posts, after the socials are running.

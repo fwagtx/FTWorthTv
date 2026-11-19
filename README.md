@@ -245,6 +245,8 @@ sheets, list what to keep, then `python scripts/build_photo_library.py KEEP.txt 
   images first so they have a public URL on `raw.githubusercontent.com` (public repo).
 * **metricool** — schedules Facebook + Instagram (and more) in one call through Metricool's API, with
   `METRICOOL_AUTOPUBLISH=false` for one-tap approval from the Metricool app. No Meta developer app or Page token needed.
+  A clip (viewer submission, radar loop) is uploaded by `scripts/host_clips.sh` to a monthly GitHub release and posted as a
+  Facebook video; Instagram gets a Reel only for portrait clips with `video.instagram` on. If the video is refused, the card goes out.
 * **dryrun** — writes everything to `out/` and nothing leaves the machine. The GitHub workflow always runs phase 1 as a dry run and
   only then publishes (`ftworthtv publish latest`), so you can also insert a human review step between the two.
 
@@ -264,6 +266,20 @@ charcoal at 1080x1920, page name and handle on top, "Full story on our page" at 
 story overlays leave visible. The Metricool publisher schedules it two minutes after the feed post; `config/brand.yaml`
 → `stories` turns it off or changes the delay and networks.
 
+### Video
+
+Three paths, all cautious. **Shared:** new uploads on 21 public YouTube channels (the city, county, Trinity Metro, police,
+NWS Fort Worth, the Report, Visit Fort Worth, the stations, the pro teams) become Facebook posts carrying the YouTube link,
+which plays in the feed and credits the channel; nothing is downloaded or re-uploaded (`sources/youtube.py`). The gate: newer
+than 12 hours, no live streams / full games / meetings / filler, a station's video only when its own title names Fort Worth,
+a Tarrant-side city or the region, a team's video only for results, highlights, press conferences and moves; three a day, one
+a cycle. **Viewer clips:** rows a person marks consented and approved in a shared Google Sheet, clips in a public Drive folder
+(`sources/submissions.py`); posted once, natively, credited in the caption and the first comment, two a day. **Radar:** the
+public-domain NWS radar loop as an MP4 on severe alerts. Native clips are hosted on a GitHub release by `scripts/host_clips.sh`
+(the scheduler needs a public URL) and posted through Metricool as Facebook video, or as an Instagram Reel when
+`video.instagram` is on and the clip is portrait. Station and creator video is never copied: copyright, the platforms'
+terms and Facebook's Rights Manager all say the same thing, and a link share gives the channel the view.
+
 ### Before anything publishes
 
 `checks.py` runs twice. After the caption is written: every sentence, number and quotation must be found in the story's own
@@ -275,8 +291,10 @@ post as well, set `METRICOOL_AUTOPUBLISH=false` and approve them in the Metricoo
 
 ### Scheduling
 
-`.github/workflows/post.yml` runs every 2 hours (UTC), `sources-check.yml` tests every feed weekly, `tests.yml` runs the test
-suite and an offline preview on every push. Quiet hours (11 pm–6 am Central), the daily cap and spacing live in `brand.yaml`;
+`.github/workflows/watch.yml` is one long run that polls every seven minutes and starts its successor before it ends (GitHub's
+cron dropped most scheduled runs here; a half-hourly cron only restarts a broken chain). `post.yml` is the manual single
+cycle, with validation inputs (`only_kinds`, `submissions_csv`, `host_clips`, `now`), `render.yml` previews a run into a
+`renders/<n>` branch, `tests.yml` runs the test suite and an offline preview on every push. Quiet hours (11 pm–6 am Central), the daily cap and spacing live in `brand.yaml`;
 severe weather always posts. The run output (cards, captions, preview) is uploaded as a workflow artifact for 14 days and the
 dedupe memory `state/posted.json` is committed back by the bot.
 
@@ -306,12 +324,11 @@ writer. Metricool is optional (handy if you already have it); the Anthropic pay-
 
 ## Roadmap (not built yet)
 
-1. **Submissions inbox** → the missing "viral video" ingredient: Page DMs via the Messenger API (or an email/Google Form) → Claude
-   vision screens for safety → one-tap approve → auto-credit "📸 via @user". The posting half already exists.
-2. **Instagram Reels** (video) — photo cross-posting is built; Reels need the resumable video upload.
-3. **Weather Reels** — `weather_radar_video: true` already turns the NWS radar loop into an MP4; needs `publish_video` on the token.
-4. **Fort Worth open data** — weekly crime map / restaurant inspection cards from `data.fortworthtexas.gov`.
-5. **Engagement loop** — read insights, learn the best hours per category, auto-tune `brand.yaml`.
+1. **Submissions intake** — the sheet + folder path is built (a person marks consent and approval); reading Page DMs through
+   the Messenger API so clips land in the sheet by themselves is not.
+2. **Instagram Reels** — built behind `video.instagram`; turn it on after the first Facebook video post has been checked.
+3. **Fort Worth open data** — weekly crime map / restaurant inspection cards from `data.fortworthtexas.gov`.
+4. **Engagement loop** — read insights, learn the best hours per category, auto-tune `brand.yaml`.
 
 ## Repo layout
 

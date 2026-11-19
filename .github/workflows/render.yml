@@ -33,6 +33,12 @@ on:
       only_kinds:
         description: "comma list of source kinds to keep, e.g. wanted,arrest_log (blank = all)"
         default: ""
+      submissions_csv:
+        description: "viewer-video sheet CSV URL for this run (blank = config)"
+        default: ""
+      host_clips:
+        description: "1 = upload the run's clips to the media release and record their URLs (validation)"
+        default: ""
 
 permissions:
   contents: write
@@ -55,6 +61,9 @@ jobs:
       FTWTV_ENABLE_ARREST_LOG: ${{ inputs.arrest_log }}
       FTWTV_WANTED_MAX_PER_RUN: ${{ inputs.wanted_max }}
       FTWTV_NON_LOCAL_PER_RUN: ${{ inputs.non_local_per_run }}
+      FTWTV_SUBMISSIONS_CSV_URL: ${{ inputs.submissions_csv }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -74,6 +83,9 @@ jobs:
           KINDS_ARG=""
           if [ -n "${{ inputs.only_kinds }}" ]; then KINDS_ARG="--only-kinds ${{ inputs.only_kinds }}"; fi
           python -m ftworthtv -v run --stories "${{ inputs.stories }}" $SRC_ARG --dry-run --max "${{ inputs.max_posts }}" --since-hours "${{ inputs.since_hours }}" $NOW_ARG $KINDS_ARG
+      - name: Host the run's clips on the media release
+        if: inputs.host_clips == '1'
+        run: bash scripts/host_clips.sh "$(ls -d out/runs/* | tail -1)"
       - name: Push renders to a branch
         run: |
           RUN=$(ls -d out/runs/* | tail -1)

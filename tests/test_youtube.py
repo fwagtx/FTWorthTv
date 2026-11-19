@@ -55,6 +55,9 @@ def test_video_gate_is_cautious():
     assert not wanted_title(station, "Vehicle crashes into Dallas home overnight, injuring four.", g)     # Dallas alone is not our beat
     assert not wanted_title(station, "Dallas ISD to vote on closing 6 schools amid budget deficit", g)
     assert not wanted_title(station, "Cold Front Approaches Texas Ahead of Thanksgiving", g)              # nor Texas alone
+    assert not wanted_title(station, "Rude awakening: car crashes into South Dallas home overnight, injuring one | NBC DFW", g)   # the station tag is not a place
+    assert not wanted_title(station, "Family of the victim in a Denton home invasion speaks out after their grandpa was shot", g)
+    assert wanted_title(station, "DFW gas prices drop ahead of Thanksgiving travel | FOX 4", g)             # DFW in the title itself counts
     assert wanted_title(station, "Warming trend continues through weekend in North Texas", g)             # the region as a whole is
     assert wanted_title(station, "Arlington police release video from Cowboys game arrest", g)
     assert not wanted_title({"name": "City of Arlington"}, "Arlington Eats at Mariano's Hacienda", {"skip_in_title": ["eats at"]})

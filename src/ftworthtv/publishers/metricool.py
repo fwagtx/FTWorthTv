@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import logging
+from dataclasses import replace
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 import requests
 
@@ -89,6 +91,10 @@ class MetricoolPublisher(Publisher):
             if not resp.ok:
                 raise MetricoolError(f"HTTP {resp.status_code}: {str(payload)[:300]}")
         except (requests.RequestException, ValueError, MetricoolError) as exc:
+            if is_video and draft.image and Path(draft.image.path).exists():
+                log.warning("video post refused (%s); posting the card instead", exc)
+                fallback = replace(draft, mode="photo", video_path=None, video_url=None)
+                return self.publish(fallback)
             return PublishResult(ok=False, publisher=self.name, detail=str(exc))
         data = payload.get("data", payload) if isinstance(payload, dict) else {}
         post_id = str(data.get("id")) if isinstance(data, dict) and data.get("id") else None
