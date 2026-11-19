@@ -41,3 +41,12 @@ def test_pick_from_library(tmp_path: Path):
     # recently used is a preference, not a ban: the right subject wins over novelty
     assert pick(tmp_path, ["transit", "skyline"], used={"lib-a"}, recently_used=lambda i: i == "lib-b").id == "lib-b"
     assert pick(tmp_path, ["transit", "skyline"], used={"lib-a", "lib-b"}) is None
+
+
+def test_sports_story_about_a_school_wants_its_stadium():
+    from ftworthtv.images.library import topics_for
+    text = "No. 2 Utah (10-0) comes to Fort Worth on Saturday night and can clinch a spot in the Big 12 championship game with a win over TCU. The Horned Frogs need to win one of their last two games."
+    topics = topics_for(text, "sports", "local", title="Utah visits TCU, close to Big 12 title game")
+    assert topics[0] == "tcu-football" and "tcu" in topics
+    campus = topics_for("TCU opens a new nursing building on campus", "community", "local", title="TCU opens a new nursing building")
+    assert campus[0] == "tcu" and "tcu-football" not in campus

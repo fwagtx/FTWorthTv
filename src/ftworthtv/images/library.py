@@ -25,7 +25,9 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("american airlines center", "mavericks", "mavs"), "aac"),
     (("fc dallas", "toyota stadium"), "toyota-stadium"),
     (("texas motor speedway", "nascar", "indycar"), "texas-motor-speedway"),
-    (("tcu", "horned frogs", "amon g. carter", "amon carter stadium"), "tcu"),
+    (("horned frogs", "amon g. carter", "amon carter stadium", "tcu football", "sonny dykes", "tcu quarterback", "tcu vs", "vs. tcu",
+      "at tcu", "tcu game", "tcu wins", "tcu loses", "tcu beat", "frogs "), "tcu-football"),
+    (("tcu",), "tcu"),
     (("ut arlington", "uta ", "uta mavericks", "texas-arlington"), "uta"),
     (("nrg stadium", "houston texans", "texans "), "nrg-stadium"),
     (("daikin park", "minute maid", "astros"), "daikin-park"),
@@ -103,6 +105,8 @@ CATEGORY_DEFAULTS = {"traffic": ["highway"], "crime": ["police"], "politics": ["
 SCOPE_DEFAULTS = {"local": ["skyline", "downtown", "sundance-square", "skyline-night"], "dfw": ["dallas-skyline", "skyline"],
                   "texas": ["capitol", "skyline"], "national": ["skyline-night", "skyline"]}
 PROVIDER_FIRST = {"food", "events", "culture"}     # subjects the library cannot carry well; search engines go first
+# a sports story about a school wants its stadium or team, never a lecture hall: the sports variant of a campus topic goes first
+SPORTS_VARIANTS = {"tcu": "tcu-football", "uta": "uta-sports", "unt": "unt-football", "ut-austin": "ut-football", "smu": "smu-football"}
 
 _cache: dict[str, list[dict]] = {}
 
@@ -156,6 +160,11 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
     for t in CATEGORY_DEFAULTS.get(category, []) + SCOPE_DEFAULTS.get(scope, SCOPE_DEFAULTS["local"]):
         if t not in out and not (elsewhere and t in FORT_WORTH_ONLY):
             out.append(t)
+    if category == "sports":
+        for i, t in enumerate(list(out)):
+            variant = SPORTS_VARIANTS.get(t)
+            if variant and variant not in out:
+                out.insert(i, variant)
     return out
 
 

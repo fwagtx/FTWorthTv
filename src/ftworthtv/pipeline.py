@@ -140,7 +140,7 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             non_local_day_left -= 1
         if cat in caps and not story.is_urgent:
             used_today = state.posts_on_by_category(day, cat) + sum(1 for d in drafts if (d.copy.category or "other") == cat)
-            if used_today >= int(caps[cat]):
+            if used_today >= int(caps[cat]) and story.source_kind != "submission":   # viewer clips have their own cap
                 report.skipped.append((story, f"daily cap for {cat} reached"))
                 continue
         if not settings.offline and story.source_kind == "rss" and not story.official and len(story.summary or "") < 160:
