@@ -248,6 +248,15 @@ sheets, list what to keep, then `python scripts/build_photo_library.py KEEP.txt 
 * **dryrun** — writes everything to `out/` and nothing leaves the machine. The GitHub workflow always runs phase 1 as a dry run and
   only then publishes (`ftworthtv publish latest`), so you can also insert a human review step between the two.
 
+### Before anything publishes
+
+`checks.py` runs twice. After the caption is written: every sentence, number and quotation must be found in the story's own
+text (title, summary, article lead, the agency's fields); a Claude caption that fails is replaced by the template caption,
+which is composed from the source's sentences, and a story that still fails is skipped. Right before publishing: the source
+link must still answer (a pulled article is never promoted) and a wanted bulletin's agency page is read again, so a fugitive
+caught since the run began is never posted. Held posts appear in `report.json` with the reason. For a human tap on every
+post as well, set `METRICOOL_AUTOPUBLISH=false` and approve them in the Metricool app.
+
 ### Scheduling
 
 `.github/workflows/post.yml` runs every 2 hours (UTC), `sources-check.yml` tests every feed weekly, `tests.yml` runs the test

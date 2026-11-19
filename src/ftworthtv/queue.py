@@ -60,6 +60,13 @@ def publish_run(run_dir: Path, settings: Settings, publisher_name: str) -> list[
             continue
         if draft.scheduled_at and draft.scheduled_at < now:
             draft.scheduled_at = None  # the moment passed while we were committing images: post now
+        from .checks import preflight
+        problems = preflight(draft, network=publisher.name != "dryrun" and not settings.offline)
+        if problems:
+            result = PublishResult(ok=False, publisher=publisher.name, detail="held back: " + "; ".join(problems))
+            out.append((draft, result))
+            log.warning("HELD %s -> %s", draft.story.title[:60], result.detail)
+            continue
         result = publisher.publish(draft)
         if result.ok and publisher.name != "dryrun":
             state.record(draft, result, now, day)

@@ -132,6 +132,15 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if copy.skip:
             report.skipped.append((story, copy.skip_reason or "writer skipped"))
             continue
+        from .checks import caption_problems
+        problems = caption_problems(copy, story, writer=writer)
+        if problems and writer != "template":        # a Claude caption the source does not support: use the source's own sentences
+            log.warning("caption by %s failed the source check (%s); using the template writer", writer, problems[0])
+            copy, writer = write_copy(story, settings, now, force_template=True)
+            problems = [] if copy.skip else caption_problems(copy, story, writer=writer)
+        if problems:
+            report.skipped.append((story, "caption not supported by the source: " + problems[0]))
+            continue
         draft = PostDraft(story=story, copy=copy, writer=writer)
         n = len(drafts) + 1
         workdir = run_dir / f"{n:02d}-{slugify(story.title)}"

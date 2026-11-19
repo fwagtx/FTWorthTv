@@ -616,9 +616,9 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
                                    "headline": headline or smart_headline(story.title, 110)})
 
 
-def write_copy(story: Story, settings: Settings, now: datetime) -> tuple[PostCopy, str]:
+def write_copy(story: Story, settings: Settings, now: datetime, *, force_template: bool = False) -> tuple[PostCopy, str]:
     copy, writer = None, "template"
-    if settings.writer != "template":
+    if settings.writer != "template" and not force_template:
         copy = claude_code_copy(story, settings, now)
         writer = "claude-code"
         if copy is None:
