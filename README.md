@@ -220,10 +220,19 @@ hard rules (never invent facts, Dallas-style one or two sentences, no hashtags, 
 | Ticketmaster event | Event/artist image from the Discovery API, linked to tickets | API terms (promotional use) |
 | City of Fort Worth / FWPD release | Their photo (`image_policy: source_image`), credited | government release |
 | Traffic story with a matching camera | Live TxDOT snapshot | public |
-| Any other outlet story | Licensed photo matching the writer's `image_query`, outlet credited in the first comment, or a link post | Unsplash / Flickr CC / Pixabay / Openverse |
+| Any other outlet story | The **verified photo library** first (`assets/photos`, below); search engines only for food, concerts and culture, and never a photo labelled with another city; or a link post | Wikimedia Commons CC / Unsplash / Flickr CC / Pixabay / Openverse |
 
-Photographer credit is printed on the card and in the first comment. Recently used photos are remembered so the feed does not
-look repetitive. No AI-generated imagery is used anywhere.
+Photographer credit goes in the first comment (and on the card if `card.photo_credit_on_card` is on). Recently used photos are
+remembered so the feed does not look repetitive. No AI-generated imagery is used anywhere.
+
+**The photo library.** Search engines return "Texas" photos that locals recognise as Houston or Dallas in a second, so the
+pipeline keeps its own library of openly licensed photos that were looked at and filed by subject: skyline, downtown,
+Sundance Square, the courthouse, City Hall, Central Station, the Stockyards, TCU, the stadiums, the Capitol, the other
+Texas skylines, and generic beats (storm, ice, grocery, money, classroom ...). `images/library.py` maps a story to subjects
+(Trinity Metro → `transit`, a verdict → `courthouse`, a bill → `capitol`), then falls back to the category and the scope;
+a story set in another city never gets a Fort Worth landmark. Grow it with
+`.github/workflows/fetch-library.yml` (candidates from Commons by category, with licence and credit), look at the contact
+sheets, list what to keep, then `python scripts/build_photo_library.py KEEP.txt out/library/candidates.json`.
 
 ### Posting
 
