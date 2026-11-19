@@ -1,0 +1,50 @@
+{
+  "started": "2026-11-19T23:00:00+00:00",
+  "candidates": 7,
+  "posts": [
+    {
+      "title": "Fort Worth police set new policies for Flock cameras",
+      "source": "NBC 5 DFW",
+      "kind": "video",
+      "category": "crime",
+      "mode": "link",
+      "writer": "template",
+      "score": 0.4627,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-170000/01-fort-worth-police-set-new-policies-for-flock-cam",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": null,
+      "image": null
+    }
+  ],
+  "skipped_by_writer": [
+    {
+      "title": "Lost 'N Sound 2026",
+      "reason": "video share used (a few a day, one a run)"
+    },
+    {
+      "title": "Cold Front Arrives Late Saturday Night into Sunday | DFW Weather Update",
+      "reason": "video share used (a few a day, one a run)"
+    },
+    {
+      "title": "Tarrant area food bank hosts mega mobile market today",
+      "reason": "video share used (a few a day, one a run)"
+    },
+    {
+      "title": "Rude awakening: car crashes into South Dallas home overnight, injuring one | NBC DFW",
+      "reason": "video share used (a few a day, one a run)"
+    },
+    {
+      "title": "Warming trend continues through weekend in North Texas ahead of cold fronts",
+      "reason": "video share used (a few a day, one a run)"
+    },
+    {
+      "title": "Family of the victim in a Denton home invasion speaks out after their grandpa was shot",
+      "reason": "video share used (a few a day, one a run)"
+    }
+  ],
+  "dropped": [],
+  "notes": []
+}
