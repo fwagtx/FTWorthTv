@@ -130,6 +130,39 @@ def banner_caption() -> str:
     return svg(W, H, body, bg=d["paper"])
 
 
+DUSK = ROOT / "out" / "refs" / "Fort_Worth_Skyline_at_Sunset_jpg.jpg"
+
+
+def dusk_uri() -> str | None:
+    """The dusk skyline (David, CC BY 2.0): crop the band with the sky and the lit towers to the cover's aspect."""
+    if not DUSK.exists():
+        return None
+    with Image.open(DUSK) as im:
+        im = im.convert("RGB")
+        ch = int(im.width / (W / H))            # 1920 wide -> 730 tall
+        top = 60
+        im = im.crop((0, top, im.width, top + ch)).resize((W, H), Image.LANCZOS)
+        tmp = OUT / "_dusk.jpg"; im.save(tmp, quality=92)
+    data = base64.b64encode(tmp.read_bytes()).decode(); tmp.unlink()
+    return "data:image/jpeg;base64," + data
+
+
+def banner_dusk() -> str:
+    """Full-bleed dusk skyline, no overlay: the lockup and the promise line sit in the dark sky, credit bottom right."""
+    d = DIRECTIONS[KEY]
+    uri = dusk_uri()
+    body = f'<image href="{uri}" x="0" y="0" width="{W}" height="{H}" preserveAspectRatio="xMidYMid slice"/>' if uri else ""
+    # lockup in the clear sky top-left; the promise line and handle low over the dark tree line; credit bottom-right
+    b, lw, lh = lockup_body(KEY, d["paper"], d["accent"], d["ink"], mono_h=120)
+    s = min(1.0, 520 / lw)
+    x, y = SAFE_X0 + 24, 52
+    body += g(b, x, y, s)
+    body += text(x + 6, H - 86, "If it happened in Fort Worth, it's here.", 500, 40, d["paper"], 0.01, wdth=112)
+    body += text(x + 6, H - 40, f"{HANDLE}   ·   News · events · food · weather, every day", 500, 23, "#D5D8E0", 0.04, wdth=100)
+    body += text(SAFE_X1 - 10, H - 18, "Photo: David, CC BY 2.0", 500, 16, "#C9CCD6", 0.02, "end", wdth=100)
+    return svg(W, H, body, bg=d["ink"])
+
+
 def preview(names: list[str]) -> None:
     f = ImageFont.truetype("/usr/share/fonts/opentype/inter/Inter-Medium.otf", 22)
     rows = []
@@ -150,7 +183,7 @@ def preview(names: list[str]) -> None:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    files = {"cover-feed-1640x624": banner_feed(), "cover-caption-1640x624": banner_caption(),
+    files = {"cover-dusk-1640x624": banner_dusk(), "cover-feed-1640x624": banner_feed(), "cover-caption-1640x624": banner_caption(),
              "cover-photo-1640x624": banner_photo(), "cover-charcoal-1640x624": banner_type(True), "cover-light-1640x624": banner_type(False)}
     paths = []
     for n, s in files.items():
