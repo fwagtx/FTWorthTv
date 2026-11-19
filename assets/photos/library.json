@@ -12,18 +12,6 @@
   "height": 853
  },
  {
-  "id": "lib-american-airlines-center-interior-2026-jpg",
-  "file": "assets/photos/aac/american-airlines-center-interior-2026-jpg.jpg",
-  "topic": "aac",
-  "title": "File:American Airlines Center Interior 2026.jpg",
-  "credit": "Photo: BullDawg2021 via Wikimedia Commons (CC BY 4.0)",
-  "license": "wikimedia-cc",
-  "licence_name": "CC BY 4.0",
-  "source_url": "https://commons.wikimedia.org/wiki/File:American_Airlines_Center_Interior_2026.jpg",
-  "width": 1280,
-  "height": 960
- },
- {
   "id": "lib-american-airlines-center-west-entrance-jpg",
   "file": "assets/photos/aac/american-airlines-center-west-entrance-jpg.jpg",
   "topic": "aac",
@@ -1786,6 +1774,18 @@
   "source_url": "https://commons.wikimedia.org/wiki/File:The_launch_of_the_SpaceX_Starship_6_rocket_seen_from_the_space_station_(iss072e220043).jpg",
   "width": 1280,
   "height": 853
+ },
+ {
+  "id": "lib-american-airlines-center-interior-2026-jpg",
+  "file": "assets/photos/stars-ice/american-airlines-center-interior-2026-jpg.jpg",
+  "topic": "stars-ice",
+  "title": "File:American Airlines Center Interior 2026.jpg",
+  "credit": "Photo: BullDawg2021 via Wikimedia Commons (CC BY 4.0)",
+  "license": "wikimedia-cc",
+  "licence_name": "CC BY 4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:American_Airlines_Center_Interior_2026.jpg",
+  "width": 1280,
+  "height": 960
  },
  {
   "id": "lib-cowboy-fort-worth-stockyards-jpg",
