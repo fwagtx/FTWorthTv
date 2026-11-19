@@ -83,7 +83,7 @@ jobs:
           git config user.name "ftworthtv-bot"
           git config user.email "ftworthtv-bot@users.noreply.github.com"
           shopt -s nullglob
-          files=(out/runs/*/*/card.jpg)
+          files=(out/runs/*/*/post.jpg out/runs/*/*/card.jpg out/runs/*/*/photo.jpg out/runs/*/*/quote.jpg)
           [ ${#files[@]} -gt 0 ] && git add -f "${files[@]}"
           git diff --cached --quiet || (git commit -m "media: post images $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]" && git push)
 
