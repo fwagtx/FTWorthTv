@@ -23,12 +23,13 @@ Metricool connector instead (more of your Claude usage, no token).
 
 ## 2. What runs once that is in
 
-1. Every 30 minutes (`7,37 * * * *` UTC) the workflow pulls the feeds, police, city and NWS sources, ranks what is new,
+1. Every 10 minutes the workflow pulls the feeds, police, city and NWS sources, ranks what is new,
    writes the caption and the card, commits the image so Metricool can fetch it, then schedules the post for a few
    minutes later on Facebook + Instagram with the source, photo credit and the presumption-of-innocence line in the
    first comment.
-2. One post per run, two in the 7-11am and 4pm waves, up to 20 a day, quiet from 11pm to 6am Central. Severe weather
-   bypasses the quiet hours. Wanted bulletins are capped at one a day; the felony arrest log is off.
+2. One post per run, two in the 7-11am and 4pm waves, at least 25 minutes apart, up to 20 a day, quiet from 11pm to 6am
+   Central. Severe weather and breaking news bypass the spacing and the quiet hours, so they go out on the next run, which
+   is at most ten minutes away. Wanted bulletins are capped at one a day; the felony arrest log is off.
 3. Photos: the official photo when the source is a government release (police, city, NWS); otherwise the verified
    Fort Worth photo library (`assets/photos`, filed by subject: Central Station for transit, the courthouse for a
    verdict, City Hall for council, the Capitol for a Texas bill, the skyline otherwise); search engines only for food,
