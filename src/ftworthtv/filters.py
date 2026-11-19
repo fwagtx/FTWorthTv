@@ -39,6 +39,23 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
 }
 
 
+_STOP = {"the", "a", "an", "of", "in", "on", "at", "to", "for", "and", "or", "with", "after", "as", "by", "is", "are", "was", "be",
+         "from", "its", "it", "this", "that", "new", "fort", "worth", "texas", "tx", "says", "say", "said", "will", "over", "into", "up"}
+
+
+def title_key(title: str) -> frozenset[str]:
+    words = re.findall(r"[a-z0-9']+", (title or "").lower())
+    return frozenset(w for w in words if len(w) > 2 and w not in _STOP)
+
+
+def same_story(a: str, b: str, threshold: float = 0.6) -> bool:
+    """Two headlines about the same event (an outlet's and a station's) share most of their content words."""
+    ka, kb = title_key(a), title_key(b)
+    if len(ka) < 3 or len(kb) < 3:
+        return False
+    return len(ka & kb) / len(ka | kb) >= threshold
+
+
 def relevance_score(story: Story, keywords: list[str]) -> int:
     title = story.title.lower()
     summary = story.summary.lower()
@@ -112,9 +129,14 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
 
     kept: list[Story] = []
     dropped: list[tuple[Story, str]] = []
+    recent_titles = state.recent_titles(now, hours=72)
     for story in stories:
         if state.has(story.id):
             dropped.append((story, "already posted"))
+            continue
+        twin = next((t for t in recent_titles if same_story(story.title, t)), None)
+        if twin:
+            dropped.append((story, f"already posted from another outlet: {twin[:60]}"))
             continue
         if not is_fresh(story, now, max_age):
             dropped.append((story, f"older than {max_age:.0f}h"))

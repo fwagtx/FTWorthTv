@@ -57,6 +57,18 @@ class State:
         self.data.setdefault("flags", {})[name] = value
 
     @property
+    def recent_titles(self, now: datetime, hours: int = 72) -> list[str]:
+        """Titles posted in the last `hours`, so the same story from a second outlet is not posted twice."""
+        cutoff = now - timedelta(hours=hours)
+        out = []
+        for v in self.data.get("posted", {}).values():
+            try:
+                if datetime.fromisoformat(v["at"]) >= cutoff and v.get("title"):
+                    out.append(v["title"])
+            except (KeyError, ValueError):
+                continue
+        return out
+
     def total_posts(self) -> int:
         return int(self.data.get("total_posts", 0))
 

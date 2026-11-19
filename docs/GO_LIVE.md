@@ -28,7 +28,7 @@ workflow write captions through your Pro/Max subscription instead of a paid API 
 1. I run the workflow once with `FTWTV_PUBLISHER = dryrun` and send you the preview page of that run's posts.
 2. You flip the variable to `metricool`. With `METRICOOL_AUTOPUBLISH = false`, every post lands in Metricool for your approval;
    with `true`, it publishes itself.
-3. The schedule is **hourly** (`.github/workflows/post.yml`), up to 2 posts per run, 12 a day, quiet from 11pm to 6am Central.
+3. The schedule runs **every 30 minutes** (`.github/workflows/post.yml`), one post per run and two during the 7-11am and 4pm waves, 20 a day, quiet from 11pm to 6am Central.
    Severe weather bypasses the quiet hours. Wanted bulletins are capped at one a day; the felony arrest log is off.
 4. Every post: the two-paragraph summary caption, our card (FWD avatar, Fort Worth Daily, @fortworthdailytv, headline, photo),
    and a first comment with the source link, the photo credit and the presumption-of-innocence line where it applies.

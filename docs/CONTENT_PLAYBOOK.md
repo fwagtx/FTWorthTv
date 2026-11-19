@@ -63,7 +63,7 @@ template). The blue check is off until the page is verified (`card.verified_badg
 
 | Finding (from `study/dallas-texas-tv.json`, ingested by `scripts/ingest_reference_posts.py`) | What the pipeline now does |
 |---|---|
-| 20–24 posts a day, from about 5:45am to 10:30pm; busiest 7–11am with a second wave at 4pm | hourly runs, 2 per run and 3 during the 7–11am and 4pm hours, cap 20 a day, quiet 11pm–6am |
+| 20–24 posts a day, from about 5:45am to 10:30pm; busiest 7–11am with a second wave at 4pm | runs every 30 minutes, 1 per run and 2 during the 7–11am and 4pm hours, cap 20 a day, quiet 11pm–6am |
 | every one of the 120 posts is the same screenshot card: their logo, name and handle, a one-line headline, a photo | `card.style: tweet` for every post (unchanged) |
 | the caption never repeats the headline; 1–3 short paragraphs, median 257 characters, 90th percentile 397 | the writer's rules and examples (`config/caption_examples.json`, their 40 best captions) |
 | no hashtags, no emoji in captions, no "via" lines; sources credited inline ("according to ESPN") | `caption.emoji: false` strips any emoji; submission credits moved to the first comment |

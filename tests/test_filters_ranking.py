@@ -84,3 +84,18 @@ def test_obituaries_are_blocked_even_without_the_word():
     assert blocked(_story("Pamela Rose Hiles – June 29, 1932 – Nov. 8, 2026"), []) is not None
     assert blocked(_story("Eddie Ray Brewer - Dec. 8, 1952 - Nov. 14, 2026"), []) is not None
     assert blocked(_story("Fort Worth marks 150 years since 1876 railroad arrival, celebrates through 2026"), []) is None
+
+
+def test_same_story_from_two_outlets_is_posted_once(settings, now, tmp_path):
+    from ftworthtv.filters import same_story
+    from ftworthtv.models import Story
+    a = "Cowboys strip play-calling duties from defensive coordinator Christian Parker"
+    b = "Dallas Cowboys take play-calling away from defensive coordinator Christian Parker, sources say"
+    c = "Fort Worth Parade of Lights 2026: street closures, parking and more tips"
+    assert same_story(a, b) and not same_story(a, c)
+    state = State(tmp_path / "s.json")
+    state.data["posted"]["x1"] = {"at": now.isoformat(), "title": a, "url": "https://x/1"}
+    stories = [Story(id="y2", source="WFAA", source_kind="rss", title=b, summary="The Cowboys made the change Tuesday, the team confirmed in a statement.",
+                     url="https://x/2", published=now, always_relevant=True)]
+    kept, dropped = filter_stories(stories, settings, state, now)
+    assert not kept and "another outlet" in dropped[0][1]

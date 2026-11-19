@@ -107,6 +107,10 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             continue
         caps = (settings.brand.get("content_mix", {}) or {}).get("caps_per_day", {}) or {}
         cat = story.category or "other"
+        from .filters import same_story
+        if any(same_story(story.title, d.story.title) for d in drafts):
+            report.skipped.append((story, "same story as one already chosen this run"))
+            continue
         if story.extra.get("scope", "local") != "local" and not story.is_urgent:
             if non_local_left <= 0:
                 report.skipped.append((story, "DFW/Texas share for this run used"))
