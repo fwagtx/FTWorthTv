@@ -137,6 +137,17 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
     kept: list[Story] = []
     dropped: list[tuple[Story, str]] = []
     recent_titles = state.recent_titles(now, hours=72)
+    watchlist = [w.lower() for w in (rel.get("watchlist", []) or [])]
+    national_terms = [w.lower() for w in (rel.get("national_keywords", []) or [])]
+    min_outlets = int(rel.get("national_min_outlets", 2))
+    # how many national outlets carry each big-moment term right now: one outlet is a story, several is a moment
+    term_outlets: dict[str, set[str]] = {}
+    for s in stories:
+        if s.extra.get("national"):
+            t = s.title.lower()
+            for term in national_terms:
+                if term in t:
+                    term_outlets.setdefault(term, set()).add(s.source)
     for story in stories:
         if state.has(story.id):
             dropped.append((story, "already posted"))
@@ -166,6 +177,19 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 if tier_keys and relevance_score(story, tier_keys) >= 2:
                     tier = (name, mult)
                     break
+            if tier is None and story.extra.get("national"):
+                title = story.title.lower()
+                hit = next((w for w in watchlist if w in title), None)
+                if hit is None:
+                    hit = next((t for t in national_terms if t in title and len(term_outlets.get(t, ())) >= min_outlets), None)
+                if hit and infer_category(story) in ("crime", "traffic"):
+                    hit = None
+                if hit and any(hit in t.lower() for t in recent_titles):
+                    dropped.append((story, f"national moment already covered: {hit}"))
+                    continue
+                if hit:
+                    tier = ("national", 0.6)
+                    story.extra["national_term"] = hit
             if tier is None:
                 dropped.append((story, f"not local enough (relevance {story.relevance} < {min_rel})"))
                 continue

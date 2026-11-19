@@ -7,6 +7,56 @@
 #   source_image  the source's image may be used in our posts (government / public-domain / API terms allow it)
 
 rss:
+  # ---- national big moments: launches, finales, tours, jackpots, the things everyone is talking about (the Dallas page posts
+  # a couple a day). Kept only when a story hits the watchlist, or a big-moment term that several national outlets carry ----
+  - name: Variety
+    url: https://variety.com/feed/
+    weight: 0.5
+    image_policy: none
+    national: true
+    verify: true
+  - name: The Hollywood Reporter
+    url: https://www.hollywoodreporter.com/feed/
+    weight: 0.5
+    image_policy: none
+    national: true
+    verify: true
+  - name: Billboard
+    url: https://www.billboard.com/feed/
+    weight: 0.5
+    image_policy: none
+    national: true
+    verify: true
+  - name: IGN
+    url: https://feeds.feedburner.com/ign/all
+    weight: 0.5
+    image_policy: none
+    national: true
+    verify: true
+  - name: The Verge
+    url: https://www.theverge.com/rss/index.xml
+    weight: 0.5
+    image_policy: none
+    national: true
+    verify: true
+  - name: Deadline
+    url: https://deadline.com/feed/
+    weight: 0.5
+    image_policy: none
+    national: true
+    verify: true
+  - name: NPR News
+    url: https://feeds.npr.org/1001/rss.xml
+    weight: 0.5
+    image_policy: none
+    national: true
+    verify: true
+  - name: ESPN Top Headlines
+    url: https://www.espn.com/espn/rss/news
+    weight: 0.5
+    image_policy: none
+    national: true
+    verify: true
   - name: The Texas Tribune
     url: https://feeds.texastribune.org/feeds/main/
     weight: 0.8
@@ -367,4 +417,18 @@ relevance:
                    # the schools: UT system campuses, Texas A&M, Texas Tech, Baylor, SMU, UNT, Texas State, Houston (TCU and UTA are local)
                    "university of texas", "ut austin", "ut system", longhorns, "texas longhorns", "ut dallas", utsa, roadrunners, utep, "ut tyler", "ut permian",
                    "texas a&m", aggies, "texas tech", "red raiders", baylor, smu, mustangs, "north texas", "mean green", "texas state", "houston cougars", "big 12", "sec "]
+  # ---- the national beat (sources marked national: true) ----
+  # one hit on the watchlist is enough: these are the moments the whole country talks about
+  watchlist: ["gta vi", "gta 6", "grand theft auto vi", "grand theft auto 6", "super bowl", "world series", "nba finals", "stanley cup final",
+              "world cup final", "college football playoff", "the oscars", "oscar winners", "grammys", "grammy winners", "powerball jackpot",
+              "mega millions jackpot", "spotify wrapped", "thanksgiving day parade", "black friday", "cyber monday", "daylight saving",
+              "government shutdown", "new year's eve", "halftime show", "eras tour", "playstation 6", "switch 2", "iphone 18", "iphone 19"]
+  # a big-moment term counts only when at least `national_min_outlets` national outlets carry it in the same run
+  national_keywords: ["release date", "out now", "launches today", "launch day", "trailer", "box office", "record-breaking", "breaks record",
+                      "series finale", "season finale", "final season", "premiere date", "announces tour", "tour dates", "stadium tour",
+                      "dies at", "dead at", "has died", "halftime", "world cup", "olympics", "emmys", "golden globes", "jackpot", "netflix",
+                      "disney+", "hbo max", "marvel", "star wars", "avengers", "taylor swift", "beyonc", "bad bunny", "drake", "kendrick",
+                      "iphone", "playstation", "xbox", "nintendo", "elon musk", "spacex", "starship", "nasa", "eclipse", "meteor shower",
+                      "supermoon", "northern lights", "thanksgiving", "christmas", "new year", "recall", "outage", "hurricane"]
+  national_min_outlets: 2
   max_age_hours: 36

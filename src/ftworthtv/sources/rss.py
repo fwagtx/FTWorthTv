@@ -85,7 +85,7 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
             official=bool(cfg.get("official", False)),
             always_relevant=bool(cfg.get("always_relevant", False)),
             weight=float(cfg.get("weight", 1.0)),
-            extra={"feed_title": strip_html(parsed.feed.get("title", "")) if parsed.feed else ""},
+            extra={"feed_title": strip_html(parsed.feed.get("title", "")) if parsed.feed else "", "national": bool(cfg.get("national", False))},
         ))
     return stories
 

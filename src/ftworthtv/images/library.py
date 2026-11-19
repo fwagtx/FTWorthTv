@@ -73,6 +73,22 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("apartments", "apartment complex", "mixed-use", "development", "construction", "developer", "rezoning"), "apartments"),
     (("home prices", "housing", "homebuyers", "mortgage", "homeowners", "neighborhood"), "housing"),
     (("legislature", "lawmakers", "texas house", "texas senate", "governor", "abbott", "state rep", "state sen", "bill filed", "signed into law", "capitol", "attorney general", "paxton"), "capitol"),
+    # the national beat
+    (("gta vi", "gta 6", "grand theft auto", "playstation", "xbox", "nintendo", "switch 2", "video game", "rockstar games", "steam"), "gaming"),
+    (("powerball", "mega millions", "jackpot", "lottery"), "lottery"),
+    (("thanksgiving day parade", "macy's parade"), "parade"),
+    (("black friday", "cyber monday", "holiday shopping"), "shopping"),
+    (("thanksgiving",), "thanksgiving"),
+    (("christmas", "holiday lights"), "christmas"),
+    (("new year's eve", "fireworks", "fourth of july", "july 4"), "fireworks"),
+    (("iphone", "apple ", "samsung galaxy", "android"), "smartphone"),
+    (("super bowl", "nfl ", "halftime show"), "nfl"),
+    (("spacex", "starship", "nasa", "rocket launch", "astronaut"), "space"),
+    (("eclipse",), "eclipse"),
+    (("tour dates", "announces tour", "stadium tour", "eras tour", "concert", "grammys", "grammy", "halftime"), "concert"),
+    (("album", "single", "billboard", "spotify", "vinyl"), "music"),
+    (("box office", "trailer", "movie", "film ", "theaters", "in theaters", "oscars", "oscar"), "movies"),
+    (("netflix", "disney+", "hbo", "hulu", "paramount+", "prime video", "finale", "season premiere", "streaming", "series"), "streaming"),
     (("arlington",), "arlington"),
     (("san antonio",), "san-antonio-skyline"),
     (("houston",), "houston-skyline"),
@@ -84,7 +100,7 @@ CATEGORY_DEFAULTS = {"traffic": ["highway"], "crime": ["police"], "politics": ["
                      "business": ["downtown", "skyline"], "community": ["downtown", "sundance-square", "skyline"],
                      "breaking": ["skyline-night", "skyline"], "sports": ["skyline"], "other": ["skyline", "downtown"]}
 SCOPE_DEFAULTS = {"local": ["skyline", "downtown", "sundance-square", "skyline-night"], "dfw": ["dallas-skyline", "skyline"],
-                  "texas": ["capitol", "skyline"]}
+                  "texas": ["capitol", "skyline"], "national": ["skyline-night", "skyline"]}
 PROVIDER_FIRST = {"food", "events", "culture"}     # subjects the library cannot carry well; search engines go first
 
 _cache: dict[str, list[dict]] = {}

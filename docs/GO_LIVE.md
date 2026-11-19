@@ -60,6 +60,12 @@ Metricool connector instead (more of your Claude usage, no token).
   H-E-B, Buc-ee's, Whataburger, gas prices, outages, ERCOT (The Texas Tribune, KERA, Texas Monthly, KXAN, KVUE, KHOU, KENS 5).
   Widen or narrow it in `config/sources.yaml` → `relevance.dfw_keywords` / `texas_keywords` and
   `config/brand.yaml` → `content_mix.non_local_per_day`.
+- **National moments, like the Dallas page:** at most two a day from Variety, The Hollywood Reporter, Billboard, IGN, The Verge,
+  Deadline, NPR and ESPN's top headlines. A story gets in only two ways: it hits the watchlist (GTA VI, the Super Bowl, the World
+  Series, the Oscars, a Powerball jackpot, Spotify Wrapped, Black Friday, daylight saving ...) or it carries a big-moment term
+  (release date, box office, series finale, tour dates, dies at, Netflix, iPhone, SpaceX ...) that at least two of those outlets
+  are running at the same time. Crime and traffic from elsewhere never qualify, and a moment is posted once, not once per outlet.
+  Edit `config/sources.yaml` → `relevance.watchlist` / `national_keywords` and `config/brand.yaml` → `content_mix.national_per_day`.
 - **Submissions:** the first comment asks for videos and photos. Pick an inbox (Google Form or Page messages) and approved
   submissions go into the queue with the "(via IG/ user)" credit.
 

@@ -50,7 +50,10 @@ class State:
     def non_local_posts_on(self, day: str) -> int:
         """DFW-wide and Texas-wide posts made on `day` (the share of the feed that is not Fort Worth / Tarrant County)."""
         by_scope = self.data.get("daily_by_scope", {}).get(day, {})
-        return int(by_scope.get("dfw", 0)) + int(by_scope.get("texas", 0))
+        return int(by_scope.get("dfw", 0)) + int(by_scope.get("texas", 0)) + int(by_scope.get("national", 0))
+
+    def posts_on_scope(self, day: str, scope: str) -> int:
+        return int(self.data.get("daily_by_scope", {}).get(day, {}).get(scope, 0))
 
     def photo_recently_used(self, photo_id: str | None) -> bool:
         return bool(photo_id) and photo_id in self.data.get("used_photos", [])

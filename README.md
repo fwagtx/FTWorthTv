@@ -248,6 +248,15 @@ sheets, list what to keep, then `python scripts/build_photo_library.py KEEP.txt 
 * **dryrun** — writes everything to `out/` and nothing leaves the machine. The GitHub workflow always runs phase 1 as a dry run and
   only then publishes (`ftworthtv publish latest`), so you can also insert a human review step between the two.
 
+### The national beat
+
+Like the Dallas page, the feed carries a couple of national moments a day: a game launch, a finale, a tour announcement, a
+jackpot, the Super Bowl. Sources marked `national: true` in `config/sources.yaml` (Variety, The Hollywood Reporter, Billboard,
+IGN, The Verge, Deadline, NPR, ESPN) are read, and a story qualifies only by hitting `relevance.watchlist` (one hit is enough)
+or by carrying a `national_keywords` term that at least `national_min_outlets` of those outlets run at the same time. Crime and
+traffic from elsewhere never qualify; a moment is posted once; `content_mix.national_per_day` caps the share. The photo library
+has subjects for it (gaming, concerts, movies, streaming, lottery, holidays, launches).
+
 ### Before anything publishes
 
 `checks.py` runs twice. After the caption is written: every sentence, number and quotation must be found in the story's own

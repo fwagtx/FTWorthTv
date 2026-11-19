@@ -110,6 +110,8 @@ OUTPUT FIELDS
 page also covers every day: Texas teams (Cowboys, Rangers, Mavericks, Stars, Texans, Astros, Spurs, Longhorns, Aggies, Texas
 Tech, TCU, SMU), new Texas bills and the governor, H-E-B, Buc-ee's, Whataburger, gas prices, outages, statewide weather. Keep
 them, and write them for a Fort Worth reader (say what it means here when that is natural; never pretend it happened here).
+"national" stories are the few moments the whole country talks about (a game launch, a finale, a tour announcement, a jackpot,
+the Super Bowl): write them straight and short, with a Fort Worth angle only when the source gives one.
 
 WHAT THIS PAGE POSTS (copied from what the Dallas page does; keep this mix in mind when writing)
 - "right now" moments: wrecks and closures on I-35W/I-30/820, storms, lightning, snow, flooding, fights at games, concerts
@@ -141,7 +143,7 @@ def story_payload(story: Story, settings: Settings, now: datetime) -> dict:
         "url": story.url,
         "published_central": fmt_time(story.published, settings.tz) if story.published else None,
         "category_hint": story.category or story.category_hint,
-        "scope": story.extra.get("scope", "local"),       # local | dfw | texas
+        "scope": story.extra.get("scope", "local"),       # local | dfw | texas | national
         "now_central": now.astimezone(settings.tz).strftime("%A %Y-%m-%d %I:%M %p"),
     }
     extra = {k: v for k, v in story.extra.items() if k in ("severity", "event", "area", "ends", "instruction", "venue", "when",

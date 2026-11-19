@@ -24,6 +24,7 @@ content_mix:
   caps_per_day: {sports: 6, other: 3, weather: 3, politics: 3, business: 3, events: 3, crime: 2, culture: 2, traffic: 2, food: 2, community: 3, breaking: 4}
   non_local_per_run: 1         # DFW-wide or Texas-wide stories: at most one per run ...
   non_local_per_day: 8         # ... and eight a day: Texas teams, new Texas bills, H-E-B, gas prices, outages, like the Dallas page
+  national_per_day: 2          # of those, at most two national moments a day (a launch, a finale, a jackpot, a tour announcement)
   # see docs/CONTENT_PLAYBOOK.md for the Dallas page's pillars and how each one is sourced here
 culture_calendar:
   enabled: true           # config/culture.yaml: Stock Show, Juneteenth, State Fair, Halloween, Parade of Lights, heat/freeze memes...
