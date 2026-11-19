@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T04:09:35.349521+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/02-north-texas-election-leaves-city-council-in-lega/post.jpg",
+    "credit": "Photo: JoshBerglund19 (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/79877212@N00/348693151"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "North Texas election leaves city council in legal quagmire after recalled mayor",
+    "caption": "North Texas election leaves city council in legal quagmire after recalled mayor, city council members break quorum. Citizens of Fate have told WFAA they intend to sue to have a judge find a path forward as legal options are not clear after the broken quorum.",
+    "first_comment": "Source: WFAA https://www.wfaa.com/article/news/politics/north-texas-election-leaves-fate-city-council-in-legal-quagmire-after-recalled-mayor-city-council-members-break-quorum/287-ed57b4f5-2fda-4e8e-9a47-cc53e90ee48a\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "5dabac8adcd013f1",
+    "source": "WFAA",
+    "source_kind": "rss",
+    "title": "North Texas election leaves city council in legal quagmire after recalled mayor, city council members break quorum",
+    "summary": "Citizens of Fate have told WFAA they intend to sue to have a judge find a path forward as legal options are not clear after the broken quorum.",
+    "url": "https://www.wfaa.com/article/news/politics/north-texas-election-leaves-fate-city-council-in-legal-quagmire-after-recalled-mayor-city-council-members-break-quorum/287-ed57b4f5-2fda-4e8e-9a47-cc53e90ee48a",
+    "published": "2026-11-19T03:03:08+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/6450e319-9713-4f24-99b9-a7b9c12cdc81/20261116T121046/6450e319-9713-4f24-99b9-a7b9c12cdc81_750x422.jpg",
+    "image_credit": "Photo: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: local",
+      "scope": "dfw"
+    },
+    "category": "politics",
+    "relevance": 2,
+    "score": 0.9928
+  }
+}

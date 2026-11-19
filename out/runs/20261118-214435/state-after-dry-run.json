@@ -1,0 +1,189 @@
+{
+  "daily": {
+    "2026-11-18": 12
+  },
+  "daily_by_category": {
+    "2026-11-18": {
+      "business": 1,
+      "community": 1,
+      "crime": 1,
+      "culture": 2,
+      "food": 1,
+      "other": 2,
+      "politics": 1,
+      "sports": 1,
+      "traffic": 1,
+      "weather": 1
+    }
+  },
+  "daily_by_scope": {
+    "2026-11-18": {
+      "dfw": 2,
+      "local": 7,
+      "texas": 3
+    }
+  },
+  "flags": {},
+  "last_post_at": "2026-11-19T03:44:35.349521+00:00",
+  "posted": {
+    "0483ca217fa88587": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/03-wanted-joshua-rodriguez",
+      "publisher": "dryrun",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "2e8d6e753426167e": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/01-barnes-noble-returns-to-central-fort-worth-openi",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Barnes & Noble returns to central Fort Worth, opening in West 7th District",
+      "url": "https://fortworthreport.org/2026/11/18/barnes-noble-returns-to-central-fort-worth-opening-in-west-7th-district/"
+    },
+    "3b0f1374a667b201": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/09-we-re-already-running-out-snap-backlog-leaves-ce",
+      "publisher": "dryrun",
+      "source": "KVUE Austin",
+      "title": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
+      "url": "https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492"
+    },
+    "3e715bbd7bc32306": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "weather",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/06-sapd-could-soon-start-sharing-more-information-a",
+      "publisher": "dryrun",
+      "source": "KENS 5 San Antonio",
+      "title": "SAPD could soon start sharing more information about its cooperation, interactions with ICE in San Antonio",
+      "url": "https://www.kens5.com/article/news/local/law-enforcement/san-antonio-sapd-police-ice-cooperation-immigration-enforcement-texas-laws/273-62c3cb0e-5a84-49c7-8420-c7efed2faecd"
+    },
+    "41427ecf033fd177": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/05-ate-days-of-thanksgiving-love",
+      "publisher": "dryrun",
+      "source": "Fort Worth Weekly",
+      "title": "Ate Days of Thanksgiving Love",
+      "url": "https://www.fwweekly.com/2026/11/18/ate-days-of-thanksgiving-love/"
+    },
+    "5dabac8adcd013f1": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/02-north-texas-election-leaves-city-council-in-lega",
+      "publisher": "dryrun",
+      "source": "WFAA",
+      "title": "North Texas election leaves city council in legal quagmire after recalled mayor, city council members break quorum",
+      "url": "https://www.wfaa.com/article/news/politics/north-texas-election-leaves-fate-city-council-in-legal-quagmire-after-recalled-mayor-city-council-members-break-quorum/287-ed57b4f5-2fda-4e8e-9a47-cc53e90ee48a"
+    },
+    "979eb8c0e61a3f87": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/12-fort-worth-band-takes-on-taboo-subject-for-new-s",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth band takes on taboo subject for new single",
+      "url": "https://fortworthreport.org/2026/11/18/fort-worth-band-takes-on-taboo-subject-for-new-single/"
+    },
+    "af84dbf3642c405f": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/08-replay-ultimate-dallas-sports-show-streams-daily",
+      "publisher": "dryrun",
+      "source": "WFAA Sports",
+      "title": "REPLAY: 'Ultimate Dallas Sports Show' streams daily on WFAA+ and KFAA",
+      "url": "https://www.wfaa.com/article/sports/local-sports/ultimate-dallas-sports-show/udss-wfaa-ultimate-dallas-sports-show-watch/287-ad3b280e-0e3c-453f-a989-90b584f3768b"
+    },
+    "b7d958555f9a76c9": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/04-largest-enrollment-drop-in-texas-recorded-histor",
+      "publisher": "dryrun",
+      "source": "KXAN Austin",
+      "title": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
+      "url": "https://www.kxan.com/news/texas/declining-enrollment-texas/"
+    },
+    "bcd34c163cef11b3": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "food",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/07-snazzy-new-arlington-hotel-includes-restaurant-f",
+      "publisher": "dryrun",
+      "source": "CultureMap Fort Worth",
+      "title": "Snazzy new Arlington hotel includes restaurant from hot Dallas celeb chef",
+      "url": "https://fortworth.culturemap.com/news/travel/arlin-hotel-arlington-kent-rathbun/"
+    },
+    "be30deab42bde11a": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/10-tarrant-county-to-mark-25-years-of-celebrating-n",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "Tarrant County to mark 25 years of celebrating National Adoption Day",
+      "url": "https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/"
+    },
+    "f6005c351dbbb80d": {
+      "at": "2026-11-19T03:44:35.349521+00:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/11-this-will-affect-me-greatly-transit-users-questi",
+      "publisher": "dryrun",
+      "source": "Fort Worth Report",
+      "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
+      "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/"
+    }
+  },
+  "total_posts": 12,
+  "used_photos": [
+    "openverse-dc876e04-722d-4d55-a5d7-d13ded06520f",
+    "openverse-bbf39cca-7bc5-4c08-b727-068267cf2714",
+    "openverse-176bf003-f72d-4224-b0e3-1282cc99893a",
+    "openverse-10781556-b8ac-42d0-b965-2528cdea27d8",
+    "openverse-477ee5d1-d88c-4497-bde9-bf9265dd5188",
+    "openverse-9f8706ec-5d52-4f20-be15-5c55d47e3420",
+    "commons-15818629",
+    "openverse-29b03cb0-cbb9-44de-bf57-5d63a0f5832b",
+    "openverse-de38cb4c-5f5f-4f45-9656-f17b177b7e8a",
+    "openverse-cbabb62e-dc6b-47cc-a3dd-a266279d97f5",
+    "openverse-984119a7-7144-4b5f-b1dd-bd71dcb6d195"
+  ],
+  "version": 1
+}

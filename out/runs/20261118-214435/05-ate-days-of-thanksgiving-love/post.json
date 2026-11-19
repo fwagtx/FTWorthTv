@@ -1,0 +1,49 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-19T05:24:35.349521+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261118-214435/05-ate-days-of-thanksgiving-love/post.jpg",
+    "credit": "Photo: dionhinchcliffe (CC BY-SA 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/14966804@N03/3065148031"
+  },
+  "video": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Ate Days of Thanksgiving Love",
+    "caption": "Ate Days of Thanksgiving Love. The Culinary School of Fort Worth (6550 Camp Bowie Blvd, Ste 110, Fort Worth, 817-737-8427) is now utilizing students and alumni to create delicious dishes for families in need during Thanksgiving.",
+    "first_comment": "Source: Fort Worth Weekly https://www.fwweekly.com/2026/11/18/ate-days-of-thanksgiving-love/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Thanksgiving dinner table",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "41427ecf033fd177",
+    "source": "Fort Worth Weekly",
+    "source_kind": "rss",
+    "title": "Ate Days of Thanksgiving Love",
+    "summary": "The Culinary School of Fort Worth (6550 Camp Bowie Blvd, Ste 110, Fort Worth, 817-737-8427) is now utilizing students and alumni to create delicious dishes for families in need during Thanksgiving. In a growing partnership with Catering to Love, a North Texas community outreach group, they will be cooking up Thanksgiving side dishes as part […] The post Ate Days of Thanksgiving Love appeared first on Fort Worth Weekly .",
+    "url": "https://www.fwweekly.com/2026/11/18/ate-days-of-thanksgiving-love/",
+    "published": "2026-11-18T23:13:01+00:00",
+    "category_hint": "culture",
+    "image_url": "https://www.fwweekly.com/wp-content/uploads/2026/11/ADW_11-18_Turkey-Dinner.jpg",
+    "image_credit": "Photo: Fort Worth Weekly",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Fort Worth Weekly",
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.4668
+  }
+}
