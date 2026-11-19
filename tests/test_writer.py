@@ -29,7 +29,6 @@ def test_alert_template_mentions_end_time(settings, now, tmp_path):
     alert = next(s for s in kept if s.source_kind == "nws_alert")
     copy = template_copy(alert, settings, now)
     assert copy.caption.startswith("The National Weather Service has issued a Severe Thunderstorm Warning for Tarrant, TX until")
-    assert copy.caption.rstrip().endswith("🚨")
     settings.brand["caption"]["style"] = "detailed"
     copy = template_copy(alert, settings, now)
     assert copy.caption.startswith("⚠️ Severe Thunderstorm Warning")
@@ -69,7 +68,7 @@ def test_dallas_caption_shapes(settings, now, tmp_path):
     lines = dallas_caption(w, settings, now, "crime")
     assert lines[0].startswith("Fort Worth police are looking for Sample Person, wanted for aggravated robbery.")
     out = finalize(template_copy(t, settings, now), t, settings)
-    assert "Follow us" not in out.caption and out.hashtags == [] and out.caption.endswith("🚨")
+    assert "Follow us" not in out.caption and out.hashtags == [] and "🚨" not in out.caption   # no emoji, like the reference captions
 
 
 def test_submitted_clip_credit_matches_dallas_shape(settings, now):
