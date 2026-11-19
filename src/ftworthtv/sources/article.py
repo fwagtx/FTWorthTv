@@ -33,9 +33,16 @@ def parse_article(html: str, base_url: str) -> dict:
             meta.setdefault(key, attrs["content"])
     image = meta.get("og:image") or meta.get("twitter:image") or meta.get("twitter:image:src")
     body = html
-    m = re.search(r"<(article|main)[^>]*>(.*?)</\1>", html, re.I | re.S)
-    if m:
-        body = m.group(2)
+    # news pages carry several <article> blocks (teasers, "trending", the story itself): take the one that contains the
+    # page's own description, else the longest; never the first one found
+    blocks = [m.group(2) for m in re.finditer(r"<article[^>]*>(.*?)</article>", html, re.I | re.S)]
+    if not blocks:
+        m = re.search(r"<main[^>]*>(.*?)</main>", html, re.I | re.S)
+        blocks = [m.group(1)] if m else []
+    if blocks:
+        desc = strip_html(meta.get("og:description") or meta.get("description") or "")[:60].lower()
+        with_desc = [b for b in blocks if desc and desc in strip_html(b).lower()]
+        body = max(with_desc or blocks, key=lambda b: len(strip_html(b)))
     if not image:
         for src in _IMG_RE.findall(body):
             low = src.lower()
@@ -96,7 +103,31 @@ def enrich_summary(story: Story, min_len: int = 160) -> Story:
     except Exception as exc:
         log.info("article fetch failed for %s: %s", story.url, exc)
         return story
+    if not same_subject(story.title, info.get("title", ""), info.get("description", ""), info.get("summary", "")):
+        log.info("article text does not match the story (%s); keeping the feed summary", story.title[:50])
+        return story
     lead = " ".join(part for part in (info.get("description", ""), info.get("summary", "")) if part)
     if len(lead) > len(story.summary or ""):
         story.summary = truncate(lead, 900)
     return story
+
+
+_STOP = {"the", "a", "an", "of", "in", "on", "at", "to", "for", "and", "or", "with", "after", "as", "by", "is", "are", "was", "from",
+         "its", "it", "this", "that", "new", "says", "say", "said", "will", "over", "into", "up", "fort", "worth", "texas", "how", "why",
+         "what", "who", "when", "where", "about", "than", "more", "most", "their", "his", "her", "they", "our", "your", "has", "have"}
+
+
+def _words(text: str) -> set[str]:
+    return {w for w in re.findall(r"[a-z0-9][a-z0-9'-]{2,}", (text or "").lower()) if w not in _STOP}
+
+
+def same_subject(story_title: str, page_title: str, description: str, body: str) -> bool:
+    """Is the fetched page the story we were sent to? A news page can hand back a teaser for a different article."""
+    t = _words(story_title)
+    if not t:
+        return False
+    pt = _words(page_title)
+    if pt and len(t & pt) / max(1, min(len(t), len(pt))) >= 0.5:
+        return True
+    lead = _words(description) | _words(body[:600])
+    return len(t & lead) >= max(2, len(t) // 3)

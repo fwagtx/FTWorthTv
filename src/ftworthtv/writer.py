@@ -322,7 +322,10 @@ BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "rea
                "enjoy reading the news again", "welcome to the", "pick something out of this list", "this article", "photo by", "courtesy of",
                "biweekly", "weekly column", "in this week", "scroll down",
                "sponsored", "advertis", "click to", "watch the video", "see the full", "continue reading", "appeared first on",
-               "the post ", "related:", "more:", "also read")
+               "the post ", "related:", "more:", "also read", "photograph by", "photo by", "has more.", "has more on", "joins nbc",
+               "joins fox", "to break down", "is a senior writer", "is a staff writer", "is a reporter", "is a freelance", "contact him",
+               "contact her", "contributed to this report", "in the video", "player above", "video above", "watch above", "download the",
+               "our app", "tap here", "this story will be updated", "check back for updates")
 
 
 def _first_sentence(text: str, limit: int = 170) -> str:
@@ -356,19 +359,23 @@ def _split_sentences(text: str) -> list[str]:
     return out
 
 
+_DATELINE_RE = re.compile(r"^(?:[A-Z][A-Z .'’-]{2,40}, (?:Texas|TX|Okla\.|La\.|N\.M\.)|[A-Z][A-Z .'’-]{2,40}) ?[-–—] ")
+_CAPTION_RE = re.compile(r"\b(?:on )?(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}\.$")
+
+
 def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> list[str]:
     """Complete, boilerplate-free sentences from the lead of an article summary, in order (later paragraphs of a scraped
     page can belong to another item, so only the first `lead` characters are considered)."""
     out: list[str] = []
-    text = collapse_ws(text or "")
+    text = _DATELINE_RE.sub("", collapse_ws(text or ""))      # "ARLINGTON, Texas - " datelines are a wire habit, not a sentence
     if len(text) > lead:
         cut = text.rfind(". ", 0, lead)
         text = text[:cut + 1] if cut > 0 else text[:lead]
     for part in _split_sentences(text):
         if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")) or len(part.split()) < 6:
             continue
-        if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")):
-            continue
+        if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")) or _CAPTION_RE.search(part):
+            continue                                          # photo captions end with a date: "...at the Capitol, on November 16, 2026."
         if any(_similar(part, prev) for prev in out):     # og:description often repeats the first paragraph
             continue
         out.append(part)

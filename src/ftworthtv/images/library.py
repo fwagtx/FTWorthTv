@@ -17,8 +17,6 @@ log = logging.getLogger(__name__)
 
 # (phrases in the story text, library topic) - first match wins; specific places before generic beats
 TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
-    (("trinity metro", "texrail", "tex rail", "bus route", "bus rider", "transit", "central station", "microtransit"), "transit"),
-    (("tarrant county courthouse", "adoption day", "jury", "verdict", "sentenced", "guilty", "lawsuit", "indicted", "trial ", "district judge", "courtroom"), "courthouse"),
     (("dickies arena",), "dickies-arena"),
     (("will rogers", "stock show"), "will-rogers"),
     (("at&t stadium", "cowboys"), "att-stadium"),
@@ -38,6 +36,8 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("baylor", "mclane stadium"), "baylor"),
     (("smu", "mustangs", "southern methodist"), "smu"),
     (("north texas", "unt ", "mean green"), "unt"),
+    (("trinity metro", "texrail", "tex rail", "bus route", "bus rider", "transit", "central station", "microtransit"), "transit"),
+    (("tarrant county courthouse", "adoption day", "jury", "verdict", "sentenced", "guilty", "lawsuit", "indicted", "district judge", "courtroom", "courthouse"), "courthouse"),
     (("sundance square",), "sundance-square"),
     (("stockyards", "rodeo", "cattle drive"), "stockyards"),
     (("kimbell",), "kimbell"),
@@ -135,14 +135,20 @@ OTHER_CITIES = ("dallas", "houston", "austin", "san antonio", "arlington", "dent
                 "garland", "mckinney", "el paso", "lubbock", "waco", "galveston", "corpus christi", "college station", "amarillo")
 
 
-def topics_for(text: str, category: str, scope: str) -> list[str]:
+TITLE_ONLY = {"gaming", "lottery", "parade", "shopping", "thanksgiving", "christmas", "fireworks", "smartphone", "nfl", "space", "eclipse",
+              "concert", "music", "movies", "streaming"}   # a passing mention in the body must not turn a local story into a turkey photo
+
+
+def topics_for(text: str, category: str, scope: str, title: str | None = None) -> list[str]:
     """Ordered library topics worth trying for a story: specific subject first, then category and scope defaults.
     A story set in another city never gets a Fort Worth landmark (its own city's skyline, a generic subject, or nothing)."""
     low = " " + (text or "").lower() + " "
+    head = " " + (title if title is not None else text or "").lower() + " "
     elsewhere = "fort worth" not in low and "tarrant" not in low and any(c in low for c in OTHER_CITIES)
     out: list[str] = []
     for phrases, topic in TOPIC_RULES:
-        if any(p in low for p in phrases) and topic not in out and not (elsewhere and topic in FORT_WORTH_ONLY):
+        hay = head if topic in TITLE_ONLY else low
+        if any(p in hay for p in phrases) and topic not in out and not (elsewhere and topic in FORT_WORTH_ONLY):
             out.append(topic)
             if len(out) >= 2:
                 break

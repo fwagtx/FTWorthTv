@@ -42,6 +42,9 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
 }
 
 
+PLACE_WORDS = ("texas", "fort worth", "dallas", "arlington", "dfw", "north texas", "houston", "austin", "san antonio", "el paso", "lubbock",
+               "waco", "cowboys", "rangers", "mavericks", "mavs", "dallas stars", "spurs", "astros", "rockets", "texans", "longhorns", "aggies",
+               "tcu", "horned frogs", "smu", "baylor", "texas tech", "at&t stadium", "globe life", "ercot", "h-e-b", "buc-ee", "whataburger")
 STATEWIDE_WORDS = ("amber alert", "manhunt", "statewide", "across texas", "texas dps", "border patrol", "cartel", "human smuggling",
                    "ercot", "interstate 35 ", "i-35 ", "texas rangers investigat")
 
@@ -104,6 +107,12 @@ def _has_word(word: str, text: str) -> bool:
     return bool(pat.search(text))
 
 
+def _plain(title: str) -> str:
+    """Feeds use non-breaking spaces, curly quotes and emoji: match on plain text."""
+    t = unicodedata.normalize("NFKC", title or "").lower().replace("’", "'").replace("‘", "'")
+    return re.sub(r"\s+", " ", t)
+
+
 def infer_category(story: Story) -> str:
     text = story.text()
     title = story.title.lower()
@@ -143,10 +152,6 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
     national_terms = [w.lower() for w in (rel.get("national_keywords", []) or [])]
     min_outlets = int(rel.get("national_min_outlets", 2))
     # how many national outlets carry each big-moment term right now: one outlet is a story, several is a moment
-    def _plain(title: str) -> str:   # feeds use non-breaking spaces, curly quotes and emoji: match on plain text
-        t = unicodedata.normalize("NFKC", title or "").lower().replace("’", "'").replace("‘", "'")
-        return re.sub(r"\s+", " ", t)
-
     term_outlets: dict[str, set[str]] = {}
     for s in stories:
         if s.extra.get("national"):
@@ -178,8 +183,13 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             # the Dallas page is Dallas-first but posts DFW and Texas-wide stories every day (new Texas bills, H-E-B,
             # gas prices, outages). Keep those at a lower weight and a lower share; drop the rest.
             tier = None
+            # a national outlet is only "Texas news" when its headline names the place or the team, never on words
+            # like "lawmakers" or "governor" that any state's story carries
+            place_in_title = any(w in _plain(story.title) for w in PLACE_WORDS)
             for name, mult in (("dfw", 0.85), ("texas", 0.7)):
                 tier_keys = rel.get(f"{name}_keywords", []) or []
+                if story.extra.get("national") and not place_in_title:
+                    continue
                 if tier_keys and relevance_score(story, tier_keys) >= 2:
                     tier = (name, mult)
                     break

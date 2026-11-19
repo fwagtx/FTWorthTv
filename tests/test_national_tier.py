@@ -62,3 +62,38 @@ def test_urgency_is_for_local_breaking_news_only():
     assert mk("Developing: evacuations ordered near Benbrook").is_urgent
     assert not mk("GTA 6 shatters streaming records before it's even out", scope="national").is_urgent
     assert not mk("BREAKING: Celebrity couple splits", scope="national").is_urgent
+
+
+def test_national_outlet_needs_a_place_in_the_title(settings, now):
+    state = State(settings.state_path)
+    s = _s(9, "Deadline", "Senate And House Lawmakers Added As Cosponsors To New Federal Film Incentive Legislation", now=now)
+    s.summary = "Lawmakers in the Senate and House back the bill; the governor of Texas has not commented."
+    kept, dropped = filter_stories([s], settings, state, now)
+    assert not kept
+    t = _s(10, "Variety", "Taylor Swift adds Arlington stadium dates to the tour", now=now)
+    t.summary = "AT&T Stadium in Arlington, Texas, gets two more nights on the tour."
+    kept, dropped = filter_stories([t], settings, state, now)
+    assert kept and kept[0].extra["scope"] in ("local", "dfw")   # Arlington is home turf
+
+
+def test_article_enrichment_rejects_another_article():
+    from ftworthtv.sources.article import same_subject
+    assert not same_subject("Cooper Flagg scores 33 as Mavs keep Warriors winless", "Anthropic IPO raises record $81 billion",
+                            "The higher-than-anticipated pricing signals broad investor enthusiasm for AI stocks.", "Anthropic said the offering consists of 980 million shares.")
+    assert same_subject("Cooper Flagg scores 33 as Mavs keep Warriors winless", "Cooper Flagg scores 33 as Mavericks beat Warriors", "", "")
+    assert same_subject("Trinity Metro cuts On-Demand zones", "", "Trinity Metro's board approved cuts to the On-Demand microtransit zones Monday.", "")
+
+
+def test_photo_topic_from_body_mentions_is_title_only():
+    from ftworthtv.images.library import topics_for
+    text = "These are the 14 best things to do in Fort Worth this weekend. The weekend before Thanksgiving brings holiday events."
+    assert topics_for(text, "community", "local", title="These are the 14 best things to do in Fort Worth this weekend")[0] != "thanksgiving"
+    assert topics_for("Cooper Flagg scores 33 as Mavs keep Warriors winless. A lawsuit was mentioned somewhere.", "sports", "dfw",
+                      title="Cooper Flagg scores 33 as Mavs keep Warriors winless")[0] == "aac"
+
+
+def test_datelines_and_photo_captions_are_not_caption_sentences():
+    from ftworthtv.writer import _sentences
+    sents = _sentences("ARLINGTON, Texas - The Tarrant Area Food Bank is partnering with the Cotton Bowl to feed 5,000 families Thursday. "
+                       "Attorney General-elect Nathan Johnson at the Capitol, on November 16, 2026. FOX 4's Alex Boyer has more.")
+    assert sents == ["The Tarrant Area Food Bank is partnering with the Cotton Bowl to feed 5,000 families Thursday."]

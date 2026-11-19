@@ -176,7 +176,7 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         # food, concerts and culture go to the providers first because the library cannot carry those subjects.
         from .library import PROVIDER_FIRST, avoid_words_for, pick as pick_library, topics_for
         scope = str(story.extra.get("scope", "local"))
-        lib_topics = topics_for(story.text(), copy.category, scope)
+        lib_topics = topics_for(story.text(), copy.category, scope, title=story.title)
         avoid = avoid_words_for(story.text())
         library_first = copy.category not in PROVIDER_FIRST and story.source_kind not in ("event", "event_roundup")
 
