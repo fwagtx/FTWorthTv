@@ -50,3 +50,15 @@ def test_collect_dedupe_keeps_the_national_flag():
         elif s.extra.get("national") and not kept.extra.get("national"):
             kept.extra["national"] = True
     assert by_id["same"].extra.get("national") is True
+
+
+def test_urgency_is_for_local_breaking_news_only():
+    from ftworthtv.filters import infer_category
+    def mk(title, scope="local"):
+        s = Story(id="u", source="s", source_kind="rss", title=title, summary="", url="https://e.com", extra={"scope": scope})
+        s.category = infer_category(s)
+        return s
+    assert mk("BREAKING: Shooting at a Fort Worth gas station").is_urgent
+    assert mk("Developing: evacuations ordered near Benbrook").is_urgent
+    assert not mk("GTA 6 shatters streaming records before it's even out", scope="national").is_urgent
+    assert not mk("BREAKING: Celebrity couple splits", scope="national").is_urgent
