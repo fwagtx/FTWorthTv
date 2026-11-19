@@ -86,7 +86,8 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         per_run = max(per_run, int(posting.get("peak_max_posts_per_run", per_run)))
     k = max(0, min(per_run, cap_left))
     mix = settings.brand.get("content_mix", {}) or {}
-    non_local_left = int(mix.get("non_local_per_run", 1))
+    import os
+    non_local_left = int(os.environ.get("FTWTV_NON_LOCAL_PER_RUN") or mix.get("non_local_per_run", 1))
     non_local_day_left = int(mix.get("non_local_per_day", 8)) - state.non_local_posts_on(day)
     if quiet:
         report.notes.append(f"quiet hours ({local.strftime('%H:%M')} local): only severe weather posts")

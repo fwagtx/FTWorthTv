@@ -26,6 +26,10 @@ on:
       wanted_max:
         description: "max WANTED posts in this run"
         default: "1"
+      non_local_per_run:
+        description: "DFW/Texas stories allowed in this run (blank = config)"
+        required: false
+        default: ""
       only_kinds:
         description: "comma list of source kinds to keep, e.g. wanted,arrest_log (blank = all)"
         default: ""
@@ -50,6 +54,7 @@ jobs:
       NWS_USER_AGENT: ${{ secrets.NWS_USER_AGENT || 'FTWorthTv/0.1 (github actions render)' }}
       FTWTV_ENABLE_ARREST_LOG: ${{ inputs.arrest_log }}
       FTWTV_WANTED_MAX_PER_RUN: ${{ inputs.wanted_max }}
+      FTWTV_NON_LOCAL_PER_RUN: ${{ inputs.non_local_per_run }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

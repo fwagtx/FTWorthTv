@@ -13,7 +13,10 @@ CATEGORY_BOOST = {
 KIND_BOOST = {"nws_alert": 2.0, "nws_forecast": 1.3, "event_roundup": 1.25, "event": 0.95, "rss": 1.0, "wanted": 0.9, "arrest_log": 0.9, "culture": 1.45, "reddit": 0.7}
 # one-liner news the Dallas page loves: rankings, openings, "coming to", consumer alerts
 BUZZ_WORDS = ("ranked", "named", "best", "worst", "top 10", "opening", "opens", "coming to", "closing", "closes", "free", "outage",
-              "recall", "first look", "new", "record", "biggest", "largest", "only in", "viral", "last night", "tonight", "this weekend")
+              "recall", "first look", "new", "record", "biggest", "largest", "only in", "viral", "last night", "tonight", "this weekend",
+              # sports: results and moves, not previews and filler
+              "beat", "beats", "wins", "win", "loses", "loss", "upset", "fired", "hired", "trade", "traded", "signs", "signed", "injur",
+              "suspended", "playoff", "bowl", "championship", "no. 1", "ranked no", "commit", "transfer", "heisman", "draft")
 HALF_LIFE_HOURS = 6.0      # a story loses half its pull every six hours: the feed favours what just happened
 
 

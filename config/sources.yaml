@@ -73,6 +73,11 @@ rss:
     weight: 0.7
     image_policy: none
     verify: true
+  - name: ESPN College Basketball
+    url: https://www.espn.com/espn/rss/ncb/news
+    weight: 0.6
+    image_policy: none
+    verify: true
   - name: Texas Rangers (MLB.com)
     url: https://www.mlb.com/rangers/feeds/news/rss.xml
     weight: 0.8
@@ -259,6 +264,10 @@ relevance:
     - tarrant
     - tcu
     - horned frogs
+    - "ut arlington"
+    - "uta mavericks"
+    - "texas wesleyan"
+    - "texas christian"
     - stockyards
     - sundance square
     - dickies arena
@@ -324,6 +333,18 @@ relevance:
     - execution
     - trump
     - white house
+    # feed filler that is never worth a post
+    - trivia
+    - puzzle
+    - quiz
+    - crossword
+    - horoscope
+    - mailbag
+    - podcast
+    - sponsored content
+    - live blog
+    - "photos:"
+    - "gallery:"
   # the study showed "New Texas bill filed would..." posts are the reference page's best performers: state and local
   # politics stay in (cap 3/day); national partisan fights are kept out by the blocklist above
   exclude_categories: []
@@ -335,6 +356,9 @@ relevance:
   # statewide: teams, the capitol, the brands and places every Texan follows (two keyword hits keep a story at a lower weight)
   texas_keywords: [texas, texans, austin, houston, "san antonio", "el paso", lubbock, waco, galveston, "corpus christi", "college station",
                    "texas bill", "bill filed", lawmakers, legislature, governor, "lt. gov", abbott, "texas senate", "texas house", "state rep", "state sen",
-                   "h-e-b", "buc-ee", whataburger, "texas lottery", ercot, "texas dps", "texas a&m", aggies, longhorns, "texas tech", "red raiders", baylor, "houston cougars", "ut austin",
-                   astros, rockets, spurs, "houston texans", "c.j. stroud", "state fair", sxsw, spacex, starbase, tesla]
+                   "h-e-b", "buc-ee", whataburger, "texas lottery", ercot, "texas dps", "state fair", sxsw, spacex, starbase, tesla,
+                   astros, rockets, spurs, "houston texans", "c.j. stroud",
+                   # the schools: UT system campuses, Texas A&M, Texas Tech, Baylor, SMU, UNT, Texas State, Houston (TCU and UTA are local)
+                   "university of texas", "ut austin", "ut system", longhorns, "texas longhorns", "ut dallas", utsa, roadrunners, utep, "ut tyler", "ut permian",
+                   "texas a&m", aggies, "texas tech", "red raiders", baylor, smu, mustangs, "north texas", "mean green", "texas state", "houston cougars", "big 12", "sec "]
   max_age_hours: 36

@@ -42,9 +42,12 @@ workflow write captions through your Pro/Max subscription instead of a paid API 
 - **Events:** Ticketmaster for Dickies Arena, Billy Bob's, Texas Live and the Stockyards; the culture calendar
   (Stock Show, Juneteenth, Parade of Lights, Main Street Arts Festival, heat and freeze days).
 - **Crime:** official wanted bulletins (FWPD, Arlington PD, DPS), never scraped jail records.
-- **Texas and beyond, like the Dallas page:** up to eight posts a day from outside Tarrant County. Teams: Cowboys, Rangers,
-  Mavericks, Stars, FC Dallas, Wings, SMU, TCU, Texans, Astros, Rockets, Spurs, Longhorns, Aggies, Texas Tech, Baylor (ESPN
-  league feeds, WFAA Sports, the Rangers' and Astros' own feeds). Statewide news: new Texas bills and the governor, H-E-B,
+- **Texas and beyond, like the Dallas page:** up to eight posts a day from outside Tarrant County. Pro teams: Cowboys, Rangers,
+  Mavericks, Stars, FC Dallas, Wings, Texans, Astros, Rockets, Spurs. Colleges: TCU and UT Arlington (local), the UT system
+  (Austin, Dallas, UTSA, UTEP), Texas A&M, Texas Tech, Baylor, SMU, UNT, Texas State, Houston (ESPN league and college feeds,
+  WFAA Sports, the Rangers' and Astros' own feeds). Worth-posting gate for all of it: two matching keywords, fresher than
+  30 hours, not a trivia / podcast / gallery filler item, results and moves ranked above previews, one per story across
+  outlets, and the daily share of eight. Statewide news: new Texas bills and the governor, H-E-B,
   Buc-ee's, Whataburger, gas prices, outages, ERCOT (The Texas Tribune, KERA, Texas Monthly, KXAN, KVUE, KHOU, KENS 5).
   A story from that beat needs two matching keywords, is weighted a little below local news, and is written for a Fort Worth
   reader. Widen or narrow it in `config/sources.yaml` → `relevance.dfw_keywords` / `texas_keywords` and
