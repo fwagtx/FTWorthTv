@@ -1128,6 +1128,30 @@
   "height": 960
  },
  {
+  "id": "lib-fossil-ridge-high-school-main-png",
+  "file": "assets/photos/keller-isd/fossil-ridge-high-school-main-png.jpg",
+  "topic": "keller-isd",
+  "title": "File:Fossil Ridge High School Main.png",
+  "credit": "Photo: Smarty9108 via Wikimedia Commons (CC BY-SA 4.0)",
+  "license": "wikimedia-cc",
+  "licence_name": "CC BY-SA 4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Fossil_Ridge_High_School_Main.png",
+  "width": 1280,
+  "height": 666
+ },
+ {
+  "id": "lib-keller-high-school-front-2024-jpg",
+  "file": "assets/photos/keller-isd/keller-high-school-front-2024-jpg.jpg",
+  "topic": "keller-isd",
+  "title": "File:Keller High School front 2024.jpg",
+  "credit": "Photo: Ogiwarahoshi via Wikimedia Commons (CC BY 4.0)",
+  "license": "wikimedia-cc",
+  "licence_name": "CC BY 4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Keller_High_School_front_2024.jpg",
+  "width": 1170,
+  "height": 876
+ },
+ {
   "id": "lib-fort-worth-cultural-district-june-2016-12-kimbell-art-museum",
   "file": "assets/photos/kimbell/fort-worth-cultural-district-june-2016-12-kimbell-art-museum.jpg",
   "topic": "kimbell",
@@ -2000,6 +2024,54 @@
   "license": "wikimedia-cc",
   "licence_name": "CC BY-SA 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Texas_Christian_University_June_2017_06_(Starpoint_School-KinderFrogs_School).jpg",
+  "width": 1280,
+  "height": 853
+ },
+ {
+  "id": "lib-amon-g-carter-stadium-2017-jpg",
+  "file": "assets/photos/tcu-football/amon-g-carter-stadium-2017-jpg.jpg",
+  "topic": "tcu-football",
+  "title": "File:Amon G. Carter Stadium, 2017.jpg",
+  "credit": "Photo: Cubfan1109 via Wikimedia Commons (CC BY-SA 4.0)",
+  "license": "wikimedia-cc",
+  "licence_name": "CC BY-SA 4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Amon_G._Carter_Stadium,_2017.jpg",
+  "width": 1280,
+  "height": 440
+ },
+ {
+  "id": "lib-texas-christian-university-june-2017-85-amon-g-carter-stadiu",
+  "file": "assets/photos/tcu-football/texas-christian-university-june-2017-85-amon-g-carter-stadiu.jpg",
+  "topic": "tcu-football",
+  "title": "File:Texas Christian University June 2017 85 (Amon G. Carter Stadium).jpg",
+  "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+  "license": "wikimedia-cc",
+  "licence_name": "CC BY-SA 4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Texas_Christian_University_June_2017_85_(Amon_G._Carter_Stadium).jpg",
+  "width": 1280,
+  "height": 853
+ },
+ {
+  "id": "lib-texas-christian-university-june-2017-87-amon-g-carter-stadiu",
+  "file": "assets/photos/tcu-football/texas-christian-university-june-2017-87-amon-g-carter-stadiu.jpg",
+  "topic": "tcu-football",
+  "title": "File:Texas Christian University June 2017 87 (Amon G. Carter Stadium).jpg",
+  "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+  "license": "wikimedia-cc",
+  "licence_name": "CC BY-SA 4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Texas_Christian_University_June_2017_87_(Amon_G._Carter_Stadium).jpg",
+  "width": 1280,
+  "height": 853
+ },
+ {
+  "id": "lib-texas-christian-university-june-2017-89-amon-g-carter-stadiu",
+  "file": "assets/photos/tcu-football/texas-christian-university-june-2017-89-amon-g-carter-stadiu.jpg",
+  "topic": "tcu-football",
+  "title": "File:Texas Christian University June 2017 89 (Amon G. Carter Stadium).jpg",
+  "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+  "license": "wikimedia-cc",
+  "licence_name": "CC BY-SA 4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Texas_Christian_University_June_2017_89_(Amon_G._Carter_Stadium).jpg",
   "width": 1280,
   "height": 853
  },

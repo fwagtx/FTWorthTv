@@ -41,6 +41,8 @@ TOPICS: dict[str, tuple[list[str], list[str]]] = {
     "northwest-isd": (["Northwest Independent School District"], ["Byron Nelson High School Trophy Club", "Northwest High School Justin Texas", "V. R. Eaton High School Haslet", "Northwest ISD"]),
     "keller-isd": (["Keller Independent School District"], ["Keller High School Texas", "Keller ISD"]),
     "fwisd": (["Fort Worth Independent School District"], ["Paschal High School Fort Worth", "Arlington Heights High School Fort Worth", "Fort Worth ISD school"]),
+    "school-bus": (["School buses in Texas"], ["yellow school bus Texas", "school bus Texas"]),
+    "classroom": (["Classrooms in Texas", "Empty classrooms"], ["empty classroom desks", "school hallway lockers"]),
     "uta": (["University of Texas at Arlington"], ["University of Texas at Arlington campus"]),
     "dickies-arena": (["Dickies Arena"], ["Dickies Arena Fort Worth"]),
     "will-rogers": (["Will Rogers Memorial Center"], ["Will Rogers Memorial Center Fort Worth"]),
