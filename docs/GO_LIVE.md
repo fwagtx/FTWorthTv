@@ -37,15 +37,18 @@ Metricool connector instead (more of your Claude usage, no token).
    Fort Worth photo library (`assets/photos`, filed by subject: Central Station for transit, the courthouse for a
    verdict, City Hall for council, the Capitol for a Texas bill, the skyline otherwise); search engines only for food,
    concerts and culture, and never a photo labelled with another city.
-4. **Before anything publishes, two checks run.** After the caption is written, every sentence, number and quotation in it
+4. **Every post also goes out as a Story** on Facebook and Instagram two minutes after the feed post: the same card on the
+   brand's charcoal, 1080x1920, with the page name on top and "Full story on our page" at the bottom (`config/brand.yaml`
+   → `stories`).
+5. **Before anything publishes, two checks run.** After the caption is written, every sentence, number and quotation in it
    must be found in the source's own text (title, summary, article lead, the agency's fields); a Claude caption that fails
    is replaced by the template caption, which is built from the source's sentences, and a story that still fails is skipped.
    Right before publishing, the source link must still answer (a pulled article is never promoted) and a wanted bulletin's
    agency page is read again, so a fugitive caught since the run began is never posted. Held posts are listed in the run
    report with the reason.
-5. If you also want a human tap on every post, set the variable `METRICOOL_AUTOPUBLISH` = `false`: each post then lands in
+6. If you also want a human tap on every post, set the variable `METRICOOL_AUTOPUBLISH` = `false`: each post then lands in
    the Metricool mobile app for approval instead of publishing itself.
-6. After the first week, send the Page insights export (reach per post) and the mix gets tuned to what the audience answered.
+7. After the first week, send the Page insights export (reach per post) and the mix gets tuned to what the audience answered.
 
 ## 3. What is covered ("everything Fort Worth and beyond")
 

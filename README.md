@@ -257,6 +257,13 @@ or by carrying a `national_keywords` term that at least `national_min_outlets` o
 traffic from elsewhere never qualify; a moment is posted once; `content_mix.national_per_day` caps the share. The photo library
 has subjects for it (gaming, concerts, movies, streaming, lottery, holidays, launches).
 
+### Stories
+
+Every post also goes out as a Story on Facebook and Instagram (`images/card.py: render_story`): the card on the brand's
+charcoal at 1080x1920, page name and handle on top, "Full story on our page" at the bottom, everything inside the band the
+story overlays leave visible. The Metricool publisher schedules it two minutes after the feed post; `config/brand.yaml`
+→ `stories` turns it off or changes the delay and networks.
+
 ### Before anything publishes
 
 `checks.py` runs twice. After the caption is written: every sentence, number and quotation must be found in the story's own
