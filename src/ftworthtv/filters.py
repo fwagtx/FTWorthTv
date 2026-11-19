@@ -48,12 +48,14 @@ def title_key(title: str) -> frozenset[str]:
     return frozenset(w for w in words if len(w) > 2 and w not in _STOP)
 
 
-def same_story(a: str, b: str, threshold: float = 0.6) -> bool:
-    """Two headlines about the same event (an outlet's and a station's) share most of their content words."""
+def same_story(a: str, b: str, threshold: float = 0.7) -> bool:
+    """Two headlines about the same event (an outlet's and a station's): the shorter one's content words are mostly
+    contained in the other's, and at least four of them match."""
     ka, kb = title_key(a), title_key(b)
     if len(ka) < 3 or len(kb) < 3:
         return False
-    return len(ka & kb) / len(ka | kb) >= threshold
+    shared = len(ka & kb)
+    return shared >= 4 and shared / min(len(ka), len(kb)) >= threshold
 
 
 def relevance_score(story: Story, keywords: list[str]) -> int:
