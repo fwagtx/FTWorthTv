@@ -174,7 +174,7 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if term:
             dropped.append((story, f"blocklist: {term}"))
             continue
-        if story.source_kind == "rss" and not story.official and len(story.title.split()) < 4:
+        if story.source_kind in ("rss", "video") and not story.official and len(story.title.split()) < 4:
             dropped.append((story, "title too short to be a story"))         # "Notes and News", column stubs
             continue
         story.relevance = relevance_score(story, keywords)

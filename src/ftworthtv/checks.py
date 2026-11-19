@@ -72,7 +72,7 @@ def source_text(story: Story) -> str:
 TEMPLATE_PHRASES = ("crime stoppers", "submit a tip", "you stay anonymous", "tickets in the comments", "stay safe out there",
                     "national weather service", "good morning, fort worth", "this weekend in fort worth", "dm us", "follow ",
                     "share this post", "presumed innocent", "charges are accusations", "we'll share updates")
-STRUCTURED_KINDS = ("nws_alert", "nws_forecast", "event", "event_roundup", "wanted", "arrest_log", "culture")
+STRUCTURED_KINDS = ("nws_alert", "nws_forecast", "event", "event_roundup", "wanted", "arrest_log", "culture", "video")
 _TIME_RE = re.compile(r"\b\d{1,2}:\d{2}\b")
 
 

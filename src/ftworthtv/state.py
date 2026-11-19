@@ -55,6 +55,9 @@ class State:
     def posts_on_scope(self, day: str, scope: str) -> int:
         return int(self.data.get("daily_by_scope", {}).get(day, {}).get(scope, 0))
 
+    def posts_on_kind(self, day: str, kind: str) -> int:
+        return int(self.data.get("daily_by_kind", {}).get(day, {}).get(kind, 0))
+
     def photo_recently_used(self, photo_id: str | None) -> bool:
         return bool(photo_id) and photo_id in self.data.get("used_photos", [])
 
@@ -103,6 +106,8 @@ class State:
         scope = story.extra.get("scope", "local")
         by_scope = self.data.setdefault("daily_by_scope", {}).setdefault(day, {})
         by_scope[scope] = int(by_scope.get(scope, 0)) + 1
+        by_kind = self.data.setdefault("daily_by_kind", {}).setdefault(day, {})
+        by_kind[story.source_kind] = int(by_kind.get(story.source_kind, 0)) + 1
         self.data["total_posts"] = self.total_posts + 1
         if draft.image and draft.image.photo_id:
             used = self.data.setdefault("used_photos", [])

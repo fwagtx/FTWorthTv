@@ -405,6 +405,14 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
     kind = story.source_kind
     x = story.extra
     city = settings.brand.get("city", "Fort Worth")
+    if kind == "video":                      # a YouTube link post: WATCH line, the channel's own first sentence, the credit
+        channel = x.get("channel") or story.source
+        lead = _first_sentence(story.summary or "", 200)
+        parts = [f"WATCH: {truncate(story.title, 140, '')}"]
+        if lead and not _similar(story.title, lead):
+            parts.append(lead)
+        parts.append(f"Video: {channel} on YouTube")
+        return parts
     if kind == "nws_alert":
         ends = x.get("ends")
         until = f" until {fmt_time(dtparse.isoparse(ends), settings.tz)}" if ends else ""
@@ -555,6 +563,12 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         headline = truncate(re.sub(r"[^\w\s,.'&:/()-]", "", story.title).strip(), 110, "") or truncate(story.extra.get("name") or story.title, 110, "")
         first_comment = (f"More: {story.url}\n" if story.url else "") + "{photo_credit}\nDM us your videos & photos 📲"
         image_query = story.extra.get("image_query", image_query)
+    elif kind == "video":
+        channel = story.extra.get("channel") or story.source
+        lead = _first_sentence(story.summary or "", 200)
+        lines = [f"WATCH: {truncate(story.title, 140, '')}"] + ([lead] if lead and not _similar(story.title, lead) else []) + [f"Video: {channel} on YouTube"]
+        headline = truncate(story.title, 110, "")
+        first_comment = f"Source: {channel} on YouTube {story.url}"
     elif kind == "reddit":
         lines = ["Trending on r/FortWorth 👀", truncate(story.title, 140), f"📍 {location}", cta]
     else:

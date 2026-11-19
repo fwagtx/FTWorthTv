@@ -305,6 +305,31 @@ traffic_cameras:
 
 # Relevance: a story needs to hit at least `min_relevance` points (title hit = 2 points, summary hit = 1 point)
 # unless it comes from an `always_relevant` source.
+# ---- video from public YouTube channels: new uploads become Facebook posts with the YouTube link (Facebook renders the
+# channel's video, playable and credited). Nothing is downloaded. Stations are kept only when the Fort Worth / tier
+# keywords match; the city, the county, transit and the teams are always relevant. A few a day, one per run. ----
+youtube:
+  enabled: true
+  max_per_day: 4
+  channels:
+    - {name: City of Fort Worth, id: UCG4ZjL-JpSqwPoxd5yNpMGA, handle: "@CityofFortWorth", always_relevant: true, official: true, category_hint: community, weight: 0.9}
+    - {name: Tarrant County, id: UCreZ2-bXXetuRiKZAtXcNNA, handle: "@TarrantCountyTX", always_relevant: true, official: true, category_hint: community, weight: 0.7}
+    - {name: Trinity Metro, id: UCbUjcgrml5wrPOIbb3Qrk9g, handle: "@TrinityMetro", always_relevant: true, official: true, category_hint: traffic, weight: 0.7}
+    - {name: Fort Worth Report, id: UC_z8Swm72u9POgOAIgDbxlQ, handle: "@FortWorthReport", always_relevant: true, weight: 0.8}
+    - {name: Visit Fort Worth, id: UCm6_cFu69mIx6uCELacF46w, handle: "@VisitFortWorth", always_relevant: true, category_hint: culture, weight: 0.7}
+    - {name: Fort Worth Stockyards, id: UCgGCKJlw-IpdCfrCFCYN_xA, handle: "@FortWorthStockyards", always_relevant: true, category_hint: culture, weight: 0.7}
+    - {name: Fort Worth Zoo, id: UCohjiWxWtanVun6wpEirPCA, handle: "@FortWorthZoo", always_relevant: true, category_hint: culture, weight: 0.7}
+    - {name: TxDOT, id: UC0qQbqlsy_oGNuEKoz5NpXA, handle: "@TxDOT", official: true, category_hint: traffic, weight: 0.6}
+    - {name: FOX 4 Dallas-Fort Worth, id: UCruQg25yVBppUWjza8AlyZA, handle: "@fox4news", weight: 0.7}
+    - {name: NBC 5 DFW, id: UC_0RDXvWZPaveq0fcYZhE6A, handle: "@NBCDFW", weight: 0.7}
+    - {name: CBS Texas, id: UCxMXl9L79X1Mq_4iwCOyPFg, handle: "@CBSTexas", weight: 0.7}
+    - {name: KERA, id: UCv0Dp-9rgfAyhadJ-haPzeQ, handle: "@KERA", weight: 0.6}
+    - {name: Dallas Cowboys, id: UCC0BPKJxAyxjQoRTYbpW0FQ, handle: "@DallasCowboys", category_hint: sports, weight: 0.7}
+    - {name: Texas Rangers, id: UCZjXWMvOrhc91chSDPDUspA, handle: "@Rangers", category_hint: sports, weight: 0.7}
+    - {name: Dallas Mavericks, id: UCwMUtT-zjoJOrtNmSWoMo0w, handle: "@dallasmavs", category_hint: sports, weight: 0.6}
+    - {name: Dallas Stars, id: UCxfgTxo6HUmnZkxHWFV5T-A, handle: "@DallasStars", category_hint: sports, weight: 0.6}
+    - {name: FC Dallas, id: UCE2JDtOSy6R-9dwkGIWgyEA, handle: "@FCDallas", category_hint: sports, weight: 0.5}
+
 relevance:
   min_relevance: 2
   keywords:

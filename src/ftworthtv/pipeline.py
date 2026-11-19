@@ -90,6 +90,7 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
     non_local_left = int(os.environ.get("FTWTV_NON_LOCAL_PER_RUN") or mix.get("non_local_per_run", 1))
     non_local_day_left = int(mix.get("non_local_per_day", 8)) - state.non_local_posts_on(day)
     national_day_left = int(mix.get("national_per_day", 2)) - state.posts_on_scope(day, "national")
+    videos_day_left = int((settings.sources.get("youtube", {}) or {}).get("max_per_day", 4)) - state.posts_on_kind(day, "video")
     if quiet:
         report.notes.append(f"quiet hours ({local.strftime('%H:%M')} local): only severe weather posts")
     if not gap_ok:
@@ -115,6 +116,11 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if any(same_story(story.title, d.story.title) for d in drafts):
             report.skipped.append((story, "same story as one already chosen this run"))
             continue
+        if story.source_kind == "video":
+            if videos_day_left <= 0 or any(d.story.source_kind == "video" for d in drafts):
+                report.skipped.append((story, "video share used (a few a day, one a run)"))
+                continue
+            videos_day_left -= 1
         if story.extra.get("scope", "local") != "local" and not story.is_urgent:
             if non_local_left <= 0 or non_local_day_left <= 0:
                 report.skipped.append((story, "DFW/Texas share used (per run or per day)"))
@@ -154,8 +160,8 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if story.extra.get("facebook_post_url"):   # submissions / sources that give us a public post: share it as a nested post
             draft.mode, draft.link = "share", story.extra["facebook_post_url"]
             workdir.mkdir(parents=True, exist_ok=True)
-        elif story.source_kind == "reddit" or (story.source_kind == "rss" and story.image_policy == "none" and link_mode):
-            draft.mode, draft.link = "link", story.url
+        elif story.source_kind in ("reddit", "video") or (story.source_kind == "rss" and story.image_policy == "none" and link_mode):
+            draft.mode, draft.link = "link", story.url     # a YouTube link: Facebook renders the channel's video, playable, credited
             workdir.mkdir(parents=True, exist_ok=True)
         else:
             draft.mode = "photo"
