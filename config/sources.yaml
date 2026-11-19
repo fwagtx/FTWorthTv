@@ -315,6 +315,10 @@ youtube:
     - {name: City of Fort Worth, id: UCG4ZjL-JpSqwPoxd5yNpMGA, handle: "@CityofFortWorth", always_relevant: true, official: true, category_hint: community, weight: 0.9}
     - {name: Tarrant County, id: UCreZ2-bXXetuRiKZAtXcNNA, handle: "@TarrantCountyTX", always_relevant: true, official: true, category_hint: community, weight: 0.7}
     - {name: Trinity Metro, id: UCbUjcgrml5wrPOIbb3Qrk9g, handle: "@TrinityMetro", always_relevant: true, official: true, category_hint: traffic, weight: 0.7}
+    - {name: Fort Worth Police Department, id: UCD4rnpj4vDYztZPF88wQtWg, handle: "@FortWorthPolice", always_relevant: true, official: true, category_hint: crime, weight: 0.9}
+    - {name: City of Arlington, id: UCmEJ9qX33iCpEKauFojkybg, handle: "@CityofArlington", always_relevant: true, official: true, category_hint: community, weight: 0.7}
+    - {name: NWS Fort Worth, id: UCEqOhGYgzatpUprOGz7CRZg, handle: "@NWSFortWorth", always_relevant: true, official: true, category_hint: weather, weight: 0.8}
+    - {name: WFAA, id: UCBu0KdNokE4MqdkacvH37_A, handle: "@WFAA8", weight: 0.7}
     - {name: Fort Worth Report, id: UC_z8Swm72u9POgOAIgDbxlQ, handle: "@FortWorthReport", always_relevant: true, weight: 0.8}
     - {name: Visit Fort Worth, id: UCm6_cFu69mIx6uCELacF46w, handle: "@VisitFortWorth", always_relevant: true, category_hint: culture, weight: 0.7}
     - {name: Fort Worth Stockyards, id: UCgGCKJlw-IpdCfrCFCYN_xA, handle: "@FortWorthStockyards", always_relevant: true, category_hint: culture, weight: 0.7}
