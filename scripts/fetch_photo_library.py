@@ -95,7 +95,8 @@ TOPICS: dict[str, tuple[list[str], list[str]]] = {
     "housing": ([], ["suburban houses Texas"]),
     "jail": (["Tarrant County Jail"], ["jail cell bars"]),
     # the national "big moments" beat: launches, finales, tours, holidays, jackpots
-    "gaming": (["PlayStation 5", "Xbox Series X", "Video game controllers", "DualSense"], ["video game controller", "gaming console"]),
+    "gaming": (["Gamepads", "DualSense", "DualShock 4", "Xbox Wireless Controller", "Nintendo Switch Pro Controller", "PlayStation 5 consoles",
+                "Xbox Series X and Series S"], ["gamepad controller hands", "DualSense controller", "Xbox controller"]),
     "concert": (["Concert audiences", "Concert crowds"], ["concert crowd stage lights"]),
     "movies": (["Movie theaters in Texas", "Cinema auditoriums"], ["movie theater auditorium seats"]),
     "streaming": (["Television remote controls"], ["television remote couch"]),
