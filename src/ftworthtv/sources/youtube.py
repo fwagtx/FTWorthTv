@@ -30,14 +30,35 @@ NS = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/sche
 SKIP_TITLE = ("live stream", "livestream", "#live", "live:", "watch live", "full game", "full episode", "full show")
 
 
-def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
+PLACE_WORDS = ("fort worth", "tarrant", "arlington", "ft. worth", "ft worth", "tcu", "keller", "southlake", "mansfield", "grand prairie",
+               "burleson", "haslet", "north richland hills", "hurst", "euless", "bedford", "grapevine", "weatherford", "benbrook",
+               "white settlement", "saginaw", "crowley", "azle", "dfw", "north texas", "dallas", "texas")
+
+
+def wanted_title(cfg: dict, title: str, global_cfg: dict | None = None) -> bool:
+    """The per-channel caution: a station's video must name the place in its own title; a team's video must be a result,
+    highlights or a move; hours-long recordings and filler never qualify."""
+    low = title.lower()
+    skip = list((global_cfg or {}).get("skip_in_title", []) or []) + list(cfg.get("skip_in_title", []) or [])
+    if any(s in low for s in SKIP_TITLE) or any(str(s).lower() in low for s in skip):
+        return False
+    if cfg.get("title_must_name_place") and not any(p in low for p in PLACE_WORDS):
+        return False
+    need = cfg.get("require_any_in_title")
+    if need and not any(str(w).lower() in low for w in need):
+        return False
+    return True
+
+
+def parse_feed(cfg: dict, content: bytes | str, now: datetime, global_cfg: dict | None = None) -> list[Story]:
     root = ET.fromstring(content)
     name = cfg["name"]
+    max_age = float((global_cfg or {}).get("max_age_hours", 12))
     stories: list[Story] = []
     for entry in root.findall("a:entry", NS):
         vid = (entry.findtext("yt:videoId", default="", namespaces=NS) or "").strip()
         title = collapse_ws(entry.findtext("a:title", default="", namespaces=NS) or "")
-        if not vid or not title or any(s in title.lower() for s in SKIP_TITLE):
+        if not vid or not title or not wanted_title(cfg, title, global_cfg):
             continue
         group = entry.find("media:group", NS)
         desc = collapse_ws(group.findtext("media:description", default="", namespaces=NS) or "") if group is not None else ""
@@ -56,6 +77,8 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
                 published = dtparse.isoparse(raw)
             except ValueError:
                 published = None
+        if published is None or (now - published).total_seconds() > max_age * 3600:
+            continue                                   # undated or older than the window: not today's video
         stories.append(Story(
             id=stable_id("youtube", vid),
             source=name,
@@ -87,7 +110,7 @@ def fetch(settings: Settings, now: datetime) -> list[Story]:
             continue
         try:
             resp = http.get(FEED.format(id=ch["id"]), headers={"Accept": "application/atom+xml, application/xml;q=0.9, */*;q=0.8"})
-            found = parse_feed(ch, resp.content, now)
+            found = parse_feed(ch, resp.content, now, cfg)
             log.info("youtube %-28s %3d videos", ch["name"], len(found))
             stories.extend(found)
         except Exception as exc:

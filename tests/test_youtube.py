@@ -42,3 +42,22 @@ def test_video_caption_and_link_mode(settings, now):
     assert copy.caption.startswith("WATCH: Fort Worth City Council approves 2027 budget")
     assert "Video: City of Fort Worth on YouTube" in copy.caption
     assert "youtube.com/watch?v=abc123XYZ00" in copy.first_comment
+
+
+def test_video_gate_is_cautious():
+    from ftworthtv.sources.youtube import wanted_title
+    g = {"skip_in_title": ["meeting", "podcast"]}
+    assert wanted_title({"name": "City of Fort Worth"}, "Fort Worth opens new fire station on the west side", g)
+    assert not wanted_title({"name": "City of Fort Worth"}, "City Council meeting - November 18, 2026", g)
+    station = {"name": "FOX 4", "title_must_name_place": True}
+    assert wanted_title(station, "Fort Worth police investigate overnight shooting", g)
+    assert not wanted_title(station, "Heavy rain floods streets in Houston suburbs", g)
+    team = {"name": "Dallas Cowboys", "require_any_in_title": ["highlights", "recap", "wins", "press conference"]}
+    assert wanted_title(team, "Cowboys vs. 49ers highlights | Week 11", g)
+    assert not wanted_title(team, "Mic'd up: a day with the rookies", g)
+    assert not wanted_title(team, "Cheerleaders behind the scenes", g)
+
+
+def test_old_videos_are_not_news():
+    now = datetime(2026, 11, 20, 14, 0, tzinfo=timezone.utc)      # a day later
+    assert parse_feed({"name": "City of Fort Worth", "always_relevant": True}, ATOM, now, {"max_age_hours": 12}) == []

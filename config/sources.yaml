@@ -310,7 +310,13 @@ traffic_cameras:
 # keywords match; the city, the county, transit and the teams are always relevant. A few a day, one per run. ----
 youtube:
   enabled: true
-  max_per_day: 4
+  max_per_day: 3
+  max_age_hours: 12              # a video is news the day it is posted, not the day after
+  # title_must_name_place: a station's video gets in only when its own title names Fort Worth / Tarrant / Arlington (or the tiers' places)
+  # require_any_in_title: a team's video gets in only when it is a result, a highlight package or a move, never hype or "mic'd up"
+  # skip_in_title: hours-long recordings and filler
+  skip_in_title: ["meeting", "work session", "session", "agenda", "hearing", "forum", "town hall", "podcast", "trivia", "mic'd", "mic’d",
+                  "cheerleader", "giveaway", "sponsored", "ad:", "promo", "teaser", "ask the", "behind the scenes", "vlog", "weekly recap"]
   channels:
     - {name: City of Fort Worth, id: UCG4ZjL-JpSqwPoxd5yNpMGA, handle: "@CityofFortWorth", always_relevant: true, official: true, category_hint: community, weight: 0.9}
     - {name: Tarrant County, id: UCreZ2-bXXetuRiKZAtXcNNA, handle: "@TarrantCountyTX", always_relevant: true, official: true, category_hint: community, weight: 0.7}
@@ -318,21 +324,21 @@ youtube:
     - {name: Fort Worth Police Department, id: UCD4rnpj4vDYztZPF88wQtWg, handle: "@FortWorthPolice", always_relevant: true, official: true, category_hint: crime, weight: 0.9}
     - {name: City of Arlington, id: UCmEJ9qX33iCpEKauFojkybg, handle: "@CityofArlington", always_relevant: true, official: true, category_hint: community, weight: 0.7}
     - {name: NWS Fort Worth, id: UCEqOhGYgzatpUprOGz7CRZg, handle: "@NWSFortWorth", always_relevant: true, official: true, category_hint: weather, weight: 0.8}
-    - {name: WFAA, id: UCBu0KdNokE4MqdkacvH37_A, handle: "@WFAA8", weight: 0.7}
+    - {name: WFAA, title_must_name_place: true, id: UCBu0KdNokE4MqdkacvH37_A, handle: "@WFAA8", weight: 0.7}
     - {name: Fort Worth Report, id: UC_z8Swm72u9POgOAIgDbxlQ, handle: "@FortWorthReport", always_relevant: true, weight: 0.8}
-    - {name: Visit Fort Worth, id: UCm6_cFu69mIx6uCELacF46w, handle: "@VisitFortWorth", always_relevant: true, category_hint: culture, weight: 0.7}
+    - {name: Visit Fort Worth, id: UCm6_cFu69mIx6uCELacF46w, handle: "@VisitFortWorth", always_relevant: true, category_hint: culture, weight: 0.5}
     - {name: Fort Worth Stockyards, id: UCgGCKJlw-IpdCfrCFCYN_xA, handle: "@FortWorthStockyards", always_relevant: true, category_hint: culture, weight: 0.7}
     - {name: Fort Worth Zoo, id: UCohjiWxWtanVun6wpEirPCA, handle: "@FortWorthZoo", always_relevant: true, category_hint: culture, weight: 0.7}
     - {name: TxDOT, id: UC0qQbqlsy_oGNuEKoz5NpXA, handle: "@TxDOT", official: true, category_hint: traffic, weight: 0.6}
-    - {name: FOX 4 Dallas-Fort Worth, id: UCruQg25yVBppUWjza8AlyZA, handle: "@fox4news", weight: 0.7}
-    - {name: NBC 5 DFW, id: UC_0RDXvWZPaveq0fcYZhE6A, handle: "@NBCDFW", weight: 0.7}
-    - {name: CBS Texas, id: UCxMXl9L79X1Mq_4iwCOyPFg, handle: "@CBSTexas", weight: 0.7}
-    - {name: KERA, id: UCv0Dp-9rgfAyhadJ-haPzeQ, handle: "@KERA", weight: 0.6}
-    - {name: Dallas Cowboys, id: UCC0BPKJxAyxjQoRTYbpW0FQ, handle: "@DallasCowboys", category_hint: sports, weight: 0.7}
-    - {name: Texas Rangers, id: UCZjXWMvOrhc91chSDPDUspA, handle: "@Rangers", category_hint: sports, weight: 0.7}
-    - {name: Dallas Mavericks, id: UCwMUtT-zjoJOrtNmSWoMo0w, handle: "@dallasmavs", category_hint: sports, weight: 0.6}
-    - {name: Dallas Stars, id: UCxfgTxo6HUmnZkxHWFV5T-A, handle: "@DallasStars", category_hint: sports, weight: 0.6}
-    - {name: FC Dallas, id: UCE2JDtOSy6R-9dwkGIWgyEA, handle: "@FCDallas", category_hint: sports, weight: 0.5}
+    - {name: FOX 4 Dallas-Fort Worth, title_must_name_place: true, id: UCruQg25yVBppUWjza8AlyZA, handle: "@fox4news", weight: 0.7}
+    - {name: NBC 5 DFW, title_must_name_place: true, id: UC_0RDXvWZPaveq0fcYZhE6A, handle: "@NBCDFW", weight: 0.7}
+    - {name: CBS Texas, title_must_name_place: true, id: UCxMXl9L79X1Mq_4iwCOyPFg, handle: "@CBSTexas", weight: 0.7}
+    - {name: KERA, title_must_name_place: true, id: UCv0Dp-9rgfAyhadJ-haPzeQ, handle: "@KERA", weight: 0.6}
+    - {name: Dallas Cowboys, require_any_in_title: [highlights, recap, "final", "wins", "win ", "beat", "defeat", "press conference", "postgame", "introduc", "signs", "trade", "injury", "walk-off", "overtime", "game-winn"], id: UCC0BPKJxAyxjQoRTYbpW0FQ, handle: "@DallasCowboys", category_hint: sports, weight: 0.7}
+    - {name: Texas Rangers, require_any_in_title: [highlights, recap, "final", "wins", "win ", "beat", "defeat", "press conference", "postgame", "introduc", "signs", "trade", "injury", "walk-off", "overtime", "game-winn"], id: UCZjXWMvOrhc91chSDPDUspA, handle: "@Rangers", category_hint: sports, weight: 0.7}
+    - {name: Dallas Mavericks, require_any_in_title: [highlights, recap, "final", "wins", "win ", "beat", "defeat", "press conference", "postgame", "introduc", "signs", "trade", "injury", "walk-off", "overtime", "game-winn"], id: UCwMUtT-zjoJOrtNmSWoMo0w, handle: "@dallasmavs", category_hint: sports, weight: 0.6}
+    - {name: Dallas Stars, require_any_in_title: [highlights, recap, "final", "wins", "win ", "beat", "defeat", "press conference", "postgame", "introduc", "signs", "trade", "injury", "walk-off", "overtime", "game-winn"], id: UCxfgTxo6HUmnZkxHWFV5T-A, handle: "@DallasStars", category_hint: sports, weight: 0.6}
+    - {name: FC Dallas, require_any_in_title: [highlights, recap, "final", "wins", "win ", "beat", "defeat", "press conference", "postgame", "introduc", "signs", "trade", "injury", "walk-off", "overtime", "game-winn"], id: UCE2JDtOSy6R-9dwkGIWgyEA, handle: "@FCDallas", category_hint: sports, weight: 0.5}
 
 relevance:
   min_relevance: 2
