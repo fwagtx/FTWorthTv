@@ -80,6 +80,7 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("home prices", "housing", "homebuyers", "mortgage", "homeowners", "neighborhood"), "housing"),
     (("legislature", "lawmakers", "texas house", "texas senate", "governor", "abbott", "state rep", "state sen", "bill filed", "signed into law", "capitol", "attorney general", "paxton"), "capitol"),
     # the national beat
+    (("ipo", "initial public offering", "nasdaq", "nyse", "wall street", "stock market", "dow jones", "s&p 500", "shares soar", "shares fall", "market cap"), "stock-market"),
     (("gta vi", "gta 6", "grand theft auto", "playstation", "xbox", "nintendo", "switch 2", "video game", "rockstar games", "steam"), "gaming"),
     (("powerball", "mega millions", "jackpot", "lottery"), "lottery"),
     (("thanksgiving day parade", "macy's parade"), "parade"),
@@ -143,7 +144,7 @@ OTHER_CITIES = ("dallas", "houston", "austin", "san antonio", "arlington", "dent
                 "garland", "mckinney", "el paso", "lubbock", "waco", "galveston", "corpus christi", "college station", "amarillo")
 
 
-TITLE_ONLY = {"gaming", "lottery", "parade", "shopping", "thanksgiving", "christmas", "fireworks", "smartphone", "nfl", "space", "eclipse",
+TITLE_ONLY = {"stock-market", "gaming", "lottery", "parade", "shopping", "thanksgiving", "christmas", "fireworks", "smartphone", "nfl", "space", "eclipse",
               "concert", "music", "movies", "streaming"}   # a passing mention in the body must not turn a local story into a turkey photo
 
 
