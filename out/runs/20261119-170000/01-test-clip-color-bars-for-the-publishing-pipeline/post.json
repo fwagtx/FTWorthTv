@@ -1,0 +1,48 @@
+{
+  "mode": "video",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": null,
+  "video": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-170000/01-test-clip-color-bars-for-the-publishing-pipeline/clip.mp4",
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Test clip: color bars for the publishing pipeline",
+    "caption": "Test clip: color bars for the publishing pipeline. Not a real submission\n\nFort Worth\n\nVideo: Fort Worth Daily test",
+    "first_comment": "🎥 Fort Worth Daily test\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "submission:dd464e9107af04fc",
+    "source": "Viewer video",
+    "source_kind": "submission",
+    "title": "Test clip: color bars for the publishing pipeline.",
+    "summary": "Test clip: color bars for the publishing pipeline. Not a real submission.",
+    "url": "",
+    "published": "2026-11-19T09:20:00+00:00",
+    "category_hint": "community",
+    "image_url": null,
+    "image_credit": "Video: Fort Worth Daily test",
+    "image_license": "viewer-consented",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "video_path": "/home/runner/work/FTWorthTv/FTWorthTv/out/submissions/dd464e9107af04fc.mp4",
+      "credit": "Fort Worth Daily test",
+      "where": "Fort Worth",
+      "scope": "local",
+      "submission": true,
+      "video_link": "https://raw.githubusercontent.com/fwagtx/FTWorthTv/claude/practical-mccarthy-mi4jkw/tests/fixtures/test-clip.mp4"
+    },
+    "category": "community",
+    "relevance": 0,
+    "score": 0.2413
+  }
+}

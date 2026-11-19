@@ -1,0 +1,25 @@
+{
+  "started": "2026-11-19T23:00:00+00:00",
+  "candidates": 1,
+  "posts": [
+    {
+      "title": "Test clip: color bars for the publishing pipeline.",
+      "source": "Viewer video",
+      "kind": "submission",
+      "category": "community",
+      "mode": "video",
+      "writer": "template",
+      "score": 0.2413,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-170000/01-test-clip-color-bars-for-the-publishing-pipeline",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": null,
+      "image": null
+    }
+  ],
+  "skipped_by_writer": [],
+  "dropped": [],
+  "notes": []
+}
