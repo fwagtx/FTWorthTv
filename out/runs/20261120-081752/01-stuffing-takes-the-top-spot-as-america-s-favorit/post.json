@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=KQRKshrxWdY",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Stuffing takes the top spot as America's favorite Thanksgiving side dish: new report | NBCDFW",
+    "caption": "WATCH: Stuffing takes the top spot as America's favorite Thanksgiving side dish: new report | NBCDFW\n\nA new report says stuffing is No.\n\nVideo: NBC 5 DFW on YouTube",
+    "first_comment": "Source: NBC 5 DFW on YouTube https://www.youtube.com/watch?v=KQRKshrxWdY\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "77bfd5eae01d2ee9",
+    "source": "NBC 5 DFW",
+    "source_kind": "video",
+    "title": "Stuffing takes the top spot as America's favorite Thanksgiving side dish: new report | NBCDFW",
+    "summary": "A new report says stuffing is No. 1. Watch Laura Harris break down what changed in 2026 for stuffing and dressing fans. ——— Visit the NBC DFW channel for the latest news, weather, investigations, consumer news (NBC 5 Responds) and exclusive reports: https://www.youtube.com/nbcdfw 📺 STREAM NBC 5 DALLAS-FORT WORTH: \"NBC Dallas Fort Worth News\" 24/7 live streaming channel, is available for viewing on Roku, Samsung TV Plus, Amazon Fire TV, Xumo Play, Google Play, Freevee, TCLtv+ and Local Now. Peacock premium subscribers can also stream live. How to Watch: https://www.nbcdfw.com/everywhere 💻…",
+    "url": "https://www.youtube.com/watch?v=KQRKshrxWdY",
+    "published": "2026-11-20T13:49:35+00:00",
+    "category_hint": null,
+    "image_url": "https://i4.ytimg.com/vi/KQRKshrxWdY/hqdefault.jpg",
+    "image_credit": "Video: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "KQRKshrxWdY",
+      "channel": "NBC 5 DFW",
+      "handle": "@NBCDFW",
+      "views": 13,
+      "feed_title": "NBC 5 DFW",
+      "scope": "dfw"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.8383
+  }
+}

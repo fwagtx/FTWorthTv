@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-20T15:07:52.276031+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-081752/03-sarkisian-hopes-to-send-texas-seniors-out-in-sty/post.jpg",
+    "credit": "Photo: Brooke Cagle brookecagle via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Arkansas,_United_States_(Unsplash).jpg",
+    "photo_id": "commons-61362301",
+    "subject": "entity:arkansas"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-081752/03-sarkisian-hopes-to-send-texas-seniors-out-in-sty/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Sarkisian hopes to send Texas seniors out in style against Arkansas",
+    "caption": "No. 5 Texas hosts longtime rival Arkansas on Senior Day, with 38 Longhorns set to be honored and SEC Championship Game hopes still on the line.",
+    "first_comment": "Source: KXAN Austin https://www.kxan.com/sports-general/horns-report/sarkisian-hopes-to-send-texas-seniors-out-in-style-against-arkansas/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c2dc10ff632831c2",
+    "source": "KXAN Austin",
+    "source_kind": "rss",
+    "title": "Sarkisian hopes to send Texas seniors out in style against Arkansas",
+    "summary": "No. 5 Texas hosts longtime rival Arkansas on Senior Day, with 38 Longhorns set to be honored and SEC Championship Game hopes still on the line.",
+    "url": "https://www.kxan.com/sports-general/horns-report/sarkisian-hopes-to-send-texas-seniors-out-in-style-against-arkansas/",
+    "published": "2026-11-20T14:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://www.kxan.com/wp-content/uploads/sites/40/2026/11/AP26319173423697.jpg?w=900",
+    "image_credit": "Photo: KXAN Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "KXAN Austin",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.3804
+  }
+}

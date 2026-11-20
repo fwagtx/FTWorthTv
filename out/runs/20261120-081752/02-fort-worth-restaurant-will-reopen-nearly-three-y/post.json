@@ -1,0 +1,45 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.wfaa.com/article/life/food/fort-worth-restaurant-will-reopen-nearly-three-years-after-hotel-explosion/287-4a6eeea7-8ca9-4fe7-b803-e90cc09d6443",
+  "scheduled_at": "2026-11-20T14:42:52.276031+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "food",
+    "headline": "Fort Worth restaurant will reopen nearly three years after hotel explosion",
+    "caption": "At Musume, fresh fish is flown in daily from Japan, showcasing sushi and sashimi along with Fort Worth’s largest sake collection. Over 80% of its staff return.",
+    "first_comment": "Source: WFAA https://www.wfaa.com/article/life/food/fort-worth-restaurant-will-reopen-nearly-three-years-after-hotel-explosion/287-4a6eeea7-8ca9-4fe7-b803-e90cc09d6443\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Texas barbecue plate",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "38fd6eb34ee70c43",
+    "source": "WFAA",
+    "source_kind": "rss",
+    "title": "Fort Worth restaurant will reopen nearly three years after hotel explosion",
+    "summary": "At Musume, fresh fish is flown in daily from Japan, showcasing sushi and sashimi along with Fort Worth’s largest sake collection. Over 80% of its staff return.",
+    "url": "https://www.wfaa.com/article/life/food/fort-worth-restaurant-will-reopen-nearly-three-years-after-hotel-explosion/287-4a6eeea7-8ca9-4fe7-b803-e90cc09d6443",
+    "published": "2026-11-20T06:08:22+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/d017d57b-0805-4521-b9ce-d567921f8776/20261120T031001/d017d57b-0805-4521-b9ce-d567921f8776_750x422.jpg",
+    "image_credit": "Photo: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: local",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "food",
+    "relevance": 2,
+    "score": 0.4091
+  }
+}
