@@ -1,0 +1,55 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-20T12:43:11.184907+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-061811/02-tarrant-county-republicans-stung-by-defeat-are-s/post.jpg",
+    "credit": "Photo: Bob Daemmrich Bob Daemmrich for The Texas Tribune",
+    "license": "republish-ok",
+    "provider": "source",
+    "source_url": "https://feeds.texastribune.org/link/16799/17536120/texas-tarrant-county-republicans-future-matt-krause",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-061811/02-tarrant-county-republicans-stung-by-defeat-are-s/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "Tarrant County Republicans, stung by defeat, are soul-searching and finger-pointing",
+    "caption": "Matt Krause, soon to be the only Republican on the county’s commissioners court, called the midterm election a wake-up call for the party. The election is over, but the work of holding Texas officials accountable is just beginning.\n\nMatt Krause has spent his entire political career in conservative majorities. In five terms in the Texas House, he co-founded the Texas Freedom Caucus and served during the height of Republican power in the Legislature.",
+    "first_comment": "Source: The Texas Tribune @TexasTribune https://feeds.texastribune.org/link/16799/17536120/texas-tarrant-county-republicans-future-matt-krause\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "78ead7b6e1e65d77",
+    "source": "The Texas Tribune",
+    "source_kind": "rss",
+    "title": "Tarrant County Republicans, stung by defeat, are soul-searching and finger-pointing",
+    "summary": "Matt Krause, soon to be the only Republican on the county’s commissioners court, called the midterm election a wake-up call for the party. The election is over, but the work of holding Texas officials accountable is just beginning. Help us pursue the truth. Every gift makes a difference. Matt Krause has spent his entire political career in conservative majorities. In five terms in the Texas House, he co-founded the Texas Freedom Caucus and served during the height of Republican power in the Legislature. In two years on the Tarrant County Commissioners Court, he’s been a key part of a 3-2 Republican majority led by conservative firebrand county Judge Tim O’Hare. Now Krause, like many Republicans across the state, is preparing for life in the minority — the last Republican commissioner on a court that, thanks to recent redistricting, was supposed to have a 4-1 GOP advantage. It’s a…",
+    "url": "https://feeds.texastribune.org/link/16799/17536120/texas-tarrant-county-republicans-future-matt-krause",
+    "published": "2026-11-20T11:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/11/20260310_CommissionersCourt-18-scaled.jpg?fit=1024%2C683&ssl=1",
+    "image_credit": "Photo: Bob Daemmrich Bob Daemmrich for The Texas Tribune",
+    "image_license": "republish-ok",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "The Texas Tribune",
+      "national": false,
+      "social_tag": "@TexasTribune",
+      "article_fetched": true,
+      "scope": "local"
+    },
+    "category": "politics",
+    "relevance": 2,
+    "score": 1.022
+  }
+}
