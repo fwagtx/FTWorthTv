@@ -212,3 +212,12 @@ def test_a_conference_name_does_not_make_a_georgia_story_texas_news(settings, no
                     published=now - timedelta(hours=1), category_hint="sports", extra={"national": True})
     kept, dropped = filter_stories([georgia, cowboys], settings, State(settings.state_path), now)
     assert [s.id for s in kept] == ["c1"] and dropped and dropped[0][0].id == "g1"
+
+
+def test_a_hire_announcement_is_not_news_unless_the_role_is_public():
+    from ftworthtv.filters import personnel_move
+    assert personnel_move("Unbound Now names Andrea Sparks to executive leadership team")
+    assert personnel_move("Acme Bank promotes Jane Doe to chief lending officer")
+    assert not personnel_move("Fort Worth names Eddie Garcia police chief")
+    assert not personnel_move("TCU names new head coach after Dykes exit")
+    assert not personnel_move("Keller ISD board names interim superintendent")

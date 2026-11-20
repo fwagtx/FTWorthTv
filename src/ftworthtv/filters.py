@@ -82,6 +82,23 @@ _SHOPPING_RE = re.compile(r"\b(gift guide|gifts? of 20\d\d|best gifts|holiday gi
                           r"top \d+ (?:gifts|products)|stocking stuffers)\b", re.I)
 
 
+_MOVE_RE = re.compile(r"\b(names? [A-Z][\w.'-]+ (?:[A-Z][\w.'-]+ )?(?:to|as)\b|joins? .{0,40}\bas (?:chief|vice president|director|officer|partner)|"
+                      r"appoint(?:s|ed)\b|promot(?:es|ed) .{0,40}\bto\b|hires? .{0,40}\bas\b|tapped as|named (?:chief|vice president|director|officer|partner)\b|"
+                      r"executive leadership team|board of directors)", re.I)
+_PUBLIC_ROLES = ("police chief", "fire chief", "superintendent", "city manager", "head coach", "athletic director", "mayor", "sheriff",
+                 "judge", "chancellor", "university president", "county administrator", "district attorney", "commissioner", "general manager",
+                 "ceo of", "tcu", "texas rangers", "cowboys", "mavericks", "stars")
+
+
+def personnel_move(title: str) -> bool:
+    """'Unbound Now names Andrea Sparks to executive leadership team': a press release about a hire. The page posts the
+    public roles people would notice (a police chief, a superintendent, a head coach), not corporate and nonprofit staffing."""
+    low = (title or "").lower()
+    if any(r in low for r in _PUBLIC_ROLES):
+        return False
+    return bool(_MOVE_RE.search(title or ""))
+
+
 def shopping_guide(title: str, url: str = "") -> bool:
     """'The Top Texas Gifts of 2026': a magazine's shopping guide, not news."""
     return bool(_SHOPPING_RE.search(title or "")) or "/gift-guide" in (url or "") or "/style/" in (url or "")
@@ -238,6 +255,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if shopping_guide(story.title, story.url):
             dropped.append((story, "shopping guide, not news"))
+            continue
+        if story.source_kind == "rss" and personnel_move(story.title):
+            dropped.append((story, "a hire announcement, not news"))
             continue
         twin = state.recent_title_like(story.title, now, hours=48, match=same_story)
         if twin:
