@@ -180,3 +180,9 @@ def test_a_team_or_person_photo_must_be_recent_and_dated():
     assert photo_age_bar("entity:dickies arena", stamp) == ""             # a building keeps its file photo
     assert photo_age_bar("entity:northwest isd", stamp) == ""
     assert photo_age_bar("beat:skyline", stamp) == ""
+
+
+def test_a_conviction_is_a_thing_that_happened():
+    from ftworthtv.images.subject import happened
+    assert happened("North Texas man convicted of defrauding $6M from 70 churches, congregants")
+    assert happened("Fort Worth pastor pleads guilty to wire fraud")

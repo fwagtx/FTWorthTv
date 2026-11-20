@@ -300,7 +300,8 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   "overtime", "final:", "recap", "takeaways", "highlights", "crash", "collision", "wreck", " shot ", "shooting", "stabbed",
                   "collapsed", "caught fire", "burned", "burns ", "explosion", "flooded", "flooding", "tornado", "hail ", "evacuated",
                   "rescued", "pulled from", " dies ", " died ", "killed", " dead ", "arrested", "charged with", "indicted", "sentenced",
-                  " fired", "resigns", "resigned", "steps down", "walks out", "protest", "ceremony", "ribbon", "reopens", "debut")
+                  " fired", "resigns", "resigned", "steps down", "walks out", "protest", "ceremony", "ribbon", "reopens", "debut",
+                  "convicted", "found guilty", "pleads guilty", "pleaded guilty", "acquitted", "verdict", "sentenced to", "raided")
 
 
 def happened(title: str, kind: str = "rss") -> bool:

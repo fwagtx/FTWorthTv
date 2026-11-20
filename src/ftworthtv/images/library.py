@@ -146,7 +146,7 @@ OTHER_CITIES = ("dallas", "houston", "austin", "san antonio", "arlington", "dent
 
 
 TITLE_ONLY = {"stock-market", "gaming", "lottery", "parade", "shopping", "thanksgiving", "christmas", "fireworks", "smartphone", "nfl", "space", "eclipse",
-              "concert", "music", "movies", "streaming"}   # a passing mention in the body must not turn a local story into a turkey photo
+              "concert", "music", "movies", "streaming", "att-stadium", "globe-life", "aac", "dickies-arena", "texas-motor-speedway", "amon-carter", "tcu-football", "dallas-skyline"}   # a venue mentioned in passing in the body is never the picture   # a passing mention in the body must not turn a local story into a turkey photo
 
 
 def topics_for(text: str, category: str, scope: str, title: str | None = None) -> list[str]:

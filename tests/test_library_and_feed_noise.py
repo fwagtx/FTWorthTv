@@ -50,3 +50,11 @@ def test_sports_story_about_a_school_wants_its_stadium():
     assert topics[0] == "tcu-football" and "tcu" in topics
     campus = topics_for("TCU opens a new nursing building on campus", "community", "local", title="TCU opens a new nursing building")
     assert campus[0] == "tcu" and "tcu-football" not in campus
+
+
+def test_a_venue_named_only_in_the_body_is_not_the_picture():
+    from ftworthtv.images.library import topics_for
+    body = ("Richard Reinaldo Garcia, 53, was found guilty in a $6 million fraud scheme. Prosecutors said he met victims at a church "
+            "in Arlington, not far from AT&T Stadium, and told congregants the Cowboys owner had blessed the fund.")
+    topics = topics_for(body, "crime", "dfw", title="North Texas man convicted of defrauding $6M from 70 churches, congregants")
+    assert "att-stadium" not in topics
