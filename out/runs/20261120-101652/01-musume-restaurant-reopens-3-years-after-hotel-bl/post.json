@@ -1,0 +1,45 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://fortworth.culturemap.com/news/restaurants-bars/musume-reopens-sandman-hotel-explosion/",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "food",
+    "headline": "Musume restaurant reopens 3 years after hotel blast in downtown Fort Worth",
+    "caption": "Almost three years after an explosion ripped through the Sandman Signature Hotel in downtown Fort Worth, the hotel's restaurant, Musume , has reopened following a $4 million rebuild.",
+    "first_comment": "Source: CultureMap Fort Worth https://fortworth.culturemap.com/news/restaurants-bars/musume-reopens-sandman-hotel-explosion/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "d4a2cb327d6cc322",
+    "source": "CultureMap Fort Worth",
+    "source_kind": "rss",
+    "title": "Musume restaurant reopens 3 years after hotel blast in downtown Fort Worth",
+    "summary": "Almost three years after an explosion ripped through the Sandman Signature Hotel in downtown Fort Worth, the hotel's restaurant, Musume , has reopened following a $4 million rebuild.",
+    "url": "https://fortworth.culturemap.com/news/restaurants-bars/musume-reopens-sandman-hotel-explosion/",
+    "published": "2026-11-20T15:55:39+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: CultureMap Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.9,
+    "extra": {
+      "feed_title": "CultureMap Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "food",
+    "relevance": 2,
+    "score": 1.304
+  }
+}

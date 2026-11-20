@@ -1,0 +1,45 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.texasmonthly.com/style/top-texas-gift-guide-2026/",
+  "scheduled_at": "2026-11-20T16:41:52.757180+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "The Top Texas Gifts of 2026",
+    "caption": "Now that a brutal election season has come to an end, it’s time for the real battle: the fight for gifting supremacy.",
+    "first_comment": "Source: Texas Monthly https://www.texasmonthly.com/style/top-texas-gift-guide-2026/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "214130b81122252c",
+    "source": "Texas Monthly",
+    "source_kind": "rss",
+    "title": "The Top Texas Gifts of 2026",
+    "summary": "What you might find under the tree this year: an award-winning Dallas fragrance, a luchador bracelet, a rattlesnake pocketknife, and other Lone Star surprises. Now that a brutal election season has come to an end, it’s time for the real battle: the fight for gifting supremacy. But whether you’re shopping for the sister who texted the “Texas forever” meme on election night or your red-leaning uncle who hasn’t conceded (and why is it always an uncle?), these are the gifts that can unify us all in our love of the Lone Star State—just in time for a season of healing and reconciliation (or, at least, relative calm before the legislating starts). Each of these gift ideas is made in, designed in, or otherwise a celebration of Texas. They will delight natives, transplants, and Texpats alike. Isn’t that something we can all vote for this year? For grown-ups, an easy way to familiarize yourself…",
+    "url": "https://www.texasmonthly.com/style/top-texas-gift-guide-2026/",
+    "published": "2026-11-20T15:59:40+00:00",
+    "category_hint": null,
+    "image_url": "https://img.texasmonthly.com/2026/11/gift-guide-2026.gif?auto=compress&amp;crop=faces&amp;fit=scale&amp;fm=gif&amp;h=641&amp;ixlib=php-3.3.1&amp;q=45&amp;w=1024&amp;wpsize=large",
+    "image_credit": "Photo: Texas Monthly",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.48999999999999994,
+    "extra": {
+      "feed_title": "Texas Monthly",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.4444
+  }
+}
