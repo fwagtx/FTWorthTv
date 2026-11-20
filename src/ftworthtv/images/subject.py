@@ -243,12 +243,25 @@ PERFORMANCE_WORDS = ("concert", "live", "performing", "performs", "tour", "festi
                      "kpop", "band", "singer", "rapper", "dj ", "fans", "crowd", "halftime", "vs", "game", "match")
 
 
+ORG_WORDS = ("isd", "inc", "llc", "corp", "company", "university", "college", "school", "district", "department", "police", "county",
+             "city", "council", "foundation", "church", "hospital", "bank", "airlines", "group", "association", "club", "team", "fc",
+             "cowboys", "rangers", "mavericks", "stars", "frogs", "mavs", "wings", "texans", "astros", "rockets", "spurs", "tcu", "uta",
+             "smu", "unt", "baylor", "tech", "aggies", "longhorns") + VENUE_WORDS
+
+
+def looks_like_person(name: str) -> bool:
+    """Two or three capitalised words with no organisation or venue word: Ty Myers, Cooper Flagg, Bo French."""
+    words = name.split()
+    low = name.lower()
+    return 2 <= len(words) <= 3 and not any(w in low.split() or low.endswith(" " + w) for w in ORG_WORDS) and not any(ch.isdigit() for ch in name)
+
+
 def is_venue(name: str) -> bool:
     low = name.lower()
     return any(w in low.split() or low.endswith(" " + w) for w in VENUE_WORDS)
 
 
-def provider_queries(plan: SubjectPlan, title: str, category: str) -> list[tuple[tuple, str]]:
+def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_allowed: bool = False) -> list[tuple[tuple, str]]:
     """(query tuple, subject label) pairs for the search providers, one named subject at a time.
 
     A venue is searched for as a building (its Commons category, then "exterior"/"building"), never as somebody else's
@@ -261,6 +274,8 @@ def provider_queries(plan: SubjectPlan, title: str, category: str) -> list[tuple
     for name in plan.search_names[:3]:
         words = (" ".join(name.lower().split()),)      # the whole name, in order: "Ty Myers" is not "Ty Cobb at Fort Myers"
         label = f"entity:{name.lower()}"
+        if looks_like_person(name) and not people_allowed:
+            continue                                   # a stranger with the same name is the worst mistake a page can make
         if is_venue(name):
             out += [((f"category:{name}", PERFORMANCE_WORDS, words), label),
                     ((f"{name} exterior", PERFORMANCE_WORDS, words), label),
@@ -271,3 +286,14 @@ def provider_queries(plan: SubjectPlan, title: str, category: str) -> list[tuple
             avoid = () if performer_story else PERFORMANCE_WORDS
             out += [((f"fresh:{name}", avoid, words), label), ((name, avoid, words), label)]
     return out
+
+
+EVENT_WORDS = ("game", "concert", "tour", "festival", "parade", "ceremony", "opening", "ribbon", "rally", "protest", "march", "vigil",
+               "funeral", "graduation", "fair", "rodeo", "race", "marathon", "tournament", "playoff", "championship", "showdown",
+               "showcase", "bell", "ipo", "launch", "storm", "tornado", "flood", "fire", "crash", "wreck", "shooting")
+
+
+def wants_recent_picture(title: str, category: str, kind: str = "") -> bool:
+    """A story about something that happened wants a picture from that happening, not a file photo of the place."""
+    low = (title or "").lower()
+    return kind in ("event", "event_roundup", "nws_alert") or category in ("events", "sports", "breaking") or any(w in low for w in EVENT_WORDS)

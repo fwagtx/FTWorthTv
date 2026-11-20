@@ -36,6 +36,7 @@ class PhotoCandidate:
     height: int = 0
     alt: str = ""
     title: str = ""     # the file's own title (what the uploader called it); descriptions are never trusted for the subject
+    taken: str = ""     # when the picture was taken, if the file says (Commons DateTimeOriginal), "YYYY-MM-DD..."
     download_hook: str | None = None   # Unsplash: URL to ping when the photo is used
 
     @property
@@ -100,6 +101,7 @@ def _candidates_from_pages(payload: dict) -> list[PhotoCandidate]:
             width=int(info.get("width", 0)), height=int(info.get("height", 0)),
             alt=strip_html((meta.get("ImageDescription", {}) or {}).get("value", ""))[:200],
             title=re.sub(r"\.(jpe?g|png|webp|tiff?)$", "", str(page.get("title", "")).replace("File:", "")).replace("_", " ")[:200],
+            taken=strip_html((meta.get("DateTimeOriginal", {}) or {}).get("value", ""))[:19],
         ))
     return out
 
@@ -297,7 +299,7 @@ def _search(query: str, settings) -> list[PhotoCandidate]:
 
 
 def find_photo(query: "str | list[str]", settings, state: State | None = None, exclude: set[str] | None = None,
-               avoid_words: tuple[str, ...] = (), fallback: bool = True) -> PhotoCandidate | None:
+               avoid_words: tuple[str, ...] = (), fallback: bool = True, taken_after: str = "") -> PhotoCandidate | None:
     """Pexels first (best quality, simplest license), Wikimedia Commons as the fallback.
 
     Tries the given query/queries in order, then generic city queries, and skips photos used earlier in this run or recently
@@ -332,6 +334,8 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
                 if any(w in blob for w in avoid_words):
                     continue
             if require and not all(f" {w} " in plain for w in require):   # the subject, whole and in order, in the file name or its title
+                continue
+            if taken_after and (not cand.taken or cand.taken[:10] < taken_after):   # an event wants a picture from the event, not from years ago
                 continue
             if state and state.photo_recently_used(cand.id):
                 continue

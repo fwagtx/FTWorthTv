@@ -88,7 +88,10 @@ def test_a_venue_is_searched_as_a_building_not_as_someone_elses_show():
     assert pairs[0][0][0] == "fresh:Anthropic" and "concert" in pairs[0][0][1] and pairs[0][0][2] == ("anthropic",)
     concert = plan_subject("Ty Myers: The Legal Tour 2026 at Dickies Arena", "", "events")
     pairs = provider_queries(concert, "Ty Myers: The Legal Tour 2026 at Dickies Arena", "events")
-    assert pairs[0][0][1] == () and pairs[0][0][2] == ("ty myers",)   # the performer's own show may be a concert photo
+    assert all("ty myers" not in q[2] for q, _ in pairs)               # a person is never searched for without the visual check
+    assert pairs[0][0][0] == "category:Dickies Arena"
+    pairs = provider_queries(concert, "Ty Myers: The Legal Tour 2026 at Dickies Arena", "events", people_allowed=True)
+    assert pairs[0][0][1] == () and pairs[0][0][2] == ("ty myers",)   # with Claude looking at the picture, the performer's own show may be a concert photo
 
 
 def test_find_photo_skips_a_show_photo_when_the_story_is_the_building(monkeypatch, settings):
@@ -118,3 +121,11 @@ def test_a_description_mention_is_not_a_photo_of_the_subject(monkeypatch, settin
     assert find_photo([("Ty Myers", (), ("ty myers",))], settings, None, fallback=False) is real
     monkeypatch.setattr(providers, "_search", lambda q, s: [stranger, cobb])
     assert find_photo([("Ty Myers", (), ("ty myers",))], settings, None, fallback=False) is None
+
+
+def test_people_and_recent_pictures():
+    from ftworthtv.images.subject import looks_like_person, wants_recent_picture
+    assert looks_like_person("Ty Myers") and looks_like_person("Cooper Flagg") and looks_like_person("Bo French")
+    assert not looks_like_person("Dickies Arena") and not looks_like_person("Northwest ISD") and not looks_like_person("Dallas Cowboys")
+    assert wants_recent_picture("Utah visits TCU in Saturday's game", "sports") and wants_recent_picture("Parade of Lights returns downtown", "events")
+    assert not wants_recent_picture("Property tax rate set for next year", "politics")

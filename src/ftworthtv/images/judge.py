@@ -15,7 +15,8 @@ import subprocess
 
 log = logging.getLogger(__name__)
 
-PROMPT = """You check news photos for a local news page. Answer with one word, yes or no.
+PROMPT = """You check news photos for a local news page. First open and look at the image file {path} with the Read tool.
+Then answer with one word, yes or no, on the last line.
 
 Headline: {headline}
 Story summary: {summary}
@@ -25,9 +26,10 @@ Candidate photo:
 - description: {alt}
 - credit: {credit}
 
-Does this photo clearly show the specific subject of the headline (the named company, team, person, school, place or event),
-so that a reader would see the connection at once? A generic stand-in (a skyline for a company, an exchange building for a
-company's IPO, a street for a festival list, a campus building for a football game) is "no". Answer yes or no."""
+Does the picture itself clearly show the specific subject of the headline (the named company, team, person, school, place
+or event), so that a reader would see the connection at once? A different person who shares the name, another artist's
+show at the same venue, or a generic stand-in (a skyline for a company, an exchange building for a company's IPO, a
+street for a festival list, a campus building for a football game) is "no". If you cannot open the image, answer no."""
 
 
 def available(settings) -> bool:
@@ -35,20 +37,23 @@ def available(settings) -> bool:
     return bool(token) and bool(shutil.which("claude")) and getattr(settings, "writer", "auto") in ("auto", "claude_code")
 
 
-def photo_fits(settings, *, headline: str, summary: str, title: str, alt: str, credit: str) -> bool | None:
-    """True/False from Claude, None when it could not be asked (then the deterministic rules decide alone)."""
+def photo_fits(settings, *, headline: str, summary: str, title: str, alt: str, credit: str, path: str = "") -> bool | None:
+    """True/False from Claude after it has looked at the file, None when it could not be asked (then the deterministic rules
+    decide alone, and a person's photo is not used at all)."""
     if not available(settings):
         return None
-    prompt = PROMPT.format(headline=headline, summary=(summary or "")[:600], title=title or "", alt=(alt or "")[:300], credit=credit or "")
+    prompt = PROMPT.format(path=path or "(no file)", headline=headline, summary=(summary or "")[:600], title=title or "",
+                           alt=(alt or "")[:300], credit=credit or "")
     env = dict(os.environ)
     token = getattr(settings, "claude_code_oauth_token", None)
     if token:
         env["CLAUDE_CODE_OAUTH_TOKEN"] = token
     try:
-        proc = subprocess.run([shutil.which("claude"), "-p", prompt, "--output-format", "json", "--max-turns", "1"],
-                              capture_output=True, text=True, timeout=90, env=env)
+        proc = subprocess.run([shutil.which("claude"), "-p", prompt, "--output-format", "json", "--max-turns", "3",
+                               "--allowedTools", "Read"], capture_output=True, text=True, timeout=180, env=env)
         payload = json.loads(proc.stdout or "{}")
         answer = str(payload.get("result") or payload.get("content") or "").strip().lower()
+        answer = answer.splitlines()[-1].strip() if answer else answer
     except (subprocess.SubprocessError, ValueError, OSError) as exc:
         log.warning("photo judge could not run: %s", exc)
         return None

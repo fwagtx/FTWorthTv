@@ -209,9 +209,22 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         lib_photo = from_library() if library_first else None
         if lib_photo is None and not settings.offline:
             if sp.mode in ("entity", "search"):
-                from .subject import provider_queries
-                pairs = provider_queries(sp, story.title, copy.category)
+                from datetime import datetime as _dt, timedelta, timezone as _tz
+                from .judge import available as judge_available
+                from .subject import provider_queries, wants_recent_picture
+                pairs = provider_queries(sp, story.title, copy.category, people_allowed=judge_available(settings))
                 queries, labels = [q for q, _ in pairs], [lab for _, lab in pairs]
+                recent_flags = [False] * len(queries)
+                recent_after = ""
+                if wants_recent_picture(story.title, copy.category, story.source_kind):
+                    # a picture taken in the two weeks around the story comes first (newest-first queries with a date bar);
+                    # the same queries without the bar follow, so an old picture of the venue is the fallback, never the first choice
+                    stamp = story.published or _dt.now(_tz.utc)
+                    recent_after = (stamp - timedelta(days=14)).date().isoformat()
+                    fresh = [(q, lab) for q, lab in pairs if str(q[0]).startswith("fresh:")]
+                    queries = [q for q, _ in fresh] + queries
+                    labels = [lab for _, lab in fresh] + labels
+                    recent_flags = [True] * len(fresh) + [False] * len(pairs)
             elif sp.mode == "institution":
                 queries, labels = [], []
             else:
@@ -225,19 +238,24 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                                (f"{venue} exterior", PERFORMANCE_WORDS, venue_words), (f"{venue} building", PERFORMANCE_WORDS, venue_words)]
                     labels = [f"entity:{venue.lower()}", f"beat:{copy.image_query}", f"entity:{venue.lower()}", f"entity:{venue.lower()}"]
             from .judge import photo_fits
-            for query, lab in zip(queries, labels):
-                cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=avoid, fallback=sp.mode == "beat")
+            if sp.mode not in ("entity", "search"):
+                recent_after, recent_flags = "", [False] * len(queries)
+            for query, lab, recent in zip(queries, labels, recent_flags):
+                cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=avoid, fallback=sp.mode == "beat",
+                                  taken_after=recent_after if recent else "")
                 if not cand:
                     continue
-                if sp.mode in ("entity", "search"):
+                background = _download(cand.url, workdir / "photo")
+                if background and sp.mode in ("entity", "search"):
                     verdict = photo_fits(settings, headline=copy.headline or story.title, summary=story.summary or "",
-                                         title=cand.source_url.rsplit("/", 1)[-1].replace("_", " "), alt=cand.alt or "", credit=cand.credit)
+                                         title=cand.title or cand.source_url.rsplit("/", 1)[-1].replace("_", " "), alt=cand.alt or "",
+                                         credit=cand.credit, path=str(background))
                     if verdict is False:
                         log.info("photo judged off-subject for %r: %s", story.title[:50], cand.source_url)
                         if exclude_photos is not None:
                             exclude_photos.add(cand.id)
+                        background = None
                         continue
-                background = _download(cand.url, workdir / "photo")
                 if background:
                     credit, license_, provider, photo_id, source_url = cand.credit, cand.license, cand.provider, cand.id, cand.source_url
                     subject_label = lab
