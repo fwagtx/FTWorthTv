@@ -1,0 +1,1062 @@
+{
+  "started": "2026-11-20T16:44:48.822754+00:00",
+  "candidates": 697,
+  "posts": [
+    {
+      "title": "Georgia AG encourages SEC to take 'action' vs. LSU, 'including expulsion'",
+      "source": "ESPN College Football",
+      "kind": "rss",
+      "category": "other",
+      "mode": "link",
+      "writer": "template",
+      "score": 0.4527,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-104448/01-georgia-ag-encourages-sec-to-take-action-vs-lsu",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": null,
+      "image": null
+    }
+  ],
+  "skipped_by_writer": [
+    {
+      "title": "Fort Worth forecast for Tuesday, November 17",
+      "reason": "dated for a day that has passed"
+    },
+    {
+      "title": "Women's Funkytown Showdown at Dickies Arena",
+      "reason": "event listing without its own picture"
+    },
+    {
+      "title": "WANTED: Daniel Muniz",
+      "reason": "daily cap for crime reached"
+    },
+    {
+      "title": "Air travel ramping up in North Texas ahead of Thanksgiving",
+      "reason": "video share used (a few a day, one a run)"
+    },
+    {
+      "title": "‘Choosin’ Texas’ Is the 7th CMA Single of the Year Winner to Be Nominated for the Equivalent Grammy: Full List",
+      "reason": "daily cap for culture reached"
+    },
+    {
+      "title": "WANTED: Erik Hernandez",
+      "reason": "daily cap for crime reached"
+    },
+    {
+      "title": "WANTED: Elkin Daniel Hernandez",
+      "reason": "daily cap for crime reached"
+    },
+    {
+      "title": "WANTED: Dwight Sanders",
+      "reason": "daily cap for crime reached"
+    }
+  ],
+  "dropped": [
+    {
+      "title": "USPS semi-truck ends up partially over I-35W railing in Fort Worth due to wet weather",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "2 minors killed, 3 others seriously injured after van crashes and catches fire in Fort Worth",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "UT Southwestern a step closer to opening of Radiation Oncology center",
+      "source": "Fort Worth Report",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Where to eat in Fort Worth: 5 tasty new restaurants to try",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "A first look at Beverly's Downtown, Fort Worth's new underground Mexican restaurant",
+      "source": "PaperCity Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Horned Frogs get back on winning track with 20-10 win over Kansas State",
+      "source": "ABC News (AP)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Clear skies, chilly temps and the Leonid meteor shower peaks tonight over North Texas",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+      "source": "Ticketmaster",
+      "reason": "same story already posted (another outlet or format): Ty Myers: The Legal Tour 2026 at Dickies Arena"
+    },
+    {
+      "title": "‘Bouchra’ Filmmakers Orian Barki and Meriem Bennani on Crafting the 3D-Animated, Autofiction Film: ‘Through Specificity, You Can Reach Truth’",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Mckenna Grace on Her ‘Hunger Games’ Press Tour Looks for ‘Sunrise on the Reaping’: Maysilee’s Style Is Her ‘Form of Defiance Against the Capitol’",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘Ramayana’ Star Sai Pallavi, Ravi Kishan’s ‘Spider-Man’ Anecdote, Grammy Winner Ricky Kej Light Up International Film Festival of India Opening in Goa",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Gérard Depardieu Faces New Rape and Sexual Assault Complaint Alongside Director Guillaume Nicloux and Writer Michel Houellebecq",
+      "source": "Variety",
+      "reason": "blocklist: sexual assault"
+    },
+    {
+      "title": "Sofia Coppola Pays Tribute to Late Mother Eleanor Coppola at Chanel-Hosted Paris Screening of ‘Making Marie Antoinette’",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Robert Pattinson’s Bond Ascent: How Pricey Screen Tests and Amazon Execs Landed a Starry 007",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Rich Eisen’s ‘Beautiful Day’: Landing All Four Members of U2 as Guests",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘MobLand’ Season 3 Starts Shooting With Tom Hardy, Helen Mirren and Pierce Brosnan",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "CNN Films Acquires Documentary ‘Bernie Taupin: Life, Music, Elton & Me’ (EXCLUSIVE)",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "All’s Fair in Love and ‘War’: Creator George Kay Explains His Ruling on Morgan and Carla’s Divorce",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Prince Harry Approves of Robert Pattinson’s Bond Casting",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Andrea Scrosati to Leave Fremantle Group",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Archie Renaux on ‘War’s Resident — and Misunderstood — Bad Boy",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Harrison Ford Kisses Calista Flockhart On Stage As Couple Receives Their First Joint Award",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘The Body’ Breakout Geena Meszaros on Finding Empathy for Lisbeth and “Life-Altering” Female Friendships",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Kristen Doute to Host Sports and Pop Culture Podcast ‘Run It Back’ in Partnership With PODGO (Exclusive)",
+      "source": "The Hollywood Reporter",
+      "reason": "blocklist: podcast"
+    },
+    {
+      "title": "Bo Derek Is Still a ‘10’ at 70: “It All Worked Out, Didn’t It?”",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘Adolescence’ Breakout Owen Cooper Leads New Music Video for Beatles Hit ‘In My Life’",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Social Media Bans in Tallinn Focus: Should Film Studios and Marketers Panic?",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Selena Gomez Recalls How Martin Short Accidentally Cut Her Wedding Cake Early: ‘He Looked Like a Little Dog’",
+      "source": "Billboard",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Billie Eilish to Headline BST Hyde Park for First Time: ‘She Inspires Fans, Challenges Our Industry to Be Better’",
+      "source": "Billboard",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Trump, Putin & Xi’s New Photo Op Looks Like This Classic ’90s Album: Here’s How the Internet Is Reacting",
+      "source": "Billboard",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Tickets for the Highly Anticipated KPop Demon Hunters Golden World Tour Are Finally On Sale: Get Yours Here",
+      "source": "Billboard",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "The Biggest Snubs and Surprises at the 2026 ARIA Awards",
+      "source": "Billboard",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Jordan Brunoli, Bassist With Australian Indie Rockers Bugs, Dies at 31",
+      "source": "Billboard",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "U2 Ride to No. 1 on ARIA Chart With ‘Carnaval De Luz’",
+      "source": "Billboard",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Gracie Abrams’ ‘Daughter from Hell’ Gets Deluxe Treatment: Stream It Now",
+      "source": "Billboard",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘Grand Theft Auto VI’ Soundtrack, Gracie Abrams, LISA, Tomorrow x Together & More: New Music Friday Guide",
+      "source": "Billboard",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Christian Bale Explains Why He Created His Husky Batman Voice at the Last Minute During Auditions",
+      "source": "IGN",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Yaga Episode 6 Recap and Review",
+      "source": "IGN",
+      "reason": "blocklist: sexual assault"
+    },
+    {
+      "title": "What Console Should You Buy for GTA 6? We Break Down PS5 vs. Xbox Pricing, Deals, and More",
+      "source": "IGN",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Battleground Cleaner Simulator Announced for PC",
+      "source": "IGN",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "The Sonos Black Friday Sale Is Live With Deals on Soundbars, Speakers, and Headphones",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "You Can Find the 'Bikini Girl' From the GTA 6 Trailer In-Game, With a Nod to All the Fan Theories",
+      "source": "IGN",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Justice Warriors: The Hit Political Satire Returns With Bottom Dollar",
+      "source": "IGN",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "'Cousin! We Should Hang Out!' GTA Secret Quests Referencing Roman Bellic Added to Fortnite",
+      "source": "IGN",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Surprise PS5 Console Black Friday Deals Means You Can Buy a GTA 6-Ready Console for Less Than £430",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude",
+      "source": "The Verge",
+      "reason": "blocklist: puzzle"
+    },
+    {
+      "title": "Boys Noize turns to the club (and an obscure Italian synth) for inspiration on 7LLVSION",
+      "source": "The Verge",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Andrey Zvyagintsev believes filmmakers know what the audience wants — not executives",
+      "source": "The Verge",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "The best early Black Friday deals you can already shop",
+      "source": "The Verge",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "UN court cites military Facebook posts while finding Myanmar guilty of genocide",
+      "source": "The Verge",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Let’s talk about GTA VI",
+      "source": "The Verge",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "The week everything fell apart",
+      "source": "The Verge",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Signal is blocking Gemini and Siri AI from reading your screen",
+      "source": "The Verge",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Why the robots are ditching Uber",
+      "source": "The Verge",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Apple is hiring engineers to build its own AI agent",
+      "source": "The Verge",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Lili Reinhart Circling Amazon MGM Studios & Mattel’s ‘Polly Pocket’ Post Lily Collins Exit",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "All The Songs In Netflix’s ‘Steps’: Olivia Rodrigo To Amanda Seyfried",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Tony Winner Ivy Lion Productions Gets Development Capital For Film & TV Push, Switches From Zero Gravity To Gotham Group For Management",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Women In Vertical Media: Execs From Shorties Studios, aTwist & Eris Join Inaugural Advisory Circle",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Don’t Tell Comedy & Cash App Partner On Slate Of Half-Hour Stand-Up Specials",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘MobLand’ Season 3 Starts Shooting As Season 2 Finale Drops On Paramount+",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "MAMA Awards Crowns BTS & Enhypen As K-Pop Show’s Producer Says “Lines Are Blurring Between Music, Film, TV & Fashion”",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Content Chiefs At Denmark’s TV2 Step Down To “Restore Trust” After Backlash Over ‘Truman Show’-Style Reality Series",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Venice Audience Award Winner ‘Ish’ Gets North American Deal With Watermelon Pictures",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "International Insider: Pattinson Becomes Bond; SkyShowtime Shutting Down; The Brit List",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "How Orchestra Noir turned classical music into a cultural movement",
+      "source": "NPR News",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Trump to hold press conference after meeting with Xi and Putin",
+      "source": "NPR News",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Texas execution took over an hour as staff struggled to find vein; Reinaldo Dennes moaned about pain",
+      "source": "NPR News",
+      "reason": "blocklist: execution"
+    },
+    {
+      "title": "Dems aim to block Iran war funding. And, Army delays lead azide detonation in Iowa",
+      "source": "NPR News",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Just how vulnerable are we to cyberattacks?",
+      "source": "NPR News",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "GOP Sen. Johnson rejects tying government funding to an end to the Iran war",
+      "source": "NPR News",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Senate passes bipartisan energy bill amid environmental concerns",
+      "source": "NPR News",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "How exactly did Trump get so rich on crypto? We explain",
+      "source": "NPR News",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "New York City unveils a bold plan to move its jails off Rikers Island",
+      "source": "NPR News",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Critics are calling what brand-new release a masterpiece? The quiz knows",
+      "source": "NPR News",
+      "reason": "blocklist: quiz"
+    },
+    {
+      "title": "A challenge for Tennessee, Big Ten road tests and 40 other key contests",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Game Day Kickoff: Buying into Week 12 and appreciating Jeremiah Smith's greatness",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Tide turned: DeBoer says this is most complete Bama team he's had",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Wemby debuts 'shunk,' part jump shot, part dunk done with reason",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Sources: Loáisiga back to Bronx after agreeing to 2-year deal",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Luis Jr. ends fight to play at LSU after Wade instructed to stop playing star",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Rams WR Nacua suspended 3 games, to serve while on IR",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "'Legend' Pete Rose receives posthumous presidential pardon from Trump",
+      "source": "ESPN Top Headlines",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Agents push back against 'fundamentally unfair' SEC standardized player contracts",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "❤️ Bengals, Reds pay tribute to Fiona the hippo after her death",
+      "source": "ESPN Top Headlines",
+      "reason": "blocklist: obituary"
+    },
+    {
+      "title": "Our guide to every NFL Week 11 game: Matchup previews, predictions, picks and nuggets",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "One Ohio State football team could win it all -- just not the one you think",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "What NBA insiders see from Boozer, Dybantsa and seven other top rookies",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Skubal to Mets? MLB offseason dominoes for biggest free agents",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "NHL Power Rankings: Updated poll, plus fantasy hockey add/drops for all 32 teams",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Wysh List: Ovechkin, the Sharks and the NHL's other disappointments",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Power Rankings: Duke keeps dropping, Kansas takes top spot",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "LSU, Duke, UConn hold serve in the expanded top 25 recruiting class rankings",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Feast Week guide: South Carolina-UConn and the 26 biggest games to watch",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "'Another universe': How Indiana football changed Bloomington",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Things go south in Carolina -- and we salute a Bottom 10 legend",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Pochettino's Man United squad audit: Big calls to make on stars like Fernandes, Rashford",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Liverpool are terrible at Anfield this season, but will it matter vs. Man United?",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Last-minute pickups for Week 11: Flournoy, Ayomanor among top candidates",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "What to know to set your lineup: Opportunity knocking for these Titans, Broncos",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Eight stadiums, seven countries, four continents: NFL field director has earned a break",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Alexis Stucky, Kennedy Martin and volleyball's riskiest reunion",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Kevin Hart talks golf, his dream foursome and the first Live Más Open",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Top 10 trades or pickups you should make soon",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Points rankings: Rookies Lendeborg, Acuff Jr. move up",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Round 1 predictions: Who will move on to the conference semifinals?",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Who will win the NWSL Championship? Predicting Washington Spirit vs. Kansas City Current",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "The NWSL has more money than ever, yet its biggest problems remain",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Transfer rumors, news: Arsenal want World Cup winner Williams",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Reid's midseason 2027 NFL mock draft: Four QBs and a trade to shake things up",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Which team will land the No. 1 pick? Our look at a five-franchise race",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Inside a practice with Prolific Prep, the No. 1 high school team in the nation",
+      "source": "ESPN Top Headlines",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Witness says Texas execution of Houston man was “botched”",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Tarrant County Republicans, stung by defeat, are soul-searching and finger-pointing",
+      "source": "The Texas Tribune",
+      "reason": "same story already posted (another outlet or format): Tarrant County Republicans, stung by defeat, are soul-search"
+    },
+    {
+      "title": "A Texas police department got $100K after a single immigration arrest. It stands to earn much more.",
+      "source": "The Texas Tribune",
+      "reason": "other-metro crime, not statewide"
+    },
+    {
+      "title": "Ken Paxton, feds agree to keep razor wire at Texas border for the next 30 years",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Huffines’ limit on data tax will cost Texas $18 billion, comptroller’s office projects",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas’ next agriculture commissioner says agency will protect people, land",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Corpus Christi drilled wells at “lightning speed,” leaving neighbors fearing for their water supply",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "How Texas Republicans’ redistricting bet on Latino voters came up short",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Odessa Republican says some rural Texans feel “taken for granted,” sees path to bipartisanship in 2027",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Sen. John Cornyn blocks Trump nominee for federal judge in Texas",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Gov.-elect Gina Hinojosa says she talked border with Trump, will roll back Abbott executive orders on H-1B visas, THC",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
+      "source": "The Texas Tribune",
+      "reason": "same story already posted (another outlet or format): Largest enrollment drop in Texas’ recorded history means cha"
+    },
+    {
+      "title": "Texas sees political momentum for legalizing weed, but significant hurdles remain",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "One in three Texas students leaves college without a degree, new study says",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas Democrats have a chance to expand voting access. They still need Republicans’ support.",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "TribCast: Dade Phelan on the future of the House and the GOP",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Ken Paxton drops out of doctor’s lawsuit against the Texas Medical Board",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas regulators are resuming environmental permits for data centers",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Ken Paxton’s office ends lawsuit seeking to ban Muslim civil rights group in Texas",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Ken Paxton’s office drops lawsuit accusing NCAA of deceptive marketing of women’s sports",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "The Top Texas Gifts of 2026",
+      "source": "Texas Monthly",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "He Was Unemployed. He Had a Heart Attack. He Turned to Barbecue.",
+      "source": "Texas Monthly",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Should Places That Serve Tacos Have Dress Codes?",
+      "source": "Texas Monthly",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "At Sharkathon, the Trophies Are Nice, but Preserving the Gulf Is the Real Prize",
+      "source": "Texas Monthly",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "The Daily Crossword: November 20, 2026",
+      "source": "Texas Monthly",
+      "reason": "blocklist: crossword"
+    },
+    {
+      "title": "The Texas GOP’s Bo French Problem Won’t Go Away",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "11 of Our Favorite Pizza Restaurants in Texas",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas’s Incoming Democratic Attorney General Answers Our Biggest Questions",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "The Daily Crossword: November 19, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Word Wrangler: November 19, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "This Puerto Rican Barbecue Truck Is Changing San Antonio’s Barbecue Scene",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "And God Said, “Let There Be Reality Dating Shows.” And There Was ‘The Vow.’",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas’s Newest State Park Is a Plant Nerd’s Delight",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "The Daily Crossword: November 18, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Word Wrangler: November 18, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "‘Where the River Took Us’ Makes Apple Podcasts’ Best Shows of 2026 List",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Why Kevin Bacon Shot His New Comedy-Horror Movie in the Antiques Capital of Texas",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "We Obtained a Week’s Worth of Body Camera Footage From a Texas State Trooper Who Turns Immigrants Over to ICE",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Can Gina Hinojosa Lower Texans’ Electricity Bills?",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "The Daily Crossword: November 17, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Word Wrangler: November 17, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "A Sneak Peek at the Sprawling New Park Coming to the Austin Area",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Austin Mayor Pro Tem announces resignation, run for Texas Senate",
+      "source": "KXAN Austin",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "NOAA releases batch of July 4 flood records",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "One immigration arrest earned this Texas town $100,000",
+      "source": "KXAN Austin",
+      "reason": "other-metro crime, not statewide"
+    },
+    {
+      "title": "His wife was killed, but an Austin 911 operator told him she was OK",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Travis County sheriff signs ICE agreement ahead of Texas deadline, calls for law to change",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Two fronts on the way before Thanksgiving",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Family of Robb Elementary victim hope their experience inspires mass casualty preparedness at hospitals",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "State lawmakers file bills to repeal Texas' bans on DEI in public schools, higher education",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Comptroller ends participation in 'legal theft' civil asset forfeiture",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Ronald Reagan Blvd widening project completes latest section in Williamson County",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Wildlife rehabilitator raises concerns over Texas' pet raccoon bill",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Southeast Austin park renamed to honor Travis County's 1st female constable",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "2 dead following apparent murder-suicide in Gillespie County",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Truck driver in 2025 deadly I-35 crash facing new charges",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "How many hours of work to afford 'Grand Theft Auto VI'?",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Restaurant crashes keep happening. One victim wants change",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "December forecast: What to expect as winter begins",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Sarkisian hopes to send Texas seniors out in style against Arkansas",
+      "source": "KXAN Austin",
+      "reason": "same story already posted (another outlet or format): Sarkisian hopes to send Texas seniors out in style against A"
+    },
+    {
+      "title": "Texas execution took over an hour as staff struggled to find vein; Reinaldo Dennes moaned about pain",
+      "source": "KXAN Austin",
+      "reason": "blocklist: execution"
+    },
+    {
+      "title": "Austin weekend: Theater performances, Bastrop B-day",
+      "source": "KXAN Austin",
+      "reason": "another city's weekend roundup"
+    },
+    {
+      "title": "Cincinnati Zoo's famed Fiona the hippo dies days after eating a visitor’s hat",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Austin voter files lawsuit challenging approved Prop J",
+      "source": "KXAN Austin",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Cement truck rollover shuts down CR 279 in Williamson County",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Central Texas high school football playoffs: Area-round matchups",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "'GTA VI' finally reveals the actors, voices and familiar names behind Vice City",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Bathroom wall threat prompts extra patrols at Houston ISD elementary school",
+      "source": "KHOU 11 Houston",
+      "reason": "another city's government"
+    },
+    {
+      "title": "Conroe ISD elementary teacher arrested on child pornography charges",
+      "source": "KHOU 11 Houston",
+      "reason": "blocklist: child porn"
+    },
+    {
+      "title": "Police investigate reported threat at Humble High School, constable says",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Corvette driver arrested twice in 9 days after Houston police chases",
+      "source": "KHOU 11 Houston",
+      "reason": "other-metro crime, not statewide"
+    },
+    {
+      "title": "Harris County sees troubling shift in traffic crashes, sheriff's office says",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Police investigating Houston crash that left 8-year-old critically injured",
+      "source": "KHOU 11 Houston",
+      "reason": "other-metro traffic, not statewide"
+    },
+    {
+      "title": "Cornyn blocks Trump's pick for Texas judge as GOP tensions grow",
+      "source": "KHOU 11 Houston",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Buyers are paying top dollar for items belonging to inmates who may not even know they're being sold",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Lexus theft raises questions about how thief bypassed SUV’s security",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Houston SuperFeast organizers make urgent plea for Thanksgiving food donations",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas hunter charged after bullet enters home, passes near where resident had been lying",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Two Houston game rooms could be shut down permanently over alleged illegal gambling",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "High-speed chase through Houston ends in Heights-area park",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texans vs. Colts tonight: Roof open at Reliant Stadium for Thursday Night Football",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Conroe ISD lifts lockdowns after threatening call is determined to be a hoax",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Gov.-elect Gina Hinojosa says she talked border with Trump, will roll back Abbott executive orders on H-1B visas, THC",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Houston-area school district restricts network access after attempted cybersecurity intrusion",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Former Texas lab CEO gets prison time for falsifying wastewater tests",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Unique Sugar Land mansion on three acres for sale",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Execution set for Houston man who killed jeweler in million-dollar diamond heist",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Former Texas political candidate says country club voted to expel him",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    }
+  ],
+  "notes": [
+    "last post is scheduled ahead (13:09 local); new posts are spaced after it",
+    "link post (outlet's own photo in the preview): Georgia AG encourages SEC to take 'action' vs. LSU, 'includi"
+  ]
+}

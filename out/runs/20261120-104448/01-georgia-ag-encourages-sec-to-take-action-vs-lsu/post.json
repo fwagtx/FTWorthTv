@@ -1,0 +1,45 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.espn.com/mens-college-basketball/story/_/id/50524054/georgia-ag-asks-sec-take-action-vs-lsu-expulsion",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Georgia AG encourages SEC to take 'action' vs. LSU, 'including expulsion'",
+    "caption": "The Georgia Attorney General blasted LSU in a letter to SEC commissioner Greg Sankey, encouraging sanctions against the Tigers, \"up to and including expulsion.\"",
+    "first_comment": "Source: ESPN College Football https://www.espn.com/mens-college-basketball/story/_/id/50524054/georgia-ag-asks-sec-take-action-vs-lsu-expulsion\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "7a4751ec306d6836",
+    "source": "ESPN College Football",
+    "source_kind": "rss",
+    "title": "Georgia AG encourages SEC to take 'action' vs. LSU, 'including expulsion'",
+    "summary": "The Georgia Attorney General blasted LSU in a letter to SEC commissioner Greg Sankey, encouraging sanctions against the Tigers, \"up to and including expulsion.\"",
+    "url": "https://www.espn.com/mens-college-basketball/story/_/id/50524054/georgia-ag-asks-sec-take-action-vs-lsu-expulsion",
+    "published": "2026-11-20T16:37:16+00:00",
+    "category_hint": null,
+    "image_url": null,
+    "image_credit": "Photo: ESPN College Football",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.48999999999999994,
+    "extra": {
+      "feed_title": "www.espn.com - NCF",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.4527
+  }
+}
