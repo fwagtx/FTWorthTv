@@ -196,3 +196,19 @@ def test_a_gift_guide_is_not_news():
     assert shopping_guide("The Top Texas Gifts of 2026", "https://www.texasmonthly.com/style/top-texas-gift-guide-2026/")
     assert shopping_guide("Best gifts for the Cowboys fan in your life")
     assert not shopping_guide("Fort Worth toy drive collects 4,000 gifts for Tarrant County kids")
+
+
+def test_a_conference_name_does_not_make_a_georgia_story_texas_news(settings, now):
+    from datetime import timedelta
+    from ftworthtv.filters import filter_stories
+    from ftworthtv.models import Story
+    from ftworthtv.state import State
+    settings.state_path.parent.mkdir(parents=True, exist_ok=True)
+    georgia = Story(id="g1", source="ESPN College Football", source_kind="rss", title="Georgia AG encourages SEC to take 'action' vs. LSU, 'including expulsion'",
+                    summary="The Georgia Attorney General blasted LSU in a letter to SEC commissioner Greg Sankey.", url="https://www.espn.com/a",
+                    published=now - timedelta(hours=1), category_hint="sports", extra={"national": True})
+    cowboys = Story(id="c1", source="ESPN NFL", source_kind="rss", title="Cowboys beat Eagles 24-17 as Dak Prescott throws three touchdowns",
+                    summary="The Dallas Cowboys beat the Philadelphia Eagles at AT&T Stadium in Arlington, Texas.", url="https://www.espn.com/b",
+                    published=now - timedelta(hours=1), category_hint="sports", extra={"national": True})
+    kept, dropped = filter_stories([georgia, cowboys], settings, State(settings.state_path), now)
+    assert [s.id for s in kept] == ["c1"] and dropped and dropped[0][0].id == "g1"

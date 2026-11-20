@@ -109,31 +109,43 @@ rss:
     weight: 0.7
     image_policy: none
     verify: true
+    national: true
+
   - name: ESPN NBA
     url: https://www.espn.com/espn/rss/nba/news
     weight: 0.7
     image_policy: none
     verify: true
+    national: true
+
   - name: ESPN MLB
     url: https://www.espn.com/espn/rss/mlb/news
     weight: 0.7
     image_policy: none
     verify: true
+    national: true
+
   - name: ESPN NHL
     url: https://www.espn.com/espn/rss/nhl/news
     weight: 0.6
     image_policy: none
     verify: true
+    national: true
+
   - name: ESPN College Football
     url: https://www.espn.com/espn/rss/ncf/news
     weight: 0.7
     image_policy: none
     verify: true
+    national: true
+
   - name: ESPN College Basketball
     url: https://www.espn.com/espn/rss/ncb/news
     weight: 0.6
     image_policy: none
     verify: true
+    national: true
+
   - name: Texas Rangers (MLB.com)
     url: https://www.mlb.com/rangers/feeds/news/rss.xml
     weight: 0.8
@@ -487,7 +499,7 @@ relevance:
                    astros, rockets, spurs, "houston texans", "c.j. stroud",
                    # the schools: UT system campuses, Texas A&M, Texas Tech, Baylor, SMU, UNT, Texas State, Houston (TCU and UTA are local)
                    "university of texas", "ut austin", "ut system", longhorns, "texas longhorns", "ut dallas", utsa, roadrunners, utep, "ut tyler", "ut permian",
-                   "texas a&m", aggies, "texas tech", "red raiders", baylor, smu, mustangs, "north texas", "mean green", "texas state", "houston cougars", "big 12", "sec "]
+                   "texas a&m", aggies, "texas tech", "red raiders", baylor, smu, mustangs, "north texas", "mean green", "texas state", "houston cougars", "big 12"]
   # ---- the national beat (sources marked national: true) ----
   # one hit on the watchlist is enough: these are the moments the whole country talks about
   watchlist: ["gta vi", "gta 6", "grand theft auto vi", "grand theft auto 6", "super bowl", "world series", "nba finals", "stanley cup final",
