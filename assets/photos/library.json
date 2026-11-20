@@ -14,14 +14,16 @@
  {
   "id": "lib-american-airlines-center-west-entrance-jpg",
   "file": "assets/photos/aac/american-airlines-center-west-entrance-jpg.jpg",
-  "topic": "aac",
+  "topic": "dallas-stars",
   "title": "File:American Airlines Center West Entrance.jpg",
   "credit": "Photo: The World's Signature via Wikimedia Commons (CC BY-SA 4.0)",
   "license": "wikimedia-cc",
   "licence_name": "CC BY-SA 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:American_Airlines_Center_West_Entrance.jpg",
   "width": 1280,
-  "height": 960
+  "height": 960,
+  "topics": null,
+  "note": "Stanley Cup Playoffs banner on the facade: a Stars picture, not a Mavericks one"
  },
  {
   "id": "lib-dallas-november-2018-2-american-airlines-center-jpg",
