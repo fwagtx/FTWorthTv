@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=ZtuZ-nKRsLg",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "Fort Worth Science and History Museum membership can get you savings at other museums",
+    "caption": "WATCH: Fort Worth Science and History Museum membership can get you savings at other museums\n\nVideo: WFAA on YouTube",
+    "first_comment": "Source: WFAA on YouTube https://www.youtube.com/watch?v=ZtuZ-nKRsLg\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "8b4fd0691d844aec",
+    "source": "WFAA",
+    "source_kind": "video",
+    "title": "Fort Worth Science and History Museum membership can get you savings at other museums",
+    "summary": "Fort Worth Science and History Museum membership can get you savings at other museums, too! Here's what you need to know.",
+    "url": "https://www.youtube.com/watch?v=ZtuZ-nKRsLg",
+    "published": "2026-11-20T13:25:27+00:00",
+    "category_hint": null,
+    "image_url": "https://i3.ytimg.com/vi/ZtuZ-nKRsLg/hqdefault.jpg",
+    "image_credit": "Video: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "ZtuZ-nKRsLg",
+      "channel": "WFAA",
+      "handle": "@WFAA8",
+      "views": 3,
+      "feed_title": "WFAA",
+      "scope": "local"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.9679
+  }
+}
