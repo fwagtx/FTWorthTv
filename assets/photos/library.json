@@ -1636,7 +1636,7 @@
   "file": "assets/photos/skyline/fort-worth-tx-skyline-from-i-35-w-img-7078-jpg.jpg",
   "topic": "skyline",
   "title": "File:Fort Worth, TX, skyline from I-35 W IMG 7078.JPG",
-  "credit": "Photo: No machine-readable author provided. Billy Hathorn assumed (based on copyright c via Wikimedia Commons (CC BY-SA 3.0)",
+  "credit": "Photo: Billy Hathorn assumed (based on copyright c via Wikimedia Commons (CC BY-SA 3.0)",
   "license": "wikimedia-cc",
   "licence_name": "CC BY-SA 3.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth,_TX,_skyline_from_I-35_W_IMG_7078.JPG",
@@ -2674,5 +2674,41 @@
   "source_url": "https://commons.wikimedia.org/wiki/File:Museum_of_Living_Art_Fort_Worth_Zoo,_March_2026.jpg",
   "width": 1280,
   "height": 960
+ },
+ {
+  "id": "sunshine-lib-downtown-fort-worth-jpg",
+  "file": "assets/photos/skyline/downtown-fort-worth-jpg.jpg",
+  "topic": "sunshine",
+  "title": "File:Downtown Fort Worth.jpg",
+  "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+  "license": "wikimedia-cc",
+  "licence_name": "CC BY 4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth.jpg",
+  "width": 1400,
+  "height": 630
+ },
+ {
+  "id": "sunshine-lib-downtown-fort-worth-skyline-jpg",
+  "file": "assets/photos/skyline/downtown-fort-worth-skyline-jpg.jpg",
+  "topic": "sunshine",
+  "title": "File:Downtown Fort Worth Skyline.jpg",
+  "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+  "license": "wikimedia-cc",
+  "licence_name": "CC BY 4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth_Skyline.jpg",
+  "width": 1400,
+  "height": 593
+ },
+ {
+  "id": "sunshine-lib-fort-worth-courthouse-jpg",
+  "file": "assets/photos/skyline/fort-worth-courthouse-jpg.jpg",
+  "topic": "sunshine",
+  "title": "File:Fort Worth Courthouse.jpg",
+  "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+  "license": "wikimedia-cc",
+  "licence_name": "CC BY 4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_Courthouse.jpg",
+  "width": 1400,
+  "height": 630
  }
 ]

@@ -37,6 +37,13 @@ def load_candidates(paths: list[str]) -> dict[str, dict]:
     return out
 
 
+def clean_credit(credit: str) -> str:
+    """Commons boilerplate ("No machine-readable author provided. X assumed (based on copyright claims)") becomes "X"."""
+    c = re.sub(r"No machine-readable author provided\.?\s*", "", credit or "")
+    c = re.sub(r"\s*assumed\s*\(based on copyright claims\)\.?", "", c)
+    return re.sub(r"\s{2,}", " ", c).strip()
+
+
 def slug(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:60]
 
@@ -68,7 +75,7 @@ def main() -> None:
             im.save(dest, "JPEG", quality=80, optimize=True)
             w, h = im.size
         entries[pid] = {"id": pid, "file": dest.relative_to(ROOT).as_posix(), "topic": topic, "title": c.get("title", name),
-                        "credit": c["credit"], "license": "wikimedia-cc", "licence_name": c.get("license", ""),
+                        "credit": clean_credit(c["credit"]), "license": "wikimedia-cc", "licence_name": c.get("license", ""),
                         "source_url": c.get("source_url"), "width": w, "height": h}
         added += 1
     LIB_DIR.mkdir(parents=True, exist_ok=True)
