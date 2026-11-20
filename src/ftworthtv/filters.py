@@ -74,7 +74,8 @@ def other_region(title: str) -> bool:
 
 
 _CIVIC_RE = re.compile(r"\b(mayor|mayor pro tem|city council|council ?(?:member|man|woman)|city manager|police chief|fire chief|isd|school board|"
-                       r"county judge|commissioners?|city hall|town hall|trustees?)\b", re.I)
+                       r"county judge|commissioners?|city hall|town hall|trustees?|voters?|residents|prop\.? ?[a-z0-9]{1,3}|proposition|"
+                       r"bond election|zoning|city budget|tax rate)\b", re.I)
 
 
 def other_metro_local(title: str) -> bool:

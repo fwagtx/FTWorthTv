@@ -251,11 +251,15 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             from .judge import photo_fits
             if sp.mode not in ("entity", "search"):
                 recent_after, recent_flags = "", [False] * len(queries)
+            from datetime import datetime as _dt2, timezone as _tz2
+            from .subject import photo_age_bar
+            stamp_all = story.published or _dt2.now(_tz2.utc)
             for query, lab, recent in zip(queries, labels, recent_flags):
                 if visual_event and not recent:
                     continue                                  # only a picture taken at the event will do
+                bar = max(recent_after if recent else "", photo_age_bar(lab, stamp_all))   # a 2012 team photo is not the 2026 team
                 cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=avoid, fallback=sp.mode == "beat",
-                                  taken_after=recent_after if recent else "")
+                                  taken_after=bar)
                 if not cand:
                     continue
                 background = _download(cand.url, workdir / "photo")

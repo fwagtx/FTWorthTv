@@ -165,6 +165,9 @@ def entities(title: str, body: str = "") -> list[str]:
         low = phrase.lower()
         possessive = any(w.endswith(("'s", "’s")) for w in run)
         acronym = len(words) == 1 and words[0].isupper() and len(words[0]) >= 2 and low not in ACRONYM_STOP
+        if re.match(r"^(prop|proposition|measure|amendment|item|district|precinct|zone|lot|phase|section)\b\.? ?[a-z0-9]{0,4}$", low):
+            i = max(j, i + 1)                              # "Prop J", "District 61", "Phase 2": a label, never a picture subject
+            continue
         keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and low not in COMMON_NOUNS and (
             len(words) > 1 or possessive or acronym or low in body_mid or _known_subject(low) or i > 0 and low not in STOP)
         if keep and phrase not in out:
@@ -265,6 +268,18 @@ ORG_WORDS = ("isd", "inc", "llc", "corp", "company", "university", "college", "s
              "city", "council", "foundation", "church", "hospital", "bank", "airlines", "group", "association", "club", "team", "fc",
              "cowboys", "rangers", "mavericks", "stars", "frogs", "mavs", "wings", "texans", "astros", "rockets", "spurs", "tcu", "uta",
              "smu", "unt", "baylor", "tech", "aggies", "longhorns") + VENUE_WORDS
+
+
+def photo_age_bar(label: str, stamp, years: int = 3) -> str:
+    """A team or a person changes: a photo older than `years` (or undated) is not a picture of them today. Buildings, venues
+    and institutions keep their file photos. Returns the earliest acceptable 'taken' date (ISO) or '' for no bar."""
+    if not label.startswith("entity:"):
+        return ""
+    name = label.split(":", 1)[1]
+    if is_venue(name) or any(w in name.lower().split() for w in ORG_WORDS):
+        return ""
+    from datetime import timedelta
+    return (stamp - timedelta(days=365 * years)).date().isoformat()
 
 
 def looks_like_person(name: str) -> bool:

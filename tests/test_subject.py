@@ -161,3 +161,21 @@ def test_a_thing_that_happened_is_recognised():
     assert not happened("No. 2 Utah visits TCU on Saturday night, one win from the Big 12 title game")
     assert not happened("Parade of Lights rolls through downtown Fort Worth this Sunday", "culture")
     assert not happened("Fort Worth police searching for Kenneth Gaines", "wanted")
+
+
+def test_a_ballot_label_is_not_a_photo_subject():
+    from ftworthtv.images.subject import entities, plan_subject
+    assert "Prop J" not in entities("Austin voter files lawsuit challenging approved Prop J")
+    plan = plan_subject("Texas House District 61 race margin is just seven votes; recount filed with state", "", "politics")
+    assert "District 61" not in plan.search_names
+
+
+def test_a_team_or_person_photo_must_be_recent_and_dated():
+    from datetime import datetime, timezone
+    from ftworthtv.images.subject import photo_age_bar
+    stamp = datetime(2026, 11, 20, tzinfo=timezone.utc)
+    assert photo_age_bar("entity:uswnt", stamp) == "2023-11-21"          # a 2012 trophy lift is not the 2026 team
+    assert photo_age_bar("entity:ty myers", stamp) == "2023-11-21"
+    assert photo_age_bar("entity:dickies arena", stamp) == ""             # a building keeps its file photo
+    assert photo_age_bar("entity:northwest isd", stamp) == ""
+    assert photo_age_bar("beat:skyline", stamp) == ""

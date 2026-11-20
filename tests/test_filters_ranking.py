@@ -175,3 +175,9 @@ def test_another_citys_government_is_that_citys_news():
     assert other_metro_local("Houston City Council approves $7 billion budget")
     assert not other_metro_local("Fort Worth City Council approves budget")
     assert not other_metro_local("Texas Senate passes property tax cut")
+
+
+def test_another_citys_ballot_fight_is_that_citys_news():
+    from ftworthtv.filters import other_metro_local
+    assert other_metro_local("Austin voter files lawsuit challenging approved Prop J")
+    assert not other_metro_local("Tarrant County voters approve $1.2 billion bond")
