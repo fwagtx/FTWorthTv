@@ -12,7 +12,7 @@ def test_offline_dry_run_end_to_end(settings, now):
     assert len(report.drafts) == 3 and all(r.ok for r in report.results)
     assert report.drafts[0].story.source_kind == "nws_alert"          # severe weather first
     assert report.drafts[1].scheduled_at is not None                    # later posts are spaced out
-    for draft in report.drafts:
+    for draft in [d for d in report.drafts if d.mode != "link"]:   # the I-35W crash (a thing that happened) goes out as a link post
         assert draft.image and draft.image.path.exists()
         folder = draft.image.path.parent
         assert (folder / "post.json").exists() and (folder / "caption.txt").exists()
@@ -126,3 +126,15 @@ def test_wanted_bulletins_have_a_daily_cap(settings, now):
     report = run(settings, now=now, stories=[fresh], publisher_name="dryrun")
     assert not any(d.story.source_kind == "wanted" for d in report.drafts)
     assert any(reason == "wanted bulletins for today are used up" for _, reason in report.skipped)
+
+
+def test_a_play_that_happened_never_takes_the_stadium_as_a_stand_in(settings, now):
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    story = Story(id="p1", source="NBC 5 DFW (AP)", source_kind="rss", title="Cowboys beat Eagles 24-17 at AT&T Stadium as Dak Prescott throws three touchdowns",
+                  summary="The Dallas Cowboys beat the Philadelphia Eagles 24-17 on Sunday at AT&T Stadium in Arlington.", url="https://www.nbcdfw.com/x",
+                  published=now - timedelta(hours=2), category_hint="sports", extra={"scope": "local"})
+    settings.max_posts = 1
+    report = run(settings, now=now, stories=[story], publisher_name="dryrun")
+    d = report.drafts[0]
+    assert d.mode == "link" and d.image is None            # the outlet's own photo of the game shows in the preview; no file photo of the stadium

@@ -201,7 +201,9 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             lib_topics = topics_for(story.text(), copy.category, scope, title=story.title)
         log.info("photo subject for %r: %s (%s)", story.title[:60], sp.mode, sp.primary or ", ".join(lib_topics[:3]))
         avoid = avoid_words_for(story.text())
-        library_first = sp.mode in ("entity", "institution") or (copy.category not in PROVIDER_FIRST and story.source_kind not in ("event", "event_roundup"))
+        from .subject import happened as _happened
+        visual_event = _happened(story.title, story.source_kind)   # a play, a crash, a ceremony: a picture of it or none, never the venue
+        library_first = (sp.mode in ("entity", "institution") or (copy.category not in PROVIDER_FIRST and story.source_kind not in ("event", "event_roundup"))) and not visual_event
 
         def from_library():
             if not lib_topics:
@@ -250,6 +252,8 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             if sp.mode not in ("entity", "search"):
                 recent_after, recent_flags = "", [False] * len(queries)
             for query, lab, recent in zip(queries, labels, recent_flags):
+                if visual_event and not recent:
+                    continue                                  # only a picture taken at the event will do
                 cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=avoid, fallback=sp.mode == "beat",
                                   taken_after=recent_after if recent else "")
                 if not cand:
@@ -277,7 +281,7 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                         except Exception:
                             pass
                     break
-        if background is None and lib_photo is None:
+        if background is None and lib_photo is None and not visual_event:
             lib_photo = from_library()
         if background is None and lib_photo is not None:
             background = lib_photo.path
@@ -286,7 +290,8 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             if exclude_photos is not None:
                 exclude_photos.add(lib_photo.id)
         if background is None:
-            log.info("no verified photo of %r: the card goes out without one", sp.primary or story.title[:60])
+            log.info("no %s of %r: the card goes out without one", "picture of the event itself" if visual_event else "verified photo",
+                     sp.primary or story.title[:60])
 
     card_cfg = brand.get("card", {}) or {}
     style = card_cfg.get("style", "tweet")

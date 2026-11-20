@@ -17,6 +17,7 @@ ISD), a person (Cooper Flagg), a venue (Dickies Arena), an institution (Fort Wor
 | a district, a police or fire department, a county court | the district's school, the department, the courthouse | downtown, the skyline |
 | a place or landmark | that place | another city's landmark, ever |
 | nothing in particular (a roundup, a statewide statistic) | the beat it is about (schools, grocery, storm, highway), then the city | a subject it does not mention |
+| something that happened (a play, an injury, a crash, a fire, a ceremony, an arrest) | a picture of that happening, or the outlet's own photo in a link preview | the stadium, the highway, the building: a stand-in is a lie about the event |
 
 If no verified photo of the subject exists, an outlet story goes out as a link post (the outlet's own photo in the
 preview, no copy made) and anything else as a card with no photo. A blank card is honest; the wrong photo is a lie about
@@ -71,6 +72,7 @@ pursue reposts), screenshots of other pages' posts, another outlet's photo lifte
 | Nov 20 | San Antonio Zoo mourning a hippo's sweetheart with a USDA inspection of an ocelot at the same zoo | the zoo matched; the animal did not | when the headline names an animal, the photo's file name or title must carry it too (`animal_in`, alternatives like hippo/hippopotamus); otherwise the outlet story goes out as a link post |
 | Nov 20 | 'Austin weekend: Theater performances, Bastrop B-day' with a Minneapolis theater | 'Theater' was taken as a subject, and the story was another city's calendar | a lone common noun is never a subject (`COMMON_NOUNS`); another metro's weekend roundup is dropped by the filter (`other_metro_roundup`) |
 | Nov 20 | 'Why fall foliage looks different across South Central Texas' with a GOES storm image | the region was searched as a subject, and the story was another region's | regions are places (`PLACES`), never searched; another region's story is dropped by the filter (`other_region`) |
+| Nov 20 | Texans' Chris Braswell carted off on the opening kickoff, with an aerial of NRG Stadium | the team's ground stood in for the play | a story about something that happened (`happened`) takes a picture from the event or none; outlet stories then go out as link posts with the outlet's photo; the stadium is never a stand-in |
 | Nov 20 | A basketball showcase and a country concert at Dickies Arena with a K-pop concert photo | the file was titled "Twice - Dickies Arena" and the venue words matched | a venue is searched as a building (its category, "exterior", "building"); a photo of somebody else's show is never used for an event; the lesson row is in the fixture |
 
 ## 4. The daily review

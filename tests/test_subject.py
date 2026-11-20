@@ -151,3 +151,13 @@ def test_a_zoo_story_needs_the_animal_in_the_photo_name():
     plan = plan_subject(title, "", "culture")
     pairs = [q for q, label in provider_queries(plan, title, "culture", people_allowed=True) if label == "entity:san antonio zoo"]
     assert pairs and all(any(w.startswith("hippo") for w in q[2]) for q in pairs)   # an ocelot on an operating table is not the story
+
+
+def test_a_thing_that_happened_is_recognised():
+    from ftworthtv.images.subject import happened
+    assert happened("Braswell, in debut for Texans, carted off with knee injury on opening kickoff")
+    assert happened("Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury")
+    assert happened("Crash shuts down northbound I-35W near downtown")
+    assert not happened("No. 2 Utah visits TCU on Saturday night, one win from the Big 12 title game")
+    assert not happened("Parade of Lights rolls through downtown Fort Worth this Sunday", "culture")
+    assert not happened("Fort Worth police searching for Kenneth Gaines", "wanted")

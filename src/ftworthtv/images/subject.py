@@ -273,6 +273,26 @@ def is_venue(name: str) -> bool:
     return any(w in low.split() or low.endswith(" " + w) for w in VENUE_WORDS)
 
 
+HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "scores ", "scored", " beat ", " beats ", " wins ", " won ", " loses ",
+                  " lost ", "defeats", "defeated", "rallies", "rallied", "clinches", "clinched", "stuns", "stunned", "upsets", "suffers", "tears ",
+                  " tore ", "ruled out", "ejected", "hospitalized", "sets record", "snaps ", " rout", "blowout", "comeback", "walk-off",
+                  "overtime", "final:", "recap", "takeaways", "highlights", "crash", "collision", "wreck", " shot ", "shooting", "stabbed",
+                  "collapsed", "caught fire", "burned", "burns ", "explosion", "flooded", "flooding", "tornado", "hail ", "evacuated",
+                  "rescued", "pulled from", " dies ", " died ", "killed", " dead ", "arrested", "charged with", "indicted", "sentenced",
+                  " fired", "resigns", "resigned", "steps down", "walks out", "protest", "ceremony", "ribbon", "reopens", "debut")
+
+
+def happened(title: str, kind: str = "rss") -> bool:
+    """A story about something that already happened and was seen (a play, a crash, a fire, a ceremony, an arrest):
+    its picture must be of that happening, or the outlet's own photo in a link preview; a file photo of the stadium or
+    the highway is a stand-in, and the page's owner does not want stand-ins. Official sources (police bulletins, weather,
+    events, the calendar, viewer clips) bring their own pictures and are not affected."""
+    if kind not in ("rss", "video"):
+        return False
+    low = f" {(title or '').lower()} "
+    return any(w in low for w in HAPPENED_WORDS)
+
+
 GENERIC_EVENT_WORDS = ("parade", "festival", "market", "fair", "show", "lights", "run", "race", "marathon", "gala", "expo", "fest",
                        "jubilee", "carnival", "rodeo", "powwow", "pow-wow", "tour", "walk", "ride")
 

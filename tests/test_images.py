@@ -145,7 +145,7 @@ def test_default_style_is_our_post_card(settings, now, tmp_path):
     from ftworthtv.pipeline import run
     settings.max_posts = 3
     report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
-    assert all(d.image and d.image.path.name == "post.jpg" for d in report.drafts)
+    assert all(d.image and d.image.path.name == "post.jpg" for d in report.drafts if d.mode != "link")   # a crash that happened is a link post now
 
 
 def test_required_phrase_alternatives(settings):
