@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=EFoDpQ7VQMk",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "food",
+    "headline": "Downton Fort Worth restaurant reopens three years after an explosion",
+    "caption": "WATCH: Downton Fort Worth restaurant reopens three years after an explosion\n\nVideo: WFAA on YouTube",
+    "first_comment": "Source: WFAA on YouTube https://www.youtube.com/watch?v=EFoDpQ7VQMk\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Texas barbecue plate",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c781fe47659b2dbf",
+    "source": "WFAA",
+    "source_kind": "video",
+    "title": "Downton Fort Worth restaurant reopens three years after an explosion",
+    "summary": "Downton Fort Worth restaurant reopens three years after an explosion. The Sandman Hotel will reopen by the end of the year.",
+    "url": "https://www.youtube.com/watch?v=EFoDpQ7VQMk",
+    "published": "2026-11-20T12:48:37+00:00",
+    "category_hint": null,
+    "image_url": "https://i2.ytimg.com/vi/EFoDpQ7VQMk/hqdefault.jpg",
+    "image_credit": "Video: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "EFoDpQ7VQMk",
+      "channel": "WFAA",
+      "handle": "@WFAA8",
+      "views": 11,
+      "feed_title": "WFAA",
+      "scope": "local"
+    },
+    "category": "food",
+    "relevance": 2,
+    "score": 1.1456
+  }
+}
