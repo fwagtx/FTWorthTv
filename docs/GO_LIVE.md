@@ -16,6 +16,7 @@ The watcher workflow (`.github/workflows/watch.yml`) already runs continuously o
 | 3 | same page → **Variables** | `FTWTV_PUBLISHER` = `metricool` · `MEDIA_BASE_URL` = `https://raw.githubusercontent.com/fwagtx/FTWorthTv/claude/practical-mccarthy-mi4jkw` |
 | 4 | optional, better captions | secret `CLAUDE_CODE_OAUTH_TOKEN` from `claude setup-token` on your computer (uses your Claude subscription; without it the template writer runs) |
 | 5 | optional | variable `METRICOOL_AUTOPUBLISH` = `false` if you want to approve every post on your phone at first; secret `NWS_USER_AGENT` = any text with a contact email, for weather alerts; photo keys `UNSPLASH_ACCESS_KEY`, `FLICKR_API_KEY`, `PIXABAY_API_KEY` |
+| 6 | strongly recommended, free | secret `FLICKR_API_KEY` from flickr.com/services/apps/create (a minute): the largest pool of same-week Creative Commons photos of real Fort Worth events, games and places. Without it the page has Wikimedia Commons and Openverse only. The photo rules are in `docs/IMAGE_RULES.md`. |
 
 Variables `METRICOOL_NETWORKS` (`facebook,instagram`) and `METRICOOL_AUTOPUBLISH` (`true`) already have the right defaults.
 If the Metricool API tab is not on your plan, say so: the fallback is a scheduled Claude task that posts through the

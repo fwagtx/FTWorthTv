@@ -280,6 +280,13 @@ public-domain NWS radar loop as an MP4 on severe alerts. Native clips are hosted
 `video.instagram` is on and the clip is portrait. Station and creator video is never copied: copyright, the platforms'
 terms and Facebook's Rights Manager all say the same thing, and a link share gives the channel the view.
 
+### The picture must match the story
+
+`docs/IMAGE_RULES.md` is the standing rule: the headline's named subject (a team, a company, a district, a person, a venue)
+decides the photo, a generic stand-in is never allowed for a named subject, and a card goes out without a photo rather
+than with the wrong one. The subject a photo was chosen for is saved with the post and checked again before publishing;
+every mismatch found in the daily review becomes a regression row in `tests/fixtures/headline_subjects.json`.
+
 ### Before anything publishes
 
 `checks.py` runs twice. After the caption is written: every sentence, number and quotation must be found in the story's own
