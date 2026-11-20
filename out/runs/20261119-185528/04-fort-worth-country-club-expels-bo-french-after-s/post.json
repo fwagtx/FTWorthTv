@@ -1,0 +1,45 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.fox4news.com/news/fort-worth-country-club-expels-bo-french-after-social-media-controversies",
+  "scheduled_at": "2026-11-20T02:10:28.975393+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "Fort Worth country club expels Bo French after social media controversies",
+    "caption": "A Fort Worth country club has pulled the membership of former Texas Railroad Commission candidate and former Tarrant County Republican chair Bo French.",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth https://www.fox4news.com/news/fort-worth-country-club-expels-bo-french-after-social-media-controversies\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "59f2ab8099878dd8",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "rss",
+    "title": "Fort Worth country club expels Bo French after social media controversies",
+    "summary": "A Fort Worth country club has pulled the membership of former Texas Railroad Commission candidate and former Tarrant County Republican chair Bo French. Bo French, Republican candidate for Texas Railroad Commissioner, during a \"Come and Take It Tour\" campaign event with Ken Paxton, Texas attorney general and Republican US Senate candidate, not pictured, in San Antonio, Texas, US, on Sunday, Oct. 18, A Fort Worth country club has pulled the membership of former Texas Railroad Commission candidate and former Tarrant County Republican chair Bo French. French confirmed he was voted out on X, saying the board of directors for River Crest Country Club asked him \"to resign in September due to 'racist posts.'\" \"I refused, so they convened an expulsion meeting,\" French said. He posted the statement he read at the meeting saying the nine member board voted him out. \"There is a cost to fighting…",
+    "url": "https://www.fox4news.com/news/fort-worth-country-club-expels-bo-french-after-social-media-controversies",
+    "published": "2026-11-19T22:15:43+00:00",
+    "category_hint": null,
+    "image_url": "https://static.fox4news.com/www.fox4news.com/content/uploads/2026/11/gettyimages-2300399057.jpg",
+    "image_credit": "Photo: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "Latest News | FOX 4 News",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "politics",
+    "relevance": 3,
+    "score": 0.8896
+  }
+}
