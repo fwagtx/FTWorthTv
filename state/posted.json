@@ -2,7 +2,7 @@
   "daily": {
     "2026-11-18": 1,
     "2026-11-19": 20,
-    "2026-11-20": 16
+    "2026-11-20": 18
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -20,11 +20,13 @@
       "traffic": 2
     },
     "2026-11-20": {
+      "business": 1,
       "community": 3,
       "crime": 2,
       "culture": 2,
       "events": 1,
       "food": 1,
+      "other": 1,
       "politics": 2,
       "sports": 4,
       "weather": 1
@@ -40,7 +42,7 @@
     "2026-11-20": {
       "culture": 1,
       "nws_forecast": 1,
-      "rss": 9,
+      "rss": 11,
       "video": 3,
       "wanted": 2
     }
@@ -56,13 +58,13 @@
       "texas": 2
     },
     "2026-11-20": {
-      "dfw": 1,
+      "dfw": 2,
       "local": 11,
-      "texas": 4
+      "texas": 5
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-20T13:34:00-06:00",
+  "last_post_at": "2026-11-20T14:24:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -332,6 +334,18 @@
       "title": "North Texas preschoolers donate food to Mission Arlington ahead of Thanksgiving",
       "url": "https://www.youtube.com/watch?v=762jvSUQYhM"
     },
+    "8f8740ad5adae026": {
+      "at": "2026-11-20T14:24:00-06:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "435881930",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=4423186947477358150",
+      "publisher": "metricool-session",
+      "source": "The Texas Tribune",
+      "title": "“We need to be compensated”: Texas Tech chair pushed Fermi data center company for lucrative deals, despite university ties",
+      "url": "https://feeds.texastribune.org/link/16799/17536360/texas-tech-cody-campbell-board-fermi-data-center-matador"
+    },
     "a6ea3e7042a06af0": {
       "at": "2026-11-20T13:09:00-06:00",
       "category": "sports",
@@ -419,6 +433,18 @@
       "source": "WFAA",
       "title": "Downton Fort Worth restaurant reopens three years after an explosion",
       "url": "https://www.youtube.com/watch?v=EFoDpQ7VQMk"
+    },
+    "c8425095b9b0874d": {
+      "at": "2026-11-20T13:59:00-06:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435881605",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6364867301818675218",
+      "publisher": "metricool-session",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "White Castle vending machine debuts at Dallas Love Field ahead of first Texas location",
+      "url": "https://www.fox4news.com/news/white-castle-vending-machine-debuts-dallas-love-field-ahead-first-texas-location"
     },
     "culture-parade-of-lights-2026-0": {
       "at": "2026-11-20T07:44:00-06:00",
@@ -565,7 +591,7 @@
       "reason": "same reopening as WFAA's video already scheduled (Musume)"
     }
   },
-  "total_posts": 37,
+  "total_posts": 39,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
