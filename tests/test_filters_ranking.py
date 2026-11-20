@@ -181,3 +181,18 @@ def test_another_citys_ballot_fight_is_that_citys_news():
     from ftworthtv.filters import other_metro_local
     assert other_metro_local("Austin voter files lawsuit challenging approved Prop J")
     assert not other_metro_local("Tarrant County voters approve $1.2 billion bond")
+
+
+def test_three_headlines_about_one_reopening_are_one_story():
+    from ftworthtv.filters import same_story
+    assert same_story("Downton Fort Worth restaurant reopens three years after an explosion",
+                      "Musume restaurant reopens 3 years after hotel blast in downtown Fort Worth")
+    assert not same_story("Musume restaurant reopens 3 years after hotel blast in downtown Fort Worth",
+                          "Fort Worth restaurant week returns with 3 new spots downtown")
+
+
+def test_a_gift_guide_is_not_news():
+    from ftworthtv.filters import shopping_guide
+    assert shopping_guide("The Top Texas Gifts of 2026", "https://www.texasmonthly.com/style/top-texas-gift-guide-2026/")
+    assert shopping_guide("Best gifts for the Cowboys fan in your life")
+    assert not shopping_guide("Fort Worth toy drive collects 4,000 gifts for Tarrant County kids")

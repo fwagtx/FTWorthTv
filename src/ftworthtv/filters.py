@@ -78,6 +78,15 @@ _CIVIC_RE = re.compile(r"\b(mayor|mayor pro tem|city council|council ?(?:member|
                        r"bond election|zoning|city budget|tax rate)\b", re.I)
 
 
+_SHOPPING_RE = re.compile(r"\b(gift guide|gifts? of 20\d\d|best gifts|holiday gift|black friday deals|deals? (?:on|for)|where to buy|shopping guide|"
+                          r"top \d+ (?:gifts|products)|stocking stuffers)\b", re.I)
+
+
+def shopping_guide(title: str, url: str = "") -> bool:
+    """'The Top Texas Gifts of 2026': a magazine's shopping guide, not news."""
+    return bool(_SHOPPING_RE.search(title or "")) or "/gift-guide" in (url or "") or "/style/" in (url or "")
+
+
 def other_metro_local(title: str) -> bool:
     """'Austin Mayor Pro Tem announces resignation, run for Texas Senate': another city's government is that city's news."""
     low = (title or "").lower()
@@ -106,14 +115,22 @@ def title_key(title: str) -> frozenset[str]:
     return frozenset(w for w in words if len(w) > 2 and w not in _STOP)
 
 
-def same_story(a: str, b: str, threshold: float = 0.7) -> bool:
+def same_story(a: str, b: str, threshold: float = 0.6) -> bool:
     """Two headlines about the same event (an outlet's and a station's): the shorter one's content words are mostly
     contained in the other's, and at least four of them match."""
+    a, b = _digits_to_words(a), _digits_to_words(b)          # "3 years" and "three years" are the same words
     ka, kb = {_stem(w) for w in title_key(a)}, {_stem(w) for w in title_key(b)}
     if len(ka) < 3 or len(kb) < 3:
         return False
     shared = len(ka & kb)
     return shared >= 4 and shared / min(len(ka), len(kb)) >= threshold
+
+
+_WORDS = {"1": "one", "2": "two", "3": "three", "4": "four", "5": "five", "6": "six", "7": "seven", "8": "eight", "9": "nine", "10": "ten"}
+
+
+def _digits_to_words(text: str) -> str:
+    return re.sub(r"\b(10|[1-9])\b", lambda m: _WORDS[m.group(1)], text or "")
 
 
 def _stem(word: str) -> str:
@@ -218,6 +235,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
     for story in stories:
         if state.skipped(story.id):
             dropped.append((story, "skipped by the reviewing session"))
+            continue
+        if shopping_guide(story.title, story.url):
+            dropped.append((story, "shopping guide, not news"))
             continue
         twin = state.recent_title_like(story.title, now, hours=48, match=same_story)
         if twin:
