@@ -1,28 +1,29 @@
 {
   "daily": {
     "2026-11-18": 1,
-    "2026-11-19": 17
+    "2026-11-19": 20
   },
   "daily_by_category": {
     "2026-11-18": {
       "business": 1
     },
     "2026-11-19": {
-      "business": 1,
+      "business": 2,
       "community": 3,
       "crime": 2,
       "culture": 2,
       "events": 1,
-      "other": 2,
+      "other": 3,
       "politics": 2,
       "sports": 3,
-      "traffic": 1
+      "traffic": 2
     }
   },
   "daily_by_kind": {
     "2026-11-19": {
       "event": 1,
-      "rss": 1,
+      "rss": 3,
+      "video": 1,
       "wanted": 1
     }
   },
@@ -31,14 +32,14 @@
       "local": 1
     },
     "2026-11-19": {
-      "dfw": 3,
-      "local": 10,
+      "dfw": 4,
+      "local": 12,
       "national": 2,
       "texas": 2
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-19T20:51:00-06:00",
+  "last_post_at": "2026-11-19T22:06:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -124,6 +125,30 @@
       "title": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
       "url": "https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492"
     },
+    "4674400665feac13": {
+      "at": "2026-11-19T21:16:00-06:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "435014908",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8030735395939269058",
+      "publisher": "metricool-session",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Dallas investigating potential inaccuracies in crime reports",
+      "url": "https://www.fox4news.com/news/dallas-investigating-potential-inaccuracies-crime-reports"
+    },
+    "56f4f4b01365b602": {
+      "at": "2026-11-19T22:06:00-06:00",
+      "category": "traffic",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "435015060",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=3190941761795149822",
+      "publisher": "metricool-session",
+      "source": "Trinity Metro",
+      "title": "Lost 'N Sound 2026",
+      "url": "https://www.youtube.com/watch?v=yBgJ99dnLVk"
+    },
     "59f2ab8099878dd8": {
       "at": "2026-11-19T20:51:00-06:00",
       "category": "politics",
@@ -135,6 +160,18 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Fort Worth country club expels Bo French after social media controversies",
       "url": "https://www.fox4news.com/news/fort-worth-country-club-expels-bo-french-after-social-media-controversies"
+    },
+    "601495a18c4f4f6c": {
+      "at": "2026-11-19T21:41:00-06:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435014993",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-5194816740297718144",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Business Press",
+      "title": "HILLWOOD EXPANDS ALLIANCETEXAS INDUSTRIAL PIPELINE WITH TWO NEW SPECULATIVE BUILDINGS",
+      "url": "https://fortworthbusiness.com/construction/hillwood-expands-alliancetexas-industrial-pipeline-with-two-new-speculative-buildings/"
     },
     "6726a8f006e85fd8": {
       "at": "2026-11-19T20:26:00-06:00",
@@ -287,9 +324,10 @@
       "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
     }
   },
-  "total_posts": 18,
+  "total_posts": 21,
   "used_photos": [
-    "commons-168451071"
+    "commons-168451071",
+    "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png"
   ],
   "version": 1
 }
