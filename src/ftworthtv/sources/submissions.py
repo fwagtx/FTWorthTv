@@ -34,7 +34,8 @@ COLUMNS = {   # a header cell is matched by any of these words, so the sheet can
     "credit": ("credit", "name", "who"),
     "caption": ("caption", "what", "description", "text"),
     "where": ("where", "location", "place"),
-    "video": ("video", "link", "url", "file", "clip"),
+    "video": ("video", "link", "url", "file", "clip", "photo"),
+    "kind": ("kind", "type"),
     "consent": ("consent", "permission", "agree"),
     "approved": ("approved", "approve", "ok to post", "publish", "post"),
     "when": ("timestamp", "date", "when", "time"),
@@ -99,6 +100,36 @@ def submission_id(video_url: str) -> str:
     return "submission:" + (drive_file_id(video_url) or hashlib.sha1(video_url.encode("utf-8")).hexdigest()[:16])
 
 
+IMAGE_EXT = (".jpg", ".jpeg", ".png", ".webp")
+
+
+def is_photo_link(url: str, kind: str = "") -> bool:
+    """A photo by its extension, by the sheet's Kind column, or (for a Drive link) by the file's content type."""
+    if (kind or "").strip().lower().startswith(("photo", "image", "pic")):
+        return True
+    if (kind or "").strip().lower().startswith("video"):
+        return False
+    if url.lower().split("?")[0].endswith(IMAGE_EXT):
+        return True
+    if drive_file_id(url):
+        try:
+            resp = http.session().head(download_urls(url)[0], timeout=20, allow_redirects=True)
+            return (resp.headers.get("Content-Type") or "").lower().startswith("image/")
+        except Exception:
+            return False
+    return False
+
+
+def photo_story(row: dict, now: datetime, direct_url: str, city: str) -> Story:
+    """A viewer photo: the picture itself is the post (image_policy source_image), credited to the sender."""
+    base = row_story(row, now, Path("/dev/null"), city)
+    credit = base.extra["credit"]
+    base.image_url, base.image_policy, base.image_credit = direct_url, "source_image", f"Photo: {credit}"
+    base.extra.pop("video_path", None)
+    base.extra["photo"] = True
+    return base
+
+
 def row_story(row: dict, now: datetime, clip: Path, city: str) -> Story:
     caption = re.sub(r"\s+", " ", row["caption"]).strip()
     where = row["where"] or city
@@ -150,6 +181,9 @@ def fetch(settings: Settings, now: datetime) -> list[Story]:
                     continue                           # an old row somebody approved late is not news any more
             except (ValueError, OverflowError):
                 pass
+        if is_photo_link(row["video"], row.get("kind", "")):
+            stories.append(photo_story(row, now, download_urls(row["video"])[0], settings.brand.get("city", "Fort Worth")))
+            continue
         clip = clips_dir / f"{sid.split(':', 1)[1]}.mp4"
         if not clip.exists():
             for url in download_urls(row["video"]):

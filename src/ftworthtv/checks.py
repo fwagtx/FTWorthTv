@@ -158,7 +158,7 @@ def photo_subject_problem(draft: PostDraft) -> str | None:
     if draft.mode != "photo" or not draft.image or draft.image.provider in OWN_PHOTO_PROVIDERS:
         return None
     from .images.subject import subject_fits
-    ok, why = subject_fits(draft.story.title, draft.story.text(), draft.copy.category, draft.image.subject)
+    ok, why = subject_fits(draft.story.title, draft.story.text(), draft.copy.category, draft.image.subject, kind=draft.story.source_kind)
     return None if ok else f"photo does not show the subject: {why}"
 
 

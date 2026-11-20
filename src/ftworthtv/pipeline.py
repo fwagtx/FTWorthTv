@@ -166,7 +166,7 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if story.extra.get("facebook_post_url"):   # submissions / sources that give us a public post: share it as a nested post
             draft.mode, draft.link = "share", story.extra["facebook_post_url"]
             workdir.mkdir(parents=True, exist_ok=True)
-        elif story.source_kind == "submission" and story.extra.get("video_path") and Path(story.extra["video_path"]).exists():
+        elif story.source_kind == "submission" and story.extra.get("video_path") and Path(story.extra["video_path"]).exists():   # a viewer photo falls through to the photo path
             workdir.mkdir(parents=True, exist_ok=True)       # the clip itself is the post: cycle.sh hosts it, the publisher posts it
             import shutil
             draft.video_path = Path(shutil.copyfile(story.extra["video_path"], workdir / "clip.mp4"))

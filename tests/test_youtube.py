@@ -70,3 +70,12 @@ def test_video_gate_is_cautious():
 def test_old_videos_are_not_news():
     now = datetime(2026, 11, 20, 14, 0, tzinfo=timezone.utc)      # a day later
     assert parse_feed({"name": "City of Fort Worth", "always_relevant": True}, ATOM, now, {"max_age_hours": 12}) == []
+
+
+def test_wire_channels_only_share_watchlisted_moments():
+    from ftworthtv.sources.youtube import wanted_title
+    g = {"skip_in_title": ["podcast"], "video_watchlist": ["anthropic", "ipo", "texas"]}
+    wire = {"name": "Bloomberg Television", "require_watchlist_in_title": True, "require_any_in_title": ["ipo", "opening bell", "rings"]}
+    assert wanted_title(wire, "Anthropic Executive Team Rings Nasdaq Opening Bell", g)
+    assert not wanted_title(wire, "Fed holds rates steady as markets wobble", g)            # no watchlist subject
+    assert not wanted_title(wire, "Anthropic CEO on the future of AI | full interview", g)  # not an event

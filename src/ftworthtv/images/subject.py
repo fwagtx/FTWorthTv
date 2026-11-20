@@ -35,6 +35,7 @@ INSTITUTION_FALLBACK = {
     # consumer products: the category photo depicts the subject matter (a controller for a game, a phone for a handset)
     "xbox": ["gaming"], "playstation": ["gaming"], "ps5": ["gaming"], "nintendo": ["gaming"], "switch": ["gaming"], "steam": ["gaming"],
     "iphone": ["smartphone"], "galaxy": ["smartphone"], "pixel": ["smartphone"],
+    "house": ["capitol"], "senate": ["capitol"], "legislature": ["capitol"], "lawmakers": ["capitol"],
     "netflix": ["streaming"], "hbo": ["streaming"], "disney+": ["streaming"], "hulu": ["streaming"],
 }
 ATTRIBUTION = ("says", "said", "tells", "told", "warns", "warned", "announces", "announced", "reports", "reported", "confirms")
@@ -57,7 +58,8 @@ STOP = {"no", "the", "a", "an", "in", "on", "at", "for", "with", "after", "befor
         "can", "could", "should", "would", "has", "have", "had", "not", "downtown", "weather", "traffic", "crime", "sports", "business", "news", "things", "best", "worst", "free", "crash",
         "fire", "shooting", "storm", "storms", "tornado", "hail", "flood", "freeze", "heat", "power", "outage", "gas", "home",
         "homes", "house", "school", "schools", "students", "teachers", "parents", "kids", "children", "people", "person",
-        "suspect", "wanted", "arrest", "arrested", "deadly", "fatal", "injured", "dead", "killed"}
+        "suspect", "wanted", "arrest", "arrested", "deadly", "fatal", "injured", "dead", "killed", "democrats", "democrat",
+        "republicans", "republican", "texans", "fort worthians", "residents", "voters", "lawmakers"}
 ACRONYM_STOP = {"ipo", "ceo", "cfo", "gop", "tv", "us", "usa", "am", "pm", "ai", "isd", "nws", "dps", "fbi", "nfl", "nba", "mlb",
                 "nhl", "mls", "ncaa", "pd", "id", "dna", "gta", "ps5", "hq", "atm", "gps", "tx", "i-30", "i-20", "i-35w", "i-820"}
 
@@ -184,11 +186,16 @@ def plan_subject(title: str, body: str, category: str) -> SubjectPlan:
     return plan
 
 
-def subject_fits(title: str, body: str, category: str, subject: str | None) -> tuple[bool, str]:
+WEATHER_KINDS = ("nws_alert", "nws_forecast")
+
+
+def subject_fits(title: str, body: str, category: str, subject: str | None, kind: str = "") -> tuple[bool, str]:
     """The pre-publish check: the subject a photo was chosen for must still be what the headline is about."""
     if not subject:
         return False, "no subject was recorded for the photo"
     plan = plan_subject(title, body, category)
+    if kind in WEATHER_KINDS or category == "weather" and plan.mode == "beat":
+        plan.mode = "beat"                       # weather pictures follow the conditions (images/subject.py: weather_topics)
     low = subject.lower()
     kind, _, value = low.partition(":")
     if kind == "entity":
@@ -202,3 +209,23 @@ def subject_fits(title: str, body: str, category: str, subject: str | None) -> t
     if kind == "own":
         return True, ""
     return False, f"unknown subject record {subject!r}"
+
+
+WEATHER_TOPICS = (
+    (("tornado", "severe", "thunderstorm", "hail", "storms", "storm", "lightning", "flash flood", "flood"), ["storm"]),
+    (("ice storm", "sleet", "freezing", "winter storm", "snow", "wintry", "freeze", "wind chill", "hard freeze"), ["ice", "skyline"]),
+    (("heat advisory", "excessive heat", "triple digit", "100 degrees", "hot ", "heat"), ["heat", "skyline"]),
+    (("rain", "showers", "drizzle", "wet"), ["rain", "storm", "skyline"]),
+    (("fog", "cloudy", "overcast", "gray"), ["skyline"]),
+    (("sunny", "clear", "pleasant", "mild", "warm", "nice"), ["sunshine", "skyline", "sundance-square", "downtown"]),
+)
+
+
+def weather_topics(text: str) -> list[str]:
+    """Library topics for a forecast or weather story, by the conditions it describes: a sunny 65-degree day is shown
+    with a bright skyline, never with a supercell."""
+    low = (text or "").lower()
+    for words, topics in WEATHER_TOPICS:
+        if any(w in low for w in words):
+            return topics
+    return ["skyline", "downtown"]

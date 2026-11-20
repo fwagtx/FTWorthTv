@@ -83,3 +83,40 @@ def test_a_viewer_clip_becomes_a_native_video_post(settings, now):
     import json
     meta = json.loads((draft.video_path.parent / "post.json").read_text())
     assert meta["mode"] == "video" and meta["video"].endswith("clip.mp4")
+
+
+def test_a_viewer_photo_becomes_a_photo_post_with_their_picture(monkeypatch, settings, now):
+    settings.offline = False
+    settings.sources["submissions"] = {"enabled": True, "csv_url": "https://docs.google.com/spreadsheets/d/x/export?format=csv"}
+    csv = ("Credit,Caption,Where,Video or photo link,Kind,Consent,Approved\n"
+           "Maria G.,\"Double rainbow over the Stockyards after the storm.\",Fort Worth,https://drive.google.com/file/d/1PhOtOiD000000000000000000000/view,photo,yes,yes\n")
+
+    class R:
+        text = csv
+    monkeypatch.setattr(http, "get", lambda url, **kw: R())
+    monkeypatch.setattr(http, "download", lambda *a, **k: (_ for _ in ()).throw(AssertionError("photos are not downloaded by the source")))
+    stories = submissions.fetch(settings, now)
+    assert len(stories) == 1
+    s = stories[0]
+    assert s.image_policy == "source_image" and s.image_url.startswith("https://drive.usercontent.google.com/download?id=1PhOtOiD")
+    assert s.image_credit == "Photo: Maria G." and s.extra.get("photo") and "video_path" not in s.extra
+    from ftworthtv.writer import write_copy
+    copy, writer = write_copy(s, settings, now, force_template=True)
+    assert "Photo: Maria G." in copy.caption and "Video" not in copy.caption
+
+
+def test_photo_judge_drops_an_off_subject_provider_photo(monkeypatch, settings):
+    from ftworthtv.images import judge
+    monkeypatch.setattr(judge, "available", lambda s: True)
+    calls = []
+
+    class P:
+        stdout = '{"result": "No"}'
+    def fake_run(cmd, **kw):
+        calls.append(cmd); return P()
+    monkeypatch.setattr(judge.subprocess, "run", fake_run)
+    assert judge.photo_fits(settings, headline="Anthropic's IPO is the largest ever", summary="", title="Nasdaq MarketSite.jpg", alt="", credit="x") is False
+    P.stdout = '{"result": "yes, it shows the podium"}'
+    assert judge.photo_fits(settings, headline="h", summary="", title="t", alt="", credit="c") is True
+    monkeypatch.setattr(judge, "available", lambda s: False)
+    assert judge.photo_fits(settings, headline="h", summary="", title="t", alt="", credit="c") is None

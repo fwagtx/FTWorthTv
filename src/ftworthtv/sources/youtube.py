@@ -59,6 +59,10 @@ def wanted_title(cfg: dict, title: str, global_cfg: dict | None = None) -> bool:
     need = cfg.get("require_any_in_title")
     if need and not any(str(w).lower() in low for w in need):
         return False
+    if cfg.get("require_watchlist_in_title"):      # wires and exchanges: only a video about a subject on the video watchlist
+        terms = [str(t).lower() for t in (global_cfg or {}).get("video_watchlist", [])]
+        if not any(t in low for t in terms):
+            return False
     return True
 
 
@@ -107,7 +111,8 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime, global_cfg: dict 
             official=bool(cfg.get("official", False)),
             always_relevant=bool(cfg.get("always_relevant", False)),
             weight=float(cfg.get("weight", 0.8)),
-            extra={"video_id": vid, "channel": name, "handle": cfg.get("handle", ""), "views": views, "feed_title": name},
+            extra={"video_id": vid, "channel": name, "handle": cfg.get("handle", ""), "views": views, "feed_title": name,
+                   **({"national": True} if cfg.get("national") else {})},
         ))
     return stories
 

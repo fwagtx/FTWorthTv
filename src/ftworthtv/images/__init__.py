@@ -180,7 +180,12 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         from .subject import plan_subject
         scope = str(story.extra.get("scope", "local"))
         sp = plan_subject(story.title, story.text(), copy.category)
-        if sp.mode == "entity":
+        weather_text = " ".join(str(x) for x in (story.title, story.extra.get("short"), story.extra.get("event"))).lower()
+        if story.source_kind in ("nws_forecast", "nws_alert") or copy.category == "weather" and sp.mode == "beat":
+            from .subject import weather_topics
+            lib_topics = weather_topics(weather_text)
+            sp.mode = "beat"
+        elif sp.mode == "entity":
             lib_topics = list(sp.entity_topics)
         elif sp.mode == "institution":
             lib_topics = list(sp.fallback_topics)
@@ -190,7 +195,7 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             lib_topics = topics_for(story.text(), copy.category, scope, title=story.title)
         log.info("photo subject for %r: %s (%s)", story.title[:60], sp.mode, sp.primary or ", ".join(lib_topics[:3]))
         avoid = avoid_words_for(story.text())
-        library_first = copy.category not in PROVIDER_FIRST and story.source_kind not in ("event", "event_roundup")
+        library_first = sp.mode in ("entity", "institution") or (copy.category not in PROVIDER_FIRST and story.source_kind not in ("event", "event_roundup"))
 
         def from_library():
             if not lib_topics:
@@ -221,10 +226,19 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                     queries = [(f"category:{venue}", PERFORMANCE_WORDS), copy.image_query,
                                (f"{venue} exterior", PERFORMANCE_WORDS, venue_words), (f"{venue} building", PERFORMANCE_WORDS, venue_words)]
                     labels = [f"entity:{venue.lower()}", f"beat:{copy.image_query}", f"entity:{venue.lower()}", f"entity:{venue.lower()}"]
+            from .judge import photo_fits
             for query, lab in zip(queries, labels):
-                cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=avoid)
+                cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=avoid, fallback=sp.mode == "beat")
                 if not cand:
                     continue
+                if sp.mode in ("entity", "search"):
+                    verdict = photo_fits(settings, headline=copy.headline or story.title, summary=story.summary or "",
+                                         title=cand.source_url.rsplit("/", 1)[-1].replace("_", " "), alt=cand.alt or "", credit=cand.credit)
+                    if verdict is False:
+                        log.info("photo judged off-subject for %r: %s", story.title[:50], cand.source_url)
+                        if exclude_photos is not None:
+                            exclude_photos.add(cand.id)
+                        continue
                 background = _download(cand.url, workdir / "photo")
                 if background:
                     credit, license_, provider, photo_id, source_url = cand.credit, cand.license, cand.provider, cand.id, cand.source_url

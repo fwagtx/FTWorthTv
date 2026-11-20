@@ -292,7 +292,7 @@ def _search(query: str, settings) -> list[PhotoCandidate]:
 
 
 def find_photo(query: "str | list[str]", settings, state: State | None = None, exclude: set[str] | None = None,
-               avoid_words: tuple[str, ...] = ()) -> PhotoCandidate | None:
+               avoid_words: tuple[str, ...] = (), fallback: bool = True) -> PhotoCandidate | None:
     """Pexels first (best quality, simplest license), Wikimedia Commons as the fallback.
 
     Tries the given query/queries in order, then generic city queries, and skips photos used earlier in this run or recently
@@ -300,7 +300,7 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
     """
     city = settings.brand.get("city", "Fort Worth")
     base = [query] if isinstance(query, str) else list(query or [])
-    queries = [q or "" for q in base] + [f"{city} skyline", f"{city} Texas downtown"]
+    queries = [q or "" for q in base] + ([f"{city} skyline", f"{city} Texas downtown"] if fallback else [])
     tried: set[str] = set()
     for item in queries:
         avoid: tuple[str, ...] = ()
@@ -324,7 +324,7 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
                 blob = " ".join([name, cand.alt or "", cand.credit or "", cand.url or ""]).lower()
                 if any(w in blob for w in avoid_words):
                     continue
-            if require and not all(w in name for w in require):
+            if require and not all(w in name or w in (cand.alt or "").lower() for w in require):   # the subject must be in the file name or title
                 continue
             if state and state.photo_recently_used(cand.id):
                 continue

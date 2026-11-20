@@ -408,7 +408,7 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
     if kind == "submission":                 # a viewer's clip: their words, where, and the credit
         credit = x.get("credit") or "a viewer"
         text = _tidy(story.summary or story.title)
-        return [truncate(text, 400, "…"), f"📍 {x.get('where') or city}", f"🎥 Video: {credit}"]
+        return [truncate(text, 400, "…"), f"📍 {x.get('where') or city}", f"🎥 {'Photo' if x.get('photo') else 'Video'}: {credit}"]
     if kind == "video":                      # a YouTube link post: WATCH line, the channel's own first sentence, the credit
         channel = x.get("channel") or story.source
         lead = _first_sentence(story.summary or "", 200)
@@ -570,7 +570,8 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
     elif kind == "submission":
         credit = story.extra.get("credit") or "a viewer"
         where = story.extra.get("where") or location
-        lines = [truncate(_tidy(story.summary or story.title), 400, "…"), f"📍 {where}", f"🎥 Video: {credit}", cta]
+        kind_word = "Photo" if story.extra.get("photo") else "Video"
+        lines = [truncate(_tidy(story.summary or story.title), 400, "…"), f"📍 {where}", f"🎥 {kind_word}: {credit}", cta]
         headline = truncate(story.title, 110, "")
         first_comment = f"🎥 {credit}\n{{photo_credit}}\nDM us your videos & photos 📲"
     elif kind == "video":
