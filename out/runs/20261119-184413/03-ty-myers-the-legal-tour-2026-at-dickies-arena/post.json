@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-20T01:34:13.480885+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-184413/03-ty-myers-the-legal-tour-2026-at-dickies-arena/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-184413/03-ty-myers-the-legal-tour-2026-at-dickies-arena/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "events",
+    "headline": "Ty Myers at Dickies Arena, Sat, Nov 21 7:30 PM",
+    "caption": "Ty Myers at Dickies Arena this Saturday. Tickets in the comments",
+    "first_comment": "🎟️ Tickets: https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "country music concert stage",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "tm-ty-myers-2026-11-21",
+    "source": "Ticketmaster",
+    "source_kind": "event",
+    "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+    "summary": "Ty Myers brings The Legal Tour 2026 with special guest Benny G to Dickies Arena on Saturday, Nov. 21 at 7:30 PM. Country.",
+    "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330",
+    "published": "2026-11-17T12:00:00+00:00",
+    "category_hint": "events",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": "ticketmaster",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.1,
+    "extra": {
+      "venue": "Dickies Arena",
+      "city": "Fort Worth",
+      "when": "Sat, Nov 21 7:30 PM",
+      "start": "2026-11-22T01:30:00+00:00",
+      "genre": "Country",
+      "ticket_url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330",
+      "scope": "local"
+    },
+    "category": "events",
+    "relevance": 2,
+    "score": 1.4369
+  }
+}
