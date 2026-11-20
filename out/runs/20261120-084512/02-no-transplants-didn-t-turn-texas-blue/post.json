@@ -1,0 +1,45 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.texasmonthly.com/news-politics/texas-transplants-democratic-voters/",
+  "scheduled_at": "2026-11-20T15:10:12.852146+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "No, Transplants Didn’t Turn Texas Blue",
+    "caption": "It would be comforting if Republicans could tell themselves their state had been “California’d”—but that’s not what the data show. You only search for moral victories when you lose.\n\nAfter the midterms, Republicans stumbled looking for one. What if the loss wasn’t just a loss for Republicans?",
+    "first_comment": "Source: Texas Monthly https://www.texasmonthly.com/news-politics/texas-transplants-democratic-voters/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "756e88d9aa0b36a7",
+    "source": "Texas Monthly",
+    "source_kind": "rss",
+    "title": "No, Transplants Didn’t Turn Texas Blue",
+    "summary": "It would be comforting if Republicans could tell themselves their state had been “California’d”—but that’s not what the data show. You only search for moral victories when you lose. After the midterms, Republicans stumbled looking for one. What if the loss wasn’t just a loss for Republicans? What if Texas had finally been colonized by liberal transplants? “Texas there is a lesson here,” Fox & Friends cohost Lawrence Jones III tweeted . “Don’t be so welcoming.” Similar sentiments abounded online: The Californians who had flocked to our state ignored the bumper stickers, and “California’d Texas.” But moral victories don’t always hold up so well in the light of day. No, transplants did not turn Texas blue. The transplant conversation is largely about Austin, and to an extent, Texas’s larger cities and their surrounding suburbs. We can be certain that it’s not about West Texas or Grimes…",
+    "url": "https://www.texasmonthly.com/news-politics/texas-transplants-democratic-voters/",
+    "published": "2026-11-20T11:52:01+00:00",
+    "category_hint": null,
+    "image_url": "https://img.texasmonthly.com/2026/11/Texas-Transplants-Election-Blue.jpg?auto=compress&amp;crop=faces&amp;fit=scale&amp;fm=pjpg&amp;h=640&amp;ixlib=php-3.3.1&amp;q=45&amp;w=1024&amp;wpsize=large",
+    "image_credit": "Photo: Texas Monthly",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.48999999999999994,
+    "extra": {
+      "feed_title": "Texas Monthly",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.3291
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=762jvSUQYhM",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "North Texas preschoolers donate food to Mission Arlington ahead of Thanksgiving",
+    "caption": "WATCH: North Texas preschoolers donate food to Mission Arlington ahead of Thanksgiving\n\nThe 4-year-old students at Primrose School of N.E.\n\nVideo: CBS Texas on YouTube",
+    "first_comment": "Source: CBS Texas on YouTube https://www.youtube.com/watch?v=762jvSUQYhM\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "8d6a55cfe2ff5f46",
+    "source": "CBS Texas",
+    "source_kind": "video",
+    "title": "North Texas preschoolers donate food to Mission Arlington ahead of Thanksgiving",
+    "summary": "The 4-year-old students at Primrose School of N.E. Green Oaks are delivering groceries to the less fortunate as part of its annual program. Subscribe to the CBS News Texas YouTube channel: https://www.youtube.com/@CBSTexas Watch CBS News Texas 24/7: https://www.cbsnews.com/texas/live/ Download the CBS News app: https://www.cbsnews.com/mobile/ Follow CBS News Texas on Instagram: https://www.instagram.com/cbsnewstexas/ Like CBS News Texas on Facebook: https://www.facebook.com/CBSNewsTexas Follow CBS News Texas on X: https://x.com/CBSNewsTexas Try Paramount+ free: https://www.paramountplus.com/?…",
+    "url": "https://www.youtube.com/watch?v=762jvSUQYhM",
+    "published": "2026-11-20T13:31:18+00:00",
+    "category_hint": null,
+    "image_url": "https://i4.ytimg.com/vi/762jvSUQYhM/hqdefault.jpg",
+    "image_credit": "Video: CBS Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "762jvSUQYhM",
+      "channel": "CBS Texas",
+      "handle": "@CBSTexas",
+      "views": 7,
+      "feed_title": "CBS Texas",
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.7855
+  }
+}
