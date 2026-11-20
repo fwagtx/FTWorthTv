@@ -56,11 +56,17 @@ OTHER_REGIONS = ("south central texas", "central texas", "hill country", "coasta
                  "golden triangle", "concho valley", "the valley")
 
 
+DISASTER_WORDS = ("flood", "tornado", "wildfire", "hurricane", "explosion", "evacuat", "killed", "dead", "dies", "die ", "death", "shooting",
+                  "crash", "derail", "outage", "emergency", "rescue", "missing", "amber alert")
+
+
 def other_region(title: str) -> bool:
     """A story told for another part of the state ('Why fall foliage looks different across South Central Texas'); North
     Texas and statewide stories are not touched."""
     low = (title or "").lower()
     if "north texas" in low or "north central texas" in low or "fort worth" in low or "dfw" in low:
+        return False
+    if any(w in low for w in DISASTER_WORDS):          # a Hill Country flood is statewide news
         return False
     return any(re.search(r"\b" + re.escape(r) + r"\b", low) for r in OTHER_REGIONS)
 

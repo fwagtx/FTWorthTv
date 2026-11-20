@@ -125,3 +125,4 @@ def test_another_regions_story_is_not_ours():
     assert other_region("Why fall foliage looks different across South Central Texas")
     assert not other_region("North Texas fall foliage peaks this week")
     assert not other_region("Texas public schools lose 135,000 students")
+    assert not other_region("Hill Country flooding kills 3 as rivers rise overnight")   # a disaster anywhere in Texas is statewide news
