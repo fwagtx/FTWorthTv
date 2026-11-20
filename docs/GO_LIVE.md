@@ -14,7 +14,7 @@ The watcher workflow (`.github/workflows/watch.yml`) already runs continuously o
 | 1 | Metricool → Settings (gear) → **API** | copy the **user token** |
 | 2 | GitHub repo → Settings → Secrets and variables → Actions → **Secrets** | `METRICOOL_USER_TOKEN` = that token · `METRICOOL_USER_ID` = `5456294` · `METRICOOL_BLOG_ID` = `8208939` |
 | 3 | same page → **Variables** | `FTWTV_PUBLISHER` = `metricool` · `MEDIA_BASE_URL` = `https://raw.githubusercontent.com/fwagtx/FTWorthTv/claude/practical-mccarthy-mi4jkw` |
-| 4 | optional, better captions | secret `CLAUDE_CODE_OAUTH_TOKEN` from `claude setup-token` on your computer (uses your Claude subscription; without it the template writer runs) |
+| 4 | **needed for photos of people** | secret `CLAUDE_CODE_OAUTH_TOKEN` from `claude setup-token` on your computer (your Claude subscription, no API bill). With it, Claude opens every searched photo and confirms it shows the headline's subject before it is used, and people named in headlines can get their picture. Without it, people stories go out with the venue, the team or no photo, and the template writer writes the captions. |
 | 5 | optional | variable `METRICOOL_AUTOPUBLISH` = `false` if you want to approve every post on your phone at first; secret `NWS_USER_AGENT` = any text with a contact email, for weather alerts; photo keys `UNSPLASH_ACCESS_KEY`, `FLICKR_API_KEY`, `PIXABAY_API_KEY` |
 | 6 | strongly recommended, free | secret `FLICKR_API_KEY` from flickr.com/services/apps/create (a minute): the largest pool of same-week Creative Commons photos of real Fort Worth events, games and places. Without it the page has Wikimedia Commons and Openverse only. The photo rules are in `docs/IMAGE_RULES.md`. |
 

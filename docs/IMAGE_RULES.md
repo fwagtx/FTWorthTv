@@ -36,8 +36,14 @@ holds a post whose photo no longer fits.)
    a ten-year-old photo of the stadium. Openverse and Commons need no key; a free Flickr key (`FLICKR_API_KEY`) adds the
    largest pool of same-week Creative Commons photos of real events and is the single biggest upgrade available.
 5. **Viewer photos and clips** from the submissions sheet, with consent and approval, credited to the sender.
-6. **A second opinion from Claude** (`images/judge.py`), when `CLAUDE_CODE_OAUTH_TOKEN` is set: every provider photo
-   for a named subject is shown to Claude with its title and description and dropped unless the answer is yes.
+6. **Claude looks at the picture** (`images/judge.py`), when `CLAUDE_CODE_OAUTH_TOKEN` is set: every provider photo for
+   a named subject is downloaded and opened by headless Claude Code, which answers whether the image itself shows the
+   headline's subject; a no drops it. **A person named in a headline is searched for only with this check in place.**
+   Without the token, people stories use the venue, the team or the institution, or go out as a bare card, because a
+   stranger who shares the name is the worst mistake a page can make.
+7. **Recent pictures for things that happened.** A game, a concert, a ceremony, a parade, a storm, a crash: the search
+   first insists on a picture taken within two weeks of the story (Commons records when a photo was taken), then falls
+   back to the place. A years-old file photo is fine for a building; it is not a picture of Saturday's game.
 
 Not allowed, however good the picture: AP, AFP, Reuters, Getty and station photos (licensed per use; the agencies
 pursue reposts), screenshots of other pages' posts, another outlet's photo lifted from its article.
@@ -54,7 +60,7 @@ pursue reposts), screenshots of other pages' posts, another outlet's photo lifte
 | Nov 20 | "Sunny, high near 65" forecast with a supercell | weather defaulted to the storm topic | weather pictures follow the conditions in the forecast (`weather_topics`) |
 | Nov 20 | Two Dickies Arena events with a Fort Worth skyline | the provider search fell back to the city query after the subject found nothing | a named subject never gets the city fallback; the venue (library) comes first even for events |
 | Nov 20 | "How two Democrats took ... Arlington House seats" with a skyline | "Democrats" was taken as the subject | parties and generic groups are not subjects; "House"/"Senate" map to the Capitol |
-| Nov 20 | A country concert at Dickies Arena with a stranger's portrait, then with Ty Cobb at Fort Myers | the name was in the description, then its two words were scattered across a title | the whole name, in order, must be in the file name or title; descriptions never count |
+| Nov 20 | A country concert at Dickies Arena with a stranger's portrait, then with Ty Cobb at Fort Myers | the name was in the description, then its two words were scattered across a title | the whole name, in order, must be in the file name or title; descriptions never count; and a person is only ever searched for when Claude can look at the picture |
 | Nov 20 | A basketball showcase and a country concert at Dickies Arena with a K-pop concert photo | the file was titled "Twice - Dickies Arena" and the venue words matched | a venue is searched as a building (its category, "exterior", "building"); a photo of somebody else's show is never used for an event; the lesson row is in the fixture |
 
 ## 4. The daily review
