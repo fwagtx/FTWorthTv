@@ -146,3 +146,17 @@ def test_default_style_is_our_post_card(settings, now, tmp_path):
     settings.max_posts = 3
     report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
     assert all(d.image and d.image.path.name == "post.jpg" for d in report.drafts)
+
+
+def test_required_phrase_alternatives(settings):
+    from ftworthtv.images.providers import PhotoCandidate, find_photo
+    import ftworthtv.images.providers as prov
+    cands = [PhotoCandidate(id="a", provider="wikimedia", url="u", source_url="https://commons.wikimedia.org/wiki/File:APHIS_inspection_San_Antonio_Zoo.jpg", credit="c", license="cc0", title="APHIS inspection at San Antonio Zoo"),
+             PhotoCandidate(id="b", provider="wikimedia", url="u", source_url="https://commons.wikimedia.org/wiki/File:Hippopotamus_at_San_Antonio_Zoo.jpg", credit="c", license="cc0", title="Hippopotamus at San Antonio Zoo")]
+    orig = prov._search
+    try:
+        prov._search = lambda *a, **k: list(cands)
+        got = find_photo([("san antonio zoo", (), ("san antonio zoo", "hippo|hippopotamus"))], settings, fallback=False)
+    finally:
+        prov._search = orig
+    assert got is not None and got.id == "b"

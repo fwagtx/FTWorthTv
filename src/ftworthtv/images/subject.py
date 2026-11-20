@@ -271,6 +271,25 @@ def is_generic_event(name: str) -> bool:
     return any(w in name.lower().split() for w in GENERIC_EVENT_WORDS)
 
 
+ANIMAL_WORDS = {"hippo": "hippo|hippopotamus|hippos", "giraffe": "giraffe|giraffes", "elephant": "elephant|elephants", "gorilla": "gorilla|gorillas",
+                "tiger": "tiger|tigers", "lion": "lion|lions", "panda": "panda|pandas", "rhino": "rhino|rhinoceros|rhinos", "otter": "otter|otters",
+                "penguin": "penguin|penguins", "zebra": "zebra|zebras", "flamingo": "flamingo|flamingos", "koala": "koala|koalas",
+                "cheetah": "cheetah|cheetahs", "jaguar": "jaguar|jaguars", "bear": "bear|bears", "wolf": "wolf|wolves", "sloth": "sloth|sloths",
+                "okapi": "okapi", "lemur": "lemur|lemurs", "alligator": "alligator|alligators", "longhorn": "longhorn|longhorns", "bison": "bison"}
+
+
+def animal_in(title: str) -> str:
+    """'San Antonio Zoo mourns Fiona, Timothy the hippo's sweetheart' -> 'hippo|hippopotamus|hippos': a zoo story's picture
+    must show the animal the headline is about, not an inspection of an ocelot in the same zoo."""
+    words = re.findall(r"[a-z]+", (title or "").lower())
+    for w in words:
+        if w in ANIMAL_WORDS:
+            return ANIMAL_WORDS[w]
+        if w.endswith("s") and w[:-1] in ANIMAL_WORDS:
+            return ANIMAL_WORDS[w[:-1]]
+    return ""
+
+
 def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_allowed: bool = False, city: str = "") -> list[tuple[tuple, str]]:
     """(query tuple, subject label) pairs for the search providers, one named subject at a time.
 
@@ -285,10 +304,13 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
         words = (" ".join(name.lower().split()),)      # the whole name, in order: "Ty Myers" is not "Ty Cobb at Fort Myers"
         if city and is_generic_event(name) and city.lower() not in name.lower():
             words = words + (city.lower(),)             # a generic event name needs the city too: Lake Mead has a Parade of Lights
+        animal = animal_in(title)
+        if animal:
+            words = words + (animal,)                   # a zoo story's picture shows the animal, not an inspection of another one
         label = f"entity:{name.lower()}"
         if looks_like_person(name) and not people_allowed:
             continue                                   # a stranger with the same name is the worst mistake a page can make
-        if is_venue(name):
+        if is_venue(name) and not animal:              # a zoo with an animal in the headline is searched for the animal, not the gate
             out += [((f"category:{name}", PERFORMANCE_WORDS, words), label),
                     ((f"{name} exterior", PERFORMANCE_WORDS, words), label),
                     ((f"{name} building", PERFORMANCE_WORDS, words), label),

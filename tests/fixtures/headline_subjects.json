@@ -145,5 +145,15 @@
       "Parade of Lights"
     ],
     "lesson": "a generic event name needs the city in the file name: Lake Mead has a Parade of Lights too"
+  },
+  {
+    "title": "One last love letter: San Antonio Zoo mourns Fiona, Timothy the hippo's longtime sweetheart",
+    "body": "",
+    "category": "culture",
+    "mode": "search",
+    "search": [
+      "San Antonio Zoo"
+    ],
+    "lesson": "a zoo story's picture shows the animal in the headline, never an inspection of another animal"
   }
 ]

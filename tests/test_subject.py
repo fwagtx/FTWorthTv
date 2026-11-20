@@ -140,3 +140,12 @@ def test_a_generic_event_name_needs_the_city_in_the_photo_name():
     assert pairs and all("fort worth" in q[2] for q, _ in pairs)          # "Parade of Lights" alone matched Lake Mead's boat parade
     pairs = [(q, label) for q, label in provider_queries(plan, title, "events", people_allowed=True, city="") if label == "entity:parade of lights"]
     assert pairs and all("fort worth" not in q[2] for q, _ in pairs)      # a non-local story is not forced to Fort Worth
+
+
+def test_a_zoo_story_needs_the_animal_in_the_photo_name():
+    from ftworthtv.images.subject import animal_in, plan_subject, provider_queries
+    title = "One last love letter: San Antonio Zoo mourns Fiona, Timothy the hippo's longtime sweetheart"
+    assert animal_in(title).startswith("hippo") and animal_in("Fort Worth council approves budget") == ""
+    plan = plan_subject(title, "", "culture")
+    pairs = [q for q, label in provider_queries(plan, title, "culture", people_allowed=True) if label == "entity:san antonio zoo"]
+    assert pairs and all(any(w.startswith("hippo") for w in q[2]) for q in pairs)   # an ocelot on an operating table is not the story

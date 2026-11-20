@@ -333,8 +333,8 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
                 blob = " ".join([name, cand.alt or "", cand.credit or "", cand.url or ""]).lower()
                 if any(w in blob for w in avoid_words):
                     continue
-            if require and not all(f" {w} " in plain for w in require):   # the subject, whole and in order, in the file name or its title
-                continue
+            if require and not all(any(f" {alt} " in plain for alt in w.split("|")) for w in require):
+                continue                                      # the subject, whole and in order, in the file name or its title ("hippo|hippopotamus")
             if taken_after and (not cand.taken or cand.taken[:10] < taken_after):   # an event wants a picture from the event, not from years ago
                 continue
             if state and state.photo_recently_used(cand.id):
