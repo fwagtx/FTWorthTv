@@ -2,7 +2,7 @@
   "daily": {
     "2026-11-18": 1,
     "2026-11-19": 20,
-    "2026-11-20": 3
+    "2026-11-20": 6
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -20,7 +20,9 @@
       "traffic": 2
     },
     "2026-11-20": {
-      "crime": 1,
+      "community": 1,
+      "crime": 2,
+      "culture": 1,
       "events": 1,
       "politics": 1
     }
@@ -34,8 +36,8 @@
     },
     "2026-11-20": {
       "culture": 1,
-      "rss": 1,
-      "wanted": 1
+      "rss": 3,
+      "wanted": 2
     }
   },
   "daily_by_scope": {
@@ -49,11 +51,12 @@
       "texas": 2
     },
     "2026-11-20": {
-      "local": 3
+      "local": 5,
+      "texas": 1
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-20T07:19:00-06:00",
+  "last_post_at": "2026-11-20T09:24:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -68,6 +71,18 @@
       "source": "Fort Worth Police Department",
       "title": "WANTED: Joshua Rodriguez",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "17e3c2cb0873a471": {
+      "at": "2026-11-20T08:09:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "435528357",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1951409325963391523",
+      "publisher": "metricool-session",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "DFW Airport prepares for 3.1 million travelers during Thanksgiving rush",
+      "url": "https://www.fox4news.com/news/dfw-airport-prepares-3-1-million-travelers-during-thanksgiving-rush"
     },
     "204e11f78e7566d5": {
       "at": "2026-11-19T14:20:00+00:00",
@@ -150,6 +165,18 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Dallas investigating potential inaccuracies in crime reports",
       "url": "https://www.fox4news.com/news/dallas-investigating-potential-inaccuracies-crime-reports"
+    },
+    "56865477238e9092": {
+      "at": "2026-11-20T08:59:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "435528437",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1919362400748420927",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Bria Greer",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
     },
     "56f4f4b01365b602": {
       "at": "2026-11-19T22:06:00-06:00",
@@ -250,6 +277,18 @@
       "source": "NBC 5 DFW",
       "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
       "url": "https://www.nbcdfw.com/news/sports/blue-star/cowboys-strip-play-calling-duties-from-defensive-coordinator-christian-parker/4107747/"
+    },
+    "b444633ff7ebc6c5": {
+      "at": "2026-11-20T09:24:00-06:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435532082",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4048032029633658688",
+      "publisher": "metricool-session",
+      "source": "KENS 5 San Antonio",
+      "title": "One last love letter: San Antonio Zoo mourns Fiona, Timothy the hippo’s longtime sweetheart",
+      "url": "https://www.kens5.com/article/news/local/one-last-love-letter-san-antonio-zoo-mourns-fiona-timothy-hippo-longtime-sweetheart-cincinnati-remembrance-hippos-birthday-mariachi-conservation/273-fe8f5028-bb95-4bab-a53d-670aeb3d8740"
     },
     "b7d958555f9a76c9": {
       "at": "2026-11-19T16:05:00+00:00",
@@ -374,11 +413,12 @@
       "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
     }
   },
-  "total_posts": 24,
+  "total_posts": 27,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
-    "lib-downtown-fort-worth-night-jpg"
+    "lib-downtown-fort-worth-night-jpg",
+    "lib-texrail-dfw-airport-terminal-b-nov-2019-4-jpg"
   ],
   "version": 1
 }
