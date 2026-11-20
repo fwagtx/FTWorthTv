@@ -42,3 +42,18 @@ def test_a_newsrooms_donation_pitch_never_becomes_a_caption_sentence():
             "the truth. Every gift makes a difference. Matt Krause has spent his entire political career in conservative majorities.")
     sents = _sentences(text)
     assert sents and not any("accountable" in s or "gift" in s for s in sents)
+
+
+def test_an_abbreviation_does_not_end_the_first_sentence():
+    from ftworthtv.writer import _first_sentence
+    assert _first_sentence("The 4-year-old students at Primrose School of N.E. Fort Worth collected 300 cans for Mission Arlington. More follows.") == \
+        "The 4-year-old students at Primrose School of N.E. Fort Worth collected 300 cans for Mission Arlington."
+
+
+def test_a_columnists_rhetoric_is_not_a_caption_sentence():
+    text = ("It would be comforting if Republicans could tell themselves their state had been Californian, but that is not what the data show. "
+            "You only search for moral victories when you lose. After the midterms, Republicans stumbled looking for one. "
+            "What if the loss was not just a loss for Republicans? Texas added 2.1 million residents between 2020 and 2025, the census estimates.")
+    sents = _sentences(text)
+    assert "Texas added 2.1 million residents between 2020 and 2025, the census estimates." in sents
+    assert not any(x.endswith("?") or "You " in x or x.startswith("It would be") for x in sents)

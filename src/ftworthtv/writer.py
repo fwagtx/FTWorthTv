@@ -365,8 +365,8 @@ BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "rea
 
 def _first_sentence(text: str, limit: int = 170) -> str:
     text = collapse_ws(text)
-    m = re.match(r"(.+?[.!?])(\s|$)", text)
-    first = (m.group(1) if m else text).strip()
+    parts = _split_sentences(text)                                # abbreviation-aware: "Primrose School of N.E. Fort Worth" is one sentence
+    first = (parts[0] if parts else text).strip()
     if any(w in first.lower() for w in BOILERPLATE) or len(first) < 25:
         return ""
     return first if len(first) <= limit else ""
@@ -416,6 +416,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     for part in merged:
         if part.count('"') % 2 == 1 or part.count("“") != part.count("”"):
             continue                                          # still unbalanced: a cut-off quote is not a sentence we can post
+        if part.endswith("?") or re.search(r"\b[Yy]ou\b", part) or part.lower().startswith(("it would be", "imagine", "let's", "let us")):
+            continue                                          # a columnist's rhetorical question or second person is not a news sentence
         if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")) or len(part.split()) < 6:
             continue
         if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")) or _CAPTION_RE.search(part):
