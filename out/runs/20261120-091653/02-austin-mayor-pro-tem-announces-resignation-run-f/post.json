@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-20T15:41:53.689993+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-091653/02-austin-mayor-pro-tem-announces-resignation-run-f/post.jpg",
+    "credit": "Photo: Oleg Yunakov via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:2026-05-26_-_Texas_State_Capitol_-_01.jpg",
+    "photo_id": "lib-2026-05-26-texas-state-capitol-01-jpg",
+    "subject": "topic:capitol"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-091653/02-austin-mayor-pro-tem-announces-resignation-run-f/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "Austin Mayor Pro Tem announces resignation, run for Texas Senate",
+    "caption": "Austin Mayor Pro Tem Chito Vela announced he plans to run for Texas Senate after Senator Sarah Eckhardt was elected Texas Comptroller.",
+    "first_comment": "Source: KXAN Austin https://www.kxan.com/news/us-politics/election/austin-mayor-pro-tem-announces-resignation-run-for-texas-senate/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "6f71b25b567fa281",
+    "source": "KXAN Austin",
+    "source_kind": "rss",
+    "title": "Austin Mayor Pro Tem announces resignation, run for Texas Senate",
+    "summary": "Austin Mayor Pro Tem Chito Vela announced he plans to run for Texas Senate after Senator Sarah Eckhardt was elected Texas Comptroller.",
+    "url": "https://www.kxan.com/news/us-politics/election/austin-mayor-pro-tem-announces-resignation-run-for-texas-senate/",
+    "published": "2026-11-20T15:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://www.kxan.com/wp-content/uploads/sites/40/2022/01/Vela-Wins.png?w=900",
+    "image_credit": "Photo: KXAN Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "KXAN Austin",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "politics",
+    "relevance": 2,
+    "score": 0.559
+  }
+}
