@@ -94,6 +94,7 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
     national_day_left = int(mix.get("national_per_day", 2)) - state.posts_on_scope(day, "national")
     videos_day_left = int((settings.sources.get("youtube", {}) or {}).get("max_per_day", 4)) - state.posts_on_kind(day, "video")
     clips_day_left = int((settings.sources.get("submissions", {}) or {}).get("max_per_day", 2)) - state.posts_on_kind(day, "submission")
+    wanted_day_left = int((settings.sources.get("wanted", {}) or {}).get("max_per_day", 3)) - state.posts_on_kind(day, "wanted")
     if quiet:
         report.notes.append(f"quiet hours ({local.strftime('%H:%M')} local): only severe weather posts")
     if not gap_ok:
@@ -114,6 +115,9 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             continue
         wanted_cap = int(os.environ.get("FTWTV_WANTED_MAX_PER_RUN") or (settings.sources.get("wanted", {}) or {}).get("max_per_run", 1))
         if story.source_kind == "wanted" and sum(1 for d in drafts if d.story.source_kind == "wanted") >= wanted_cap:
+            continue
+        if story.source_kind == "wanted" and wanted_day_left - sum(1 for d in drafts if d.story.source_kind == "wanted") <= 0:
+            report.skipped.append((story, "wanted bulletins for today are used up"))   # a feed is not a registry
             continue
         caps = (settings.brand.get("content_mix", {}) or {}).get("caps_per_day", {}) or {}
         cat = story.category or "other"

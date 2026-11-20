@@ -103,3 +103,26 @@ def test_posts_scheduled_ahead_do_not_block_the_next_render(settings, now):
     rows2 = [r for r in build_manifest(second.run_dir, settings, branch="renders/t", repo="me/repo", start=now + timedelta(minutes=5)) if not r.get("skip")]
     from datetime import datetime as _dt
     assert _dt.fromisoformat(rows2[0]["at"]) >= later + timedelta(minutes=25)
+
+
+def test_wanted_bulletins_have_a_daily_cap(settings, now):
+    from datetime import timedelta
+    from ftworthtv.models import PostDraft, PostCopy, PublishResult, Story
+    from ftworthtv.state import State
+    settings.sources.setdefault("wanted", {})["max_per_day"] = 1
+    settings.state_path.parent.mkdir(parents=True, exist_ok=True)
+    state = State(settings.state_path)
+    earlier = Story(id="w0", source="Fort Worth Police Department", source_kind="wanted", title="WANTED: Someone Else", summary="", url="https://police.fortworthtexas.gov/x",
+                    published=now - timedelta(hours=3), category_hint="crime", extra={"name": "Someone Else", "agency": "Fort Worth Police Department", "charge": "Theft"})
+    state.record(PostDraft(story=earlier, copy=PostCopy(category="crime", headline="h", caption="c", first_comment=""), writer="template"), PublishResult(ok=True, publisher="dryrun", post_id="1"),
+                 now - timedelta(hours=3), now.astimezone(settings.tz).date().isoformat())
+    state.save()
+    settings.max_posts = 3
+    fresh = Story(id="w1", source="Fort Worth Police Department", source_kind="wanted", title="WANTED: Test Person",
+                  summary="Test Person is wanted by the Fort Worth Police Department for Theft in Fort Worth, Tarrant County.", url="https://police.fortworthtexas.gov/y",
+                  published=now - timedelta(hours=1), category_hint="crime",
+                  extra={"name": "Test Person", "agency": "Fort Worth Police Department", "charge": "Theft", "reward": "$2,000",
+                         "tip_phone": "817-469-TIPS (8477)", "tip_url": "https://police.fortworthtexas.gov/y", "city": "Fort Worth", "scope": "local"})
+    report = run(settings, now=now, stories=[fresh], publisher_name="dryrun")
+    assert not any(d.story.source_kind == "wanted" for d in report.drafts)
+    assert any(reason == "wanted bulletins for today are used up" for _, reason in report.skipped)

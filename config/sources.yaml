@@ -245,6 +245,7 @@ opencities:
 wanted:
   enabled: true
   max_per_run: 1
+  max_per_day: 3               # three bulletins in twelve hours looked like a registry, not a news feed
   agencies:
     - name: Fort Worth Police Department
       kind: fwpd
