@@ -2,7 +2,7 @@
   "daily": {
     "2026-11-18": 1,
     "2026-11-19": 20,
-    "2026-11-20": 18
+    "2026-11-20": 19
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -27,7 +27,7 @@
       "events": 1,
       "food": 1,
       "other": 1,
-      "politics": 2,
+      "politics": 3,
       "sports": 4,
       "weather": 1
     }
@@ -42,7 +42,7 @@
     "2026-11-20": {
       "culture": 1,
       "nws_forecast": 1,
-      "rss": 11,
+      "rss": 12,
       "video": 3,
       "wanted": 2
     }
@@ -60,11 +60,11 @@
     "2026-11-20": {
       "dfw": 2,
       "local": 11,
-      "texas": 5
+      "texas": 6
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-20T14:24:00-06:00",
+  "last_post_at": "2026-11-20T15:56:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -484,6 +484,18 @@
       "title": "Northwest ISD approves revised high school boundaries after parents speak out",
       "url": "https://fortworthreport.org/2026/11/18/northwest-isd-approves-revised-high-school-boundaries-after-parents-speak-out/"
     },
+    "eb7d9121d20c9020": {
+      "at": "2026-11-20T15:56:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436125395",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8777971542460054490",
+      "publisher": "metricool-session",
+      "source": "The Texas Tribune",
+      "title": "Texas power grid CEO secures multimillion-dollar contract extension, angering Dan Patrick",
+      "url": "https://feeds.texastribune.org/link/16799/17536469/ercot-texas-electric-grid-ceo-contract"
+    },
     "f288f7af12924966": {
       "at": "2026-11-19T21:00:00+00:00",
       "category": "sports",
@@ -603,7 +615,7 @@
       "reason": "same reopening as WFAA's video already scheduled (Musume)"
     }
   },
-  "total_posts": 39,
+  "total_posts": 40,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
