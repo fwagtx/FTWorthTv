@@ -1,0 +1,45 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.fox4news.com/news/white-castle-vending-machine-debuts-dallas-love-field-ahead-first-texas-location",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "White Castle vending machine debuts at Dallas Love Field ahead of first Texas location",
+    "caption": "Travelers at Dallas Love Field can now buy White Castle sliders before their flights. The airport debuted a new White Castle vending machine located between Gate 16 and Chili’s.",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth https://www.fox4news.com/news/white-castle-vending-machine-debuts-dallas-love-field-ahead-first-texas-location\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c8425095b9b0874d",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "rss",
+    "title": "White Castle vending machine debuts at Dallas Love Field ahead of first Texas location",
+    "summary": "Travelers at Dallas Love Field can now buy White Castle sliders before their flights. The airport debuted a new White Castle vending machine located between Gate 16 and Chili’s.",
+    "url": "https://www.fox4news.com/news/white-castle-vending-machine-debuts-dallas-love-field-ahead-first-texas-location",
+    "published": "2026-11-20T16:54:43+00:00",
+    "category_hint": null,
+    "image_url": "https://static.fox4news.com/www.fox4news.com/content/uploads/2026/11/image-2026-11-20t105123.830.jpg",
+    "image_credit": "Photo: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "Latest News | FOX 4 News",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.5784
+  }
+}

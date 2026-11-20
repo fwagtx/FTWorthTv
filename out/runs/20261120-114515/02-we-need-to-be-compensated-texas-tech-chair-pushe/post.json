@@ -1,0 +1,55 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-20T18:10:15.099247+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-114515/02-we-need-to-be-compensated-texas-tech-chair-pushe/post.jpg",
+    "credit": "Photo: The Texas Tribune",
+    "license": "republish-ok",
+    "provider": "source",
+    "source_url": "https://feeds.texastribune.org/link/16799/17536360/texas-tech-cody-campbell-board-fermi-data-center-matador",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-114515/02-we-need-to-be-compensated-texas-tech-chair-pushe/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "“We need to be compensated”: Texas Tech chair pushed Fermi data center company for lucrative deals",
+    "caption": "Records show Texas Tech Board Chair Cody Campbell pressed Fermi’s former CEO to give him a controlling role and a contract for his oil and gas company worth millions of dollars in stock options.",
+    "first_comment": "Source: The Texas Tribune @TexasTribune https://feeds.texastribune.org/link/16799/17536360/texas-tech-cody-campbell-board-fermi-data-center-matador\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "8f8740ad5adae026",
+    "source": "The Texas Tribune",
+    "source_kind": "rss",
+    "title": "“We need to be compensated”: Texas Tech chair pushed Fermi data center company for lucrative deals, despite university ties",
+    "summary": "Records show Texas Tech Board Chair Cody Campbell pressed Fermi’s former CEO to give him a controlling role and a contract for his oil and gas company worth millions of dollars in stock options. Tech holds Fermi’s land lease.",
+    "url": "https://feeds.texastribune.org/link/16799/17536360/texas-tech-cody-campbell-board-fermi-data-center-matador",
+    "published": "2026-11-20T16:18:32+00:00",
+    "category_hint": null,
+    "image_url": "https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/11/20260226-TTU-Board-of-Regents-ST-20-.jpg?fit=1024%2C683&ssl=1",
+    "image_credit": "Photo: The Texas Tribune",
+    "image_license": "republish-ok",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5599999999999999,
+    "extra": {
+      "feed_title": "The Texas Tribune",
+      "national": false,
+      "social_tag": "@TexasTribune",
+      "article_fetched": true,
+      "scope": "texas"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.5118
+  }
+}
