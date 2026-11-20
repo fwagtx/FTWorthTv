@@ -54,6 +54,7 @@ pursue reposts), screenshots of other pages' posts, another outlet's photo lifte
 | Nov 20 | "Sunny, high near 65" forecast with a supercell | weather defaulted to the storm topic | weather pictures follow the conditions in the forecast (`weather_topics`) |
 | Nov 20 | Two Dickies Arena events with a Fort Worth skyline | the provider search fell back to the city query after the subject found nothing | a named subject never gets the city fallback; the venue (library) comes first even for events |
 | Nov 20 | "How two Democrats took ... Arlington House seats" with a skyline | "Democrats" was taken as the subject | parties and generic groups are not subjects; "House"/"Senate" map to the Capitol |
+| Nov 20 | A country concert at Dickies Arena with a stranger's portrait | the subject's name was in the file's description, not its title | the subject must be in the file name or title; descriptions never count |
 | Nov 20 | A basketball showcase and a country concert at Dickies Arena with a K-pop concert photo | the file was titled "Twice - Dickies Arena" and the venue words matched | a venue is searched as a building (its category, "exterior", "building"); a photo of somebody else's show is never used for an event; the lesson row is in the fixture |
 
 ## 4. The daily review

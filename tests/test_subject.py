@@ -101,3 +101,17 @@ def test_find_photo_skips_a_show_photo_when_the_story_is_the_building(monkeypatc
     monkeypatch.setattr(providers, "_search", lambda q, s: [show, bldg])
     got = find_photo([("category:Dickies Arena", providers.PERFORMANCE_WORDS, ("dickies", "arena"))], settings, None, fallback=False)
     assert got is bldg
+
+
+def test_a_description_mention_is_not_a_photo_of_the_subject(monkeypatch, settings):
+    from ftworthtv.images import providers
+    from ftworthtv.images.providers import PhotoCandidate, find_photo
+    stranger = PhotoCandidate(id="c1", url="https://x/1.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
+                              source_url="https://commons.wikimedia.org/wiki/File:LarryBennese.JPG", width=2000, height=1300,
+                              alt="Larry Bennese, who once opened for Ty Myers", title="LarryBennese")
+    real = PhotoCandidate(id="c2", url="https://x/2.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
+                          source_url="https://commons.wikimedia.org/wiki/File:Ty_Myers_2025.jpg", width=2000, height=1300, alt="", title="Ty Myers 2025")
+    monkeypatch.setattr(providers, "_search", lambda q, s: [stranger, real])
+    assert find_photo([("Ty Myers", (), ("myers",))], settings, None, fallback=False) is real
+    monkeypatch.setattr(providers, "_search", lambda q, s: [stranger])
+    assert find_photo([("Ty Myers", (), ("myers",))], settings, None, fallback=False) is None

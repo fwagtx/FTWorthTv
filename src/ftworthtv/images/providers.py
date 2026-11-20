@@ -35,6 +35,7 @@ class PhotoCandidate:
     width: int = 0
     height: int = 0
     alt: str = ""
+    title: str = ""     # the file's own title (what the uploader called it); descriptions are never trusted for the subject
     download_hook: str | None = None   # Unsplash: URL to ping when the photo is used
 
     @property
@@ -59,7 +60,7 @@ def search_pexels(query: str, api_key: str, *, per_page: int = 15, orientation: 
             id=f"pexels-{p.get('id')}", url=url,
             credit=f"Photo: {p.get('photographer', 'Pexels photographer')} via Pexels",
             license="pexels", provider="pexels", source_url=p.get("url", "https://www.pexels.com"),
-            width=int(p.get("width", 0)), height=int(p.get("height", 0)), alt=p.get("alt", "") or "",
+            width=int(p.get("width", 0)), height=int(p.get("height", 0)), alt=p.get("alt", "") or "", title=p.get("alt", "") or "",
         ))
     return out
 
@@ -98,6 +99,7 @@ def _candidates_from_pages(payload: dict) -> list[PhotoCandidate]:
             license="wikimedia-cc", provider="wikimedia", source_url=info.get("descriptionurl", "https://commons.wikimedia.org"),
             width=int(info.get("width", 0)), height=int(info.get("height", 0)),
             alt=strip_html((meta.get("ImageDescription", {}) or {}).get("value", ""))[:200],
+            title=re.sub(r"\.(jpe?g|png|webp|tiff?)$", "", str(page.get("title", "")).replace("File:", "")).replace("_", " ")[:200],
         ))
     return out
 
@@ -115,6 +117,7 @@ def parse_unsplash(payload: dict) -> list[PhotoCandidate]:
             id=f"unsplash-{r.get('id')}", url=url, credit=f"Photo: {user.get('name', 'Unsplash photographer')} on Unsplash",
             license="unsplash", provider="unsplash", source_url=(r.get("links", {}) or {}).get("html", "https://unsplash.com"),
             width=int(r.get("width", 0)), height=int(r.get("height", 0)), alt=(r.get("alt_description") or "")[:200],
+            title=(r.get("description") or r.get("alt_description") or "")[:200],
         ))
         out[-1].download_hook = (r.get("links", {}) or {}).get("download_location")  # Unsplash asks apps to ping this on use
     return out
@@ -183,6 +186,7 @@ def parse_openverse(payload: dict) -> list[PhotoCandidate]:
             id=f"openverse-{r.get('id')}", url=r["url"], credit=f"Photo: {r.get('creator') or 'unknown'} ({lic_label}) via {src}",
             license="openverse-cc", provider="openverse", source_url=r.get("foreign_landing_url") or "https://openverse.org",
             width=int(r.get("width") or 0), height=int(r.get("height") or 0), alt=(r.get("title") or "")[:200],
+            title=(r.get("title") or "")[:200],
         ))
     return out
 
@@ -205,6 +209,7 @@ def parse_flickr(payload: dict) -> list[PhotoCandidate]:
             id=f"flickr-{ph.get('id')}", url=url, credit=f"Photo: {ph.get('ownername', 'Flickr user')} ({lic}) via Flickr",
             license="flickr-cc", provider="flickr", source_url=f"https://www.flickr.com/photos/{ph.get('owner')}/{ph.get('id')}",
             width=int(ph.get("width_l") or ph.get("width_c") or 0), height=int(ph.get("height_l") or ph.get("height_c") or 0), alt=(ph.get("title") or "")[:200],
+            title=(ph.get("title") or "")[:200],
         ))
     return out
 
@@ -318,14 +323,14 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             if exclude and (cand.id in exclude or cand.family in exclude):
                 continue
             name = cand.source_url.rsplit("/", 1)[-1].lower().replace("_", " ")
-            titled = name + " " + (cand.alt or "").lower()
+            titled = name + " " + (cand.title or "").lower()
             if avoid and (any(w in titled for w in avoid) or " - " in titled):   # "Artist - Venue, 2022.jpg" is a performance photo
                 continue
             if avoid_words:
                 blob = " ".join([name, cand.alt or "", cand.credit or "", cand.url or ""]).lower()
                 if any(w in blob for w in avoid_words):
                     continue
-            if require and not all(w in name or w in (cand.alt or "").lower() for w in require):   # the subject must be in the file name or title
+            if require and not all(w in titled for w in require):   # the subject must be in the file name or its title, never only in a description
                 continue
             if state and state.photo_recently_used(cand.id):
                 continue
