@@ -110,3 +110,11 @@ def test_non_local_share_is_counted_per_day(settings, now, tmp_path):
         draft = PostDraft(story=story, copy=PostCopy(headline="h", caption="c", category="sports"), writer="template")
         state.record(draft, PublishResult(ok=True, publisher="dryrun", detail="", post_id=None, url=None), now, day)
     assert state.non_local_posts_on(day) == 2 and state.posts_on(day) == 3
+
+
+def test_another_metros_weekend_roundup_is_not_ours():
+    from ftworthtv.filters import other_metro_roundup
+    assert other_metro_roundup("Austin weekend: Theater performances, Bastrop B-day")
+    assert other_metro_roundup("Things to do in Houston this weekend")
+    assert not other_metro_roundup("These are the 14 best things to do in Fort Worth this weekend")
+    assert not other_metro_roundup("Austin ISD trustees vote to close four schools")

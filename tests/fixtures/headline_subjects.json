@@ -155,5 +155,15 @@
       "San Antonio Zoo"
     ],
     "lesson": "a zoo story's picture shows the animal in the headline, never an inspection of another animal"
+  },
+  {
+    "title": "Austin weekend: Theater performances, Bastrop B-day",
+    "body": "",
+    "category": "culture",
+    "mode": "search",
+    "not_search": [
+      "Theater"
+    ],
+    "lesson": "a lone common noun after a colon is not a subject: 'Theater' found a Minneapolis theater"
   }
 ]

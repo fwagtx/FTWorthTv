@@ -107,6 +107,15 @@ def _capitalised(tok: str) -> bool:
     return bool(tok) and tok[0].isupper()
 
 
+COMMON_NOUNS = {"theater", "theatre", "theaters", "performances", "performance", "market", "markets", "festival", "festivals", "concert",
+                "concerts", "weekend", "holiday", "holidays", "parade", "show", "shows", "game", "games", "lights", "music", "food", "restaurant",
+                "restaurants", "school", "schools", "police", "fire", "weather", "storm", "storms", "traffic", "shooting", "crash", "council",
+                "city", "county", "court", "judge", "zoo", "park", "parks", "lake", "river", "airport", "stadium", "arena", "museum", "library",
+                "church", "hospital", "bridge", "road", "highway", "street", "mall", "hotel", "bar", "club", "band", "team", "coach", "player",
+                "fans", "kids", "students", "teachers", "voters", "residents", "families", "workers", "update", "updates", "video", "photos",
+                "watch", "live", "breaking", "exclusive", "report", "news", "forecast", "birthday", "b-day", "christmas", "thanksgiving"}
+
+
 def entities(title: str, body: str = "") -> list[str]:
     """Named subjects in a headline: runs of capitalised words, kept when they are more than one word, possessive, an
     acronym, or appear capitalised again mid-sentence in the body (so 'Largest enrollment drop' names nothing, while
@@ -147,7 +156,7 @@ def entities(title: str, body: str = "") -> list[str]:
         low = phrase.lower()
         possessive = any(w.endswith(("'s", "’s")) for w in run)
         acronym = len(words) == 1 and words[0].isupper() and len(words[0]) >= 2 and low not in ACRONYM_STOP
-        keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and (
+        keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and low not in COMMON_NOUNS and (
             len(words) > 1 or possessive or acronym or low in body_mid or _known_subject(low) or i > 0 and low not in STOP)
         if keep and phrase not in out:
             out.append(phrase)

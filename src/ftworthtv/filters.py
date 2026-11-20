@@ -45,6 +45,19 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
 PLACE_WORDS = ("texas", "fort worth", "dallas", "arlington", "dfw", "north texas", "houston", "austin", "san antonio", "el paso", "lubbock",
                "waco", "cowboys", "rangers", "mavericks", "mavs", "dallas stars", "spurs", "astros", "rockets", "texans", "longhorns", "aggies",
                "tcu", "horned frogs", "smu", "baylor", "texas tech", "at&t stadium", "globe life", "ercot", "h-e-b", "buc-ee", "whataburger")
+OTHER_METROS = ("austin", "san antonio", "houston", "el paso", "waco", "lubbock", "amarillo", "corpus christi", "dallas", "denton", "plano",
+                "frisco", "mckinney", "tyler", "laredo", "midland", "odessa", "abilene", "killeen", "temple", "bryan", "college station",
+                "beaumont", "galveston", "the woodlands", "round rock", "new braunfels", "san marcos", "oklahoma city", "tulsa", "shreveport")
+_ROUNDUP_RE = re.compile(r"\b(weekend|things to do|this week|events this|what's happening|what to do)\b", re.I)
+
+
+def other_metro_roundup(title: str) -> bool:
+    """'Austin weekend: Theater performances, Bastrop B-day', 'Things to do in Houston this weekend': another city's events
+    calendar, however good the weekend is there."""
+    low = (title or "").lower()
+    return bool(_ROUNDUP_RE.search(low)) and any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in OTHER_METROS) and "fort worth" not in low and "tarrant" not in low
+
+
 STATEWIDE_WORDS = ("amber alert", "manhunt", "statewide", "across texas", "texas dps", "border patrol", "cartel", "human smuggling",
                    "ercot", "interstate 35 ", "i-35 ", "texas rangers investigat")
 
@@ -213,6 +226,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             cat = infer_category(story)
             if tier[0] == "texas" and cat in ("crime", "traffic", "food", "events") and not any(w in story.text() for w in STATEWIDE_WORDS):
                 dropped.append((story, f"other-metro {cat}, not statewide"))   # a San Antonio DWI verdict or food truck is not Fort Worth news
+                continue
+            if tier[0] in ("texas", "dfw") and other_metro_roundup(story.title):
+                dropped.append((story, "another city's weekend roundup"))      # "Austin weekend: theater, Bastrop B-day" is KXAN's calendar
                 continue
             story.extra["scope"] = tier[0]
             story.weight *= tier[1]
