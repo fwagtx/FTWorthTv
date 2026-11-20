@@ -1,0 +1,7 @@
+404   202664  https://fortworthreport.org/republish/  -> https://fortworthreport.org/republish/
+404   202678  https://fortworthreport.org/republishing-guidelines/  -> https://fortworthreport.org/republishing-guidelines/
+200   282670  https://www.texastribune.org/republishing-guidelines/  -> https://www.texastribune.org/republishing-guidelines/
+SKIP (robots.txt disallows) https://www.keranews.org/republish
+SKIP (robots.txt disallows) https://www.keranews.org/about-kera-news
+200   275013  https://fortworthreport.org/2026/11/18/northwest-isd-approves-revised-high-school-boundaries-after-parents-speak-out/  -> https://fortworthreport.org/2026/11/18/northwest-isd-approves-revised-high-school-boundaries-after-parents-speak-out/
+200   243965  https://fortworthreport.org/press-release/  -> https://fortworthreport.org/press-release/

@@ -1,0 +1,77 @@
+# 200
+Sitemap: https://fortworthreport.org/sitemap.xml
+Sitemap: https://fortworthreport.org/news-sitemap.xml
+
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-content/uploads/2022/06/CAS_HIVTESTINGDAY-13.jpg
+Disallow: /events/
+
+# Added by Newspack Manager bot blocking
+User-agent: PerplexityBot
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: GPTBot
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: ChatGPT-User
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: CCBot
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: Google-Extended
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: GoogleOther
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: YandexBot
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: ClaudeBot
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: Claude-User
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: Claude-SearchBot
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: Bytespider
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: proximic
+Disallow: /
+
+# Added by Newspack Manager bot blocking
+User-agent: __usage_ai-training
+Disallow: /
