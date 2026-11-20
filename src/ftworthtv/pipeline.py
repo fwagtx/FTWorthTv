@@ -79,7 +79,9 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
     # 2. cadence gates
     quiet = in_quiet_hours(local, posting.get("quiet_hours_local"))
     min_gap = timedelta(minutes=int(posting.get("min_minutes_between_posts", 75)))
-    gap_ok = state.last_post_at is None or (now - state.last_post_at) >= min_gap
+    last_at = state.last_post_at
+    scheduled_ahead = last_at is not None and last_at > now           # a session scheduled the last post for later
+    gap_ok = last_at is None or scheduled_ahead or (now - last_at) >= min_gap
     cap_left = int(posting.get("daily_cap", 10)) - state.posts_on(day)
     per_run = settings.max_posts
     if local.hour in (posting.get("peak_hours_local") or []):       # the reference page's 7-11am and 4pm waves
@@ -96,6 +98,8 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         report.notes.append(f"quiet hours ({local.strftime('%H:%M')} local): only severe weather posts")
     if not gap_ok:
         report.notes.append("too soon since the last post: only severe weather posts")
+    if scheduled_ahead:
+        report.notes.append(f"last post is scheduled ahead ({last_at.astimezone(settings.tz).strftime('%H:%M')} local); new posts are spaced after it")
     if cap_left <= 0:
         report.notes.append("daily cap reached")
 

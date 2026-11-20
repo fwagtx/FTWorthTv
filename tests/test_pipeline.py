@@ -88,3 +88,18 @@ def test_session_manifest_uses_the_brand_networks(settings, now):
     live = [r for r in build_manifest(report.run_dir, settings, branch="renders/t", repo="me/repo", start=now) if not r.get("skip")]
     nets = [p["network"] for p in live[0]["metricool"]["post"]["providers"]]
     assert nets == ["facebook", "instagram"] and live[0]["metricool"]["post"]["instagramData"]["type"] == "POST"
+
+
+def test_posts_scheduled_ahead_do_not_block_the_next_render(settings, now):
+    from datetime import timedelta
+    from ftworthtv.session import build_manifest, record_posted
+    settings.max_posts = 1
+    first = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
+    rows = [r for r in build_manifest(first.run_dir, settings, branch="renders/t", repo="me/repo", start=now) if not r.get("skip")]
+    later = now + timedelta(minutes=50)                                   # the session scheduled it for later
+    record_posted(first.run_dir, settings, {rows[0]["story_id"]: {"post_id": "1", "at": later.isoformat()}})
+    second = run(settings, now=now + timedelta(minutes=5), stories=example_stories(settings, now), publisher_name="dryrun")
+    assert second.drafts and not any("too soon" in n for n in second.notes)
+    rows2 = [r for r in build_manifest(second.run_dir, settings, branch="renders/t", repo="me/repo", start=now + timedelta(minutes=5)) if not r.get("skip")]
+    from datetime import datetime as _dt
+    assert _dt.fromisoformat(rows2[0]["at"]) >= later + timedelta(minutes=25)

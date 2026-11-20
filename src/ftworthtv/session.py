@@ -72,6 +72,17 @@ def payloads(draft: PostDraft, image_url: str | None, story_url: str | None, whe
     return {"post": post, "story": story}
 
 
+def latest_scheduled(state: State) -> datetime | None:
+    """The latest publication time recorded in state (a session may have scheduled posts for later today)."""
+    times = []
+    for info in state.data.get("posted", {}).values():
+        try:
+            times.append(datetime.fromisoformat(info["at"]))
+        except Exception:
+            continue
+    return max(times) if times else None
+
+
 def build_manifest(run_dir: Path, settings: Settings, *, branch: str, repo: str, start: datetime | None = None,
                    spacing_minutes: int | None = None) -> list[dict]:
     """One entry per draft folder: what to look at, what to check, what to send. Posts already in the memory are skipped
@@ -82,6 +93,9 @@ def build_manifest(run_dir: Path, settings: Settings, *, branch: str, repo: str,
     networks = [str(n) for n in (posting.get("networks") or ["facebook", "instagram"])]   # the brand's networks, not an env var
     tz = settings.tz
     when = (start or datetime.now(timezone.utc) + timedelta(minutes=6)).astimezone(tz)
+    latest = latest_scheduled(state)
+    if latest is not None and latest + timedelta(minutes=spacing) > when:   # posts already scheduled ahead: queue behind them
+        when = (latest + timedelta(minutes=spacing)).astimezone(tz)
     rows: list[dict] = []
     for folder in sorted(p for p in Path(run_dir).iterdir() if p.is_dir()):
         draft = load_draft(folder)
