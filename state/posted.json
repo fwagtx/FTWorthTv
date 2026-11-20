@@ -1,7 +1,7 @@
 {
   "daily": {
     "2026-11-18": 1,
-    "2026-11-19": 15
+    "2026-11-19": 17
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -10,18 +10,20 @@
     "2026-11-19": {
       "business": 1,
       "community": 3,
-      "crime": 1,
+      "crime": 2,
       "culture": 2,
       "events": 1,
       "other": 2,
-      "politics": 1,
+      "politics": 2,
       "sports": 3,
       "traffic": 1
     }
   },
   "daily_by_kind": {
     "2026-11-19": {
-      "event": 1
+      "event": 1,
+      "rss": 1,
+      "wanted": 1
     }
   },
   "daily_by_scope": {
@@ -30,13 +32,13 @@
     },
     "2026-11-19": {
       "dfw": 3,
-      "local": 8,
+      "local": 10,
       "national": 2,
       "texas": 2
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-19T20:01:00-06:00",
+  "last_post_at": "2026-11-19T20:51:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -121,6 +123,30 @@
       "source": "KVUE Austin",
       "title": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
       "url": "https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492"
+    },
+    "59f2ab8099878dd8": {
+      "at": "2026-11-19T20:51:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "434999954",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=9221069834769809780",
+      "publisher": "metricool-session",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Fort Worth country club expels Bo French after social media controversies",
+      "url": "https://www.fox4news.com/news/fort-worth-country-club-expels-bo-french-after-social-media-controversies"
+    },
+    "6726a8f006e85fd8": {
+      "at": "2026-11-19T20:26:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "435000719",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-222607015156758939",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Ronnie Trammell",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
     },
     "727a28e05fabf606": {
       "at": "2026-11-19T19:15:00+00:00",
@@ -261,7 +287,7 @@
       "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
     }
   },
-  "total_posts": 16,
+  "total_posts": 18,
   "used_photos": [
     "commons-168451071"
   ],
