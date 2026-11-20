@@ -225,3 +225,22 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         kept.append(story)
     return kept, dropped
+
+
+_DATED_TITLE = re.compile(r"\b(?:for|on)\s+(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday),?\s+(january|february|march|april|may|june|july|august|september|october|november|december)\s+(\d{1,2})\b", re.I)
+
+
+def stale_dated_title(title: str, now_local) -> bool:
+    """'Fort Worth forecast for Tuesday, November 17' on a Thursday is not news; a title dated before today is dropped."""
+    m = _DATED_TITLE.search(title or "")
+    if not m:
+        return False
+    from datetime import date
+    months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+    try:
+        when = date(now_local.year, months.index(m.group(1).lower()) + 1, int(m.group(2)))
+    except ValueError:
+        return False
+    if when - now_local.date() > __import__("datetime").timedelta(days=200):   # a January date seen in December belongs to next year
+        when = when.replace(year=when.year - 1)
+    return when < now_local.date()

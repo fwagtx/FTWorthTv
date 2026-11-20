@@ -78,3 +78,13 @@ def test_session_manifest_and_record(settings, now):
     assert State(settings.state_path).has(live[0]["story_id"])
     rows2 = build_manifest(report.run_dir, settings, branch="renders/test-1", repo="me/repo", start=now)
     assert any(r.get("skip") == "already posted" for r in rows2)
+
+
+def test_session_manifest_uses_the_brand_networks(settings, now):
+    from ftworthtv.session import build_manifest
+    settings.brand.setdefault("posting", {})["networks"] = ["facebook", "instagram"]
+    settings.max_posts = 1
+    report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
+    live = [r for r in build_manifest(report.run_dir, settings, branch="renders/t", repo="me/repo", start=now) if not r.get("skip")]
+    nets = [p["network"] for p in live[0]["metricool"]["post"]["providers"]]
+    assert nets == ["facebook", "instagram"] and live[0]["metricool"]["post"]["instagramData"]["type"] == "POST"

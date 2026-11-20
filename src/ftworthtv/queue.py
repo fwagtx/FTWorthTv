@@ -50,7 +50,7 @@ def load_draft(folder: Path) -> PostDraft | None:
     return draft
 
 
-def review_log(settings: Settings, draft: PostDraft, result: PublishResult, now: datetime) -> None:
+def review_log(settings: Settings, draft: PostDraft, result: PublishResult, now: datetime, extra: dict | None = None) -> None:
     """One line per published post in state/review/<day>.jsonl: what went out, with which photo and why, so the daily
     image review (docs/IMAGE_RULES.md) can check every picture against its headline without opening the platforms."""
     try:
@@ -63,7 +63,7 @@ def review_log(settings: Settings, draft: PostDraft, result: PublishResult, now:
                "image": {"path": str(im.path), "provider": im.provider, "credit": im.credit, "subject": im.subject,
                          "source_url": im.source_url} if im else None,
                "video": str(draft.video_path) if draft.video_path else None, "link": draft.link,
-               "post_id": result.post_id, "post_url": result.url}
+               "post_id": result.post_id, "post_url": result.url, **(extra or {})}
         with open(path, "a", encoding="utf-8") as fh:
             fh.write(json.dumps(row, ensure_ascii=False) + "\n")
     except Exception as exc:   # the review log must never break publishing

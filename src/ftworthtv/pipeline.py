@@ -122,6 +122,10 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                 report.skipped.append((story, "video share used (a few a day, one a run)"))
                 continue
             videos_day_left -= 1
+        from .filters import stale_dated_title
+        if stale_dated_title(story.title, now.astimezone(settings.tz)):
+            report.skipped.append((story, "dated for a day that has passed"))
+            continue
         if story.source_kind == "submission":
             if clips_day_left <= 0 or any(d.story.source_kind == "submission" for d in drafts):
                 report.skipped.append((story, "viewer clip used (a couple a day, one a run)"))
@@ -183,6 +187,11 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                     draft.mode, draft.link = ("link", story.url) if story.url else ("text", None)
                 if draft.image and draft.image.photo_id:
                     used_photos.add(draft.image.photo_id)
+                if draft.image and draft.image.provider in ("card", "placeholder") and story.source_kind == "event":
+                    report.skipped.append((story, "event listing without its own picture"))
+                    draft = None
+                if draft is None:
+                    continue
                 if (draft.image and draft.image.provider in ("card", "placeholder") and story.source_kind == "rss" and story.url
                         and posting.get("link_when_no_photo", True)):
                     # no verified picture of the subject: the article's own photo appears through Facebook's link preview

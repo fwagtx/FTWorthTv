@@ -115,7 +115,7 @@ class PostDraft:
 
     def first_comment_text(self) -> str:
         text = self.copy.first_comment or ""
-        credit = self.image.credit if self.image else ""
+        credit = self.image.credit if self.image and self.image.provider not in ("card", "placeholder", "quote") else ""
         text = text.replace("{photo_credit}", credit).strip()
         tags = " ".join(self.copy.hashtags)
         if tags:

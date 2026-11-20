@@ -112,6 +112,7 @@ posting:
   peak_hours_local: [7, 8, 9, 10, 11, 16]   # the reference page's morning wave (7-11am) and 4pm wave: 2 per run then
   peak_max_posts_per_run: 2
   min_minutes_between_posts: 25
+  networks: [facebook, instagram]  # where the session publishes every post (the Metricool brand has both)
   daily_cap: 20                # the reference page runs 20-24 a day
   quiet_hours_local: [23, 6]   # their output runs 5:45am-10:30pm; no posts 11pm-6am Central (severe weather still posts)
   daily_forecast_hour_local: 7 # "Good morning Fort Worth" weather post once a day (needs no API key)

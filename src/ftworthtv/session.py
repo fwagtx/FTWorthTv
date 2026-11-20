@@ -27,11 +27,10 @@ def raw_url(repo: str, branch: str, run_dir: Path, path: Path | None, root: Path
     """Public URL of a file in the run folder as committed on the renders branch (the branch holds out/runs/<run>/...)."""
     if not path or not Path(path).exists():
         return None
-    try:
-        rel = Path(path).resolve().relative_to(root.resolve()).as_posix()
-    except ValueError:
-        rel = Path(path).as_posix().split("out/runs/", 1)[-1]
-        rel = "out/runs/" + rel
+    posix = Path(path).as_posix()
+    if "out/runs/" not in posix:
+        return None
+    rel = "out/runs/" + posix.split("out/runs/", 1)[-1]
     return RAW.format(repo=repo, branch=branch, path=rel)
 
 
@@ -80,6 +79,7 @@ def build_manifest(run_dir: Path, settings: Settings, *, branch: str, repo: str,
     state = State(settings.state_path)
     posting = settings.brand.get("posting", {}) or {}
     spacing = int(spacing_minutes or posting.get("min_minutes_between_posts", 25))
+    networks = [str(n) for n in (posting.get("networks") or ["facebook", "instagram"])]   # the brand's networks, not an env var
     tz = settings.tz
     when = (start or datetime.now(timezone.utc) + timedelta(minutes=6)).astimezone(tz)
     rows: list[dict] = []
@@ -104,8 +104,7 @@ def build_manifest(run_dir: Path, settings: Settings, *, branch: str, repo: str,
             "photo": {"subject": im.subject, "credit": im.credit, "provider": im.provider, "source_url": im.source_url} if im else None,
             "caption": draft.caption_text(), "first_comment": draft.first_comment_text(),
             "problems": problems, "at": when.isoformat(),
-            "metricool": payloads(draft, image_url, story_url, when, tz, list(settings.metricool_networks or ["facebook", "instagram"]),
-                                  settings.brand.get("stories", {}) or {}),
+            "metricool": payloads(draft, image_url, story_url, when, tz, networks, settings.brand.get("stories", {}) or {}),
         })
         when += timedelta(minutes=spacing)
     return rows
@@ -125,7 +124,7 @@ def record_posted(run_dir: Path, settings: Settings, posted: dict[str, dict]) ->
                                url=info.get("url"), detail=f"scheduled from a session; story {info.get('story_post_id', '')}")
         day = when.astimezone(settings.tz).date().isoformat()
         state.record(draft, result, when, day)
-        review_log(settings, draft, result, when)
+        review_log(settings, draft, result, when, extra={k: info[k] for k in ("image_url", "networks") if info.get(k)})
         n += 1
     state.prune(datetime.now(timezone.utc))
     state.save()
