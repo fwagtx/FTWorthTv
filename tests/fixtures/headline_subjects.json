@@ -1,14 +1,139 @@
 [
-  {"title": "Anthropic's $81.3 billion IPO is the largest ever; shares open at $111.50 on the Nasdaq", "body": "Anthropic raised $81.3 billion.", "category": "business", "mode": "entity", "topics": ["anthropic"], "lesson": "the company is the subject, never the exchange building"},
-  {"title": "Utah visits TCU, close to Big 12 title game", "body": "No. 2 Utah comes to Fort Worth.", "category": "sports", "mode": "entity", "first_topic": "tcu-football", "lesson": "a football story wants the stadium, not a campus chapel"},
-  {"title": "Northwest ISD approves revised high school boundaries after parents speak out", "body": "", "category": "community", "mode": "entity", "topics": ["northwest-isd"], "lesson": "a district's own schools first; buses only as the institution fallback"},
-  {"title": "Largest enrollment drop in Texas' recorded history means challenges for public schools, Morath says", "body": "Commissioner Mike Morath said.", "category": "community", "mode": "beat", "lesson": "'Morath says' is attribution, not the subject"},
-  {"title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury", "body": "", "category": "sports", "mode": "entity", "topics": ["aac"], "lesson": "the team's arena stands in for a player"},
-  {"title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker", "body": "", "category": "sports", "mode": "entity", "topics": ["att-stadium"], "lesson": "the team's stadium"},
-  {"title": "Voters will likely decide Dallas City Hall's future in May election", "body": "", "category": "politics", "mode": "search", "search": ["Dallas City Hall"], "lesson": "another city's landmark is searched for, never swapped for ours"},
-  {"title": "Fort Worth police set new policies for Flock cameras", "body": "Flock cameras.", "category": "crime", "mode": "institution", "fallback": ["police"], "lesson": "a police department is depicted by the police beat"},
-  {"title": "Grand Theft Auto VI is out today on PS5 and Xbox", "body": "", "category": "culture", "mode": "institution", "fallback": ["gaming"], "lesson": "a game is depicted by the gaming beat (controllers), never a skyline"},
-  {"title": "These are the 14 best things to do in Fort Worth this weekend", "body": "Ice skating is back in the Stockyards.", "category": "events", "mode": "beat", "lesson": "no named subject: the city itself is fine"},
-  {"title": "Tarrant County jail death under investigation", "body": "", "category": "crime", "mode": "beat", "lesson": "a county name alone is a place, the jail beat applies"},
-  {"title": "Trinity Metro board approves cuts to On-Demand service", "body": "", "category": "traffic", "mode": "entity", "topics": ["transit"], "lesson": "the agency's own buses and station"}
+  {
+    "title": "Anthropic's $81.3 billion IPO is the largest ever; shares open at $111.50 on the Nasdaq",
+    "body": "Anthropic raised $81.3 billion.",
+    "category": "business",
+    "mode": "entity",
+    "topics": [
+      "anthropic"
+    ],
+    "lesson": "the company is the subject, never the exchange building"
+  },
+  {
+    "title": "Utah visits TCU, close to Big 12 title game",
+    "body": "No. 2 Utah comes to Fort Worth.",
+    "category": "sports",
+    "mode": "entity",
+    "first_topic": "tcu-football",
+    "lesson": "a football story wants the stadium, not a campus chapel"
+  },
+  {
+    "title": "Northwest ISD approves revised high school boundaries after parents speak out",
+    "body": "",
+    "category": "community",
+    "mode": "entity",
+    "topics": [
+      "northwest-isd"
+    ],
+    "lesson": "a district's own schools first; buses only as the institution fallback"
+  },
+  {
+    "title": "Largest enrollment drop in Texas' recorded history means challenges for public schools, Morath says",
+    "body": "Commissioner Mike Morath said.",
+    "category": "community",
+    "mode": "beat",
+    "lesson": "'Morath says' is attribution, not the subject"
+  },
+  {
+    "title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
+    "body": "",
+    "category": "sports",
+    "mode": "entity",
+    "topics": [
+      "aac"
+    ],
+    "lesson": "the team's arena stands in for a player"
+  },
+  {
+    "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
+    "body": "",
+    "category": "sports",
+    "mode": "entity",
+    "topics": [
+      "att-stadium"
+    ],
+    "lesson": "the team's stadium"
+  },
+  {
+    "title": "Voters will likely decide Dallas City Hall's future in May election",
+    "body": "",
+    "category": "politics",
+    "mode": "search",
+    "search": [
+      "Dallas City Hall"
+    ],
+    "lesson": "another city's landmark is searched for, never swapped for ours"
+  },
+  {
+    "title": "Fort Worth police set new policies for Flock cameras",
+    "body": "Flock cameras.",
+    "category": "crime",
+    "mode": "institution",
+    "fallback": [
+      "police"
+    ],
+    "lesson": "a police department is depicted by the police beat"
+  },
+  {
+    "title": "Grand Theft Auto VI is out today on PS5 and Xbox",
+    "body": "",
+    "category": "culture",
+    "mode": "institution",
+    "fallback": [
+      "gaming"
+    ],
+    "lesson": "a game is depicted by the gaming beat (controllers), never a skyline"
+  },
+  {
+    "title": "These are the 14 best things to do in Fort Worth this weekend",
+    "body": "Ice skating is back in the Stockyards.",
+    "category": "events",
+    "mode": "beat",
+    "lesson": "no named subject: the city itself is fine"
+  },
+  {
+    "title": "Tarrant County jail death under investigation",
+    "body": "",
+    "category": "crime",
+    "mode": "beat",
+    "lesson": "a county name alone is a place, the jail beat applies"
+  },
+  {
+    "title": "Trinity Metro board approves cuts to On-Demand service",
+    "body": "",
+    "category": "traffic",
+    "mode": "entity",
+    "topics": [
+      "transit"
+    ],
+    "lesson": "the agency's own buses and station"
+  },
+  {
+    "title": "Women's Funkytown Showdown at Dickies Arena, Sun, Nov 22 12:00 PM",
+    "body": "",
+    "category": "sports",
+    "mode": "entity",
+    "topics": [
+      "dickies-arena"
+    ],
+    "search": [
+      "Women Funkytown Showdown",
+      "Dickies Arena"
+    ],
+    "lesson": "punctuation ends a name; the venue is a building, never another artist's show"
+  },
+  {
+    "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+    "body": "",
+    "category": "events",
+    "mode": "entity",
+    "topics": [
+      "dickies-arena"
+    ],
+    "search": [
+      "Ty Myers",
+      "Dickies Arena"
+    ],
+    "lesson": "the performer and the venue are two subjects; a colon ends the first"
+  }
 ]

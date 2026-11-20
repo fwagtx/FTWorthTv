@@ -59,7 +59,9 @@ STOP = {"no", "the", "a", "an", "in", "on", "at", "for", "with", "after", "befor
         "fire", "shooting", "storm", "storms", "tornado", "hail", "flood", "freeze", "heat", "power", "outage", "gas", "home",
         "homes", "house", "school", "schools", "students", "teachers", "parents", "kids", "children", "people", "person",
         "suspect", "wanted", "arrest", "arrested", "deadly", "fatal", "injured", "dead", "killed", "democrats", "democrat",
-        "republicans", "republican", "texans", "fort worthians", "residents", "voters", "lawmakers"}
+        "republicans", "republican", "texans", "fort worthians", "residents", "voters", "lawmakers",
+        "mon", "tue", "tues", "wed", "thu", "thur", "thurs", "fri", "sat", "sun", "jan", "feb", "mar", "apr", "jun", "jul", "aug",
+        "sep", "sept", "oct", "nov", "dec", "pm", "am", "live"}
 ACRONYM_STOP = {"ipo", "ceo", "cfo", "gop", "tv", "us", "usa", "am", "pm", "ai", "isd", "nws", "dps", "fbi", "nfl", "nba", "mlb",
                 "nhl", "mls", "ncaa", "pd", "id", "dna", "gta", "ps5", "hq", "atm", "gps", "tx", "i-30", "i-20", "i-35w", "i-820"}
 
@@ -109,7 +111,11 @@ def entities(title: str, body: str = "") -> list[str]:
     """Named subjects in a headline: runs of capitalised words, kept when they are more than one word, possessive, an
     acronym, or appear capitalised again mid-sentence in the body (so 'Largest enrollment drop' names nothing, while
     'Anthropic's IPO' and 'Northwest ISD' do). Places are returned too; callers decide what to do with them."""
-    tokens = _TOKEN.findall(title or "")
+    tokens: list[str] = []
+    for segment in re.split(r"[,;:|()\[\]\u2013\u2014]|\s-\s", title or ""):   # "Dickies Arena, Sun, Nov 22" is three segments
+        seg = _TOKEN.findall(segment)
+        if seg:
+            tokens += seg + ["|"]
     body_mid = set()
     for m in re.finditer(r"(?<![.!?]\s)(?<!^)\b([A-Z][A-Za-z0-9&'’.-]+)", body or ""):
         body_mid.add(_clean(m.group(1)).lower())
@@ -117,12 +123,12 @@ def entities(title: str, body: str = "") -> list[str]:
     i = 0
     while i < len(tokens):
         tok = tokens[i]
-        if not _capitalised(tok) or _clean(tok).lower() in STOP and i == 0 and not tok.endswith(("'s", "’s")):
+        if tok == "|" or not _capitalised(tok) or _clean(tok).lower() in STOP and (i == 0 or tokens[i - 1] == "|") and not tok.endswith(("'s", "’s")):
             i += 1
             continue
         run = [tok]
         j = i + 1
-        while j < len(tokens) and (_capitalised(tokens[j]) or tokens[j].lower() in ("of", "&", "and") and j + 1 < len(tokens) and _capitalised(tokens[j + 1])):
+        while j < len(tokens) and tokens[j] != "|" and (_capitalised(tokens[j]) or tokens[j].lower() in ("of", "&", "and") and j + 1 < len(tokens) and _capitalised(tokens[j + 1])):
             run.append(tokens[j])
             j += 1
         while run and run[-1].lower() in ("of", "&", "and"):
@@ -229,3 +235,39 @@ def weather_topics(text: str) -> list[str]:
         if any(w in low for w in words):
             return topics
     return ["skyline", "downtown"]
+
+
+VENUE_WORDS = ("arena", "stadium", "field", "center", "centre", "hall", "theater", "theatre", "coliseum", "ballpark", "speedway",
+               "amphitheater", "amphitheatre", "pavilion", "convention", "museum", "zoo", "garden", "park", "plaza", "square")
+PERFORMANCE_WORDS = ("concert", "live", "performing", "performs", "tour", "festival", "show", "gig", "on stage", "onstage", "k-pop",
+                     "kpop", "band", "singer", "rapper", "dj ", "fans", "crowd", "halftime", "vs", "game", "match")
+
+
+def is_venue(name: str) -> bool:
+    low = name.lower()
+    return any(w in low.split() or low.endswith(" " + w) for w in VENUE_WORDS)
+
+
+def provider_queries(plan: SubjectPlan, title: str, category: str) -> list[tuple[tuple, str]]:
+    """(query tuple, subject label) pairs for the search providers, one named subject at a time.
+
+    A venue is searched for as a building (its Commons category, then "exterior"/"building"), never as somebody else's
+    show inside it: a K-pop night at Dickies Arena is not a picture of Sunday's basketball showcase. Any other subject
+    (a company, a team, a person) must appear in the file name or title, newest uploads first, and photos of concerts or
+    games are skipped unless the story itself is that concert or game."""
+    low_title = (title or "").lower()
+    performer_story = category in ("events", "culture") or any(w in low_title for w in ("concert", "tour", "live", "festival", "show"))
+    out: list[tuple[tuple, str]] = []
+    for name in plan.search_names[:2]:
+        words = tuple(w for w in name.lower().split() if len(w) > 2 and w not in ("the", "and"))
+        label = f"entity:{name.lower()}"
+        if is_venue(name):
+            out += [((f"category:{name}", PERFORMANCE_WORDS, words), label),
+                    ((f"{name} exterior", PERFORMANCE_WORDS, words), label),
+                    ((f"{name} building", PERFORMANCE_WORDS, words), label),
+                    ((f"fresh:{name}", PERFORMANCE_WORDS, words), label),
+                    ((name, PERFORMANCE_WORDS, words), label)]
+        else:
+            avoid = () if performer_story else PERFORMANCE_WORDS
+            out += [((f"fresh:{name}", avoid, words), label), ((name, avoid, words), label)]
+    return out

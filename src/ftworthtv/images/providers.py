@@ -318,7 +318,8 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             if exclude and (cand.id in exclude or cand.family in exclude):
                 continue
             name = cand.source_url.rsplit("/", 1)[-1].lower().replace("_", " ")
-            if avoid and (any(w in name for w in avoid) or " - " in name):   # "Artist - Venue, 2022.jpg" is a performance photo
+            titled = name + " " + (cand.alt or "").lower()
+            if avoid and (any(w in titled for w in avoid) or " - " in titled):   # "Artist - Venue, 2022.jpg" is a performance photo
                 continue
             if avoid_words:
                 blob = " ".join([name, cand.alt or "", cand.credit or "", cand.url or ""]).lower()

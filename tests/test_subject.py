@@ -74,3 +74,30 @@ def test_headline_lessons_fixture():
             assert topic in plan.fallback_topics, (row["title"], plan.fallback_topics)
         for name in row.get("search", []):
             assert name in plan.search_names, (row["title"], plan.search_names)
+
+
+def test_a_venue_is_searched_as_a_building_not_as_someone_elses_show():
+    from ftworthtv.images.subject import plan_subject, provider_queries
+    plan = plan_subject("Women's Funkytown Showdown at Dickies Arena, Sun, Nov 22 12:00 PM", "", "sports")
+    pairs = provider_queries(plan, "Women's Funkytown Showdown at Dickies Arena, Sun, Nov 22 12:00 PM", "sports")
+    venue = [q for q, lab in pairs if lab == "entity:dickies arena"]
+    assert venue and venue[0][0] == "category:Dickies Arena" and "concert" in venue[0][1] and "k-pop" in venue[0][1]
+    assert all(("dickies", "arena") == q[2] for q in venue)
+    ipo = plan_subject("Anthropic's $81.3 billion IPO is the largest ever", "Anthropic raised money.", "business")
+    pairs = provider_queries(ipo, "Anthropic's $81.3 billion IPO is the largest ever", "business")
+    assert pairs[0][0][0] == "fresh:Anthropic" and "concert" in pairs[0][0][1] and pairs[0][0][2] == ("anthropic",)
+    concert = plan_subject("Ty Myers: The Legal Tour 2026 at Dickies Arena", "", "events")
+    pairs = provider_queries(concert, "Ty Myers: The Legal Tour 2026 at Dickies Arena", "events")
+    assert pairs[0][0][1] == () and "myers" in pairs[0][0][2]        # the performer's own show may be a concert photo
+
+
+def test_find_photo_skips_a_show_photo_when_the_story_is_the_building(monkeypatch, settings):
+    from ftworthtv.images import providers
+    from ftworthtv.images.providers import PhotoCandidate, find_photo
+    show = PhotoCandidate(id="c1", url="https://x/1.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
+                          source_url="https://commons.wikimedia.org/w/index.php?curid=1", width=2000, height=1300, alt="TWICE World Tour at Dickies Arena")
+    bldg = PhotoCandidate(id="c2", url="https://x/2.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
+                          source_url="https://commons.wikimedia.org/wiki/File:Dickies_Arena_exterior.jpg", width=2000, height=1300, alt="Dickies Arena exterior")
+    monkeypatch.setattr(providers, "_search", lambda q, s: [show, bldg])
+    got = find_photo([("category:Dickies Arena", providers.PERFORMANCE_WORDS, ("dickies", "arena"))], settings, None, fallback=False)
+    assert got is bldg
