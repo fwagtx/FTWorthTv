@@ -2,7 +2,7 @@
   "daily": {
     "2026-11-18": 1,
     "2026-11-19": 20,
-    "2026-11-20": 15
+    "2026-11-20": 16
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -26,7 +26,7 @@
       "events": 1,
       "food": 1,
       "politics": 2,
-      "sports": 3,
+      "sports": 4,
       "weather": 1
     }
   },
@@ -40,7 +40,7 @@
     "2026-11-20": {
       "culture": 1,
       "nws_forecast": 1,
-      "rss": 8,
+      "rss": 9,
       "video": 3,
       "wanted": 2
     }
@@ -56,12 +56,13 @@
       "texas": 2
     },
     "2026-11-20": {
+      "dfw": 1,
       "local": 11,
       "texas": 4
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-20T13:09:00-06:00",
+  "last_post_at": "2026-11-20T13:34:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -158,6 +159,18 @@
       "source": "KVUE Austin",
       "title": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
       "url": "https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492"
+    },
+    "40ffa78104c5b2b2": {
+      "at": "2026-11-20T13:34:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435849146",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8889765555974783156",
+      "publisher": "metricool-session",
+      "source": "WFAA Sports",
+      "title": "The Mavericks will sell Cooper Flag's secret weapon outside the AAC this weekend",
+      "url": "https://www.wfaa.com/article/sports/basketball/cooper-flagg-peanut-butter-and-jelly-pop-up-aac-the-jam-box/287-690d7924-7be8-4a56-9879-75d7a226e1cc"
     },
     "4674400665feac13": {
       "at": "2026-11-19T21:16:00-06:00",
@@ -552,7 +565,7 @@
       "reason": "same reopening as WFAA's video already scheduled (Musume)"
     }
   },
-  "total_posts": 36,
+  "total_posts": 37,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
