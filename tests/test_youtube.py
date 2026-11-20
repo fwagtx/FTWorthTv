@@ -79,3 +79,11 @@ def test_wire_channels_only_share_watchlisted_moments():
     assert wanted_title(wire, "Anthropic Executive Team Rings Nasdaq Opening Bell", g)
     assert not wanted_title(wire, "Fed holds rates steady as markets wobble", g)            # no watchlist subject
     assert not wanted_title(wire, "Anthropic CEO on the future of AI | full interview", g)  # not an event
+
+
+def test_a_dallas_institution_is_not_ours_because_the_title_says_north_texas():
+    from ftworthtv.sources.youtube import names_our_place
+    assert not names_our_place("The Dallas Foundation awards nearly $2.7 million to North Texas nonprofits")
+    assert names_our_place("Tarrant Area Food Bank hands out Thanksgiving meals to North Texas families")
+    assert names_our_place("North Texas storms knock out power overnight | NBC DFW")
+    assert not names_our_place("Dallas City Council approves budget | FOX 4")

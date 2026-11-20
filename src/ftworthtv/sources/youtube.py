@@ -47,6 +47,23 @@ def place_text(title: str) -> str:
     return _CHANNEL_SUFFIX.sub("", title or "").strip()
 
 
+REGIONAL_WORDS = ("dfw", "dallas-fort worth", "dallas/fort worth", "north texas", "metroplex")
+
+
+def names_our_place(title: str) -> bool:
+    """A Tarrant-side place, or the region as a whole; but a title whose subject is Dallas ("The Dallas Foundation awards
+    ... to North Texas nonprofits") does not become ours because it also says North Texas."""
+    text = place_text(title).lower()
+    if any(p in text for p in PLACE_WORDS if p not in REGIONAL_WORDS):
+        return True
+    if not any(p in text for p in REGIONAL_WORDS):
+        return False
+    stripped = text
+    for p in REGIONAL_WORDS:
+        stripped = stripped.replace(p, " ")
+    return re.search(r"\bdallas\b", stripped) is None
+
+
 def wanted_title(cfg: dict, title: str, global_cfg: dict | None = None) -> bool:
     """The per-channel caution: a station's video must name the place in its own title; a team's video must be a result,
     highlights or a move; hours-long recordings and filler never qualify."""
@@ -54,7 +71,7 @@ def wanted_title(cfg: dict, title: str, global_cfg: dict | None = None) -> bool:
     skip = list((global_cfg or {}).get("skip_in_title", []) or []) + list(cfg.get("skip_in_title", []) or [])
     if any(s in low for s in SKIP_TITLE) or any(str(s).lower() in low for s in skip):
         return False
-    if cfg.get("title_must_name_place") and not any(p in place_text(low) for p in PLACE_WORDS):
+    if cfg.get("title_must_name_place") and not names_our_place(low):
         return False
     need = cfg.get("require_any_in_title")
     if need and not any(str(w).lower() in low for w in need):
