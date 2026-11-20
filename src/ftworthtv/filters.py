@@ -73,6 +73,18 @@ def other_region(title: str) -> bool:
     return any(re.search(r"\b" + re.escape(r) + r"\b", low) for r in OTHER_REGIONS)
 
 
+_CIVIC_RE = re.compile(r"\b(mayor|mayor pro tem|city council|council ?(?:member|man|woman)|city manager|police chief|fire chief|isd|school board|"
+                       r"county judge|commissioners?|city hall|town hall|trustees?)\b", re.I)
+
+
+def other_metro_local(title: str) -> bool:
+    """'Austin Mayor Pro Tem announces resignation, run for Texas Senate': another city's government is that city's news."""
+    low = (title or "").lower()
+    if any(w in low for w in ("fort worth", "tarrant", "dfw", "north texas", "arlington", "keller", "southlake", "mansfield")):
+        return False
+    return bool(_CIVIC_RE.search(low)) and any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in OTHER_METROS)
+
+
 def other_metro_roundup(title: str) -> bool:
     """'Austin weekend: Theater performances, Bastrop B-day', 'Things to do in Houston this weekend': another city's events
     calendar, however good the weekend is there."""
@@ -203,6 +215,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 if term in t:
                     term_outlets.setdefault(term, set()).add(s.source)
     for story in stories:
+        if state.skipped(story.id):
+            dropped.append((story, "skipped by the reviewing session"))
+            continue
         twin = state.recent_title_like(story.title, now, hours=48, match=same_story)
         if twin:
             dropped.append((story, f"same story already posted (another outlet or format): {twin[:60]}"))   # WFAA's article after WFAA's video of the same reopening
@@ -263,6 +278,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 continue
             if tier[0] == "texas" and other_region(story.title) and not any(w in story.text() for w in STATEWIDE_WORDS):
                 dropped.append((story, "another region's story"))              # fall foliage in South Central Texas is KENS 5's weather blog
+                continue
+            if tier[0] == "texas" and other_metro_local(story.title) and not any(w in story.text() for w in STATEWIDE_WORDS):
+                dropped.append((story, "another city's government"))             # Austin's mayor pro tem is Austin's news
                 continue
             if tier[0] in ("texas", "dfw") and other_metro_roundup(story.title):
                 dropped.append((story, "another city's weekend roundup"))      # "Austin weekend: theater, Bastrop B-day" is KXAN's calendar

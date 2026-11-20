@@ -36,6 +36,13 @@ class State:
     def has(self, story_id: str) -> bool:
         return story_id in self.data["posted"]
 
+    def skipped(self, story_id: str) -> bool:
+        return story_id in self.data.get("skipped", {})
+
+    def mark_skipped(self, story_id: str, reason: str, when: datetime) -> None:
+        """A story the reviewing session chose not to post (a Dallas park amenity, a column): it must not be drafted again."""
+        self.data.setdefault("skipped", {})[story_id] = {"reason": reason[:140], "at": when.isoformat()}
+
     @property
     def last_post_at(self) -> datetime | None:
         raw = self.data.get("last_post_at")

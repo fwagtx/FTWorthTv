@@ -173,7 +173,8 @@ def cmd_session(args) -> int:
         print(f"manifest: {out}")
         return 0
     posted = _json.loads(Path(args.posted).read_text(encoding="utf-8")) if Path(args.posted).exists() else _json.loads(args.posted)
-    n = record_posted(run_dir, settings, posted)
+    skipped = _json.loads(Path(args.skipped).read_text(encoding="utf-8")) if Path(args.skipped).exists() else _json.loads(args.skipped)
+    n = record_posted(run_dir, settings, posted, skipped)
     print(f"recorded {n} post(s) in {settings.state_path}")
     return 0
 
@@ -231,6 +232,7 @@ def build_parser() -> argparse.ArgumentParser:
     se.add_argument("--repo", default="fwagtx/FTWorthTv")
     se.add_argument("--spacing", type=int, default=None, help="minutes between posts (default: brand.yaml)")
     se.add_argument("--posted", default="{}", help="JSON file or string: {story_id: {post_id, story_post_id, at, url}}")
+    se.add_argument("--skipped", default="{}", help="JSON file or string: {story_id: reason} for drafts the session did not post")
     se.set_defaults(func=cmd_session)
     c = sub.add_parser("config", help="print the resolved settings (secrets masked)")
     c.set_defaults(func=cmd_config)

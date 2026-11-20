@@ -152,3 +152,26 @@ def test_a_story_posted_yesterday_is_not_posted_again_under_another_headline(set
                    published=now - timedelta(hours=1), category_hint="food", extra={"scope": "local"})
     kept, dropped = filter_stories([second], settings, state, now)
     assert not kept and dropped and dropped[0][1].startswith("same story already posted")
+
+
+def test_a_story_the_session_skipped_is_not_drafted_again(settings, now):
+    from datetime import timedelta
+    from ftworthtv.filters import filter_stories
+    from ftworthtv.models import Story
+    from ftworthtv.state import State
+    settings.state_path.parent.mkdir(parents=True, exist_ok=True)
+    state = State(settings.state_path)
+    story = Story(id="d1", source="WFAA Sports", source_kind="rss", title="Dallas installs 10 new hydration stations at White Rock Lake",
+                  summary="Ten new hydration stations at White Rock Lake Park in Dallas, North Texas.", url="https://www.wfaa.com/z",
+                  published=now - timedelta(hours=1), category_hint="community", extra={"scope": "dfw"})
+    state.mark_skipped("d1", "a Dallas park amenity is not Fort Worth news", now)
+    kept, dropped = filter_stories([story], settings, state, now)
+    assert not kept and dropped[0][1] == "skipped by the reviewing session"
+
+
+def test_another_citys_government_is_that_citys_news():
+    from ftworthtv.filters import other_metro_local
+    assert other_metro_local("Austin Mayor Pro Tem announces resignation, run for Texas Senate")
+    assert other_metro_local("Houston City Council approves $7 billion budget")
+    assert not other_metro_local("Fort Worth City Council approves budget")
+    assert not other_metro_local("Texas Senate passes property tax cut")

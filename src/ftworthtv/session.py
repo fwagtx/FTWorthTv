@@ -124,10 +124,14 @@ def build_manifest(run_dir: Path, settings: Settings, *, branch: str, repo: str,
     return rows
 
 
-def record_posted(run_dir: Path, settings: Settings, posted: dict[str, dict]) -> int:
-    """posted: {story_id: {"post_id": ..., "story_post_id": ..., "at": iso}} -> state + review log, like the publish step."""
+def record_posted(run_dir: Path, settings: Settings, posted: dict[str, dict], skipped: dict[str, str] | None = None) -> int:
+    """posted: {story_id: {"post_id": ..., "story_post_id": ..., "at": iso}} -> state + review log, like the publish step.
+    skipped: {story_id: reason} for drafts the session chose not to post; they are remembered so no later render redrafts them."""
     state = State(settings.state_path)
     n = 0
+    for story_id, reason in (skipped or {}).items():
+        if not state.has(story_id):
+            state.mark_skipped(story_id, reason, datetime.now(timezone.utc))
     for folder in sorted(p for p in Path(run_dir).iterdir() if p.is_dir()):
         draft = load_draft(folder)
         if not draft or draft.story.id not in posted or state.has(draft.story.id):
