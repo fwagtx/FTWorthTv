@@ -122,6 +122,7 @@ posting:
   #   card = native photo post: licensed stock/Wikimedia photo of Fort Worth + headline overlay, source link in first comment  (looks like the Dallas page)
   #   link = Facebook link post: Facebook renders the outlet's own photo as the preview (100% safe, lower reach)
   news_photo_mode: card
+  link_when_no_photo: false    # the owner saw Facebook's link preview as 'a post inside a post': an outlet story with no picture of its subject is skipped, never shared as a link
 
 hashtags:
   default: ["#FortWorth", "#FTW", "#FortWorthTX", "#DFW", "#Texas"]

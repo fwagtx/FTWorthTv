@@ -12,7 +12,7 @@ def test_offline_dry_run_end_to_end(settings, now):
     assert len(report.drafts) == 3 and all(r.ok for r in report.results)
     assert report.drafts[0].story.source_kind == "nws_alert"          # severe weather first
     assert report.drafts[1].scheduled_at is not None                    # later posts are spaced out
-    for draft in [d for d in report.drafts if d.mode != "link"]:   # the I-35W crash (a thing that happened) goes out as a link post
+    for draft in report.drafts:
         assert draft.image and draft.image.path.exists()
         folder = draft.image.path.parent
         assert (folder / "post.json").exists() and (folder / "caption.txt").exists()
@@ -49,7 +49,7 @@ def test_link_mode_for_news(settings, now):
     assert data["posts"][0]["mode"] == "link"
 
 
-def test_outlet_story_without_a_verified_photo_becomes_a_link_post(settings, now):
+def test_outlet_story_without_a_verified_photo_is_skipped_not_linked(settings, now):
     from datetime import timedelta
     from ftworthtv.models import Story
     story = Story(id="l1", source="FOX 4 Dallas-Fort Worth", source_kind="rss", title="Fort Worth country club expels Bo French after social media controversies",
@@ -57,9 +57,10 @@ def test_outlet_story_without_a_verified_photo_becomes_a_link_post(settings, now
                   url="https://www.fox4news.com/news/fort-worth-country-club-bo-french", published=now - timedelta(hours=1), category_hint="politics", extra={"scope": "local"})
     settings.max_posts = 1
     report = run(settings, now=now, stories=[story], publisher_name="dryrun")
-    d = report.drafts[0]
-    assert d.mode == "link" and d.link == story.url and d.image is None      # Facebook shows FOX 4's own photo in the preview
-    assert any("link post" in n for n in report.notes)
+    assert not report.drafts and any(why == "no picture of the subject that we may use" for _, why in report.skipped)
+    settings.brand["posting"]["link_when_no_photo"] = True                 # the old behaviour stays available, off by default
+    report = run(settings, now=now, stories=[story], publisher_name="dryrun")
+    assert report.drafts and report.drafts[0].mode == "link"
 
 
 def test_session_manifest_and_record(settings, now):
@@ -136,5 +137,5 @@ def test_a_play_that_happened_never_takes_the_stadium_as_a_stand_in(settings, no
                   published=now - timedelta(hours=2), category_hint="sports", extra={"scope": "local"})
     settings.max_posts = 1
     report = run(settings, now=now, stories=[story], publisher_name="dryrun")
-    d = report.drafts[0]
-    assert d.mode == "link" and d.image is None            # the outlet's own photo of the game shows in the preview; no file photo of the stadium
+    assert not report.drafts                                # no picture of the play, no post: never the stadium, never a link preview
+    assert any(why == "no picture of the subject that we may use" for _, why in report.skipped)

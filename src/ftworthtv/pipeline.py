@@ -200,12 +200,16 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                     draft = None
                 if draft is None:
                     continue
-                if (draft.image and draft.image.provider in ("card", "placeholder") and story.source_kind == "rss" and story.url
-                        and posting.get("link_when_no_photo", True)):
-                    # no verified picture of the subject: the article's own photo appears through Facebook's link preview
-                    # (the outlet's image, the outlet's credit, no copy made); Instagram, which takes no links, skips it
-                    draft.image, draft.story_path, draft.mode, draft.link = None, None, "link", story.url
-                    report.notes.append(f"link post (outlet's own photo in the preview): {story.title[:60]}")
+                if draft.image and draft.image.provider in ("card", "placeholder") and story.source_kind == "rss" and story.url:
+                    if posting.get("link_when_no_photo", False):
+                        # the article's own photo appears through Facebook's link preview (the outlet's image, no copy made)
+                        draft.image, draft.story_path, draft.mode, draft.link = None, None, "link", story.url
+                        report.notes.append(f"link post (outlet's own photo in the preview): {story.title[:60]}")
+                    else:
+                        # the owner wants original posts only: a link preview reads as a post inside a post. No picture
+                        # of the subject, no post.
+                        report.skipped.append((story, "no picture of the subject that we may use"))
+                        continue
                 stories_cfg = settings.brand.get("stories", {}) or {}
                 if draft.image and stories_cfg.get("enabled", True) and Path(draft.image.path).exists():
                     try:

@@ -19,9 +19,10 @@ ISD), a person (Cooper Flagg), a venue (Dickies Arena), an institution (Fort Wor
 | nothing in particular (a roundup, a statewide statistic) | the beat it is about (schools, grocery, storm, highway), then the city | a subject it does not mention |
 | something that happened (a play, an injury, a crash, a fire, a ceremony, an arrest) | a picture of that happening, or the outlet's own photo in a link preview | the stadium, the highway, the building: a stand-in is a lie about the event |
 
-If no verified photo of the subject exists, an outlet story goes out as a link post (the outlet's own photo in the
-preview, no copy made) and anything else as a card with no photo. A blank card is honest; the wrong photo is a lie about
-the story. (`images/subject.py` decides; `images/__init__.py` obeys; `checks.py` re-checks at publish time and
+If no verified photo of the subject exists, the story is not posted. The owner saw Facebook's link preview, the
+fallback used on Nov 20, as "a post inside a post": the page posts original cards only, so a story we cannot illustrate
+honestly waits for a picture or is skipped (`posting.link_when_no_photo: false`). The wrong photo is a lie about the
+story; a link preview is somebody else's post. (`images/subject.py` decides; `images/__init__.py` obeys; `checks.py` re-checks at publish time and
 holds a post whose photo no longer fits.)
 
 ## 2. Where real, up-to-date pictures come from, in order
@@ -75,6 +76,7 @@ pursue reposts), screenshots of other pages' posts, another outlet's photo lifte
 | Nov 20 | Texans' Chris Braswell carted off on the opening kickoff, with an aerial of NRG Stadium | the team's ground stood in for the play | a story about something that happened (`happened`) takes a picture from the event or none; outlet stories then go out as link posts with the outlet's photo; the stadium is never a stand-in |
 | Nov 20 | Texas vs. Arkansas preview with an Unsplash landscape of Arkansas | the opponent's state name was searched as a subject | states are places (`PLACES`), never searched; a game preview with no picture of the team goes out as a link post |
 | Nov 20 | The CONCACAF W tournament coming to Texas, with the 2012 U.S. women's team lifting a trophy | the team matched, fourteen years ago | a team or a person is shown only by a photo taken within three years and dated (`photo_age_bar`); otherwise the outlet story is a link post |
+| Nov 20 | Nine of the day's eighteen posts went out as Facebook link posts (ESPN, WFAA, KXAN, NBC 5 ...) | the link preview shows the outlet's image and headline in a box: a post inside a post, not an original post | link posts are off (`link_when_no_photo: false`); a story with no picture of its subject that we may use is skipped |
 | Nov 20 | A basketball showcase and a country concert at Dickies Arena with a K-pop concert photo | the file was titled "Twice - Dickies Arena" and the venue words matched | a venue is searched as a building (its category, "exterior", "building"); a photo of somebody else's show is never used for an event; the lesson row is in the fixture |
 
 ## 4. The daily review
