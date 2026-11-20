@@ -148,6 +148,36 @@ def cmd_state(args) -> int:
     return 0
 
 
+def cmd_session(args) -> int:
+    """`session queue RUN --branch B`: write RUN/manifest.json for a reviewing session; `session record RUN --posted JSON`."""
+    import json as _json
+    from .session import build_manifest, record_posted
+    settings = _settings(args)
+    run_dir = Path(args.run_dir)
+    if not run_dir.is_absolute():
+        run_dir = settings.root / run_dir
+    if args.action == "queue":
+        rows = build_manifest(run_dir, settings, branch=args.branch, repo=args.repo, spacing_minutes=args.spacing)
+        out = run_dir / "manifest.json"
+        out.write_text(_json.dumps(rows, indent=1, ensure_ascii=False, default=str) + "\n", encoding="utf-8")
+        for r in rows:
+            if r.get("skip"):
+                print(f"SKIP  {r['headline'][:70]}  ({r['skip']})")
+                continue
+            flag = "HOLD " if r["problems"] else "OK   "
+            ph = r.get("photo") or {}
+            print(f"{flag} {r['at'][11:16]} [{r['category']}/{r['scope']}] {r['mode']:5} {r['headline'][:70]}")
+            print(f"       card: {r['card']}   photo: {ph.get('subject')} | {ph.get('credit')}")
+            for pr in r["problems"]:
+                print(f"       problem: {pr}")
+        print(f"manifest: {out}")
+        return 0
+    posted = _json.loads(Path(args.posted).read_text(encoding="utf-8")) if Path(args.posted).exists() else _json.loads(args.posted)
+    n = record_posted(run_dir, settings, posted)
+    print(f"recorded {n} post(s) in {settings.state_path}")
+    return 0
+
+
 def cmd_config(args) -> int:
     settings = _settings(args)
     print(json.dumps(settings.redacted(), indent=2, default=str))
@@ -194,6 +224,14 @@ def build_parser() -> argparse.ArgumentParser:
     st.add_argument("action", choices=["show", "prune"], nargs="?", default="show")
     st.add_argument("--limit", type=int, default=20)
     st.set_defaults(func=cmd_state)
+    se = sub.add_parser("session", help="publish from a Claude session: queue a rendered run for review, record what was scheduled")
+    se.add_argument("action", choices=["queue", "record"])
+    se.add_argument("run_dir")
+    se.add_argument("--branch", default="", help="renders/<run>-<n> branch the run folder was pushed to")
+    se.add_argument("--repo", default="fwagtx/FTWorthTv")
+    se.add_argument("--spacing", type=int, default=None, help="minutes between posts (default: brand.yaml)")
+    se.add_argument("--posted", default="{}", help="JSON file or string: {story_id: {post_id, story_post_id, at, url}}")
+    se.set_defaults(func=cmd_session)
     c = sub.add_parser("config", help="print the resolved settings (secrets masked)")
     c.set_defaults(func=cmd_config)
     return p

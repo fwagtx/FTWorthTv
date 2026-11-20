@@ -4,23 +4,28 @@ Page: **Fort Worth Daily** on Facebook, **@fortworthdailytv** on Instagram, both
 (brand id 8208939, timezone America/Chicago). The first posts were scheduled through Metricool on Nov 18-19, 2026.
 Nothing here costs money: free tiers plus the Claude subscription and the Metricool plan you already have.
 
-## 1. Still needed for the schedule to run on its own (about ten minutes, once)
+## 1. How publishing works now: no secrets, a person looks at every card
 
-The watcher workflow (`.github/workflows/watch.yml`) already runs continuously on the default branch
-(`claude/practical-mccarthy-mi4jkw`) in dry-run mode. It starts publishing the moment these exist:
+Nothing has to be added on GitHub or in Metricool. The owner asked (Nov 20) that every post be checked before it goes
+out and that nothing be left for them to set up, so the page publishes like this:
 
-| # | Where | What |
-|---|---|---|
-| 1 | Metricool → Settings (gear) → **API** | copy the **user token** |
-| 2 | GitHub repo → Settings → Secrets and variables → Actions → **Secrets** | `METRICOOL_USER_TOKEN` = that token · `METRICOOL_USER_ID` = `5456294` · `METRICOOL_BLOG_ID` = `8208939` |
-| 3 | same page → **Variables** | `FTWTV_PUBLISHER` = `metricool` · `MEDIA_BASE_URL` = `https://raw.githubusercontent.com/fwagtx/FTWorthTv/claude/practical-mccarthy-mi4jkw` |
-| 4 | **needed for photos of people** | secret `CLAUDE_CODE_OAUTH_TOKEN` from `claude setup-token` on your computer (your Claude subscription, no API bill). With it, Claude opens every searched photo and confirms it shows the headline's subject before it is used, and people named in headlines can get their picture. Without it, people stories go out with the venue, the team or no photo, and the template writer writes the captions. |
-| 5 | optional | variable `METRICOOL_AUTOPUBLISH` = `false` if you want to approve every post on your phone at first; secret `NWS_USER_AGENT` = any text with a contact email, for weather alerts; photo keys `UNSPLASH_ACCESS_KEY`, `FLICKR_API_KEY`, `PIXABAY_API_KEY` |
-| 6 | strongly recommended, free | secret `FLICKR_API_KEY` from flickr.com/services/apps/create (a minute): the largest pool of same-week Creative Commons photos of real Fort Worth events, games and places. Without it the page has Wikimedia Commons and Openverse only. The photo rules are in `docs/IMAGE_RULES.md`. |
+1. **GitHub generates.** `render.yml` runs the pipeline against the live sources (feeds, police, city, NWS, YouTube
+   channels, the viewer sheet) as a dry run and pushes the run folder, cards and stories included, to a `renders/<run>-<n>`
+   branch. The cards are public there (raw.githubusercontent.com), which is what the scheduler needs.
+2. **A scheduled Claude session publishes** ("Fort Worth Daily · publish", every half hour, 6 am to 10:30 pm Central).
+   It dispatches a render, waits for the branch, runs `ftworthtv session queue <run folder> --branch <branch>`, which
+   writes a manifest with each draft's headline, caption, first comment, image URLs, pre-publish problems and the exact
+   Metricool payloads. The session **opens every card** and checks the picture against the headline (docs/IMAGE_RULES.md),
+   drops or fixes what does not fit, schedules the rest through the Metricool connector (post, then its Story two minutes
+   later), and records them with `ftworthtv session record`, which updates `state/posted.json` and the review log and is
+   pushed so the next render skips them.
+3. **Viewer photos and clips** come in the same way: the session reads the sheet "Fort Worth Daily — viewer videos" and
+   the uploads folder through the Drive connector (no public sharing needed), checks consent and approval, hosts a clip
+   on the media release and posts it credited.
 
-Variables `METRICOOL_NETWORKS` (`facebook,instagram`) and `METRICOOL_AUTOPUBLISH` (`true`) already have the right defaults.
-If the Metricool API tab is not on your plan, say so: the fallback is a scheduled Claude task that posts through the
-Metricool connector instead (more of your Claude usage, no token).
+The REST path (`METRICOOL_USER_TOKEN` and friends in `watch.yml`) still works if those secrets are ever added; it is
+no longer required. The hourly limit of scheduled tasks is the only reason the cadence is half-hourly rather than the
+watcher's seven minutes; severe weather alerts are the one thing that path handled faster.
 
 ## 2. What runs once that is in
 

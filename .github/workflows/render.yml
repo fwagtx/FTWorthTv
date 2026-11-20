@@ -61,6 +61,7 @@ jobs:
       FTWTV_ENABLE_ARREST_LOG: ${{ inputs.arrest_log }}
       FTWTV_WANTED_MAX_PER_RUN: ${{ inputs.wanted_max }}
       FTWTV_NON_LOCAL_PER_RUN: ${{ inputs.non_local_per_run }}
+      FTWTV_PHOTO_REVIEW: session      # a Claude session opens every card before it is scheduled (docs/GO_LIVE.md)
       FTWTV_SUBMISSIONS_CSV_URL: ${{ inputs.submissions_csv }}
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}

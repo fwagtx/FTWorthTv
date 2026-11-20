@@ -60,3 +60,21 @@ def test_outlet_story_without_a_verified_photo_becomes_a_link_post(settings, now
     d = report.drafts[0]
     assert d.mode == "link" and d.link == story.url and d.image is None      # Facebook shows FOX 4's own photo in the preview
     assert any("link post" in n for n in report.notes)
+
+
+def test_session_manifest_and_record(settings, now):
+    import json as _json
+    from ftworthtv.session import build_manifest, record_posted
+    settings.max_posts = 2
+    report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
+    rows = build_manifest(report.run_dir, settings, branch="renders/test-1", repo="me/repo", start=now)
+    live = [r for r in rows if not r.get("skip")]
+    assert len(live) == 2 and live[0]["image_url"].startswith("https://raw.githubusercontent.com/me/repo/renders/test-1/out/runs/")
+    assert live[0]["metricool"]["post"]["media"] == [live[0]["image_url"]] and live[0]["metricool"]["post"]["facebookData"] == {"type": "POST"}
+    assert live[0]["metricool"]["story"]["facebookData"] == {"type": "STORY"} and live[1]["at"] > live[0]["at"]
+    n = record_posted(report.run_dir, settings, {live[0]["story_id"]: {"post_id": "123", "story_post_id": "124", "at": now.isoformat()}})
+    assert n == 1
+    from ftworthtv.state import State
+    assert State(settings.state_path).has(live[0]["story_id"])
+    rows2 = build_manifest(report.run_dir, settings, branch="renders/test-1", repo="me/repo", start=now)
+    assert any(r.get("skip") == "already posted" for r in rows2)
