@@ -217,12 +217,16 @@ def search_flickr(query: str, api_key: str, *, per_page: int = 20) -> list[Photo
     return parse_flickr(payload)
 
 
-def search_wikimedia(query: str, *, limit: int = 15) -> list[PhotoCandidate]:
+def search_wikimedia(query: str, *, limit: int = 15, fresh: bool = False) -> list[PhotoCandidate]:
+    """Full-text search of Commons files; `fresh` asks for the newest uploads first, which is how a photo taken at
+    yesterday's game or this morning's ceremony beats a ten-year-old file of the same building."""
     params = {
         "action": "query", "format": "json", "formatversion": 2,
         "generator": "search", "gsrsearch": f"{query} filetype:bitmap", "gsrnamespace": 6, "gsrlimit": limit,
         "prop": "imageinfo", "iiprop": "url|extmetadata|size", "iiurlwidth": 1800,
     }
+    if fresh:
+        params["gsrsort"] = "create_timestamp_desc"
     return _candidates_from_pages(http.get_json(COMMONS_API, params=params))
 
 
@@ -257,6 +261,12 @@ def _search(query: str, settings) -> list[PhotoCandidate]:
             return search_wikimedia_category(query.split(":", 1)[1].strip())
         except Exception as exc:
             log.warning("wikimedia category failed for %r: %s", query, exc)
+            return []
+    if query.lower().startswith("fresh:"):      # newest Commons uploads about the subject first (events, games, ceremonies)
+        try:
+            return search_wikimedia(query.split(":", 1)[1].strip(), fresh=True)
+        except Exception as exc:
+            log.warning("wikimedia fresh search failed for %r: %s", query, exc)
             return []
     keyed = {
         "pexels": lambda: search_pexels(query, settings.pexels_api_key) if settings.pexels_api_key else [],

@@ -55,3 +55,22 @@ def test_pipeline_records_the_subject_and_holds_a_mismatch(settings, now):
     assert preflight(by["t1"], network=False) == []
     by["t1"].image.subject = "beat:stock-market"
     assert any("photo does not show the subject" in p for p in preflight(by["t1"], network=False))
+
+
+def test_headline_lessons_fixture():
+    """Every mistake the page has made becomes a row here; the planner must keep getting them right."""
+    import json
+    from pathlib import Path
+    rows = json.loads((Path(__file__).parent / "fixtures" / "headline_subjects.json").read_text(encoding="utf-8"))
+    assert len(rows) >= 10
+    for row in rows:
+        plan = plan_subject(row["title"], row.get("body", ""), row["category"])
+        assert plan.mode == row["mode"], (row["title"], plan.mode, row["lesson"])
+        for topic in row.get("topics", []):
+            assert topic in plan.entity_topics, (row["title"], plan.entity_topics)
+        if row.get("first_topic"):
+            assert plan.entity_topics[0] == row["first_topic"], (row["title"], plan.entity_topics)
+        for topic in row.get("fallback", []):
+            assert topic in plan.fallback_topics, (row["title"], plan.fallback_topics)
+        for name in row.get("search", []):
+            assert name in plan.search_names, (row["title"], plan.search_names)

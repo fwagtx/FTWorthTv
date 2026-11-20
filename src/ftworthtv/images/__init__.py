@@ -204,8 +204,11 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         lib_photo = from_library() if library_first else None
         if lib_photo is None and not settings.offline:
             if sp.mode in ("entity", "search"):
-                queries = [(name, (), tuple(w for w in name.lower().split() if len(w) > 2)) for name in sp.search_names[:2]]
-                labels = [f"entity:{name.lower()}" for name in sp.search_names[:2]]
+                queries, labels = [], []
+                for name in sp.search_names[:2]:
+                    words = tuple(w for w in name.lower().split() if len(w) > 2)
+                    queries += [(f"fresh:{name}", (), words), (name, (), words)]   # this week's photo of the subject before an old one
+                    labels += [f"entity:{name.lower()}", f"entity:{name.lower()}"]
             elif sp.mode == "institution":
                 queries, labels = [], []
             else:

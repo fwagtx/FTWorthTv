@@ -50,6 +50,26 @@ def load_draft(folder: Path) -> PostDraft | None:
     return draft
 
 
+def review_log(settings: Settings, draft: PostDraft, result: PublishResult, now: datetime) -> None:
+    """One line per published post in state/review/<day>.jsonl: what went out, with which photo and why, so the daily
+    image review (docs/IMAGE_RULES.md) can check every picture against its headline without opening the platforms."""
+    try:
+        day = now.astimezone(settings.tz).date().isoformat()
+        path = settings.state_path.parent / "review" / f"{day}.jsonl"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        im = draft.image
+        row = {"at": now.isoformat(), "title": draft.story.title, "headline": draft.copy.headline, "category": draft.copy.category,
+               "source": draft.story.source, "url": draft.story.url, "mode": draft.mode,
+               "image": {"path": str(im.path), "provider": im.provider, "credit": im.credit, "subject": im.subject,
+                         "source_url": im.source_url} if im else None,
+               "video": str(draft.video_path) if draft.video_path else None, "link": draft.link,
+               "post_id": result.post_id, "post_url": result.url}
+        with open(path, "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(row, ensure_ascii=False) + "\n")
+    except Exception as exc:   # the review log must never break publishing
+        log.warning("review log not written: %s", exc)
+
+
 def publish_run(run_dir: Path, settings: Settings, publisher_name: str) -> list[tuple[PostDraft, PublishResult]]:
     run_dir = Path(run_dir)
     state = State(settings.state_path)
@@ -76,6 +96,7 @@ def publish_run(run_dir: Path, settings: Settings, publisher_name: str) -> list[
         result = publisher.publish(draft)
         if result.ok and publisher.name != "dryrun":
             state.record(draft, result, now, day)
+            review_log(settings, draft, result, now)
         out.append((draft, result))
         log.info("%s %s -> %s", "posted" if result.ok else "FAILED", draft.story.title[:60], result.detail)
     if publisher.name != "dryrun":

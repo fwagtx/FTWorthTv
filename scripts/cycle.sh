@@ -28,5 +28,5 @@ if [ "$PUBLISHER" != "dryrun" ]; then
   python -m ftworthtv publish latest --publisher "$PUBLISHER" || echo "publish step reported a failure"
 fi
 
-git add state/posted.json 2>/dev/null || true
+git add state/posted.json state/review 2>/dev/null || true
 git diff --cached --quiet || (git commit -q -m "chore: update post memory [skip ci]" && git pull -q --rebase --autostash && git push -q)

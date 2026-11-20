@@ -91,6 +91,14 @@ def _elsewhere(entity: str) -> bool:
     return any(c in low for c in OTHER_CITIES) and "fort worth" not in low
 
 
+_KNOWN: set[str] = {p for phrases, topic in TOPIC_RULES if topic in ENTITY_TOPICS for p in phrases if p.strip()}
+
+
+def _known_subject(low: str) -> bool:
+    """'Cowboys ...' at the start of a headline names the team even when nothing else repeats it."""
+    return any(low == p.strip() or (len(low) > 3 and (low in p or p in low)) for p in _KNOWN)
+
+
 def _capitalised(tok: str) -> bool:
     return bool(tok) and tok[0].isupper()
 
@@ -132,7 +140,7 @@ def entities(title: str, body: str = "") -> list[str]:
         possessive = any(w.endswith(("'s", "’s")) for w in run)
         acronym = len(words) == 1 and words[0].isupper() and len(words[0]) >= 2 and low not in ACRONYM_STOP
         keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and (
-            len(words) > 1 or possessive or acronym or low in body_mid or i > 0 and low not in STOP)
+            len(words) > 1 or possessive or acronym or low in body_mid or _known_subject(low) or i > 0 and low not in STOP)
         if keep and phrase not in out:
             out.append(phrase)
         i = max(j, i + 1)
