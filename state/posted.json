@@ -527,6 +527,10 @@
     }
   },
   "skipped": {
+    "214130b81122252c": {
+      "at": "2026-11-20T16:18:32.671901+00:00",
+      "reason": "a magazine gift guide, not news"
+    },
     "6f71b25b567fa281": {
       "at": "2026-11-20T15:19:26.662256+00:00",
       "reason": "another city's government (Austin mayor pro tem)"
@@ -538,6 +542,10 @@
     "9428392a765ff728": {
       "at": "2026-11-20T15:19:26.662237+00:00",
       "reason": "a Dallas park amenity is not Fort Worth news"
+    },
+    "d4a2cb327d6cc322": {
+      "at": "2026-11-20T16:18:32.671884+00:00",
+      "reason": "same reopening as WFAA's video already scheduled (Musume)"
     }
   },
   "total_posts": 36,
