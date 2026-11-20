@@ -165,5 +165,15 @@
       "Theater"
     ],
     "lesson": "a lone common noun after a colon is not a subject: 'Theater' found a Minneapolis theater"
+  },
+  {
+    "title": "Why fall foliage looks different across South Central Texas",
+    "body": "",
+    "category": "other",
+    "mode": "beat",
+    "not_search": [
+      "South Central Texas"
+    ],
+    "lesson": "a region is a place, not a subject: searching it found a storm satellite image"
   }
 ]

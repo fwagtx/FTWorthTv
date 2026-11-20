@@ -52,6 +52,7 @@ rss:
     national: true
     verify: true
   - name: ESPN Top Headlines
+    category_hint: sports
     url: https://www.espn.com/espn/rss/news
     weight: 0.5
     image_policy: none
@@ -103,6 +104,7 @@ rss:
     image_policy: none
     verify: true
   - name: ESPN NFL
+    category_hint: sports
     url: https://www.espn.com/espn/rss/nfl/news
     weight: 0.7
     image_policy: none

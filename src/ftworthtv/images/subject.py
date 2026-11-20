@@ -43,7 +43,10 @@ PLACES = ("fort worth", "tarrant county", "tarrant", "texas", "north texas", "df
           "keller", "southlake", "mansfield", "grand prairie", "burleson", "haslet", "north richland hills", "hurst", "euless",
           "bedford", "grapevine", "weatherford", "benbrook", "white settlement", "saginaw", "crowley", "azle", "colleyville",
           "watauga", "forest hill", "river oaks", "lake worth", "aledo", "roanoke", "trophy club", "westlake", "denton county",
-          "parker county", "johnson county", "dallas county", "u.s.", "america", "united states") + OTHER_CITIES
+          "parker county", "johnson county", "dallas county", "u.s.", "america", "united states",
+          "south central texas", "central texas", "north central texas", "hill country", "coastal bend", "rio grande valley", "east texas",
+          "west texas", "south texas", "southeast texas", "panhandle", "texas panhandle", "gulf coast", "big bend", "permian basin",
+          "brazos valley", "deep east texas", "the valley", "the metroplex") + OTHER_CITIES
 # capitalised words that start headlines without naming anything
 STOP = {"no", "the", "a", "an", "in", "on", "at", "for", "with", "after", "before", "as", "and", "but", "or", "to", "from", "by",
         "of", "over", "under", "near", "amid", "despite", "here", "what", "when", "how", "why", "who", "this", "these", "those",

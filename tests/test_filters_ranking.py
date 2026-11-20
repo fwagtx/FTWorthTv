@@ -118,3 +118,10 @@ def test_another_metros_weekend_roundup_is_not_ours():
     assert other_metro_roundup("Things to do in Houston this weekend")
     assert not other_metro_roundup("These are the 14 best things to do in Fort Worth this weekend")
     assert not other_metro_roundup("Austin ISD trustees vote to close four schools")
+
+
+def test_another_regions_story_is_not_ours():
+    from ftworthtv.filters import other_region
+    assert other_region("Why fall foliage looks different across South Central Texas")
+    assert not other_region("North Texas fall foliage peaks this week")
+    assert not other_region("Texas public schools lose 135,000 students")

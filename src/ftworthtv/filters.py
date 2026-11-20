@@ -51,6 +51,20 @@ OTHER_METROS = ("austin", "san antonio", "houston", "el paso", "waco", "lubbock"
 _ROUNDUP_RE = re.compile(r"\b(weekend|things to do|this week|events this|what's happening|what to do)\b", re.I)
 
 
+OTHER_REGIONS = ("south central texas", "central texas", "hill country", "coastal bend", "rio grande valley", "east texas", "west texas",
+                 "south texas", "southeast texas", "panhandle", "gulf coast", "big bend", "permian basin", "brazos valley", "deep east texas",
+                 "golden triangle", "concho valley", "the valley")
+
+
+def other_region(title: str) -> bool:
+    """A story told for another part of the state ('Why fall foliage looks different across South Central Texas'); North
+    Texas and statewide stories are not touched."""
+    low = (title or "").lower()
+    if "north texas" in low or "north central texas" in low or "fort worth" in low or "dfw" in low:
+        return False
+    return any(re.search(r"\b" + re.escape(r) + r"\b", low) for r in OTHER_REGIONS)
+
+
 def other_metro_roundup(title: str) -> bool:
     """'Austin weekend: Theater performances, Bastrop B-day', 'Things to do in Houston this weekend': another city's events
     calendar, however good the weekend is there."""
@@ -226,6 +240,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             cat = infer_category(story)
             if tier[0] == "texas" and cat in ("crime", "traffic", "food", "events") and not any(w in story.text() for w in STATEWIDE_WORDS):
                 dropped.append((story, f"other-metro {cat}, not statewide"))   # a San Antonio DWI verdict or food truck is not Fort Worth news
+                continue
+            if tier[0] == "texas" and other_region(story.title) and not any(w in story.text() for w in STATEWIDE_WORDS):
+                dropped.append((story, "another region's story"))              # fall foliage in South Central Texas is KENS 5's weather blog
                 continue
             if tier[0] in ("texas", "dfw") and other_metro_roundup(story.title):
                 dropped.append((story, "another city's weekend roundup"))      # "Austin weekend: theater, Bastrop B-day" is KXAN's calendar
