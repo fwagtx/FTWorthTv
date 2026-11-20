@@ -258,7 +258,7 @@ def provider_queries(plan: SubjectPlan, title: str, category: str) -> list[tuple
     low_title = (title or "").lower()
     performer_story = category in ("events", "culture") or any(w in low_title for w in ("concert", "tour", "live", "festival", "show"))
     out: list[tuple[tuple, str]] = []
-    for name in plan.search_names[:2]:
+    for name in plan.search_names[:3]:
         words = tuple(w for w in name.lower().split() if len(w) > 2 and w not in ("the", "and"))
         label = f"entity:{name.lower()}"
         if is_venue(name):
