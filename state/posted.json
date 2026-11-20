@@ -566,6 +566,10 @@
     }
   },
   "skipped": {
+    "0ebdefdcec430122": {
+      "at": "2026-11-20T19:15:08.920313+00:00",
+      "reason": "the only image is the TechFW logo; a logo card reads like an ad, and the item is minor"
+    },
     "214130b81122252c": {
       "at": "2026-11-20T16:18:32.671901+00:00",
       "reason": "a magazine gift guide, not news"
