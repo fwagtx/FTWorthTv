@@ -1,7 +1,8 @@
 {
   "daily": {
     "2026-11-18": 1,
-    "2026-11-19": 20
+    "2026-11-19": 20,
+    "2026-11-20": 3
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -17,6 +18,11 @@
       "politics": 2,
       "sports": 3,
       "traffic": 2
+    },
+    "2026-11-20": {
+      "crime": 1,
+      "events": 1,
+      "politics": 1
     }
   },
   "daily_by_kind": {
@@ -24,6 +30,11 @@
       "event": 1,
       "rss": 3,
       "video": 1,
+      "wanted": 1
+    },
+    "2026-11-20": {
+      "culture": 1,
+      "rss": 1,
       "wanted": 1
     }
   },
@@ -36,10 +47,13 @@
       "local": 12,
       "national": 2,
       "texas": 2
+    },
+    "2026-11-20": {
+      "local": 3
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-19T22:06:00-06:00",
+  "last_post_at": "2026-11-20T07:19:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -173,6 +187,18 @@
       "title": "HILLWOOD EXPANDS ALLIANCETEXAS INDUSTRIAL PIPELINE WITH TWO NEW SPECULATIVE BUILDINGS",
       "url": "https://fortworthbusiness.com/construction/hillwood-expands-alliancetexas-industrial-pipeline-with-two-new-speculative-buildings/"
     },
+    "611b556b32e8e241": {
+      "at": "2026-11-20T07:19:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "435494612",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8595873482991909747",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Kenneth Gaines",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
     "6726a8f006e85fd8": {
       "at": "2026-11-19T20:26:00-06:00",
       "category": "crime",
@@ -198,6 +224,18 @@
       "source": "NBC 5 DFW",
       "title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
       "url": "https://www.nbcdfw.com/news/sports/dallas-mavericks/cooper-flagg-scores-33-as-mavericks-keep-warriors-winless-since-stephen-currys-injury/4108189/"
+    },
+    "78ead7b6e1e65d77": {
+      "at": "2026-11-20T06:54:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "435494402",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1960919293519611740",
+      "publisher": "metricool-session",
+      "source": "The Texas Tribune",
+      "title": "Tarrant County Republicans, stung by defeat, are soul-searching and finger-pointing",
+      "url": "https://feeds.texastribune.org/link/16799/17536120/texas-tarrant-county-republicans-future-matt-krause"
     },
     "7be27b45a3d3be02": {
       "at": "2026-11-19T18:30:00+00:00",
@@ -240,6 +278,18 @@
       "source": "Fort Worth Report",
       "title": "Tarrant County to mark 25 years of celebrating National Adoption Day",
       "url": "https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/"
+    },
+    "culture-parade-of-lights-2026-0": {
+      "at": "2026-11-20T07:44:00-06:00",
+      "category": "events",
+      "kind": "culture",
+      "mode": "photo",
+      "post_id": "435496283",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6409550518459151121",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Texas TV",
+      "title": "Parade of Lights rolls through downtown Fort Worth this Sunday 🎄",
+      "url": "https://www.fortworthparadeoflights.org/"
     },
     "e2bbe323b0da4a7a": {
       "at": "2026-11-19T14:20:00+00:00",
@@ -324,10 +374,11 @@
       "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
     }
   },
-  "total_posts": 21,
+  "total_posts": 24,
   "used_photos": [
     "commons-168451071",
-    "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png"
+    "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
+    "lib-downtown-fort-worth-night-jpg"
   ],
   "version": 1
 }
