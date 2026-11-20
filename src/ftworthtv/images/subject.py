@@ -46,7 +46,13 @@ PLACES = ("fort worth", "tarrant county", "tarrant", "texas", "north texas", "df
           "parker county", "johnson county", "dallas county", "u.s.", "america", "united states",
           "south central texas", "central texas", "north central texas", "hill country", "coastal bend", "rio grande valley", "east texas",
           "west texas", "south texas", "southeast texas", "panhandle", "texas panhandle", "gulf coast", "big bend", "permian basin",
-          "brazos valley", "deep east texas", "the valley", "the metroplex") + OTHER_CITIES
+          "brazos valley", "deep east texas", "the valley", "the metroplex",
+          "arkansas", "oklahoma", "louisiana", "new mexico", "kansas", "missouri", "california", "florida", "georgia", "alabama",
+          "tennessee", "mississippi", "colorado", "arizona", "nevada", "new york", "ohio", "michigan", "illinois", "utah", "oregon",
+          "washington", "nebraska", "iowa", "kentucky", "carolina", "south carolina", "north carolina", "virginia", "indiana",
+          "wisconsin", "minnesota", "pennsylvania", "maryland", "massachusetts", "hawaii", "alaska", "idaho", "montana", "wyoming",
+          "dakota", "north dakota", "south dakota", "vermont", "maine", "connecticut", "delaware", "new jersey", "rhode island",
+          "west virginia", "new hampshire", "mexico", "canada") + OTHER_CITIES
 # capitalised words that start headlines without naming anything
 STOP = {"no", "the", "a", "an", "in", "on", "at", "for", "with", "after", "before", "as", "and", "but", "or", "to", "from", "by",
         "of", "over", "under", "near", "amid", "despite", "here", "what", "when", "how", "why", "who", "this", "these", "those",

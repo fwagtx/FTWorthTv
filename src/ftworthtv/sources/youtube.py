@@ -39,7 +39,7 @@ PLACE_WORDS = ("fort worth", "ft. worth", "ft worth", "tarrant", "tcu", "arlingt
                "metroplex", "cowtown", "panther island", "stockyards", "alliance airport", "dickies arena", "globe life", "at&t stadium")
 # a station's video must name our side of the Metroplex or the region as a whole: "Dallas", "Denton" or "Texas" alone is
 # not enough (a crash into a Dallas home or a Dallas ISD vote is not Fort Worth news, however good the video)
-_CHANNEL_SUFFIX = re.compile(r"\s*[|–-]\s*(?:[^|–-]*\b(?:nbc|fox|wfaa|cbs|kera|news|dfw|weather update)\b[^|–-]*)$", re.I)
+_CHANNEL_SUFFIX = re.compile(r"\s*[|–-]\s*(?:[^|–-]*\b(?:nbc|nbcdfw|nbc5|fox|fox4|wfaa|cbs|cbstexas|cbsnewstexas|kera|news|dfw|weather update)\b[^|–-]*)$", re.I)
 
 
 def place_text(title: str) -> str:

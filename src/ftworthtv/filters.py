@@ -22,6 +22,8 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
               "stolen", "theft", "thieves", "bandit", "burglar", "carjack", "wanted", "sentenced", "indicted",
               "fwpd", "deputies", "sheriff", "charged with", "manhunt", "burglary", "carjack"],
     "sports": ["tcu", "horned frogs", "frogs", "cowboys", "rangers", "mavericks", "stars", "fc dallas", "texas motor speedway",
+               "longhorns", "aggies", "razorbacks", "sooners", "senior day", "sec championship", "big 12 championship", "touchdown",
+               "quarterback", "halftime", "kickoff", "playoff", "head coach",
                "nascar", "indycar", "rodeo", "stock show", "panther city", "pga", "colonial", "golf", "football", "basketball", "baseball"],
     "food": ["restaurant", "barbecue", "bbq", "brisket", "taco", "brewery", "bar ", "cafe", "coffee", "bakery", "food hall",
              "menu", "chef", "opens its", "grand opening", "margarita", "tex-mex", "burger", "pizza"],
@@ -94,11 +96,19 @@ def title_key(title: str) -> frozenset[str]:
 def same_story(a: str, b: str, threshold: float = 0.7) -> bool:
     """Two headlines about the same event (an outlet's and a station's): the shorter one's content words are mostly
     contained in the other's, and at least four of them match."""
-    ka, kb = title_key(a), title_key(b)
+    ka, kb = {_stem(w) for w in title_key(a)}, {_stem(w) for w in title_key(b)}
     if len(ka) < 3 or len(kb) < 3:
         return False
     shared = len(ka & kb)
     return shared >= 4 and shared / min(len(ka), len(kb)) >= threshold
+
+
+def _stem(word: str) -> str:
+    """reopens/reopen, years/year, explosions/explosion: enough for two headlines about one event to meet."""
+    for end in ("ies", "es", "s", "ed", "ing"):
+        if len(word) > len(end) + 3 and word.endswith(end):
+            return word[:-len(end)] + ("y" if end == "ies" else "")
+    return word
 
 
 def relevance_score(story: Story, keywords: list[str]) -> int:
@@ -193,6 +203,10 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 if term in t:
                     term_outlets.setdefault(term, set()).add(s.source)
     for story in stories:
+        twin = state.recent_title_like(story.title, now, hours=48, match=same_story)
+        if twin:
+            dropped.append((story, f"same story already posted (another outlet or format): {twin[:60]}"))   # WFAA's article after WFAA's video of the same reopening
+            continue
         if state.has(story.id):
             dropped.append((story, "already posted"))
             continue

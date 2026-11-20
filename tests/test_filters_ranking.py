@@ -126,3 +126,29 @@ def test_another_regions_story_is_not_ours():
     assert not other_region("North Texas fall foliage peaks this week")
     assert not other_region("Texas public schools lose 135,000 students")
     assert not other_region("Hill Country flooding kills 3 as rivers rise overnight")   # a disaster anywhere in Texas is statewide news
+
+
+def test_the_same_reopening_under_two_headlines_is_one_story():
+    from ftworthtv.filters import same_story
+    assert same_story("Downton Fort Worth restaurant reopens three years after an explosion",
+                      "Fort Worth restaurant will reopen nearly three years after hotel explosion")
+    assert not same_story("Fort Worth restaurant will reopen nearly three years after hotel explosion",
+                          "Fort Worth police searching for Kenneth Gaines")
+
+
+def test_a_story_posted_yesterday_is_not_posted_again_under_another_headline(settings, now):
+    from datetime import timedelta
+    from ftworthtv.filters import filter_stories
+    from ftworthtv.models import PostCopy, PostDraft, PublishResult, Story
+    from ftworthtv.state import State
+    settings.state_path.parent.mkdir(parents=True, exist_ok=True)
+    state = State(settings.state_path)
+    first = Story(id="v1", source="WFAA", source_kind="video", title="Downton Fort Worth restaurant reopens three years after an explosion", summary="",
+                  url="https://www.youtube.com/watch?v=x", published=now - timedelta(hours=5), category_hint="food", extra={"scope": "local"})
+    state.record(PostDraft(story=first, copy=PostCopy(category="food", headline="h", caption="c", first_comment=""), writer="template"),
+                 PublishResult(ok=True, publisher="dryrun", post_id="1"), now - timedelta(hours=4), now.astimezone(settings.tz).date().isoformat())
+    second = Story(id="a1", source="WFAA", source_kind="rss", title="Fort Worth restaurant will reopen nearly three years after hotel explosion",
+                   summary="Musume in downtown Fort Worth reopens after the hotel explosion in Fort Worth.", url="https://www.wfaa.com/y",
+                   published=now - timedelta(hours=1), category_hint="food", extra={"scope": "local"})
+    kept, dropped = filter_stories([second], settings, state, now)
+    assert not kept and dropped and dropped[0][1].startswith("same story already posted")

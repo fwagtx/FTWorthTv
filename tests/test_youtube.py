@@ -87,3 +87,10 @@ def test_a_dallas_institution_is_not_ours_because_the_title_says_north_texas():
     assert names_our_place("Tarrant Area Food Bank hands out Thanksgiving meals to North Texas families")
     assert names_our_place("North Texas storms knock out power overnight | NBC DFW")
     assert not names_our_place("Dallas City Council approves budget | FOX 4")
+
+
+def test_a_station_tag_without_spaces_does_not_pass_the_place_gate():
+    from ftworthtv.sources.youtube import names_our_place, place_text
+    assert place_text("Stuffing takes the top spot as America's favorite Thanksgiving side dish: new report | NBCDFW") == \
+        "Stuffing takes the top spot as America's favorite Thanksgiving side dish: new report"
+    assert not names_our_place("Stuffing takes the top spot as America's favorite Thanksgiving side dish: new report | NBCDFW")

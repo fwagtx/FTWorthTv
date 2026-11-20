@@ -55,6 +55,21 @@ class State:
     def posts_on_scope(self, day: str, scope: str) -> int:
         return int(self.data.get("daily_by_scope", {}).get(day, {}).get(scope, 0))
 
+    def recent_title_like(self, title: str, now: datetime, hours: int = 48, match=None) -> str | None:
+        """The title of a post from the last `hours` that `match(title, posted_title)` says is the same story, else None."""
+        if match is None:
+            return None
+        for info in self.data.get("posted", {}).values():
+            try:
+                at = datetime.fromisoformat(info.get("at", ""))
+            except Exception:
+                continue
+            if at.tzinfo is None:
+                at = at.replace(tzinfo=timezone.utc)
+            if abs((now - at).total_seconds()) <= hours * 3600 and match(title, info.get("title", "")):
+                return info.get("title", "")
+        return None
+
     def posts_on_kind(self, day: str, kind: str) -> int:
         return int(self.data.get("daily_by_kind", {}).get(day, {}).get(kind, 0))
 

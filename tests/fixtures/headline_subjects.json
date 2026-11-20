@@ -175,5 +175,15 @@
       "South Central Texas"
     ],
     "lesson": "a region is a place, not a subject: searching it found a storm satellite image"
+  },
+  {
+    "title": "Sarkisian hopes to send Texas seniors out in style against Arkansas",
+    "body": "",
+    "category": "sports",
+    "mode": "beat",
+    "not_search": [
+      "Arkansas"
+    ],
+    "lesson": "an opponent named by its state is a place, not a subject: 'Arkansas' found a landscape"
   }
 ]
