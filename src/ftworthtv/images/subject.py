@@ -261,7 +261,17 @@ def is_venue(name: str) -> bool:
     return any(w in low.split() or low.endswith(" " + w) for w in VENUE_WORDS)
 
 
-def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_allowed: bool = False) -> list[tuple[tuple, str]]:
+GENERIC_EVENT_WORDS = ("parade", "festival", "market", "fair", "show", "lights", "run", "race", "marathon", "gala", "expo", "fest",
+                       "jubilee", "carnival", "rodeo", "powwow", "pow-wow", "tour", "walk", "ride")
+
+
+def is_generic_event(name: str) -> bool:
+    """'Parade of Lights', 'Christmas Market', 'Turkey Trot': names that many towns use, so a file carrying the name alone may
+    show another town's event (Lake Mead has a Parade of Lights too)."""
+    return any(w in name.lower().split() for w in GENERIC_EVENT_WORDS)
+
+
+def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_allowed: bool = False, city: str = "") -> list[tuple[tuple, str]]:
     """(query tuple, subject label) pairs for the search providers, one named subject at a time.
 
     A venue is searched for as a building (its Commons category, then "exterior"/"building"), never as somebody else's
@@ -273,6 +283,8 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
     out: list[tuple[tuple, str]] = []
     for name in plan.search_names[:3]:
         words = (" ".join(name.lower().split()),)      # the whole name, in order: "Ty Myers" is not "Ty Cobb at Fort Myers"
+        if city and is_generic_event(name) and city.lower() not in name.lower():
+            words = words + (city.lower(),)             # a generic event name needs the city too: Lake Mead has a Parade of Lights
         label = f"entity:{name.lower()}"
         if looks_like_person(name) and not people_allowed:
             continue                                   # a stranger with the same name is the worst mistake a page can make

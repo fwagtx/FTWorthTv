@@ -210,3 +210,10 @@ def test_feed_config_sets_photo_policy_and_licence():
     <description>Trustees will vote next month on a $300 million bond package.</description></item></channel></rss>"""
     s = parse_feed({"name": "Fort Worth Report", "image_policy": "source_image", "image_license": "cc-by-nc-nd", "fetch_article": True}, xml, datetime(2026, 11, 20, tzinfo=timezone.utc))[0]
     assert s.image_policy == "source_image" and s.image_license == "cc-by-nc-nd"
+
+
+def test_a_photographer_named_twice_by_the_page_is_credited_once():
+    from ftworthtv.sources.article import photo_credit
+    html = '<figure><img src="x.jpg"><figcaption><span>Credit:</span> Bob Daemmrich Bob Daemmrich for The Texas Tribune</figcaption></figure>'
+    assert photo_credit(html, {}) == "Bob Daemmrich for The Texas Tribune"
+    assert photo_credit('<figcaption>Photo by Jane Doe / Fort Worth Report</figcaption>', {}) == "Jane Doe"

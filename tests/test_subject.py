@@ -129,3 +129,14 @@ def test_people_and_recent_pictures():
     assert not looks_like_person("Dickies Arena") and not looks_like_person("Northwest ISD") and not looks_like_person("Dallas Cowboys")
     assert wants_recent_picture("Utah visits TCU in Saturday's game", "sports") and wants_recent_picture("Parade of Lights returns downtown", "events")
     assert not wants_recent_picture("Property tax rate set for next year", "politics")
+
+
+def test_a_generic_event_name_needs_the_city_in_the_photo_name():
+    from ftworthtv.images.subject import is_generic_event, plan_subject, provider_queries
+    title = "Parade of Lights rolls through downtown Fort Worth this Sunday"
+    plan = plan_subject(title, "", "events")
+    assert is_generic_event("Parade of Lights") and not is_generic_event("Anthropic")
+    pairs = [(q, label) for q, label in provider_queries(plan, title, "events", people_allowed=True, city="Fort Worth") if label == "entity:parade of lights"]
+    assert pairs and all("fort worth" in q[2] for q, _ in pairs)          # "Parade of Lights" alone matched Lake Mead's boat parade
+    pairs = [(q, label) for q, label in provider_queries(plan, title, "events", people_allowed=True, city="") if label == "entity:parade of lights"]
+    assert pairs and all("fort worth" not in q[2] for q, _ in pairs)      # a non-local story is not forced to Fort Worth

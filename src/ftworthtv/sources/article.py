@@ -26,6 +26,15 @@ _FIGCAPTION_RE = re.compile(r"<figcaption[^>]*>(.*?)</figcaption>", re.I | re.S)
 _CREDIT_RE = re.compile(r"(?:(?:photo|image|picture)s?\s*(?:by|:|credit:?)|courtesy(?: of)?|credit:)\s*([^()|<\n/]{3,60})", re.I)
 
 
+_REPEAT_RE = re.compile(r"^((?:\S+\s+){1,3}?\S+)\s+\1(?=\s|$)")
+
+
+def _once(name: str) -> str:
+    """'Bob Daemmrich Bob Daemmrich for The Texas Tribune' -> 'Bob Daemmrich for The Texas Tribune' (a hidden label and the
+    visible credit both carry the name on some pages)."""
+    return _REPEAT_RE.sub(r"\1", name.strip())
+
+
 def photo_credit(html: str, meta: dict[str, str]) -> str:
     """Who took the page's lead photo, from the first figure caption ("Photo by Jane Doe / Fort Worth Report"), the
     image alt text, or a "(Courtesy ...)" tail. Empty when the page does not say."""
@@ -33,12 +42,12 @@ def photo_credit(html: str, meta: dict[str, str]) -> str:
         text = strip_html(cap).strip()
         m = _CREDIT_RE.search(text)
         if m:
-            return m.group(1).strip(" .,-")[:80]
+            return _once(m.group(1).strip(" .,-")[:80])
         if 0 < len(text) <= 60 and ("/" in text or " by " in text.lower()):
-            return text.strip(" .,-")
+            return _once(text.strip(" .,-"))
     alt = meta.get("og:image:alt") or meta.get("twitter:image:alt") or ""
     m = _CREDIT_RE.search(strip_html(alt))
-    return m.group(1).strip(" .,-")[:80] if m else ""
+    return _once(m.group(1).strip(" .,-")[:80]) if m else ""
 
 
 def parse_article(html: str, base_url: str) -> dict:

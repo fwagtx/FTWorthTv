@@ -220,7 +220,8 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                 from .subject import provider_queries, wants_recent_picture
                 import os as _os
                 reviewed = _os.environ.get("FTWTV_PHOTO_REVIEW", "").lower() == "session"   # a person looks at every card before it is posted
-                pairs = provider_queries(sp, story.title, copy.category, people_allowed=judge_available(settings) or reviewed)
+                local_city = str(brand.get("city", "Fort Worth")) if str(story.extra.get("scope", "local")) == "local" else ""
+                pairs = provider_queries(sp, story.title, copy.category, people_allowed=judge_available(settings) or reviewed, city=local_city)
                 queries, labels = [q for q, _ in pairs], [lab for _, lab in pairs]
                 recent_flags = [False] * len(queries)
                 recent_after = ""

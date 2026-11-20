@@ -34,3 +34,11 @@ def test_wanted_charges_read_as_charges():
     assert charge_phrase("Aggravated Robbery") == "for aggravated robbery"
     assert charge_phrase("Failure to Comply, Sex Offender") == "on a sex offender failure-to-comply charge"
     assert charge_phrase("Aggravated Assault, Parole Violation") == "for aggravated assault and parole violation"
+
+
+def test_a_newsrooms_donation_pitch_never_becomes_a_caption_sentence():
+    text = ("Matt Krause, soon to be the only Republican on the county's commissioners court, called the midterm election a wake-up call "
+            "for the party. The election is over, but the work of holding Texas officials accountable is just beginning. Help us pursue "
+            "the truth. Every gift makes a difference. Matt Krause has spent his entire political career in conservative majorities.")
+    sents = _sentences(text)
+    assert sents and not any("accountable" in s or "gift" in s for s in sents)

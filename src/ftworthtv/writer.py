@@ -358,7 +358,9 @@ BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "rea
                "the post ", "related:", "more:", "also read", "photograph by", "photo by", "has more.", "has more on", "joins nbc",
                "joins fox", "to break down", "is a senior writer", "is a staff writer", "is a reporter", "is a freelance", "contact him",
                "contact her", "contributed to this report", "in the video", "player above", "video above", "watch above", "download the",
-               "our app", "tap here", "this story will be updated", "check back for updates")
+               "our app", "tap here", "this story will be updated", "check back for updates",
+               "help us pursue the truth", "every gift makes a difference", "officials accountable is just beginning",
+               "the election is over, but the work", "your donation", "donate today", "become a member")
 
 
 def _first_sentence(text: str, limit: int = 170) -> str:

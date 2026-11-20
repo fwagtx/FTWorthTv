@@ -135,5 +135,15 @@
       "Dickies Arena"
     ],
     "lesson": "the performer and the venue are two subjects; a colon ends the first"
+  },
+  {
+    "title": "Parade of Lights rolls through downtown Fort Worth this Sunday",
+    "body": "",
+    "category": "events",
+    "mode": "search",
+    "search": [
+      "Parade of Lights"
+    ],
+    "lesson": "a generic event name needs the city in the file name: Lake Mead has a Parade of Lights too"
   }
 ]
