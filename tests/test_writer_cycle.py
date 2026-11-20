@@ -33,4 +33,4 @@ def test_a_caption_never_cuts_a_quote_in_half():
 def test_wanted_charges_read_as_charges():
     assert charge_phrase("Aggravated Robbery") == "for aggravated robbery"
     assert charge_phrase("Failure to Comply, Sex Offender") == "on a sex offender failure-to-comply charge"
-    assert charge_phrase("Burglary of a Habitation, Theft") == "on a charge of burglary of a habitation, theft"
+    assert charge_phrase("Aggravated Assault, Parole Violation") == "for aggravated assault and parole violation"

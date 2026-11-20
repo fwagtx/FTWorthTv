@@ -341,12 +341,13 @@ def _tidy(sentence: str, reference: str = "") -> str:
 
 def charge_phrase(charge: str) -> str:
     """'Aggravated Robbery' -> 'for aggravated robbery'; 'Failure to Comply, Sex Offender' (the registration offence, as the
-    agencies abbreviate it) -> 'on a sex offender failure-to-comply charge'; any other comma charge -> 'on a charge of ...'."""
+    agencies abbreviate it) -> 'on a sex offender failure-to-comply charge'; a comma list of charges -> 'for aggravated assault and parole violation'."""
     c = collapse_ws(charge or "").strip(" .").lower()
     if "sex offender" in c and "comply" in c:
         return "on a sex offender failure-to-comply charge"
-    if "," in c:
-        return f"on a charge of {c}"
+    parts = [x.strip() for x in c.split(",") if x.strip()]
+    if len(parts) > 1:                                        # "Aggravated Assault, Parole Violation": two charges
+        return "for " + ", ".join(parts[:-1]) + f" and {parts[-1]}"
     return f"for {c}" if c else "on a warrant"
 
 
