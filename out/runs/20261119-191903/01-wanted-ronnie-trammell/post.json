@@ -1,0 +1,60 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-191903/01-wanted-ronnie-trammell/post.jpg",
+    "credit": "Photo: Fort Worth Police Department",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-191903/01-wanted-ronnie-trammell/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Fort Worth police searching for Ronnie Trammell, wanted for failure to comply, sex offender",
+    "caption": "Fort Worth police are looking for Ronnie Trammell, wanted for failure to comply, sex offender. Crime Stoppers is offering up to $2,000 for information leading to an arrest.\n\nCall 817-469-TIPS (8477) or submit a tip at 469tips.com. You stay anonymous.",
+    "first_comment": "Source: Fort Worth Police Department most wanted https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted\n{photo_credit}\nTips: https://pdapps.fortworthtexas.gov/most-wanted?p=3d9d0872-fb80-4021-8a63-df9477978d7e\nCharges are accusations. All suspects are presumed innocent until proven guilty in a court of law.",
+    "hashtags": [],
+    "image_query": "police lights street night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "6726a8f006e85fd8",
+    "source": "Fort Worth Police Department",
+    "source_kind": "wanted",
+    "title": "WANTED: Ronnie Trammell",
+    "summary": "Ronnie Trammell is wanted by the Fort Worth Police Department for Failure to Comply, Sex Offender. Crime Stoppers will pay up to $2,000 for information leading to an arrest. Call 817-469-TIPS (8477) or submit a tip at https://pdapps.fortworthtexas.gov/most-wanted?p=3d9d0872-fb80-4021-8a63-df9477978d7e. Tipsters stay anonymous.",
+    "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted",
+    "published": "2026-11-20T01:16:49.878280+00:00",
+    "category_hint": "crime",
+    "image_url": "https://police.fortworthtexas.gov/files/assets/police/v/1/most-wanted/images/2026/trammell-ronnie.png",
+    "image_credit": "Photo: Fort Worth Police Department",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.85,
+    "extra": {
+      "name": "Ronnie Trammell",
+      "charge": "Failure to Comply, Sex Offender",
+      "agency": "Fort Worth Police Department",
+      "reward": "$2,000",
+      "tip_phone": "817-469-TIPS (8477)",
+      "tip_url": "https://pdapps.fortworthtexas.gov/most-wanted?p=3d9d0872-fb80-4021-8a63-df9477978d7e",
+      "age": 76,
+      "city": "Fort Worth",
+      "details": "",
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 1,
+    "score": 0.9295
+  }
+}
