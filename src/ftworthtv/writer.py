@@ -310,12 +310,44 @@ def _join(first: str, second: str) -> str:
     return f"{first}{sep}{second}"
 
 
-def _tidy(sentence: str) -> str:
+def _tidy(sentence: str, reference: str = "") -> str:
+    """An ALL-CAPS press-release title becomes a sentence: 'HILLWOOD EXPANDS ALLIANCETEXAS ... WITH TWO NEW BUILDINGS' ->
+    'Hillwood expands AllianceTexas ... with two new buildings', with every name's casing taken from the article text
+    (`reference`, usually the summary); without a reference, each word is capitalised as before."""
     text = collapse_ws(sentence).rstrip(" .")
     letters = [c for c in text if c.isalpha()]
     if len(letters) > 12 and sum(c.isupper() for c in letters) / len(letters) > 0.85:   # ALL-CAPS press-release title
-        text = " ".join(w if (len(w) <= 3 and w.isupper() and w not in ("NEW", "AND", "THE", "FOR")) else w.capitalize() for w in text.split())
+        if reference:
+            cased: dict[str, str] = {}
+            for tok in re.findall(r"[A-Za-z][A-Za-z&'’.-]*", reference):
+                tok = tok.rstrip(".'’-&")
+                if tok and any(c.isupper() for c in tok) and tok.lower() not in cased:
+                    cased[tok.lower()] = tok
+            words = []
+            for i, w in enumerate(text.split()):
+                core = w.strip(",.;:!?\"'()")
+                tail = w[len(core):] if core else ""
+                if core.lower() in cased:
+                    words.append(cased[core.lower()] + tail)
+                elif i == 0:
+                    words.append(core.capitalize() + tail)
+                else:
+                    words.append(core.lower() + tail)
+            text = " ".join(words)
+        else:
+            text = " ".join(w if (len(w) <= 3 and w.isupper() and w not in ("NEW", "AND", "THE", "FOR")) else w.capitalize() for w in text.split())
     return text
+
+
+def charge_phrase(charge: str) -> str:
+    """'Aggravated Robbery' -> 'for aggravated robbery'; 'Failure to Comply, Sex Offender' (the registration offence, as the
+    agencies abbreviate it) -> 'on a sex offender failure-to-comply charge'; any other comma charge -> 'on a charge of ...'."""
+    c = collapse_ws(charge or "").strip(" .").lower()
+    if "sex offender" in c and "comply" in c:
+        return "on a sex offender failure-to-comply charge"
+    if "," in c:
+        return f"on a charge of {c}"
+    return f"for {c}" if c else "on a warrant"
 
 
 BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "read more", "learn more", "stay informed", "follow us", "check back",
@@ -371,7 +403,16 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     if len(text) > lead:
         cut = text.rfind(". ", 0, lead)
         text = text[:cut + 1] if cut > 0 else text[:lead]
-    for part in _split_sentences(text):
+    parts = _split_sentences(text)
+    merged: list[str] = []
+    for part in parts:                                        # a sentence that opens a quote keeps going until it closes it
+        if merged and (merged[-1].count('"') % 2 == 1 or merged[-1].count("“") != merged[-1].count("”")):
+            merged[-1] = f"{merged[-1]} {part}"
+        else:
+            merged.append(part)
+    for part in merged:
+        if part.count('"') % 2 == 1 or part.count("“") != part.count("”"):
+            continue                                          # still unbalanced: a cut-off quote is not a sentence we can post
         if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")) or len(part.split()) < 6:
             continue
         if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")) or _CAPTION_RE.search(part):
@@ -445,7 +486,7 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
     if kind == "event_roundup":
         return [f"This weekend in {city}:"] + [f"{e.get('when', '')} – {e.get('title', '')}" for e in x.get("events", [])[:6]]
     if kind == "wanted":
-        return [f"{agency_phrase(x.get('agency', 'Police'))} looking for {x.get('name')}, wanted for {str(x.get('charge', '')).lower()}. "
+        return [f"{agency_phrase(x.get('agency', 'Police'))} looking for {x.get('name')}, wanted {charge_phrase(str(x.get('charge', '')))}. "
                 f"Crime Stoppers is offering up to {x.get('reward')} for information leading to an arrest.",
                 f"Call {x.get('tip_phone')} or submit a tip at 469tips.com. You stay anonymous."]
     if kind == "arrest_log":
@@ -458,7 +499,7 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
     # regular stories: a 2-4 sentence factual summary in two short paragraphs, like
     # "Rep. Eddie Morales Jr. of Eagle Pass filed House Bill 410. It would make it illegal for ICE agents in Texas to cover
     #  their faces." / "Supporters say agents should be identifiable. ICE says masks protect agents from being targeted."
-    first = _tidy(story.title)
+    first = _tidy(story.title, story.summary or "")
     sents = _sentences(story.summary) if story.summary else []
     if sents:
         pool = sents                      # the article lead tells the story; the headline is already on the card
@@ -507,7 +548,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
                    "events": "concert crowd lights", "food": "Texas barbecue plate", "sports": "football stadium Texas",
                    "culture": "Fort Worth Stockyards", "community": "Fort Worth downtown street", "business": "Fort Worth skyline day",
                    "breaking": "Fort Worth downtown night"}.get(category, "Fort Worth skyline")
-    headline = _tidy(smart_headline(story.title, 110))
+    headline = _tidy(smart_headline(story.title, 110), story.summary or "")
 
     if kind == "nws_alert":
         ends = story.extra.get("ends")
@@ -548,10 +589,10 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         x = story.extra
         city_name = x.get("city") or settings.brand.get("city", "Fort Worth")
         lines = [f"🚨 WANTED in {city_name}: {x.get('name')}",
-                 f"Wanted by the {x.get('agency')} for {x.get('charge')}.",
+                 f"Wanted by the {x.get('agency')} {charge_phrase(str(x.get('charge', '')))}.",
                  f"Crime Stoppers will pay up to {x.get('reward')} for information leading to an arrest. Call {x.get('tip_phone')} or submit a tip at 469tips.com. You stay anonymous.",
                  f"📍 {city_name}, TX", "Share this post 🔁"]
-        headline = truncate(f"{agency_phrase(x.get('agency', 'Police')).replace(' are', '').replace(' is', '')} searching for {x.get('name')}, wanted for {str(x.get('charge', '')).lower()}", 110, "")
+        headline = truncate(f"{agency_phrase(x.get('agency', 'Police')).replace(' are', '').replace(' is', '')} searching for {x.get('name')}, wanted {charge_phrase(str(x.get('charge', '')))}", 110, "")
         first_comment = f"Source: {x.get('agency')} most wanted {story.url}\n{{photo_credit}}\nTips: {x.get('tip_url')}"
         location = f"{city_name}, TX"
     elif kind == "arrest_log":
