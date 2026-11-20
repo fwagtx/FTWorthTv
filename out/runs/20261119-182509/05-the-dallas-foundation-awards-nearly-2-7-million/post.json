@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=5VPCQ0rJ_pU",
+  "scheduled_at": "2026-11-20T02:05:09.158837+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "The Dallas Foundation awards nearly $2.7 million to North Texas nonprofits",
+    "caption": "WATCH: The Dallas Foundation awards nearly $2.7 million to North Texas nonprofits\n\nThe Dallas Foundation has awarded nearly $2.7 million in grants to North Texas nonprofits focused on family and economic stability.\n\nVideo: CBS Texas on YouTube",
+    "first_comment": "Source: CBS Texas on YouTube https://www.youtube.com/watch?v=5VPCQ0rJ_pU\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "bcb70a28792dffd1",
+    "source": "CBS Texas",
+    "source_kind": "video",
+    "title": "The Dallas Foundation awards nearly $2.7 million to North Texas nonprofits",
+    "summary": "The Dallas Foundation has awarded nearly $2.7 million in grants to North Texas nonprofits focused on family and economic stability. The funding will support programs addressing workforce development, food access and housing to help families overcome financial challenges. Subscribe to the CBS News Texas YouTube channel: https://www.youtube.com/@CBSTexas Watch CBS News Texas 24/7: https://www.cbsnews.com/texas/live/ Download the CBS News app: https://www.cbsnews.com/mobile/ Follow CBS News Texas on Instagram: https://www.instagram.com/cbsnewstexas/ Like CBS News Texas on Facebook…",
+    "url": "https://www.youtube.com/watch?v=5VPCQ0rJ_pU",
+    "published": "2026-11-19T23:08:44+00:00",
+    "category_hint": null,
+    "image_url": "https://i2.ytimg.com/vi/5VPCQ0rJ_pU/hqdefault.jpg",
+    "image_credit": "Video: CBS Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "5VPCQ0rJ_pU",
+      "channel": "CBS Texas",
+      "handle": "@CBSTexas",
+      "views": 17,
+      "feed_title": "CBS Texas",
+      "scope": "dfw"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.5906
+  }
+}
