@@ -1,0 +1,55 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-154454/01-texas-power-grid-ceo-secures-multimillion-dollar/post.jpg",
+    "credit": "Photo: The Texas Tribune",
+    "license": "republish-ok",
+    "provider": "source",
+    "source_url": "https://feeds.texastribune.org/link/16799/17536469/ercot-texas-electric-grid-ceo-contract",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261120-154454/01-texas-power-grid-ceo-secures-multimillion-dollar/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "Texas power grid CEO secures multimillion-dollar contract extension, angering Dan Patrick",
+    "caption": "The ERCOT CEO’s extension deal was on hold for months after the lieutenant governor criticized the payouts. It was finalized weeks after Patrick lost reelection.",
+    "first_comment": "Source: The Texas Tribune @TexasTribune https://feeds.texastribune.org/link/16799/17536469/ercot-texas-electric-grid-ceo-contract\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "eb7d9121d20c9020",
+    "source": "The Texas Tribune",
+    "source_kind": "rss",
+    "title": "Texas power grid CEO secures multimillion-dollar contract extension, angering Dan Patrick",
+    "summary": "The ERCOT CEO’s extension deal was on hold for months after the lieutenant governor criticized the payouts. It was finalized weeks after Patrick lost reelection.",
+    "url": "https://feeds.texastribune.org/link/16799/17536469/ercot-texas-electric-grid-ceo-contract",
+    "published": "2026-11-20T20:01:34+00:00",
+    "category_hint": null,
+    "image_url": "https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/11/20260831-Abbott-Edouard-Storm-Presser-JL-09.jpg?fit=1024%2C683&ssl=1",
+    "image_credit": "Photo: The Texas Tribune",
+    "image_license": "republish-ok",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5599999999999999,
+    "extra": {
+      "feed_title": "The Texas Tribune",
+      "national": false,
+      "social_tag": "@TexasTribune",
+      "article_fetched": true,
+      "scope": "texas"
+    },
+    "category": "politics",
+    "relevance": 2,
+    "score": 0.6816
+  }
+}
