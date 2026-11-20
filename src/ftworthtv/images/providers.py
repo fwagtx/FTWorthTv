@@ -326,11 +326,12 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             titled = name + " " + (cand.title or "").lower()
             if avoid and (any(w in titled for w in avoid) or " - " in titled):   # "Artist - Venue, 2022.jpg" is a performance photo
                 continue
+            plain = " " + re.sub(r"[\s_\-,.:;()'’\"]+", " ", titled).strip() + " "    # "Ty_Myers_2025.jpg" -> " ty myers 2025 jpg "
             if avoid_words:
                 blob = " ".join([name, cand.alt or "", cand.credit or "", cand.url or ""]).lower()
                 if any(w in blob for w in avoid_words):
                     continue
-            if require and not all(w in titled for w in require):   # the subject must be in the file name or its title, never only in a description
+            if require and not all(f" {w} " in plain for w in require):   # the subject, whole and in order, in the file name or its title
                 continue
             if state and state.photo_recently_used(cand.id):
                 continue

@@ -259,7 +259,7 @@ def provider_queries(plan: SubjectPlan, title: str, category: str) -> list[tuple
     performer_story = category in ("events", "culture") or any(w in low_title for w in ("concert", "tour", "live", "festival", "show"))
     out: list[tuple[tuple, str]] = []
     for name in plan.search_names[:3]:
-        words = tuple(w for w in name.lower().split() if len(w) > 2 and w not in ("the", "and"))
+        words = (" ".join(name.lower().split()),)      # the whole name, in order: "Ty Myers" is not "Ty Cobb at Fort Myers"
         label = f"entity:{name.lower()}"
         if is_venue(name):
             out += [((f"category:{name}", PERFORMANCE_WORDS, words), label),

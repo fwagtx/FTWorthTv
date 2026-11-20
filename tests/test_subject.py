@@ -82,13 +82,13 @@ def test_a_venue_is_searched_as_a_building_not_as_someone_elses_show():
     pairs = provider_queries(plan, "Women's Funkytown Showdown at Dickies Arena, Sun, Nov 22 12:00 PM", "sports")
     venue = [q for q, lab in pairs if lab == "entity:dickies arena"]
     assert venue and venue[0][0] == "category:Dickies Arena" and "concert" in venue[0][1] and "k-pop" in venue[0][1]
-    assert all(("dickies", "arena") == q[2] for q in venue)
+    assert all(("dickies arena",) == q[2] for q in venue)
     ipo = plan_subject("Anthropic's $81.3 billion IPO is the largest ever", "Anthropic raised money.", "business")
     pairs = provider_queries(ipo, "Anthropic's $81.3 billion IPO is the largest ever", "business")
     assert pairs[0][0][0] == "fresh:Anthropic" and "concert" in pairs[0][0][1] and pairs[0][0][2] == ("anthropic",)
     concert = plan_subject("Ty Myers: The Legal Tour 2026 at Dickies Arena", "", "events")
     pairs = provider_queries(concert, "Ty Myers: The Legal Tour 2026 at Dickies Arena", "events")
-    assert pairs[0][0][1] == () and "myers" in pairs[0][0][2]        # the performer's own show may be a concert photo
+    assert pairs[0][0][1] == () and pairs[0][0][2] == ("ty myers",)   # the performer's own show may be a concert photo
 
 
 def test_find_photo_skips_a_show_photo_when_the_story_is_the_building(monkeypatch, settings):
@@ -99,7 +99,7 @@ def test_find_photo_skips_a_show_photo_when_the_story_is_the_building(monkeypatc
     bldg = PhotoCandidate(id="c2", url="https://x/2.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
                           source_url="https://commons.wikimedia.org/wiki/File:Dickies_Arena_exterior.jpg", width=2000, height=1300, alt="Dickies Arena exterior")
     monkeypatch.setattr(providers, "_search", lambda q, s: [show, bldg])
-    got = find_photo([("category:Dickies Arena", providers.PERFORMANCE_WORDS, ("dickies", "arena"))], settings, None, fallback=False)
+    got = find_photo([("category:Dickies Arena", providers.PERFORMANCE_WORDS, ("dickies arena",))], settings, None, fallback=False)
     assert got is bldg
 
 
@@ -111,7 +111,10 @@ def test_a_description_mention_is_not_a_photo_of_the_subject(monkeypatch, settin
                               alt="Larry Bennese, who once opened for Ty Myers", title="LarryBennese")
     real = PhotoCandidate(id="c2", url="https://x/2.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
                           source_url="https://commons.wikimedia.org/wiki/File:Ty_Myers_2025.jpg", width=2000, height=1300, alt="", title="Ty Myers 2025")
-    monkeypatch.setattr(providers, "_search", lambda q, s: [stranger, real])
-    assert find_photo([("Ty Myers", (), ("myers",))], settings, None, fallback=False) is real
-    monkeypatch.setattr(providers, "_search", lambda q, s: [stranger])
-    assert find_photo([("Ty Myers", (), ("myers",))], settings, None, fallback=False) is None
+    cobb = PhotoCandidate(id="c3", url="https://x/3.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
+                          source_url="https://commons.wikimedia.org/wiki/File:Ty_Cobb_at_Fort_Myers.jpg", width=2000, height=1300, alt="",
+                          title="Ty Cobb, Thomas Edison, and Connie Mack at a Fort Myers baseball park")
+    monkeypatch.setattr(providers, "_search", lambda q, s: [stranger, cobb, real])
+    assert find_photo([("Ty Myers", (), ("ty myers",))], settings, None, fallback=False) is real
+    monkeypatch.setattr(providers, "_search", lambda q, s: [stranger, cobb])
+    assert find_photo([("Ty Myers", (), ("ty myers",))], settings, None, fallback=False) is None
