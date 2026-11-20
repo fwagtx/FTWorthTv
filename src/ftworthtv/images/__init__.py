@@ -150,6 +150,12 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             background = _download(story.image_url, workdir / "source")
         if background:
             credit, license_, provider, source_url = story.image_credit or f"Photo: {story.source}", story.image_license or "official", "source", story.url
+            lic = str(license_).lower()
+            if lic.startswith("cc"):
+                tag = lic.upper().replace("CC-", "CC ")
+                credit = f"{credit} ({tag})" if tag not in credit else credit
+            if lic.startswith("cc") and "nd" in lic.split("-") or lic == "republish-ok":
+                fit = "contain"          # NoDerivatives, or a newsroom's own republishing terms: the photo is shown whole, never cropped
             if copy.category == "crime":
                 fit = "contain"  # booking photos are portraits: never crop a face, show on a blurred backdrop like TV news does
                 text = story.text()

@@ -189,3 +189,24 @@ def test_daily_category_caps(settings, now, tmp_path):
     cats = [d.copy.category for d in report.drafts]
     assert cats.count("events") == 0 and cats.count("traffic") <= 1
     assert any("daily cap" in r for _, r in report.skipped)
+
+
+def test_article_page_photo_credit_is_read():
+    from ftworthtv.sources.article import parse_article
+    html = """<html><head><meta property="og:title" content="Northwest ISD approves boundaries"><meta property="og:image" content="https://fortworthreport.org/wp-content/uploads/2026/11/nisd.jpg"></head>
+    <body><article><figure><img src="/wp-content/uploads/2026/11/nisd.jpg"><figcaption>Parents fill the Northwest ISD boardroom on Monday. (Photo by Matthew Sgroi | Fort Worth Report)</figcaption></figure>
+    <p>Northwest ISD trustees voted 6-0 to approve revised high school attendance boundaries for next school year, keeping hundreds of students in place.</p></article></body></html>"""
+    info = parse_article(html, "https://fortworthreport.org/2026/11/18/x/")
+    assert info["image"] == "https://fortworthreport.org/wp-content/uploads/2026/11/nisd.jpg"
+    assert info["credit"] == "Matthew Sgroi"
+    html2 = html.replace("(Photo by Matthew Sgroi | Fort Worth Report)", "(Courtesy of Northwest ISD)")
+    assert parse_article(html2, "https://x/")["credit"] == "Northwest ISD"
+
+
+def test_feed_config_sets_photo_policy_and_licence():
+    from ftworthtv.sources.rss import parse_feed
+    from datetime import datetime, timezone
+    xml = """<rss><channel><title>Fort Worth Report</title><item><title>Keller ISD weighs a bond</title><link>https://fortworthreport.org/2026/11/20/keller-isd-bond/</link>
+    <description>Trustees will vote next month on a $300 million bond package.</description></item></channel></rss>"""
+    s = parse_feed({"name": "Fort Worth Report", "image_policy": "source_image", "image_license": "cc-by-nc-nd", "fetch_article": True}, xml, datetime(2026, 11, 20, tzinfo=timezone.utc))[0]
+    assert s.image_policy == "source_image" and s.image_license == "cc-by-nc-nd"

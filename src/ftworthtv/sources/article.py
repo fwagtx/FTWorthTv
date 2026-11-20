@@ -22,6 +22,23 @@ _ATTR_RE = re.compile(r'([a-zA-Z:_-]+)\s*=\s*(?:"([^"]*)"|\'([^\']*)\')')
 _IMG_RE = re.compile(r"<img[^>]+src=[\"']([^\"']+)[\"'][^>]*>", re.I)
 _P_RE = re.compile(r"<p[^>]*>(.*?)</p>", re.I | re.S)
 _SKIP_IMG = ("logo", "icon", "sprite", "badge", "seal", ".svg", "pixel", "spacer", "avatar", "facebook", "twitter", "instagram", "youtube")
+_FIGCAPTION_RE = re.compile(r"<figcaption[^>]*>(.*?)</figcaption>", re.I | re.S)
+_CREDIT_RE = re.compile(r"(?:(?:photo|image|picture)s?\s*(?:by|:|credit:?)|courtesy(?: of)?|credit:)\s*([^()|<\n/]{3,60})", re.I)
+
+
+def photo_credit(html: str, meta: dict[str, str]) -> str:
+    """Who took the page's lead photo, from the first figure caption ("Photo by Jane Doe / Fort Worth Report"), the
+    image alt text, or a "(Courtesy ...)" tail. Empty when the page does not say."""
+    for cap in _FIGCAPTION_RE.findall(html)[:3]:
+        text = strip_html(cap).strip()
+        m = _CREDIT_RE.search(text)
+        if m:
+            return m.group(1).strip(" .,-")[:80]
+        if 0 < len(text) <= 60 and ("/" in text or " by " in text.lower()):
+            return text.strip(" .,-")
+    alt = meta.get("og:image:alt") or meta.get("twitter:image:alt") or ""
+    m = _CREDIT_RE.search(strip_html(alt))
+    return m.group(1).strip(" .,-")[:80] if m else ""
 
 
 def parse_article(html: str, base_url: str) -> dict:
@@ -67,6 +84,7 @@ def parse_article(html: str, base_url: str) -> dict:
         "description": strip_html(meta.get("og:description") or meta.get("description") or ""),
         "summary": truncate(" ".join(paragraphs), 900),
         "image": image,
+        "credit": photo_credit(html, meta),
         "published": published,
     }
 
@@ -85,6 +103,10 @@ def enrich(story: Story) -> Story:
         return story
     if not story.image_url and info.get("image"):
         story.image_url = info["image"]
+    if info.get("credit") and not story.extra.get("credit_fixed"):
+        story.image_credit = f"Photo: {info['credit']}"
+        if story.source.lower() not in info["credit"].lower():
+            story.image_credit += f" / {story.source}"
     if len(story.summary) < 120 and (info.get("summary") or info.get("description")):
         story.summary = info.get("summary") or info["description"]
     if story.published is None and info.get("published"):

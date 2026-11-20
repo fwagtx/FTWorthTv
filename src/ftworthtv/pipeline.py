@@ -171,7 +171,7 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             import shutil
             draft.video_path = Path(shutil.copyfile(story.extra["video_path"], workdir / "clip.mp4"))
             draft.mode = "video"
-        elif story.source_kind in ("reddit", "video") or (story.source_kind == "rss" and story.image_policy == "none" and link_mode):
+        elif story.source_kind in ("reddit", "video") or (story.source_kind == "rss" and link_mode and (story.image_policy == "none" or not story.image_url)):
             draft.mode, draft.link = "link", story.url     # a YouTube link: Facebook renders the channel's video, playable, credited
             workdir.mkdir(parents=True, exist_ok=True)
         else:
@@ -183,6 +183,12 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                     draft.mode, draft.link = ("link", story.url) if story.url else ("text", None)
                 if draft.image and draft.image.photo_id:
                     used_photos.add(draft.image.photo_id)
+                if (draft.image and draft.image.provider in ("card", "placeholder") and story.source_kind == "rss" and story.url
+                        and posting.get("link_when_no_photo", True)):
+                    # no verified picture of the subject: the article's own photo appears through Facebook's link preview
+                    # (the outlet's image, the outlet's credit, no copy made); Instagram, which takes no links, skips it
+                    draft.image, draft.story_path, draft.mode, draft.link = None, None, "link", story.url
+                    report.notes.append(f"link post (outlet's own photo in the preview): {story.title[:60]}")
                 stories_cfg = settings.brand.get("stories", {}) or {}
                 if draft.image and stories_cfg.get("enabled", True) and Path(draft.image.path).exists():
                     try:

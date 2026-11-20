@@ -80,12 +80,13 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
             category_hint=cfg.get("category_hint"),
             image_url=_entry_image(entry),
             image_credit=f"Photo: {name}",
-            image_license="official" if cfg.get("official") else "source-owned",
+            image_license=cfg.get("image_license") or ("official" if cfg.get("official") else "source-owned"),
             image_policy=cfg.get("image_policy", "none"),
             official=bool(cfg.get("official", False)),
             always_relevant=bool(cfg.get("always_relevant", False)),
             weight=float(cfg.get("weight", 1.0)),
-            extra={"feed_title": strip_html(parsed.feed.get("title", "")) if parsed.feed else "", "national": bool(cfg.get("national", False))},
+            extra={"feed_title": strip_html(parsed.feed.get("title", "")) if parsed.feed else "", "national": bool(cfg.get("national", False)),
+                   **({"social_tag": cfg["social_tag"]} if cfg.get("social_tag") else {})},
         ))
     return stories
 
@@ -107,8 +108,8 @@ def fetch(settings: Settings, now: datetime) -> list[Story]:
         try:
             found = fetch_one(cfg, now)
             log.info("rss %-32s %3d items", cfg["name"], len(found))
-            if cfg.get("fetch_article") or (cfg.get("official") and cfg.get("image_policy") == "source_image"):
-                fresh = [s for s in found if not s.image_url and (s.published is None or s.age_hours(now) <= max_age)]
+            if cfg.get("fetch_article") or cfg.get("image_policy") == "source_image":
+                fresh = [s for s in found if (not s.image_url or cfg.get("image_policy") == "source_image") and (s.published is None or s.age_hours(now) <= max_age)]
                 for story in fresh[: int(cfg.get("max_article_fetches", 6))]:
                     enrich(story)
             stories.extend(found)

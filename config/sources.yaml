@@ -60,8 +60,12 @@ rss:
   - name: The Texas Tribune
     url: https://feeds.texastribune.org/feeds/main/
     weight: 0.8
-    image_policy: none
     verify: true                   # statewide: new bills, the governor, ERCOT; kept only when the Texas tier matches
+    image_policy: source_image    # texastribune.org/republishing-guidelines: photos may be published with the stories they ran with, credit "Name, The Texas Tribune"
+    image_license: republish-ok
+    fetch_article: true
+    max_article_fetches: 6
+    social_tag: "@TexasTribune"
   - name: KERA News
     url: https://www.keranews.org/news.rss
     weight: 0.8
@@ -142,7 +146,11 @@ rss:
     url: https://fortworthreport.org/feed/
     weight: 1.0
     always_relevant: true          # Fort Worth-only outlet: every item is local
-    image_policy: none
+    image_policy: source_image    # CC BY-ND 4.0: noncommercial republishing allowed, credit required, no edits (the photo is never cropped)
+    image_license: cc-by-nd
+    fetch_article: true
+    max_article_fetches: 8
+    social_tag: "@FortWorthReport"  # their republishing terms ask to be tagged on social posts
   - name: Fort Worth Star-Telegram
     url: https://www.star-telegram.com/news/local/?widgetName=rssfeed&widgetContentId=712015&getXmlFeed=true
     weight: 0.9

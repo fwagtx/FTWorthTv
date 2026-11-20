@@ -47,3 +47,16 @@ def test_link_mode_for_news(settings, now):
     assert report.drafts and all(d.mode == "link" and d.link for d in report.drafts)
     data = json.loads((report.run_dir / "report.json").read_text())
     assert data["posts"][0]["mode"] == "link"
+
+
+def test_outlet_story_without_a_verified_photo_becomes_a_link_post(settings, now):
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    story = Story(id="l1", source="FOX 4 Dallas-Fort Worth", source_kind="rss", title="Fort Worth country club expels Bo French after social media controversies",
+                  summary="A Fort Worth country club has expelled Bo French, the Tarrant County Republican chairman, after a series of social media posts.",
+                  url="https://www.fox4news.com/news/fort-worth-country-club-bo-french", published=now - timedelta(hours=1), category_hint="politics", extra={"scope": "local"})
+    settings.max_posts = 1
+    report = run(settings, now=now, stories=[story], publisher_name="dryrun")
+    d = report.drafts[0]
+    assert d.mode == "link" and d.link == story.url and d.image is None      # Facebook shows FOX 4's own photo in the preview
+    assert any("link post" in n for n in report.notes)

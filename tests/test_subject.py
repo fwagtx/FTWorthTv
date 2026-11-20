@@ -51,7 +51,7 @@ def test_pipeline_records_the_subject_and_holds_a_mismatch(settings, now):
     report = run(settings, now=now, stories=[tcu, ant], publisher_name="dryrun")
     by = {d.story.id: d for d in report.drafts}
     assert by["t1"].image.subject == "topic:tcu-football" and "tcu-football" in str(by["t1"].image.path.name or "") or "amon-g-carter" in str(by["t1"].image.photo_id)
-    assert by["a1"].image is not None and by["a1"].image.provider in ("card", "placeholder", "library")   # no Nasdaq tower: a bare card or an Anthropic photo
+    assert by["a1"].mode == "link" and by["a1"].image is None    # no verified Anthropic photo offline: the outlet's own photo via a link post, never the Nasdaq tower
     assert preflight(by["t1"], network=False) == []
     by["t1"].image.subject = "beat:stock-market"
     assert any("photo does not show the subject" in p for p in preflight(by["t1"], network=False))

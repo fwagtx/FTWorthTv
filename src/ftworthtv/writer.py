@@ -643,6 +643,9 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
         first_comment = f"🎥 {story.extra['credit']}\n" + first_comment       # submitted clips are credited here, not in the caption
     if story.url and story.url not in first_comment and story.source_kind != "culture":
         first_comment = f"Source: {story.source} {story.url}\n" + first_comment
+    tag = story.extra.get("social_tag")
+    if tag and tag not in first_comment:
+        first_comment = first_comment.replace(f"Source: {story.source} ", f"Source: {story.source} {tag} ", 1) if f"Source: {story.source} " in first_comment else f"{tag}\n" + first_comment
     if "{photo_credit}" not in first_comment:
         first_comment += "\n{photo_credit}"
     headline = re.sub(r"[#@]", "", copy.headline).strip().rstrip(".")

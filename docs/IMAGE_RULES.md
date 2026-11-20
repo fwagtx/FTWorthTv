@@ -18,14 +18,20 @@ ISD), a person (Cooper Flagg), a venue (Dickies Arena), an institution (Fort Wor
 | a place or landmark | that place | another city's landmark, ever |
 | nothing in particular (a roundup, a statewide statistic) | the beat it is about (schools, grocery, storm, highway), then the city | a subject it does not mention |
 
-If no verified photo of the subject exists, the card goes out with no photo. A blank card is honest; the wrong photo is a
-lie about the story. (`images/subject.py` decides; `images/__init__.py` obeys; `checks.py` re-checks at publish time and
+If no verified photo of the subject exists, an outlet story goes out as a link post (the outlet's own photo in the
+preview, no copy made) and anything else as a card with no photo. A blank card is honest; the wrong photo is a lie about
+the story. (`images/subject.py` decides; `images/__init__.py` obeys; `checks.py` re-checks at publish time and
 holds a post whose photo no longer fits.)
 
 ## 2. Where real, up-to-date pictures come from, in order
 
-1. **The story's own image when the source owns it.** Police, city, county and NWS releases, Crime Stoppers bulletins,
-   Ticketmaster event art: `image_policy: source_image`. The release's photo is the event.
+1. **The story's own image when the source owns it or lets us use it.** Police, city, county and NWS releases, Crime
+   Stoppers bulletins, Ticketmaster event art, and the two newsrooms whose terms allow a noncommercial page to republish
+   their stories with their photos: the Fort Worth Report (CC BY-ND 4.0, credit, no edits, tag @FortWorthReport) and The
+   Texas Tribune (photos with the stories they ran with, credit "Name, The Texas Tribune"). `image_policy: source_image`,
+   the photographer's credit read from the page's caption, the photo shown whole and never cropped. The stations' photos
+   (NBC 5, FOX 4, WFAA, CBS, the Star-Telegram) are not licensed for reuse; their stories get a verified photo of the
+   subject or go out as a **link post**, where Facebook's own preview shows the station's photo with the station's credit.
 2. **Official video, shared as a link.** A new upload on the agency's, team's, exchange's or wire's own YouTube channel
    becomes a Facebook link post that plays inline with the channel's own thumbnail (Nasdaq's feed of a bell ringing,
    the city's own video of a ribbon cutting). Nothing is downloaded or re-uploaded. `config/sources.yaml` → `youtube`.
