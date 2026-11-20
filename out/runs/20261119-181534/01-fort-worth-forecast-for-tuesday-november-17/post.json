@@ -1,0 +1,55 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-181534/01-fort-worth-forecast-for-tuesday-november-17/post.jpg",
+    "credit": "Photo: Raychel Sanner via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Supercell_thunderstorm_over_Needmore,_Texas._May_4,_2019.jpg",
+    "photo_id": "lib-supercell-thunderstorm-over-needmore-texas-may-4-2019-jpg",
+    "subject": "beat:storm"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-181534/01-fort-worth-forecast-for-tuesday-november-17/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Fort Worth forecast: sunny, high near 65",
+    "caption": "Sunny and a high of 65 in Fort Worth today.",
+    "first_comment": "Source: National Weather Service https://www.foxweather.com/local-weather/texas/fort-worth\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline sunrise",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "forecast-2026-11-17",
+    "source": "FOX Weather",
+    "source_kind": "nws_forecast",
+    "title": "Fort Worth forecast for Tuesday, November 17",
+    "summary": "Today: Sunny, high near 65. Wednesday: Sunny, high near 70. Showers possible before noon Thursday, then highs in the low-to-mid 70s into Saturday. A weak cold front arrives Saturday night with a 20 to 40 percent chance of rain this weekend.",
+    "url": "https://www.foxweather.com/local-weather/texas/fort-worth",
+    "published": "2026-11-17T12:00:00+00:00",
+    "category_hint": "weather",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": null,
+    "image_policy": "none",
+    "official": true,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "high": 65,
+      "short": "Sunny",
+      "wind": "light",
+      "low": null,
+      "scope": "local"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 1.95
+  }
+}
