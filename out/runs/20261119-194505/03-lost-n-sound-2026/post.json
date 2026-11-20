@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=yBgJ99dnLVk",
+  "scheduled_at": "2026-11-20T02:35:05.958199+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "traffic",
+    "headline": "Lost 'N Sound 2026",
+    "caption": "WATCH: Lost 'N Sound 2026\n\nLost ‘N Sound brings you vibrant music across multiple venues in South Main Village and Trinity Metro has the options to get you there!\n\nVideo: Trinity Metro on YouTube",
+    "first_comment": "Source: Trinity Metro on YouTube https://www.youtube.com/watch?v=yBgJ99dnLVk\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Texas highway traffic night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "56f4f4b01365b602",
+    "source": "Trinity Metro",
+    "source_kind": "video",
+    "title": "Lost 'N Sound 2026",
+    "summary": "Lost ‘N Sound brings you vibrant music across multiple venues in South Main Village and Trinity Metro has the options to get you there! 🚆 Ride TEXRail or TRE to Fort Worth T&P Station and take a short walk from there 🚌 Catch the route 5 bus to South Main 🚲 Hop on a Trinity Metro bike from your nearest docking station 🚐 Ride the free event shuttle, sponsored by Trinity Metro, between venues Visit lostnsound.org for event information and use the GoPass app or visit ridetrinitymetro.org/trip-planner/ to plan your trip today!",
+    "url": "https://www.youtube.com/watch?v=yBgJ99dnLVk",
+    "published": "2026-11-19T15:00:22+00:00",
+    "category_hint": "traffic",
+    "image_url": "https://i2.ytimg.com/vi/yBgJ99dnLVk/hqdefault.jpg",
+    "image_credit": "Video: Trinity Metro",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "yBgJ99dnLVk",
+      "channel": "Trinity Metro",
+      "handle": "@TrinityMetro",
+      "views": 4,
+      "feed_title": "Trinity Metro",
+      "scope": "local"
+    },
+    "category": "traffic",
+    "relevance": 1,
+    "score": 0.301
+  }
+}

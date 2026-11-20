@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-194505/01-dallas-investigating-potential-inaccuracies-in-c/post.jpg",
+    "credit": "Photo: IcedCowboyCoffee via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_skyline_at_night_over_the_Trinity_River_in_2015.png",
+    "photo_id": "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
+    "subject": "beat:dallas-skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261119-194505/01-dallas-investigating-potential-inaccuracies-in-c/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Dallas investigating potential inaccuracies in crime reports",
+    "caption": "The City of Dallas is investigating whether statistics showing a drop in violent crime may be inaccurate. Dallas is running an audit on potential errors in crime reporting.\n\nOn Tuesday, Dallas City Auditor Rory Galter confirmed the city is investigating if crime statistics in the city may be inaccurate. \"We are aware of possible incorrect reporting of crimes.",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth https://www.fox4news.com/news/dallas-investigating-potential-inaccuracies-crime-reports\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "4674400665feac13",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "rss",
+    "title": "Dallas investigating potential inaccuracies in crime reports",
+    "summary": "The City of Dallas is investigating whether statistics showing a drop in violent crime may be inaccurate. Dallas is running an audit on potential errors in crime reporting. FOX 4's Lori Brown has more. DALLAS - The City of Dallas is investigating whether statistics showing a drop in violent crime may be inaccurate. On Tuesday, Dallas City Auditor Rory Galter confirmed the city is investigating if crime statistics in the city may be inaccurate. \"We are aware of possible incorrect reporting of crimes. This was identified in our entrance conference with the Dallas Police Department,\" the email read. Galter explained to city leaders on Tuesday that it's currently unknown how widespread the potential inaccuracies are, but that the city may want to look at the possibility. Dallas Police Chief Daniel Comeaux has touted the drop in violent crime in Dallas in recent months. The city will now…",
+    "url": "https://www.fox4news.com/news/dallas-investigating-potential-inaccuracies-crime-reports",
+    "published": "2026-11-20T00:19:55+00:00",
+    "category_hint": null,
+    "image_url": "https://static.fox4news.com/www.fox4news.com/content/uploads/2026/11/p-lori-dpd-crime-stats-6p_00.00.25.34.jpg",
+    "image_credit": "Photo: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "Latest News | FOX 4 News",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.5411
+  }
+}

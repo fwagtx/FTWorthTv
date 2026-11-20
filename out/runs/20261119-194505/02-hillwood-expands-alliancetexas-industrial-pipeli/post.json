@@ -1,0 +1,45 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://fortworthbusiness.com/construction/hillwood-expands-alliancetexas-industrial-pipeline-with-two-new-speculative-buildings/",
+  "scheduled_at": "2026-11-20T02:10:05.958199+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Hillwood Expands Alliancetexas Industrial Pipeline With TWO New Speculative Buildings",
+    "caption": "Hillwood Expands Alliancetexas Industrial Pipeline With TWO New Speculative Buildings",
+    "first_comment": "Source: Fort Worth Business Press https://fortworthbusiness.com/construction/hillwood-expands-alliancetexas-industrial-pipeline-with-two-new-speculative-buildings/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "601495a18c4f4f6c",
+    "source": "Fort Worth Business Press",
+    "source_kind": "rss",
+    "title": "HILLWOOD EXPANDS ALLIANCETEXAS INDUSTRIAL PIPELINE WITH TWO NEW SPECULATIVE BUILDINGS",
+    "summary": "Strong demand drives continued development as Hillwood advances an industrial pipeline totaling 8.9 million square feet FORT WORTH, Texas (November 19, 2026) — Responding to sustained demand for Class A industrial space in North Texas, Hillwood today announced plans to develop two speculative industrial buildings totaling 354,593 square feet at AllianceTexas. Alliance Westport 41 (200,328 …",
+    "url": "https://fortworthbusiness.com/construction/hillwood-expands-alliancetexas-industrial-pipeline-with-two-new-speculative-buildings/",
+    "published": "2026-11-20T00:06:49+00:00",
+    "category_hint": "business",
+    "image_url": null,
+    "image_credit": "Photo: Fort Worth Business Press",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "The Business Press",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.4759
+  }
+}
