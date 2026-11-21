@@ -349,11 +349,7 @@ youtube:
                     "nintendo", "iphone", "tesla", "texas", "fort worth", "dallas", "cowboys", "rangers", "mavericks", "dallas stars",
                     "tcu", "american airlines", "southwest airlines", "exxon", "h-e-b", "buc-ee", "whataburger", "super bowl",
                     "world series", "nba finals", "stanley cup", "world cup", "ipo"]
-  channels:
-    - {name: Bloomberg Television, id: UCIALMKvObZNtJ6AmdCLP7Lg, handle: "@markets", weight: 0.6, national: true, require_watchlist_in_title: true,
-       require_any_in_title: ["ipo", "opening bell", "rings", "launch", "unveil", "debut", "record", "largest", "biggest"]}
-    - {name: AFP News Agency, id: UC86dbj-lbDks_hZ5gRKL49Q, handle: "@AFP", weight: 0.5, national: true, require_watchlist_in_title: true,
-       require_any_in_title: ["ipo", "opening bell", "rings", "launch", "unveil", "debut", "record", "largest", "biggest"]}
+  channels:                   # local and official channels only: a national channel's segment is not Fort Worth news, and a video can only be a link
     - {name: City of Fort Worth, id: UCG4ZjL-JpSqwPoxd5yNpMGA, handle: "@CityofFortWorth", always_relevant: true, official: true, category_hint: community, weight: 0.9}
     - {name: Tarrant County, id: UCreZ2-bXXetuRiKZAtXcNNA, handle: "@TarrantCountyTX", always_relevant: true, official: true, category_hint: community, weight: 0.7}
     - {name: Trinity Metro, id: UCbUjcgrml5wrPOIbb3Qrk9g, handle: "@TrinityMetro", always_relevant: true, official: true, category_hint: traffic, weight: 0.7}

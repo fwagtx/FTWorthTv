@@ -69,3 +69,13 @@ def test_a_team_name_brings_its_stadium_only_for_a_game_there():
     assert "att-stadium" not in named
     home = topics_for("Cowboys host the Eagles on Sunday at AT&T Stadium in Arlington.", "sports", "local", title="Cowboys host the Eagles on Sunday")
     assert home[0] == "att-stadium"
+
+
+def test_a_venue_is_a_picture_for_a_game_never_for_a_coaching_story():
+    coaching = topics_for("Parker disappointed Cowboys pulled play-calling duties, but keeps focus on team. Christian Parker lost the duties Friday.",
+                          "sports", "local", title="Parker disappointed Cowboys pulled play-calling duties, but keeps focus on team")
+    assert "att-stadium" not in coaching
+    game = topics_for("Cowboys beat the Eagles 24-17 on Sunday.", "sports", "local", title="Cowboys beat the Eagles 24-17")
+    assert "att-stadium" in game
+    itself = topics_for("Dickies Arena adds a second entrance ahead of the stock show.", "community", "local", title="Dickies Arena adds a second entrance")
+    assert itself[0] == "dickies-arena"

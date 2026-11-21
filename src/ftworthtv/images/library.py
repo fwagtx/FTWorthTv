@@ -160,15 +160,26 @@ def clean_credit(credit: str) -> str:
     return re.sub(r"\s{2,}", " ", c).strip()
 
 
-def venue_fits(topic: str, text: str) -> bool:
-    """A team name brings its home venue only for a game there: never when the text names another stadium or says the team
-    is on the road. "Cowboys face Titans ... travel to Nashville" must not get AT&T Stadium."""
+_GAME_RE = re.compile(r"\b(?:vs\.?|versus|beat|beats|defeat|defeats|win|wins|won|loss|lose|loses|lost|host|hosts|game|kickoff|opener|playoff|playoffs|"
+                      r"final|finals|matchup|rematch|tip-?off|first pitch|series|bowl|championship|overtime|shutout|comeback|rally|rallies|score|scores|"
+                      r"scored|lead|leads|upset|sweep|swept|clinch|clinches|preview|face|faces|home)\b", re.I)
+
+
+def venue_fits(topic: str, text: str, title: str | None = None) -> bool:
+    """A team name brings its home venue only for a game there: never for a coaching, roster or contract story ("Parker
+    disappointed Cowboys pulled play-calling duties"), never when the text names another stadium or says the team is on
+    the road. The venue named in the headline is always its own picture."""
     names = VENUE_NAMES.get(topic)
     if not names:
         return True
     low = (text or "").lower()
+    head = (title if title is not None else text or "")
+    if any(n in head.lower() for n in names):
+        return True                                              # the venue itself is in the headline: it is the picture
+    if not _GAME_RE.search(head):
+        return False                                             # a person or a decision is the subject, not the building
     if any(n in low for n in names):
-        return True                                              # the venue itself is named: it is the picture
+        return True
     others = [v for v in _VENUE_RE.findall(text or "") if not any(n in v.lower() for n in names)]
     return not others and not _AWAY_RE.search(text or "")
 
@@ -187,12 +198,12 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
     out: list[str] = []
     for phrases, topic in TOPIC_RULES:
         hay = head if topic in TITLE_ONLY else low
-        if any(p in hay for p in phrases) and topic not in out and not (elsewhere and topic in FORT_WORTH_ONLY) and venue_fits(topic, whole):
+        if any(p in hay for p in phrases) and topic not in out and not (elsewhere and topic in FORT_WORTH_ONLY) and venue_fits(topic, whole, title):
             out.append(topic)
             if len(out) >= 2:
                 break
     for t in CATEGORY_DEFAULTS.get(category, []) + SCOPE_DEFAULTS.get(scope, SCOPE_DEFAULTS["local"]):
-        if t not in out and not (elsewhere and t in FORT_WORTH_ONLY) and venue_fits(t, whole):
+        if t not in out and not (elsewhere and t in FORT_WORTH_ONLY) and venue_fits(t, whole, title):
             out.append(t)
     if category == "sports":
         for i, t in enumerate(list(out)):

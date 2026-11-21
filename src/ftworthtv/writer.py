@@ -399,7 +399,8 @@ _CAPTION_RE = re.compile(r"\b(?:on )?(?:January|February|March|April|May|June|Ju
 _PHOTO_CAPTION_RE = re.compile(
     r"\(\d{1,2}\) [a-z]"                                                                                         # "Dak Prescott (4) looks to pass": a jersey number
     r"|\b(?:Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday),? (?:Jan|Feb|March|April|May|June|July|Aug|Sept?|Oct|Nov|Dec)\.? \d{1,2}, (?:19|20)\d{2}\b"   # "Thursday, Dec. 29, 2022"
-    r"|\b(?:AP Photo|Getty Images|USA TODAY Sports|Imagn Images)\b")
+    r"|\b(?:AP Photo|Getty Images|USA TODAY Sports|Imagn Images|Mandatory Credit)\b"
+    r"|^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.? \d{1,2}, (?:19|20)\d{2}; ")           # "Nov 15, 2026; Arlington, Texas, USA; ..."
 
 
 def looks_like_photo_caption(sentence: str) -> bool:

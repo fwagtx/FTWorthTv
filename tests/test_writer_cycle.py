@@ -86,3 +86,12 @@ def test_a_feed_item_with_nothing_to_say_is_skipped_not_posted_as_its_headline(s
                  summary="Texas veterans are turning to therapy programs and service dogs as alternatives to medication, the station found.", url="https://x/t")
     copy, writer = write_copy(told, settings, now)
     assert not copy.skip
+
+
+def test_an_imagn_dateline_caption_is_never_a_caption_sentence():
+    from ftworthtv.writer import _first_sentence
+    text = ("Nov 15, 2026; Arlington, Texas, USA; Dallas Cowboys defensive coordinator Christian Parker looks on from the sidelines during the game "
+            "between the Cowboys and the 49ers at AT&T Stadium. Mandatory Credit: Jerome Miron-Imagn Images. "
+            "Parker said Friday he was disappointed to lose play-calling duties but would keep his focus on the team.")
+    assert _sentences(text) == ["Parker said Friday he was disappointed to lose play-calling duties but would keep his focus on the team."]
+    assert _first_sentence(text) == ""

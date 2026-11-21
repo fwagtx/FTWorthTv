@@ -95,3 +95,13 @@ def test_parse_article_hands_back_the_first_figure_caption():
             '<p>One University Place broke ground on Nov. 19, the second project from Goldenrod Cos. in Fort Worth.</p></article></body></html>')
     info = parse_article(html, "https://example.com/s")
     assert info["caption"].startswith("A rendering of One University Place") and "Courtesy" in info["caption"]
+
+
+def test_parse_article_leaves_a_caption_block_out_of_the_summary():
+    from ftworthtv.sources.article import parse_article
+    html = ('<html><head><meta property="og:title" content="T"></head><body><article>'
+            '<div class="image-caption"><p>Nov 15, 2026; Arlington, Texas, USA; Dallas Cowboys defensive coordinator Christian Parker looks on from the sidelines.</p></div>'
+            '<p>Parker said Friday he was disappointed to lose play-calling duties but would keep his focus on the team, which hosts the Eagles on Sunday.</p>'
+            '</article></body></html>')
+    info = parse_article(html, "https://example.com/s")
+    assert info["summary"].startswith("Parker said Friday") and "sidelines" not in info["summary"]

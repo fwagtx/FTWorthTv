@@ -24,6 +24,7 @@ _P_RE = re.compile(r"<p[^>]*>(.*?)</p>", re.I | re.S)
 _SKIP_IMG = ("logo", "icon", "sprite", "badge", "seal", ".svg", "pixel", "spacer", "avatar", "facebook", "twitter", "instagram", "youtube")
 _FIGCAPTION_RE = re.compile(r"<figcaption[^>]*>(.*?)</figcaption>", re.I | re.S)
 _NOT_STORY_RE = re.compile(r"<(figure|figcaption|aside)[^>]*>.*?</\1>", re.I | re.S)   # a photo caption or a sidebar is not a paragraph of the story
+_CAPTION_BLOCK_RE = re.compile(r"<(div|span|p)[^>]*class=\"[^\"]*(?:caption|credit|photo-info|image-info)[^\"]*\"[^>]*>.*?</\1>", re.I | re.S)
 _CREDIT_RE = re.compile(r"(?:(?:photo|image|picture)s?\s*(?:by|:|credit:?)|courtesy(?: of)?|credit:)\s*([^()|<\n/]{3,60})", re.I)
 
 
@@ -79,7 +80,7 @@ def parse_article(html: str, base_url: str) -> dict:
             break
     if image:
         image = urljoin(base_url, image)
-    paragraphs = [strip_html(p) for p in _P_RE.findall(_NOT_STORY_RE.sub(" ", body))]
+    paragraphs = [strip_html(p) for p in _P_RE.findall(_CAPTION_BLOCK_RE.sub(" ", _NOT_STORY_RE.sub(" ", body)))]
     paragraphs = [p for p in paragraphs if len(p) > 40]
     published = None
     for key in ("article:published_time", "og:updated_time", "date", "dc.date", "pubdate"):
