@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-172954/01-arlington-teacher-goes-above-and-beyond-to-help/post.jpg",
+    "credit": "Photo: Jonmallard via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Boerne_HEB_02.jpg",
+    "photo_id": "lib-boerne-heb-02-jpg",
+    "subject": "beat:heb"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-172954/01-arlington-teacher-goes-above-and-beyond-to-help/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Arlington teacher goes above and beyond to help students succeed after high school",
+    "caption": "William Thorburn’s Fish for Life Foundation awards scholarships to help area students cover the cost of higher education. William “Bill” Thorburn, also known by his students as “Mr. T.,” takes special interest in helping hard-working students reach their educational goals.\n\n52 Faces of Community is a Fort Worth Report weekly series spotlighting local unsung heroes. At the end of the year, these rarely recognized heroes will gather for a luncheon.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/21/arlington-teacher-goes-above-and-beyond-to-help-students-succeed-after-high-school/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "H-E-B grocery store",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "756a87efa20690f5",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Arlington teacher goes above and beyond to help students succeed after high school",
+    "summary": "William Thorburn’s Fish for Life Foundation awards scholarships to help area students cover the cost of higher education. William “Bill” Thorburn, also known by his students as “Mr. T.,” takes special interest in helping hard-working students reach their educational goals. 52 Faces of Community is a Fort Worth Report weekly series spotlighting local unsung heroes. It is sponsored by Central Market , H-E-B and JPS Health Network . At the end of the year, these rarely recognized heroes will gather for a luncheon. Fueled by this passion and armed with the knowledge that many students require assistance with post-high school educational expenses, Thorburn established the Fish for Life Foundation in 2007 and has served as its executive director ever since. Thorburn has been teaching for 25 years, the last 15 at Martin High School in the Arlington Independent School District. He believes…",
+    "url": "https://fortworthreport.org/2026/11/21/arlington-teacher-goes-above-and-beyond-to-help-students-succeed-after-high-school/",
+    "published": "2026-11-21T23:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/Headline-Photo-William-Thorburn-300x222.jpeg",
+    "image_credit": "Photo: Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "William Thorburn is the founder of the Fish for Life Foundation. (Courtesy | William Thorburn)",
+      "page_credit": ""
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 1.147
+  }
+}

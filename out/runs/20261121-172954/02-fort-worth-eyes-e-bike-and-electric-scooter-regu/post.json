@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-21T23:54:54.434171+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-172954/02-fort-worth-eyes-e-bike-and-electric-scooter-regu/post.jpg",
+    "credit": "Photo: Damian Dovarganes | AP archives / Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/21/fort-worth-eyes-e-bike-and-electric-scooter-regulations-heres-whats-proposed/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-172954/02-fort-worth-eyes-e-bike-and-electric-scooter-regu/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Fort Worth eyes e-bike and electric scooter regulations. Here’s what’s proposed",
+    "caption": "The city wants to head off potential injuries and conflict between pedestrians, motorists and operators of the electric devices. Fort Worth is moving to regulate the operation of e-bikes and electric scooters in the city, as reports of reckless operation and conflicts with pedestrians and motor vehicles increase.\n\nThe city’s current bicycle ordinance doesn’t address e-bikes and motor-assisted scooters. The Fort Worth Police Department is forming a proposed ordinance that would set minimum age restrictions, helmet use, lighting at night, speed limits and rules for riding on sidewalks.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/21/fort-worth-eyes-e-bike-and-electric-scooter-regulations-heres-whats-proposed/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c1e5e79477e91d53",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Fort Worth eyes e-bike and electric scooter regulations. Here’s what’s proposed",
+    "summary": "The city wants to head off potential injuries and conflict between pedestrians, motorists and operators of the electric devices. Fort Worth is moving to regulate the operation of e-bikes and electric scooters in the city, as reports of reckless operation and conflicts with pedestrians and motor vehicles increase. The city’s current bicycle ordinance doesn’t address e-bikes and motor-assisted scooters. The Fort Worth Police Department is forming a proposed ordinance that would set minimum age restrictions, helmet use, lighting at night, speed limits and rules for riding on sidewalks. The police don’t intend to be overbearing in enforcing the regulations, Sean Kenjura, deputy police chief, told city council members Nov. 17. “This ordinance is not to harass kids, not to get in there and break their fun,” Kenjura said. “It’s to be able to address bad behavior as quickly as we can so they…",
+    "url": "https://fortworthreport.org/2026/11/21/fort-worth-eyes-e-bike-and-electric-scooter-regulations-heres-whats-proposed/",
+    "published": "2026-11-21T21:14:10+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/06/AP25084754630836-300x201.jpg",
+    "image_credit": "Photo: Damian Dovarganes | AP archives / Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "A person pushes past a row of electric scooters on March 25, 2025. (Damian Dovarganes | AP archives)",
+      "page_credit": "Damian Dovarganes | AP archives"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.7796
+  }
+}
