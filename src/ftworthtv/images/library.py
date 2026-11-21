@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import logging
 import random
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -145,6 +146,26 @@ OTHER_CITIES = ("dallas", "houston", "austin", "san antonio", "arlington", "dent
                 "garland", "mckinney", "el paso", "lubbock", "waco", "galveston", "corpus christi", "college station", "amarillo")
 
 
+VENUE_NAMES = {"att-stadium": ("at&t stadium",), "globe-life-field": ("globe life",), "aac": ("american airlines center",),
+               "toyota-stadium": ("toyota stadium",), "dickies-arena": ("dickies arena",), "nrg-stadium": ("nrg stadium",),
+               "texas-motor-speedway": ("texas motor speedway",), "tcu-football": ("amon g. carter", "amon carter stadium")}
+_VENUE_RE = re.compile(r"\b((?:[A-Z][\w&.'’-]*\s+){1,3}(?:Stadium|Arena|Field|Ballpark|Coliseum|Speedway))\b")
+_AWAY_RE = re.compile(r"\b(?:visit|visits|visiting|travel to|travels to|traveling to|head to|heads to|road game|road trip|on the road|away game)\b", re.I)
+
+
+def venue_fits(topic: str, text: str) -> bool:
+    """A team name brings its home venue only for a game there: never when the text names another stadium or says the team
+    is on the road. "Cowboys face Titans ... travel to Nashville" must not get AT&T Stadium."""
+    names = VENUE_NAMES.get(topic)
+    if not names:
+        return True
+    low = (text or "").lower()
+    if any(n in low for n in names):
+        return True                                              # the venue itself is named: it is the picture
+    others = [v for v in _VENUE_RE.findall(text or "") if not any(n in v.lower() for n in names)]
+    return not others and not _AWAY_RE.search(text or "")
+
+
 TITLE_ONLY = {"stock-market", "gaming", "lottery", "parade", "shopping", "thanksgiving", "christmas", "fireworks", "smartphone", "nfl", "space", "eclipse",
               "concert", "music", "movies", "streaming", "att-stadium", "globe-life", "aac", "dickies-arena", "texas-motor-speedway", "amon-carter", "tcu-football", "dallas-skyline"}   # a venue mentioned in passing in the body is never the picture   # a passing mention in the body must not turn a local story into a turkey photo
 
@@ -155,15 +176,16 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
     low = " " + (text or "").lower() + " "
     head = " " + (title if title is not None else text or "").lower() + " "
     elsewhere = "fort worth" not in low and "tarrant" not in low and any(c in low for c in OTHER_CITIES)
+    whole = f"{title or ''} {text or ''}"                      # original case: another venue's name is read from capitals
     out: list[str] = []
     for phrases, topic in TOPIC_RULES:
         hay = head if topic in TITLE_ONLY else low
-        if any(p in hay for p in phrases) and topic not in out and not (elsewhere and topic in FORT_WORTH_ONLY):
+        if any(p in hay for p in phrases) and topic not in out and not (elsewhere and topic in FORT_WORTH_ONLY) and venue_fits(topic, whole):
             out.append(topic)
             if len(out) >= 2:
                 break
     for t in CATEGORY_DEFAULTS.get(category, []) + SCOPE_DEFAULTS.get(scope, SCOPE_DEFAULTS["local"]):
-        if t not in out and not (elsewhere and t in FORT_WORTH_ONLY):
+        if t not in out and not (elsewhere and t in FORT_WORTH_ONLY) and venue_fits(t, whole):
             out.append(t)
     if category == "sports":
         for i, t in enumerate(list(out)):

@@ -367,7 +367,7 @@ def _first_sentence(text: str, limit: int = 170) -> str:
     text = collapse_ws(text)
     parts = _split_sentences(text)                                # abbreviation-aware: "Primrose School of N.E. Fort Worth" is one sentence
     first = (parts[0] if parts else text).strip()
-    if any(w in first.lower() for w in BOILERPLATE) or len(first) < 25:
+    if any(w in first.lower() for w in BOILERPLATE) or len(first) < 25 or looks_like_photo_caption(first):
         return ""
     return first if len(first) <= limit else ""
 
@@ -396,6 +396,15 @@ def _split_sentences(text: str) -> list[str]:
 
 _DATELINE_RE = re.compile(r"^(?:[A-Z][A-Z .'’-]{2,40}, (?:Texas|TX|Okla\.|La\.|N\.M\.)|[A-Z][A-Z .'’-]{2,40}) ?[-–—] ")
 _CAPTION_RE = re.compile(r"\b(?:on )?(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}\.$")
+_PHOTO_CAPTION_RE = re.compile(
+    r"\(\d{1,2}\) [a-z]"                                                                                         # "Dak Prescott (4) looks to pass": a jersey number
+    r"|\b(?:Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday),? (?:Jan|Feb|March|April|May|June|July|Aug|Sept?|Oct|Nov|Dec)\.? \d{1,2}, (?:19|20)\d{2}\b"   # "Thursday, Dec. 29, 2022"
+    r"|\b(?:AP Photo|Getty Images|USA TODAY Sports|Imagn Images)\b")
+
+
+def looks_like_photo_caption(sentence: str) -> bool:
+    """A page's figure caption scraped as the lead ("... at Nissan Stadium Thursday, Dec. 29, 2022, in Nashville, Tenn.") is not news."""
+    return bool(_CAPTION_RE.search(sentence) or _PHOTO_CAPTION_RE.search(sentence))
 
 
 def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> list[str]:
@@ -420,7 +429,7 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
             continue                                          # a columnist's rhetorical question or second person is not a news sentence
         if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")) or len(part.split()) < 6:
             continue
-        if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")) or _CAPTION_RE.search(part):
+        if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")) or looks_like_photo_caption(part):
             continue                                          # photo captions end with a date: "...at the Capitol, on November 16, 2026."
         if any(_similar(part, prev) for prev in out):     # og:description often repeats the first paragraph
             continue

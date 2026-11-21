@@ -57,3 +57,11 @@ def test_a_columnists_rhetoric_is_not_a_caption_sentence():
     sents = _sentences(text)
     assert "Texas added 2.1 million residents between 2020 and 2025, the census estimates." in sents
     assert not any(x.endswith("?") or "You " in x or x.startswith("It would be") for x in sents)
+
+
+def test_a_photo_caption_is_never_a_caption_sentence():
+    from ftworthtv.writer import _first_sentence
+    text = ("Dallas Cowboys quarterback Dak Prescott (4) looks to pass against the Tennessee Titans during the fourth quarter at Nissan Stadium "
+            "Thursday, Dec. 29, 2022, in Nashville, Tenn. The Cowboys travel to Nashville on Sunday with a new defensive play-caller, the team said Friday.")
+    assert _sentences(text) == ["The Cowboys travel to Nashville on Sunday with a new defensive play-caller, the team said Friday."]
+    assert _first_sentence(text) == ""                         # the lead is the figure caption: no sentence, not that one

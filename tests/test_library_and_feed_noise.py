@@ -58,3 +58,14 @@ def test_a_venue_named_only_in_the_body_is_not_the_picture():
             "in Arlington, not far from AT&T Stadium, and told congregants the Cowboys owner had blessed the fund.")
     topics = topics_for(body, "crime", "dfw", title="North Texas man convicted of defrauding $6M from 70 churches, congregants")
     assert "att-stadium" not in topics
+
+
+def test_a_team_name_brings_its_stadium_only_for_a_game_there():
+    away = topics_for("Cowboys face last-place Titans with new defensive play-caller. The Cowboys travel to Nashville on Sunday.", "sports", "local",
+                      title="Cowboys face last-place Titans with new defensive play-caller")
+    assert "att-stadium" not in away
+    named = topics_for("Cowboys face last-place Titans. Dak Prescott (4) looks to pass at Nissan Stadium in Nashville.", "sports", "local",
+                       title="Cowboys face last-place Titans")
+    assert "att-stadium" not in named
+    home = topics_for("Cowboys host the Eagles on Sunday at AT&T Stadium in Arlington.", "sports", "local", title="Cowboys host the Eagles on Sunday")
+    assert home[0] == "att-stadium"

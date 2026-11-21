@@ -74,3 +74,15 @@ def test_parse_article_picks_the_story_block_not_the_teaser():
     info = parse_article(html, "https://example.com/story")
     assert info["summary"].startswith("Cooper Flagg scored a career-high 33 points")
     assert "Anthropic" not in info["summary"]
+
+
+def test_parse_article_leaves_the_figure_caption_out_of_the_summary():
+    from ftworthtv.sources.article import parse_article
+    html = ('<html><head><meta property="og:title" content="Cowboys face Titans"><meta property="og:description" content="A preview."></head><body><article>'
+            '<figure><img src="/p.jpg"><p class="caption">Dallas Cowboys quarterback Dak Prescott (4) looks to pass against the Tennessee Titans at Nissan Stadium Thursday, Dec. 29, 2022, in Nashville, Tenn.</p></figure>'
+            '<aside><p>Related: the five biggest questions facing the Cowboys defense this week.</p></aside>'
+            '<p>The Cowboys travel to Nashville on Sunday with a new defensive play-caller and fading playoff hopes, a week after the loss.</p>'
+            '</article></body></html>')
+    info = parse_article(html, "https://example.com/story")
+    assert "Nissan Stadium" not in info["summary"] and "Related" not in info["summary"]
+    assert info["summary"].startswith("The Cowboys travel to Nashville") and info["image"].endswith("/p.jpg")
