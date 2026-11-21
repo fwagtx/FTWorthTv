@@ -95,6 +95,7 @@ def parse_article(html: str, base_url: str) -> dict:
         "summary": truncate(" ".join(paragraphs), 900),
         "image": image,
         "credit": photo_credit(html, meta),
+        "caption": next((strip_html(c).strip()[:240] for c in _FIGCAPTION_RE.findall(html)[:1]), ""),
         "published": published,
     }
 

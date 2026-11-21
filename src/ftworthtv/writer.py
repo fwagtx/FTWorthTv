@@ -717,6 +717,10 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
 
 
 def write_copy(story: Story, settings: Settings, now: datetime, *, force_template: bool = False) -> tuple[PostCopy, str]:
+    if story.source_kind == "rss" and not story.official and not _sentences(story.summary or ""):
+        # the feed gave a headline and nothing to say under it: a post that is its own headline is not a post
+        return PostCopy(skip=True, skip_reason="no summary to post: the feed gave only a headline", category=story.category or "other",
+                        headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"
     copy, writer = None, "template"
     if settings.writer != "template" and not force_template:
         copy = claude_code_copy(story, settings, now)

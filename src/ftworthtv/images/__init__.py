@@ -2,12 +2,13 @@
 from __future__ import annotations
 
 import logging
+import re
 from pathlib import Path
 
 from PIL import Image
 
 from ..config import Settings
-from ..models import CATEGORY_LABELS, ImageAsset, PostDraft
+from ..models import CATEGORY_LABELS, ImageAsset, PostDraft, Story
 from ..sources import cameras
 from ..state import State
 from ..textutil import fmt_time, to_local
@@ -102,6 +103,27 @@ def _download(url: str, dest: Path, headers: dict | None = None) -> Path | None:
         return None
 
 
+_THIRD_PARTY_RE = re.compile(r"\b(courtesy|rendering|renderings|getty|ap photo|associated press|reuters|afp|handout|screenshot|screen grab|file photo|"
+                             r"via [A-Z])", re.I)
+
+
+def third_party_photo(story: Story) -> bool:
+    """An outlet's CC terms cover its own photographs: a courtesy rendering, a handout or a wire photo on its page is not ours
+    to take. The page's first figure caption and credit are read once and kept on the story."""
+    if "page_caption" not in story.extra:
+        caption = credit = ""
+        if story.url:
+            try:
+                from ..sources.article import fetch_article
+                info = fetch_article(story.url) or {}
+                caption, credit = info.get("caption", "") or "", info.get("credit", "") or ""
+            except Exception as exc:                                     # the page is unreachable: judge by what we have
+                log.info("could not read the page credit for %s: %s", story.url, exc)
+        story.extra["page_caption"], story.extra["page_credit"] = caption, credit
+    text = f"{story.extra.get('page_caption') or ''} {story.extra.get('page_credit') or ''}"
+    return bool(_THIRD_PARTY_RE.search(text))
+
+
 def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path, exclude_photos: set[str] | None = None) -> ImageAsset | None:
     """A real licensed/public photo when possible. In `plain` style a story without a photo returns None (-> link post);
     in `headline` style the branded placeholder card is used instead."""
@@ -146,6 +168,9 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         crime_cfg = brand.get("crime", {}) or {}
         if copy.category == "crime" and crime_cfg.get("mugshots", "official_releases_only") == "never":
             background = None
+        elif not story.official and third_party_photo(story):
+            background = None                      # a courtesy rendering or a wire photo on the outlet's page is not covered by its CC terms
+            log.info("source photo is not the outlet's own (%s): no picture", (story.extra.get("page_caption") or "")[:80])
         else:
             background = _download(story.image_url, workdir / "source")
         if background:

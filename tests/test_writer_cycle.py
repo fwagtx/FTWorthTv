@@ -73,3 +73,16 @@ def test_a_stations_teaser_line_is_not_a_caption_and_the_nut_graf_does_not_open_
             "Earlier this month, Fort Worth City Council member Michael Crain announced a citywide initiative to volunteer 500,000 hours as a community by April of next year.")
     sents = _sentences(text)
     assert sents[0].startswith("Earlier this month") and sents[1].startswith("The effort is being spearheaded")
+
+
+def test_a_feed_item_with_nothing_to_say_is_skipped_not_posted_as_its_headline(settings, now):
+    from ftworthtv.models import Story
+    from ftworthtv.writer import write_copy
+    settings.writer = "template"
+    bare = Story(id="k", source="KXAN Austin", source_kind="rss", title="Beyond the pills: Texas veterans search for PTSD relief", summary="", url="https://x/k")
+    copy, writer = write_copy(bare, settings, now)
+    assert copy.skip and copy.skip_reason.startswith("no summary to post")
+    told = Story(id="t", source="KXAN Austin", source_kind="rss", title="Beyond the pills: Texas veterans search for PTSD relief",
+                 summary="Texas veterans are turning to therapy programs and service dogs as alternatives to medication, the station found.", url="https://x/t")
+    copy, writer = write_copy(told, settings, now)
+    assert not copy.skip

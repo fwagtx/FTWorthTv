@@ -86,3 +86,12 @@ def test_parse_article_leaves_the_figure_caption_out_of_the_summary():
     info = parse_article(html, "https://example.com/story")
     assert "Nissan Stadium" not in info["summary"] and "Related" not in info["summary"]
     assert info["summary"].startswith("The Cowboys travel to Nashville") and info["image"].endswith("/p.jpg")
+
+
+def test_parse_article_hands_back_the_first_figure_caption():
+    from ftworthtv.sources.article import parse_article
+    html = ('<html><head><meta property="og:title" content="T"></head><body><article><figure><img src="/r.jpg">'
+            '<figcaption>A rendering of One University Place. (Courtesy image | Goldenrod Cos.)</figcaption></figure>'
+            '<p>One University Place broke ground on Nov. 19, the second project from Goldenrod Cos. in Fort Worth.</p></article></body></html>')
+    info = parse_article(html, "https://example.com/s")
+    assert info["caption"].startswith("A rendering of One University Place") and "Courtesy" in info["caption"]

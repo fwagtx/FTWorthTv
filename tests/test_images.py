@@ -167,3 +167,32 @@ def test_commons_boilerplate_is_removed_from_credits_even_when_cut_short():
     from ftworthtv.images.providers import _clean_artist
     assert _clean_artist("Billy Hathorn assumed (based on copyright c") == "Billy Hathorn"
     assert clean_credit("Photo: Billy Hathorn assumed (based on copyright c via Wikimedia Commons (CC BY-SA 3.0)") == "Photo: Billy Hathorn via Wikimedia Commons (CC BY-SA 3.0)"
+
+
+def test_a_commons_graphic_or_poster_is_not_a_photo_of_the_subject():
+    from ftworthtv.images.providers import _candidates_from_pages
+    def page(pid, title, artist):
+        return {"pageid": pid, "title": title, "imageinfo": [{"thumburl": f"https://upload.wikimedia.org/{pid}.jpg", "width": 2000, "height": 1300,
+                "descriptionurl": "https://commons.wikimedia.org/x", "extmetadata": {"LicenseShortName": {"value": "CC BY-SA 4.0"}, "Artist": {"value": artist}}}]}
+    payload = {"query": {"pages": [page(1, "File:260611-SDB-Graphic-_PTSD_Awareness_Month_(9744800).jpg", "Someone"),
+                                   page(2, "File:Fort Worth VA clinic entrance.jpg", "U.S. Navy graphic by Petty Officer Emma Burgess"),
+                                   page(3, "File:Fort Worth VA clinic entrance.jpg", "Jane Doe")]}}
+    assert [c.id for c in _candidates_from_pages(payload)] == ["commons-3"]
+
+
+def test_a_courtesy_rendering_on_the_outlets_page_is_not_its_own_photo(monkeypatch):
+    from ftworthtv.images import third_party_photo
+    from ftworthtv.models import Story
+    import ftworthtv.sources.article as article
+    calls = []
+    def fake_fetch(url):
+        calls.append(url)
+        return {"caption": "A rendering of One University Place in Fort Worth. (Courtesy image | Goldenrod Cos.)", "credit": "image"}
+    monkeypatch.setattr(article, "fetch_article", fake_fetch)
+    s = Story(id="a", source="Fort Worth Report", source_kind="rss", title="One University Place breaks ground", summary="", url="https://fortworthreport.org/x",
+              image_url="https://fortworthreport.org/r.jpg", image_policy="source_image")
+    assert third_party_photo(s) and third_party_photo(s) and calls == ["https://fortworthreport.org/x"]   # read once, kept on the story
+    monkeypatch.setattr(article, "fetch_article", lambda url: {"caption": "Volunteers sort cans at the Tarrant Area Food Bank. (Cristian ArguetaSoto | Fort Worth Report)", "credit": "Cristian ArguetaSoto"})
+    own = Story(id="b", source="Fort Worth Report", source_kind="rss", title="Volunteers", summary="", url="https://fortworthreport.org/y",
+                image_url="https://fortworthreport.org/v.jpg", image_policy="source_image")
+    assert not third_party_photo(own)

@@ -272,3 +272,12 @@ def test_another_metro_stations_forecast_page_is_that_metros_weather():
     assert other_metro_forecast("KHOU 11 Houston", "Cold front arrives Sunday", "https://www.khou.com/article/weather/cold-front/285-1")
     assert not other_metro_forecast("NBC 5 DFW", "Forecast: Cold front brings freezing temps to North Texas", "https://www.nbcdfw.com/weather/x/")
     assert not other_metro_forecast("KXAN Austin", "Texas Senate passes property tax bill", "https://www.kxan.com/news/texas-politics/x/")
+
+
+def test_a_column_label_marks_a_column():
+    from ftworthtv.filters import column_label
+    assert column_label("Bob on Business: Biz in the front, party in the back as One University Place breaks ground")
+    assert column_label("Opinion: Fort Worth needs a bigger convention center")
+    assert column_label("Commentary | The Stockyards are changing")
+    assert not column_label("Fort Worth council votes on the budget")
+    assert not column_label("Review of the year: the biggest Fort Worth stories")

@@ -92,7 +92,10 @@ def _candidates_from_pages(payload: dict) -> list[PhotoCandidate]:
         title = str(page.get("title", "")).lower()
         if not url or int(info.get("width", 0)) < 1000:
             continue
-        if any(bad in title for bad in ("map", "logo", "flag", "diagram", "seal", "icon", "chart", "plan", ".svg", ".gif", "poster")):
+        if any(bad in title for bad in ("map", "logo", "flag", "diagram", "seal", "icon", "chart", "plan", ".svg", ".gif", "poster", "graphic",
+                                        "infographic", "flyer", "banner", "awareness")):
+            continue
+        if re.search(r"\b(graphic|illustration|infographic|poster)\b", artist, re.I):     # "U.S. Navy graphic by ...": a poster, not a picture
             continue
         out.append(PhotoCandidate(
             id=f"commons-{page.get('pageid')}", url=url,

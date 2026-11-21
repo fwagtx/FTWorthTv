@@ -95,7 +95,8 @@ def test_claude_code_writer_parses_headless_output(settings, now, tmp_path, monk
     monkeypatch.setenv("PATH", f"{tmp_path}{os.pathsep}{os.environ['PATH']}")
     settings.claude_code_oauth_token = "sk-ant-oat01-test"
     settings.writer = "auto"
-    story = Story(id="s", source="Fort Worth Report", source_kind="rss", title="New barbecue joint opens on Magnolia Avenue", summary="", url="https://x/y", category="food")
+    story = Story(id="s", source="Fort Worth Report", source_kind="rss", title="New barbecue joint opens on Magnolia Avenue",
+                  summary="A new barbecue spot opened on Magnolia Avenue this week, the owner said.", url="https://x/y", category="food")   # a headline alone is skipped before any writer
     copy, writer = write_copy(story, settings, now)
     assert writer == "claude-code" and copy.caption.startswith("New barbecue spot just opened on Magnolia Avenue")
     assert "Follow us" not in copy.caption

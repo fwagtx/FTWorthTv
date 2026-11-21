@@ -104,6 +104,16 @@ def shopping_guide(title: str, url: str = "") -> bool:
     return bool(_SHOPPING_RE.search(title or "")) or "/gift-guide" in (url or "") or "/style/" in (url or "")
 
 
+_COLUMN_RE = re.compile(r"^(?:[A-Z][a-z]+ on [A-Z][a-z]+|Opinion|Column|Commentary|Editorial|Letters?(?: to the [Ee]ditor)?|Analysis|Perspective|"
+                        r"Guest column|Op-Ed|Essay|Review)\s*[:|—–-]\s")
+
+
+def column_label(title: str) -> bool:
+    """"Bob on Business: Biz in the front, party in the back ...", "Opinion: ...": a column speaks in its writer's voice, which is
+    not a caption we can post as news."""
+    return bool(_COLUMN_RE.match((title or "").strip()))
+
+
 OTHER_METRO_STATIONS = ("kvue", "kxan", "keye", "khou", "ktrk", "kprc", "kens", "ksat", "woai", "kiii", "kris", "kcen", "kwtx", "kxxv",
                         "kbtx", "kfdx", "kltv", "ktxs", "kgns", "kfox", "ktsm", "kvia", "kcbd", "klbk", "kamr", "kfda", "kavu", "kwes")
 
@@ -304,6 +314,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "event" and not story.image_url:
             dropped.append((story, "event listing without its own picture"))  # an original post needs the listing's own picture
+            continue
+        if story.source_kind == "rss" and column_label(story.title):
+            dropped.append((story, "a column"))
             continue
         if story.source_kind == "rss" and other_metro_forecast(story.source, story.title, story.url):
             dropped.append((story, "another metro's forecast"))
