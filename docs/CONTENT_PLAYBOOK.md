@@ -87,6 +87,8 @@ template). The blue check is off until the page is verified (`card.verified_badg
 
 Daily caps that keep the balance Dallas has (`content_mix.caps_per_day` in `config/brand.yaml`): traffic 3, weather 3,
 events 3, culture 3, sports 3, community 3, business 2, food 2, crime 2, other 1, politics 0. Severe weather ignores caps.
+A story that only a cap kept out (the fourth community item of a busy day) is remembered by the session's `record` step
+and may still run the next day while it is under 36 hours old; the ordinary freshness window holds for everything else.
 
 ## 3. A day on the page (what the scheduler produces when the sources are busy)
 

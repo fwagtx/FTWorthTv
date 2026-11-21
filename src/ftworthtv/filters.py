@@ -218,6 +218,9 @@ def infer_category(story: Story) -> str:
     return best or story.category_hint or "other"
 
 
+DEFERRED_MAX_AGE_HOURS = 36.0    # a story a daily cap held back may still run the next day while it is this fresh
+
+
 def is_fresh(story: Story, now: datetime, max_age_hours: float) -> bool:
     if story.source_kind in ("nws_alert", "nws_forecast", "event", "event_roundup", "wanted", "arrest_log", "culture", "submission"):
         return True
@@ -270,8 +273,8 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if twin:
             dropped.append((story, f"already posted from another outlet: {twin[:60]}"))
             continue
-        if not is_fresh(story, now, max_age):
-            dropped.append((story, f"older than {max_age:.0f}h"))
+        if not is_fresh(story, now, max_age) and not (state.deferred(story.id) and is_fresh(story, now, DEFERRED_MAX_AGE_HOURS)):
+            dropped.append((story, f"older than {max_age:.0f}h"))      # a cap-held story gets a second day (State.defer)
             continue
         term = blocked(story, blocklist)
         if term:

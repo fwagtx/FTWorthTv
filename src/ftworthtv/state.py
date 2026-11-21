@@ -9,6 +9,7 @@ from .models import PostDraft, PublishResult
 
 PRUNE_DAYS = 45
 MAX_USED_PHOTOS = 80
+DEFER_PRUNE_HOURS = 48      # a cap-held story is forgotten two days after it was held
 
 
 class State:
@@ -42,6 +43,14 @@ class State:
     def mark_skipped(self, story_id: str, reason: str, when: datetime) -> None:
         """A story the reviewing session chose not to post (a Dallas park amenity, a column): it must not be drafted again."""
         self.data.setdefault("skipped", {})[story_id] = {"reason": reason[:140], "at": when.isoformat()}
+
+    def deferred(self, story_id: str) -> bool:
+        return story_id in self.data.get("deferred", {})
+
+    def defer(self, story_id: str, title: str, reason: str, when: datetime) -> None:
+        """A story a daily cap held back (the fourth community item of a busy day): remembered so the next day's render
+        may still draft it while it is under filters.DEFERRED_MAX_AGE_HOURS old, instead of letting it age out of the window."""
+        self.data.setdefault("deferred", {}).setdefault(story_id, {"title": title[:140], "reason": reason[:140], "at": when.isoformat()})
 
     @property
     def last_post_at(self) -> datetime | None:
@@ -143,6 +152,9 @@ class State:
         stale = [k for k, v in posted.items() if datetime.fromisoformat(v["at"]) < cutoff]
         for k in stale:
             del posted[k]
+        deferred = self.data.get("deferred", {})
+        for k in [k for k, v in deferred.items() if datetime.fromisoformat(v["at"]) < now - timedelta(hours=DEFER_PRUNE_HOURS)]:
+            del deferred[k]
         for key in ("daily", "daily_by_category", "daily_by_scope"):
             daily = self.data.get(key, {})
             for day in [d for d in daily if d < cutoff.date().isoformat()]:

@@ -139,3 +139,23 @@ def test_a_play_that_happened_never_takes_the_stadium_as_a_stand_in(settings, no
     report = run(settings, now=now, stories=[story], publisher_name="dryrun")
     assert not report.drafts                                # no picture of the play, no post: never the stadium, never a link preview
     assert any(why == "no picture of the subject that we may use" for _, why in report.skipped)
+
+
+def test_a_cap_held_draft_is_remembered_for_tomorrow(settings, now):
+    import json as _json
+    from datetime import datetime as _dt, timedelta, timezone as _tz
+    from ftworthtv.session import cap_held, record_posted
+    from ftworthtv.state import State
+    run_dir = settings.state_path.parent / "run-held"
+    run_dir.mkdir(parents=True)
+    (run_dir / "report.json").write_text(_json.dumps({"posts": [], "skipped_by_writer": [
+        {"title": "Fort Worth ISD serves free meals during Thanksgiving break", "reason": "daily cap for community reached", "id": "meals", "published": now.isoformat()},
+        {"title": "Fort Worth forecast for Tuesday", "reason": "dated for a day that has passed", "id": "fc", "published": None},
+        {"title": "an old report without ids", "reason": "daily cap for sports reached"},
+    ]}), encoding="utf-8")
+    assert cap_held(run_dir) == [("meals", "Fort Worth ISD serves free meals during Thanksgiving break", "daily cap for community reached")]
+    assert record_posted(run_dir, settings, {}, {}) == 0                     # nothing posted, nothing skipped by hand
+    state = State(settings.state_path)
+    assert state.deferred("meals") and not state.deferred("fc")
+    state.prune(_dt.now(_tz.utc) + timedelta(hours=49))
+    assert not state.deferred("meals")                                        # forgotten two days later

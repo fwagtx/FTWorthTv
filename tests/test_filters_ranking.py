@@ -221,3 +221,23 @@ def test_a_hire_announcement_is_not_news_unless_the_role_is_public():
     assert not personnel_move("Fort Worth names Eddie Garcia police chief")
     assert not personnel_move("TCU names new head coach after Dykes exit")
     assert not personnel_move("Keller ISD board names interim superintendent")
+
+
+def test_a_story_a_daily_cap_held_back_gets_a_second_day(settings, now):
+    from datetime import timedelta
+    settings.since_hours = 14
+    yesterday = now - timedelta(hours=20)
+    held = Story(id="meals", source="Fort Worth ISD", source_kind="rss", title="Fort Worth ISD serves free meals during Thanksgiving break",
+                 summary="Students can pick up free meals at campuses during the break, the district said.", url="https://x/meals",
+                 published=yesterday, always_relevant=True)
+    plain = Story(id="library", source="Fort Worth ISD", source_kind="rss", title="Fort Worth ISD opens a new library at Paschal High",
+                  summary="The library opened Monday, the district said.", url="https://x/library", published=yesterday, always_relevant=True)
+    stale = Story(id="lot", source="Fort Worth ISD", source_kind="rss", title="Fort Worth ISD repaves the parking lot at Arlington Heights High",
+                  summary="The work wraps up this week, the district said.", url="https://x/lot", published=now - timedelta(hours=40), always_relevant=True)
+    state = State(settings.state_path)
+    state.defer("meals", held.title, "daily cap for community reached", now - timedelta(hours=12))
+    state.defer("lot", stale.title, "daily cap for community reached", now - timedelta(hours=30))
+    kept, dropped = filter_stories([held, plain, stale], settings, state, now)
+    assert [s.id for s in kept] == ["meals"]                                  # the cap-held story gets its second day
+    reasons = {s.id: r for s, r in dropped}
+    assert reasons["library"].startswith("older than") and reasons["lot"].startswith("older than")   # the window holds for the rest

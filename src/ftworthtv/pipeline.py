@@ -280,7 +280,8 @@ def write_report(report: RunReport, settings: Settings) -> None:
         })
     data = {
         "started": report.started.isoformat(), "candidates": report.candidates, "posts": rows,
-        "skipped_by_writer": [{"title": s.title, "reason": r} for s, r in report.skipped],
+        "skipped_by_writer": [{"title": s.title, "reason": r, "id": s.id, "published": s.published.isoformat() if s.published else None}
+                              for s, r in report.skipped],
         "dropped": [{"title": s.title, "source": s.source, "reason": r} for s, r in report.dropped[:200]],
         "notes": report.notes,
     }

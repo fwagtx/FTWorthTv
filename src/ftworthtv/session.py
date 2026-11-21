@@ -124,6 +124,19 @@ def build_manifest(run_dir: Path, settings: Settings, *, branch: str, repo: str,
     return rows
 
 
+def cap_held(run_dir: Path) -> list[tuple[str, str, str]]:
+    """(story_id, title, reason) for the run's drafts that only a daily category cap kept out (from report.json)."""
+    path = Path(run_dir) / "report.json"
+    if not path.exists():
+        return []
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8")).get("skipped_by_writer", []) or []
+    except (json.JSONDecodeError, AttributeError):
+        return []
+    return [(str(r["id"]), str(r.get("title", "")), str(r.get("reason", ""))) for r in rows
+            if isinstance(r, dict) and r.get("id") and str(r.get("reason", "")).startswith("daily cap for")]
+
+
 def record_posted(run_dir: Path, settings: Settings, posted: dict[str, dict], skipped: dict[str, str] | None = None) -> int:
     """posted: {story_id: {"post_id": ..., "story_post_id": ..., "at": iso}} -> state + review log, like the publish step.
     skipped: {story_id: reason} for drafts the session chose not to post; they are remembered so no later render redrafts them."""
@@ -132,6 +145,9 @@ def record_posted(run_dir: Path, settings: Settings, posted: dict[str, dict], sk
     for story_id, reason in (skipped or {}).items():
         if not state.has(story_id):
             state.mark_skipped(story_id, reason, datetime.now(timezone.utc))
+    for sid, title, reason in cap_held(Path(run_dir)):
+        if not state.has(sid) and sid not in posted and not state.skipped(sid):
+            state.defer(sid, title, reason, datetime.now(timezone.utc))      # tomorrow's render may still take it
     for folder in sorted(p for p in Path(run_dir).iterdir() if p.is_dir()):
         draft = load_draft(folder)
         if not draft or draft.story.id not in posted or state.has(draft.story.id):
