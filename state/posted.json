@@ -3,7 +3,7 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 5
+    "2026-11-21": 6
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -35,7 +35,7 @@
     "2026-11-21": {
       "community": 2,
       "crime": 2,
-      "weather": 1
+      "weather": 2
     }
   },
   "daily_by_kind": {
@@ -54,7 +54,7 @@
     },
     "2026-11-21": {
       "nws_forecast": 1,
-      "rss": 1,
+      "rss": 2,
       "video": 1,
       "wanted": 2
     }
@@ -75,7 +75,7 @@
       "texas": 6
     },
     "2026-11-21": {
-      "local": 5
+      "local": 6
     }
   },
   "deferred": {
@@ -88,10 +88,30 @@
       "at": "2026-11-21T13:20:14.601553+00:00",
       "reason": "daily cap for crime reached",
       "title": "WANTED: Elkin Daniel Hernandez"
+    },
+    "3307c59443181c18": {
+      "at": "2026-11-21T13:46:39.757160+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "WANTED: Lou Ann MIDDLETON"
+    },
+    "99c8950734b9734c": {
+      "at": "2026-11-21T13:46:39.757154+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "WANTED: Dwight Sanders"
+    },
+    "aed8d0a4aa2a3f16": {
+      "at": "2026-11-21T13:46:39.757162+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "WANTED: Amy JOHNSON"
+    },
+    "e2d80f6590db51c9": {
+      "at": "2026-11-21T13:46:39.757158+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "WANTED: Quimari WILLIAMS"
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T08:25:00-06:00",
+  "last_post_at": "2026-11-21T08:50:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -599,6 +619,18 @@
       "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
       "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/"
     },
+    "fce28073d4f440ec": {
+      "at": "2026-11-21T08:50:00-06:00",
+      "category": "weather",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436687577",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=731192575471143839",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "Study finds North Texas could see billions in flood damages. Here’s what can help mitigate",
+      "url": "https://fortworthreport.org/2026/11/20/study-finds-north-texas-could-see-billions-in-flood-damages-heres-what-can-help-mitigate/"
+    },
     "forecast-2026-11-20": {
       "at": "2026-11-20T11:54:00-06:00",
       "category": "weather",
@@ -718,7 +750,7 @@
       "reason": "a column (Bob on Business) in the writer's voice, with the developer's rendering credited as the outlet's own photo"
     }
   },
-  "total_posts": 45,
+  "total_posts": 46,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
