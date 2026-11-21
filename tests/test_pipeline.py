@@ -246,3 +246,15 @@ def test_hard_news_without_a_picture_goes_out_as_a_text_card_and_soft_news_waits
     ids = [d.story.id for d in report.drafts]
     assert "c" in ids and report.drafts[ids.index("c")].image.provider == "card"   # an original post with nothing to mismatch
     assert "f" not in ids and any(s.id == "f" and r.startswith("no picture") for s, r in report.skipped)
+
+
+def test_a_sports_result_without_a_picture_goes_out_as_a_text_card(settings, now):
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    settings.brand.setdefault("card", {})["placeholder_when_no_photo"] = False
+    settings.max_posts = 1
+    game = Story(id="hs", source="Fort Worth Star-Telegram", source_kind="rss", title="Wilmer-Hutchins and White Settlement Brewer keep playoff hopes alive",
+                 summary="Brewer beat Wilmer-Hutchins 28-21 on Friday night to stay alive in the playoffs, the coaches said.", url="https://x/hs",
+                 published=now - timedelta(hours=1), always_relevant=True, category_hint="sports")
+    report = run(settings, now=now, stories=[game], publisher_name="dryrun")
+    assert [d.story.id for d in report.drafts] == ["hs"] and report.drafts[0].image.provider == "card"

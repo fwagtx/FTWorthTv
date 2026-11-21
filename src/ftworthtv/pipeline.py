@@ -57,7 +57,7 @@ def in_quiet_hours(local: datetime, window) -> bool:
 
 
 WRITER_POOL_MIN = 12      # ranked candidates the writer may look at in one run, however few posts it needs
-TEXT_CARD_CATEGORIES = ("crime", "breaking", "traffic", "weather")   # hard news may go out as a text card when no licensed picture exists
+TEXT_CARD_CATEGORIES = ("crime", "breaking", "traffic", "weather", "sports")   # hard news and results may go out as a text card when no licensed picture exists
 
 
 def run(settings: Settings, *, now: datetime | None = None, stories: list[Story] | None = None,
