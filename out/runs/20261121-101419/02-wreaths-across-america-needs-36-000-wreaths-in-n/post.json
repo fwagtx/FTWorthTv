@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=3aMNvGI5UFE",
+  "scheduled_at": "2026-11-21T16:39:19.127587+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Wreaths Across America needs 36,000 wreaths in North Texas",
+    "caption": "WATCH: Wreaths Across America needs 36,000 wreaths in North Texas\n\n36,000 wreaths still needed.\n\nVideo: NBC 5 DFW on YouTube",
+    "first_comment": "Source: NBC 5 DFW on YouTube https://www.youtube.com/watch?v=3aMNvGI5UFE\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "34341f53b9045b87",
+    "source": "NBC 5 DFW",
+    "source_kind": "video",
+    "title": "Wreaths Across America needs 36,000 wreaths in North Texas",
+    "summary": "36,000 wreaths still needed.",
+    "url": "https://www.youtube.com/watch?v=3aMNvGI5UFE",
+    "published": "2026-11-21T16:00:32+00:00",
+    "category_hint": null,
+    "image_url": "https://i4.ytimg.com/vi/3aMNvGI5UFE/hqdefault.jpg",
+    "image_credit": "Video: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "3aMNvGI5UFE",
+      "channel": "NBC 5 DFW",
+      "handle": "@NBCDFW",
+      "views": 0,
+      "feed_title": "NBC 5 DFW",
+      "scope": "dfw"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.516
+  }
+}
