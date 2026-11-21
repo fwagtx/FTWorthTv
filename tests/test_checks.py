@@ -105,3 +105,29 @@ def test_parse_article_leaves_a_caption_block_out_of_the_summary():
             '</article></body></html>')
     info = parse_article(html, "https://example.com/s")
     assert info["summary"].startswith("Parker said Friday") and "sidelines" not in info["summary"]
+
+
+def test_parse_article_takes_the_block_that_shares_the_title_not_the_longest(monkeypatch):
+    from ftworthtv.models import Story
+    from ftworthtv.sources import article
+    from ftworthtv.sources.article import enrich_summary, parse_article
+    other = "<p>" + " ".join(["Bad news for the wet bandits, it looks like Kevin McCallister is back in a new Home Alone sequel with Macaulay Culkin, NBC News confirmed."] * 3) + "</p>"
+    html = ('<html><head><meta property="og:title" content="Dallas Cowboys fan dies after altercation during 49ers game: Arlington Police"></head><body>'
+            f'<article>{other}</article>'
+            '<article><p>A Dallas Cowboys fan died after an altercation in the stands during the game against the 49ers, Arlington police said Saturday.</p></article>'
+            '</body></html>')
+    info = parse_article(html, "https://example.com/s")
+    assert info["summary"].startswith("A Dallas Cowboys fan died") and "Home Alone" not in info["summary"]
+    monkeypatch.setattr(article, "fetch_article", lambda url: {"title": "Dallas Cowboys fan dies after altercation during 49ers game: Arlington Police",
+                                                                "description": "", "summary": "Bad news for the wet bandits, Kevin McCallister is back in a new Home Alone sequel, NBC News confirmed."})
+    s = Story(id="f", source="NBC 5 DFW", source_kind="rss", title="Dallas Cowboys fan dies after altercation during 49ers game: Arlington Police", summary="", url="https://x/f")
+    enrich_summary(s)
+    assert "Home Alone" not in (s.summary or "")                       # another article's body never becomes the story's summary
+
+
+def test_a_captions_byline_tail_is_the_credit():
+    from ftworthtv.sources.article import photo_credit
+    html = '<figure><img src="/p.jpg"><figcaption>Attorney General Ken Paxton speaks during a campaign rally in Tyler on Feb. 16, 2026. Michael Cavazos for The Texas Tribune</figcaption></figure>'
+    assert photo_credit(html, {}) == "Michael Cavazos for The Texas Tribune"
+    html2 = '<figure><figcaption>Volunteers sort cans at the Tarrant Area Food Bank. (Cristian ArguetaSoto | Fort Worth Report)</figcaption></figure>'
+    assert photo_credit(html2, {}).startswith("Cristian ArguetaSoto")

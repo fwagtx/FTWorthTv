@@ -175,6 +175,9 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             background = _download(story.image_url, workdir / "source")
         if background:
             credit, license_, provider, source_url = story.image_credit or f"Photo: {story.source}", story.image_license or "official", "source", story.url
+            page_credit = (story.extra.get("page_credit") or "").strip()
+            if page_credit and not story.official and page_credit.lower() not in credit.lower() and not _THIRD_PARTY_RE.search(page_credit):
+                credit = f"Photo: {page_credit}" if story.source.lower() in page_credit.lower() else f"Photo: {page_credit} / {story.source}"
             lic = str(license_).lower()
             if lic.startswith("cc"):
                 tag = lic.upper().replace("CC-", "CC ")

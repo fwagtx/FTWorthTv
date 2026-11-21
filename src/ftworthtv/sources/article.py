@@ -25,6 +25,7 @@ _SKIP_IMG = ("logo", "icon", "sprite", "badge", "seal", ".svg", "pixel", "spacer
 _FIGCAPTION_RE = re.compile(r"<figcaption[^>]*>(.*?)</figcaption>", re.I | re.S)
 _NOT_STORY_RE = re.compile(r"<(figure|figcaption|aside)[^>]*>.*?</\1>", re.I | re.S)   # a photo caption or a sidebar is not a paragraph of the story
 _CAPTION_BLOCK_RE = re.compile(r"<(div|span|p)[^>]*class=\"[^\"]*(?:caption|credit|photo-info|image-info)[^\"]*\"[^>]*>.*?</\1>", re.I | re.S)
+_BYLINE_TAIL_RE = re.compile(r"([A-Z][\w.'’-]+(?: [A-Z][\w.'’-]+){1,3}) (?:for|/|\|) ((?:The )?[A-Z][\w&.'’ -]{3,40}?)\s*\.?\)?$")   # "Michael Cavazos for The Texas Tribune", "(Cristian ArguetaSoto | Fort Worth Report)"
 _CREDIT_RE = re.compile(r"(?:(?:photo|image|picture)s?\s*(?:by|:|credit:?)|courtesy(?: of)?|credit:)\s*([^()|<\n/]{3,60})", re.I)
 
 
@@ -45,6 +46,9 @@ def photo_credit(html: str, meta: dict[str, str]) -> str:
         m = _CREDIT_RE.search(text)
         if m:
             return _once(m.group(1).strip(" .,-")[:80])
+        tail = _BYLINE_TAIL_RE.search(text)
+        if tail:                                                   # no "Photo by": the byline at the caption's end is the credit
+            return _once(tail.group(0).strip(" .,-()")[:80])
         if 0 < len(text) <= 60 and ("/" in text or " by " in text.lower()):
             return _once(text.strip(" .,-"))
     alt = meta.get("og:image:alt") or meta.get("twitter:image:alt") or ""
@@ -70,7 +74,12 @@ def parse_article(html: str, base_url: str) -> dict:
     if blocks:
         desc = strip_html(meta.get("og:description") or meta.get("description") or "")[:60].lower()
         with_desc = [b for b in blocks if desc and desc in strip_html(b).lower()]
-        body = max(with_desc or blocks, key=lambda b: len(strip_html(b)))
+        if with_desc:
+            body = max(with_desc, key=lambda b: len(strip_html(b)))
+        else:                                      # no block carries the description: the block that shares the page's title, never just the longest
+            title_words = _words(strip_html(meta.get("og:title") or ""))
+            ranked = sorted(blocks, key=lambda b: (len(title_words & _words(strip_html(b)[:1500])), len(strip_html(b))), reverse=True)
+            body = ranked[0] if title_words and len(title_words & _words(strip_html(ranked[0])[:1500])) >= 2 else max(blocks, key=lambda b: len(strip_html(b)))
     if not image:
         for src in _IMG_RE.findall(body):
             low = src.lower()
@@ -140,7 +149,12 @@ def enrich_summary(story: Story, min_len: int = 160) -> Story:
     if not same_subject(story.title, info.get("title", ""), info.get("description", ""), info.get("summary", "")):
         log.info("article text does not match the story (%s); keeping the feed summary", story.title[:50])
         return story
-    lead = " ".join(part for part in (info.get("description", ""), info.get("summary", "")) if part)
+    body = info.get("summary", "") or ""
+    t = _words(story.title)
+    if body and len(t & _words(body[:800])) < max(2, len(t) // 3):
+        log.info("article body does not match the story (%s); keeping the description only", story.title[:50])
+        body = ""                                   # a "Home Alone" sequel under a fan's death: the page's longest block was another article
+    lead = " ".join(part for part in (info.get("description", ""), body) if part)
     if len(lead) > len(story.summary or ""):
         story.summary = truncate(lead, 900)
     return story
