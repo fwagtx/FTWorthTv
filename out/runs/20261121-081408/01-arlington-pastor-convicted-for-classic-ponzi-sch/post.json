@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=EkOdxpeKe_8",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Arlington pastor convicted for \"classic Ponzi scheme\"",
+    "caption": "WATCH: Arlington pastor convicted for \"classic Ponzi scheme\"\n\nAn Arlington pastor could face up to 20 years in prison after he was convicted for defrauding followers out of over $6 million dollars.\n\nVideo: FOX 4 Dallas-Fort Worth on YouTube",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth on YouTube https://www.youtube.com/watch?v=EkOdxpeKe_8\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline storm clouds",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "827d26edd2833bc4",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "video",
+    "title": "Arlington pastor convicted for \"classic Ponzi scheme\"",
+    "summary": "An Arlington pastor could face up to 20 years in prison after he was convicted for defrauding followers out of over $6 million dollars. FOX 4's David Sentendrey has more. Dallas news, weather, sports and traffic from KDFW FOX 4, serving Dallas-Fort Worth, North Texas and the state of Texas. Subscribe to FOX 4: https://www.youtube.com/fox4news?sub_confirmation=1 Download the FOX LOCAL app: https://www.fox4news.com/apps Download the FOX 4 WAPP: https://www.fox4news.com/apps Follow FOX 4 on Facebook: https://www.facebook.com/Fox4DFW/ Follow FOX 4 on Twitter: https://twitter.com/FOX4 Follow FOX…",
+    "url": "https://www.youtube.com/watch?v=EkOdxpeKe_8",
+    "published": "2026-11-21T03:17:38+00:00",
+    "category_hint": null,
+    "image_url": "https://i2.ytimg.com/vi/EkOdxpeKe_8/hqdefault.jpg",
+    "image_credit": "Video: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "EkOdxpeKe_8",
+      "channel": "FOX 4 Dallas-Fort Worth",
+      "handle": "@fox4news",
+      "views": 13819,
+      "feed_title": "FOX 4 Dallas-Fort Worth",
+      "scope": "local"
+    },
+    "category": "weather",
+    "relevance": 3,
+    "score": 0.31
+  }
+}
