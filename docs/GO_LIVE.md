@@ -19,6 +19,8 @@ out and that nothing be left for them to set up, so the page publishes like this
    drops or fixes what does not fit, schedules the rest through the Metricool connector (post, then its Story two minutes
    later), and records them with `ftworthtv session record`, which updates `state/posted.json` and the review log and is
    pushed so the next render skips them.
+   The record step runs every cycle, posts or not: it also remembers drafts that only a daily category cap held back,
+   so the next day's render may still take them while they are under 36 hours old.
 3. **Viewer photos and clips** come in the same way: the session reads the sheet "Fort Worth Daily — viewer videos" and
    the uploads folder through the Drive connector (no public sharing needed), checks consent and approval, hosts a clip
    on the media release and posts it credited.
