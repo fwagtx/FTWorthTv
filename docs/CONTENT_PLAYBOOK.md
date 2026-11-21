@@ -90,6 +90,8 @@ events 3, culture 3, sports 3, community 3, business 2, food 2, crime 2, other 1
 A story that only a cap kept out (the fourth community item of a busy day) is remembered by the session's `record` step
 and may still run the next day while it is under 36 hours old; the ordinary freshness window holds for everything else.
 The writer looks at up to a dozen ranked candidates a run, so a few that a cap or the date gate hold back do not starve it.
+A video description is cut before the channel's boilerplate before anything reads it, and a headline with a crime word
+(convicted, arrested, wanted, fraud) is crime whatever the body says, so the crime cap counts it.
 
 ## 3. A day on the page (what the scheduler produces when the sources are busy)
 

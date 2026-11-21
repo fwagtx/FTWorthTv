@@ -94,3 +94,21 @@ def test_a_station_tag_without_spaces_does_not_pass_the_place_gate():
     assert place_text("Stuffing takes the top spot as America's favorite Thanksgiving side dish: new report | NBCDFW") == \
         "Stuffing takes the top spot as America's favorite Thanksgiving side dish: new report"
     assert not names_our_place("Stuffing takes the top spot as America's favorite Thanksgiving side dish: new report | NBCDFW")
+
+
+def test_a_channels_boilerplate_is_cut_from_the_description_and_a_conviction_is_crime():
+    from datetime import timedelta
+    from ftworthtv.filters import infer_category
+    from ftworthtv.sources.youtube import description_lead, parse_feed
+    raw = ("An Arlington pastor could face up to 20 years in prison after he was convicted for defrauding followers out of over $6 million dollars. "
+           "FOX 4's David Sentendrey has more. Dallas news, weather, sports and traffic from KDFW FOX 4, serving Dallas-Fort Worth, North Texas and "
+           "the state of Texas. Subscribe to FOX 4: https://www.youtube.com/fox4news?sub_confirmation=1 Download the FOX LOCAL app: https://www.fox4news.com/apps")
+    lead = description_lead(raw)
+    assert lead.endswith("David Sentendrey has more.") and "weather" not in lead
+    published = (now_utc := __import__("datetime").datetime(2026, 11, 21, 3, 17, 38, tzinfo=__import__("datetime").timezone.utc)).isoformat()
+    atom = f'''<feed xmlns="http://www.w3.org/2005/Atom" xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/">
+<entry><yt:videoId>EkOdxpeKe_8</yt:videoId><title>Arlington pastor convicted for "classic Ponzi scheme"</title><published>{published}</published>
+<media:group><media:description>{raw}</media:description><media:thumbnail url="https://i.ytimg.com/vi/EkOdxpeKe_8/hqdefault.jpg"/></media:group></entry></feed>'''
+    stories = parse_feed({"name": "FOX 4 Dallas-Fort Worth", "always_relevant": True}, atom, now_utc + timedelta(hours=1), {"max_age_hours": 12})
+    assert len(stories) == 1 and "weather" not in stories[0].summary
+    assert infer_category(stories[0]) == "crime"

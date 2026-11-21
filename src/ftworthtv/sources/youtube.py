@@ -83,6 +83,17 @@ def wanted_title(cfg: dict, title: str, global_cfg: dict | None = None) -> bool:
     return True
 
 
+_DESC_CUT_RE = re.compile(r"\s*(?:Dallas news, weather, sports and traffic|Subscribe to\b|Download the\b|Follow (?:FOX|NBC|WFAA|CBS|KXAS|KDFW|us)\b|"
+                          r"For more\b|Watch (?:FOX|NBC|WFAA|CBS|more)\b|Stay up to date\b|Sign up for\b|Read more\b|More:|https?://|#\w+).*$", re.I | re.S)
+
+
+def description_lead(raw: str) -> str:
+    """The first paragraph of a video description, cut before the channel's boilerplate ("Dallas news, weather, sports and
+    traffic from KDFW FOX 4 ... Subscribe to FOX 4: ..."), which otherwise tells the category rules a fraud conviction is weather."""
+    first = next((p for p in (raw or "").split("\n") if p.strip()), "")
+    return collapse_ws(_DESC_CUT_RE.sub("", first)).strip()
+
+
 def parse_feed(cfg: dict, content: bytes | str, now: datetime, global_cfg: dict | None = None) -> list[Story]:
     root = ET.fromstring(content)
     name = cfg["name"]
@@ -94,7 +105,7 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime, global_cfg: dict 
         if not vid or not title or not wanted_title(cfg, title, global_cfg):
             continue
         group = entry.find("media:group", NS)
-        desc = collapse_ws(group.findtext("media:description", default="", namespaces=NS) or "") if group is not None else ""
+        desc = description_lead(group.findtext("media:description", default="", namespaces=NS) or "") if group is not None else ""
         thumb = None
         if group is not None:
             t = group.find("media:thumbnail", NS)
@@ -117,7 +128,7 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime, global_cfg: dict 
             source=name,
             source_kind="video",
             title=truncate(title, 200),
-            summary=truncate(desc.split("\n")[0] if desc else "", 600),
+            summary=truncate(desc, 600),
             url=f"https://www.youtube.com/watch?v={vid}",
             published=published,
             category_hint=cfg.get("category_hint"),

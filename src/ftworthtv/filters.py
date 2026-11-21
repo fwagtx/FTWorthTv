@@ -234,7 +234,13 @@ def _plain(title: str) -> str:
     return re.sub(r"\s+", " ", t)
 
 
+_TITLE_CRIME_RE = re.compile(r"\b(?:convicted|sentenced|arrested|charged with|indicted|pleads? guilty|found guilty|wanted|murder|homicide|shooting|"
+                             r"stabbing|robbery|burglar\w*|ponzi|fraud|assault|kidnapp\w*|manhunt|suspect)\b", re.I)
+
+
 def infer_category(story: Story) -> str:
+    if _TITLE_CRIME_RE.search(story.title or "") and story.category_hint != "sports":
+        return "crime"                      # "Arlington pastor convicted for Ponzi scheme" is crime, whatever a channel's boilerplate says
     text = story.text()
     title = story.title.lower()
     best, best_hits = None, 0
