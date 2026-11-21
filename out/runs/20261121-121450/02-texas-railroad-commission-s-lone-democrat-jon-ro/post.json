@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-21T18:39:50.594519+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-121450/02-texas-railroad-commission-s-lone-democrat-jon-ro/post.jpg",
+    "credit": "Photo: Scriptrix101 via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Photo_of_Jon_Rosenthal.jpg",
+    "photo_id": "commons-199552537",
+    "subject": "entity:jon rosenthal"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-121450/02-texas-railroad-commission-s-lone-democrat-jon-ro/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "Texas Railroad Commission's lone Democrat Jon Rosenthal outlines plans for change",
+    "caption": "Jon Rosenthal spent about 25 years working in oil and gas before winning a seat on the state commission that regulates the industry.",
+    "first_comment": "Source: KXAN Austin https://www.kxan.com/state-of-texas/newsmaker-interviews/texas-railroad-commissions-lone-democrat-jon-rosenthal-outlines-plans-for-change/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3bb3a503549cd7e4",
+    "source": "KXAN Austin",
+    "source_kind": "rss",
+    "title": "Texas Railroad Commission's lone Democrat Jon Rosenthal outlines plans for change",
+    "summary": "Jon Rosenthal spent about 25 years working in oil and gas before winning a seat on the state commission that regulates the industry.",
+    "url": "https://www.kxan.com/state-of-texas/newsmaker-interviews/texas-railroad-commissions-lone-democrat-jon-rosenthal-outlines-plans-for-change/",
+    "published": "2026-11-21T17:50:38+00:00",
+    "category_hint": null,
+    "image_url": "https://www.kxan.com/wp-content/uploads/sites/40/2026/11/Jon-Rosenthal.jpg?w=900",
+    "image_credit": "Photo: KXAN Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "KXAN Austin",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "politics",
+    "relevance": 2,
+    "score": 0.5512
+  }
+}

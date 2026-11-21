@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-121450/01-where-i-live-ryanwood-resident-calls-for-more-ci/post.jpg",
+    "credit": "Photo: Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/21/where-i-live-ryanwood-resident-calls-for-more-city-support-in-east-fort-worth/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-121450/01-where-i-live-ryanwood-resident-calls-for-more-ci/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Where I Live: Ryanwood resident calls for more city support in east Fort Worth",
+    "caption": "I typically start my mornings either walking my dogs — Arlo the labradoodle and Sterling the blue-eyed corgi — or running through my neighborhood, Ryanwood, and its Sunset Hills Park. These quiet mornings are a reminder of how different the Ryanwood I know is from the Ryanwood many people perceive.\n\nMy wife, Ashlynn, and I moved to this east Fort Worth neighborhood in September 2021. She was my girlfriend at the time and had spotted what is now our home on a search portal I created.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/21/where-i-live-ryanwood-resident-calls-for-more-city-support-in-east-fort-worth/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "f0b6727d6150d591",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Where I Live: Ryanwood resident calls for more city support in east Fort Worth",
+    "summary": "I typically start my mornings either walking my dogs — Arlo the labradoodle and Sterling the blue-eyed corgi — or running through my neighborhood, Ryanwood, and its Sunset Hills Park. These quiet mornings are a reminder of how different the Ryanwood I know is from the Ryanwood many people perceive. My wife, Ashlynn, and I moved to this east Fort Worth neighborhood in September 2021. She was my girlfriend at the time and had spotted what is now our home on a search portal I created. I wasn’t really sold on it, but when I scheduled a showing, the backyard patio sold me. Ashlynn and I met in the Near Southside in January 2020 before the pandemic shut down the world. Although neither one of us is originally from Fort Worth, it is unquestionably home. Since finding our home, I have spent countless mornings watching Premier League soccer and disappointing Dallas Cowboys games in my backyard…",
+    "url": "https://fortworthreport.org/2026/11/21/where-i-live-ryanwood-resident-calls-for-more-city-support-in-east-fort-worth/",
+    "published": "2026-11-21T18:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/Ramon-Bermudez-Where-I-Live-300x200.jpg",
+    "image_credit": "Photo: Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "Ramon Bermudez and his wife, Ashlynn, pose in front of their Ryanwood home in far east Fort Worth on Nov. 19, 2026. (David Moreno | Fort Worth Report)",
+      "page_credit": ""
+    },
+    "category": "community",
+    "relevance": 4,
+    "score": 1.4169
+  }
+}
