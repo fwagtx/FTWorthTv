@@ -2,7 +2,8 @@
   "daily": {
     "2026-11-18": 1,
     "2026-11-19": 20,
-    "2026-11-20": 19
+    "2026-11-20": 19,
+    "2026-11-21": 2
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -30,6 +31,10 @@
       "politics": 3,
       "sports": 4,
       "weather": 1
+    },
+    "2026-11-21": {
+      "community": 1,
+      "crime": 1
     }
   },
   "daily_by_kind": {
@@ -45,6 +50,10 @@
       "rss": 12,
       "video": 3,
       "wanted": 2
+    },
+    "2026-11-21": {
+      "video": 1,
+      "wanted": 1
     }
   },
   "daily_by_scope": {
@@ -61,6 +70,9 @@
       "dfw": 2,
       "local": 11,
       "texas": 6
+    },
+    "2026-11-21": {
+      "local": 2
     }
   },
   "deferred": {
@@ -71,7 +83,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-20T15:56:00-06:00",
+  "last_post_at": "2026-11-21T07:10:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -192,6 +204,18 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Dallas investigating potential inaccuracies in crime reports",
       "url": "https://www.fox4news.com/news/dallas-investigating-potential-inaccuracies-crime-reports"
+    },
+    "4eb9755a535205c4": {
+      "at": "2026-11-21T06:26:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "436620685",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-497155648751055920",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Daniel Muniz",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
     },
     "56865477238e9092": {
       "at": "2026-11-20T08:59:00-06:00",
@@ -352,6 +376,18 @@
       "source": "The Texas Tribune",
       "title": "“We need to be compensated”: Texas Tech chair pushed Fermi data center company for lucrative deals, despite university ties",
       "url": "https://feeds.texastribune.org/link/16799/17536360/texas-tech-cody-campbell-board-fermi-data-center-matador"
+    },
+    "98bb64127bc8fcfc": {
+      "at": "2026-11-21T07:10:00-06:00",
+      "category": "community",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "436620753",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3315957448057273716",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "Fort Worth ISD to serve free meals over Thanksgiving Break",
+      "url": "https://www.youtube.com/watch?v=V4y-sexmRfI"
     },
     "a6ea3e7042a06af0": {
       "at": "2026-11-20T13:09:00-06:00",
@@ -593,6 +629,10 @@
       "at": "2026-11-20T16:18:32.671901+00:00",
       "reason": "a magazine gift guide, not news"
     },
+    "29e756adffe5cc3d": {
+      "at": "2026-11-21T12:18:30.407673+00:00",
+      "reason": "caption was the article's 2022 photo caption (Nissan Stadium, Nashville), and an AT&T Stadium stand-in for a game preview whose venue is not"
+    },
     "39eb16f305f86458": {
       "at": "2026-11-20T21:18:54.918609+00:00",
       "reason": "a conviction with no picture of the defendant or the courtroom; the render offered AT&T Stadium"
@@ -622,7 +662,7 @@
       "reason": "same reopening as WFAA's video already scheduled (Musume)"
     }
   },
-  "total_posts": 40,
+  "total_posts": 42,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
