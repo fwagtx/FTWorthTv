@@ -133,7 +133,6 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             if videos_day_left <= 0 or any(d.story.source_kind == "video" for d in drafts):
                 report.skipped.append((story, "video share used (a few a day, one a run)"))
                 continue
-            videos_day_left -= 1
         from .filters import stale_dated_title
         if stale_dated_title(story.title, now.astimezone(settings.tz)):
             report.skipped.append((story, "dated for a day that has passed"))
@@ -142,7 +141,6 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             if clips_day_left <= 0 or any(d.story.source_kind == "submission" for d in drafts):
                 report.skipped.append((story, "viewer clip used (a couple a day, one a run)"))
                 continue
-            clips_day_left -= 1
         if story.extra.get("scope", "local") != "local" and not story.is_urgent:
             if non_local_left <= 0 or non_local_day_left <= 0:
                 report.skipped.append((story, "DFW/Texas share used (per run or per day)"))
@@ -151,9 +149,6 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                 if national_day_left <= 0 or any(d.story.extra.get("scope") == "national" for d in drafts):
                     report.skipped.append((story, "national share used (two a day, one a run)"))
                     continue
-                national_day_left -= 1
-            non_local_left -= 1
-            non_local_day_left -= 1
         if cat in caps and not story.is_urgent and story.source_kind != "wanted":        # bulletins have their own daily cap (wanted.max_per_day)
             used_today = state.posts_on_by_category(day, cat) + sum(1 for d in drafts if (d.copy.category or "other") == cat)
             if cat == "crime":                                                        # the morning's bulletins must not silence the day's crime news
@@ -247,6 +242,17 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if sponsor.get("enabled") and sponsor.get("line") and (state.total_posts + len(drafts) + 1) % max(1, int(sponsor.get("every_n_posts", 5))) == 0:
             draft.sponsor_line = sponsor["line"]
         drafts.append(draft)
+        # the shares are spent by drafts, never by candidates that failed on the way (a Dallas story with no picture must not
+        # use up the DFW share for the NBC 5 forecast behind it)
+        if story.source_kind == "video":
+            videos_day_left -= 1
+        if story.source_kind == "submission":
+            clips_day_left -= 1
+        if story.extra.get("scope", "local") != "local" and not story.is_urgent:
+            non_local_left -= 1
+            non_local_day_left -= 1
+            if story.extra.get("scope") == "national":
+                national_day_left -= 1
 
     # 4. publish + remember
     publisher = get_publisher(publisher_label, settings, run_dir)

@@ -201,3 +201,19 @@ def test_wanted_bulletins_do_not_use_up_the_crime_cap(settings, now):
     report = run(settings, now=now, stories=[news], publisher_name="dryrun")
     reasons = [r for s, r in report.skipped if s.id == "n"]
     assert not any(r.startswith("daily cap for crime") for r in reasons)     # the conviction is judged on its own, not silenced by bulletins
+
+
+def test_a_candidate_that_fails_does_not_spend_the_non_local_share(settings, now, monkeypatch):
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    monkeypatch.setenv("FTWTV_NON_LOCAL_PER_RUN", "1")
+    settings.max_posts = 2
+    first = Story(id="d1", source="FOX 4 Dallas-Fort Worth", source_kind="rss", title="Police shot at suspected burglars in Far East Dallas, no injuries reported",
+                  summary="Dallas police fired at two suspected burglars early Saturday, the department said. Nobody was hurt.", url="https://x/d1",
+                  published=now - timedelta(hours=1), always_relevant=True, extra={"scope": "dfw"})
+    second = Story(id="d2", source="NBC 5 DFW", source_kind="rss", title="DFW Weather: Dry weather expected Wednesday across Texas before Thanksgiving",
+                   summary="Travelers across North Texas can expect dry roads Wednesday, the NBC 5 forecast says.", url="https://x/d2",
+                   published=now - timedelta(hours=1), always_relevant=True, extra={"scope": "dfw"})
+    report = run(settings, now=now, stories=[first, second], publisher_name="dryrun")
+    reasons = {s.id: r for s, r in report.skipped}
+    assert "share used" not in reasons.get("d2", "")              # the first story failed on its picture: the share is still there for the second
