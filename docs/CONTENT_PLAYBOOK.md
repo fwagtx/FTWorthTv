@@ -98,6 +98,8 @@ Hard news and sports results (crime, breaking, traffic, weather, sports) with no
 nothing to mismatch; softer stories without a picture are skipped. Station videos, which can only be link posts, are capped at two a day.
 A series label (Where I Live:, Opinion:, Bob on Business:) marks a column, and a first-person sentence ("I typically start my
 mornings...") is a resident's essay: neither is captioned as news.
+Another DFW city's police blotter (a shooting with no death and no arrest, a burglary, car break-ins) is that city's news; a death,
+a manhunt or an Amber Alert anywhere in DFW still runs.
 
 ## 3. A day on the page (what the scheduler produces when the sources are busy)
 

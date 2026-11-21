@@ -316,3 +316,11 @@ def test_a_crash_on_another_metros_stretch_of_i_35_is_that_metros_news(settings,
                   summary="San Antonio police said the truck caught fire after a crash on Interstate 35 early Saturday.", url="https://x/sa", published=now - timedelta(hours=1))
     kept, dropped = filter_stories([crash], settings, State(settings.state_path), now)
     assert not kept and ("other-metro" in dropped[0][1] or "another metro" in dropped[0][1] or "not local enough" in dropped[0][1])
+
+
+def test_another_dfw_citys_police_blotter_is_not_ours():
+    from ftworthtv.filters import another_citys_blotter
+    assert another_citys_blotter("Juvenile shot in vehicle in stable condition, Dallas police say no arrests made yet")
+    assert another_citys_blotter("Police shot at suspected burglars in Far East Dallas, no injuries reported")
+    assert not another_citys_blotter("Dallas Cowboys fan dies after altercation during 49ers game, Arlington police say")   # a death runs
+    assert not another_citys_blotter("Fort Worth police: one person shot in stable condition near the Stockyards")          # ours runs

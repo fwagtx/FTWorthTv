@@ -152,6 +152,20 @@ def digest_title(title: str) -> bool:
     return bool(_DIGEST_RE.search(title or ""))
 
 
+_BLOTTER_RE = re.compile(r"\b(?:stable condition|no injuries|minor injuries|non-life-threatening|non life-threatening|expected to survive|no arrests?|"
+                         r"one person (?:shot|injured|hurt)|1 (?:shot|injured|hurt)|burglar|car break-ins?|shoplift)\b", re.I)
+
+
+def another_citys_blotter(title: str) -> bool:
+    """'Juvenile shot in vehicle in stable condition, Dallas police say no arrests made yet': a single shooting with no death
+    and no arrest in another DFW city is that city's police blotter, not Fort Worth news."""
+    low = (title or "").lower()
+    if any(w in low for w in ("fort worth", "tarrant", "arlington", "keller", "southlake", "mansfield", "haltom", "hurst", "euless", "bedford",
+                              "grapevine", "north richland", "benbrook", "burleson", "crowley", "white settlement", "saginaw", "watauga", "azle", "weatherford")):
+        return False
+    return bool(_BLOTTER_RE.search(low)) and not any(w in low for w in ("dead", "dies", "died", "killed", "fatal", "murder", "homicide", "manhunt", "amber alert"))
+
+
 OTHER_METRO_AGENCIES = ("hpd", "apd", "sapd", "harris county", "travis county", "bexar county", "el paso county", "houston isd", "austin isd")
 
 
@@ -402,6 +416,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 continue
             if tier[0] == "texas" and other_metro_local(story.title) and not any(w in story.text() for w in STATEWIDE_WORDS):
                 dropped.append((story, "another city's government"))             # Austin's mayor pro tem is Austin's news
+                continue
+            if tier[0] == "dfw" and cat == "crime" and another_citys_blotter(story.title):
+                dropped.append((story, "another city's police blotter"))     # a Dallas shooting with no death and no arrest is Dallas's blotter
                 continue
             if tier[0] in ("texas", "dfw") and other_metro_roundup(story.title):
                 dropped.append((story, "another city's weekend roundup"))      # "Austin weekend: theater, Bastrop B-day" is KXAN's calendar
