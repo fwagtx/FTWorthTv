@@ -1,0 +1,55 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-21T14:05:37.253563+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-071537/03-bob-on-business-biz-in-the-front-party-in-the-ba/post.jpg",
+    "credit": "Photo: Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/20/bob-on-business-biz-in-the-front-party-in-the-back-as-one-university-place-breaks-ground/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-071537/03-bob-on-business-biz-in-the-front-party-in-the-ba/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Bob on Business: Biz in the front, party in the back as One University Place breaks ground",
+    "caption": "From a mullet to a tycoon, a high-profile property in Fort Worth is now on the rise. On Nov. 19, One University Place broke ground, the second — but likely not the last — project from Goldenrod Cos.\n\nThat came on the heels of the Nebraska-based firm topping out its Van Zandt development on West 7th Street. Previous attempts to develop the site had fallen short.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/20/bob-on-business-biz-in-the-front-party-in-the-back-as-one-university-place-breaks-ground/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth West 7th",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "ddb428b5d9566b04",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Bob on Business: Biz in the front, party in the back as One University Place breaks ground",
+    "summary": "From a mullet to a tycoon, a high-profile property in Fort Worth is now on the rise. On Nov. 19, One University Place broke ground, the second — but likely not the last — project from Goldenrod Cos. That came on the heels of the Nebraska-based firm topping out its Van Zandt development on West 7th Street. Previous attempts to develop the site had fallen short. Goldenrod embarked on One University Place as far back as 2022. One reason is that the property slopes down 30 feet from the western side facing University Drive to the eastern end of the property on Morton Street. That’s one reason the site has been dubbed “the mullet,” said Zach Wiegert, CEO of Goldenrod Cos.: It’s high in the front and goes low toward the back, like the haircut favored by fans of Lynyrd Skynyrd as they shout “Freebird!” But he said that nickname was particularly appropriate for this location. “The business…",
+    "url": "https://fortworthreport.org/2026/11/20/bob-on-business-biz-in-the-front-party-in-the-back-as-one-university-place-breaks-ground/",
+    "published": "2026-11-21T00:39:15+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/11-300x169.jpg",
+    "image_credit": "Photo: Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.2517
+  }
+}
