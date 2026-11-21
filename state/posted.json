@@ -3,7 +3,7 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 7
+    "2026-11-21": 8
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -36,6 +36,7 @@
       "community": 2,
       "crime": 2,
       "other": 1,
+      "politics": 1,
       "weather": 2
     }
   },
@@ -55,7 +56,7 @@
     },
     "2026-11-21": {
       "nws_forecast": 1,
-      "rss": 2,
+      "rss": 3,
       "video": 2,
       "wanted": 2
     }
@@ -77,7 +78,8 @@
     },
     "2026-11-21": {
       "dfw": 1,
-      "local": 6
+      "local": 6,
+      "texas": 1
     }
   },
   "deferred": {
@@ -123,7 +125,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T10:25:00-06:00",
+  "last_post_at": "2026-11-21T12:31:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -232,6 +234,18 @@
       "source": "KVUE Austin",
       "title": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
       "url": "https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492"
+    },
+    "3bb3a503549cd7e4": {
+      "at": "2026-11-21T12:31:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436909919",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4565273781692772406",
+      "publisher": "metricool-session",
+      "source": "KXAN Austin",
+      "title": "Texas Railroad Commission's lone Democrat Jon Rosenthal outlines plans for change",
+      "url": "https://www.kxan.com/state-of-texas/newsmaker-interviews/texas-railroad-commissions-lone-democrat-jon-rosenthal-outlines-plans-for-change/"
     },
     "40ffa78104c5b2b2": {
       "at": "2026-11-20T13:34:00-06:00",
@@ -792,9 +806,13 @@
     "e841e96042468389": {
       "at": "2026-11-21T16:16:17.467584+00:00",
       "reason": "CultureMap's weekly digest (and more top stories) with an Editor's note caption and a Commons photo of a Peruvian school farm named for a Co"
+    },
+    "f0b6727d6150d591": {
+      "at": "2026-11-21T18:26:45.160854+00:00",
+      "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 47,
+  "total_posts": 48,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -803,7 +821,8 @@
     "lib-nrg-stadium-houston-texas-united-states-jpg",
     "lib-2026-05-26-texas-state-capitol-11-jpg",
     "lib-downtown-fort-worth-jpg",
-    "lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg"
+    "lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
+    "commons-199552537"
   ],
   "version": 1
 }
