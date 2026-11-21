@@ -289,3 +289,15 @@ def test_a_sale_guide_is_a_shopping_guide_not_news():
     assert shopping_guide("Eureka Ergonomic Has Black Friday Deals to Give Your Space the Upgrade It Needs")
     assert not shopping_guide("Fort Worth council approves deal with developer for downtown tower")
     assert not shopping_guide("Rangers deal pitcher to the Yankees for two prospects")
+
+
+def test_another_metros_local_story_is_that_metros_news_whatever_the_beat(settings, now):
+    from ftworthtv.filters import other_metro_title
+    assert other_metro_title("HPD: Teens find man's body in elevator shaft of abandoned downtown Houston building")
+    assert other_metro_title("Harris County opens new animal shelter")
+    assert not other_metro_title("Texas Senate passes property tax bill in Austin")        # the state's news names the state
+    assert not other_metro_title("Fort Worth and Houston split the state's new water money")
+    houston = Story(id="h", source="KHOU 11 Houston", source_kind="rss", title="HPD: Teens find man's body in elevator shaft of abandoned downtown Houston building",
+                    summary="Houston police said the teens were exploring the building Friday night when they found the body.", url="https://x/h", published=now)
+    kept, dropped = filter_stories([houston], settings, State(settings.state_path), now)
+    assert not kept and dropped[0][1] in ("another metro's local story", "other-metro crime, not statewide", "not local enough (relevance 0 < 2)")

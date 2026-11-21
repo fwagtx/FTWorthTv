@@ -259,7 +259,7 @@ opencities:
 wanted:
   enabled: true
   max_per_run: 1
-  max_per_day: 3               # three bulletins in twelve hours looked like a registry, not a news feed
+  max_per_day: 2               # bulletins have their own cap and do not count against the crime cap: two a day keeps crime+wanted at four
   agencies:
     - name: Fort Worth Police Department
       kind: fwpd

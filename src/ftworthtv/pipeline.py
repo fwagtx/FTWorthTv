@@ -154,8 +154,10 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                 national_day_left -= 1
             non_local_left -= 1
             non_local_day_left -= 1
-        if cat in caps and not story.is_urgent:
+        if cat in caps and not story.is_urgent and story.source_kind != "wanted":        # bulletins have their own daily cap (wanted.max_per_day)
             used_today = state.posts_on_by_category(day, cat) + sum(1 for d in drafts if (d.copy.category or "other") == cat)
+            if cat == "crime":                                                        # the morning's bulletins must not silence the day's crime news
+                used_today -= state.posts_on_kind(day, "wanted") + sum(1 for d in drafts if d.story.source_kind == "wanted")
             if used_today >= int(caps[cat]) and story.source_kind != "submission":   # viewer clips have their own cap
                 report.skipped.append((story, f"daily cap for {cat} reached"))
                 continue

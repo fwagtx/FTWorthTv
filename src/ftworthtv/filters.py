@@ -143,6 +143,18 @@ def other_metro_local(title: str) -> bool:
     return bool(_CIVIC_RE.search(low)) and any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in OTHER_METROS)
 
 
+OTHER_METRO_AGENCIES = ("hpd", "apd", "sapd", "harris county", "travis county", "bexar county", "el paso county", "houston isd", "austin isd")
+
+
+def other_metro_title(title: str) -> bool:
+    """'HPD: Teens find man\'s body in elevator shaft of abandoned downtown Houston building': a headline set in another metro,
+    with none of our places in it, is that metro's local story whatever its beat."""
+    low = (title or "").lower()
+    if any(w in low for w in ("fort worth", "tarrant", "dfw", "north texas", "arlington", "keller", "southlake", "mansfield", "texas")):
+        return False
+    return any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in OTHER_METROS + OTHER_METRO_AGENCIES)
+
+
 def other_metro_roundup(title: str) -> bool:
     """'Austin weekend: Theater performances, Bastrop B-day', 'Things to do in Houston this weekend': another city's events
     calendar, however good the weekend is there."""
@@ -368,6 +380,10 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             cat = infer_category(story)
             if tier[0] == "texas" and cat in ("crime", "traffic", "food", "events") and not any(w in story.text() for w in STATEWIDE_WORDS):
                 dropped.append((story, f"other-metro {cat}, not statewide"))   # a San Antonio DWI verdict or food truck is not Fort Worth news
+                continue
+            if tier[0] == "texas" and cat not in ("sports", "politics", "business") and other_metro_title(story.title) \
+                    and not any(w in story.text() for w in STATEWIDE_WORDS):
+                dropped.append((story, "another metro's local story"))         # a body found in a downtown Houston elevator shaft is Houston's news
                 continue
             if tier[0] == "texas" and other_region(story.title) and not any(w in story.text() for w in STATEWIDE_WORDS):
                 dropped.append((story, "another region's story"))              # fall foliage in South Central Texas is KENS 5's weather blog

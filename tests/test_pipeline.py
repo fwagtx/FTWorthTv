@@ -178,3 +178,26 @@ def test_the_writer_looks_past_candidates_the_caps_hold_back(settings, now):
     assert sum(1 for _, r in report.skipped if r.startswith("daily cap for")) == 3
     seen = {d.story.id for d in report.drafts} | {s.id for s, _ in report.skipped}
     assert "p" in seen                                   # the fourth candidate was written, not starved by the three the caps held
+
+
+def test_wanted_bulletins_do_not_use_up_the_crime_cap(settings, now):
+    from datetime import timedelta
+    from ftworthtv.models import PostDraft, PostCopy, PublishResult, Story
+    from ftworthtv.state import State
+    settings.brand.setdefault("content_mix", {})["caps_per_day"] = {"crime": 2}
+    settings.state_path.parent.mkdir(parents=True, exist_ok=True)
+    state = State(settings.state_path)
+    day = now.astimezone(settings.tz).date().isoformat()
+    for i in range(2):                                                   # the morning's two bulletins
+        w = Story(id=f"w{i}", source="Fort Worth Police Department", source_kind="wanted", title=f"WANTED: Person {i}", summary="", url=f"https://police.fortworthtexas.gov/{i}",
+                  published=now - timedelta(hours=3), category_hint="crime", extra={"name": f"Person {i}", "agency": "Fort Worth Police Department", "charge": "Theft"})
+        state.record(PostDraft(story=w, copy=PostCopy(category="crime", headline="h", caption="c", first_comment=""), writer="template"),
+                     PublishResult(ok=True, publisher="dryrun", post_id=str(i)), now - timedelta(hours=3), day)
+    state.save()
+    settings.max_posts = 1
+    news = Story(id="n", source="FOX 4 Dallas-Fort Worth", source_kind="rss", title="Arlington pastor convicted in $6M real estate and investment fraud scheme",
+                 summary="An Arlington pastor was convicted Thursday of defrauding followers out of more than $6 million, prosecutors said.", url="https://x/n",
+                 published=now - timedelta(hours=1), always_relevant=True)
+    report = run(settings, now=now, stories=[news], publisher_name="dryrun")
+    reasons = [r for s, r in report.skipped if s.id == "n"]
+    assert not any(r.startswith("daily cap for crime") for r in reasons)     # the conviction is judged on its own, not silenced by bulletins
