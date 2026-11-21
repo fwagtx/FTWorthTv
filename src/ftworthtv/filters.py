@@ -99,9 +99,14 @@ def personnel_move(title: str) -> bool:
     return bool(_MOVE_RE.search(title or ""))
 
 
+_SALES_RE = re.compile(r"\b(black friday|cyber monday|prime day)\b", re.I)
+_DEALS_RE = re.compile(r"\bdeals\b.*\b(guide|best|shop|save|prices?|plans?)\b|\b(guide|best)\b.*\bdeals\b", re.I)   # "A Guide to the Best ... Deals"
+
+
 def shopping_guide(title: str, url: str = "") -> bool:
-    """'The Top Texas Gifts of 2026': a magazine's shopping guide, not news."""
-    return bool(_SHOPPING_RE.search(title or "")) or "/gift-guide" in (url or "") or "/style/" in (url or "")
+    """'The Top Texas Gifts of 2026', 'A Guide to the Best Black Friday Streaming Deals': a shopping guide, not news."""
+    t = title or ""
+    return bool(_SHOPPING_RE.search(t) or _SALES_RE.search(t) or _DEALS_RE.search(t)) or "/gift-guide" in (url or "") or "/style/" in (url or "")
 
 
 _COLUMN_RE = re.compile(r"^(?:[A-Z][a-z]+ on [A-Z][a-z]+|Opinion|Column|Commentary|Editorial|Letters?(?: to the [Ee]ditor)?|Analysis|Perspective|"

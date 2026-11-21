@@ -281,3 +281,11 @@ def test_a_column_label_marks_a_column():
     assert column_label("Commentary | The Stockyards are changing")
     assert not column_label("Fort Worth council votes on the budget")
     assert not column_label("Review of the year: the biggest Fort Worth stories")
+
+
+def test_a_sale_guide_is_a_shopping_guide_not_news():
+    from ftworthtv.filters import shopping_guide
+    assert shopping_guide("A Guide to the Best Black Friday Streaming Deals: See Platforms, Prices & Plans")
+    assert shopping_guide("Eureka Ergonomic Has Black Friday Deals to Give Your Space the Upgrade It Needs")
+    assert not shopping_guide("Fort Worth council approves deal with developer for downtown tower")
+    assert not shopping_guide("Rangers deal pitcher to the Yankees for two prospects")
