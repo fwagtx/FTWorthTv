@@ -3,7 +3,7 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 2
+    "2026-11-21": 4
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -33,8 +33,8 @@
       "weather": 1
     },
     "2026-11-21": {
-      "community": 1,
-      "crime": 1
+      "community": 2,
+      "crime": 2
     }
   },
   "daily_by_kind": {
@@ -52,8 +52,9 @@
       "wanted": 2
     },
     "2026-11-21": {
+      "rss": 1,
       "video": 1,
-      "wanted": 1
+      "wanted": 2
     }
   },
   "daily_by_scope": {
@@ -72,7 +73,7 @@
       "texas": 6
     },
     "2026-11-21": {
-      "local": 2
+      "local": 4
     }
   },
   "deferred": {
@@ -83,7 +84,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T07:10:00-06:00",
+  "last_post_at": "2026-11-21T08:00:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -341,6 +342,18 @@
       "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
       "url": "https://www.nbcdfw.com/news/sports/blue-star/cowboys-strip-play-calling-duties-from-defensive-coordinator-christian-parker/4107747/"
     },
+    "83ad354dab700578": {
+      "at": "2026-11-21T07:35:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "436640972",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2532700471496192195",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Erik Hernandez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
     "8b4fd0691d844aec": {
       "at": "2026-11-20T10:14:00-06:00",
       "category": "culture",
@@ -388,6 +401,18 @@
       "source": "WFAA",
       "title": "Fort Worth ISD to serve free meals over Thanksgiving Break",
       "url": "https://www.youtube.com/watch?v=V4y-sexmRfI"
+    },
+    "9e162c1750326578": {
+      "at": "2026-11-21T08:00:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436641300",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-689474736292544251",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "New citywide initiative asks Fort Worthians to volunteer 500,000 hours by April",
+      "url": "https://fortworthreport.org/2026/11/20/new-citywide-initiative-asks-fort-worthians-to-volunteer-500000-hours-by-april/"
     },
     "a6ea3e7042a06af0": {
       "at": "2026-11-20T13:09:00-06:00",
@@ -637,6 +662,10 @@
       "at": "2026-11-20T21:18:54.918609+00:00",
       "reason": "a conviction with no picture of the defendant or the courtroom; the render offered AT&T Stadium"
     },
+    "57aab8ca367891f5": {
+      "at": "2026-11-21T12:49:26.226495+00:00",
+      "reason": "KVUE's Austin forecast page under a statewide headline: another metro's weather, a caption that only named the station's weather team, and a"
+    },
     "6f71b25b567fa281": {
       "at": "2026-11-20T15:19:26.662256+00:00",
       "reason": "another city's government (Austin mayor pro tem)"
@@ -662,7 +691,7 @@
       "reason": "same reopening as WFAA's video already scheduled (Musume)"
     }
   },
-  "total_posts": 42,
+  "total_posts": 44,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
