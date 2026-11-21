@@ -263,3 +263,12 @@ def test_an_article_outranks_the_channels_video_of_the_same_story(now):
     vid = Story(id="v", source="Fort Worth ISD", source_kind="video", title="Fort Worth ISD to serve free meals over Thanksgiving Break", summary="",
                 url="https://youtube.com/watch?v=x", published=now, always_relevant=True, category="community")
     assert [s.id for s in rank([vid, art], now)] == ["a", "v"]
+
+
+def test_another_metro_stations_forecast_page_is_that_metros_weather():
+    from ftworthtv.filters import other_metro_forecast
+    assert other_metro_forecast("KVUE Austin", "Forecast: What to expect across Texas as Thanksgiving travel gets underway",
+                                "https://www.kvue.com/article/weather/forecast/austin-weather-central-texas-forecast/269-43840919")
+    assert other_metro_forecast("KHOU 11 Houston", "Cold front arrives Sunday", "https://www.khou.com/article/weather/cold-front/285-1")
+    assert not other_metro_forecast("NBC 5 DFW", "Forecast: Cold front brings freezing temps to North Texas", "https://www.nbcdfw.com/weather/x/")
+    assert not other_metro_forecast("KXAN Austin", "Texas Senate passes property tax bill", "https://www.kxan.com/news/texas-politics/x/")

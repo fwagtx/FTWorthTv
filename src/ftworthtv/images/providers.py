@@ -69,7 +69,7 @@ def search_pexels(query: str, api_key: str, *, per_page: int = 15, orientation: 
 def _clean_artist(raw: str) -> str:
     a = strip_html(raw or "")
     a = re.sub(r"No machine-readable author provided\.?", "", a, flags=re.I)
-    a = re.sub(r"\s*assumed\s*\(based on copyright claims\)\.?", "", a, flags=re.I)
+    a = re.sub(r"\s*assumed\s*\(based on copyright(?: claims\)\.?| ?\w*)", "", a, flags=re.I)      # also the form a 60-char cut leaves behind
     a = re.sub(r"^User:", "", a.strip())
     a = re.sub(r"\s*\(talk\)", "", a)
     a = re.sub(r"\S+@\S+\.\w+", "", a)                       # e-mail addresses some uploaders put in the author field

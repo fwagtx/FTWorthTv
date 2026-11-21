@@ -65,3 +65,11 @@ def test_a_photo_caption_is_never_a_caption_sentence():
             "Thursday, Dec. 29, 2022, in Nashville, Tenn. The Cowboys travel to Nashville on Sunday with a new defensive play-caller, the team said Friday.")
     assert _sentences(text) == ["The Cowboys travel to Nashville on Sunday with a new defensive play-caller, the team said Friday."]
     assert _first_sentence(text) == ""                         # the lead is the figure caption: no sentence, not that one
+
+
+def test_a_stations_teaser_line_is_not_a_caption_and_the_nut_graf_does_not_open_it():
+    assert _sentences("Here are the latest updates from the KVUE Weather Impact Team.") == []
+    text = ("The effort is being spearheaded by city council member Michael Crain, United Way of Tarrant County and Junior League of Fort Worth. "
+            "Earlier this month, Fort Worth City Council member Michael Crain announced a citywide initiative to volunteer 500,000 hours as a community by April of next year.")
+    sents = _sentences(text)
+    assert sents[0].startswith("Earlier this month") and sents[1].startswith("The effort is being spearheaded")

@@ -104,6 +104,22 @@ def shopping_guide(title: str, url: str = "") -> bool:
     return bool(_SHOPPING_RE.search(title or "")) or "/gift-guide" in (url or "") or "/style/" in (url or "")
 
 
+OTHER_METRO_STATIONS = ("kvue", "kxan", "keye", "khou", "ktrk", "kprc", "kens", "ksat", "woai", "kiii", "kris", "kcen", "kwtx", "kxxv",
+                        "kbtx", "kfdx", "kltv", "ktxs", "kgns", "kfox", "ktsm", "kvia", "kcbd", "klbk", "kamr", "kfda", "kavu", "kwes")
+
+
+def other_metro_forecast(source: str, title: str, url: str) -> bool:
+    """A station's rolling forecast page ("Forecast: What to expect across Texas as Thanksgiving travel gets underway" on
+    kvue.com/.../austin-weather-central-texas-forecast) is that metro's weather however the headline is worded; ours comes
+    from the NWS Fort Worth office and the DFW stations."""
+    src = (source or "").lower()
+    if not any(s in src for s in OTHER_METRO_STATIONS):
+        return False
+    t = (title or "").lower().strip()
+    u = (url or "").lower()
+    return t.startswith("forecast") or "/forecast" in u or "-forecast" in u or "/weather/" in u
+
+
 def other_metro_local(title: str) -> bool:
     """'Austin Mayor Pro Tem announces resignation, run for Texas Senate': another city's government is that city's news."""
     low = (title or "").lower()
@@ -288,6 +304,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "event" and not story.image_url:
             dropped.append((story, "event listing without its own picture"))  # an original post needs the listing's own picture
+            continue
+        if story.source_kind == "rss" and other_metro_forecast(story.source, story.title, story.url):
+            dropped.append((story, "another metro's forecast"))
             continue
         story.relevance = relevance_score(story, keywords)
         story.extra.setdefault("scope", "local")

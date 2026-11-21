@@ -353,7 +353,7 @@ def charge_phrase(charge: str) -> str:
 
 BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "read more", "learn more", "stay informed", "follow us", "check back",
                "enjoy reading the news again", "welcome to the", "pick something out of this list", "this article", "photo by", "courtesy of",
-               "biweekly", "weekly column", "in this week", "scroll down",
+               "biweekly", "weekly column", "in this week", "scroll down", "latest updates from the", "weather impact team",
                "sponsored", "advertis", "click to", "watch the video", "see the full", "continue reading", "appeared first on",
                "the post ", "related:", "more:", "also read", "photograph by", "photo by", "has more.", "has more on", "joins nbc",
                "joins fox", "to break down", "is a senior writer", "is a staff writer", "is a reporter", "is a freelance", "contact him",
@@ -407,6 +407,11 @@ def looks_like_photo_caption(sentence: str) -> bool:
     return bool(_CAPTION_RE.search(sentence) or _PHOTO_CAPTION_RE.search(sentence))
 
 
+_DEFINITE_OPENER_RE = re.compile(r"^The (?:effort|plan|program|initiative|project|move|deal|change|decision|measure|proposal|event|ordinance|"
+                                 r"policy|agreement|lawsuit|case|funding|money|vote|ruling|order|bill|law|ban|closure|expansion|partnership|"
+                                 r"contract) (?:is|was|will|would|has|had|comes|came|includes|aims|calls)\b")
+
+
 def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> list[str]:
     """Complete, boilerplate-free sentences from the lead of an article summary, in order (later paragraphs of a scraped
     page can belong to another item, so only the first `lead` characters are considered)."""
@@ -436,6 +441,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
         out.append(part)
         if len(out) >= max_n:
             break
+    if len(out) > 1 and _DEFINITE_OPENER_RE.match(out[0]) and not _DEFINITE_OPENER_RE.match(out[1]):
+        out[0], out[1] = out[1], out[0]      # og:description is often the nut graf ("The effort is led by..."): the lead that names the subject goes first
     return out
 
 

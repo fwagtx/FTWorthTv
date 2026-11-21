@@ -160,3 +160,10 @@ def test_required_phrase_alternatives(settings):
     finally:
         prov._search = orig
     assert got is not None and got.id == "b"
+
+
+def test_commons_boilerplate_is_removed_from_credits_even_when_cut_short():
+    from ftworthtv.images.library import clean_credit
+    from ftworthtv.images.providers import _clean_artist
+    assert _clean_artist("Billy Hathorn assumed (based on copyright c") == "Billy Hathorn"
+    assert clean_credit("Photo: Billy Hathorn assumed (based on copyright c via Wikimedia Commons (CC BY-SA 3.0)") == "Photo: Billy Hathorn via Wikimedia Commons (CC BY-SA 3.0)"

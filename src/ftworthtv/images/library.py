@@ -153,6 +153,13 @@ _VENUE_RE = re.compile(r"\b((?:[A-Z][\w&.'’-]*\s+){1,3}(?:Stadium|Arena|Field|
 _AWAY_RE = re.compile(r"\b(?:visit|visits|visiting|travel to|travels to|traveling to|head to|heads to|road game|road trip|on the road|away game)\b", re.I)
 
 
+def clean_credit(credit: str) -> str:
+    """A stored credit line with Commons boilerplate ("Billy Hathorn assumed (based on copyright c via Wikimedia Commons") loses it."""
+    c = re.sub(r"\s*assumed\s*\(based on copyright(?: claims\)\.?| ?\w*)", "", credit or "", flags=re.I)   # whole, or cut short
+    c = re.sub(r"\s*No machine-readable author provided\.?", "", c, flags=re.I)
+    return re.sub(r"\s{2,}", " ", c).strip()
+
+
 def venue_fits(topic: str, text: str) -> bool:
     """A team name brings its home venue only for a game there: never when the text names another stadium or says the team
     is on the road. "Cowboys face Titans ... travel to Nashville" must not get AT&T Stadium."""
@@ -208,7 +215,7 @@ def pick(root: Path, topics: list[str], *, used: set[str] | None = None, recentl
         pool = fresh or have      # a correct photo seen a few days ago beats a wrong one
         if pool:
             e = rng.choice(pool)
-            return LibraryPhoto(id=e["id"], path=root / e["file"], topic=topic, credit=e.get("credit", "Photo: Wikimedia Commons"),
+            return LibraryPhoto(id=e["id"], path=root / e["file"], topic=topic, credit=clean_credit(e.get("credit", "Photo: Wikimedia Commons")),
                                 license=e.get("license", "wikimedia-cc"), source_url=e.get("source_url"))
     return None
 
