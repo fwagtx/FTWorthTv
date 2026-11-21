@@ -84,7 +84,9 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
     min_gap = timedelta(minutes=int(posting.get("min_minutes_between_posts", 75)))
     last_at = state.last_post_at
     scheduled_ahead = last_at is not None and last_at > now           # a session scheduled the last post for later
-    gap_ok = last_at is None or scheduled_ahead or (now - last_at) >= min_gap
+    publisher_label = (publisher_name or settings.publisher).lower()
+    renders_for_session = publisher_label == "dryrun"               # the session spaces its posts itself (build_manifest): a render never waits
+    gap_ok = last_at is None or scheduled_ahead or renders_for_session or (now - last_at) >= min_gap
     cap_left = int(posting.get("daily_cap", 10)) - state.posts_on(day)
     per_run = settings.max_posts
     if local.hour in (posting.get("peak_hours_local") or []):       # the reference page's 7-11am and 4pm waves
@@ -108,7 +110,6 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         report.notes.append("daily cap reached")
 
     # 3. write + illustrate
-    publisher_label = (publisher_name or settings.publisher).lower()
     drafts: list[PostDraft] = []
     used_photos: set[str] = set()
     pool = max(max(k, 1) * 3, WRITER_POOL_MIN)           # a few stuck candidates (a cap, a twin) must not starve the run

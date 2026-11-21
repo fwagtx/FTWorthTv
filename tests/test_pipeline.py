@@ -217,3 +217,15 @@ def test_a_candidate_that_fails_does_not_spend_the_non_local_share(settings, now
     report = run(settings, now=now, stories=[first, second], publisher_name="dryrun")
     reasons = {s.id: r for s, r in report.skipped}
     assert "share used" not in reasons.get("d2", "")              # the first story failed on its picture: the share is still there for the second
+
+
+def test_a_render_for_the_session_does_not_wait_out_the_posting_gap(settings, now):
+    from datetime import timedelta
+    from ftworthtv.state import State
+    settings.state_path.parent.mkdir(parents=True, exist_ok=True)
+    state = State(settings.state_path)
+    state.data["last_post_at"] = (now - timedelta(minutes=10)).isoformat()      # the session's last post went out ten minutes ago
+    state.save()
+    settings.max_posts = 2
+    report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
+    assert report.drafts and not any("too soon" in n for n in report.notes)     # the manifest spaces the next post; the render drafts anyway
