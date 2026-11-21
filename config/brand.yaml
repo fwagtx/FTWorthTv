@@ -105,14 +105,14 @@ video:                          # native clips (viewer submissions, the radar lo
 stories:                        # every post also goes out as a Story (1080x1920: the card on charcoal), a couple of minutes later
   enabled: true
   delay_minutes: 2
-  networks: [facebook, instagram]
+  networks: [facebook]   # follows the Metricool brand's connections: Instagram was disconnected on Nov 21; the cycles add it back once the brand shows it again
 
 posting:
   max_posts_per_run: 1          # the scheduler runs every 10 minutes; min_minutes_between_posts spaces the feed
   peak_hours_local: [7, 8, 9, 10, 11, 16]   # the reference page's morning wave (7-11am) and 4pm wave: 2 per run then
   peak_max_posts_per_run: 2
   min_minutes_between_posts: 25
-  networks: [facebook, instagram]  # where the session publishes every post (the Metricool brand has both)
+  networks: [facebook]   # follows the Metricool brand's connections: Instagram was disconnected on Nov 21; the cycles add it back once the brand shows it again  # where the session publishes every post (the Metricool brand has both)
   daily_cap: 20                # the reference page runs 20-24 a day
   quiet_hours_local: [23, 6]   # their output runs 5:45am-10:30pm; no posts 11pm-6am Central (severe weather still posts)
   daily_forecast_hour_local: 7 # "Good morning Fort Worth" weather post once a day (needs no API key)

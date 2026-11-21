@@ -21,6 +21,8 @@ out and that nothing be left for them to set up, so the page publishes like this
    pushed so the next render skips them.
    The record step runs every cycle, posts or not: it also remembers drafts that only a daily category cap held back,
    so the next day's render may still take them while they are under 36 hours old.
+   `posting.networks` in `config/brand.yaml` follows the brand's connections in Metricool: every cycle reads them
+   (getBrandSettings) and drops or restores Instagram on its own, so a disconnected network never blocks Facebook.
 3. **Viewer photos and clips** come in the same way: the session reads the sheet "Fort Worth Daily — viewer videos" and
    the uploads folder through the Drive connector (no public sharing needed), checks consent and approval, hosts a clip
    on the media release and posts it credited.
