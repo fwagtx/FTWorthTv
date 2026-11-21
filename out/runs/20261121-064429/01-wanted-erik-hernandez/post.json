@@ -1,0 +1,60 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-064429/01-wanted-erik-hernandez/post.jpg",
+    "credit": "Photo: Fort Worth Police Department",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-064429/01-wanted-erik-hernandez/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Fort Worth police searching for Erik Hernandez, wanted for murder",
+    "caption": "Fort Worth police are looking for Erik Hernandez, wanted for murder. Crime Stoppers is offering up to $2,000 for information leading to an arrest.\n\nCall 817-469-TIPS (8477) or submit a tip at 469tips.com. You stay anonymous.",
+    "first_comment": "Source: Fort Worth Police Department most wanted https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted\n{photo_credit}\nTips: https://pdapps.fortworthtexas.gov/most-wanted?p=3d9d0872-fb80-4021-8a63-df9477978d7e\nCharges are accusations. All suspects are presumed innocent until proven guilty in a court of law.",
+    "hashtags": [],
+    "image_query": "police lights street night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "83ad354dab700578",
+    "source": "Fort Worth Police Department",
+    "source_kind": "wanted",
+    "title": "WANTED: Erik Hernandez",
+    "summary": "Erik Hernandez is wanted by the Fort Worth Police Department for Murder. Crime Stoppers will pay up to $2,000 for information leading to an arrest. Call 817-469-TIPS (8477) or submit a tip at https://pdapps.fortworthtexas.gov/most-wanted?p=3d9d0872-fb80-4021-8a63-df9477978d7e. Tipsters stay anonymous.",
+    "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted",
+    "published": "2026-11-21T12:42:24.818000+00:00",
+    "category_hint": "crime",
+    "image_url": "https://police.fortworthtexas.gov/files/assets/police/v/1/most-wanted/images/hernandez-erik.png",
+    "image_credit": "Photo: Fort Worth Police Department",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.85,
+    "extra": {
+      "name": "Erik Hernandez",
+      "charge": "Murder",
+      "agency": "Fort Worth Police Department",
+      "reward": "$2,000",
+      "tip_phone": "817-469-TIPS (8477)",
+      "tip_url": "https://pdapps.fortworthtexas.gov/most-wanted?p=3d9d0872-fb80-4021-8a63-df9477978d7e",
+      "age": 49,
+      "city": "Fort Worth",
+      "details": "",
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 1,
+    "score": 0.9295
+  }
+}
