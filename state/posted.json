@@ -63,6 +63,13 @@
       "texas": 6
     }
   },
+  "deferred": {
+    "0b74aafe46b55642": {
+      "at": "2026-11-21T04:14:46.399688+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Fort Worth ISD serves free meals during Thanksgiving Break"
+    }
+  },
   "flags": {},
   "last_post_at": "2026-11-20T15:56:00-06:00",
   "posted": {
