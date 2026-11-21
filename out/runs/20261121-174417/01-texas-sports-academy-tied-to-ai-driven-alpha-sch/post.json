@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-174417/01-texas-sports-academy-tied-to-ai-driven-alpha-sch/post.jpg",
+    "credit": "Photo: Kaylee Greenlee for The Texas Tribune",
+    "license": "republish-ok",
+    "provider": "source",
+    "source_url": "https://feeds.texastribune.org/link/16799/17537271/texas-school-vouchers-alpha-sports-academy-ai",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-174417/01-texas-sports-academy-tied-to-ai-driven-alpha-sch/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Texas Sports Academy, tied to AI-driven Alpha School, is Texas’ biggest voucher recipient so far",
+    "caption": "Students at Texas Sports Academy, which schedules two hours of academics a day, have received $6.5 million in voucher payouts, more than twice the next-largest recipient, according to data from the state comptroller.",
+    "first_comment": "Source: The Texas Tribune @TexasTribune https://feeds.texastribune.org/link/16799/17537271/texas-school-vouchers-alpha-sports-academy-ai\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "a9091db50c1ea660",
+    "source": "The Texas Tribune",
+    "source_kind": "rss",
+    "title": "Texas Sports Academy, tied to AI-driven Alpha School, is Texas’ biggest voucher recipient so far",
+    "summary": "Students at Texas Sports Academy, which schedules two hours of academics a day, have received $6.5 million in voucher payouts, more than twice the next-largest recipient, according to data from the state comptroller.",
+    "url": "https://feeds.texastribune.org/link/16799/17537271/texas-school-vouchers-alpha-sports-academy-ai",
+    "published": "2026-11-21T21:45:06+00:00",
+    "category_hint": null,
+    "image_url": "https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/11/20250909-Alpha-School-McMahon-KG-18.jpg?fit=1024%2C683&ssl=1",
+    "image_credit": "Photo: Kaylee Greenlee for The Texas Tribune",
+    "image_license": "republish-ok",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5599999999999999,
+    "extra": {
+      "feed_title": "The Texas Tribune",
+      "national": false,
+      "social_tag": "@TexasTribune",
+      "article_fetched": true,
+      "scope": "texas",
+      "page_caption": "Kindergarten and first grade students participate in a “putt-putt-palooza” workshop at the Alpha School campus in Austin on Sept. 9, 2025. Kaylee Greenlee for The Texas Tribune",
+      "page_credit": "Kaylee Greenlee for The Texas Tribune"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.622
+  }
+}
