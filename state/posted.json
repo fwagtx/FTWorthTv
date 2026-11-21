@@ -3,7 +3,7 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 4
+    "2026-11-21": 5
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -34,7 +34,8 @@
     },
     "2026-11-21": {
       "community": 2,
-      "crime": 2
+      "crime": 2,
+      "weather": 1
     }
   },
   "daily_by_kind": {
@@ -52,6 +53,7 @@
       "wanted": 2
     },
     "2026-11-21": {
+      "nws_forecast": 1,
       "rss": 1,
       "video": 1,
       "wanted": 2
@@ -73,7 +75,7 @@
       "texas": 6
     },
     "2026-11-21": {
-      "local": 4
+      "local": 5
     }
   },
   "deferred": {
@@ -81,10 +83,15 @@
       "at": "2026-11-21T04:14:46.399688+00:00",
       "reason": "daily cap for community reached",
       "title": "Fort Worth ISD serves free meals during Thanksgiving Break"
+    },
+    "15d87ae9fe2062fa": {
+      "at": "2026-11-21T13:20:14.601553+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "WANTED: Elkin Daniel Hernandez"
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T08:00:00-06:00",
+  "last_post_at": "2026-11-21T08:25:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -604,6 +611,18 @@
       "title": "Fort Worth forecast for Friday, November 20",
       "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
     },
+    "forecast-2026-11-21": {
+      "at": "2026-11-21T08:25:00-06:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": "436665578",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8582190349169084352",
+      "publisher": "metricool-session",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Saturday, November 21",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
     "manual-anthropic-ipo-2026-11-19": {
       "at": "2026-11-19T20:00:00+00:00",
       "category": "business",
@@ -682,6 +701,10 @@
       "at": "2026-11-20T15:19:26.662237+00:00",
       "reason": "a Dallas park amenity is not Fort Worth news"
     },
+    "c0bd1402482091bb": {
+      "at": "2026-11-21T13:20:14.600210+00:00",
+      "reason": "a U.S. Navy PTSD Awareness Month poster is a graphic, not a picture of the subject, and the caption was the headline alone"
+    },
     "cf227c7f4f2ef4b7": {
       "at": "2026-11-20T20:15:20.921311+00:00",
       "reason": "a nonprofit's hire announcement, not news"
@@ -689,9 +712,13 @@
     "d4a2cb327d6cc322": {
       "at": "2026-11-20T16:18:32.671884+00:00",
       "reason": "same reopening as WFAA's video already scheduled (Musume)"
+    },
+    "ddb428b5d9566b04": {
+      "at": "2026-11-21T13:20:14.600227+00:00",
+      "reason": "a column (Bob on Business) in the writer's voice, with the developer's rendering credited as the outlet's own photo"
     }
   },
-  "total_posts": 44,
+  "total_posts": 45,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -699,7 +726,8 @@
     "lib-texrail-dfw-airport-terminal-b-nov-2019-4-jpg",
     "lib-nrg-stadium-houston-texas-united-states-jpg",
     "lib-2026-05-26-texas-state-capitol-11-jpg",
-    "lib-downtown-fort-worth-jpg"
+    "lib-downtown-fort-worth-jpg",
+    "lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg"
   ],
   "version": 1
 }
