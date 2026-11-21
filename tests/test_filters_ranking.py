@@ -241,3 +241,25 @@ def test_a_story_a_daily_cap_held_back_gets_a_second_day(settings, now):
     assert [s.id for s in kept] == ["meals"]                                  # the cap-held story gets its second day
     reasons = {s.id: r for s, r in dropped}
     assert reasons["library"].startswith("older than") and reasons["lot"].startswith("older than")   # the window holds for the rest
+
+
+def test_a_stale_dated_forecast_and_a_bare_listing_leave_the_pool_before_ranking(settings, now):
+    stale = Story(id="fc", source="NWS", source_kind="nws_forecast", title="Fort Worth forecast for Tuesday, November 17", summary="Sunny.",
+                  url="https://x/fc", published=now, official=True, always_relevant=True)
+    bare = Story(id="ev", source="Ticketmaster", source_kind="event", title="Women's Funkytown Showdown at Dickies Arena", summary="Sun, Nov 22 12:00 PM",
+                 url="https://x/ev", published=now, always_relevant=True)
+    pictured = Story(id="ev2", source="Ticketmaster", source_kind="event", title="Cody Johnson at Dickies Arena", summary="Sat, Nov 28 7:00 PM",
+                     url="https://x/ev2", published=now, always_relevant=True, image_url="https://x/ev2.jpg", image_policy="source_image", image_license="ticketmaster")
+    kept, dropped = filter_stories([stale, bare, pictured], settings, State(settings.state_path), now)
+    reasons = {s.id: r for s, r in dropped}
+    assert reasons["fc"] == "dated for a day that has passed" and reasons["ev"] == "event listing without its own picture"
+    assert [s.id for s in kept] == ["ev2"]
+
+
+def test_an_article_outranks_the_channels_video_of_the_same_story(now):
+    # the owner wants original posts: a video can only be shared as a link, so the article twin (with its own picture) goes first
+    art = Story(id="a", source="Fort Worth ISD", source_kind="rss", title="Fort Worth ISD serves free meals during Thanksgiving break", summary="",
+                url="https://x/a", published=now, always_relevant=True, category="community")
+    vid = Story(id="v", source="Fort Worth ISD", source_kind="video", title="Fort Worth ISD to serve free meals over Thanksgiving Break", summary="",
+                url="https://youtube.com/watch?v=x", published=now, always_relevant=True, category="community")
+    assert [s.id for s in rank([vid, art], now)] == ["a", "v"]

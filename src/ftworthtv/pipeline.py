@@ -56,6 +56,9 @@ def in_quiet_hours(local: datetime, window) -> bool:
     return local.hour >= start or local.hour < end
 
 
+WRITER_POOL_MIN = 12      # ranked candidates the writer may look at in one run, however few posts it needs
+
+
 def run(settings: Settings, *, now: datetime | None = None, stories: list[Story] | None = None,
         publisher_name: str | None = None, only_kinds: list[str] | None = None) -> RunReport:
     now = now or datetime.now(timezone.utc)
@@ -108,7 +111,8 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
     publisher_label = (publisher_name or settings.publisher).lower()
     drafts: list[PostDraft] = []
     used_photos: set[str] = set()
-    for story in pick(ranked, max(k, 1) * 3):
+    pool = max(max(k, 1) * 3, WRITER_POOL_MIN)           # a few stuck candidates (a cap, a twin) must not starve the run
+    for story in pick(ranked, pool):
         if len(drafts) >= k and not story.is_urgent:
             break
         if (quiet or not gap_ok or cap_left <= 0) and not story.is_urgent:

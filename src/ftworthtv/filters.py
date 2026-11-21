@@ -283,6 +283,12 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if story.source_kind in ("rss", "video") and not story.official and len(story.title.split()) < 4:
             dropped.append((story, "title too short to be a story"))         # "Notes and News", column stubs
             continue
+        if stale_dated_title(story.title, now.astimezone(settings.tz)):
+            dropped.append((story, "dated for a day that has passed"))       # Tuesday's forecast must not sit in the pool all week
+            continue
+        if story.source_kind == "event" and not story.image_url:
+            dropped.append((story, "event listing without its own picture"))  # an original post needs the listing's own picture
+            continue
         story.relevance = relevance_score(story, keywords)
         story.extra.setdefault("scope", "local")
         if not story.always_relevant and story.relevance < min_rel:

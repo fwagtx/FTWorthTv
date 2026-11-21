@@ -159,3 +159,22 @@ def test_a_cap_held_draft_is_remembered_for_tomorrow(settings, now):
     assert state.deferred("meals") and not state.deferred("fc")
     state.prune(_dt.now(_tz.utc) + timedelta(hours=49))
     assert not state.deferred("meals")                                        # forgotten two days later
+
+
+def test_the_writer_looks_past_candidates_the_caps_hold_back(settings, now):
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    settings.max_posts = 1
+    settings.brand.setdefault("content_mix", {})["caps_per_day"] = {"community": 0, "business": 0, "weather": 0}
+
+    def story(sid, title, cat, weight=1.5):
+        return Story(id=sid, source=f"desk-{sid}", source_kind="rss", title=title, summary="The change starts Monday, the city said in a release.",
+                     url=f"https://x/{sid}", published=now - timedelta(hours=1), category_hint=cat, always_relevant=True, weight=weight)
+    held = [story("c", "Fort Worth opens a new senior center in Como", "community"),
+            story("b", "Fort Worth water rates will rise 4 percent in January", "business"),
+            story("w", "Fort Worth cools into the 40s this weekend", "weather")]
+    fourth = story("p", "TCU football sets kickoff times for the last two home games", "sports", weight=1.0)
+    report = run(settings, now=now, stories=held + [fourth], publisher_name="dryrun")
+    assert sum(1 for _, r in report.skipped if r.startswith("daily cap for")) == 3
+    seen = {d.story.id for d in report.drafts} | {s.id for s, _ in report.skipped}
+    assert "p" in seen                                   # the fourth candidate was written, not starved by the three the caps held
