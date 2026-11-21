@@ -715,6 +715,10 @@
       "at": "2026-11-20T16:18:32.671901+00:00",
       "reason": "a magazine gift guide, not news"
     },
+    "21e0ae7a5a06917c": {
+      "at": "2026-11-21T15:50:03.621324+00:00",
+      "reason": "caption was the page's Imagn photo caption, and AT&T Stadium (a 2017 Cotton Bowl picture) stood in for a coaching story about Christian Park"
+    },
     "29e756adffe5cc3d": {
       "at": "2026-11-21T12:18:30.407673+00:00",
       "reason": "caption was the article's 2022 photo caption (Nissan Stadium, Nashville), and an AT&T Stadium stand-in for a game preview whose venue is not"
@@ -742,6 +746,10 @@
     "9428392a765ff728": {
       "at": "2026-11-20T15:19:26.662237+00:00",
       "reason": "a Dallas park amenity is not Fort Worth news"
+    },
+    "aca6a69e9b423ec9": {
+      "at": "2026-11-21T15:50:03.621342+00:00",
+      "reason": "a Bloomberg segment on the Anthropic IPO is not Fort Worth news; a video can only be a link post"
     },
     "c0bd1402482091bb": {
       "at": "2026-11-21T13:20:14.600210+00:00",
