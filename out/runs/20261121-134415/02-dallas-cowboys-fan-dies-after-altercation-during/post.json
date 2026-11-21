@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-21T20:09:15.185920+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-134415/02-dallas-cowboys-fan-dies-after-altercation-during/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-134415/02-dallas-cowboys-fan-dies-after-altercation-during/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Dallas Cowboys fan dies after ‘altercation' during 49ers game: Arlington Police",
+    "caption": "Bad news for the wet bandits, it looks like the Kevin McCallister is back. A new “Home Alone” sequel by Disney is in the works, and it stars none other than Macaulay Culkin, the original actor behind the mischievous lead character, NBC News has confirmed.\n\nDigital media outlet Puck first reported the news of the project Nov. 20. The sequel will be written and produced by Seth Rogen and longtime writing and producing partner Evan Goldberg, a source with knowledge of the project confirmed to NBC News.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/blue-star/dallas-cowboys-fan-dies-after-fight-during-49ers-game-arlington-police/4108895/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "b8e98488bc8899a9",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Dallas Cowboys fan dies after ‘altercation' during 49ers game: Arlington Police",
+    "summary": "Bad news for the wet bandits, it looks like the Kevin McCallister is back. A new “Home Alone” sequel by Disney is in the works, and it stars none other than Macaulay Culkin, the original actor behind the mischievous lead character, NBC News has confirmed. Digital media outlet Puck first reported the news of the project Nov. 20. The sequel will be written and produced by Seth Rogen and longtime writing and producing partner Evan Goldberg, a source with knowledge of the project confirmed to NBC News. A spokesperson for Disney declined to comment on the project. The 1990 hit Christmas movie revolved around Kevin, a kid whose family mistakenly left him at home when leaving for vacation. Left…",
+    "url": "https://www.nbcdfw.com/news/sports/blue-star/dallas-cowboys-fan-dies-after-fight-during-49ers-game-arlington-police/4108895/",
+    "published": "2026-11-21T12:58:44+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2022/12/ATT-Stadium.jpg?quality=85&strip=all&fit=1920,1080",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 4,
+    "score": 0.5771
+  }
+}

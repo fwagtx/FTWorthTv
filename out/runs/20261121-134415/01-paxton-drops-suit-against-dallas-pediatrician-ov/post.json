@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-134415/01-paxton-drops-suit-against-dallas-pediatrician-ov/post.jpg",
+    "credit": "Photo: The Texas Tribune",
+    "license": "republish-ok",
+    "provider": "source",
+    "source_url": "https://feeds.texastribune.org/link/16799/17536922/texas-ken-paxton-lawsuit-dropped-brett-cooper-transgender-care-sb-14",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-134415/01-paxton-drops-suit-against-dallas-pediatrician-ov/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Paxton drops suit against Dallas pediatrician over transgender care as he prepares to leave office",
+    "caption": "Brett Cooper was one of three doctors Paxton accused of violating Texas’ 2023 ban on gender-transition care for minors. The state dropped a similar case against an El Paso endocrinologist last year.",
+    "first_comment": "Source: The Texas Tribune @TexasTribune https://feeds.texastribune.org/link/16799/17536922/texas-ken-paxton-lawsuit-dropped-brett-cooper-transgender-care-sb-14\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "6a9f803b2803e19d",
+    "source": "The Texas Tribune",
+    "source_kind": "rss",
+    "title": "Paxton drops suit against Dallas pediatrician over transgender care as he prepares to leave office",
+    "summary": "Brett Cooper was one of three doctors Paxton accused of violating Texas’ 2023 ban on gender-transition care for minors. The state dropped a similar case against an El Paso endocrinologist last year.",
+    "url": "https://feeds.texastribune.org/link/16799/17536922/texas-ken-paxton-lawsuit-dropped-brett-cooper-transgender-care-sb-14",
+    "published": "2026-11-21T18:13:46+00:00",
+    "category_hint": null,
+    "image_url": "https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/11/20260216-Ken-Paxton-Rally-Tyler-MC-06-2.jpg?fit=1024%2C683&ssl=1",
+    "image_credit": "Photo: The Texas Tribune",
+    "image_license": "republish-ok",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "The Texas Tribune",
+      "national": false,
+      "social_tag": "@TexasTribune",
+      "article_fetched": true,
+      "scope": "dfw",
+      "page_caption": "Attorney General Ken Paxton speaks during a campaign rally in Tyler on Feb. 16, 2026. Michael Cavazos for The Texas Tribune",
+      "page_credit": ""
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.5784
+  }
+}
