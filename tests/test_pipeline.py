@@ -137,8 +137,8 @@ def test_a_play_that_happened_never_takes_the_stadium_as_a_stand_in(settings, no
                   published=now - timedelta(hours=2), category_hint="sports", extra={"scope": "local"})
     settings.max_posts = 1
     report = run(settings, now=now, stories=[story], publisher_name="dryrun")
-    assert not report.drafts                                # no picture of the play, no post: never the stadium, never a link preview
-    assert any(why == "no picture of the subject that we may use" for _, why in report.skipped)
+    assert report.drafts and report.drafts[0].image.provider == "card"   # no picture of the play: a text card, never the stadium, never a link preview
+    assert any(n.startswith("text card") for n in report.notes)          # and the run says so
 
 
 def test_a_cap_held_draft_is_remembered_for_tomorrow(settings, now):
