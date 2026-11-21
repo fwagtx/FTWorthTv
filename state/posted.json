@@ -3,7 +3,7 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 10
+    "2026-11-21": 11
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -33,7 +33,7 @@
       "weather": 1
     },
     "2026-11-21": {
-      "community": 2,
+      "community": 3,
       "crime": 2,
       "other": 2,
       "politics": 1,
@@ -57,7 +57,7 @@
     },
     "2026-11-21": {
       "nws_forecast": 1,
-      "rss": 5,
+      "rss": 6,
       "video": 2,
       "wanted": 2
     }
@@ -80,7 +80,7 @@
     "2026-11-21": {
       "dfw": 2,
       "local": 7,
-      "texas": 1
+      "texas": 2
     }
   },
   "deferred": {
@@ -126,7 +126,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T14:17:00-06:00",
+  "last_post_at": "2026-11-21T17:50:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -504,6 +504,18 @@
       "title": "CONCACAF W tourney taking over TX Nov. 27-Dec. 5; USWNT to play at least 2 games",
       "url": "https://www.nbcdfw.com/news/sports/concacaf-w-tournament-taking-over-texas-nov-27-dec-5-uswnt-will-play-at-least-two-games/4108241/"
     },
+    "a9091db50c1ea660": {
+      "at": "2026-11-21T17:50:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437127997",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8890007040712655971",
+      "publisher": "metricool-session",
+      "source": "The Texas Tribune",
+      "title": "Texas Sports Academy, tied to AI-driven Alpha School, is Texas’ biggest voucher recipient so far",
+      "url": "https://feeds.texastribune.org/link/16799/17537271/texas-school-vouchers-alpha-sports-academy-ai"
+    },
     "b444633ff7ebc6c5": {
       "at": "2026-11-20T09:24:00-06:00",
       "category": "culture",
@@ -845,7 +857,7 @@
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 50,
+  "total_posts": 51,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
