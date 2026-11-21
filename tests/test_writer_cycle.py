@@ -95,3 +95,9 @@ def test_an_imagn_dateline_caption_is_never_a_caption_sentence():
             "Parker said Friday he was disappointed to lose play-calling duties but would keep his focus on the team.")
     assert _sentences(text) == ["Parker said Friday he was disappointed to lose play-calling duties but would keep his focus on the team."]
     assert _first_sentence(text) == ""
+
+
+def test_an_editors_note_is_not_a_caption_sentence():
+    text = ("Editor's note: The top Fort Worth news of the week includes sudden shutters and a grand holiday opening. "
+            "Read on for our hottest headlines of the week, then plan some festive weekend fun here.")
+    assert _sentences(text) == []

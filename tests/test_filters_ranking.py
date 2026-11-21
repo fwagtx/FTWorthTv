@@ -301,3 +301,10 @@ def test_another_metros_local_story_is_that_metros_news_whatever_the_beat(settin
                     summary="Houston police said the teens were exploring the building Friday night when they found the body.", url="https://x/h", published=now)
     kept, dropped = filter_stories([houston], settings, State(settings.state_path), now)
     assert not kept and dropped[0][1] in ("another metro's local story", "other-metro crime, not statewide", "not local enough (relevance 0 < 2)")
+
+
+def test_an_outlets_digest_is_not_a_story():
+    from ftworthtv.filters import digest_title
+    assert digest_title("Hot dog chain Portillo's closes 2 DFW restaurants and more top stories")
+    assert digest_title("5 things to know this Monday in Fort Worth")
+    assert not digest_title("Hot dog chain Portillo's closes 2 DFW restaurants")

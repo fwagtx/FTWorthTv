@@ -354,6 +354,7 @@ def charge_phrase(charge: str) -> str:
 BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "read more", "learn more", "stay informed", "follow us", "check back",
                "enjoy reading the news again", "welcome to the", "pick something out of this list", "this article", "photo by", "courtesy of",
                "biweekly", "weekly column", "in this week", "scroll down", "latest updates from the", "weather impact team",
+               "editor's note", "read on for", "hottest headlines", "top stories",
                "sponsored", "advertis", "click to", "watch the video", "see the full", "continue reading", "appeared first on",
                "the post ", "related:", "more:", "also read", "photograph by", "photo by", "has more.", "has more on", "joins nbc",
                "joins fox", "to break down", "is a senior writer", "is a staff writer", "is a reporter", "is a freelance", "contact him",

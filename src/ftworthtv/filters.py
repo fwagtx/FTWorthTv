@@ -143,6 +143,15 @@ def other_metro_local(title: str) -> bool:
     return bool(_CIVIC_RE.search(low)) and any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in OTHER_METROS)
 
 
+_DIGEST_RE = re.compile(r"(?:\band more top stories\b|\btop stories\b|\bhottest headlines\b|\bnews roundup\b|\bweekly roundup\b|\bmorning briefing\b|"
+                        r"\bdaily digest\b|\bthings to know\b|\bwhat you need to know this week\b|\bheadlines of the week\b|\bin case you missed it\b)", re.I)
+
+
+def digest_title(title: str) -> bool:
+    """'Hot dog chain Portillo\'s closes 2 DFW restaurants and more top stories': an outlet\'s weekly digest is not one story to caption."""
+    return bool(_DIGEST_RE.search(title or ""))
+
+
 OTHER_METRO_AGENCIES = ("hpd", "apd", "sapd", "harris county", "travis county", "bexar county", "el paso county", "houston isd", "austin isd")
 
 
@@ -340,6 +349,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "rss" and column_label(story.title):
             dropped.append((story, "a column"))
+            continue
+        if story.source_kind == "rss" and digest_title(story.title):
+            dropped.append((story, "a digest, not a story"))
             continue
         if story.source_kind == "rss" and other_metro_forecast(story.source, story.title, story.url):
             dropped.append((story, "another metro's forecast"))
