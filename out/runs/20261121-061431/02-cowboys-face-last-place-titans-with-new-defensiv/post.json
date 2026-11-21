@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-21T12:39:31.487346+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-061431/02-cowboys-face-last-place-titans-with-new-defensiv/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Arlington_June_2020_4_(AT%26T_Stadium).jpg",
+    "photo_id": "lib-arlington-june-2020-4-at-t-stadium-jpg",
+    "subject": "topic:att-stadium"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-061431/02-cowboys-face-last-place-titans-with-new-defensiv/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Cowboys face last-place Titans with new defensive play-caller, fading playoff hopes",
+    "caption": "Dallas Cowboys quarterback Dak Prescott (4) looks to pass against the Tennessee Titans during the fourth quarter at Nissan Stadium Thursday, Dec. 29, 2022, in Nashville, Tenn.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/blue-star/cowboys-face-last-place-titans-with-new-play-caller-on-defense-and-fading-playoff-hopes/4108755/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "29e756adffe5cc3d",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Cowboys face last-place Titans with new defensive play-caller, fading playoff hopes",
+    "summary": "Dallas Cowboys quarterback Dak Prescott (4) looks to pass against the Tennessee Titans during the fourth quarter at Nissan Stadium Thursday, Dec. 29, 2022, in Nashville, Tenn. Nfl Dallas Cowboys At Tennessee Titans",
+    "url": "https://www.nbcdfw.com/news/sports/blue-star/cowboys-face-last-place-titans-with-new-play-caller-on-defense-and-fading-playoff-hopes/4108755/",
+    "published": "2026-11-21T04:32:10+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/2022-12-30T054302Z_213010237_MT1USATODAY19697833_RTRMADP_3_DALLAS-COWBOYS-QUARTERBACK-DAK-PRESCOTT-4-LOOKS-TO-PASS.jpg?quality=85&strip=all&fit=4000,2667",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5604
+  }
+}
