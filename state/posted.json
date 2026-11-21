@@ -3,7 +3,7 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 6
+    "2026-11-21": 7
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -35,6 +35,7 @@
     "2026-11-21": {
       "community": 2,
       "crime": 2,
+      "other": 1,
       "weather": 2
     }
   },
@@ -55,7 +56,7 @@
     "2026-11-21": {
       "nws_forecast": 1,
       "rss": 2,
-      "video": 1,
+      "video": 2,
       "wanted": 2
     }
   },
@@ -75,6 +76,7 @@
       "texas": 6
     },
     "2026-11-21": {
+      "dfw": 1,
       "local": 6
     }
   },
@@ -121,7 +123,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T08:50:00-06:00",
+  "last_post_at": "2026-11-21T10:25:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -204,6 +206,18 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Voters will likely decide Dallas City Hall’s future in May election",
       "url": "https://www.fox4news.com/news/voters-will-likely-decide-dallas-city-halls-future-may-election"
+    },
+    "34341f53b9045b87": {
+      "at": "2026-11-21T10:25:00-06:00",
+      "category": "other",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "436807785",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=6913882303464556631",
+      "publisher": "metricool-session",
+      "source": "NBC 5 DFW",
+      "title": "Wreaths Across America needs 36,000 wreaths in North Texas",
+      "url": "https://www.youtube.com/watch?v=3aMNvGI5UFE"
     },
     "3b0f1374a667b201": {
       "at": "2026-11-19T13:45:00+00:00",
@@ -766,9 +780,13 @@
     "ddb428b5d9566b04": {
       "at": "2026-11-21T13:20:14.600227+00:00",
       "reason": "a column (Bob on Business) in the writer's voice, with the developer's rendering credited as the outlet's own photo"
+    },
+    "e841e96042468389": {
+      "at": "2026-11-21T16:16:17.467584+00:00",
+      "reason": "CultureMap's weekly digest (and more top stories) with an Editor's note caption and a Commons photo of a Peruvian school farm named for a Co"
     }
   },
-  "total_posts": 46,
+  "total_posts": 47,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
