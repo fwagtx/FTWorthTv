@@ -57,6 +57,7 @@ def in_quiet_hours(local: datetime, window) -> bool:
 
 
 WRITER_POOL_MIN = 12      # ranked candidates the writer may look at in one run, however few posts it needs
+TEXT_CARD_CATEGORIES = ("crime", "breaking", "traffic", "weather")   # hard news may go out as a text card when no licensed picture exists
 
 
 def run(settings: Settings, *, now: datetime | None = None, stories: list[Story] | None = None,
@@ -207,6 +208,10 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                         # the article's own photo appears through Facebook's link preview (the outlet's image, no copy made)
                         draft.image, draft.story_path, draft.mode, draft.link = None, None, "link", story.url
                         report.notes.append(f"link post (outlet's own photo in the preview): {story.title[:60]}")
+                    elif draft.image.provider == "card" and ((copy.category or "other") in TEXT_CARD_CATEGORIES or story.is_urgent):
+                        # hard news with no licensed picture of it still goes out, as a text card: an original post with
+                        # nothing to mismatch (a fan's death at the stadium must not wait for a photo that cannot exist)
+                        report.notes.append(f"text card (no licensed picture of the subject): {story.title[:60]}")
                     else:
                         # the owner wants original posts only: a link preview reads as a post inside a post. No picture
                         # of the subject, no post.

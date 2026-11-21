@@ -229,3 +229,20 @@ def test_a_render_for_the_session_does_not_wait_out_the_posting_gap(settings, no
     settings.max_posts = 2
     report = run(settings, now=now, stories=example_stories(settings, now), publisher_name="dryrun")
     assert report.drafts and not any("too soon" in n for n in report.notes)     # the manifest spaces the next post; the render drafts anyway
+
+
+def test_hard_news_without_a_picture_goes_out_as_a_text_card_and_soft_news_waits(settings, now):
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    settings.brand.setdefault("card", {})["placeholder_when_no_photo"] = False      # the live setting: no fake skyline
+    settings.max_posts = 2
+    death = Story(id="c", source="WFAA", source_kind="rss", title="Dallas Cowboys fan dies after altercation during 49ers game, Arlington police say",
+                  summary="A man died after an altercation in the stands during Sunday's game at AT&T Stadium, Arlington police said Monday.", url="https://x/c",
+                  published=now - timedelta(hours=1), always_relevant=True, category_hint="crime")
+    cafe = Story(id="f", source="CultureMap Fort Worth", source_kind="rss", title="A new coffee shop opens on Magnolia Avenue this weekend",
+                 summary="The shop opens Saturday with pastries from a local bakery, the owners said.", url="https://x/f",
+                 published=now - timedelta(hours=1), always_relevant=True, category_hint="food")
+    report = run(settings, now=now, stories=[death, cafe], publisher_name="dryrun")
+    ids = [d.story.id for d in report.drafts]
+    assert "c" in ids and report.drafts[ids.index("c")].image.provider == "card"   # an original post with nothing to mismatch
+    assert "f" not in ids and any(s.id == "f" and r.startswith("no picture") for s, r in report.skipped)

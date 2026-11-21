@@ -333,7 +333,7 @@ traffic_cameras:
 # keywords match; the city, the county, transit and the teams are always relevant. A few a day, one per run. ----
 youtube:
   enabled: true
-  max_per_day: 3
+  max_per_day: 2               # station videos can only be link posts: two a day keeps the feed original posts first
   max_age_hours: 12              # a video is news the day it is posted, not the day after
   # title_must_name_place: a station's video gets in only when its own title names Fort Worth / Tarrant / Arlington (or the tiers' places)
   # require_any_in_title: a team's video gets in only when it is a result, a highlight package or a move, never hype or "mic'd up"

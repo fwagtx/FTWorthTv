@@ -94,6 +94,8 @@ and may still run the next day while it is under 36 hours old; the ordinary fres
 The writer looks at up to a dozen ranked candidates a run, so a few that a cap or the date gate hold back do not starve it.
 A video description is cut before the channel's boilerplate before anything reads it, and a headline with a crime word
 (convicted, arrested, wanted, fraud) is crime whatever the body says, so the crime cap counts it.
+Hard news (crime, breaking, traffic, weather) with no licensed picture of it goes out as a text card, an original post with
+nothing to mismatch; softer stories without a picture are skipped. Station videos, which can only be link posts, are capped at two a day.
 
 ## 3. A day on the page (what the scheduler produces when the sources are busy)
 
