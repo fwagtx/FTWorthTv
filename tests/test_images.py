@@ -196,3 +196,23 @@ def test_a_courtesy_rendering_on_the_outlets_page_is_not_its_own_photo(monkeypat
     own = Story(id="b", source="Fort Worth Report", source_kind="rss", title="Volunteers", summary="", url="https://fortworthreport.org/y",
                 image_url="https://fortworthreport.org/v.jpg", image_policy="source_image")
     assert not third_party_photo(own)
+
+
+def test_an_ap_archive_photo_on_the_outlets_page_is_a_wire_photo(monkeypatch):
+    from ftworthtv.images import third_party_photo
+    from ftworthtv.models import Story
+    import ftworthtv.sources.article as article
+    monkeypatch.setattr(article, "fetch_article", lambda url: {"caption": "A person pushes past a row of electric scooters on March 25, 2025. (Damian Dovarganes | AP archives)",
+                                                                "credit": "Damian Dovarganes | AP archives"})
+    s = Story(id="e", source="Fort Worth Report", source_kind="rss", title="Fort Worth eyes e-bike and electric scooter regulations", summary="",
+              url="https://fortworthreport.org/e", image_url="https://fortworthreport.org/e.jpg", image_policy="source_image")
+    assert third_party_photo(s)
+
+
+def test_a_store_named_in_a_sponsor_line_is_never_the_picture():
+    from ftworthtv.images.library import topics_for
+    title = "Arlington teacher goes above and beyond to help students succeed after high school"
+    body = (f"{title}. 52 Faces of Community is a Fort Worth Report weekly series spotlighting local unsung heroes. "
+            "It is sponsored by Central Market, H-E-B and JPS Health Network.")
+    assert "heb" not in topics_for(body, "community", "local", title=title)
+    assert topics_for("H-E-B opens its first Fort Worth store downtown", "business", "local", title="H-E-B opens its first Fort Worth store downtown")[0] == "heb"

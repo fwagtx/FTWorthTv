@@ -105,6 +105,7 @@ def _download(url: str, dest: Path, headers: dict | None = None) -> Path | None:
 
 _THIRD_PARTY_RE = re.compile(r"\b(courtesy|rendering|renderings|getty|ap photo|associated press|reuters|afp|handout|screenshot|screen grab|file photo|"
                              r"via [A-Z])", re.I)
+_WIRE_TAG_RE = re.compile(r"\b(?:AP|AFP|UPI|EPA)\b")          # case-sensitive: "(Damian Dovarganes | AP archives)" is a wire photo
 
 
 def third_party_photo(story: Story) -> bool:
@@ -121,7 +122,7 @@ def third_party_photo(story: Story) -> bool:
                 log.info("could not read the page credit for %s: %s", story.url, exc)
         story.extra["page_caption"], story.extra["page_credit"] = caption, credit
     text = f"{story.extra.get('page_caption') or ''} {story.extra.get('page_credit') or ''}"
-    return bool(_THIRD_PARTY_RE.search(text))
+    return bool(_THIRD_PARTY_RE.search(text) or _WIRE_TAG_RE.search(text))
 
 
 def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path, exclude_photos: set[str] | None = None) -> ImageAsset | None:
@@ -176,7 +177,8 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         if background:
             credit, license_, provider, source_url = story.image_credit or f"Photo: {story.source}", story.image_license or "official", "source", story.url
             page_credit = (story.extra.get("page_credit") or "").strip()
-            if page_credit and not story.official and page_credit.lower() not in credit.lower() and not _THIRD_PARTY_RE.search(page_credit):
+            if page_credit and not story.official and page_credit.lower() not in credit.lower() and not _THIRD_PARTY_RE.search(page_credit) \
+                    and not _WIRE_TAG_RE.search(page_credit):
                 credit = f"Photo: {page_credit}" if story.source.lower() in page_credit.lower() else f"Photo: {page_credit} / {story.source}"
             lic = str(license_).lower()
             if lic.startswith("cc"):

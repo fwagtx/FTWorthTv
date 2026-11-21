@@ -110,3 +110,10 @@ def test_a_residents_first_person_essay_is_not_a_caption():
             "My wife, Ashlynn, and I moved to this east Fort Worth neighborhood in September 2021. "
             "The city has promised more lighting for Sunset Hills Park by spring, a spokesperson said.")
     assert _sentences(text) == ["The city has promised more lighting for Sunset Hills Park by spring, a spokesperson said."]
+
+
+def test_a_series_blurb_is_not_a_caption_sentence():
+    text = ("William Thorburn's Fish for Life Foundation awards scholarships to help area students cover the cost of higher education. "
+            "52 Faces of Community is a Fort Worth Report weekly series spotlighting local unsung heroes. "
+            "It is sponsored by Central Market, H-E-B and JPS Health Network.")
+    assert _sentences(text) == ["William Thorburn's Fish for Life Foundation awards scholarships to help area students cover the cost of higher education."]

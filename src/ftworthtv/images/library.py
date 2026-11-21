@@ -184,7 +184,7 @@ def venue_fits(topic: str, text: str, title: str | None = None) -> bool:
     return not others and not _AWAY_RE.search(text or "")
 
 
-TITLE_ONLY = {"stock-market", "gaming", "lottery", "parade", "shopping", "thanksgiving", "christmas", "fireworks", "smartphone", "nfl", "space", "eclipse",
+TITLE_ONLY = {"heb", "stock-market", "gaming", "lottery", "parade", "shopping", "thanksgiving", "christmas", "fireworks", "smartphone", "nfl", "space", "eclipse",
               "concert", "music", "movies", "streaming", "att-stadium", "globe-life", "aac", "dickies-arena", "texas-motor-speedway", "amon-carter", "tcu-football", "dallas-skyline"}   # a venue mentioned in passing in the body is never the picture   # a passing mention in the body must not turn a local story into a turkey photo
 
 
