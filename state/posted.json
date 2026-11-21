@@ -735,6 +735,10 @@
     }
   },
   "skipped": {
+    "04746e697d5f874a": {
+      "at": "2026-11-21T19:15:20.036318+00:00",
+      "reason": "a Dallas shooting with no death and no arrest is Dallas police blotter, not Fort Worth news"
+    },
     "0ebdefdcec430122": {
       "at": "2026-11-20T19:15:08.920313+00:00",
       "reason": "the only image is the TechFW logo; a logo card reads like an ad, and the item is minor"
