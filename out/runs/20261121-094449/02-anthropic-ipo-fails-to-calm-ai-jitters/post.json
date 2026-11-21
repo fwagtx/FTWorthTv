@@ -1,0 +1,50 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=LrNXCyK6FCQ",
+  "scheduled_at": "2026-11-21T16:09:49.224562+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Anthropic IPO Fails to Calm AI Jitters",
+    "caption": "WATCH: Anthropic IPO Fails to Calm AI Jitters\n\nVideo: Bloomberg Television on YouTube",
+    "first_comment": "Source: Bloomberg Television on YouTube https://www.youtube.com/watch?v=LrNXCyK6FCQ\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "aca6a69e9b423ec9",
+    "source": "Bloomberg Television",
+    "source_kind": "video",
+    "title": "Anthropic IPO Fails to Calm AI Jitters",
+    "summary": "Seaport Research Partners Chief Equity Strategist Jonathan Golub tells Bloomberg This Weekend the sharp AI-driven market selloff looks overdone, arguing that demand for computing power remains strong and semiconductor earnings expectations continue to rise. Speaking with hosts David Gura and Christina Ruffini, Golub says a bigger challenge is whether markets can keep financing the enormous capital needs of AI companies as investors are asked to fund hundreds of billions of dollars in new infrastructure.",
+    "url": "https://www.youtube.com/watch?v=LrNXCyK6FCQ",
+    "published": "2026-11-21T13:41:47+00:00",
+    "category_hint": null,
+    "image_url": "https://i1.ytimg.com/vi/LrNXCyK6FCQ/hqdefault.jpg",
+    "image_credit": "Video: Bloomberg Television",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.36,
+    "extra": {
+      "video_id": "LrNXCyK6FCQ",
+      "channel": "Bloomberg Television",
+      "handle": "@markets",
+      "views": 1236,
+      "feed_title": "Bloomberg Television",
+      "national": true,
+      "scope": "national",
+      "national_term": "anthropic ipo"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.253
+  }
+}
