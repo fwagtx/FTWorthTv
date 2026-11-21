@@ -172,7 +172,7 @@ def other_metro_roundup(title: str) -> bool:
 
 
 STATEWIDE_WORDS = ("amber alert", "manhunt", "statewide", "across texas", "texas dps", "border patrol", "cartel", "human smuggling",
-                   "ercot", "interstate 35 ", "i-35 ", "texas rangers investigat")
+                   "ercot", "texas rangers investigat")      # a highway's name alone is not statewide news: a crash on San Antonio's I-35 is San Antonio's
 
 
 _STOP = {"the", "a", "an", "of", "in", "on", "at", "to", "for", "and", "or", "with", "after", "as", "by", "is", "are", "was", "be",

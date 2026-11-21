@@ -308,3 +308,11 @@ def test_an_outlets_digest_is_not_a_story():
     assert digest_title("Hot dog chain Portillo's closes 2 DFW restaurants and more top stories")
     assert digest_title("5 things to know this Monday in Fort Worth")
     assert not digest_title("Hot dog chain Portillo's closes 2 DFW restaurants")
+
+
+def test_a_crash_on_another_metros_stretch_of_i_35_is_that_metros_news(settings, now):
+    from datetime import timedelta
+    crash = Story(id="sa", source="KENS 5 San Antonio", source_kind="rss", title="One person dead in 18-wheeler explosion at I-35 on San Antonio's northeast side, police say",
+                  summary="San Antonio police said the truck caught fire after a crash on Interstate 35 early Saturday.", url="https://x/sa", published=now - timedelta(hours=1))
+    kept, dropped = filter_stories([crash], settings, State(settings.state_path), now)
+    assert not kept and ("other-metro" in dropped[0][1] or "another metro" in dropped[0][1] or "not local enough" in dropped[0][1])
