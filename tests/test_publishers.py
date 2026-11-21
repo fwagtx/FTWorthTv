@@ -75,6 +75,7 @@ def test_metricool_builds_public_media_url(monkeypatch, tmp_path, settings):
 
 
 def test_story_image_and_metricool_story(monkeypatch, tmp_path, settings):
+    settings.brand.setdefault("stories", {})["networks"] = ["facebook", "instagram"]   # the brand file follows Metricool's connections; the test fixes both
     from ftworthtv.images.card import render_story
     from PIL import Image
     card = tmp_path / "post.jpg"
