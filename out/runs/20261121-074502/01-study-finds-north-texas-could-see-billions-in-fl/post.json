@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-074502/01-study-finds-north-texas-could-see-billions-in-fl/post.jpg",
+    "credit": "Photo: Nicole Lopez / Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/20/study-finds-north-texas-could-see-billions-in-flood-damages-heres-what-can-help-mitigate/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-074502/01-study-finds-north-texas-could-see-billions-in-fl/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Study finds North Texas could see billions in flood damages. Here’s what can help mitigate",
+    "caption": "A White Settlement flood control project is one of many priority areas identified in regional study addressing flood risks. For years, homes and military facilities — including the Texas Army National Guard and the Naval Air Station Joint Reserve Base — dealt with regular flooding along the Farmers Branch Creek.\n\nThe creek runs through White Settlement and across hilly terrain that once caused rain water to flow down to homes in several neighborhoods — leading to millions in damage.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/20/study-finds-north-texas-could-see-billions-in-flood-damages-heres-what-can-help-mitigate/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline storm clouds",
+    "location": "White Settlement, TX"
+  },
+  "story": {
+    "id": "fce28073d4f440ec",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Study finds North Texas could see billions in flood damages. Here’s what can help mitigate",
+    "summary": "A White Settlement flood control project is one of many priority areas identified in regional study addressing flood risks. For years, homes and military facilities — including the Texas Army National Guard and the Naval Air Station Joint Reserve Base — dealt with regular flooding along the Farmers Branch Creek. The creek runs through White Settlement and across hilly terrain that once caused rain water to flow down to homes in several neighborhoods — leading to millions in damage. But in the summer, officials with the North Central Texas Council of Governments, White Settlement and the Texas Military Department gathered to celebrate the completion of a $1.8 million flood control project following two years of construction. North Texas was inundated with rain the first week of October , receiving nearly 4 inches after a drought-stricken summer. During the dayslong downpour, White…",
+    "url": "https://fortworthreport.org/2026/11/20/study-finds-north-texas-could-see-billions-in-flood-damages-heres-what-can-help-mitigate/",
+    "published": "2026-11-21T01:23:53+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2022/04/IMG_8920-300x225.jpg",
+    "image_credit": "Photo: Nicole Lopez / Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "Mary’s Creek, pictured in April 2022, runs through Parker and Tarrant counties. The creek’s watershed was named a priority for flood management in the North Central Texas Upper Trinity River Transportation and Stormwater Infrastructure stud",
+      "page_credit": "Nicole Lopez"
+    },
+    "category": "weather",
+    "relevance": 1,
+    "score": 0.35
+  }
+}
