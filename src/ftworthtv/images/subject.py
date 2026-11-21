@@ -344,6 +344,11 @@ def animal_in(title: str) -> str:
     return ""
 
 
+BRAND_POSSESSIVE_VERBS = {"closes", "opens", "announces", "says", "plans", "brings", "adds", "cuts", "debuts", "expands", "launches", "files", "sues",
+                          "names", "hires", "is", "are", "will", "has", "to", "set", "sets", "shuts", "shutters", "comes", "coming", "opening", "closing",
+                          "recalls", "offers", "drops", "raises", "lays", "eyes", "unveils", "wants", "gets", "returns", "arrives", "lands"}
+
+
 def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_allowed: bool = False, city: str = "") -> list[tuple[tuple, str]]:
     """(query tuple, subject label) pairs for the search providers, one named subject at a time.
 
@@ -356,6 +361,10 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
     out: list[tuple[tuple, str]] = []
     for name in plan.search_names[:3]:
         words = (" ".join(name.lower().split()),)      # the whole name, in order: "Ty Myers" is not "Ty Cobb at Fort Myers"
+        if len(name.split()) == 1:
+            m = re.search(re.escape(name) + r"(?:'s|’s)\s+(\w+)", title or "", re.I)
+            if m and m.group(1).lower() in BRAND_POSSESSIVE_VERBS:
+                words = (f"{name.lower()}'s|{name.lower()}’s|{name.lower()}s",)   # "Portillo's closes": the chain, never a Coronel Pedro Portillo
         if city and is_generic_event(name) and city.lower() not in name.lower():
             words = words + (city.lower(),)             # a generic event name needs the city too: Lake Mead has a Parade of Lights
         animal = animal_in(title)

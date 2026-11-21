@@ -186,3 +186,14 @@ def test_a_conviction_is_a_thing_that_happened():
     from ftworthtv.images.subject import happened
     assert happened("North Texas man convicted of defrauding $6M from 70 churches, congregants")
     assert happened("Fort Worth pastor pleads guilty to wire fraud")
+
+
+def test_a_brand_written_with_s_is_searched_as_the_brand_not_a_surname():
+    from ftworthtv.images.subject import plan_subject, provider_queries
+    title = "Hot dog chain Portillo's closes 2 DFW restaurants"
+    plan = plan_subject(title, "", "food")
+    pairs = [q for q, label in provider_queries(plan, title, "food") if label == "entity:portillo"]
+    assert pairs and all(q[2] == ("portillo's|portillo’s|portillos",) for q in pairs)     # a Commons file named for a Coronel Pedro Portillo must not match
+    ipo = "Anthropic's $81.3 billion IPO is the largest ever"
+    pairs = [q for q, label in provider_queries(plan_subject(ipo, "", "business"), ipo, "business") if label == "entity:anthropic"]
+    assert pairs and all(q[2] == ("anthropic",) for q in pairs)                           # an ordinary possessive keeps the plain name
