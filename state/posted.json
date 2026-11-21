@@ -3,7 +3,7 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 8
+    "2026-11-21": 10
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -35,8 +35,9 @@
     "2026-11-21": {
       "community": 2,
       "crime": 2,
-      "other": 1,
+      "other": 2,
       "politics": 1,
+      "sports": 1,
       "weather": 2
     }
   },
@@ -56,7 +57,7 @@
     },
     "2026-11-21": {
       "nws_forecast": 1,
-      "rss": 3,
+      "rss": 5,
       "video": 2,
       "wanted": 2
     }
@@ -77,8 +78,8 @@
       "texas": 6
     },
     "2026-11-21": {
-      "dfw": 1,
-      "local": 6,
+      "dfw": 2,
+      "local": 7,
       "texas": 1
     }
   },
@@ -125,7 +126,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T12:31:00-06:00",
+  "last_post_at": "2026-11-21T14:17:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -355,6 +356,18 @@
       "title": "WANTED: Ronnie Trammell",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
     },
+    "6a9f803b2803e19d": {
+      "at": "2026-11-21T13:52:00-06:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436970978",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=4549702564416406992",
+      "publisher": "metricool-session",
+      "source": "The Texas Tribune",
+      "title": "Paxton drops suit against Dallas pediatrician over transgender care as he prepares to leave office",
+      "url": "https://feeds.texastribune.org/link/16799/17536922/texas-ken-paxton-lawsuit-dropped-brett-cooper-transgender-care-sb-14"
+    },
     "6db6cf52283b0203": {
       "at": "2026-11-20T10:39:00-06:00",
       "category": "sports",
@@ -516,6 +529,18 @@
       "source": "KXAN Austin",
       "title": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
       "url": "https://www.kxan.com/news/texas/declining-enrollment-texas/"
+    },
+    "b8e98488bc8899a9": {
+      "at": "2026-11-21T14:17:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436971107",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2359149227467781884",
+      "publisher": "metricool-session",
+      "source": "NBC 5 DFW",
+      "title": "Dallas Cowboys fan dies after ‘altercation' during 49ers game: Arlington Police",
+      "url": "https://www.nbcdfw.com/news/sports/blue-star/dallas-cowboys-fan-dies-after-fight-during-49ers-game-arlington-police/4108895/"
     },
     "be30deab42bde11a": {
       "at": "2026-11-19T14:55:00+00:00",
@@ -816,7 +841,7 @@
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 48,
+  "total_posts": 50,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
