@@ -110,7 +110,7 @@ def shopping_guide(title: str, url: str = "") -> bool:
 
 
 _COLUMN_RE = re.compile(r"^(?:[A-Z][a-z]+ on [A-Z][a-z]+|Opinion|Column|Commentary|Editorial|Letters?(?: to the [Ee]ditor)?|Analysis|Perspective|"
-                        r"Guest column|Op-Ed|Essay|Review)\s*[:|—–-]\s")
+                        r"Guest column|Op-Ed|Essay|Review|Where I Live|My Fort Worth|Diary|Notebook|Letter from [A-Z][a-z]+|First Person|Voices)\s*[:|—–-]\s")
 
 
 def column_label(title: str) -> bool:

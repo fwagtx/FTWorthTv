@@ -101,3 +101,12 @@ def test_an_editors_note_is_not_a_caption_sentence():
     text = ("Editor's note: The top Fort Worth news of the week includes sudden shutters and a grand holiday opening. "
             "Read on for our hottest headlines of the week, then plan some festive weekend fun here.")
     assert _sentences(text) == []
+
+
+def test_a_residents_first_person_essay_is_not_a_caption():
+    from ftworthtv.filters import column_label
+    assert column_label("Where I Live: Ryanwood resident calls for more city support in east Fort Worth")
+    text = ("I typically start my mornings either walking my dogs or running through my neighborhood, Ryanwood, and its Sunset Hills Park. "
+            "My wife, Ashlynn, and I moved to this east Fort Worth neighborhood in September 2021. "
+            "The city has promised more lighting for Sunset Hills Park by spring, a spokesperson said.")
+    assert _sentences(text) == ["The city has promised more lighting for Sunset Hills Park by spring, a spokesperson said."]

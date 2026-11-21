@@ -96,6 +96,8 @@ A video description is cut before the channel's boilerplate before anything read
 (convicted, arrested, wanted, fraud) is crime whatever the body says, so the crime cap counts it.
 Hard news (crime, breaking, traffic, weather) with no licensed picture of it goes out as a text card, an original post with
 nothing to mismatch; softer stories without a picture are skipped. Station videos, which can only be link posts, are capped at two a day.
+A series label (Where I Live:, Opinion:, Bob on Business:) marks a column, and a first-person sentence ("I typically start my
+mornings...") is a resident's essay: neither is captioned as news.
 
 ## 3. A day on the page (what the scheduler produces when the sources are busy)
 

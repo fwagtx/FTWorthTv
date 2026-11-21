@@ -409,6 +409,7 @@ def looks_like_photo_caption(sentence: str) -> bool:
     return bool(_CAPTION_RE.search(sentence) or _PHOTO_CAPTION_RE.search(sentence))
 
 
+_FIRST_PERSON_RE = re.compile(r"^(?:I|I'm|I’m|I've|I’ve|I'd|I’d|My)\b")
 _DEFINITE_OPENER_RE = re.compile(r"^The (?:effort|plan|program|initiative|project|move|deal|change|decision|measure|proposal|event|ordinance|"
                                  r"policy|agreement|lawsuit|case|funding|money|vote|ruling|order|bill|law|ban|closure|expansion|partnership|"
                                  r"contract) (?:is|was|will|would|has|had|comes|came|includes|aims|calls)\b")
@@ -434,6 +435,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
             continue                                          # still unbalanced: a cut-off quote is not a sentence we can post
         if part.endswith("?") or re.search(r"\b[Yy]ou\b", part) or part.lower().startswith(("it would be", "imagine", "let's", "let us")):
             continue                                          # a columnist's rhetorical question or second person is not a news sentence
+        if _FIRST_PERSON_RE.match(part):
+            continue                                          # "I typically start my mornings walking my dogs": a resident's essay, not news
         if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")) or len(part.split()) < 6:
             continue
         if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")) or looks_like_photo_caption(part):
