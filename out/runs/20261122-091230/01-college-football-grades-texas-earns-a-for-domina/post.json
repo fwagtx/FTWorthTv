@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-091230/01-college-football-grades-texas-earns-a-for-domina/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Arlington_June_2020_3_(AT%26T_Stadium).jpg",
+    "photo_id": "lib-arlington-june-2020-3-at-t-stadium-jpg",
+    "subject": "topic:att-stadium"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-091230/01-college-football-grades-texas-earns-a-for-domina/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "College football grades: Texas earns 'A' for dominant win, Indiana gets 'D' on Week 12 report card",
+    "caption": "In a 45-3 Week 12 throttling of Arkansas , the fourth-year quarterback completed 21 of 25 passes for 287 yards and two touchdowns while registering his third-best quarterback rating of the season. The easy win produced a collective exhale around Austin, as it basically locked up Texas' spot in the College Football Playoff.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/college-football/news/college-football-grades-results-week-12-2026-texas-indiana/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "a6adeefe796bc032",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "College football grades: Texas earns 'A' for dominant win, Indiana gets 'D' on Week 12 report card",
+    "summary": "A look at how national championship contenders fared in Week 12 action When Texas quarterback Arch Manning takes care of the football and keeps the Longhorns ahead of the chains, it does wonders for his team's championship viability. In a 45-3 Week 12 throttling of Arkansas , the fourth-year quarterback completed 21 of 25 passes for 287 yards and two touchdowns while registering his third-best quarterback rating of the season. The easy win produced a collective exhale around Austin, as it basically locked up Texas' spot in the College Football Playoff. Even if the Longhorns take a stunning road loss against rival Texas A&M this week, they will likely be in the CFP at 9-3. But if Manning plays as he did against the Razorbacks, Texas should crush the vulnerable Aggies. To be sure, the Longhorns' defense bowed up when Arkansas got into Texas territory and repeatedly came up with stops.…",
+    "url": "https://www.cbssports.com/college-football/news/college-football-grades-results-week-12-2026-texas-indiana/",
+    "published": "2026-11-22T14:37:21+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/22/9bde8555-b75d-497a-8162-cfe69495e97f/horns.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.45,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.6348
+  }
+}
