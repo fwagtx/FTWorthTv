@@ -464,3 +464,11 @@ def test_a_scorigami_story_is_the_game_already_posted_and_roundups_are_columns()
     assert roundup_column("NFL Week 11 winners and losers: Cowboys offense makes history in get-right win, Steelers stumble")
     assert roundup_column("3 takeaways from the Cowboys' 51-30 win over the Titans")
     assert not roundup_column("Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs")
+
+
+def test_ends_in_alone_does_not_make_a_crime_story_a_game():
+    from ftworthtv.filters import _sports_result, same_game
+    assert not _sports_result("East Fort Worth altercation ends in deadly shooting, police say")
+    assert not same_game("East Fort Worth altercation ends in deadly shooting, police say", "Arlington standoff ends in arrest after 4 hours")
+    assert same_game("Cowboys vs. Titans ends in historic scorigami after late Tennessee touchdown",
+                     "Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs")

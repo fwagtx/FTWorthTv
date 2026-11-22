@@ -318,7 +318,8 @@ def _sports_result(title: str) -> bool:
     """A game result carries a score, a team nickname or a result verb; a crash, a fire or a shooting carries none."""
     from .images.subject import TEAM_WORDS
     low = f" {(title or '').lower()} "
-    return bool(_SCORE_RE.search(title or "") or _RESULT_RE.search(title or "")) or \
+    sporty = re.sub(r"\b(?:ends? in|ended in|final score)\b", " ", title or "", flags=re.I)   # a standoff "ends in" an arrest too
+    return bool(_SCORE_RE.search(title or "") or _RESULT_RE.search(sporty)) or \
         any(f" {w} " in low or f" {w}'" in low or f" {w}," in low for w in TEAM_WORDS) or \
         any(re.search(r"(?<![\w])" + re.escape(a) + r"(?![\w])", low) for a in TEAM_ALIASES if a not in _PLAIN_ALIASES)
 
