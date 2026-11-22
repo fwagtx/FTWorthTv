@@ -192,6 +192,11 @@
       "reason": "daily cap for weather reached",
       "title": "DFW Weather: Low rain coverage expected Tuesday"
     },
+    "d2aaa769dae95fe5": {
+      "at": "2026-11-22T18:44:36.023316+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Arrest made in shooting that killed woman on her birthday in Dallas, police say"
+    },
     "e2d80f6590db51c9": {
       "at": "2026-11-21T13:46:39.757158+00:00",
       "reason": "daily cap for crime reached",
@@ -1116,6 +1121,10 @@
       "at": "2026-11-21T12:49:26.226495+00:00",
       "reason": "KVUE's Austin forecast page under a statewide headline: another metro's weather, a caption that only named the station's weather team, and a"
     },
+    "5a7906e784b99a96": {
+      "at": "2026-11-22T18:44:36.022478+00:00",
+      "reason": "the same Cowboys-Salvation Army 30-year partnership posted at 9:25, and its caption said one thing twice (rule added for the caption)"
+    },
     "610f84058f8bd367": {
       "at": "2026-11-22T15:49:39.045409+00:00",
       "reason": "the same game as 'Arch Manning steps up as Longhorns blow out Arkansas', posted Nov 21 at 7:35 pm (rule added)"
@@ -1203,6 +1212,10 @@
     "e51f21bf25bc63e9": {
       "at": "2026-11-22T16:27:33.855979+00:00",
       "reason": "an ESPN feature on the Angels that only names the World Series; not Fort Worth news or a national moment (rule added)"
+    },
+    "e6129f029c909573": {
+      "at": "2026-11-22T18:44:36.022499+00:00",
+      "reason": "a WFAA studio interview with St. Vincent de Paul, not clearly Fort Worth news"
     },
     "e841e96042468389": {
       "at": "2026-11-21T16:16:17.467584+00:00",
