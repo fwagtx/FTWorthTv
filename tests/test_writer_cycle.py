@@ -412,3 +412,14 @@ def test_a_house_fire_is_breaking_news_and_takes_a_picture_of_the_fire_or_none()
     assert happened(t)
     assert happened("Apartment fire displaces 12 families in east Fort Worth")
     assert not happened("Fort Worth Fire Department hiring new recruits for spring academy")
+
+
+def test_in_game_score_updates_are_dropped_but_a_halftime_show_is_not():
+    """Nov 22: 'Dominant Cowboys offense shines as they lead Titans 27-9 at halftime' was deferred by the sports cap to the
+    next morning, when the game was long over."""
+    from ftworthtv.filters import in_game_update
+    assert in_game_update("Dominant Cowboys offense shines as they lead Titans 27-9 at halftime")
+    assert in_game_update("Rangers lead Astros 4-1 after the third inning")
+    assert in_game_update("Cowboys vs. Titans live updates: score, highlights")
+    assert not in_game_update("Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs")
+    assert not in_game_update("Post Malone to headline Cowboys Thanksgiving halftime show")

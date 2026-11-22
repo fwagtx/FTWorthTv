@@ -175,6 +175,21 @@ def press_release(title: str, summary: str = "") -> bool:
     return bool(_PRESS_RELEASE_RE.search(f"{title or ''} {(summary or '')[:600]}"))
 
 
+_IN_GAME_RE = re.compile(r"\b(?:at halftime|at the half|at the break|halftime (?:lead|score|deficit|update)|lead[s]? .{0,40} at halftime|"
+                         r"after (?:the )?(?:first|second|third|1st|2nd|3rd) (?:quarter|period|half|inning)|through \d+ innings|"
+                         r"live updates?|live score|live blog|live coverage|in progress)\b", re.I)
+
+
+def in_game_update(title: str) -> bool:
+    """'Dominant Cowboys offense shines as they lead Titans 27-9 at halftime': a score while the game is still on is stale
+    the moment it ends, and the final is the post (Nov 22: a daily cap deferred it to the next morning). A halftime show
+    is an event, not a score."""
+    t = title or ""
+    if re.search(r"\bhalftime (?:show|performance|performer|act)\b", t, re.I):
+        return False
+    return bool(_IN_GAME_RE.search(t))
+
+
 def archive_replay(title: str) -> bool:
     """'Watch the breaking news, coverage of President JFK's assassination in Dallas as it happened in 1963': a station's
     archive broadcast to watch on its site is history, not today's news, and has nothing to post but a link (Nov 22, KVUE)."""
@@ -484,6 +499,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "rss" and rankings_list(story.title):
             dropped.append((story, "a national rankings list with no local team in it"))
+            continue
+        if story.source_kind in ("rss", "video") and in_game_update(story.title):
+            dropped.append((story, "an in-game score update: the final is the post"))
             continue
         if story.source_kind == "rss" and archive_replay(story.title):
             dropped.append((story, "an archive broadcast to watch on the station's site, not news"))
