@@ -119,3 +119,14 @@ def test_topic_image_queries(settings, now):
     assert template_copy(s, settings, now).image_query == "Fort Worth Parade of Lights"
     c = Story(id="c", source="NBC 5", source_kind="rss", title="Cowboys trade football for food service in Thanksgiving tradition", summary="", url="https://x/c", category="sports")
     assert template_copy(c, settings, now).image_query == "category:AT&T Stadium"
+
+
+def test_a_charge_qualifier_is_not_a_second_charge():
+    """Render 108, Nov 22: FWPD lists "Aggravated Assault, Deadly Weapon"; the card said "wanted for aggravated assault and
+    deadly weapon"."""
+    from ftworthtv.writer import charge_phrase
+    assert charge_phrase("Aggravated Assault, Deadly Weapon") == "for aggravated assault with a deadly weapon"
+    assert charge_phrase("Aggravated Assault W/Deadly Weapon") == "for aggravated assault with a deadly weapon"
+    assert charge_phrase("Assault, Family Violence") == "for assault involving family violence"
+    assert charge_phrase("Aggravated Assault, Parole Violation") == "for aggravated assault and parole violation"
+    assert charge_phrase("Failure to Comply, Sex Offender") == "on a sex offender failure-to-comply charge"

@@ -116,6 +116,11 @@ def _capitalised(tok: str) -> bool:
     return bool(tok) and tok[0].isupper()
 
 
+# capitalised adjectives of politics and place are never a photo subject: "some Congressional seats" found an unnamed
+# congressman's official portrait for a story about Ted Cruz (Nov 22, render 108)
+ADJECTIVES = {"congressional", "republican", "republicans", "democrat", "democrats", "democratic", "gop", "federal", "statewide",
+              "legislative", "presidential", "gubernatorial", "conservative", "liberal", "progressive", "bipartisan", "partisan",
+              "american", "midterm", "midterms", "election", "elections", "primary", "runoff", "senate", "senators", "lawmakers"}
 COMMON_NOUNS = {"theater", "theatre", "theaters", "performances", "performance", "market", "markets", "festival", "festivals", "concert",
                 "concerts", "weekend", "holiday", "holidays", "parade", "show", "shows", "game", "games", "lights", "music", "food", "restaurant",
                 "restaurants", "school", "schools", "police", "fire", "weather", "storm", "storms", "traffic", "shooting", "crash", "council",
@@ -168,7 +173,7 @@ def entities(title: str, body: str = "") -> list[str]:
         if re.match(r"^(prop|proposition|measure|amendment|item|district|precinct|zone|lot|phase|section)\b\.? ?[a-z0-9]{0,4}$", low):
             i = max(j, i + 1)                              # "Prop J", "District 61", "Phase 2": a label, never a picture subject
             continue
-        keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and low not in COMMON_NOUNS and (
+        keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and low not in COMMON_NOUNS and low not in ADJECTIVES and (
             len(words) > 1 or possessive or acronym or low in body_mid or _known_subject(low) or i > 0 and low not in STOP)
         if keep and phrase not in out:
             out.append(phrase)
@@ -198,8 +203,26 @@ def entity_topics_for(names: list[str], category: str, title: str | None = None,
     return out
 
 
+_TITLED_RE = re.compile(r"^(?:U\.S\. )?(?:Sen\.|Senator|Rep\.|Representative|Gov\.|Governor|Lt\. Gov\.|Mayor|President|Judge|"
+                        r"Commissioner|Councilmember|Councilwoman|Councilman|Chief|Coach|Dr\.|Sheriff|Superintendent|Pastor|Officer)\s+"
+                        r"([A-Z][\w'’-]+)$")
+
+
+def resolve_titled(name: str, body: str) -> str | None:
+    """'Senator Cruz' -> 'Ted Cruz' from the story's own text; None when the text never gives the first name (a bare
+    surname finds strangers, and no file is named 'Senator Cruz')."""
+    m = _TITLED_RE.match(name.strip())
+    if not m:
+        return name
+    surname = m.group(1)
+    for first in re.findall(r"\b([A-Z][a-z]+(?: [A-Z]\.)?) " + re.escape(surname) + r"\b", body or ""):
+        if not _TITLED_RE.match(f"{first} {surname}") and first.lower() not in STOP and first.lower() not in ADJECTIVES:
+            return f"{first} {surname}"
+    return None
+
+
 def plan_subject(title: str, body: str, category: str) -> SubjectPlan:
-    names = entities(title, body)
+    names = [n for n in (resolve_titled(x, body) for x in entities(title, body)) if n]
     subjects = [n for n in names if not _is_place(n)]
     topics = entity_topics_for(subjects, category, title, body)
     plan = SubjectPlan(primary=subjects[0] if subjects else None, entities=names, entity_topics=topics)

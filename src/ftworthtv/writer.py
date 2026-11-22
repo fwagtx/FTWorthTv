@@ -339,13 +339,31 @@ def _tidy(sentence: str, reference: str = "") -> str:
     return text
 
 
+_CHARGE_QUALIFIERS = {"deadly weapon": "with a deadly weapon", "a deadly weapon": "with a deadly weapon", "family violence": "involving family violence",
+                      "serious bodily injury": "causing serious bodily injury", "bodily injury": "causing bodily injury",
+                      "public servant": "against a public servant", "elderly": "against an elderly person", "child": "against a child",
+                      "habitual": "(habitual offender)", "repeat offender": "(repeat offender)"}
+
+
 def charge_phrase(charge: str) -> str:
     """'Aggravated Robbery' -> 'for aggravated robbery'; 'Failure to Comply, Sex Offender' (the registration offence, as the
     agencies abbreviate it) -> 'on a sex offender failure-to-comply charge'; a comma list of charges -> 'for aggravated assault and parole violation'."""
     c = collapse_ws(charge or "").strip(" .").lower()
+    c = re.sub(r"\bw/\s*(?:a\s+)?deadly weapon\b", ", deadly weapon", c)    # "Agg Assault W/Deadly Weapon" is the same qualifier
+    c = re.sub(r"\bw/\s*", "with ", c)
     if "sex offender" in c and "comply" in c:
         return "on a sex offender failure-to-comply charge"
     parts = [x.strip() for x in c.split(",") if x.strip()]
+    merged: list[str] = []
+    for part in parts:                                        # "Aggravated Assault, Deadly Weapon" is one charge with its qualifier
+        q = _CHARGE_QUALIFIERS.get(re.sub(r"^(?:w/|with|w)\s*", "", part).strip())
+        if q and merged:
+            merged[-1] = f"{merged[-1]} {q}"
+        else:
+            merged.append(part)
+    parts = merged
+    if len(parts) == 1:
+        return f"for {parts[0]}"
     if len(parts) > 1:                                        # "Aggravated Assault, Parole Violation": two charges
         return "for " + ", ".join(parts[:-1]) + f" and {parts[-1]}"
     return f"for {c}" if c else "on a warrant"

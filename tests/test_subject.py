@@ -242,3 +242,16 @@ def test_a_school_in_a_sports_headline_is_searched_as_its_team_and_artworks_are_
     statue = "Fort Worth unveils a statue of Bill Pickett at the Stockyards"
     pairs = provider_queries(plan_subject(statue, "", "community"), statue, "community")
     assert all("statue" not in q[1] for q, _ in pairs)                         # the statue is the story here
+
+
+def test_a_title_and_surname_is_searched_by_the_full_name_and_adjectives_are_not_subjects():
+    """Render 108, Nov 22: "Senator Cruz launches Saving Texas to win back the State House and some Congressional seats"
+    was searched as "Senator Cruz" (no file is named that) and "Congressional", which found an unnamed congressman's portrait."""
+    from ftworthtv.images.subject import plan_subject, resolve_titled
+    title = "Senator Cruz launches Saving Texas to win back the State House and some Congressional seats in 2028"
+    body = "Following the blue wave election in Texas, U.S. Senator Ted Cruz pledges to recapture the State House."
+    plan = plan_subject(title, body, "politics")
+    assert "Ted Cruz" in plan.search_names and "Congressional" not in plan.search_names and "Senator Cruz" not in plan.search_names
+    assert resolve_titled("Mayor Parker", "Fort Worth Mayor Mattie Parker said Monday ...") == "Mattie Parker"
+    assert resolve_titled("Senator Cruz", "The senator spoke Monday.") is None          # a bare surname finds strangers
+    assert resolve_titled("Kyrie Irving", "") == "Kyrie Irving"
