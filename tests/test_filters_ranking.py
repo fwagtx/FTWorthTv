@@ -347,6 +347,9 @@ def test_a_teams_game_notes_sheet_is_not_a_story():
     for title in ("Postgame Notes - vs. Utah", "Pregame Notes: TCU at Baylor", "Game Notes vs. Kansas State", "Notes & Quotes: Utah",
                   "Box Score: TCU 24, Utah 31", "Week 13 Notes", "TCU Football Weekly Release: Baylor"):
         assert game_notes(title), title
+    for title in ("Stats: How are the Texas Longhorns performing in the 2026 season?",
+                  "College football grades: Texas earns 'A' for dominant win, Indiana gets 'D' on Week 12 report card"):
+        assert game_notes(title), title                                              # Nov 22: KXAN's explainer, CBS's grades column
     for title in ("TCU Falls to Utah in Home Finale", "Mavericks notebook: Flagg's rookie season so far",
                   "Fort Worth council notes concerns over budget"):
         assert not game_notes(title), title

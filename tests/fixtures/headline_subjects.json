@@ -226,5 +226,17 @@
       "Senator Cruz"
     ],
     "lesson": "Nov 22: 'Congressional' is an adjective, not a subject (it found an unnamed congressman); 'Senator Cruz' is searched as the full name the story gives"
+  },
+  {
+    "title": "College football grades: Texas earns 'A' for dominant win, Indiana gets 'D' on Week 12 report card",
+    "body": "When Texas quarterback Arch Manning takes care of the football, it does wonders for his team's championship viability.",
+    "category": "sports",
+    "mode": "beat",
+    "not_topics": [
+      "att-stadium",
+      "dickies-arena",
+      "stars-ice"
+    ],
+    "lesson": "Nov 22: the letter grade 'D' was kept as a name and matched nearly every topic phrase; AT&T Stadium was drawn for a Longhorns win in Austin"
   }
 ]

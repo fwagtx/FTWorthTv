@@ -125,7 +125,8 @@ def betting_promo(title: str, summary: str = "") -> bool:
 
 _GAME_NOTES_RE = re.compile(r"^(?:(?:post|pre)-?game|game|weekly|match|series|week \d+)\s+(?:notes|quotes|notebook|stats)\b|"
                            r"^(?:notes|quotes)\s*(?:&|and)\s*(?:notes|quotes)\b|^box score\b|\bpostgame (?:notes|quotes)\b|"
-                           r"^(?:game|match) (?:info|central|day central)\b|\bdepth chart\b|\bweekly release\b", re.I)
+                           r"^(?:game|match) (?:info|central|day central)\b|\bdepth chart\b|\bweekly release\b|"
+                           r"^stats?\s*:|\bgrades\s*:|\breport cards?\b|^by the numbers\b", re.I)   # Nov 22: CBS's grades column, KXAN's stats explainer
 
 
 def game_notes(title: str) -> bool:

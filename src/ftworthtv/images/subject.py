@@ -127,7 +127,9 @@ COMMON_NOUNS = {"theater", "theatre", "theaters", "performances", "performance",
                 "city", "county", "court", "judge", "zoo", "park", "parks", "lake", "river", "airport", "stadium", "arena", "museum", "library",
                 "church", "hospital", "bridge", "road", "highway", "street", "mall", "hotel", "bar", "club", "band", "team", "coach", "player",
                 "fans", "kids", "students", "teachers", "voters", "residents", "families", "workers", "update", "updates", "video", "photos",
-                "watch", "live", "breaking", "exclusive", "report", "news", "forecast", "birthday", "b-day", "christmas", "thanksgiving"}
+                "watch", "live", "breaking", "exclusive", "report", "news", "forecast", "birthday", "b-day", "christmas", "thanksgiving",
+                "college", "football", "basketball", "baseball", "softball", "soccer", "hockey", "volleyball", "grades", "week", "stats",
+                "notes", "season", "playoffs", "conference", "championship"}
 
 
 def entities(title: str, body: str = "") -> list[str]:
@@ -173,6 +175,9 @@ def entities(title: str, body: str = "") -> list[str]:
         if re.match(r"^(prop|proposition|measure|amendment|item|district|precinct|zone|lot|phase|section)\b\.? ?[a-z0-9]{0,4}$", low):
             i = max(j, i + 1)                              # "Prop J", "District 61", "Phase 2": a label, never a picture subject
             continue
+        if len(low.replace(" ", "")) < 2:
+            i = max(j, i + 1)                              # "Indiana gets 'D'": a letter grade is never a subject
+            continue
         keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and low not in COMMON_NOUNS and low not in ADJECTIVES and (
             len(words) > 1 or possessive or acronym or low in body_mid or _known_subject(low) or i > 0 and low not in STOP)
         if keep and phrase not in out:
@@ -189,8 +194,10 @@ def entity_topics_for(names: list[str], category: str, title: str | None = None,
     for name in names:
         low = " " + name.lower() + " "
         nickname = low.strip() in TEAM_FULL_NAMES      # "Mavericks" alone is not "uta mavericks": only a phrase inside the name counts
+        whole = re.compile(r"(?<![\w&])" + re.escape(low.strip()) + r"(?![\w&])") if low.strip() else None
         for phrases, topic in TOPIC_RULES:
-            if topic not in ENTITY_TOPICS or not any(p.strip() and (p in low or (not nickname and low.strip() in p)) for p in phrases):
+            # a name inside a longer phrase counts only as whole words: "D" (a letter grade) sits inside "dickies arena"
+            if topic not in ENTITY_TOPICS or not any(p.strip() and (p in low or (not nickname and whole and whole.search(p))) for p in phrases):
                 continue
             if _elsewhere(name) and topic in FORT_WORTH_ONLY:        # Dallas City Hall is not Fort Worth City Hall
                 continue

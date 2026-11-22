@@ -279,3 +279,13 @@ def test_a_cloudy_forecast_gets_a_gray_sky_and_sunshine_photos_are_sunny():
     clouds = {e["file"] for e in lib if e["topic"] == "clouds"}
     sunny = {e["file"] for e in lib if e["topic"] == "sunshine"}
     assert clouds and not (clouds & sunny)              # the gray courthouse photo is never a sunshine picture
+
+
+def test_a_letter_grade_or_a_generic_word_is_not_a_subject():
+    """Render 114, Nov 22: "College football grades: Texas earns 'A' ..., Indiana gets 'D'" kept "D" as a name, and "D" sat
+    inside nearly every topic phrase, so the plan offered Dickies Arena, AT&T Stadium, Stars ice ... and drew AT&T Stadium."""
+    from ftworthtv.images.subject import plan_subject
+    plan = plan_subject("College football grades: Texas earns 'A' for dominant win, Indiana gets 'D' on Week 12 report card",
+                        "When Texas quarterback Arch Manning takes care of the football ...", "sports")
+    assert "D" not in plan.entities and "College" not in plan.entities
+    assert "att-stadium" not in plan.entity_topics and "dickies-arena" not in plan.entity_topics
