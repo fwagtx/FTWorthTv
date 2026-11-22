@@ -3,7 +3,7 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 13
+    "2026-11-21": 15
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -36,9 +36,9 @@
       "business": 1,
       "community": 3,
       "crime": 2,
-      "other": 2,
+      "other": 3,
       "politics": 2,
-      "sports": 1,
+      "sports": 2,
       "weather": 2
     }
   },
@@ -58,7 +58,7 @@
     },
     "2026-11-21": {
       "nws_forecast": 1,
-      "rss": 8,
+      "rss": 10,
       "video": 2,
       "wanted": 2
     }
@@ -80,8 +80,8 @@
     },
     "2026-11-21": {
       "dfw": 2,
-      "local": 8,
-      "texas": 3
+      "local": 9,
+      "texas": 4
     }
   },
   "deferred": {
@@ -104,6 +104,11 @@
       "at": "2026-11-21T14:45:14.052474+00:00",
       "reason": "daily cap for crime reached",
       "title": "WANTED: Edgar CASTELLANOS"
+    },
+    "597a35e53e14c31b": {
+      "at": "2026-11-22T00:47:03.701417+00:00",
+      "reason": "daily cap for community reached",
+      "title": "90-year-old mowing lawns to get by in Fort Worth sparks community support"
     },
     "59e1cab2c6fd87ec": {
       "at": "2026-11-21T14:15:44.252076+00:00",
@@ -132,7 +137,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T18:45:00-06:00",
+  "last_post_at": "2026-11-21T19:35:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -216,6 +221,18 @@
       "title": "Voters will likely decide Dallas City Hall’s future in May election",
       "url": "https://www.fox4news.com/news/voters-will-likely-decide-dallas-city-halls-future-may-election"
     },
+    "342b07e2ce8bdf73": {
+      "at": "2026-11-21T19:10:00-06:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437160835",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-5601153579108514312",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth commission provides update on city strategies to curb homelessness",
+      "url": "https://fortworthreport.org/2026/11/21/fort-worth-commission-provides-update-on-city-strategies-to-curb-homelessness/"
+    },
     "34341f53b9045b87": {
       "at": "2026-11-21T10:25:00-06:00",
       "category": "other",
@@ -289,6 +306,18 @@
       "source": "Fort Worth Police Department",
       "title": "WANTED: Daniel Muniz",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "53f327809e6ab025": {
+      "at": "2026-11-21T19:35:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437160870",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3964115499001884801",
+      "publisher": "metricool-session",
+      "source": "WFAA Sports",
+      "title": "Arch Manning steps up as Longhorns blow out Arkansas",
+      "url": "https://www.wfaa.com/article/sports/football/arch-manning-steps-up-as-longhorns-blow-out-arkansas/287-19be6b38-aab2-4370-8fe1-54b94142b9b7"
     },
     "56865477238e9092": {
       "at": "2026-11-20T08:59:00-06:00",
@@ -826,6 +855,10 @@
       "at": "2026-11-20T21:18:54.918609+00:00",
       "reason": "a conviction with no picture of the defendant or the courtroom; the render offered AT&T Stadium"
     },
+    "461ecbd45f87c35c": {
+      "at": "2026-11-22T00:47:03.700665+00:00",
+      "reason": "a recap of the Nov. 4 Colleyville council meeting published Nov. 21: more than two weeks old"
+    },
     "5141dc7617cadc0a": {
       "at": "2026-11-21T17:50:45.925537+00:00",
       "reason": "a crash on San Antonio's I-35 is San Antonio's news, not ours; the I-35 statewide exemption is gone"
@@ -887,7 +920,7 @@
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 53,
+  "total_posts": 55,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
