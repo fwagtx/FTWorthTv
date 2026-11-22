@@ -3,7 +3,8 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 16
+    "2026-11-21": 16,
+    "2026-11-22": 1
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -40,6 +41,9 @@
       "politics": 2,
       "sports": 2,
       "weather": 2
+    },
+    "2026-11-22": {
+      "sports": 1
     }
   },
   "daily_by_kind": {
@@ -61,6 +65,9 @@
       "rss": 11,
       "video": 2,
       "wanted": 2
+    },
+    "2026-11-22": {
+      "rss": 1
     }
   },
   "daily_by_scope": {
@@ -82,6 +89,9 @@
       "dfw": 2,
       "local": 10,
       "texas": 4
+    },
+    "2026-11-22": {
+      "dfw": 1
     }
   },
   "deferred": {
@@ -152,7 +162,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T20:50:00-06:00",
+  "last_post_at": "2026-11-22T06:30:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -333,6 +343,18 @@
       "source": "WFAA Sports",
       "title": "Arch Manning steps up as Longhorns blow out Arkansas",
       "url": "https://www.wfaa.com/article/sports/football/arch-manning-steps-up-as-longhorns-blow-out-arkansas/287-19be6b38-aab2-4370-8fe1-54b94142b9b7"
+    },
+    "5575a51e4dbb955d": {
+      "at": "2026-11-22T06:30:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437273870",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=3339344578627781263",
+      "publisher": "metricool-session",
+      "source": "WFAA Sports",
+      "title": "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100",
+      "url": "https://www.wfaa.com/article/syndication/kyrie-irving-scores-25-cooper-flagg-22-as-the-mavericks-top-the-clippers-110-100/616-330158e8-ea40-4da0-b0f2-aa9ae7468b4f"
     },
     "56865477238e9092": {
       "at": "2026-11-20T08:59:00-06:00",
@@ -874,6 +896,10 @@
       "at": "2026-11-21T15:50:03.621324+00:00",
       "reason": "caption was the page's Imagn photo caption, and AT&T Stadium (a 2017 Cotton Bowl picture) stood in for a coaching story about Christian Park"
     },
+    "2739ccb60dc3cd5c": {
+      "at": "2026-11-22T05:02:52.173729+00:00",
+      "reason": "an opposing player hurt mid-game in South Bend is not Fort Worth news and is stale by morning; the photo was Notre-Dame de Paris (rule added"
+    },
     "29e756adffe5cc3d": {
       "at": "2026-11-21T12:18:30.407673+00:00",
       "reason": "caption was the article's 2022 photo caption (Nissan Stadium, Nashville), and an AT&T Stadium stand-in for a game preview whose venue is not"
@@ -951,7 +977,7 @@
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 56,
+  "total_posts": 57,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
