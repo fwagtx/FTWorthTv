@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T21:08:41.556920+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-144341/02-titans-carnell-tate-stuns-cowboys-with-one-of-nf/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-144341/02-titans-carnell-tate-stuns-cowboys-with-one-of-nf/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Titans' Carnell Tate stuns Cowboys with one of NFL season's strangest touchdowns",
+    "caption": "Watch Titans rookie Carnell Tate score a wild 59-yard touchdown after the Cowboys failed to touch him down during Sunday's game. The Dallas Cowboys made a change on defense ahead of their matchup with the Tennessee Titans , stripping defensive coordinator Christian Parker of play-calling duties and handing them to Mike Pettine.\n\nIn the third quarter, Cam Ward hit Tate out to the short left on a slant.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/nfl/news/titans-carnell-tate-touchdown-cowboys/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "8fd80ca409874112",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "Titans' Carnell Tate stuns Cowboys with one of NFL season's strangest touchdowns",
+    "summary": "Watch Titans rookie Carnell Tate score a wild 59-yard touchdown after the Cowboys failed to touch him down during Sunday's game. The Dallas Cowboys made a change on defense ahead of their matchup with the Tennessee Titans , stripping defensive coordinator Christian Parker of play-calling duties and handing them to Mike Pettine. The change didn't help Dallas prevent one of the wildest touchdowns you'll see this season, as Titans rookie Carnell Tate broke loose for a 59-yard score on a play where he wasn't touched down. In the third quarter, Cam Ward hit Tate out to the short left on a slant. The rookie wideout went down on his rear end, but got up and ran another 50 yards to the end zone! It looked like Tate was touched down by Cobie Durant, but as it turns out, he got up in time and needed to be tackled. Check out what happened here: Nobody touched Carnell Tate and he scores! TENvsDAL…",
+    "url": "https://www.cbssports.com/nfl/news/titans-carnell-tate-touchdown-cowboys/",
+    "published": "2026-11-22T20:32:23+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/22/1441b003-1896-4a3e-bf1e-21a217b7d41f/gettyimages-2296322341.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.6421
+  }
+}
