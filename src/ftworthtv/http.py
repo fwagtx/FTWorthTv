@@ -27,8 +27,27 @@ def session() -> requests.Session:
     return _session
 
 
-def get(url: str, *, params: dict | None = None, headers: dict | None = None, timeout: int = 25) -> requests.Response:
-    resp = session().get(url, params=params, headers=headers, timeout=timeout)
+_quick: requests.Session | None = None
+
+
+def quick_session() -> requests.Session:
+    """For feeds polled every half hour: one retry for a 5xx, none for a read timeout. A host that tarpits datacenter
+    addresses (the Star-Telegram) cost each render 100 s under the default four tries of 25 s; the next run tries again."""
+    global _quick
+    if _quick is None:
+        s = requests.Session()
+        retry = Retry(total=1, read=0, backoff_factor=0.5, status_forcelist=(429, 500, 502, 503, 504),
+                      allowed_methods=frozenset(["GET", "HEAD"]))
+        s.mount("https://", HTTPAdapter(max_retries=retry))
+        s.mount("http://", HTTPAdapter(max_retries=retry))
+        s.headers["User-Agent"] = DEFAULT_UA
+        _quick = s
+    return _quick
+
+
+def get(url: str, *, params: dict | None = None, headers: dict | None = None, timeout: int | tuple[int, int] = 25,
+        quick: bool = False) -> requests.Response:
+    resp = (quick_session() if quick else session()).get(url, params=params, headers=headers, timeout=timeout)
     resp.raise_for_status()
     return resp
 

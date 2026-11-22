@@ -226,3 +226,10 @@ def test_a_bot_challenge_or_an_empty_body_is_a_failure_not_a_quiet_feed():
     assert feed_problem(200, b"<html><title>Just a moment...</title></html>").startswith("blocked by a bot challenge")
     assert feed_problem(200, b"") == "empty body (HTTP 200)"
     assert feed_problem(200, b'<?xml version="1.0"?><rss><channel><title>x</title></channel></rss>') is None
+
+
+def test_feeds_use_the_quick_session_so_a_tarpit_costs_one_timeout():
+    from ftworthtv import http
+    retry = http.quick_session().get_adapter("https://example.com/feed").max_retries
+    assert retry.read == 0 and retry.total == 1
+    assert http.session().get_adapter("https://example.com/feed").max_retries.total == 3     # pages and photos keep their retries

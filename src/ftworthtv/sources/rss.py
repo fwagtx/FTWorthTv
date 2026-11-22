@@ -106,7 +106,8 @@ def feed_problem(status: int, content: bytes) -> str | None:
 
 
 def fetch_one(cfg: dict, now: datetime) -> list[Story]:
-    resp = http.get(cfg["url"], headers={"Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.8"})
+    resp = http.get(cfg["url"], headers={"Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.8"},
+                    timeout=(10, 30), quick=True)
     problem = feed_problem(resp.status_code, resp.content)
     if problem:
         raise ValueError(problem)
