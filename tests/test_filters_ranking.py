@@ -376,3 +376,13 @@ def test_two_results_naming_the_same_teams_are_one_game():
     assert same_game("TCU Falls to Utah in Home Finale", "Horned Frogs come up short against No. 2 Utah")
     assert not same_game("Sarkisian hopes to send Texas seniors out in style against Arkansas", "Arch Manning steps up as Longhorns blow out Arkansas")
     assert not same_game("Mavericks top the Clippers 110-100", "Stars edge Blues in shootout")
+
+
+def test_a_feature_naming_a_big_event_is_not_the_event_and_a_second_recap_is_the_same_game():
+    """Render 116, Nov 22: ESPN's 'From 100 losses to ... building a World Series contender? Why Mike Trout has new hope'
+    passed on the watchlist term 'world series'; 'Lone unbeaten Utah seals spot in Big 12 title game win over TCU' came
+    after 'TCU Falls to Utah in Home Finale' had gone out."""
+    from ftworthtv.filters import _HYPOTHETICAL_RE, same_game
+    assert _HYPOTHETICAL_RE.search("From 100 losses to ... building a World Series contender? Why Mike Trout has new hope for Angels")
+    assert not _HYPOTHETICAL_RE.search("Rangers win the World Series in Game 5")
+    assert same_game("Lone unbeaten Utah seals spot in Big 12 title game win win over TCU", "TCU Falls to Utah in Home Finale")

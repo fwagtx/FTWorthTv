@@ -257,6 +257,12 @@ def _game_keys(title: str) -> set[str]:
     return keys
 
 
+SPORTS_EVENT_TERMS = {"super bowl", "world series", "nba finals", "stanley cup final", "world cup final", "college football playoff",
+                      "march madness", "final four", "halftime show", "heisman trophy", "nfl draft", "nba draft"}
+_HYPOTHETICAL_RE = re.compile(r"\?|\b(contenders?|hopes?|hopeful|chances|odds|could|would|might|favou?rites?|dark horse|path to|"
+                              r"projections?|predictions?|picks?|bubble|scenarios?|race)\b", re.I)
+
+
 def same_game(a: str, b: str) -> bool:
     """'Arch Manning steps up as Longhorns blow out Arkansas' and 'No. 5 Texas avoids letdown, routs Arkansas 45-3' are one
     game (Nov 22: the second was drafted the morning after the first went out): two results that name the same two teams."""
@@ -467,6 +473,8 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             if tier is None and story.extra.get("national"):
                 title = _plain(story.title)
                 hit = next((w for w in watchlist if w in title), None)
+                if hit and hit in SPORTS_EVENT_TERMS and _HYPOTHETICAL_RE.search(title):
+                    hit = None                    # "building a World Series contender?": a feature that names the event, not the event
                 if hit is None:
                     hit = next((t for t in national_terms if t in title and len(term_outlets.get(t, ())) >= min_outlets), None)
                 if hit and infer_category(story) in ("crime", "traffic"):
