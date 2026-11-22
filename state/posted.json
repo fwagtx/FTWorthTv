@@ -161,6 +161,11 @@
       "reason": "daily cap for crime reached",
       "title": "WANTED: Quimari WILLIAMS"
     },
+    "ef2a3fb11a5adaf8": {
+      "at": "2026-11-22T15:20:35.832593+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Cold fronts in store for North Texas this week"
+    },
     "f04b97638d8faa75": {
       "at": "2026-11-22T00:16:17.247576+00:00",
       "reason": "daily cap for community reached",
@@ -1067,6 +1072,10 @@
       "at": "2026-11-22T04:58:17.921718+00:00",
       "reason": "a cold front due Saturday night is stale by Sunday morning, and the morning forecast post covers the cooler weather"
     },
+    "a6adeefe796bc032": {
+      "at": "2026-11-22T15:20:35.831784+00:00",
+      "reason": "a national grades column, not news; the photo was AT&T Stadium for a Longhorns win in Austin (rule added)"
+    },
     "aca6a69e9b423ec9": {
       "at": "2026-11-21T15:50:03.621342+00:00",
       "reason": "a Bloomberg segment on the Anthropic IPO is not Fort Worth news; a video can only be a link post"
@@ -1074,6 +1083,10 @@
     "c0bd1402482091bb": {
       "at": "2026-11-21T13:20:14.600210+00:00",
       "reason": "a U.S. Navy PTSD Awareness Month poster is a graphic, not a picture of the subject, and the caption was the headline alone"
+    },
+    "ccb3de752389d80d": {
+      "at": "2026-11-22T15:20:35.831806+00:00",
+      "reason": "a stats explainer, not news (rule added)"
     },
     "cf227c7f4f2ef4b7": {
       "at": "2026-11-20T20:15:20.921311+00:00",
