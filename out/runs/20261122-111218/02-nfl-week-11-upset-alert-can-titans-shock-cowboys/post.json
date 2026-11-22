@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T17:37:18.695454+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-111218/02-nfl-week-11-upset-alert-can-titans-shock-cowboys/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Arlington_June_2020_3_(AT%26T_Stadium).jpg",
+    "photo_id": "lib-arlington-june-2020-3-at-t-stadium-jpg",
+    "subject": "topic:att-stadium"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-111218/02-nfl-week-11-upset-alert-can-titans-shock-cowboys/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "NFL Week 11 upset alert: Can Titans shock Cowboys? Two straight losses for Steelers?",
+    "caption": "The Jets could also send the Chargers back into the loss column As expected, following a Week 9 where favorites owned the slate, underdogs bit back in Week 10.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/nfl/news/nfl-week-11-upset-alert-predictions-steelers-titans-cowboys/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "1f6c147f0a13ad43",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "NFL Week 11 upset alert: Can Titans shock Cowboys? Two straight losses for Steelers?",
+    "summary": "The Jets could also send the Chargers back into the loss column As expected, following a Week 9 where favorites owned the slate, underdogs bit back in Week 10. In turn, we were fortunate enough to pinpoint a trio of them in our five upset alert picks last week, so you had a peek behind the curtain on those favorites falling if you were with us. We accurately highlighted the Commanders chances of heading into MetLife Stadium and beating the Giants , the new-look Vikings beating the Packers at Lambeau Field now that Kirk Cousins is in the fold, and Carolina taking down the Saints at the Superdome. We whiffed on the Patriots and Steelers as possible upset candidates, but three out of five ain't too shabby if you ask us. Now, we turn our attention to Week 11, which is sort of a wonky slate. On top of featuring the fewest number of games (13) as six teams are on the bye, it also includes…",
+    "url": "https://www.cbssports.com/nfl/news/nfl-week-11-upset-alert-predictions-steelers-titans-cowboys/",
+    "published": "2026-11-22T15:55:42+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/16/3d3b6d27-80a7-44d9-8a11-6d4792a2cc7b/getty-aaron-rodgers-steelers.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.7361
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T18:02:18.695454+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-111218/03-hunger-games-sunrise-on-the-reaping-slays-120m-a/post.jpg",
+    "credit": "Photo: Thelightfull via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sunrise_vibes_from_Mataram.jpg",
+    "photo_id": "commons-203588058",
+    "subject": "entity:sunrise"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-111218/03-hunger-games-sunrise-on-the-reaping-slays-120m-a/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "‘Hunger Games: Sunrise on the Reaping’ Slays $120M at Box Office as Franchise Heats Back Up",
+    "caption": "The sixth film in the Lionsgate series rebounded after 2023's 'The Ballad of Songbirds & Snakes,' while freshly expanded 'I Play Rocky' and newcomer 'Elsinore' also came out swinging.",
+    "first_comment": "Source: The Hollywood Reporter https://www.hollywoodreporter.com/movies/movie-news/hunger-games-sunrise-on-the-reaping-box-office-opening-win-2-1236760511/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "a3a82fefa869e67a",
+    "source": "The Hollywood Reporter",
+    "source_kind": "rss",
+    "title": "‘Hunger Games: Sunrise on the Reaping’ Slays $120M at Box Office as Franchise Heats Back Up",
+    "summary": "The sixth film in the Lionsgate series rebounded after 2023's 'The Ballad of Songbirds & Snakes,' while freshly expanded 'I Play Rocky' and newcomer 'Elsinore' also came out swinging.",
+    "url": "https://www.hollywoodreporter.com/movies/movie-news/hunger-games-sunrise-on-the-reaping-box-office-opening-win-2-1236760511/",
+    "published": "2026-11-22T16:44:02+00:00",
+    "category_hint": null,
+    "image_url": null,
+    "image_credit": "Photo: The Hollywood Reporter",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "The Hollywood Reporter",
+      "national": true,
+      "scope": "national",
+      "national_term": "box office"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.3551
+  }
+}
