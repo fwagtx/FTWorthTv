@@ -3,7 +3,7 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 15
+    "2026-11-21": 16
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -35,7 +35,7 @@
     "2026-11-21": {
       "business": 1,
       "community": 3,
-      "crime": 2,
+      "crime": 3,
       "other": 3,
       "politics": 2,
       "sports": 2,
@@ -58,7 +58,7 @@
     },
     "2026-11-21": {
       "nws_forecast": 1,
-      "rss": 10,
+      "rss": 11,
       "video": 2,
       "wanted": 2
     }
@@ -80,7 +80,7 @@
     },
     "2026-11-21": {
       "dfw": 2,
-      "local": 9,
+      "local": 10,
       "texas": 4
     }
   },
@@ -147,7 +147,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T19:35:00-06:00",
+  "last_post_at": "2026-11-21T20:50:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -476,6 +476,18 @@
       "source": "Fort Worth Police Department",
       "title": "WANTED: Erik Hernandez",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "8755cbd9312410c2": {
+      "at": "2026-11-21T20:50:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437215926",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3487698037909337283",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "5 North Texas police officers among 30 nationwide honored by Justice Department",
+      "url": "https://www.wfaa.com/article/news/national/military-news/5-north-texas-police-officers-among-30-nationwide-honored-by-justice-department/287-acbc6501-0934-4ac0-a159-75e0164e81a7"
     },
     "8b4fd0691d844aec": {
       "at": "2026-11-20T10:14:00-06:00",
@@ -930,7 +942,7 @@
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 55,
+  "total_posts": 56,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
