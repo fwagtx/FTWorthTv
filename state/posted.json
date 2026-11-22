@@ -4,7 +4,7 @@
     "2026-11-19": 20,
     "2026-11-20": 19,
     "2026-11-21": 16,
-    "2026-11-22": 9
+    "2026-11-22": 10
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -43,7 +43,7 @@
       "weather": 2
     },
     "2026-11-22": {
-      "crime": 3,
+      "crime": 4,
       "sports": 4,
       "weather": 2
     }
@@ -70,7 +70,7 @@
     },
     "2026-11-22": {
       "nws_forecast": 1,
-      "rss": 5,
+      "rss": 6,
       "video": 1,
       "wanted": 2
     }
@@ -97,7 +97,7 @@
     },
     "2026-11-22": {
       "dfw": 3,
-      "local": 6
+      "local": 7
     }
   },
   "deferred": {
@@ -161,6 +161,11 @@
       "reason": "daily cap for sports reached",
       "title": "How a season without their 'admiral' showed the Rockets what they were missing"
     },
+    "b7c92690745f9ced": {
+      "at": "2026-11-22T17:14:19.269874+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "DFW Weather: Low rain coverage expected Tuesday"
+    },
     "e2d80f6590db51c9": {
       "at": "2026-11-21T13:46:39.757158+00:00",
       "reason": "daily cap for crime reached",
@@ -183,7 +188,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-22T10:35:00-06:00",
+  "last_post_at": "2026-11-22T11:20:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -250,6 +255,18 @@
       "source": "CultureMap Fort Worth",
       "title": "These are the 14 best things to do in Fort Worth this weekend",
       "url": "https://fortworth.culturemap.com/news/entertainment/weekend-events-11-19-26/"
+    },
+    "2e82551a8239a528": {
+      "at": "2026-11-22T11:20:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437755200",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-5654258022958871010",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "1 man is dead after being shot following a fight in Fort Worth",
+      "url": "https://www.wfaa.com/article/news/local/fort-worth-shooting-fatal-the-heights-one-dead/287-9fdd12a8-06c9-4321-bd1e-a8d7bba86af3"
     },
     "2e8d6e753426167e": {
       "at": "2026-11-19T04:30:00+00:00",
@@ -1009,6 +1026,10 @@
       "at": "2026-11-20T19:15:08.920313+00:00",
       "reason": "the only image is the TechFW logo; a logo card reads like an ad, and the item is minor"
     },
+    "1f6c147f0a13ad43": {
+      "at": "2026-11-22T17:14:19.269083+00:00",
+      "reason": "a national picks column ('upset alert'), with AT&T Stadium for a game in Nashville (rule added)"
+    },
     "214130b81122252c": {
       "at": "2026-11-20T16:18:32.671901+00:00",
       "reason": "a magazine gift guide, not news"
@@ -1101,6 +1122,10 @@
       "at": "2026-11-22T04:58:17.921718+00:00",
       "reason": "a cold front due Saturday night is stale by Sunday morning, and the morning forecast post covers the cooler weather"
     },
+    "a3a82fefa869e67a": {
+      "at": "2026-11-22T17:14:19.269107+00:00",
+      "reason": "the photo was a sunrise over a mosque for the Hunger Games box office; the word 'Sunrise' came from the film's title (rule added)"
+    },
     "a6adeefe796bc032": {
       "at": "2026-11-22T15:20:35.831784+00:00",
       "reason": "a national grades column, not news; the photo was AT&T Stadium for a Longhorns win in Austin (rule added)"
@@ -1142,7 +1167,7 @@
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 65,
+  "total_posts": 66,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
