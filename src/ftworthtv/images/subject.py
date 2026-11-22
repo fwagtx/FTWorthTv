@@ -16,7 +16,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-from .library import FORT_WORTH_ONLY, OTHER_CITIES, SPORTS_VARIANTS, TOPIC_RULES
+from .library import FORT_WORTH_ONLY, OTHER_CITIES, SPORTS_VARIANTS, TOPIC_RULES, venue_fits
 
 # topics that depict one specific subject; everything else in TOPIC_RULES is a beat (police, storm, highway, skyline ...)
 ENTITY_TOPICS = {
@@ -176,8 +176,10 @@ def entities(title: str, body: str = "") -> list[str]:
     return out
 
 
-def entity_topics_for(names: list[str], category: str) -> list[str]:
-    """Library topics that depict the named subjects, specific sports grounds first for sports stories."""
+def entity_topics_for(names: list[str], category: str, title: str | None = None, body: str = "") -> list[str]:
+    """Library topics that depict the named subjects, specific sports grounds first for sports stories.
+    A team's name reaches its stadium only for a game there (library.venue_fits): Nov 21, "Dallas Cowboys mark 30 years
+    of giving back with Salvation Army" (meals served in Dallas and Fort Worth) drew AT&T Stadium during a Wisconsin bowl game."""
     out: list[str] = []
     for name in names:
         low = " " + name.lower() + " "
@@ -185,6 +187,8 @@ def entity_topics_for(names: list[str], category: str) -> list[str]:
             if topic not in ENTITY_TOPICS or not any(p.strip() and (p in low or low.strip() in p) for p in phrases):
                 continue
             if _elsewhere(name) and topic in FORT_WORTH_ONLY:        # Dallas City Hall is not Fort Worth City Hall
+                continue
+            if title is not None and not venue_fits(topic, f"{title} {body}", title):
                 continue
             if category == "sports" and topic in SPORTS_VARIANTS and SPORTS_VARIANTS[topic] not in out:
                 out.append(SPORTS_VARIANTS[topic])
@@ -196,7 +200,7 @@ def entity_topics_for(names: list[str], category: str) -> list[str]:
 def plan_subject(title: str, body: str, category: str) -> SubjectPlan:
     names = entities(title, body)
     subjects = [n for n in names if not _is_place(n)]
-    topics = entity_topics_for(subjects, category)
+    topics = entity_topics_for(subjects, category, title, body)
     plan = SubjectPlan(primary=subjects[0] if subjects else None, entities=names, entity_topics=topics)
     if topics:
         plan.mode = "entity"

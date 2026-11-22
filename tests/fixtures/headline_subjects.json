@@ -48,11 +48,11 @@
     "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
     "body": "",
     "category": "sports",
-    "mode": "entity",
-    "topics": [
-      "att-stadium"
-    ],
-    "lesson": "the team's stadium"
+    "mode": "search",
+    "lesson": "a coaching decision is about the coordinator: search for him, never the team's stadium (library.venue_fits)",
+    "search": [
+      "Christian Parker"
+    ]
   },
   {
     "title": "Voters will likely decide Dallas City Hall's future in May election",

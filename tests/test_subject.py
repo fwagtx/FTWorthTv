@@ -197,3 +197,13 @@ def test_a_brand_written_with_s_is_searched_as_the_brand_not_a_surname():
     ipo = "Anthropic's $81.3 billion IPO is the largest ever"
     pairs = [q for q, label in provider_queries(plan_subject(ipo, "", "business"), ipo, "business") if label == "entity:anthropic"]
     assert pairs and all(q[2] == ("anthropic",) for q in pairs)                           # an ordinary possessive keeps the plain name
+
+
+def test_a_team_name_reaches_its_stadium_only_for_a_game_there():
+    from ftworthtv.images.subject import plan_subject
+    charity = plan_subject("Dallas Cowboys mark 30 years of giving back with Salvation Army",
+                           "The Dallas Cowboys celebrated 30 years of partnership with the Salvation Army by serving early "
+                           "Thanksgiving meals at facilities in Dallas and Fort Worth.", "sports")
+    assert "att-stadium" not in charity.entity_topics            # Nov 21: a Wisconsin bowl game at AT&T Stadium was the picture
+    game = plan_subject("Cowboys host Eagles at AT&T Stadium on Thanksgiving", "Kickoff is at 3:30 p.m. in Arlington.", "sports")
+    assert "att-stadium" in game.entity_topics
