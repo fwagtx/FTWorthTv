@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=_wW4RG1ugS8",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Cold fronts in store for North Texas this week",
+    "caption": "WATCH: Cold fronts in store for North Texas this week\n\nA cold front on Sunday will keep temps across North Texas in the 60s into Monday.\n\nVideo: CBS Texas on YouTube",
+    "first_comment": "Source: CBS Texas on YouTube https://www.youtube.com/watch?v=_wW4RG1ugS8\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "75ea53b519e16309",
+    "source": "CBS Texas",
+    "source_kind": "video",
+    "title": "Cold fronts in store for North Texas this week",
+    "summary": "A cold front on Sunday will keep temps across North Texas in the 60s into Monday. Plus, another cold front will drop highs into the 50s (with lows in the 30s) as we head into Thanksgiving.",
+    "url": "https://www.youtube.com/watch?v=_wW4RG1ugS8",
+    "published": "2026-11-22T14:14:59+00:00",
+    "category_hint": null,
+    "image_url": "https://i4.ytimg.com/vi/_wW4RG1ugS8/hqdefault.jpg",
+    "image_credit": "Video: CBS Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "_wW4RG1ugS8",
+      "channel": "CBS Texas",
+      "handle": "@CBSTexas",
+      "views": 40,
+      "feed_title": "CBS Texas",
+      "scope": "dfw"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.5356
+  }
+}

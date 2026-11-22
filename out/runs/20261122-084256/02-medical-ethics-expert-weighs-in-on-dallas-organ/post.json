@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T15:07:56.794490+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-084256/02-medical-ethics-expert-weighs-in-on-dallas-organ/post.jpg",
+    "credit": "Photo: IcedCowboyCoffee via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_skyline_and_a_Trinity_River_levee_from_North_Hampton_-_Inwood_road.jpg",
+    "photo_id": "lib-dallas-skyline-and-a-trinity-river-levee-from-north-hampton-",
+    "subject": "beat:dallas-skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-084256/02-medical-ethics-expert-weighs-in-on-dallas-organ/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Medical ethics expert weighs in on Dallas organ donation dispute",
+    "caption": "A medical ethics expert says Baylor University Medical Center may have little choice in a legal dispute over organ donation from a 38-year-old brain-dead woman. The woman's family opposes the donation, prompting a lawsuit and an emergency request for a Dallas County court to intervene.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/video/medical-ethics-expert-weighs-in-on-dallas-organ-donation-dispute/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "9eeb905d6b413c90",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Medical ethics expert weighs in on Dallas organ donation dispute",
+    "summary": "A medical ethics expert says Baylor University Medical Center may have little choice in a legal dispute over organ donation from a 38-year-old brain-dead woman. The woman's family opposes the donation, prompting a lawsuit and an emergency request for a Dallas County court to intervene.",
+    "url": "https://www.cbsnews.com/texas/video/medical-ethics-expert-weighs-in-on-dallas-organ-donation-dispute/",
+    "published": "2026-11-22T05:40:00+00:00",
+    "category_hint": null,
+    "image_url": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/11/22/09fdaf8c-9c70-4fe6-aaa6-d09997cf6033/thumbnail/1024x576/81c7189f53f0656a48ae969dc881ccf9/44779a1c1e48645f89bf30c3975caf3b.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.1961
+  }
+}
