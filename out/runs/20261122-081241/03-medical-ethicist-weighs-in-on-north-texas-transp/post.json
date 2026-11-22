@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T15:02:41.960454+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-081241/03-medical-ethicist-weighs-in-on-north-texas-transp/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Baylor_University_June_2016_61_(McLane_Stadium).jpg",
+    "photo_id": "lib-baylor-university-june-2016-61-mclane-stadium-jpg",
+    "subject": "beat:baylor"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-081241/03-medical-ethicist-weighs-in-on-north-texas-transp/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Medical ethicist weighs in on North Texas transplant case involving brain-dead woman",
+    "caption": "A North Texas transplant agency has sued Baylor University Medical Center.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/medical-ethicist-weighs-in-transplant-case-brain-dead-woman/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "98a170db0b288a49",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Medical ethicist weighs in on North Texas transplant case involving brain-dead woman",
+    "summary": "A North Texas transplant agency has sued Baylor University Medical Center. Updated on: November 22, 2026 / 12:00 AM CST / CBS Texas A medical ethicist says efforts by Baylor University Medical Center to delay organ transplant surgery on a brain-dead woman aren't likely to succeed even with requests by the family. Dr. Merrill Matthews, who was part of a medical ethics advisory team for UT Southwestern, says the federal Uniform Anatomical Gift Act as well as Texas law would prevent the hospital from letting the woman die before her organs could be donated. The woman, 38-year-old Emanise Timothee, was declared dead by established neurological criteria on Nov. 17, according to a lawsuit filed by a North Texas transplant agency, Gift of Life Alliance. The suit, filed Thursday in Dallas County, says Ms. Timothee became a registered organ donor in New York state in 2016, and that state law…",
+    "url": "https://www.cbsnews.com/texas/news/medical-ethicist-weighs-in-transplant-case-brain-dead-woman/",
+    "published": "2026-11-22T06:00:21+00:00",
+    "category_hint": null,
+    "image_url": "https://assets2.cbsnewsstatic.com/hub/i/r/2021/04/14/6f5181e2-7efc-4267-b44e-c3995561d56e/thumbnail/1024x576/26c74d1e967a3b4f28bd01070374e37a/0307-health-uterus-transplant-497104-640x360.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.2162
+  }
+}
