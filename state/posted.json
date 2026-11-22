@@ -126,6 +126,11 @@
       "reason": "daily cap for crime reached",
       "title": "WANTED: Lou Ann MIDDLETON"
     },
+    "33f31747e40cda73": {
+      "at": "2026-11-22T17:44:51.353367+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Man charged with killing Dallas mother in post-crash shooting on her birthday, police say"
+    },
     "4a957d22615b7e02": {
       "at": "2026-11-21T14:45:14.052474+00:00",
       "reason": "daily cap for crime reached",
@@ -141,6 +146,11 @@
       "reason": "daily cap for crime reached",
       "title": "Police shot at suspected burglar in Far East Dallas, no injuries reported"
     },
+    "5d3dc4a68a3a9813": {
+      "at": "2026-11-22T17:44:51.353364+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Alleged intoxicated driver crashes into Bedford business after brief chase, police say"
+    },
     "99c8950734b9734c": {
       "at": "2026-11-21T13:46:39.757154+00:00",
       "reason": "daily cap for crime reached",
@@ -150,6 +160,11 @@
       "at": "2026-11-22T14:23:34.181481+00:00",
       "reason": "daily cap for weather reached",
       "title": "North Texas gets a cold front for Sunday, with another one on the way"
+    },
+    "ab13521a28cf5e32": {
+      "at": "2026-11-22T17:44:51.353339+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Bedford police arrest suspected intoxicated driver after chase ends in crash into local business"
     },
     "aed8d0a4aa2a3f16": {
       "at": "2026-11-21T13:46:39.757162+00:00",
@@ -1165,6 +1180,10 @@
     "f0b6727d6150d591": {
       "at": "2026-11-21T18:26:45.160854+00:00",
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
+    },
+    "fd6bc56f0612b01b": {
+      "at": "2026-11-22T17:44:51.352099+00:00",
+      "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
   "total_posts": 66,
