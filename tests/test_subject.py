@@ -265,3 +265,15 @@ def test_a_game_result_headline_is_something_that_happened():
                   "Stars edge Blues in shootout", "Rangers drop series finale to Astros", "Horned Frogs come up short against Baylor"):
         assert happened(title), title
     assert not happened("Frogs Host No. 2 Utah Under the Lights on Saturday")        # a preview may show the stadium
+
+
+def test_a_cloudy_forecast_gets_a_gray_sky_and_sunshine_photos_are_sunny():
+    import json
+    from pathlib import Path
+    from ftworthtv.images.subject import weather_topics
+    assert weather_topics("Fort Worth forecast for Sunday, November 22 Mostly Cloudy")[0] == "clouds"
+    assert weather_topics("Fort Worth forecast Partly Cloudy")[0] == "sunshine"
+    lib = json.loads((Path(__file__).parents[1] / "assets" / "photos" / "library.json").read_text(encoding="utf-8"))
+    clouds = {e["file"] for e in lib if e["topic"] == "clouds"}
+    sunny = {e["file"] for e in lib if e["topic"] == "sunshine"}
+    assert clouds and not (clouds & sunny)              # the gray courthouse photo is never a sunshine picture

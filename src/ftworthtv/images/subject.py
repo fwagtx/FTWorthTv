@@ -271,7 +271,9 @@ WEATHER_TOPICS = (
     (("ice storm", "sleet", "freezing", "winter storm", "snow", "wintry", "freeze", "wind chill", "hard freeze"), ["ice", "skyline"]),
     (("heat advisory", "excessive heat", "triple digit", "100 degrees", "hot ", "heat"), ["heat", "skyline"]),
     (("rain", "showers", "drizzle", "wet"), ["rain", "storm", "skyline"]),
-    (("fog", "cloudy", "overcast", "gray"), ["skyline"]),
+    (("partly cloudy", "partly sunny", "mostly sunny"), ["sunshine", "skyline"]),
+    # Nov 22: "mostly cloudy, high near 61" drew a blue-sky skyline; the gray courthouse photo was filed under sunshine
+    (("fog", "cloudy", "overcast", "gray", "clouds"), ["clouds", "skyline"]),
     (("sunny", "clear", "pleasant", "mild", "warm", "nice"), ["sunshine", "skyline", "sundance-square", "downtown"]),
 )
 
