@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-154258/01-cowboys-dominate-titans-51-30-as-dak-prescott-ac/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-154258/01-cowboys-dominate-titans-51-30-as-dak-prescott-ac/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs",
+    "caption": "Dak Prescott threw four touchdown passes and ran for a score, and the Dallas Cowboys reached the end zone on their first six drives in a 51-30 victory over the Tennessee Titans.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/cowboys-dominate-titans-51-30-112226/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3df3aed9f4c9b948",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs",
+    "summary": "Dak Prescott threw four touchdown passes and ran for a score, and the Dallas Cowboys reached the end zone on their first six drives in a 51-30 victory over the Tennessee Titans.",
+    "url": "https://www.cbsnews.com/texas/news/cowboys-dominate-titans-51-30-112226/",
+    "published": "2026-11-22T21:25:48+00:00",
+    "category_hint": null,
+    "image_url": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/11/22/1696ed29-6f87-44a3-827a-1055363f6506/thumbnail/1024x576/d796e4bc7ec9d2fddb092741d9808ef4/gettyimages-2306381764.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.8889
+  }
+}
