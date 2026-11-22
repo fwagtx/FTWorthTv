@@ -423,3 +423,20 @@ def test_in_game_score_updates_are_dropped_but_a_halftime_show_is_not():
     assert in_game_update("Cowboys vs. Titans live updates: score, highlights")
     assert not in_game_update("Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs")
     assert not in_game_update("Post Malone to headline Cowboys Thanksgiving halftime show")
+
+
+def test_two_fort_worth_events_are_not_the_same_game():
+    """Nov 22, render 132: same_game read 'Fort' and 'Worth' as two team names, so NBC 5's '2 minors killed, 3 others
+    seriously injured after van crashes and catches fire in Fort Worth' and WFAA's house fire were dropped as the same
+    story as a morning shooting post."""
+    from ftworthtv.filters import same_game
+    shooting = "1 man is dead after being shot following a fight in Fort Worth"
+    assert not same_game("2 minors killed, 3 others seriously injured after van crashes and catches fire in Fort Worth", shooting)
+    assert not same_game("Fort Worth firefighters battle large 2-story house fire", shooting)
+    assert same_game("Arch Manning steps up as Longhorns blow out Arkansas", "No. 5 Texas avoids letdown, routs Arkansas 45-3")
+    assert same_game("Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs", "Prescott, Cowboys rout Titans 51-30")
+
+
+def test_north_texas_news_is_not_a_unt_game():
+    from ftworthtv.filters import same_game
+    assert not same_game("North Texas man killed in Dallas crash", "North Texas woman shot in Dallas, police say")

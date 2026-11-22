@@ -292,7 +292,28 @@ TEAM_ALIASES = {"longhorns": "texas", "horns": "texas", "razorbacks": "arkansas"
                 "mean green": "unt", "north texas": "unt", "sooners": "oklahoma", "bears": "baylor", "cougars": "houston",
                 "fighting irish": "notre dame", "wildcats": "kansas state", "cyclones": "iowa state", "jayhawks": "kansas"}
 _TEAM_STOP = {"no", "the", "a", "on", "in", "at", "senior", "day", "night", "week", "game", "series", "season", "home", "finale",
-              "big", "sec", "nfl", "nba", "mlb", "nhl", "mls", "college", "football", "playoff", "playoffs", "title", "after", "as"}
+              "big", "sec", "nfl", "nba", "mlb", "nhl", "mls", "college", "football", "playoff", "playoffs", "title", "after", "as",
+              # places and people are not teams (Nov 22: "Fort" + "Worth" made a van crash and a house fire "the same game"
+              # as a shooting, and both were dropped)
+              "fort", "worth", "tarrant", "county", "city", "police", "north", "south", "east", "west", "downtown", "man", "woman",
+              "minors", "teen", "officials", "firefighters", "residents", "family"}
+_SCORE_RE = re.compile(r"\b\d{1,3}-\d{1,3}\b")
+_RESULT_RE = re.compile(r"\b(?:falls? to|fell to|tops?|topped|beats?|edges?|edged|routs?|routed|blows? out|blew out|wins? over|"
+                        r"loss to|loses to|lost to|comes? up short|came up short|seals?|sealed|holds? on|held on|knocks? off|"
+                        r"outduels?|takes? down|dominates?|dominated|crush(?:es|ed)?|cruises? past|rolls? past|rall(?:y|ies|ied) past|"
+                        r"stuns?|stunned|upsets?|shuts? out|blanks?|outlasts?)\b", re.I)
+
+
+def _sports_result(title: str) -> bool:
+    """A game result carries a score, a team nickname or a result verb; a crash, a fire or a shooting carries none."""
+    from .images.subject import TEAM_WORDS
+    low = f" {(title or '').lower()} "
+    return bool(_SCORE_RE.search(title or "") or _RESULT_RE.search(title or "")) or \
+        any(f" {w} " in low or f" {w}'" in low or f" {w}," in low for w in TEAM_WORDS) or \
+        any(re.search(r"(?<![\w])" + re.escape(a) + r"(?![\w])", low) for a in TEAM_ALIASES if a not in _PLAIN_ALIASES)
+
+
+_PLAIN_ALIASES = {"north texas", "bears", "cougars", "wildcats", "horns", "hogs", "mustangs"}   # place names and plain words first
 
 
 def _game_keys(title: str) -> set[str]:
@@ -319,8 +340,12 @@ def same_game(a: str, b: str) -> bool:
     """'Arch Manning steps up as Longhorns blow out Arkansas' and 'No. 5 Texas avoids letdown, routs Arkansas 45-3' are one
     game (Nov 22: the second was drafted the morning after the first went out): two results that name the same two teams."""
     from .images.subject import happened
-    if not (happened(a) and happened(b)):
+    def _result(t: str) -> bool:
+        return happened(t) or bool(_SCORE_RE.search(t or "") or _RESULT_RE.search(t or ""))
+    if not (_result(a) and _result(b)):
         return False                                      # a preview and a result are two stories
+    if not (_sports_result(a) and _sports_result(b)):
+        return False                                      # only games are games
     shared = _game_keys(a) & _game_keys(b)
     return len(shared) >= 2
 
