@@ -112,7 +112,8 @@ def shopping_guide(title: str, url: str = "") -> bool:
 _BETTING_RE = re.compile(r"\b(best bets?|best picks|odds,? (?:and )?(?:picks?|predictions?|lines?|spreads?)|(?:picks?|predictions?),? (?:picks?,? )?(?:and )?odds|"
                          r"betting (?:odds|picks|apps?|promos?|lines?|tips|guide)|"
                          r"sportsbooks?|promo codes?|bonus codes?|bonus bets?|player props?|(?:same-game )?parlay picks|same-game parlays?|"
-                         r"expert picks|computer picks|model picks|against the spread)\b", re.I)
+                         r"expert picks|computer picks|model picks|against the spread|"
+                         r"(?:week \d+ )?(?:nfl|nba|mlb|nhl|college football|college basketball|cfb|bowl)(?: week \d+)? picks)\b", re.I)
 
 
 def betting_promo(title: str, summary: str = "") -> bool:

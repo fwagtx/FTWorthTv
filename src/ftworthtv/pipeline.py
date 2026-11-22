@@ -34,6 +34,7 @@ class RunReport:
     dropped: list[tuple[Story, str]] = field(default_factory=list)
     skipped: list[tuple[Story, str]] = field(default_factory=list)
     notes: list[str] = field(default_factory=list)
+    ranked: list[Story] = field(default_factory=list)          # kept after the filters, best first (the review sees what waits)
 
     def summary(self) -> str:
         lines = [f"run {self.run_dir.name}: {self.candidates} candidates, {len(self.drafts)} post(s)"]
@@ -78,6 +79,7 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
     report.candidates = len(stories)
     kept, report.dropped = filter_stories(stories, settings, state, now)
     ranked = rank(kept, now)
+    report.ranked = list(ranked)
     log.info("%d candidates -> %d kept after filters", len(stories), len(kept))
 
     # 2. cadence gates
@@ -330,6 +332,10 @@ def write_report(report: RunReport, settings: Settings) -> None:
                                "published": s.published.isoformat() if s.published else None}
                               for s, r in report.skipped],          # source + url: the reviewing session can look the story up
         "dropped": [{"title": s.title, "source": s.source, "reason": r} for s, r in report.dropped[:600]],
+        # every story that passed the filters, best first: a TCU result that waits behind three drafts is visible to the review
+        "waiting": [{"title": s.title, "source": s.source, "id": s.id, "category": s.category, "score": round(float(getattr(s, "score", 0) or 0), 4),
+                     "scope": s.extra.get("scope", "local"), "published": s.published.isoformat() if s.published else None}
+                    for s in report.ranked[:60] if s.id not in {d.story.id for d in report.drafts}],
         "notes": report.notes,
     }
     (report.run_dir / "report.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
