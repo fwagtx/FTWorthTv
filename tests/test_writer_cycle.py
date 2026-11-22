@@ -382,3 +382,18 @@ def test_a_caricaturists_work_is_not_a_photo_whatever_its_file_name():
     plain = PhotoCandidate(id="commons-4", url="u", credit="Photo: DonkeyHotey via Wikimedia Commons (CC BY 2.0)", license="wikimedia-cc",
                            provider="wikimedia", source_url="https://commons.wikimedia.org/wiki/File:Mehmet_Oz.jpg", title="Mehmet Oz")
     assert not_a_photo(plain)
+
+
+def test_a_demonstrative_opener_needs_the_sentence_before_it():
+    """Nov 22, render 129: 'That involves the West Fork and Parker County public utility agencies.' followed a sentence
+    that was dropped for length, so 'that' pointed at nothing in the caption."""
+    from ftworthtv.writer import _sentences
+    long = ("The water district is engaging in conversations with officials from regional planning groups consisting of counties "
+            "and municipalities across Wise and Parker counties, chief engineering officer Rachel Ickert shared with board directors Tuesday.")
+    text = ("The Tarrant Regional Water District's service area could expand as communities west of the county grow. " + long +
+            " That involves the West Fork and Parker County public utility agencies. While yet to be officially established, "
+            "13 municipalities have expressed interest in joining the Parker County regional utility, a commissioner said.")
+    sents = _sentences(text)
+    assert not any(s.startswith("That involves") for s in sents)
+    kept = _sentences("Fort Worth will close two pools next summer for repairs. That means families will have to drive farther to swim.")
+    assert any(s.startswith("That means") for s in kept)

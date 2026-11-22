@@ -415,6 +415,10 @@ def _split_sentences(text: str) -> list[str]:
 
 # "Watch Titans rookie Carnell Tate score ...", "Check out the play here": a sentence that points at a clip
 _CLIP_LEAD_RE = re.compile(r"\s*(?:watch|check out|see|listen to|take a look at)\b(?! (?:out|for)\b)", re.I)
+# "That involves the West Fork and Parker County public utility agencies." after a sentence that was dropped for length
+# (Nov 22, Fort Worth Report's water story): a demonstrative opener needs the sentence right before it
+_DEMONSTRATIVE_RE = re.compile(r"^(?:That|This|These|Those|Such)\s+(?:is|are|was|were|involves?|included?|includes|means?|meant|"
+                               r"comes?|came|would|will|could|can|has|have|had|led|leads?|follows?|marks?|marked|makes?|made)\b")
 # "The Frogs' five losses before that ...": a sentence that points back at one we did not keep cannot open the caption
 _DANGLING_RE = re.compile(r"\b(?:before that|after that|since then|at that point|that loss|that win|that game|that decision)\b", re.I)
 # "CBS Sports Texas has independently confirmed that TCU fired ...": the outlet is credited in the first comment, the fact leads
@@ -492,7 +496,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
         else:
             merged.append(part)
     pending_q = None                                          # a lede's question, kept only when the next sentence refers back to it
-    for part in merged:
+    last_kept = -2
+    for k, part in enumerate(merged):
         prev_q, pending_q = pending_q, None
         if part.count('"') % 2 == 1 or part.count("“") != part.count("”"):
             continue                                          # still unbalanced: a cut-off quote is not a sentence we can post
@@ -512,11 +517,14 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
         money = {m.lower().replace(" ", "") for m in _MONEY_RE.findall(part)}
         if money and any(money & {x.lower().replace(" ", "") for x in _MONEY_RE.findall(prev)} for prev in out):
             continue                                          # "$7 million" a second time is the nut graf repeating itself
+        if _DEMONSTRATIVE_RE.match(part) and last_kept != k - 1:
+            continue                                          # "That involves the West Fork ...": what "that" was got dropped
         if _QUESTION_REF_RE.search(part):
             if not prev_q or len(out) + 2 > max_n:
                 continue                                      # "that question" with no question before it reads as a cut
             out.append(prev_q)
         out.append(part)
+        last_kept = k
         if len(out) >= max_n:
             break
     def _backref(s: str) -> bool:
