@@ -265,3 +265,32 @@ def test_firing_a_coach_is_an_event_and_apps_are_never_photo_subjects():
     assert not happened("TCU coach Sonny Dykes talks bowl hopes before Texas Tech")
     names = entities("North Texas traffic stop leads to arrest of armed man accused of soliciting 15-year-old on Snapchat")
     assert not any("snapchat" in n.lower() for n in names)
+
+
+def test_a_text_date_on_commons_cannot_pass_a_date_bar(settings, monkeypatch):
+    """Nov 22, render 123: Commons gave DateTimeOriginal as 'July 11, 2016', which sorted after '2026-11-08' letter by
+    letter, so a 2016 photo of Sonny Dykes in a Cal polo went on 'TCU fires Sonny Dykes'."""
+    from ftworthtv.images import providers
+    old = providers.PhotoCandidate(id="commons-50477992", url="https://x/a.jpg", credit="Photo: A", license="wikimedia-cc",
+                                   provider="wikimedia", source_url="https://commons.wikimedia.org/wiki/File:Sonny_Dykes_at_2016_Bay_Area_College_Football_Media_Day.jpg",
+                                   title="Sonny Dykes at 2016 Bay Area College Football Media Day", taken="July 11, 2016")
+    undated_name = providers.PhotoCandidate(id="commons-2", url="https://x/b.jpg", credit="Photo: B", license="wikimedia-cc",
+                                            provider="wikimedia", source_url="https://commons.wikimedia.org/wiki/File:Sonny_Dykes_2019.jpg",
+                                            title="Sonny Dykes 2019", taken="2026-11-20")
+    fresh = providers.PhotoCandidate(id="commons-3", url="https://x/c.jpg", credit="Photo: C", license="wikimedia-cc",
+                                     provider="wikimedia", source_url="https://commons.wikimedia.org/wiki/File:Sonny_Dykes_TCU_Utah.jpg",
+                                     title="Sonny Dykes TCU Utah", taken="21 November 2026")
+    monkeypatch.setattr(providers, "_search", lambda q, s: [old, undated_name])
+    assert providers.find_photo("fresh:Sonny Dykes", settings, fallback=False, taken_after="2026-11-08") is None
+    monkeypatch.setattr(providers, "_search", lambda q, s: [old, undated_name, fresh])
+    assert providers.find_photo("fresh:Sonny Dykes", settings, fallback=False, taken_after="2026-11-08").id == "commons-3"
+    assert providers.iso_date("July 11, 2016") == "2016-07-11" and providers.iso_date("2016:07:11 14:22:05") == "2016-07-11"
+    assert providers.iso_date("unknown") == ""
+
+
+def test_national_rankings_lists_are_dropped_unless_a_local_team_is_named():
+    from ftworthtv.filters import rankings_list
+    assert rankings_list("Coaches Poll top 25: Texas, Tennessee climb; UCLA, Indiana tumble in college football rankings")
+    assert rankings_list("NFL Power Rankings Week 12: Chiefs climb")
+    assert not rankings_list("TCU falls out of AP Top 25 after loss to Utah")
+    assert not rankings_list("Cowboys climb in NFL power rankings after win over Eagles")

@@ -104,9 +104,37 @@ def _candidates_from_pages(payload: dict) -> list[PhotoCandidate]:
             width=int(info.get("width", 0)), height=int(info.get("height", 0)),
             alt=strip_html((meta.get("ImageDescription", {}) or {}).get("value", ""))[:200],
             title=re.sub(r"\.(jpe?g|png|webp|tiff?)$", "", str(page.get("title", "")).replace("File:", "")).replace("_", " ")[:200],
-            taken=strip_html((meta.get("DateTimeOriginal", {}) or {}).get("value", ""))[:19],
+            taken=iso_date(strip_html((meta.get("DateTimeOriginal", {}) or {}).get("value", ""))),
         ))
     return out
+
+
+_ISO_DATE_RE = re.compile(r"\b((?:19|20)\d{2})[-:/.](\d{1,2})[-:/.](\d{1,2})\b")
+_YEAR_RE = re.compile(r"(?<!\d)((?:19|20)\d{2})(?!\d)")
+
+
+def iso_date(raw: str) -> str:
+    """Commons writes DateTimeOriginal as '2016-07-11 14:22', '2016:07:11', 'July 11, 2016' or 'circa 2016'. Only an ISO
+    date compares with a date bar: Nov 22, 'July 11, 2016' sorted after '2026-11-08' (letters sort after digits) and a
+    2016 photo of Sonny Dykes in a Cal polo passed as a picture from the week TCU fired him. Returns 'YYYY-MM-DD' or ''."""
+    raw = (raw or "").strip()
+    if not raw:
+        return ""
+    m = _ISO_DATE_RE.search(raw)
+    if m:
+        y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        if 1 <= mo <= 12 and 1 <= d <= 31:
+            return f"{y:04d}-{mo:02d}-{d:02d}"
+    if not _YEAR_RE.search(raw):
+        return ""
+    from datetime import datetime as _dt
+    from dateutil import parser as _p
+    try:
+        when = _p.parse(raw, fuzzy=True, default=_dt(1900, 1, 1))
+    except (ValueError, OverflowError):
+        years = _YEAR_RE.findall(raw)
+        return f"{years[-1]}-01-01" if years else ""
+    return when.date().isoformat() if when.year >= 1900 else ""
 
 
 # ---- Unsplash (free key: unsplash.com/developers; license: free commercial use, credit requested) ----
@@ -389,8 +417,12 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
                     continue
             if require and not all(any(f" {alt} " in plain for alt in w.split("|")) for w in require):
                 continue                                      # the subject, whole and in order, in the file name or its title ("hippo|hippopotamus")
-            if taken_after and (not cand.taken or cand.taken[:10] < taken_after):   # an event wants a picture from the event, not from years ago
-                continue
+            if taken_after:                                   # an event wants a picture from the event, not from years ago
+                taken = iso_date(cand.taken)
+                if not taken or taken < taken_after:
+                    continue
+                if any(int(y) < int(taken_after[:4]) for y in _YEAR_RE.findall(titled)):
+                    continue                                  # "Sonny Dykes at 2016 Bay Area College Football Media Day.jpg"
             if state and state.photo_recently_used(cand.id):
                 continue
             return cand

@@ -148,6 +148,20 @@ _ARCHIVE_RE = re.compile(r"^(?:watch|replay|rewind)\b[^.]{0,160}?\b(?:as it happ
                          r"original (?:broadcast|coverage)|full (?:broadcast|newscast))\b|^(?:from the archives?|flashback|throwback)\b", re.I)
 
 
+_RANKINGS_RE = re.compile(r"\b(?:top 25|top-25|power rankings?|coaches poll|ap poll|cfp rankings?|playoff rankings?|"
+                          r"college (?:football|basketball) rankings?|bracketology)\b", re.I)
+_LOCAL_TEAMS_RE = re.compile(r"\b(?:tcu|horned frogs|frogs|cowboys|mavericks|mavs|rangers|stars|fc dallas|wings|smu|mean green|unt|"
+                             r"ut arlington|uta|mavericks)\b", re.I)
+
+
+def rankings_list(title: str) -> bool:
+    """'Coaches Poll top 25: Texas, Tennessee climb; UCLA, Indiana tumble': a national ranking is a list, and two sentences
+    from the middle of it ('Previously slotted at No. 13, Iowa remained there...') are not a post (Nov 22, render 123).
+    A ranking that names a local team is that team's news and stays."""
+    t = title or ""
+    return bool(_RANKINGS_RE.search(t)) and not _LOCAL_TEAMS_RE.search(t)
+
+
 def archive_replay(title: str) -> bool:
     """'Watch the breaking news, coverage of President JFK's assassination in Dallas as it happened in 1963': a station's
     archive broadcast to watch on its site is history, not today's news, and has nothing to post but a link (Nov 22, KVUE)."""
@@ -426,6 +440,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if game_notes(story.title):
             dropped.append((story, "a team's game notes or quotes sheet, not a story"))
+            continue
+        if story.source_kind == "rss" and rankings_list(story.title):
+            dropped.append((story, "a national rankings list with no local team in it"))
             continue
         if story.source_kind == "rss" and archive_replay(story.title):
             dropped.append((story, "an archive broadcast to watch on the station's site, not news"))
