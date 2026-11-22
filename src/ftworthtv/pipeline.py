@@ -114,7 +114,34 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
     drafts: list[PostDraft] = []
     used_photos: set[str] = set()
     pool = max(max(k, 1) * 3, WRITER_POOL_MIN)           # a few stuck candidates (a cap, a twin) must not starve the run
-    for story in pick(ranked, pool):
+
+    def day_budget_spent(story: Story) -> str | None:
+        """A kind whose share of the day is already used can never be drafted today: it must not take a pool slot.
+        Nov 21, 10:49 pm: six wanted bulletins and three videos filled the pool and the Mavericks' and FC Dallas'
+        recaps, ranked 13th and 14th, were never written."""
+        if story.is_urgent:
+            return None
+        if story.source_kind == "wanted" and wanted_day_left <= 0:
+            return "wanted bulletins for today are used up"
+        if story.source_kind == "video" and videos_day_left <= 0:
+            return "video share used (a few a day, one a run)"
+        if story.source_kind == "submission" and clips_day_left <= 0:
+            return "viewer clip used (a couple a day, one a run)"
+        if story.extra.get("scope", "local") != "local":
+            if non_local_day_left <= 0:
+                return "DFW/Texas share used (per run or per day)"
+            if story.extra.get("scope") == "national" and national_day_left <= 0:
+                return "national share used (two a day, one a run)"
+        return None
+
+    draftable: list[Story] = []
+    for story in ranked:
+        why = day_budget_spent(story)
+        if why:
+            report.skipped.append((story, why))
+        else:
+            draftable.append(story)
+    for story in pick(draftable, pool):
         if len(drafts) >= k and not story.is_urgent:
             break
         if (quiet or not gap_ok or cap_left <= 0) and not story.is_urgent:

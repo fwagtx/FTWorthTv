@@ -258,3 +258,27 @@ def test_a_sports_result_without_a_picture_goes_out_as_a_text_card(settings, now
                  published=now - timedelta(hours=1), always_relevant=True, category_hint="sports")
     report = run(settings, now=now, stories=[game], publisher_name="dryrun")
     assert [d.story.id for d in report.drafts] == ["hs"] and report.drafts[0].image.provider == "card"
+
+
+def test_kinds_whose_daily_share_is_spent_do_not_fill_the_writer_pool(settings, now):
+    """Nov 21, 10:49 pm: six wanted bulletins (the day's two already out) and three videos (share used) took the pool's
+    slots and the Mavericks' recap, ranked lower, was never written."""
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    settings.max_posts = 1
+    settings.sources.setdefault("wanted", {})["max_per_day"] = 0
+    settings.sources.setdefault("youtube", {})["max_per_day"] = 0
+
+    def stuck(i, kind):
+        return Story(id=f"{kind}{i}", source=f"agency-{i}", source_kind=kind, title=f"WANTED: Person Number{i}" if kind == "wanted" else f"Fort Worth clip {i}",
+                     summary="Police are asking for help finding this person, the department said.", url=f"https://x/{kind}{i}",
+                     published=now - timedelta(minutes=30), category_hint="crime" if kind == "wanted" else "community", always_relevant=True, weight=3.0)
+    blockers = [stuck(i, "wanted") for i in range(10)] + [stuck(i, "video") for i in range(6)]
+    recap = Story(id="mavs", source="WFAA Sports", source_kind="rss", title="Mavericks beat the Clippers 110-100 behind Irving and Flagg in Dallas",
+                  summary="Kyrie Irving scored 25 points and Cooper Flagg had 22 as the Dallas Mavericks beat the Los Angeles Clippers 110-100 on Friday night.",
+                  url="https://x/mavs", published=now - timedelta(hours=1), category_hint="sports", always_relevant=True, weight=0.5)
+    report = run(settings, now=now, stories=blockers + [recap], publisher_name="dryrun")
+    reasons = {s.id: r for s, r in report.skipped}
+    assert reasons.get("wanted3") == "wanted bulletins for today are used up" and reasons.get("video2", "").startswith("video share used")
+    seen = {d.story.id for d in report.drafts} | {s.id for s, r in report.skipped if not r.startswith(("wanted", "video"))}
+    assert "mavs" in seen                                 # written (or judged by the writer), not starved by sixteen stuck candidates
