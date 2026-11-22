@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-184437/01-colleyville-city-council-considering-pet-resort/post.jpg",
+    "credit": "Photo: Scott Nishimura | Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/21/colleyville-city-council-considering-pet-resort-permit/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-184437/01-colleyville-city-council-considering-pet-resort/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "Colleyville City Council considering pet resort permit",
+    "caption": "A proposed All American Pet Resorts on Colleyville Boulevard dominated the Nov. 4 Colleyville City Council meeting, drawing hours of debate from residents, competing business owners, attorneys and council members. Central to the evening was a special use permit request by All American Pet Resorts to allow dog daycare, boarding and grooming operations at a commercially zoned property at 7181 Colleyville Blvd.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/21/colleyville-city-council-considering-pet-resort-permit/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Colleyville, TX"
+  },
+  "story": {
+    "id": "461ecbd45f87c35c",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Colleyville City Council considering pet resort permit",
+    "summary": "Editor’s note: To learn more about how the transcript that informed this report was created, visit Cambridge Artificial Intelligencer . A proposed All American Pet Resorts on Colleyville Boulevard dominated the Nov. 4 Colleyville City Council meeting, drawing hours of debate from residents, competing business owners, attorneys and council members. Central to the evening was a special use permit request by All American Pet Resorts to allow dog daycare, boarding and grooming operations at a commercially zoned property at 7181 Colleyville Blvd. Debate and discussion related to the pet resort consumed 2 hours, 51 minutes of the meeting , which ran 4 hours, 14 minutes. Ben Bryner, the city’s director of community development, opened with the technical backdrop: The facility’s proximity to residential properties meant that neighboring landowners controlled more than 20% of the land within…",
+    "url": "https://fortworthreport.org/2026/11/21/colleyville-city-council-considering-pet-resort-permit/",
+    "published": "2026-11-22T00:20:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/02/Colleyville-MuralIMG_0096-300x200.jpg",
+    "image_credit": "Photo: Scott Nishimura | Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "A mural on the side of a commercial building in Colleyville, photographed Feb. 13, 2026, welcomes visitors. (Scott Nishimura | Fort Worth Report)",
+      "page_credit": "Scott Nishimura | Fort Worth Report"
+    },
+    "category": "politics",
+    "relevance": 2,
+    "score": 1.4162
+  }
+}
