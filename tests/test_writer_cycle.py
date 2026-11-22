@@ -211,3 +211,57 @@ def test_the_lead_limit_never_ends_a_sentence_on_a_middle_initial():
                "one count of conspiracy to commit wire fraud and three counts of wire fraud.")
     out = _sentences(summary)
     assert out and not any(s.endswith(" T.") for s in out)
+
+
+CBS_TCU_SUMMARY = ("The move came a day after a 38-17 loss to No. 2 Utah in its home finale. Updated on: November 22, 2026 / 12:51 PM CST / "
+                   "CBS/AP CBS Sports Texas has independently confirmed that Texas Christian University fired head football coach Sonny Dykes, "
+                   "four years after Dykes led the Horned Frogs to a CFP championship game in his first season in Fort Worth. The Horned Frogs "
+                   "were just 5-6 a day after a 38-17 loss to No. 2 Utah in its home finale. The Frogs' five losses before that had all been "
+                   "one-score games against Power Four opponents, and by a combined 25 points. The Frogs were coming off back-to-back 9-4 "
+                   "seasons when Dykes got a multi-year extension in April.")
+
+
+def test_cbs_update_stamp_and_attribution_do_not_cost_the_lead():
+    """Nov 22, render 122: the CBS lead ('...has independently confirmed that TCU fired Sonny Dykes') was 221 characters with
+    its attribution and an 'Updated on:' stamp glued on, so it was dropped and the caption opened 'The Frogs' five losses
+    before that...'."""
+    from ftworthtv.writer import _sentences
+    sents = _sentences(CBS_TCU_SUMMARY)
+    assert sents[0].startswith("Texas Christian University fired head football coach Sonny Dykes")
+    assert not any("Updated on" in s or "CBS/AP" in s or "has independently confirmed" in s for s in sents)
+    assert "before that" not in sents[0]
+
+
+def test_a_dangling_back_reference_never_opens_the_caption():
+    from ftworthtv.writer import _sentences
+    sents = _sentences("The Frogs' five losses before that had all been one-score games against Power Four opponents. "
+                       "The Frogs were coming off back-to-back 9-4 seasons when Dykes got a multi-year extension in April.")
+    assert sents[0].startswith("The Frogs were coming off")
+
+
+def test_archive_replays_are_dropped_and_live_watch_posts_are_not():
+    from ftworthtv.filters import archive_replay
+    assert archive_replay("Watch the breaking news, coverage of President JFK's assassination in Dallas as it happened in 1963")
+    assert archive_replay("From the archives: Fort Worth's 1971 Stockyards fire")
+    assert not archive_replay("WATCH: Fort Worth police chase ends in crash on I-35W")
+    assert not archive_replay("Watch party for TCU-Texas Tech set for Sundance Square")
+
+
+def test_an_arrest_on_a_traffic_stop_is_crime_not_traffic():
+    from ftworthtv.filters import infer_category
+    from ftworthtv.models import Story
+    def cat(title):
+        return infer_category(Story(id="x", title=title, url="u", source="FOX 4", source_kind="rss", summary=""))
+    assert cat("North Texas traffic stop leads to arrest of armed man accused of soliciting 15-year-old on Snapchat") == "crime"
+    assert cat("City solicits bids for new Northside library") != "crime"
+    assert cat("Runner in cardiac arrest saved by off-duty nurses at Cowtown Marathon") != "crime"
+
+
+def test_firing_a_coach_is_an_event_and_apps_are_never_photo_subjects():
+    from ftworthtv.images.subject import entities, happened
+    assert happened("TCU fires Sonny Dykes four years after making CFP championship game")
+    assert happened("Cowboys part ways with defensive coordinator")
+    assert happened("Rangers dismiss hitting coach after losing season")
+    assert not happened("TCU coach Sonny Dykes talks bowl hopes before Texas Tech")
+    names = entities("North Texas traffic stop leads to arrest of armed man accused of soliciting 15-year-old on Snapchat")
+    assert not any("snapchat" in n.lower() for n in names)

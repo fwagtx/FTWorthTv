@@ -129,7 +129,10 @@ COMMON_NOUNS = {"theater", "theatre", "theaters", "performances", "performance",
                 "fans", "kids", "students", "teachers", "voters", "residents", "families", "workers", "update", "updates", "video", "photos",
                 "watch", "live", "breaking", "exclusive", "report", "news", "forecast", "birthday", "b-day", "christmas", "thanksgiving",
                 "college", "football", "basketball", "baseball", "softball", "soccer", "hockey", "volleyball", "grades", "week", "stats",
-                "notes", "season", "playoffs", "conference", "championship", "box office", "franchise", "sequel", "trailer"}
+                "notes", "season", "playoffs", "conference", "championship", "box office", "franchise", "sequel", "trailer",
+                # apps are where a crime happened, not what a photo can show (Nov 22: "...soliciting 15-year-old on Snapchat" drew Snap Spectacles)
+                "snapchat", "instagram", "tiktok", "facebook", "youtube", "discord", "roblox", "whatsapp", "telegram", "reddit",
+                "twitter", "kik", "grindr", "tinder", "app", "apps"}
 
 
 HONORS = ("hall of fame", "ring of fame", "walk of fame", "hall of honor", "ring of honor", "honor roll")
@@ -379,7 +382,9 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   " top the ", " edge ", " drop ", "come up short", " blank ", " sweep ", " outlast ", "blow out", "blows out", "blew out",
                   " roll past", " rolls past", " cruise past", " cruises past", " win over ", " victory over ", " seals ", " sealed ",
                   " beating ", " clinching ", " loss to ", " loss at ", " losses to ", "muscles past", "slips past", "pulls past",
-                  "holds on", "hangs on", "knocks off", "outduels", "takes down", "falls at ", " fall at ")
+                  "holds on", "hangs on", "knocks off", "outduels", "takes down", "falls at ", " fall at ",
+                  # personnel moves (Nov 22: "TCU fires Sonny Dykes" drew an empty Amon G. Carter Stadium)
+                  " fires ", "part ways", "parts ways", " dismiss ", "dismisses", "dismissed", " let go", "relieved of", "ousts", "ousted")
 
 
 def happened(title: str, kind: str = "rss") -> bool:

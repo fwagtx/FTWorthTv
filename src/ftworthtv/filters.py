@@ -144,6 +144,16 @@ _EXPERT_RE = re.compile(r"\b(?:experts?|ethicists?|analysts?|professors?|economi
                         r"doctors?|scientists?|strategists?|insiders?)\s+(?:weighs?|weighed)\s+in\b", re.I)
 
 
+_ARCHIVE_RE = re.compile(r"^(?:watch|replay|rewind)\b[^.]{0,160}?\b(?:as it happened|archived? (?:footage|coverage|video|broadcast)|"
+                         r"original (?:broadcast|coverage)|full (?:broadcast|newscast))\b|^(?:from the archives?|flashback|throwback)\b", re.I)
+
+
+def archive_replay(title: str) -> bool:
+    """'Watch the breaking news, coverage of President JFK's assassination in Dallas as it happened in 1963': a station's
+    archive broadcast to watch on its site is history, not today's news, and has nothing to post but a link (Nov 22, KVUE)."""
+    return bool(_ARCHIVE_RE.search((title or "").strip()))
+
+
 def expert_commentary(title: str) -> bool:
     """'Medical ethicist weighs in on North Texas transplant case': an outside expert's opinion of a story, not the story
     (Nov 22: two outlets' versions reached review an hour apart)."""
@@ -344,15 +354,20 @@ def _plain(title: str) -> str:
     return re.sub(r"\s+", " ", t)
 
 
-_TITLE_CRIME_RE = re.compile(r"\b(?:convicted|sentenced|arrested|charged with|indicted|pleads? guilty|found guilty|wanted|murder|homicide|shooting|"
-                             r"stabbing|robbery|burglar\w*|ponzi|fraud|assault|kidnapp\w*|manhunt|suspect)\b", re.I)
+_TITLE_CRIME_RE = re.compile(r"\b(?:convicted|sentenced|arrested|(?<!cardiac )arrests?|charged with|accused of|indicted|pleads? guilty|found guilty|"
+                             r"wanted|murder|homicide|shooting|stabbing|robbery|burglar\w*|ponzi|fraud|assault|kidnapp\w*|manhunt|suspect|"
+                             r"solicit\w* (?:a |an )?(?:minor|child|teen|\d{1,2}-year-old|sex|prostitution)|solicitation of a minor)\b", re.I)
+# Nov 22: "North Texas traffic stop leads to arrest of armed man accused of soliciting 15-year-old on Snapchat" was filed as traffic
+
+
+_NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b", re.I)
 
 
 def infer_category(story: Story) -> str:
     if _TITLE_CRIME_RE.search(story.title or "") and story.category_hint != "sports":
         return "crime"                      # "Arlington pastor convicted for Ponzi scheme" is crime, whatever a channel's boilerplate says
-    text = story.text()
-    title = story.title.lower()
+    text = _NOT_CRIME_RE.sub(" ", story.text())          # "Runner in cardiac arrest saved by nurses" is not a crime story
+    title = _NOT_CRIME_RE.sub(" ", story.title.lower())
     best, best_hits = None, 0
     for cat, words in CATEGORY_KEYWORDS.items():
         hits = sum(1 for w in words if _has_word(w, text))
@@ -411,6 +426,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if game_notes(story.title):
             dropped.append((story, "a team's game notes or quotes sheet, not a story"))
+            continue
+        if story.source_kind == "rss" and archive_replay(story.title):
+            dropped.append((story, "an archive broadcast to watch on the station's site, not news"))
             continue
         if story.source_kind == "rss" and personnel_move(story.title):
             dropped.append((story, "a hire announcement, not news"))

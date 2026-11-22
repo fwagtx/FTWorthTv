@@ -413,6 +413,13 @@ def _split_sentences(text: str) -> list[str]:
     return out
 
 
+# "The Frogs' five losses before that ...": a sentence that points back at one we did not keep cannot open the caption
+_DANGLING_RE = re.compile(r"\b(?:before that|after that|since then|at that point|that loss|that win|that game|that decision)\b", re.I)
+# "CBS Sports Texas has independently confirmed that TCU fired ...": the outlet is credited in the first comment, the fact leads
+_CONFIRMED_RE = re.compile(r"^(?:[A-Z][\w&.'’-]*\s){1,4}(?:has|have) (?:independently |exclusively )?(?:confirmed|learned) that ")
+# CBS pages: "Updated on: November 22, 2026 / 12:51 PM CST / CBS/AP" glued to the front of the lead sentence
+_UPDATED_RE = re.compile(r"(?:Updated|Published) on:[^/]{5,40}/[^/]{3,20}/\s*[A-Z]{2,}(?:/[A-Z]{2,})*\s+")
+
 _DATELINE_RE = re.compile(r"^(?:[A-Z][A-Z .'’-]{2,40}, (?:Texas|TX|Okla\.|La\.|N\.M\.)|[A-Z][A-Z .'’-]{2,40}) ?[-–—] ")
 _CAPTION_RE = re.compile(r"\b(?:on )?(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}\.$")
 _PHOTO_CAPTION_RE = re.compile(
@@ -466,7 +473,7 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     """Complete, boilerplate-free sentences from the lead of an article summary, in order (later paragraphs of a scraped
     page can belong to another item, so only the first `lead` characters are considered)."""
     out: list[str] = []
-    text = _DATELINE_RE.sub("", collapse_ws(text or ""))      # "ARLINGTON, Texas - " datelines are a wire habit, not a sentence
+    text = _DATELINE_RE.sub("", _UPDATED_RE.sub("", collapse_ws(text or "")))   # datelines and "Updated on: ..." stamps are not sentences
     cut_short = len(text) > lead
     if cut_short:
         text = text[:lead]
@@ -474,6 +481,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     if cut_short and parts:
         parts = parts[:-1]                    # the lead limit cut the last sentence: drop it whole, never at "Judge Mark T." (Nov 22)
     merged: list[str] = []
+    parts = [_CONFIRMED_RE.sub("", p) for p in parts]
+    parts = [p[0].upper() + p[1:] if p else p for p in parts]
     for part in parts:                                        # a sentence that opens a quote keeps going until it closes it
         if merged and (merged[-1].count('"') % 2 == 1 or merged[-1].count("“") != merged[-1].count("”")):
             merged[-1] = f"{merged[-1]} {part}"
@@ -508,9 +517,11 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
         if len(out) >= max_n:
             break
     def _backref(s: str) -> bool:
-        return bool(_DEFINITE_OPENER_RE.match(s) or _BACKREF_OPENER_RE.match(s) or _ITEMS_OPENER_RE.match(s))
-    if len(out) > 1 and _backref(out[0]) and not _backref(out[1]) and not out[0].endswith("?"):
-        out[0], out[1] = out[1], out[0]      # a nut graf or "At the meeting, ..." does not open: the lead that names the subject goes first
+        return bool(_DEFINITE_OPENER_RE.match(s) or _BACKREF_OPENER_RE.match(s) or _ITEMS_OPENER_RE.match(s) or _DANGLING_RE.search(s))
+    if len(out) > 1 and _backref(out[0]) and not out[0].endswith("?"):
+        lead = next((k for k, s in enumerate(out) if not _backref(s)), None)
+        if lead:                              # a nut graf, "At the meeting, ..." or "losses before that" does not open:
+            out.insert(0, out.pop(lead))      # the sentence that names the subject goes first (Nov 22: TCU fires Dykes)
     return out
 
 
