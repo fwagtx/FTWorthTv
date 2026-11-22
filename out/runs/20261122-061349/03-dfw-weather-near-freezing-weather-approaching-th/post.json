@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=-oNyE2180TA",
+  "scheduled_at": "2026-11-22T13:03:49.282409+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "DFW Weather: Near freezing weather approaching this Thanksgiving in 7 day forecast",
+    "caption": "WATCH: DFW Weather: Near freezing weather approaching this Thanksgiving in 7 day forecast\n\nParts of the region will see lows in the 30s on Thanksgiving.\n\nVideo: WFAA on YouTube",
+    "first_comment": "Source: WFAA on YouTube https://www.youtube.com/watch?v=-oNyE2180TA\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline storm clouds",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "b437712d96d893e6",
+    "source": "WFAA",
+    "source_kind": "video",
+    "title": "DFW Weather: Near freezing weather approaching this Thanksgiving in 7 day forecast",
+    "summary": "Parts of the region will see lows in the 30s on Thanksgiving.",
+    "url": "https://www.youtube.com/watch?v=-oNyE2180TA",
+    "published": "2026-11-22T04:33:06+00:00",
+    "category_hint": null,
+    "image_url": "https://i2.ytimg.com/vi/-oNyE2180TA/hqdefault.jpg",
+    "image_credit": "Video: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "-oNyE2180TA",
+      "channel": "WFAA",
+      "handle": "@WFAA8",
+      "views": 4231,
+      "feed_title": "WFAA",
+      "scope": "dfw"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 0.4016
+  }
+}
