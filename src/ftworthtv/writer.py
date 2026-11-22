@@ -409,6 +409,8 @@ def looks_like_photo_caption(sentence: str) -> bool:
     return bool(_CAPTION_RE.search(sentence) or _PHOTO_CAPTION_RE.search(sentence))
 
 
+_QUESTION_REF_RE = re.compile(r"\b(?:that|this|the|those|these) questions?\b", re.I)
+_BACKREF_OPENER_RE = re.compile(r"^(?:At|During|In|After|Before) (?:the|that|this) (?:meeting|hearing|session|vote|event|ceremony|briefing|news conference|press conference)\b")
 _FIRST_PERSON_RE = re.compile(r"^(?:I|I'm|I’m|I've|I’ve|I'd|I’d|My)\b")
 _DEFINITE_OPENER_RE = re.compile(r"^The (?:effort|plan|program|initiative|project|move|deal|change|decision|measure|proposal|event|ordinance|"
                                  r"policy|agreement|lawsuit|case|funding|money|vote|ruling|order|bill|law|ban|closure|expansion|partnership|"
@@ -430,9 +432,14 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
             merged[-1] = f"{merged[-1]} {part}"
         else:
             merged.append(part)
+    pending_q = None                                          # a lede's question, kept only when the next sentence refers back to it
     for part in merged:
+        prev_q, pending_q = pending_q, None
         if part.count('"') % 2 == 1 or part.count("“") != part.count("”"):
             continue                                          # still unbalanced: a cut-off quote is not a sentence we can post
+        if part.endswith("?") and not re.search(r"\b[Yy]ou\b", part) and not part.lower().startswith(("it would be", "imagine", "let's", "let us")):
+            pending_q = part                                  # "As more data centers come, who gets a say?" ... "made that question part of his campaign"
+            continue
         if part.endswith("?") or re.search(r"\b[Yy]ou\b", part) or part.lower().startswith(("it would be", "imagine", "let's", "let us")):
             continue                                          # a columnist's rhetorical question or second person is not a news sentence
         if _FIRST_PERSON_RE.match(part):
@@ -443,11 +450,17 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
             continue                                          # photo captions end with a date: "...at the Capitol, on November 16, 2026."
         if any(_similar(part, prev) for prev in out):     # og:description often repeats the first paragraph
             continue
+        if _QUESTION_REF_RE.search(part):
+            if not prev_q or len(out) + 2 > max_n:
+                continue                                      # "that question" with no question before it reads as a cut
+            out.append(prev_q)
         out.append(part)
         if len(out) >= max_n:
             break
-    if len(out) > 1 and _DEFINITE_OPENER_RE.match(out[0]) and not _DEFINITE_OPENER_RE.match(out[1]):
-        out[0], out[1] = out[1], out[0]      # og:description is often the nut graf ("The effort is led by..."): the lead that names the subject goes first
+    def _backref(s: str) -> bool:
+        return bool(_DEFINITE_OPENER_RE.match(s) or _BACKREF_OPENER_RE.match(s))
+    if len(out) > 1 and _backref(out[0]) and not _backref(out[1]) and not out[0].endswith("?"):
+        out[0], out[1] = out[1], out[0]      # a nut graf or "At the meeting, ..." does not open: the lead that names the subject goes first
     return out
 
 

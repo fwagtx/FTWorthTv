@@ -117,3 +117,21 @@ def test_a_series_blurb_is_not_a_caption_sentence():
             "52 Faces of Community is a Fort Worth Report weekly series spotlighting local unsung heroes. "
             "It is sponsored by Central Market, H-E-B and JPS Health Network.")
     assert _sentences(text) == ["William Thorburn's Fish for Life Foundation awards scholarships to help area students cover the cost of higher education."]
+
+
+def test_a_ledes_question_stays_when_the_next_sentence_refers_to_it():
+    text = ("As more data centers come to Texas, who gets a say in how much water they use? "
+            "Democrat Clayton Tucker made that question part of his winning campaign for Texas agriculture commissioner.")
+    assert _sentences(text) == ["As more data centers come to Texas, who gets a say in how much water they use?",
+                                "Democrat Clayton Tucker made that question part of his winning campaign for Texas agriculture commissioner."]
+    alone = "Democrat Clayton Tucker made that question part of his winning campaign for Texas agriculture commissioner."
+    assert _sentences(alone) == []                       # "that question" with no question before it is a cut
+    rhetorical = "Have you ever wondered where your water comes from? The city council approved a new reservoir plan on Tuesday night."
+    assert _sentences(rhetorical) == ["The city council approved a new reservoir plan on Tuesday night."]
+
+
+def test_at_the_meeting_does_not_open_a_caption():
+    text = ("At the meeting, the commission considered residential platting requirements, commercial property redevelopment and city-owned right-of-way. "
+            "The Fort Worth City Plan Commission unanimously approved two waiver requests related to subdivisions.")
+    sents = _sentences(text)
+    assert sents[0].startswith("The Fort Worth City Plan Commission") and sents[1].startswith("At the meeting")
