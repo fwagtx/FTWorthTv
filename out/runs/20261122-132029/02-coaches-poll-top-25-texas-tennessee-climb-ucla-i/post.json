@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T19:45:29.920072+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-132029/02-coaches-poll-top-25-texas-tennessee-climb-ucla-i/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-132029/02-coaches-poll-top-25-texas-tennessee-climb-ucla-i/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Coaches Poll top 25: Texas, Tennessee climb; UCLA, Indiana tumble in college football rankings",
+    "caption": "Previously slotted at No. 13, Iowa remained there after running away from Illinois in the second half for its ninth win of the campaign, while Oregon continues its rapid rise down the stretch at No. 14.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/college-football/news/college-football-rankings-coaches-poll-top-25-week-13-2026/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "09421d20533e0b5b",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "Coaches Poll top 25: Texas, Tennessee climb; UCLA, Indiana tumble in college football rankings",
+    "summary": "Big Ten chaos has a couple of the league's contenders in CFP peril, while a pair of SEC teams jumped after big wins on Saturday Momentum-building wins for Miami, Alabama, Texas, and Tennessee generated momentum in the Week 13 Coaches Poll on Sunday as various Big Ten Championship scenarios took a crazy turn this weekend. Previously slotted at No. 13, Iowa remained there after running away from Illinois in the second half for its ninth win of the campaign, while Oregon continues its rapid rise down the stretch at No. 14. The Ducks jumped five spots in last week's Coaches Poll after dominating Michigan, and Friday night's trouncing of Michigan State was another style points win for Dan Lanning. Georgia maintained top billing at No. 1 after beating South Carolina on the road, while Utah kept pace behind the Bulldogs after pushing to 11-0 overall. The Utes are the only remaining…",
+    "url": "https://www.cbssports.com/college-football/news/college-football-rankings-coaches-poll-top-25-week-13-2026/",
+    "published": "2026-11-22T18:15:27+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/22/f08c22b6-424b-4771-8fb1-d757ef7ce35a/vols.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.45,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5211
+  }
+}

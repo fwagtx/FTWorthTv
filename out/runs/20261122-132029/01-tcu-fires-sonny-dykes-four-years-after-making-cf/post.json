@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-132029/01-tcu-fires-sonny-dykes-four-years-after-making-cf/post.jpg",
+    "credit": "Photo: Arbor to SJ via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sonny_Dykes_at_2016_Bay_Area_College_Football_Media_Day.jpg",
+    "photo_id": "commons-50477992",
+    "subject": "entity:sonny dykes"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-132029/01-tcu-fires-sonny-dykes-four-years-after-making-cf/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "TCU fires Sonny Dykes four years after making CFP championship game",
+    "caption": "Texas Christian University fired head football coach Sonny Dykes, four years after Dykes led the Horned Frogs to a CFP championship game in his first season in Fort Worth. The move came a day after a 38-17 loss to No. 2 Utah in its home finale.\n\nThe Frogs' five losses before that had all been one-score games against Power Four opponents, and by a combined 25 points. The Frogs were coming off back-to-back 9-4 seasons when Dykes got a multi-year extension in April.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/tcu-fires-sonny-dykes-four-years-after-making-cfp-championship-game/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:Amon G. Carter Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "a0f2fffafb298082",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "TCU fires Sonny Dykes four years after making CFP championship game",
+    "summary": "The move came a day after a 38-17 loss to No. 2 Utah in its home finale. Updated on: November 22, 2026 / 12:51 PM CST / CBS/AP CBS Sports Texas has independently confirmed that Texas Christian University fired head football coach Sonny Dykes, four years after Dykes led the Horned Frogs to a CFP championship game in his first season in Fort Worth. The Horned Frogs were just 5-6 a day after a 38-17 loss to No. 2 Utah in its home finale. The Frogs' five losses before that had all been one-score games against Power Four opponents, and by a combined 25 points. The Frogs were coming off back-to-back 9-4 seasons when Dykes got a multi-year extension in April. He finished 41-23 at TCU. The Frogs (5-6, 3-5 Big 12) could still get bowl-eligible if they win their regular-season finale Thanksgiving night at defending Big 12 champion Texas Tech (10-1, 7-1). The Red Raiders are trying to get back to…",
+    "url": "https://www.cbsnews.com/texas/news/tcu-fires-sonny-dykes-four-years-after-making-cfp-championship-game/",
+    "published": "2026-11-22T18:51:00+00:00",
+    "category_hint": null,
+    "image_url": "https://assets2.cbsnewsstatic.com/hub/i/r/2026/11/22/dca2a60e-d730-44d6-bda2-454a93d86bc6/thumbnail/1024x576/8a2cebbe0c03eec5060829a98876ddb0/ap26326153351831.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.9982
+  }
+}
