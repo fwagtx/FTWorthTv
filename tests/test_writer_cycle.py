@@ -345,3 +345,40 @@ def test_a_highlight_clip_page_is_skipped_and_clip_sentences_never_reach_a_capti
     assert not any(s.lower().startswith("check out") for s in sents)
     assert any("Tennessee Titans, their third straight" in s for s in sents)
     assert not _sentences("Watch out for ice on bridges tonight across Tarrant County, officials said.") == []   # "watch out" is advice
+
+
+def test_caricatures_and_opinion_art_are_not_photos():
+    """Nov 22, render 128: 'Medicare' found DonkeyHotey's 'Dr. Oz Is In Charge of Your Medicare and Medicaid. You Better
+    Watch Out!' (captioned 'Medicare for All Sucks, Go Trumpcare!') for a Medicare counseling story."""
+    from ftworthtv.images.providers import PhotoCandidate, not_a_photo
+    oz = PhotoCandidate(id="commons-1", url="u", credit="Photo: DonkeyHotey via Wikimedia Commons (CC BY-SA 2.0)", license="wikimedia-cc",
+                        provider="wikimedia", source_url="https://commons.wikimedia.org/wiki/File:Dr._Oz_Is_In_Charge_of_Your_Medicare_and_Medicaid._You_Better_Watch_Out!.jpg",
+                        title="Dr. Oz Is In Charge of Your Medicare and Medicaid. You Better Watch Out!")
+    assert not_a_photo(oz)
+    cartoon = PhotoCandidate(id="commons-2", url="u", credit="Photo: A via Wikimedia Commons", license="wikimedia-cc", provider="wikimedia",
+                             source_url="https://commons.wikimedia.org/wiki/File:Medicare_editorial_cartoon.jpg", title="Medicare editorial cartoon")
+    assert not_a_photo(cartoon)
+    card = PhotoCandidate(id="commons-3", url="u", credit="Photo: B via Wikimedia Commons", license="wikimedia-cc", provider="wikimedia",
+                          source_url="https://commons.wikimedia.org/wiki/File:Tarrant_County_Courthouse_2019.jpg", title="Tarrant County Courthouse 2019")
+    assert not not_a_photo(card)
+
+
+def test_press_releases_are_dropped_and_a_bar_foundation_is_not_food():
+    """Nov 22, render 128: FW Business Press reprinted 'TCYLA is pleased to announce that it has been awarded a grant from
+    the Texas Bar Foundation', filed as food because of 'Bar'."""
+    from ftworthtv.filters import infer_category, press_release
+    from ftworthtv.models import Story
+    title = ("Tarrant County Young Lawyers Association Receives Grant from Texas Bar Foundation for Legal Information Clinic for "
+             "Local Social Workers")
+    summary = ("The Tarrant County Young Lawyers Association (TCYLA) is pleased to announce that it has been awarded a grant from the "
+               "Texas Bar Foundation to support a Legal Information Clinic for Social Workers.")
+    assert press_release(title, summary)
+    assert not press_release("Fort Worth council approves new library", "The council voted 9-0 on Tuesday.")
+    assert infer_category(Story(id="x", title=title, url="u", source="FWBP", source_kind="rss", summary=summary)) != "food"
+
+
+def test_a_caricaturists_work_is_not_a_photo_whatever_its_file_name():
+    from ftworthtv.images.providers import PhotoCandidate, not_a_photo
+    plain = PhotoCandidate(id="commons-4", url="u", credit="Photo: DonkeyHotey via Wikimedia Commons (CC BY 2.0)", license="wikimedia-cc",
+                           provider="wikimedia", source_url="https://commons.wikimedia.org/wiki/File:Mehmet_Oz.jpg", title="Mehmet Oz")
+    assert not_a_photo(plain)

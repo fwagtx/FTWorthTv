@@ -286,7 +286,12 @@ UNSAFE_PHOTO_WORDS = ("lingerie", "bikini", "nude", "naked", "sexy", "underwear"
 
 _NOT_A_PHOTO_RE = re.compile(r"\b(screenshot|screen shot|screencap|screen capture|wallpaper|desktop background|desktop|schedule|launchpad|"
                              r"os x|mac ?os|windows \d+|ios \d+|user interface|gui|app icon|icons?|logo|wordmark|clip ?art|clipart|vector|"
-                             r"mock-?up|meme|collage|poster|flyer|graphic|infographic|illustration|rendering|render|banner|jersey number)\b", re.I)
+                             r"mock-?up|meme|collage|poster|flyer|graphic|infographic|illustration|rendering|render|banner|jersey number|"
+                             r"caricature|cartoon|satire|satirical|parody|political art|editorial cartoon|donkeyhotey|"
+                             r"photoshop|photoshopped|manipulated|digital art|painting|drawing)\b", re.I)
+# Nov 22, render 128: "Medicare" found DonkeyHotey's "Dr. Oz Is In Charge of Your Medicare and Medicaid. You Better Watch
+# Out!", a caricature captioned "Medicare for All Sucks, Go Trumpcare!", for a Medicare counseling story
+_OPINION_TITLE_RE = re.compile(r"[!?]|\byou better\b|\byour\b.{0,40}\b(?:watch out|beware)\b", re.I)
 
 
 def not_a_photo(cand: "PhotoCandidate") -> bool:
@@ -294,7 +299,10 @@ def not_a_photo(cand: "PhotoCandidate") -> bool:
     Mavericks Launchpad screenshot, and "Dallas Cowboys" a 2010 schedule wallpaper stamped "photo property of the NFL"."""
     name = (cand.source_url or "").rsplit("/", 1)[-1].replace("_", " ").replace("%27", "'")
     blob = " ".join([name, cand.title or "", cand.alt or ""])
-    return bool(_NOT_A_PHOTO_RE.search(blob)) or "property of" in blob.lower()
+    title = cand.title or name
+    if re.search(r"\bdonkeyhotey\b", cand.credit or "", re.I):
+        return True                                           # a caricaturist's work, whatever its file is called
+    return bool(_NOT_A_PHOTO_RE.search(blob)) or "property of" in blob.lower() or bool(_OPINION_TITLE_RE.search(title))
 
 
 def unsafe_photo(cand: "PhotoCandidate") -> bool:

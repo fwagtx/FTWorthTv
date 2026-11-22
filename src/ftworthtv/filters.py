@@ -162,6 +162,17 @@ def rankings_list(title: str) -> bool:
     return bool(_RANKINGS_RE.search(t)) and not _LOCAL_TEAMS_RE.search(t)
 
 
+_PRESS_RELEASE_RE = re.compile(r"\b(?:is|are|was|were) (?:pleased|proud|thrilled|excited|delighted|honored|happy) to "
+                               r"(?:announce|share|welcome|introduce|unveil)\b", re.I)
+
+
+def press_release(title: str, summary: str = "") -> bool:
+    """'The Tarrant County Young Lawyers Association (TCYLA) is pleased to announce that it has been awarded a grant ...':
+    an organization's own announcement, reprinted by a business paper, speaks in its voice ('our community') and reads
+    like an ad on the page (Nov 22, Fort Worth Business Press)."""
+    return bool(_PRESS_RELEASE_RE.search(f"{title or ''} {(summary or '')[:600]}"))
+
+
 def archive_replay(title: str) -> bool:
     """'Watch the breaking news, coverage of President JFK's assassination in Dallas as it happened in 1963': a station's
     archive broadcast to watch on its site is history, not today's news, and has nothing to post but a link (Nov 22, KVUE)."""
@@ -397,7 +408,9 @@ _TITLE_CRIME_RE = re.compile(r"\b(?:convicted|sentenced|arrested|(?<!cardiac )ar
 # Nov 22: "North Texas traffic stop leads to arrest of armed man accused of soliciting 15-year-old on Snapchat" was filed as traffic
 
 
-_NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b", re.I)
+_NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b"
+                           r"|\b(?:texas |state )?bar (?:foundation|association|exam|of texas)\b|\bstate bar\b", re.I)
+# ("Texas Bar Foundation" is lawyers, not a bar: Nov 22 a young lawyers' grant was filed as food)
 
 
 def infer_category(story: Story) -> str:
@@ -463,6 +476,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if game_notes(story.title):
             dropped.append((story, "a team's game notes or quotes sheet, not a story"))
+            continue
+        if story.source_kind == "rss" and not story.official and press_release(story.title, story.summary or ""):
+            dropped.append((story, "an organization's press release, not news"))
             continue
         if story.source_kind == "rss" and rankings_list(story.title):
             dropped.append((story, "a national rankings list with no local team in it"))
