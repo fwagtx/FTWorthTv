@@ -4,7 +4,7 @@
     "2026-11-19": 20,
     "2026-11-20": 19,
     "2026-11-21": 16,
-    "2026-11-22": 2
+    "2026-11-22": 3
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -43,6 +43,7 @@
       "weather": 2
     },
     "2026-11-22": {
+      "crime": 1,
       "sports": 1,
       "weather": 1
     }
@@ -69,7 +70,8 @@
     },
     "2026-11-22": {
       "rss": 1,
-      "video": 1
+      "video": 1,
+      "wanted": 1
     }
   },
   "daily_by_scope": {
@@ -93,7 +95,8 @@
       "texas": 4
     },
     "2026-11-22": {
-      "dfw": 2
+      "dfw": 2,
+      "local": 1
     }
   },
   "deferred": {
@@ -164,7 +167,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-22T06:55:00-06:00",
+  "last_post_at": "2026-11-22T07:20:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -178,6 +181,18 @@
       "publisher": "metricool",
       "source": "Fort Worth Police Department",
       "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "15d87ae9fe2062fa": {
+      "at": "2026-11-22T07:20:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "437532939",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4151443187983299384",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Elkin Daniel Hernandez",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
     },
     "17e3c2cb0873a471": {
@@ -918,6 +933,10 @@
       "at": "2026-11-21T12:18:30.407673+00:00",
       "reason": "caption was the article's 2022 photo caption (Nissan Stadium, Nashville), and an AT&T Stadium stand-in for a game preview whose venue is not"
     },
+    "2f3abe3a9ae80538": {
+      "at": "2026-11-22T12:47:08.192076+00:00",
+      "reason": "CBS Texas video of a cold front due Saturday night: stale by Sunday morning, and WFAA's 7-day forecast video is scheduled at 6:55"
+    },
     "39eb16f305f86458": {
       "at": "2026-11-20T21:18:54.918609+00:00",
       "reason": "a conviction with no picture of the defendant or the courtroom; the render offered AT&T Stadium"
@@ -991,7 +1010,7 @@
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 58,
+  "total_posts": 59,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
