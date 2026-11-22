@@ -39,7 +39,7 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("texas tech", "red raiders"), "texas-tech"),
     (("baylor", "mclane stadium"), "baylor"),
     (("smu", "mustangs", "southern methodist"), "smu"),
-    (("north texas", "unt ", "mean green"), "unt"),
+    (("university of north texas", "unt ", "unt's", "mean green"), "unt"),      # "North Texas" alone is the region, never the campus
     (("trinity metro", "texrail", "tex rail", "bus route", "bus rider", "transit", "central station", "microtransit"), "transit"),
     (("tarrant county courthouse", "adoption day", "jury", "verdict", "sentenced", "guilty", "lawsuit", "indicted", "district judge", "courtroom", "courthouse"), "courthouse"),
     (("sundance square",), "sundance-square"),

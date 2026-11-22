@@ -79,3 +79,11 @@ def test_a_venue_is_a_picture_for_a_game_never_for_a_coaching_story():
     assert "att-stadium" in game
     itself = topics_for("Dickies Arena adds a second entrance ahead of the stock show.", "community", "local", title="Dickies Arena adds a second entrance")
     assert itself[0] == "dickies-arena"
+
+
+def test_north_texas_is_the_region_never_the_unt_campus():
+    t = "5 North Texas police officers among 30 nationwide honored by Justice Department"
+    assert "unt" not in topics_for(t, "crime", "local", title=t)
+    assert topics_for("UNT Mean Green beat Rice in Denton", "sports", "dfw", title="UNT Mean Green beat Rice in Denton")[0] in ("unt", "unt-football")
+    u = "University of North Texas opens a new research hall"
+    assert "unt" in topics_for(u, "community", "dfw", title=u)
