@@ -308,3 +308,12 @@ def test_a_death_is_searched_by_the_person_only_and_an_honor_is_not_a_subject():
                         "Denver Broncos legend and Ring of Fame linebacker Tom Jackson has died at the age of 75.", "sports")
     assert plan.search_names == ["Tom Jackson"]
     assert "Hall of Fame" not in plan.entities
+
+
+def test_results_written_as_losses_or_muscling_past_are_things_that_happened():
+    """Render 120, Nov 22: 'Udoka says Rockets mentally fragile ... after loss to Nuggets' drew Toyota Center and 'Houston
+    muscles past Kansas' drew the Houston skyline: neither was read as a result, so stand-ins were allowed."""
+    from ftworthtv.images.subject import happened
+    assert happened("Udoka says Rockets 'mentally fragile,' blasts defense after loss to Nuggets")
+    assert happened("Houston muscles past Kansas to cap 3-day run, stamps claim to No. 1 ranking")
+    assert not happened("Houston hosts Kansas on Saturday night")
