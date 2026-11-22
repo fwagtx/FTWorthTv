@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-151217/01-looking-for-help-sorting-through-medicare-option/post.jpg",
+    "credit": "Photo: DonkeyHotey via Wikimedia Commons (CC BY-SA 2.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dr._Oz_Is_In_Charge_of_Your_Medicare_and_Medicaid._You_Better_Watch_Out!.jpg",
+    "photo_id": "commons-193640437",
+    "subject": "entity:medicare"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-151217/01-looking-for-help-sorting-through-medicare-option/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Looking for help sorting through Medicare options? A national program offers local guidance",
+    "caption": "Through the State Health Insurance Assistance Program, Tarrant County older adults can get free help from benefits counselors. For local seniors who are eligible for Medicare, the options can be overwhelming.\n\nA nationwide program offers free counseling to those who need help sorting through their choices. The Area Agency on Aging of Tarrant County, part of United Way, offers the State Health Insurance Assistance Program locally.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/22/looking-for-help-sorting-through-medicare-options-a-national-program-offers-local-guidance/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "a2d5109923eceef5",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Looking for help sorting through Medicare options? A national program offers local guidance",
+    "summary": "Through the State Health Insurance Assistance Program, Tarrant County older adults can get free help from benefits counselors. For local seniors who are eligible for Medicare, the options can be overwhelming. A nationwide program offers free counseling to those who need help sorting through their choices. The Area Agency on Aging of Tarrant County, part of United Way, offers the State Health Insurance Assistance Program locally. Tarrant County older adults can get free help from benefits counselors who can answer Medicare policy questions, do plan comparisons and assist with applications for Medicare Savings Programs. The assistance is objective, said Shakita Johnson, chief aging services officer at United Way of Tarrant County. The AAA does not get commissions, kickbacks or incentives, she said. Instead, benefits counselors work with older adults to help them find the best fit for…",
+    "url": "https://fortworthreport.org/2026/11/22/looking-for-help-sorting-through-medicare-options-a-national-program-offers-local-guidance/",
+    "published": "2026-11-22T21:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/AP26280621874724-300x200.jpg",
+    "image_credit": "Photo: Jenny Kane | AP archives / Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "A Medicare Advantage PPO card rests on top of a Medicare card in Portland, Oregon, June 10, 2024. (Jenny Kane | AP archives)",
+      "page_credit": "Jenny Kane | AP archives"
+    },
+    "category": "other",
+    "relevance": 1,
+    "score": 0.8899
+  }
+}

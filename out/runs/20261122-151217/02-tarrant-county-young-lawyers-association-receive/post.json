@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T21:37:17.301904+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-151217/02-tarrant-county-young-lawyers-association-receive/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_June_2016_33_(Tarrant_County_Courthouse).jpg",
+    "photo_id": "lib-fort-worth-june-2016-33-tarrant-county-courthouse-jpg",
+    "subject": "topic:courthouse"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-151217/02-tarrant-county-young-lawyers-association-receive/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "food",
+    "headline": "Tarrant County Young Lawyers Association Receives Grant from Texas Bar Foundation",
+    "caption": "The initiative is designed to provide access to legal resources to Licensed Clinical Social Workers (“LCSW”) who provide a critical, essential service to those most vulnerable in our community.",
+    "first_comment": "Source: Fort Worth Business Press https://fortworthbusiness.com/featured/tarrant-county-young-lawyers-association-receives-grant-from-texas-bar-foundation-for-legal-information-clinic-for-local-social-workers/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Texas barbecue plate",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "04938e54af556559",
+    "source": "Fort Worth Business Press",
+    "source_kind": "rss",
+    "title": "Tarrant County Young Lawyers Association Receives Grant from Texas Bar Foundation for Legal Information Clinic for Local Social Workers",
+    "summary": "Fort Worth, Texas – November 2026 – The Tarrant County Young Lawyers Association (TCYLA) is pleased to announce that it has been awarded a grant from the Te Fort Worth, Texas – November 2026 – The Tarrant County Young Lawyers Association (TCYLA) is pleased to announce that it has been awarded a grant from the Texas Bar Foundation to support a Legal Information Clinic for Social Workers. The initiative is designed to provide access to legal resources to Licensed Clinical Social Workers (“LCSW”) who provide a critical, essential service to those most vulnerable in our community. This generous grant from the Texas Bar Foundation will allow TCYLA to connect LCSWs with organizations in Tarrant County and the larger Dallas/Fort Worth community that can provide legal assistance and/or resources to the LCSWs as well as their clients. By raising awareness, opening communication, and educating…",
+    "url": "https://fortworthbusiness.com/featured/tarrant-county-young-lawyers-association-receives-grant-from-texas-bar-foundation-for-legal-information-clinic-for-local-social-workers/",
+    "published": "2026-11-22T20:54:05+00:00",
+    "category_hint": "business",
+    "image_url": null,
+    "image_credit": "Photo: Fort Worth Business Press",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "The Business Press",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "food",
+    "relevance": 3,
+    "score": 0.697
+  }
+}
