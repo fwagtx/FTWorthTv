@@ -764,7 +764,42 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
                                    "headline": headline or smart_headline(story.title, 110)})
 
 
+def cut_off(text: str) -> bool:
+    """A feed teaser that stops mid-sentence: 'Kyrie Irving scored 25 points ... to beat the Los Angeles...'."""
+    t = collapse_ws(text or "").rstrip()
+    return bool(t) and (t.endswith(("...", "…", "[…]")) or not t.endswith((".", "!", "?", '"', "”", "’", ")")))
+
+
+def salvage_lead(text: str, min_words: int = 8) -> str:
+    """The complete opening clause of a wire lead the feed cut off, ended with a period: 'Joaquín Valiente scored two
+    second-half goals in a 2-minute span, Samuel Sarver added ... beat the Portland Timbers 3-0 in Game 1...' ->
+    'Joaquín Valiente scored two second-half goals in a 2-minute span.' Only for game recaps (the score is on the card);
+    a news lead cut at a comma can drop the part that matters ('The fire was contained, but two firefighters ...')."""
+    t = re.sub(r"\s*(\.\.\.|…|\[…\])\s*$", "", collapse_ws(text or ""))
+    t = _DATELINE_RE.sub("", t)
+    cut = t.rfind(", ")
+    while cut > 0:
+        head = t[:cut].rstrip(" ,;:")
+        if (len(head.split()) >= min_words and head.count('"') % 2 == 0 and head.count("“") == head.count("”")
+                and not _APPOSITIVE_RE.search(head) and _GAME_VERB_RE.search(head)):
+            return head + "."
+        cut = t.rfind(", ", 0, cut)
+    return ""
+
+
+# "Dak Prescott, who threw for 300 yards" is a subject without its verb; a recap's first clause always has a game verb
+_APPOSITIVE_RE = re.compile(r",\s+(?:who|whom|whose|which|a|an|the|one of|including|along with|coming off)\b", re.I)
+_GAME_VERB_RE = re.compile(r"\b(scored|had|beat|beats|led|won|lost|threw|ran|rushed|caught|added|made|hit|homered|pitched|struck out|finished|"
+                           r"rallied|defeated|topped|edged|routed|held|blanked|shut out|outlasted|stunned|upset|clinched|knocked|kicked|"
+                           r"sank|drained|tallied|posted|recorded|picked off|intercepted|blocked|saved|stopped)\b", re.I)
+
+
 def write_copy(story: Story, settings: Settings, now: datetime, *, force_template: bool = False) -> tuple[PostCopy, str]:
+    if (story.source_kind == "rss" and not story.official and (story.category or "") == "sports"
+            and not _sentences(story.summary or "") and cut_off(story.summary or "")):
+        lead = salvage_lead(story.summary or "")
+        if lead and _sentences(lead):
+            story.summary = lead                  # the wire recap's first clause; the score itself is the card's headline
     if story.source_kind == "rss" and not story.official and stale_meeting_recap(story, now):
         return PostCopy(skip=True, skip_reason="a meeting recap more than a week old", category=story.category or "other",
                         headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"

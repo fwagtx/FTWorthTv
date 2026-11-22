@@ -139,8 +139,9 @@ def enrich(story: Story) -> Story:
 def enrich_summary(story: Story, min_len: int = 160) -> Story:
     """For any outlet: when the feed gave only a teaser, read the article's description and lead paragraphs so the caption
     can be a real two-paragraph summary. Text only: a non-official outlet's photo is never taken."""
-    if len(story.summary or "") >= min_len or not story.url:
-        return story
+    from ..writer import cut_off
+    if (len(story.summary or "") >= min_len and not cut_off(story.summary or "")) or not story.url:
+        return story                                # a 165-character teaser ending in "..." is still a teaser
     try:
         info = fetch_article(story.url)
     except Exception as exc:
@@ -155,6 +156,8 @@ def enrich_summary(story: Story, min_len: int = 160) -> Story:
         log.info("article body does not match the story (%s); keeping the description only", story.title[:50])
         body = ""                                   # a "Home Alone" sequel under a fan's death: the page's longest block was another article
     lead = " ".join(part for part in (info.get("description", ""), body) if part)
+    if not lead:
+        log.info("article page gave no text for %s", story.url)
     if len(lead) > len(story.summary or ""):
         story.summary = truncate(lead, 900)
     return story

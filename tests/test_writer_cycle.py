@@ -167,3 +167,34 @@ def test_a_nut_graf_about_programs_moves_and_a_repeated_figure_is_dropped():
     sents = _sentences(text)
     assert sents[0].startswith("The city outlined its current strategies")
     assert sum("$7 million" in s for s in sents) == 1
+
+
+def test_a_cut_off_wire_recap_keeps_its_first_complete_clause(settings, now):
+    """Nov 21: WFAA Sports' AP recaps (Mavericks 110-100, FC Dallas 3-0) came with 165-character teasers ending in "...";
+    the article fetch was skipped as long enough and the writer found no sentence, so both went unposted."""
+    from ftworthtv.models import Story
+    from ftworthtv.writer import cut_off, salvage_lead, write_copy
+    lead = ("Kyrie Irving scored 25 points and Cooper Flagg had 22 points, eight rebounds and six assists as the Dallas "
+            "Mavericks used a late 11-0 run to beat the Los Angeles...")
+    assert cut_off(lead) and not cut_off("The council voted 5-4.")
+    assert salvage_lead(lead) == "Kyrie Irving scored 25 points and Cooper Flagg had 22 points."
+    assert salvage_lead("Joaquín Valiente scored two second-half goals in a 2-minute span, Samuel Sarver added a stoppage-time "
+                        "goal and FC Dallas beat the Portland Timbers 3-0 in Game 1...") == \
+        "Joaquín Valiente scored two second-half goals in a 2-minute span."
+    # a cut inside an appositive leaves a subject without its verb: nothing to salvage
+    assert salvage_lead("Dak Prescott, who threw for 300 yards and three touchdowns, led the Cowboys past the Eagles 31-24 on...") == ""
+    story = Story(id="mavs", source="WFAA Sports", source_kind="rss", category="sports", url="https://www.wfaa.com/article/syndication/x",
+                  title="Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100", summary=lead, published=now)
+    copy, _ = write_copy(story, settings, now, force_template=True)
+    assert not copy.skip and "Cooper Flagg had 22 points." in copy.caption
+
+
+def test_a_cut_off_news_lead_is_not_trimmed_into_a_different_story(settings, now):
+    from ftworthtv.models import Story
+    from ftworthtv.writer import write_copy
+    story = Story(id="fire", source="WFAA", source_kind="rss", category="breaking", url="https://www.wfaa.com/article/news/x",
+                  title="Crews contain apartment fire in east Fort Worth",
+                  summary="The fire at the apartment complex on East Lancaster Avenue was contained within an hour, but two firefighters were taken to...",
+                  published=now)
+    copy, _ = write_copy(story, settings, now, force_template=True)
+    assert copy.skip and "only a headline" in copy.skip_reason      # never "The fire ... was contained within an hour." alone

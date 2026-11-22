@@ -158,9 +158,10 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             if used_today >= int(caps[cat]) and story.source_kind != "submission":   # viewer clips have their own cap
                 report.skipped.append((story, f"daily cap for {cat} reached"))
                 continue
-        if not settings.offline and story.source_kind == "rss" and not story.official and len(story.summary or "") < 160:
+        from .writer import cut_off
+        if not settings.offline and story.source_kind == "rss" and not story.official and (len(story.summary or "") < 160 or cut_off(story.summary or "")):
             from .sources.article import enrich_summary
-            enrich_summary(story)      # the feed gave a teaser: read the article lead so the caption is a real summary
+            enrich_summary(story)      # the feed gave a teaser (short, or cut off with "..."): read the article lead
         copy, writer = write_copy(story, settings, now, force_template=story.source_kind == "submission")   # a viewer's words stay theirs
         if copy.skip:
             report.skipped.append((story, copy.skip_reason or "writer skipped"))
