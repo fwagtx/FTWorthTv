@@ -23,7 +23,9 @@ jobs:
           python-version: "3.12"
       - run: pip install -q requests
       - name: Fetch
-        run: python scripts/fetch_pages.py out/pages ${{ inputs.urls }}
+        env:
+          URLS: ${{ inputs.urls }}     # through the environment: a URL with & or ; must not become shell syntax
+        run: python scripts/fetch_pages.py out/pages $URLS
       - name: Push
         run: |
           BRANCH="pages/${GITHUB_RUN_NUMBER}"
