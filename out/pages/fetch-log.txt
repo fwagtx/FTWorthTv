@@ -1,0 +1,3 @@
+200    14838  https://gofrogs.com/rss  -> https://gofrogs.com/api/v2/rss/xml
+200    14171  https://gofrogs.com/rss?path=mbball  -> https://gofrogs.com/api/v2/rss/xml?path=mbball
+200    14405  https://gofrogs.com/rss?path=wbball  -> https://gofrogs.com/api/v2/rss/xml?path=wbball
