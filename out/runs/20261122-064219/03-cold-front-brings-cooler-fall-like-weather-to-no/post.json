@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=YYSB-Ae9YRM",
+  "scheduled_at": "2026-11-22T13:32:19.322754+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Cold front brings cooler, fall-like weather to North Texas",
+    "caption": "WATCH: Cold front brings cooler, fall-like weather to North Texas\n\nA cold front is expected to move through North Texas Saturday night, bringing cooler temperatures ahead of Thanksgiving.\n\nVideo: CBS Texas on YouTube",
+    "first_comment": "Source: CBS Texas on YouTube https://www.youtube.com/watch?v=YYSB-Ae9YRM\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline storm clouds",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "2f3abe3a9ae80538",
+    "source": "CBS Texas",
+    "source_kind": "video",
+    "title": "Cold front brings cooler, fall-like weather to North Texas",
+    "summary": "A cold front is expected to move through North Texas Saturday night, bringing cooler temperatures ahead of Thanksgiving.",
+    "url": "https://www.youtube.com/watch?v=YYSB-Ae9YRM",
+    "published": "2026-11-22T01:38:43+00:00",
+    "category_hint": null,
+    "image_url": "https://i2.ytimg.com/vi/YYSB-Ae9YRM/hqdefault.jpg",
+    "image_credit": "Video: CBS Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "YYSB-Ae9YRM",
+      "channel": "CBS Texas",
+      "handle": "@CBSTexas",
+      "views": 2897,
+      "feed_title": "CBS Texas",
+      "scope": "dfw"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 0.2363
+  }
+}
