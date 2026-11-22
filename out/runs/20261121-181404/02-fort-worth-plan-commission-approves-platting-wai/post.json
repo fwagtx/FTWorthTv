@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T00:39:04.045752+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-181404/02-fort-worth-plan-commission-approves-platting-wai/post.jpg",
+    "credit": "Photo: Elvis Martinez-Cartagena / Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/21/fort-worth-plan-commission-approves-platting-waivers-closing-an-alley-for-development/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-181404/02-fort-worth-plan-commission-approves-platting-wai/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Fort Worth plan commission approves platting waivers, closing an alley for development",
+    "caption": "At the meeting, the commission considered residential platting requirements, commercial property redevelopment and city-owned right-of-way.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/21/fort-worth-plan-commission-approves-platting-waivers-closing-an-alley-for-development/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "8d9c36121583aac2",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Fort Worth plan commission approves platting waivers, closing an alley for development",
+    "summary": "At the meeting, the commission considered residential platting requirements, commercial property redevelopment and city-owned right-of-way. The Fort Worth City Plan Commission on Thursday unanimously approved two waiver requests related to subdivisions and recommended closing public access to an alley in Council District 9 to make way for a planned community center. At its Oct. 29 meeting, the commission considered three cases involving residential platting requirements, commercial property redevelopment and city-owned right-of-way. The Fort Worth Report Documenters program empowers people like you to help fill the gaps in reporting on Tarrant County public meetings. Find out how you can join here . The first case involved two residential lots in the Schell’s Addition, north of West Capps Street and south of West Roberts Street in Council District 9. Commissioners approved waivers…",
+    "url": "https://fortworthreport.org/2026/11/21/fort-worth-plan-commission-approves-platting-waivers-closing-an-alley-for-development/",
+    "published": "2026-11-22T00:05:08+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/3R6A9262-300x191.jpg",
+    "image_credit": "Photo: Elvis Martinez-Cartagena / Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "The sun shines on an alley between West Allen Avenue and West Maddox Avenue on Nov. 18, 2026, in Fort Worth. The City Plan Commission recommended closing it for future development at its October meeting. (Elvis Martinez-Cartagena | Fort Wor",
+      "page_credit": "Elvis Martinez-Cartagena"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 1.2208
+  }
+}
