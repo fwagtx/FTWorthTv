@@ -6,6 +6,7 @@ Usage: python scripts/fetch_pages.py out/pages URL [URL ...]
 from __future__ import annotations
 
 import re
+import socket
 import sys
 import time
 from pathlib import Path
@@ -14,6 +15,7 @@ from urllib.parse import urljoin, urlparse
 
 import requests
 
+socket.setdefaulttimeout(30)   # robotparser reads robots.txt through urllib with no timeout: a tarpitting host hung the job
 UA = "FTWorthTv/0.1 (+https://github.com/fwagtx/FTWorthTv; local news page bot; contact via GitHub issues)"
 OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("out/pages")
 URLS = [u for u in sys.argv[2:] if u.strip()]

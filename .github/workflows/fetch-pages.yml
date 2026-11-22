@@ -25,7 +25,7 @@ jobs:
       - name: Fetch
         env:
           URLS: ${{ inputs.urls }}     # through the environment: a URL with & or ; must not become shell syntax
-        run: python scripts/fetch_pages.py out/pages $URLS
+        run: python -u scripts/fetch_pages.py out/pages $URLS     # -u: the log shows progress even if the job is cut off
       - name: Push
         run: |
           BRANCH="pages/${GITHUB_RUN_NUMBER}"
