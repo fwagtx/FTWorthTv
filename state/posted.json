@@ -1035,6 +1035,10 @@
       "at": "2026-11-21T23:31:56.450301+00:00",
       "reason": "a weekly series profile whose own photo is a courtesy photo; the picture offered was an H-E-B store in Boerne matched from a sponsor line"
     },
+    "75ea53b519e16309": {
+      "at": "2026-11-22T14:47:12.892536+00:00",
+      "reason": "a third weather item today (WFAA outlook 6:55, NWS forecast 8:35); it was filed as business, which the weather cap missed (rule added)"
+    },
     "7a4751ec306d6836": {
       "at": "2026-11-20T16:46:40.176561+00:00",
       "reason": "Georgia vs. LSU is not Texas news; the SEC keyword let it through"
@@ -1054,6 +1058,10 @@
     "98a170db0b288a49": {
       "at": "2026-11-22T14:23:34.180849+00:00",
       "reason": "an ethicist's commentary on a Dallas hospital lawsuit, not news; the photo was Baylor's McLane Stadium in Waco (rule added)"
+    },
+    "9eeb905d6b413c90": {
+      "at": "2026-11-22T14:47:12.892548+00:00",
+      "reason": "an expert commentary piece, the second outlet's version of the one skipped at 8:12 (rule added)"
     },
     "a312360889849a91": {
       "at": "2026-11-22T04:58:17.921718+00:00",
