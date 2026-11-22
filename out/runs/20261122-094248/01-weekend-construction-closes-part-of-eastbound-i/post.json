@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-094248/01-weekend-construction-closes-part-of-eastbound-i/post.jpg",
+    "credit": "Photo: formulanone from Huntsville, United States via Wikimedia Commons (CC BY-SA 2.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:I-35W_South_-_Exit_82_-_FM2449_(49166504151).jpg",
+    "photo_id": "lib-i-35w-south-exit-82-fm2449-49166504151-jpg",
+    "subject": "beat:highway"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-094248/01-weekend-construction-closes-part-of-eastbound-i/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "traffic",
+    "headline": "Weekend construction closes part of eastbound I-30 in Tarrant County",
+    "caption": "Eastbound I-30 will be closed from I-20 to Chapel Creek Boulevard in Tarrant County over the weekend for construction activities. The closure is expected to remain in place until 6 a.m. Monday, Nov. 26.\n\nAccording to the Texas Department of Transportation, the mainlines will be closed between the I-20 interchange and Linkcrest Drive until 6 a.m. on Monday, Nov. 26 for pavement operations. Traffic is expected to be directed through a signed detour leading drivers onto eastbound I-20, then north on I-820 West Loop to eastbound I-30.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/weekend-construction-closes-eastbound-i-30-tarrant-county/4109056/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Texas highway traffic night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "5241b7fd7f49fa0b",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Weekend construction closes part of eastbound I-30 in Tarrant County",
+    "summary": "The closure is expected to remain in place until 6 a.m. Monday, Nov. 26. Eastbound I-30 will be closed from I-20 to Chapel Creek Boulevard in Tarrant County over the weekend for construction activities. According to the Texas Department of Transportation, the mainlines will be closed between the I-20 interchange and Linkcrest Drive until 6 a.m. on Monday, Nov. 26 for pavement operations. Traffic is expected to be directed through a signed detour leading drivers onto eastbound I-20, then north on I-820 West Loop to eastbound I-30. TxDOT urges drivers to remain alert for changing traffic patterns as construction progresses. Officials said eastbound I-30 frontage road access will remain open for local access during the closure. Drivers should expect delays and/or seek alternative routes. For lane closure updates, TxDot recommends drivers visit www.keep20-30moving.org",
+    "url": "https://www.nbcdfw.com/news/local/weekend-construction-closes-eastbound-i-30-tarrant-county/4109056/",
+    "published": "2026-11-22T09:33:47+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2019/09/road-closed1-1.jpg?quality=85&strip=all&fit=722,406",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "traffic",
+    "relevance": 2,
+    "score": 0.7346
+  }
+}
