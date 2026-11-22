@@ -69,6 +69,8 @@ def test_headline_lessons_fixture():
         assert plan.mode == row["mode"], (row["title"], plan.mode, row["lesson"])
         for topic in row.get("topics", []):
             assert topic in plan.entity_topics, (row["title"], plan.entity_topics)
+        for topic in row.get("not_topics", []):
+            assert topic not in plan.entity_topics, (row["title"], plan.entity_topics, row["lesson"])
         if row.get("first_topic"):
             assert plan.entity_topics[0] == row["first_topic"], (row["title"], plan.entity_topics)
         for topic in row.get("fallback", []):

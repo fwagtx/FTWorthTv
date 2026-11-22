@@ -185,5 +185,46 @@
       "Arkansas"
     ],
     "lesson": "an opponent named by its state is a place, not a subject: 'Arkansas' found a landscape"
+  },
+  {
+    "title": "Dallas Cowboys mark 30 years of giving back with Salvation Army",
+    "body": "The Dallas Cowboys celebrated 30 years of partnership with the Salvation Army by serving early Thanksgiving meals at facilities in Dallas and Fort Worth.",
+    "category": "sports",
+    "mode": "search",
+    "search": [
+      "Dallas Cowboys"
+    ],
+    "lesson": "Nov 21: a charity meal service is not a game at AT&T Stadium; the team's name reaches its stadium only for a game there",
+    "not_topics": [
+      "att-stadium"
+    ]
+  },
+  {
+    "title": "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100",
+    "body": "Kyrie Irving scored 25 points and Cooper Flagg had 22 points.",
+    "category": "sports",
+    "mode": "entity",
+    "topics": [
+      "aac"
+    ],
+    "lesson": "Nov 21: 'Mavericks' is the Dallas team (never OS X Mavericks, never the UTA Mavericks); a bare 'Clippers' is never searched",
+    "not_topics": [
+      "uta",
+      "uta-sports"
+    ]
+  },
+  {
+    "title": "Senator Cruz launches Saving Texas to win back the State House and some Congressional seats in 2028",
+    "body": "Following the blue wave election in Texas, U.S. Senator Ted Cruz pledges to recapture the State House and some Congressional seats for Republicans.",
+    "category": "politics",
+    "mode": "search",
+    "search": [
+      "Ted Cruz"
+    ],
+    "not_search": [
+      "Congressional",
+      "Senator Cruz"
+    ],
+    "lesson": "Nov 22: 'Congressional' is an adjective, not a subject (it found an unnamed congressman); 'Senator Cruz' is searched as the full name the story gives"
   }
 ]
