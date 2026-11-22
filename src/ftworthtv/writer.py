@@ -413,6 +413,8 @@ def _split_sentences(text: str) -> list[str]:
     return out
 
 
+# "Watch Titans rookie Carnell Tate score ...", "Check out the play here": a sentence that points at a clip
+_CLIP_LEAD_RE = re.compile(r"\s*(?:watch|check out|see|listen to|take a look at)\b(?! (?:out|for)\b)", re.I)
 # "The Frogs' five losses before that ...": a sentence that points back at one we did not keep cannot open the caption
 _DANGLING_RE = re.compile(r"\b(?:before that|after that|since then|at that point|that loss|that win|that game|that decision)\b", re.I)
 # "CBS Sports Texas has independently confirmed that TCU fired ...": the outlet is credited in the first comment, the fact leads
@@ -481,7 +483,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     if cut_short and parts:
         parts = parts[:-1]                    # the lead limit cut the last sentence: drop it whole, never at "Judge Mark T." (Nov 22)
     merged: list[str] = []
-    parts = [_CONFIRMED_RE.sub("", p) for p in parts]
+    parts = [re.sub(r"\s+([,.;:!?])", r"\1", _CONFIRMED_RE.sub("", p)) for p in parts]   # "the Tennessee Titans , stripping"
+    parts = [p for p in parts if not _CLIP_LEAD_RE.match(p)]
     parts = [p[0].upper() + p[1:] if p else p for p in parts]
     for part in parts:                                        # a sentence that opens a quote keeps going until it closes it
         if merged and (merged[-1].count('"') % 2 == 1 or merged[-1].count("“") != merged[-1].count("”")):
@@ -859,6 +862,11 @@ def write_copy(story: Story, settings: Settings, now: datetime, *, force_templat
         lead = salvage_lead(story.summary or "")
         if lead and _sentences(lead):
             story.summary = lead                  # the wire recap's first clause; the score itself is the card's headline
+    if story.source_kind == "rss" and not story.official and _CLIP_LEAD_RE.match(story.summary or ""):
+        # "Watch Titans rookie Carnell Tate score a wild 59-yard touchdown ...": the page is a highlight clip, and a card
+        # cannot play it (Nov 22, CBS Sports, render 127)
+        return PostCopy(skip=True, skip_reason="a video highlight page: its point is a clip we cannot show", category=story.category or "other",
+                        headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"
     if story.source_kind == "rss" and not story.official and stale_meeting_recap(story, now):
         return PostCopy(skip=True, skip_reason="a meeting recap more than a week old", category=story.category or "other",
                         headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"

@@ -325,3 +325,23 @@ def test_a_word_capitalised_by_a_colon_is_not_a_subject_and_mid_headline_names_k
     assert "Gobble" not in names and "Big Bear Smokehouse" in names
     assert plan_subject(t, "Big Bear’s Smokehouse in Haltom City smokes turkeys.", "food").primary != "Gobble"
     assert not any(n.lower().startswith("big") for n in entities("Big crash closes lanes on I-35W in north Fort Worth"))
+
+
+def test_a_highlight_clip_page_is_skipped_and_clip_sentences_never_reach_a_caption(settings):
+    """Nov 22, render 127: CBS Sports' 'Titans' Carnell Tate stuns Cowboys ...' opened 'Watch Titans rookie Carnell Tate
+    score a wild 59-yard touchdown ...' (a clip we cannot show) and had 'the Tennessee Titans , stripping'."""
+    from datetime import datetime, timezone
+    from ftworthtv.models import Story
+    from ftworthtv.writer import _sentences, write_copy
+    summary = ("Watch Titans rookie Carnell Tate score a wild 59-yard touchdown after the Cowboys failed to touch him down during "
+               "Sunday's game. The Dallas Cowboys made a change on defense ahead of their matchup with the Tennessee Titans , "
+               "stripping defensive coordinator Christian Parker of play-calling duties and handing them to Mike Pettine.")
+    story = Story(id="t", title="Titans' Carnell Tate stuns Cowboys with one of NFL season's strangest touchdowns", url="u",
+                  source="CBS Sports", source_kind="rss", summary=summary, category="sports")
+    copy, _ = write_copy(story, settings, datetime(2026, 11, 22, 20, 44, tzinfo=timezone.utc), force_template=True)
+    assert copy.skip and "clip" in copy.skip_reason
+    sents = _sentences("The Cowboys won 30-17. Check out the play here: Prescott to Lamb for 40 yards on third down. "
+                       "Dallas moved to 7-4 with the win over the Tennessee Titans , their third straight.")
+    assert not any(s.lower().startswith("check out") for s in sents)
+    assert any("Tennessee Titans, their third straight" in s for s in sents)
+    assert not _sentences("Watch out for ice on bridges tonight across Tarrant County, officials said.") == []   # "watch out" is advice
