@@ -141,6 +141,12 @@ _DEATH_RE = re.compile(r"\b(dies|died|dead at|passes away|passed away|obituary|r
 _QUOTED_RE = re.compile(r"[‘“\"]([^’”\"]{3,80})[’”\"]|(?<![\w])'([^']{3,80})'(?![\w])")
 
 
+# names that begin with a number word, which the run builder would otherwise strip as "Two Fort Worth men" (Nov 22:
+# "'Holiday in the Park' kicks off at Six Flags Over Texas" searched for "Flags Over Texas")
+NUMBER_NAMES = ("six flags", "five guys", "four seasons", "three rivers", "one world", "two rivers", "seven seas", "ten mile",
+                "one main", "first baptist", "first united", "first presbyterian", "first methodist")
+
+
 def entities(title: str, body: str = "") -> list[str]:
     """Named subjects in a headline: runs of capitalised words, kept when they are more than one word, possessive, an
     acronym, or appear capitalised again mid-sentence in the body (so 'Largest enrollment drop' names nothing, while
@@ -178,7 +184,7 @@ def entities(title: str, body: str = "") -> list[str]:
             continue
         words = [_clean(w) for w in run]
         words = [w for w in words if w]
-        if words and words[0].lower() in STOP and len(words) > 1:
+        if words and words[0].lower() in STOP and len(words) > 1 and not " ".join(words).lower().startswith(NUMBER_NAMES):
             words = words[1:]
         phrase = " ".join(words)
         low = phrase.lower()

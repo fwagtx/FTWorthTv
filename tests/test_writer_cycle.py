@@ -294,3 +294,11 @@ def test_national_rankings_lists_are_dropped_unless_a_local_team_is_named():
     assert rankings_list("NFL Power Rankings Week 12: Chiefs climb")
     assert not rankings_list("TCU falls out of AP Top 25 after loss to Utah")
     assert not rankings_list("Cowboys climb in NFL power rankings after win over Eagles")
+
+
+def test_a_name_that_starts_with_a_number_keeps_it():
+    """Nov 22, render 124: "'Holiday in the Park' kicks off at Six Flags Over Texas" searched for "Flags Over Texas"."""
+    from ftworthtv.images.subject import entities
+    assert "Six Flags Over Texas" in entities("'Holiday in the Park' kicks off at Six Flags Over Texas with new lights")
+    assert "Fort Worth" in " ".join(entities("Two Fort Worth men charged in Northside robbery"))
+    assert not any(n.lower().startswith("two ") for n in entities("Two Fort Worth men charged in Northside robbery"))
