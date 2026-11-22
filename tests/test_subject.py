@@ -94,7 +94,8 @@ def test_a_venue_is_searched_as_a_building_not_as_someone_elses_show():
     assert all("ty myers" not in q[2] for q, _ in pairs)               # a person is never searched for without the visual check
     assert pairs[0][0][0] == "category:Dickies Arena"
     pairs = provider_queries(concert, "Ty Myers: The Legal Tour 2026 at Dickies Arena", "events", people_allowed=True)
-    assert pairs[0][0][1] == () and pairs[0][0][2] == ("ty myers",)   # with Claude looking at the picture, the performer's own show may be a concert photo
+    assert "concert" not in pairs[0][0][1] and pairs[0][0][2] == ("ty myers",)   # with Claude looking at the picture, the performer's own show may be a concert photo
+    assert "statue" in pairs[0][0][1]                                  # but a statue of a performer is not the performer
 
 
 def test_find_photo_skips_a_show_photo_when_the_story_is_the_building(monkeypatch, settings):
@@ -222,3 +223,22 @@ def test_team_nicknames_are_searched_by_the_full_team_name_and_teams_age():
     assert photo_age_bar("entity:dallas cowboys", now) == "2023-11-23"                      # a 2010 Romo wallpaper is not the 2026 team
     assert photo_age_bar("entity:dickies arena", now) == "" and photo_age_bar("entity:fort worth isd", now) == ""
     assert "uta" in plan_subject("UTA Mavericks beat Abilene Christian in overtime", "", "sports").entity_topics
+
+
+def test_a_school_in_a_sports_headline_is_searched_as_its_team_and_artworks_are_not_news_photos():
+    """Render 107, Nov 21: "Notre Dame loses safety Talich to injury during SMU's opening drive" found Notre-Dame de Paris;
+    "Dallas Cowboys mark 30 years of giving back with Salvation Army" found a bronze Salvation Army memorial relief."""
+    from ftworthtv.images.subject import plan_subject, provider_queries
+    title = "Notre Dame loses safety Talich to injury during SMU's opening drive"
+    pairs = provider_queries(plan_subject(title, "Notre Dame starting safety Luke Talich left the game.", "sports"), title, "sports",
+                             people_allowed=True)                  # the render runs with the session reviewing every card
+    nd = [q for q, lab in pairs if lab == "entity:notre dame"]
+    assert nd and all(any("football" in w for w in q[2]) for q in nd)        # the file must say football (or another sport word)
+    title = "Dallas Cowboys mark 30 years of giving back with Salvation Army"
+    pairs = provider_queries(plan_subject(title, "The Cowboys served Thanksgiving meals with the Salvation Army.", "sports"), title, "sports")
+    assert all("sculpture" in q[1] and "relief" in q[1] and "memorial" in q[1] for q, _ in pairs)
+    cowboys = [q for q, lab in pairs if lab == "entity:dallas cowboys"]
+    assert cowboys and all(q[2] == ("dallas cowboys",) for q in cowboys)      # a full team name needs no sport word
+    statue = "Fort Worth unveils a statue of Bill Pickett at the Stockyards"
+    pairs = provider_queries(plan_subject(statue, "", "community"), statue, "community")
+    assert all("statue" not in q[1] for q, _ in pairs)                         # the statue is the story here

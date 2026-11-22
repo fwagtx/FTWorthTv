@@ -369,6 +369,15 @@ BRAND_POSSESSIVE_VERBS = {"closes", "opens", "announces", "says", "plans", "brin
                           "recalls", "offers", "drops", "raises", "lays", "eyes", "unveils", "wants", "gets", "returns", "arrives", "lands"}
 
 
+# a school or a place named in a sports headline is the team: "Notre Dame" found the Paris cathedral (Nov 21, render 107)
+SPORT_CONTEXT = ("football|basketball|baseball|softball|soccer|hockey|volleyball|athletics|stadium|arena|ballpark|field|court|team|"
+                 "players|player|quarterback|coach|fighting irish|mustangs|horned frogs|longhorns|aggies|bears|cougars|mean green|"
+                 "red raiders|mavericks|cowboys|rangers|wings|texans|astros|rockets|spurs|stars")
+# a sculpture, a plaque or a mural of an organisation is not its news: a Salvation Army memorial relief for a meal service
+ART_WORDS = ("sculpture", "statue", "relief", "plaque", "memorial", "monument", "bust", "mural", "painting", "drawing", "engraving",
+             "stained glass", "headstone", "grave")
+
+
 def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_allowed: bool = False, city: str = "") -> list[tuple[tuple, str]]:
     """(query tuple, subject label) pairs for the search providers, one named subject at a time.
 
@@ -405,6 +414,9 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
                     ((name, PERFORMANCE_WORDS, words), label)]
         else:
             avoid = () if performer_story else PERFORMANCE_WORDS
+            avoid = avoid + tuple(w for w in ART_WORDS if w not in low_title)
+            if category == "sports" and name not in TEAM_FULL_NAMES.values():
+                words = words + (SPORT_CONTEXT,)          # "Notre Dame football", never Notre-Dame de Paris
             out += [((f"fresh:{name}", avoid, words), label), ((name, avoid, words), label)]
     return out
 

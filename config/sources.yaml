@@ -119,6 +119,7 @@ rss:
     national: true
 
   - name: ESPN NBA
+    category_hint: sports
     url: https://www.espn.com/espn/rss/nba/news
     weight: 0.7
     image_policy: none
@@ -126,6 +127,7 @@ rss:
     national: true
 
   - name: ESPN MLB
+    category_hint: sports
     url: https://www.espn.com/espn/rss/mlb/news
     weight: 0.7
     image_policy: none
@@ -133,6 +135,7 @@ rss:
     national: true
 
   - name: ESPN NHL
+    category_hint: sports
     url: https://www.espn.com/espn/rss/nhl/news
     weight: 0.6
     image_policy: none
@@ -140,6 +143,7 @@ rss:
     national: true
 
   - name: ESPN College Football
+    category_hint: sports
     url: https://www.espn.com/espn/rss/ncf/news
     weight: 0.7
     image_policy: none
@@ -147,6 +151,7 @@ rss:
     national: true
 
   - name: ESPN College Basketball
+    category_hint: sports
     url: https://www.espn.com/espn/rss/ncb/news
     weight: 0.6
     image_policy: none
