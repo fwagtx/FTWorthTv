@@ -16,7 +16,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-from .library import FORT_WORTH_ONLY, OTHER_CITIES, SPORTS_VARIANTS, TOPIC_RULES, venue_fits
+from .library import FORT_WORTH_ONLY, OTHER_CITIES, SPORTS_VARIANTS, TOPIC_RULES, topic_excluded, venue_fits
 
 # topics that depict one specific subject; everything else in TOPIC_RULES is a beat (police, storm, highway, skyline ...)
 ENTITY_TOPICS = {
@@ -196,6 +196,8 @@ def entity_topics_for(names: list[str], category: str, title: str | None = None,
                 continue
             if title is not None and not venue_fits(topic, f"{title} {body}", title):
                 continue
+            if topic_excluded(topic, f"{name} {title or ''} {body}"):
+                continue                                   # "Baylor University Medical Center" is a Dallas hospital, not the Waco campus
             if category == "sports" and topic in SPORTS_VARIANTS and SPORTS_VARIANTS[topic] not in out:
                 out.append(SPORTS_VARIANTS[topic])
             if topic not in out:

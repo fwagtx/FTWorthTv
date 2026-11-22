@@ -100,3 +100,14 @@ def test_an_agency_branded_library_photo_is_only_for_that_agencys_story(tmp_path
     assert pick(tmp_path, ["police"], text="5 North Texas police officers among 30 nationwide honored by Justice Department") is None
     assert pick(tmp_path, ["police"], text="DFW Airport police arrest a man at Terminal D").id == "lib-airport"
     _cache.clear()
+
+
+def test_a_hospital_named_baylor_is_not_the_waco_campus():
+    """Render 112, Nov 22: 'Medical ethicist weighs in on North Texas transplant case' (a lawsuit against Baylor University
+    Medical Center in Dallas) drew McLane Stadium in Waco."""
+    from ftworthtv.images.library import topics_for
+    from ftworthtv.images.subject import plan_subject
+    text = "A North Texas transplant agency has sued Baylor University Medical Center."
+    assert "baylor" not in topics_for(text, "other", "dfw", title="Medical ethicist weighs in on North Texas transplant case")
+    assert "baylor" not in plan_subject("Baylor Scott & White opens new Fort Worth clinic", "", "community").entity_topics
+    assert "baylor" in topics_for("Baylor beat TCU 31-24 in Waco.", "sports", "texas", title="Baylor beats TCU")

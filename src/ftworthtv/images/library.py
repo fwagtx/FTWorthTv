@@ -188,6 +188,19 @@ TITLE_ONLY = {"heb", "stock-market", "gaming", "lottery", "parade", "shopping", 
               "concert", "music", "movies", "streaming", "att-stadium", "globe-life", "aac", "dickies-arena", "texas-motor-speedway", "amon-carter", "tcu-football", "dallas-skyline"}   # a venue mentioned in passing in the body is never the picture   # a passing mention in the body must not turn a local story into a turkey photo
 
 
+# a phrase that names something else carrying the same word: Baylor University Medical Center and Baylor Scott & White are
+# Dallas hospitals, not the Waco campus (Nov 22: a transplant lawsuit against the hospital drew McLane Stadium)
+TOPIC_EXCLUDE = {"baylor": ("medical center", "scott & white", "scott and white", "baylor health", "baylor hospital", "baylor all saints",
+                            "baylor medical", "baylor college of medicine", "baylor scott"),
+                 "texas-am": ("texas a&m-commerce", "texas a&m university-commerce", "a&m-commerce", "a&m commerce"),
+                 "ut-austin": ("ut southwestern", "ut health", "ut arlington", "ut dallas", "ut tyler", "ut permian")}
+
+
+def topic_excluded(topic: str, text: str) -> bool:
+    low = (text or "").lower()
+    return any(p in low for p in TOPIC_EXCLUDE.get(topic, ()))
+
+
 def topics_for(text: str, category: str, scope: str, title: str | None = None) -> list[str]:
     """Ordered library topics worth trying for a story: specific subject first, then category and scope defaults.
     A story set in another city never gets a Fort Worth landmark (its own city's skyline, a generic subject, or nothing)."""
@@ -198,7 +211,8 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
     out: list[str] = []
     for phrases, topic in TOPIC_RULES:
         hay = head if topic in TITLE_ONLY else low
-        if any(p in hay for p in phrases) and topic not in out and not (elsewhere and topic in FORT_WORTH_ONLY) and venue_fits(topic, whole, title):
+        if (any(p in hay for p in phrases) and topic not in out and not (elsewhere and topic in FORT_WORTH_ONLY) and venue_fits(topic, whole, title)
+                and not topic_excluded(topic, whole)):
             out.append(topic)
             if len(out) >= 2:
                 break
