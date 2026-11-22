@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-131309/01-watch-the-breaking-news-coverage-of-president-jf/post.jpg",
+    "credit": "Photo: Matthew T Rader via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_Skyline_at_Dusk.jpg",
+    "photo_id": "lib-dallas-skyline-at-dusk-jpg",
+    "subject": "beat:dallas-skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-131309/01-watch-the-breaking-news-coverage-of-president-jf/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "breaking",
+    "headline": "Watch the breaking news, coverage of President JFK's assassination in Dallas as it happened in 1963",
+    "caption": "Sunday marks the 63rd anniversary of the assassination of President John F. Kennedy in Dallas. Watch the breaking news, live coverage, and special reports here.",
+    "first_comment": "Source: KVUE Austin https://www.kvue.com/article/news/history/live-watch-jfk-john-f-kennedy-assassination-original-news-reports/287-a4a5d87e-9c19-432b-b6e7-33351057cdc4\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "105f049f04122d0a",
+    "source": "KVUE Austin",
+    "source_kind": "rss",
+    "title": "Watch the breaking news, coverage of President JFK's assassination in Dallas as it happened in 1963",
+    "summary": "Sunday marks the 63rd anniversary of the assassination of President John F. Kennedy in Dallas. Watch the breaking news, live coverage, and special reports here.",
+    "url": "https://www.kvue.com/article/news/history/live-watch-jfk-john-f-kennedy-assassination-original-news-reports/287-a4a5d87e-9c19-432b-b6e7-33351057cdc4",
+    "published": "2026-11-22T18:57:12+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/f8457591-928a-4c20-a7ed-c96e1781f7d2/20250401T223122/f8457591-928a-4c20-a7ed-c96e1781f7d2_750x422.jpg",
+    "image_credit": "Photo: KVUE Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.51,
+    "extra": {
+      "feed_title": "KVUE RSS Feed: local",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "breaking",
+    "relevance": 2,
+    "score": 1.1375
+  }
+}
