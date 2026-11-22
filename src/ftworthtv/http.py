@@ -52,8 +52,9 @@ def get(url: str, *, params: dict | None = None, headers: dict | None = None, ti
     return resp
 
 
-def get_json(url: str, *, params: dict | None = None, headers: dict | None = None, timeout: int = 25):
-    resp = get(url, params=params, headers=headers, timeout=timeout)
+def get_json(url: str, *, params: dict | None = None, headers: dict | None = None, timeout: int | tuple[int, int] = 25,
+             quick: bool = False):
+    resp = get(url, params=params, headers=headers, timeout=timeout, quick=quick)
     return resp.json()
 
 

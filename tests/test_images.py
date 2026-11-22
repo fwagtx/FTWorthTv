@@ -238,3 +238,34 @@ def test_an_i35w_photo_with_its_exit_signs_is_only_for_an_i35w_story(settings):
     assert i30 is None
     i35w = pick(settings.root, ["highway"], used=set(), text="Northbound I-35W lanes close at Basswood for construction.")
     assert i35w is not None and "i-35w" in i35w.id
+
+
+def test_a_provider_that_times_out_is_not_asked_again_this_run(monkeypatch, settings):
+    """Render 117, Nov 22: Openverse answered in minutes (four tries of 25 s per query) and the render hit its 15-minute
+    limit with nothing pushed. A provider that times out once is skipped for the rest of the run."""
+    import requests
+    from ftworthtv.images import providers
+    monkeypatch.setattr(providers, "_PROVIDERS_DOWN", set())
+    monkeypatch.setattr(providers, "_search_started", [])
+    calls = {"openverse": 0, "wikimedia": 0}
+    def slow(query, settings=None, **kw):
+        calls["openverse"] += 1
+        raise requests.exceptions.ReadTimeout("Read timed out. (read timeout=15)")
+    def commons(query, fresh=False):
+        calls["wikimedia"] += 1
+        return []
+    monkeypatch.setattr(providers, "search_openverse", slow)
+    monkeypatch.setattr(providers, "search_wikimedia", commons)
+    monkeypatch.setattr(providers, "provider_order", lambda s: ["openverse", "wikimedia"])
+    providers._search("Parade of Lights", settings)
+    providers._search("Fall Family Day", settings)
+    assert calls["openverse"] == 1 and calls["wikimedia"] == 2
+
+
+def test_photo_searches_stop_when_the_run_budget_is_spent(monkeypatch, settings):
+    import time
+    from ftworthtv.images import providers
+    monkeypatch.setattr(providers, "_PROVIDERS_DOWN", set())
+    monkeypatch.setattr(providers, "_search_started", [time.monotonic() - providers.SEARCH_BUDGET_S - 1])
+    monkeypatch.setattr(providers, "search_wikimedia", lambda q, fresh=False: (_ for _ in ()).throw(AssertionError("searched after the budget")))
+    assert providers._search("fresh:Parade of Lights", settings) == []

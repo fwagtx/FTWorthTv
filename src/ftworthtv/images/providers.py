@@ -198,7 +198,8 @@ def parse_openverse(payload: dict) -> list[PhotoCandidate]:
 
 def search_openverse(query: str, settings=None, *, page_size: int = 20) -> list[PhotoCandidate]:
     headers = _openverse_headers(settings) if settings is not None else {}
-    payload = http.get_json(OPENVERSE_API, params={"q": query, "license_type": "commercial", "page_size": page_size, "mature": "false"}, headers=headers)
+    payload = http.get_json(OPENVERSE_API, params={"q": query, "license_type": "commercial", "page_size": page_size, "mature": "false"}, headers=headers,
+                            timeout=PROVIDER_TIMEOUT, quick=True)
     return parse_openverse(payload)
 
 
@@ -237,7 +238,7 @@ def search_wikimedia(query: str, *, limit: int = 15, fresh: bool = False) -> lis
     }
     if fresh:
         params["gsrsort"] = "create_timestamp_desc"
-    return _candidates_from_pages(http.get_json(COMMONS_API, params=params))
+    return _candidates_from_pages(http.get_json(COMMONS_API, params=params, timeout=PROVIDER_TIMEOUT, quick=True))
 
 
 def search_wikimedia_category(category: str, *, limit: int = 25) -> list[PhotoCandidate]:
@@ -247,7 +248,7 @@ def search_wikimedia_category(category: str, *, limit: int = 25) -> list[PhotoCa
         "generator": "categorymembers", "gcmtitle": f"Category:{category}", "gcmtype": "file", "gcmlimit": limit,
         "prop": "imageinfo", "iiprop": "url|extmetadata|size", "iiurlwidth": 1800,
     }
-    return _candidates_from_pages(http.get_json(COMMONS_API, params=params))
+    return _candidates_from_pages(http.get_json(COMMONS_API, params=params, timeout=PROVIDER_TIMEOUT, quick=True))
 
 
 PERFORMANCE_WORDS = ("concert", "live", "performing", "performs", "tour", "festival", "show", "gig", "on stage", "onstage")
@@ -278,18 +279,52 @@ def provider_order(settings) -> list[str]:
     return list(cfg or DEFAULT_PROVIDER_ORDER)
 
 
+PROVIDER_TIMEOUT = (8, 15)           # connect, read: a photo search waits at most ~25 s, once
+_PROVIDERS_DOWN: set[str] = set()    # providers that timed out this run (a render is one process)
+
+
+SEARCH_BUDGET_S = 420                 # all photo searches of one render together: the workflow stops the job at 15 minutes
+_search_started: list[float] = []
+
+
+def _over_budget() -> bool:
+    import time
+    if not _search_started:
+        _search_started.append(time.monotonic())
+        return False
+    if time.monotonic() - _search_started[0] > SEARCH_BUDGET_S:
+        if "budget" not in _PROVIDERS_DOWN:
+            _PROVIDERS_DOWN.add("budget")
+            log.warning("photo searches used their %d s budget: the rest of this run uses the library or a text card", SEARCH_BUDGET_S)
+        return True
+    return False
+
+
+def _is_timeout(exc: Exception) -> bool:
+    import requests
+    return isinstance(exc, (requests.exceptions.Timeout, requests.exceptions.ConnectionError)) or "timed out" in str(exc).lower()
+
+
 def _search(query: str, settings) -> list[PhotoCandidate]:
+    if query.lower().startswith(("category:", "fresh:")) and "wikimedia" in _PROVIDERS_DOWN:
+        return []
+    if _over_budget():
+        return []
     if query.lower().startswith("category:"):   # Commons category lookup (venues, landmarks)
         try:
             return search_wikimedia_category(query.split(":", 1)[1].strip())
         except Exception as exc:
             log.warning("wikimedia category failed for %r: %s", query, exc)
+            if _is_timeout(exc):
+                _PROVIDERS_DOWN.add("wikimedia")
             return []
     if query.lower().startswith("fresh:"):      # newest Commons uploads about the subject first (events, games, ceremonies)
         try:
             return search_wikimedia(query.split(":", 1)[1].strip(), fresh=True)
         except Exception as exc:
             log.warning("wikimedia fresh search failed for %r: %s", query, exc)
+            if _is_timeout(exc):
+                _PROVIDERS_DOWN.add("wikimedia")
             return []
     keyed = {
         "pexels": lambda: search_pexels(query, settings.pexels_api_key) if settings.pexels_api_key else [],
@@ -301,12 +336,15 @@ def _search(query: str, settings) -> list[PhotoCandidate]:
     }
     for name in provider_order(settings):
         fn = keyed.get(name)
-        if not fn:
+        if not fn or name in _PROVIDERS_DOWN:
             continue
         try:
             found = fn()
         except Exception as exc:
             log.warning("%s search failed for %r: %s", name, query, exc)
+            if _is_timeout(exc):
+                _PROVIDERS_DOWN.add(name)     # Nov 22: Openverse answering in minutes ran a render past its 15-minute limit
+                log.warning("%s is not answering: no more %s searches this run", name, name)
             continue
         if found:
             log.info("photo: %s gave %d result(s) for %r", name, len(found), query)
