@@ -239,7 +239,8 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             if not lib_topics:
                 return None
             return pick_library(settings.root, lib_topics, used=exclude_photos,
-                                recently_used=state.photo_recently_used if state is not None else None)
+                                recently_used=state.photo_recently_used if state is not None else None,
+                                text=f"{story.title} {story.summary or ''}")
 
         def label_for_library(photo):
             return f"topic:{photo.topic}" if sp.mode in ("entity", "institution") else f"beat:{photo.topic}"

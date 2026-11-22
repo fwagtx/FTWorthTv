@@ -213,15 +213,20 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
     return out
 
 
-def pick(root: Path, topics: list[str], *, used: set[str] | None = None, recently_used=None, rng: random.Random | None = None) -> LibraryPhoto | None:
-    """The first topic with a photo not used in this run or recently; a random one among its files for variety."""
+def pick(root: Path, topics: list[str], *, used: set[str] | None = None, recently_used=None, rng: random.Random | None = None,
+         text: str | None = None) -> LibraryPhoto | None:
+    """The first topic with a photo not used in this run or recently; a random one among its files for variety.
+    A photo that shows one agency or one owner (a "DFW Airport Police" SUV) carries `only_when` phrases and is used only
+    when the story names one of them: a reader takes the badge on the door for the subject of the post."""
     lib = load_library(root)
     if not lib:
         return None
     rng = rng or random.Random()
     used = used or set()
     for topic in topics:
-        have = [e for e in lib if e.get("topic") == topic and e.get("id") not in used and (root / e["file"]).exists()]
+        low = (text or "").lower()
+        have = [e for e in lib if e.get("topic") == topic and e.get("id") not in used and (root / e["file"]).exists()
+                and (not e.get("only_when") or any(p in low for p in e["only_when"]))]
         fresh = [e for e in have if not (recently_used and recently_used(e.get("id")))]
         pool = fresh or have      # a correct photo seen a few days ago beats a wrong one
         if pool:

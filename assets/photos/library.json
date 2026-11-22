@@ -1439,7 +1439,12 @@
   "licence_name": "CC BY 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_Fort_Worth_Airport_Police_Chevy_Tahoe.jpg",
   "width": 1280,
-  "height": 960
+  "height": 960,
+  "only_when": [
+   "dfw airport",
+   "airport police",
+   "dfw international"
+  ]
  },
  {
   "id": "lib-cattle-grazing-beneath-transmission-lines-east-texas-jpg",

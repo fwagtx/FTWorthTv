@@ -87,3 +87,16 @@ def test_north_texas_is_the_region_never_the_unt_campus():
     assert topics_for("UNT Mean Green beat Rice in Denton", "sports", "dfw", title="UNT Mean Green beat Rice in Denton")[0] in ("unt", "unt-football")
     u = "University of North Texas opens a new research hall"
     assert "unt" in topics_for(u, "community", "dfw", title=u)
+
+
+def test_an_agency_branded_library_photo_is_only_for_that_agencys_story(tmp_path):
+    import json as _json
+    from ftworthtv.images.library import _cache, pick
+    (tmp_path / "assets" / "photos" / "police").mkdir(parents=True)
+    (tmp_path / "assets" / "photos" / "police" / "airport.jpg").write_bytes(b"x")
+    (tmp_path / "assets" / "photos" / "library.json").write_text(_json.dumps([
+        {"id": "lib-airport", "file": "assets/photos/police/airport.jpg", "topic": "police", "credit": "Photo: J", "only_when": ["dfw airport", "airport police"]}]))
+    _cache.clear()
+    assert pick(tmp_path, ["police"], text="5 North Texas police officers among 30 nationwide honored by Justice Department") is None
+    assert pick(tmp_path, ["police"], text="DFW Airport police arrest a man at Terminal D").id == "lib-airport"
+    _cache.clear()
