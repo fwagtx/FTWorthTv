@@ -1069,6 +1069,10 @@
       "at": "2026-11-20T19:15:08.920313+00:00",
       "reason": "the only image is the TechFW logo; a logo card reads like an ad, and the item is minor"
     },
+    "105f049f04122d0a": {
+      "at": "2026-11-22T19:19:33.795690+00:00",
+      "reason": "KVUE's 1963 JFK archive replay to watch on its site, not today's news (archive rule added)"
+    },
     "1f6c147f0a13ad43": {
       "at": "2026-11-22T17:14:19.269083+00:00",
       "reason": "a national picks column ('upset alert'), with AT&T Stadium for a game in Nashville (rule added)"
@@ -1104,6 +1108,10 @@
     "39eb16f305f86458": {
       "at": "2026-11-20T21:18:54.918609+00:00",
       "reason": "a conviction with no picture of the defendant or the courtroom; the render offered AT&T Stadium"
+    },
+    "449a16a0e5f8b897": {
+      "at": "2026-11-22T19:19:33.795759+00:00",
+      "reason": "a Fate (Rockwall County) arrest, outside Tarrant, with the crime cap reached; its Snapchat photo match is fixed in code"
     },
     "461ecbd45f87c35c": {
       "at": "2026-11-22T00:47:03.700665+00:00",
