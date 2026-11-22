@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-114256/01-broncos-ring-of-fame-linebacker-and-hall-of-fame/post.jpg",
+    "credit": "Photo: Jessekornblum via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mark_Wilson_San_Jose_Sports_Hall_of_Fame_Induction_2026_01.jpg",
+    "photo_id": "commons-203586781",
+    "subject": "entity:hall of fame"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-114256/01-broncos-ring-of-fame-linebacker-and-hall-of-fame/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Broncos Ring of Fame linebacker and Hall of Fame broadcaster Tom Jackson dies at 75",
+    "caption": "Jackson spent his entire career with the Broncos Denver Broncos legend and Ring of Fame linebacker Tom Jackson has died at the age of 75, the team announced on Sunday. No cause of death was reported.\n\nHe was selected by the Broncos in the fourth round of the 1973 NFL Draft and spent his entire career in Denver.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/nfl/news/broncos-ring-of-fame-linebacker-hall-of-fame-broadcaster-tom-jackson-dies-at-75/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "fd6bc56f0612b01b",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "Broncos Ring of Fame linebacker and Hall of Fame broadcaster Tom Jackson dies at 75",
+    "summary": "Jackson spent his entire career with the Broncos Denver Broncos legend and Ring of Fame linebacker Tom Jackson has died at the age of 75, the team announced on Sunday. No cause of death was reported. The Denver Broncos are heartbroken by the passing of Ring of Fame linebacker Tom Jackson, a cornerstone of the legendary Orange Crush defense and one of the most beloved players in franchise history. pic.twitter.com/MdcpkuyKYs Jackson was a major piece of the \"Orange Crush\" defense, playing for the team from 1973 to 1986. He was selected by the Broncos in the fourth round of the 1973 NFL Draft and spent his entire career in Denver. The three-time Pro Bowler played in 191 regular season games, with 177 starts, along with 10 playoff games. He also has two Super Bowl appearances, starting in the 1977 championship game, the Broncos first trip to the big game, and 1986. His 20 interceptions are…",
+    "url": "https://www.cbssports.com/nfl/news/broncos-ring-of-fame-linebacker-hall-of-fame-broadcaster-tom-jackson-dies-at-75/",
+    "published": "2026-11-22T15:27:19+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/22/399c6bd9-5a64-4f38-bd38-daf5af4c5340/tomjackson.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.39,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "national",
+      "national_term": "dies at"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.3942
+  }
+}
