@@ -362,7 +362,8 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   "held off", "survives", "outlasts", "outlasted", "upended", "upends", "pushes past", "pulls away", "eliminated",
                   " sweeps ", " swept ", " advance", "falls short", "fell short",
                   # a plural team takes the base verb: "Mavericks top the Clippers", "Stars edge Blues", "Rangers drop series finale"
-                  " top the ", " edge ", " drop ", "come up short", " blank ", " sweep ", " outlast ")
+                  " top the ", " edge ", " drop ", "come up short", " blank ", " sweep ", " outlast ", "blow out", "blows out", "blew out",
+                  " roll past", " rolls past", " cruise past", " cruises past")
 
 
 def happened(title: str, kind: str = "rss") -> bool:

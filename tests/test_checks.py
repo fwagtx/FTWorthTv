@@ -131,3 +131,13 @@ def test_a_captions_byline_tail_is_the_credit():
     assert photo_credit(html, {}) == "Michael Cavazos for The Texas Tribune"
     html2 = '<figure><figcaption>Volunteers sort cans at the Tarrant Area Food Bank. (Cristian ArguetaSoto | Fort Worth Report)</figcaption></figure>'
     assert photo_credit(html2, {}).startswith("Cristian ArguetaSoto")
+
+
+def test_a_weekday_that_disagrees_with_its_date_is_a_problem():
+    """Render 115, Nov 22 (a Sunday): NBC 5's I-30 closure said 'until 6 a.m. Monday, Nov. 26'; Nov. 26 is Thanksgiving Thursday."""
+    from datetime import datetime, timezone
+    from ftworthtv.checks import weekday_mismatches
+    sunday = datetime(2026, 11, 22, 15, 0, tzinfo=timezone.utc)
+    assert weekday_mismatches("The closure is expected to remain in place until 6 a.m. Monday, Nov. 26.", sunday)
+    assert not weekday_mismatches("The closure ends at 6 a.m. Monday, Nov. 23.", sunday)
+    assert not weekday_mismatches("Kickoff is Thursday, November 26 at 3:30 p.m.", sunday)

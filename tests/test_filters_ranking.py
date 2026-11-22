@@ -366,3 +366,13 @@ def test_an_experts_view_is_not_the_story_and_cold_fronts_are_weather():
               summary="A cold front on Sunday will keep temps across North Texas in the 60s into Monday.", url="https://x",
               published=datetime(2026, 11, 22, tzinfo=timezone.utc))
     assert infer_category(s) == "weather"                                                   # was "business" ("in store")
+
+
+def test_two_results_naming_the_same_teams_are_one_game():
+    """Render 115, Nov 22: KXAN's 'No. 5 Texas avoids letdown, routs Arkansas 45-3 on Senior Day' was drafted the morning
+    after 'Arch Manning steps up as Longhorns blow out Arkansas' went out."""
+    from ftworthtv.filters import same_game
+    assert same_game("No. 5 Texas avoids letdown, routs Arkansas 45-3 on Senior Day", "Arch Manning steps up as Longhorns blow out Arkansas")
+    assert same_game("TCU Falls to Utah in Home Finale", "Horned Frogs come up short against No. 2 Utah")
+    assert not same_game("Sarkisian hopes to send Texas seniors out in style against Arkansas", "Arch Manning steps up as Longhorns blow out Arkansas")
+    assert not same_game("Mavericks top the Clippers 110-100", "Stars edge Blues in shootout")

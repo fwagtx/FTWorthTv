@@ -467,10 +467,12 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     page can belong to another item, so only the first `lead` characters are considered)."""
     out: list[str] = []
     text = _DATELINE_RE.sub("", collapse_ws(text or ""))      # "ARLINGTON, Texas - " datelines are a wire habit, not a sentence
-    if len(text) > lead:
-        cut = text.rfind(". ", 0, lead)
-        text = text[:cut + 1] if cut > 0 else text[:lead]
+    cut_short = len(text) > lead
+    if cut_short:
+        text = text[:lead]
     parts = _split_sentences(text)
+    if cut_short and parts:
+        parts = parts[:-1]                    # the lead limit cut the last sentence: drop it whole, never at "Judge Mark T." (Nov 22)
     merged: list[str] = []
     for part in parts:                                        # a sentence that opens a quote keeps going until it closes it
         if merged and (merged[-1].count('"') % 2 == 1 or merged[-1].count("“") != merged[-1].count("”")):

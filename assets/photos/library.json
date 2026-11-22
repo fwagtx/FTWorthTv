@@ -1031,7 +1031,13 @@
     "licence_name": "CC BY-SA 2.0",
     "source_url": "https://commons.wikimedia.org/wiki/File:I-35W_South_-_Exit_60_-_US81_US287_Half_Mile_(49166741902).jpg",
     "width": 1280,
-    "height": 853
+    "height": 853,
+    "only_when": [
+      "i-35w",
+      "35w",
+      "interstate 35w",
+      "i-35 w"
+    ]
   },
   {
     "id": "lib-i-35w-south-exit-76-fm407-49166028573-jpg",
@@ -1043,7 +1049,13 @@
     "licence_name": "CC BY-SA 2.0",
     "source_url": "https://commons.wikimedia.org/wiki/File:I-35W_South_-_Exit_76_-_FM407_(49166028573).jpg",
     "width": 1280,
-    "height": 853
+    "height": 853,
+    "only_when": [
+      "i-35w",
+      "35w",
+      "interstate 35w",
+      "i-35 w"
+    ]
   },
   {
     "id": "lib-i-35w-south-exit-82-fm2449-49166504151-jpg",
@@ -1055,7 +1067,13 @@
     "licence_name": "CC BY-SA 2.0",
     "source_url": "https://commons.wikimedia.org/wiki/File:I-35W_South_-_Exit_82_-_FM2449_(49166504151).jpg",
     "width": 1280,
-    "height": 853
+    "height": 853,
+    "only_when": [
+      "i-35w",
+      "35w",
+      "interstate 35w",
+      "i-35 w"
+    ]
   },
   {
     "id": "lib-downtown-houston-tx-skyline-2018-jpg",

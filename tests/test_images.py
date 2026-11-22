@@ -229,3 +229,12 @@ def test_a_screenshot_or_a_schedule_wallpaper_is_not_a_photo():
     assert not_a_photo(cand("https://www.flickr.com/photos/1/2", "Dallas Cowboys logo"))
     assert not not_a_photo(cand("https://commons.wikimedia.org/wiki/File:Luka_Doncic_Dallas_Mavericks_2024.jpg", "Luka Doncic Dallas Mavericks 2024"))
     assert not not_a_photo(cand("https://commons.wikimedia.org/wiki/File:Fort_Worth_skyline_photographic_survey.jpg", "Fort Worth skyline"))
+
+
+def test_an_i35w_photo_with_its_exit_signs_is_only_for_an_i35w_story(settings):
+    """Render 115, Nov 22: an I-30 closure drew I-35W at the Ponder exit (FM 2449), signs readable."""
+    from ftworthtv.images.library import pick
+    i30 = pick(settings.root, ["highway"], used=set(), text="Eastbound I-30 will be closed from I-20 to Chapel Creek Boulevard.")
+    assert i30 is None
+    i35w = pick(settings.root, ["highway"], used=set(), text="Northbound I-35W lanes close at Basswood for construction.")
+    assert i35w is not None and "i-35w" in i35w.id

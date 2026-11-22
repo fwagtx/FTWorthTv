@@ -110,7 +110,34 @@ def caption_problems(copy: PostCopy, story: Story, *, min_ratio: float = 0.6, wr
         q = _norm(quote).strip(" .,")
         if len(q.split()) >= 3 and q not in src:
             problems.append(f"quotation not in the source: {quote[:60]!r}")
+    problems += weekday_mismatches(caption, story.published)
     return problems
+
+
+_WEEKDAYS = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
+_MONTHS = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6, "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12}
+_WEEKDAY_DATE_RE = re.compile(r"\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),?\s+(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"
+                              r"[a-z]*\.?\s+(\d{1,2})\b")
+
+
+def weekday_mismatches(text: str, published=None) -> list[str]:
+    """'until 6 a.m. Monday, Nov. 26' in a story published Nov 22, 2026 (a Sunday): Nov. 26 is a Thursday. A weekday that
+    disagrees with its date means one of them is wrong (often a recycled article), and the page must not repeat it."""
+    from datetime import date, datetime, timezone
+    ref = (published or datetime.now(timezone.utc)).date() if hasattr(published or datetime.now(timezone.utc), "date") else date.today()
+    out = []
+    for wd, mon, day in _WEEKDAY_DATE_RE.findall(text or ""):
+        m, d = _MONTHS[mon.lower()[:3]], int(day)
+        for year in (ref.year, ref.year + 1, ref.year - 1):
+            try:
+                when = date(year, m, d)
+            except ValueError:
+                continue
+            if abs((when - ref).days) <= 200:
+                if _WEEKDAYS[when.weekday()] != wd.lower():
+                    out.append(f"weekday and date disagree: {wd}, {mon} {d} is a {_WEEKDAYS[when.weekday()].title()} in {year}")
+                break
+    return out
 
 
 def source_alive(url: str, *, timeout: int = 20) -> str | None:

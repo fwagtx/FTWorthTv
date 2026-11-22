@@ -198,3 +198,16 @@ def test_a_cut_off_news_lead_is_not_trimmed_into_a_different_story(settings, now
                   published=now)
     copy, _ = write_copy(story, settings, now, force_template=True)
     assert copy.skip and "only a headline" in copy.skip_reason      # never "The fire ... was contained within an hour." alone
+
+
+def test_the_lead_limit_never_ends_a_sentence_on_a_middle_initial():
+    """Render 115, Nov 22: the Arlington pastor caption ended 'After a four-day trial before U.S. District Judge Mark T.'"""
+    from ftworthtv.writer import _sentences
+    summary = ("A jury found an Arlington pastor guilty on conspiracy and wire fraud charges in a real estate and investment scheme. "
+               "Sentencing is March 4, 2027. A federal jury found an Arlington pastor guilty of orchestrating a real estate and "
+               "investment fraud scheme that impacted more than 70 victims in the United States, Colombia, Mexico, and the Dominican "
+               "Republic, according to the U.S. Attorney's Office. After a four-day trial before U.S. District Judge Mark T. Pittman, "
+               "the jury found 53-year-old Richard Reinaldo Garcia, a pastor at several churches in Arlington, guilty on Thursday of "
+               "one count of conspiracy to commit wire fraud and three counts of wire fraud.")
+    out = _sentences(summary)
+    assert out and not any(s.endswith(" T.") for s in out)

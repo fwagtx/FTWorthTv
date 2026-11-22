@@ -235,6 +235,38 @@ def title_key(title: str) -> frozenset[str]:
     return frozenset(w for w in words if len(w) > 2 and w not in _STOP)
 
 
+TEAM_ALIASES = {"longhorns": "texas", "horns": "texas", "razorbacks": "arkansas", "hogs": "arkansas", "horned frogs": "tcu", "frogs": "tcu",
+                "utes": "utah", "mavs": "mavericks", "aggies": "texas a&m", "red raiders": "texas tech", "mustangs": "smu",
+                "mean green": "unt", "north texas": "unt", "sooners": "oklahoma", "bears": "baylor", "cougars": "houston",
+                "fighting irish": "notre dame", "wildcats": "kansas state", "cyclones": "iowa state", "jayhawks": "kansas"}
+_TEAM_STOP = {"no", "the", "a", "on", "in", "at", "senior", "day", "night", "week", "game", "series", "season", "home", "finale",
+              "big", "sec", "nfl", "nba", "mlb", "nhl", "mls", "college", "football", "playoff", "playoffs", "title", "after", "as"}
+
+
+def _game_keys(title: str) -> set[str]:
+    t = " " + (title or "").lower().replace("’", "'") + " "
+    keys: set[str] = set()
+    for alias in sorted(TEAM_ALIASES, key=len, reverse=True):
+        if re.search(r"(?<![\w])" + re.escape(alias) + r"(?![\w])", t):
+            keys.add(TEAM_ALIASES[alias])
+            t = re.sub(r"(?<![\w])" + re.escape(alias) + r"(?![\w])", " ", t)
+    for word in re.findall(r"\b[A-Z][\w&]+(?:\s+[A-Z][\w&]+)?", title or ""):
+        for w in word.lower().split():
+            if w not in _TEAM_STOP and len(w) > 2:
+                keys.add(TEAM_ALIASES.get(w, w))
+    return keys
+
+
+def same_game(a: str, b: str) -> bool:
+    """'Arch Manning steps up as Longhorns blow out Arkansas' and 'No. 5 Texas avoids letdown, routs Arkansas 45-3' are one
+    game (Nov 22: the second was drafted the morning after the first went out): two results that name the same two teams."""
+    from .images.subject import happened
+    if not (happened(a) and happened(b)):
+        return False                                      # a preview and a result are two stories
+    shared = _game_keys(a) & _game_keys(b)
+    return len(shared) >= 2
+
+
 def same_story(a: str, b: str, threshold: float = 0.6) -> bool:
     """Two headlines about the same event (an outlet's and a station's): the shorter one's content words are mostly
     contained in the other's, and at least four of them match."""
@@ -377,7 +409,7 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if story.source_kind == "rss" and personnel_move(story.title):
             dropped.append((story, "a hire announcement, not news"))
             continue
-        twin = state.recent_title_like(story.title, now, hours=48, match=same_story)
+        twin = state.recent_title_like(story.title, now, hours=48, match=lambda x, y: same_story(x, y) or same_game(x, y))
         if twin:
             dropped.append((story, f"same story already posted (another outlet or format): {twin[:60]}"))   # WFAA's article after WFAA's video of the same reopening
             continue
