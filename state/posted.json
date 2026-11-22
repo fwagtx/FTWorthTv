@@ -4,7 +4,7 @@
     "2026-11-19": 20,
     "2026-11-20": 19,
     "2026-11-21": 16,
-    "2026-11-22": 12
+    "2026-11-22": 13
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -43,7 +43,7 @@
       "weather": 2
     },
     "2026-11-22": {
-      "community": 1,
+      "community": 2,
       "crime": 4,
       "sports": 5,
       "weather": 2
@@ -71,7 +71,7 @@
     },
     "2026-11-22": {
       "nws_forecast": 1,
-      "rss": 8,
+      "rss": 9,
       "video": 1,
       "wanted": 2
     }
@@ -98,7 +98,7 @@
     },
     "2026-11-22": {
       "dfw": 3,
-      "local": 9
+      "local": 10
     }
   },
   "deferred": {
@@ -219,7 +219,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-22T13:35:00-06:00",
+  "last_post_at": "2026-11-22T14:50:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -246,6 +246,18 @@
       "source": "Fort Worth Police Department",
       "title": "WANTED: Elkin Daniel Hernandez",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "176dd74a4a7eba2f": {
+      "at": "2026-11-22T14:50:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437947517",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6843140034149004469",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth trans community space looks to build financial support",
+      "url": "https://fortworthreport.org/2026/11/22/fort-worth-trans-community-space-looks-to-build-financial-support/"
     },
     "17e3c2cb0873a471": {
       "at": "2026-11-20T08:09:00-06:00",
@@ -1185,6 +1197,10 @@
       "at": "2026-11-21T17:16:18.352283+00:00",
       "reason": "a third station video of the day (WFAA weather) is a link post; the feed stays original posts first, two station videos a day"
     },
+    "8fd80ca409874112": {
+      "at": "2026-11-22T20:45:53.903721+00:00",
+      "reason": "a CBS Sports highlight-clip page ('Watch Titans rookie Carnell Tate score...') mid-game: the clip cannot ride a card; rule added"
+    },
     "9428392a765ff728": {
       "at": "2026-11-20T15:19:26.662237+00:00",
       "reason": "a Dallas park amenity is not Fort Worth news"
@@ -1254,7 +1270,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 68,
+  "total_posts": 69,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
