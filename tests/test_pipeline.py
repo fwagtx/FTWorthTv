@@ -282,3 +282,20 @@ def test_kinds_whose_daily_share_is_spent_do_not_fill_the_writer_pool(settings, 
     assert reasons.get("wanted3") == "wanted bulletins for today are used up" and reasons.get("video2", "").startswith("video share used")
     seen = {d.story.id for d in report.drafts} | {s.id for s, r in report.skipped if not r.startswith(("wanted", "video"))}
     assert "mavs" in seen                                 # written (or judged by the writer), not starved by sixteen stuck candidates
+
+
+def test_last_post_at_keeps_the_latest_time_whatever_order_posts_are_recorded(settings):
+    """Nov 22: the 8:10 wanted bulletin was recorded before the 7:45 TCU post, and last_post_at went back to 7:45."""
+    from datetime import datetime, timezone
+    from ftworthtv.models import PostCopy, PostDraft, PublishResult, Story
+    from ftworthtv.state import State
+    state = State(settings.state_path)
+    def draft(sid):
+        story = Story(id=sid, source="x", source_kind="rss", title=f"story {sid}", summary="", url=f"https://x/{sid}")
+        copy = PostCopy(skip=False, skip_reason="", category="community", headline="h", caption="c", first_comment="", hashtags=[], image_query="", location="")
+        return PostDraft(story=story, copy=copy, writer="template", image=None, mode="photo")
+    late = datetime(2026, 11, 22, 14, 10, tzinfo=timezone.utc)
+    early = datetime(2026, 11, 22, 13, 45, tzinfo=timezone.utc)
+    state.record(draft("a"), PublishResult(ok=True, publisher="metricool"), late, "2026-11-22")
+    state.record(draft("b"), PublishResult(ok=True, publisher="metricool"), early, "2026-11-22")
+    assert state.last_post_at == late

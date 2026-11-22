@@ -129,7 +129,9 @@ class State:
             "post_url": result.url,
             "mode": draft.mode,
         }
-        self.data["last_post_at"] = when.isoformat()
+        prev = self.last_post_at
+        if prev is None or when > prev:               # a session records several posts in any order: keep the latest time
+            self.data["last_post_at"] = when.isoformat()
         self.data.setdefault("daily", {})[day] = self.posts_on(day) + 1
         cat = draft.copy.category or "other"
         by_cat = self.data.setdefault("daily_by_category", {}).setdefault(day, {})
