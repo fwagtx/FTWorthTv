@@ -62,23 +62,27 @@ watcher's seven minutes; severe weather alerts are the one thing that path handl
 
 ## 3. What is covered ("everything Fort Worth and beyond")
 
-- **News:** Fort Worth Report, Star-Telegram, FOX 4, NBC 5, WFAA, CBS Texas, Fort Worth Business Press, Fort Worth Magazine,
-  Fort Worth Weekly, CultureMap, TCU, City of Fort Worth news, City of Arlington news, Fort Worth police releases.
+- **News:** Fort Worth Report, FOX 4, NBC 5, WFAA, CBS Texas, Fort Worth Business Press, Fort Worth Weekly, CultureMap,
+  TCU football, City of Fort Worth news, City of Arlington news, Fort Worth police releases. Off since Nov 21, 2026: the
+  Star-Telegram (its server never answers GitHub's machines) and Fort Worth Magazine (feed gone, robots.txt says no);
+  KERA sits behind a Cloudflare challenge and ESPN behind an AWS one that lets a run through now and then. A feed that
+  answers with a challenge page or an empty body is logged as failed, never as "0 items", and the Monday sources check
+  (`sources-check.yml`) still tries the disabled ones.
 - **Weather:** National Weather Service alerts, radar and the daily forecast for Tarrant County.
 - **Events:** Ticketmaster for Dickies Arena, Billy Bob's, Texas Live and the Stockyards; the culture calendar
   (Stock Show, Juneteenth, Parade of Lights, Main Street Arts Festival, heat and freeze days).
 - **Crime:** official wanted bulletins (FWPD, Arlington PD, DPS), never scraped jail records.
 - **Texas and beyond, like the Dallas page:** up to eight posts a day from outside Tarrant County. Pro teams: Cowboys, Rangers,
   Mavericks, Stars, FC Dallas, Wings, Texans, Astros, Rockets, Spurs. Colleges: TCU and UT Arlington (local), the UT system
-  (Austin, Dallas, UTSA, UTEP), Texas A&M, Texas Tech, Baylor, SMU, UNT, Texas State, Houston (ESPN league and college feeds,
-  WFAA Sports, the Rangers' and Astros' own feeds). Worth-posting gate for all of it: two matching keywords, fresher than
+  (Austin, Dallas, UTSA, UTEP), Texas A&M, Texas Tech, Baylor, SMU, UNT, Texas State, Houston (CBS Sports, ESPN's league and college
+  feeds when they answer, WFAA Sports, the Rangers' and Astros' own feeds). Worth-posting gate for all of it: two matching keywords, fresher than
   30 hours, not a trivia / podcast / gallery filler item, results and moves ranked above previews, one per story across
   outlets, no other-metro crime or traffic, and the daily share of eight. Statewide news: new Texas bills and the governor,
   H-E-B, Buc-ee's, Whataburger, gas prices, outages, ERCOT (The Texas Tribune, KERA, Texas Monthly, KXAN, KVUE, KHOU, KENS 5).
   Widen or narrow it in `config/sources.yaml` → `relevance.dfw_keywords` / `texas_keywords` and
   `config/brand.yaml` → `content_mix.non_local_per_day`.
 - **National moments, like the Dallas page:** at most two a day from Variety, The Hollywood Reporter, Billboard, IGN, The Verge,
-  Deadline, NPR and ESPN's top headlines. A story gets in only two ways: it hits the watchlist (GTA VI, the Super Bowl, the World
+  Deadline, NPR, CBS Sports and ESPN's top headlines. A story gets in only two ways: it hits the watchlist (GTA VI, the Super Bowl, the World
   Series, the Oscars, a Powerball jackpot, Spotify Wrapped, Black Friday, daylight saving ...) or it carries a big-moment term
   (release date, box office, series finale, tour dates, dies at, Netflix, iPhone, SpaceX ...) that at least two of those outlets
   are running at the same time. Crime and traffic from elsewhere never qualify, and a moment is posted once, not once per outlet.

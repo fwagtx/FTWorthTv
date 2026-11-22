@@ -109,6 +109,17 @@ def shopping_guide(title: str, url: str = "") -> bool:
     return bool(_SHOPPING_RE.search(t) or _SALES_RE.search(t) or _DEALS_RE.search(t)) or "/gift-guide" in (url or "") or "/style/" in (url or "")
 
 
+_BETTING_RE = re.compile(r"\b(best bets?|odds,? (?:and )?(?:picks|predictions?|lines?)|(?:picks|predictions?),? (?:and )?odds|betting (?:odds|picks|apps?|promos?|lines?|tips|guide)|"
+                         r"sportsbooks?|promo codes?|bonus codes?|bonus bets?|player props?|(?:same-game )?parlay picks|same-game parlays?|"
+                         r"expert picks|computer picks|model picks|against the spread)\b", re.I)
+
+
+def betting_promo(title: str, summary: str = "") -> bool:
+    """'Cowboys vs. Eagles odds, picks, best bets', 'Get almost $4,000 in bonuses from betting apps': a sportsbook pitch
+    carries a team name, so the DFW tier would keep it; it is an ad, not news."""
+    return bool(_BETTING_RE.search(title or "") or _BETTING_RE.search((summary or "")[:300]))
+
+
 _COLUMN_RE = re.compile(r"^(?:[A-Z][a-z]+ on [A-Z][a-z]+|Opinion|Column|Commentary|Editorial|Letters?(?: to the [Ee]ditor)?|Analysis|Perspective|"
                         r"Guest column|Op-Ed|Essay|Review|Where I Live|My Fort Worth|Diary|Notebook|Letter from [A-Z][a-z]+|First Person|Voices)\s*[:|—–-]\s")
 
@@ -330,6 +341,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if shopping_guide(story.title, story.url):
             dropped.append((story, "shopping guide, not news"))
+            continue
+        if betting_promo(story.title, story.summary or ""):
+            dropped.append((story, "sports betting picks or promo, not news"))
             continue
         if story.source_kind == "rss" and personnel_move(story.title):
             dropped.append((story, "a hire announcement, not news"))

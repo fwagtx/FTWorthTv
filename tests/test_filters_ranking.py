@@ -324,3 +324,14 @@ def test_another_dfw_citys_police_blotter_is_not_ours():
     assert another_citys_blotter("Police shot at suspected burglars in Far East Dallas, no injuries reported")
     assert not another_citys_blotter("Dallas Cowboys fan dies after altercation during 49ers game, Arlington police say")   # a death runs
     assert not another_citys_blotter("Fort Worth police: one person shot in stable condition near the Stockyards")          # ours runs
+
+
+def test_sportsbook_picks_and_promos_are_not_news():
+    from ftworthtv.filters import betting_promo
+    assert betting_promo("Cowboys vs. Eagles odds, picks, best bets: Proven model reveals NFL Week 12 predictions")
+    assert betting_promo("F1 odds, predictions: Get almost $4,000 in bonuses from betting apps, sportsbooks for Las Vegas")
+    assert betting_promo("NFL Week 11 last-minute picks, best bets: Fernando Mendoza's Raiders face tough task")
+    assert betting_promo("Mavericks vs. Lakers", "Use this DraftKings promo code to claim bonus bets before tipoff")
+    assert not betting_promo("Cowboys beat Eagles 31-24 as Prescott throws three touchdowns")
+    assert not betting_promo("Rangers games will stay on FanDuel Sports Network Southwest next season")
+    assert not betting_promo("Texas Lottery: Powerball jackpot climbs to $900 million")

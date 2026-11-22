@@ -51,9 +51,16 @@ rss:
     image_policy: none
     national: true
     verify: true
-  - name: ESPN Top Headlines
+  - name: ESPN Top Headlines       # ESPN's WAF answers most GitHub runs with a 202 challenge page; kept for the runs it lets through
     category_hint: sports
     url: https://www.espn.com/espn/rss/news
+    weight: 0.5
+    image_policy: none
+    national: true
+    verify: true
+  - name: CBS Sports               # the national sports wire that answers GitHub runners (checked Nov 21, 2026)
+    category_hint: sports
+    url: https://www.cbssports.com/rss/headlines/
     weight: 0.5
     image_policy: none
     national: true
@@ -167,6 +174,7 @@ rss:
     social_tag: "@FortWorthReport"  # their republishing terms ask to be tagged on social posts
   - name: Fort Worth Star-Telegram
     url: https://www.star-telegram.com/news/local/?widgetName=rssfeed&widgetContentId=712015&getXmlFeed=true
+    enabled: false                 # the host never answers GitHub runners (feed and robots.txt time out); the weekly check still tries it
     weight: 0.9
     always_relevant: true
     image_policy: none
@@ -186,6 +194,7 @@ rss:
     verify: true
   - name: Fort Worth Magazine
     url: https://fwtx.com/feed/
+    enabled: false                 # the feed is gone (404) and fwtx.com's robots.txt now disallows bots
     weight: 0.7
     always_relevant: true
     category_hint: culture
@@ -212,7 +221,7 @@ rss:
     image_policy: none
     verify: true
   - name: CBS News Texas
-    url: https://www.cbsnews.com/latest/rss/texas
+    url: https://www.cbsnews.com/texas/latest/rss/main     # /latest/rss/texas now answers with an empty channel
     weight: 0.7
     image_policy: none
     verify: true
@@ -225,7 +234,7 @@ rss:
     category_hint: crime
     fetch_article: true
   - name: TCU Athletics
-    url: https://gofrogs.com/rss.aspx
+    url: https://gofrogs.com/rss?path=football     # Sidearm's bare rss.aspx answers 200 with an empty body
     weight: 0.6
     always_relevant: true
     category_hint: sports
