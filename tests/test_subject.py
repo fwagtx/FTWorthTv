@@ -255,3 +255,13 @@ def test_a_title_and_surname_is_searched_by_the_full_name_and_adjectives_are_not
     assert resolve_titled("Mayor Parker", "Fort Worth Mayor Mattie Parker said Monday ...") == "Mattie Parker"
     assert resolve_titled("Senator Cruz", "The senator spoke Monday.") is None          # a bare surname finds strangers
     assert resolve_titled("Kyrie Irving", "") == "Kyrie Irving"
+
+
+def test_a_game_result_headline_is_something_that_happened():
+    """Render 109, Nov 22: "TCU Falls to Utah in Home Finale" was not read as a result and went out (in review) with an
+    empty Amon G. Carter Stadium from 2017; a result takes a picture of the game or none."""
+    from ftworthtv.images.subject import happened
+    for title in ("TCU Falls to Utah in Home Finale", "TCU Pushes Past Kansas State, 20-10", "Mavericks top the Clippers 110-100",
+                  "Stars edge Blues in shootout", "Rangers drop series finale to Astros", "Horned Frogs come up short against Baylor"):
+        assert happened(title), title
+    assert not happened("Frogs Host No. 2 Utah Under the Lights on Saturday")        # a preview may show the stadium

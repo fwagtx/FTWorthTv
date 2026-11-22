@@ -344,7 +344,14 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   "collapsed", "caught fire", "burned", "burns ", "explosion", "flooded", "flooding", "tornado", "hail ", "evacuated",
                   "rescued", "pulled from", " dies ", " died ", "killed", " dead ", "arrested", "charged with", "indicted", "sentenced",
                   " fired", "resigns", "resigned", "steps down", "walks out", "protest", "ceremony", "ribbon", "reopens", "debut",
-                  "convicted", "found guilty", "pleads guilty", "pleaded guilty", "acquitted", "verdict", "sentenced to", "raided")
+                  "convicted", "found guilty", "pleads guilty", "pleaded guilty", "acquitted", "verdict", "sentenced to", "raided",
+                  # game results (Nov 22: "TCU Falls to Utah in Home Finale" went out with an empty Amon G. Carter Stadium from 2017)
+                  " falls to ", " fall to ", " falls in ", " fell to ", " drops ", " dropped ", " edges ", " edged ", " tops ", " topped ",
+                  " routs ", " routed ", " blanks ", " blanked ", "shut out", "shuts out", "came up short", "comes up short", "holds off",
+                  "held off", "survives", "outlasts", "outlasted", "upended", "upends", "pushes past", "pulls away", "eliminated",
+                  " sweeps ", " swept ", " advance", "falls short", "fell short",
+                  # a plural team takes the base verb: "Mavericks top the Clippers", "Stars edge Blues", "Rangers drop series finale"
+                  " top the ", " edge ", " drop ", "come up short", " blank ", " sweep ", " outlast ")
 
 
 def happened(title: str, kind: str = "rss") -> bool:
