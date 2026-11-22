@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T19:02:35.297049+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-121235/03-houston-muscles-past-kansas-to-cap-3-day-run-sta/post.jpg",
+    "credit": "Photo: Ilikecheese via Wikimedia Commons (CC BY 3.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Houston_Skyline_8-10-2010.JPG",
+    "photo_id": "lib-houston-skyline-8-10-2010-jpg",
+    "subject": "beat:houston-skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-121235/03-houston-muscles-past-kansas-to-cap-3-day-run-sta/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Houston muscles past Kansas to cap 3-day run, stamps claim to No. 1 ranking",
+    "caption": "Houston made a clear statement it belongs atop the rankings, capping its run through the Players Era 8 win a 92-83 win over No. 11 Kansas on Thursday night. LAS VEGAS -- Despite winning a nation-leading 162 games over the past five seasons, Houston entered 2026-27 with its lowest preseason ranking since 2021.\n\nIt took the Cougars all of three weeks to make a clear statement they belong at the top. No. 8 Houston knocked off No. 11 Kansas 92-83 on Thursday night in the championship game of the Players Era 8 on Thursday night.",
+    "first_comment": "Source: ESPN College Basketball https://www.espn.com/mens-college-basketball/story/_/id/50539115/houston-muscles-kansas-stamps-claim-no-1-ranking\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "6c595148dfbc1224",
+    "source": "ESPN College Basketball",
+    "source_kind": "rss",
+    "title": "Houston muscles past Kansas to cap 3-day run, stamps claim to No. 1 ranking",
+    "summary": "Houston made a clear statement it belongs atop the rankings, capping its run through the Players Era 8 win a 92-83 win over No. 11 Kansas on Thursday night. LAS VEGAS -- Despite winning a nation-leading 162 games over the past five seasons, Houston entered 2026-27 with its lowest preseason ranking since 2021. It took the Cougars all of three weeks to make a clear statement they belong at the top. No. 8 Houston knocked off No. 11 Kansas 92-83 on Thursday night in the championship game of the Players Era 8 on Thursday night. The Cougars will leave Las Vegas with three victories, including Wednesday's win over No. 1 Florida . Combined with losses by the Nos. 1, 2 and 3 teams, Houston could rise to No. 1 when next week's AP poll is released Monday afternoon. Houston imposed its will in the first half, jumping to a 15-3 lead and forcing Kansas to use two timeouts in the first five minutes.…",
+    "url": "https://www.espn.com/mens-college-basketball/story/_/id/50539115/houston-muscles-kansas-stamps-claim-no-1-ranking",
+    "published": "2026-11-22T16:57:19+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN College Basketball",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.54,
+    "extra": {
+      "feed_title": "www.espn.com - NCB",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.7051
+  }
+}
