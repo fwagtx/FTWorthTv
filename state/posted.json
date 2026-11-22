@@ -4,7 +4,7 @@
     "2026-11-19": 20,
     "2026-11-20": 19,
     "2026-11-21": 16,
-    "2026-11-22": 11
+    "2026-11-22": 12
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -45,7 +45,7 @@
     "2026-11-22": {
       "community": 1,
       "crime": 4,
-      "sports": 4,
+      "sports": 5,
       "weather": 2
     }
   },
@@ -71,7 +71,7 @@
     },
     "2026-11-22": {
       "nws_forecast": 1,
-      "rss": 7,
+      "rss": 8,
       "video": 1,
       "wanted": 2
     }
@@ -98,7 +98,7 @@
     },
     "2026-11-22": {
       "dfw": 3,
-      "local": 8
+      "local": 9
     }
   },
   "deferred": {
@@ -219,7 +219,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-22T12:19:00-06:00",
+  "last_post_at": "2026-11-22T13:35:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -728,6 +728,18 @@
       "source": "Fort Worth Report",
       "title": "New citywide initiative asks Fort Worthians to volunteer 500,000 hours by April",
       "url": "https://fortworthreport.org/2026/11/20/new-citywide-initiative-asks-fort-worthians-to-volunteer-500000-hours-by-april/"
+    },
+    "a0f2fffafb298082": {
+      "at": "2026-11-22T13:35:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437877984",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1738402536747939202",
+      "publisher": "metricool-session",
+      "source": "CBS News Texas",
+      "title": "TCU fires Sonny Dykes four years after making CFP championship game",
+      "url": "https://www.cbsnews.com/texas/news/tcu-fires-sonny-dykes-four-years-after-making-cfp-championship-game/"
     },
     "a6ea3e7042a06af0": {
       "at": "2026-11-20T13:09:00-06:00",
@@ -1242,7 +1254,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 67,
+  "total_posts": 68,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
