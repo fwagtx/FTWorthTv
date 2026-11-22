@@ -132,6 +132,9 @@ COMMON_NOUNS = {"theater", "theatre", "theaters", "performances", "performance",
                 "notes", "season", "playoffs", "conference", "championship", "box office", "franchise", "sequel", "trailer"}
 
 
+HONORS = ("hall of fame", "ring of fame", "walk of fame", "hall of honor", "ring of honor", "honor roll")
+_DEATH_RE = re.compile(r"\b(dies|died|dead at|passes away|passed away|obituary|remembered|mourns?|funeral|memorial service)\b", re.I)
+
 _QUOTED_RE = re.compile(r"[‘“\"]([^’”\"]{3,80})[’”\"]|(?<![\w])'([^']{3,80})'(?![\w])")
 
 
@@ -184,6 +187,9 @@ def entities(title: str, body: str = "") -> list[str]:
         if len(low.replace(" ", "")) < 2:
             i = max(j, i + 1)                              # "Indiana gets 'D'": a letter grade is never a subject
             continue
+        if any(h in low for h in HONORS):
+            i = max(j, i + 1)                              # "Hall of Fame broadcaster Tom Jackson": an honor, not a subject (Nov 22:
+            continue                                       # "Hall of Fame" found another man at a hall of fame induction)
         keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and low not in COMMON_NOUNS and low not in ADJECTIVES and (
             len(words) > 1 or possessive or acronym or low in body_mid or _known_subject(low) or i > 0 and low not in STOP)
         if keep and phrase not in out:
@@ -239,6 +245,8 @@ def resolve_titled(name: str, body: str) -> str | None:
 def plan_subject(title: str, body: str, category: str) -> SubjectPlan:
     names = [n for n in (resolve_titled(x, body) for x in entities(title, body)) if n]
     subjects = [n for n in names if not _is_place(n)]
+    if _DEATH_RE.search(title or "") and any(looks_like_person(n) for n in subjects):
+        subjects = [n for n in subjects if looks_like_person(n)]   # a death is about the person: no team, venue or honor photo
     topics = entity_topics_for(subjects, category, title, body)
     plan = SubjectPlan(primary=subjects[0] if subjects else None, entities=names, entity_topics=topics)
     if topics:

@@ -298,3 +298,13 @@ def test_a_quoted_work_title_is_not_mined_for_words():
     plan = plan_subject("‘Hunger Games: Sunrise on the Reaping’ Slays $120M at Box Office as Franchise Heats Back Up",
                         "The sixth film in the Lionsgate series rebounded.", "culture")
     assert not any("sunrise" in n.lower() for n in plan.entities) and "Box Office" not in plan.entities
+
+
+def test_a_death_is_searched_by_the_person_only_and_an_honor_is_not_a_subject():
+    """Render 119, Nov 22: 'Broncos Ring of Fame linebacker and Hall of Fame broadcaster Tom Jackson dies at 75' searched
+    'Hall of Fame' (as a building) and drew another man at the San Jose Sports Hall of Fame induction."""
+    from ftworthtv.images.subject import plan_subject
+    plan = plan_subject("Broncos Ring of Fame linebacker and Hall of Fame broadcaster Tom Jackson dies at 75",
+                        "Denver Broncos legend and Ring of Fame linebacker Tom Jackson has died at the age of 75.", "sports")
+    assert plan.search_names == ["Tom Jackson"]
+    assert "Hall of Fame" not in plan.entities
