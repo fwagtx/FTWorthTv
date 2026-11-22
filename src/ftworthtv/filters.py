@@ -308,6 +308,29 @@ def same_story(a: str, b: str, threshold: float = 0.6) -> bool:
     return shared >= 4 and shared / min(len(ka), len(kb)) >= threshold
 
 
+_PERSONNEL_RE = re.compile(r"\b(?:fire[sd]?|firing|relieved of|dismiss(?:es|ed|al)?|part(?:s|ed)? ways|parting ways|"
+                           r"change in leadership|leadership change|coaching change|out as|ousts?|ousted|let go|"
+                           r"resign(?:s|ed|ation)?|steps? down|stepping down)\b", re.I)
+_HIRE_RE = re.compile(r"\b(?:names?|named|hires?|hired|tabs?|promotes?|promoted|picks?|selects?|introduces?|interim|replacement|successor)\b", re.I)
+_FULL_NAME_RE = re.compile(r"\b([A-Z][a-z]+(?:\s[A-Z][a-z]+){1,2})\b")
+
+
+def same_personnel_news(title: str, summary: str, posted_title: str) -> bool:
+    """'TCU Football Announces Change in Leadership' after 'TCU fires Sonny Dykes ...' is the same firing in the school's
+    own words (Nov 22): when a post in the last two days reported a person's firing or resignation, a story whose title or
+    lead reports a departure and names that person is the same news. A hire ('TCU names X interim coach') is new news."""
+    if not _PERSONNEL_RE.search(posted_title or ""):
+        return False
+    if _HIRE_RE.search(title or "") and not _HIRE_RE.search(posted_title or ""):
+        return False
+    text = f"{title or ''} {(summary or '')[:500]}"
+    if not _PERSONNEL_RE.search(text):
+        return False
+    from .images.subject import looks_like_person
+    names = [n for n in _FULL_NAME_RE.findall(posted_title or "") if looks_like_person(n)]
+    return any(n in text for n in names)
+
+
 _WORDS = {"1": "one", "2": "two", "3": "three", "4": "four", "5": "five", "6": "six", "7": "seven", "8": "eight", "9": "nine", "10": "ten"}
 
 
@@ -450,7 +473,8 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if story.source_kind == "rss" and personnel_move(story.title):
             dropped.append((story, "a hire announcement, not news"))
             continue
-        twin = state.recent_title_like(story.title, now, hours=48, match=lambda x, y: same_story(x, y) or same_game(x, y))
+        twin = state.recent_title_like(story.title, now, hours=48, match=lambda x, y: same_story(x, y) or same_game(x, y)
+                                       or same_personnel_news(x, story.summary or "", y))
         if twin:
             dropped.append((story, f"same story already posted (another outlet or format): {twin[:60]}"))   # WFAA's article after WFAA's video of the same reopening
             continue

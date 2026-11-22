@@ -302,3 +302,15 @@ def test_a_name_that_starts_with_a_number_keeps_it():
     assert "Six Flags Over Texas" in entities("'Holiday in the Park' kicks off at Six Flags Over Texas with new lights")
     assert "Fort Worth" in " ".join(entities("Two Fort Worth men charged in Northside robbery"))
     assert not any(n.lower().startswith("two ") for n in entities("Two Fort Worth men charged in Northside robbery"))
+
+
+def test_a_schools_change_in_leadership_release_is_the_firing_already_posted():
+    """Nov 22: TCU Athletics' 'TCU Football Announces Change in Leadership' came an hour after 'TCU fires Sonny Dykes'."""
+    from ftworthtv.filters import same_personnel_news
+    posted = "TCU fires Sonny Dykes four years after making CFP championship game"
+    lead = ("TCU Director of Intercollegiate Athletics Mike Buddie announced Sunday that head football coach Sonny Dykes "
+            "has been relieved of his duties.")
+    assert same_personnel_news("TCU Football Announces Change in Leadership", lead, posted)
+    assert not same_personnel_news("TCU Football Announces Change in Leadership", "", posted)          # nothing to tie it yet
+    assert not same_personnel_news("TCU names Jim Smith interim coach after firing Sonny Dykes", lead, posted)   # a hire is news
+    assert not same_personnel_news("TCU Football Announces Change in Leadership", lead, "Sonny Dykes talks bowl hopes")

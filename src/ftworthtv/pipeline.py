@@ -191,6 +191,12 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if not settings.offline and story.source_kind == "rss" and not story.official and (len(story.summary or "") < 160 or cut_off(story.summary or "")):
             from .sources.article import enrich_summary
             enrich_summary(story)      # the feed gave a teaser (short, or cut off with "..."): read the article lead
+            from .filters import same_personnel_news
+            twin = state.recent_title_like(story.title, now, hours=48, match=lambda x, y: same_personnel_news(x, story.summary or "", y))
+            twin = twin or next((d.story.title for d in drafts if same_personnel_news(story.title, story.summary or "", d.story.title)), None)
+            if twin:                   # the lead the article gave names the departure already posted ("Change in Leadership")
+                report.skipped.append((story, f"same news already posted: {twin[:60]}"))
+                continue
         copy, writer = write_copy(story, settings, now, force_template=story.source_kind == "submission")   # a viewer's words stay theirs
         if copy.skip:
             report.skipped.append((story, copy.skip_reason or "writer skipped"))
