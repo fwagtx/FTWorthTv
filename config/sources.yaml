@@ -240,6 +240,20 @@ rss:
     category_hint: sports
     image_policy: none
     verify: true
+  - name: TCU Athletics (men's basketball)        # one feed per sport: the all-sports feed is ten items, mostly volleyball and golf
+    url: https://gofrogs.com/rss?path=mbball
+    weight: 0.6
+    always_relevant: true
+    category_hint: sports
+    image_policy: none
+    verify: true
+  - name: TCU Athletics (women's basketball)
+    url: https://gofrogs.com/rss?path=wbball
+    weight: 0.5
+    always_relevant: true
+    category_hint: sports
+    image_policy: none
+    verify: true
 
 # Government news listings without RSS (OpenCities CMS). Parsed from HTML; the release page is fetched for the real photo.
 # FWPD releases carry booking photos when an arrest is announced; city news carries event/project photos.
