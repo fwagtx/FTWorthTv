@@ -340,3 +340,13 @@ def test_sportsbook_picks_and_promos_are_not_news():
     assert not betting_promo("Cowboys pick up a fifth-round pick in the trade")
     assert not betting_promo("Rangers games will stay on FanDuel Sports Network Southwest next season")
     assert not betting_promo("Texas Lottery: Powerball jackpot climbs to $900 million")
+
+
+def test_a_teams_game_notes_sheet_is_not_a_story():
+    from ftworthtv.filters import game_notes
+    for title in ("Postgame Notes - vs. Utah", "Pregame Notes: TCU at Baylor", "Game Notes vs. Kansas State", "Notes & Quotes: Utah",
+                  "Box Score: TCU 24, Utah 31", "Week 13 Notes", "TCU Football Weekly Release: Baylor"):
+        assert game_notes(title), title
+    for title in ("TCU Falls to Utah in Home Finale", "Mavericks notebook: Flagg's rookie season so far",
+                  "Fort Worth council notes concerns over budget"):
+        assert not game_notes(title), title

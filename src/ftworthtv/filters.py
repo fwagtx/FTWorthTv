@@ -122,6 +122,18 @@ def betting_promo(title: str, summary: str = "") -> bool:
     return bool(_BETTING_RE.search(title or "") or _BETTING_RE.search((summary or "")[:300]))
 
 
+_GAME_NOTES_RE = re.compile(r"^(?:(?:post|pre)-?game|game|weekly|match|series|week \d+)\s+(?:notes|quotes|notebook|stats)\b|"
+                           r"^(?:notes|quotes)\s*(?:&|and)\s*(?:notes|quotes)\b|^box score\b|\bpostgame (?:notes|quotes)\b|"
+                           r"^(?:game|match) (?:info|central|day central)\b|\bdepth chart\b|\bweekly release\b", re.I)
+
+
+def game_notes(title: str) -> bool:
+    """'Postgame Notes - vs. Utah', 'Notes & Quotes', 'Box Score', 'Weekly Release': a team's stat sheet for a game the page
+    has already posted (Nov 22: TCU's postgame notes came an hour after the recap and opened "TEAM NOTES TCU has now scored
+    in 432 consecutive games")."""
+    return bool(_GAME_NOTES_RE.search((title or "").strip()))
+
+
 _COLUMN_RE = re.compile(r"^(?:[A-Z][a-z]+ on [A-Z][a-z]+|Opinion|Column|Commentary|Editorial|Letters?(?: to the [Ee]ditor)?|Analysis|Perspective|"
                         r"Guest column|Op-Ed|Essay|Review|Where I Live|My Fort Worth|Diary|Notebook|Letter from [A-Z][a-z]+|First Person|Voices)\s*[:|—–-]\s")
 
@@ -346,6 +358,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if betting_promo(story.title, story.summary or ""):
             dropped.append((story, "sports betting picks or promo, not news"))
+            continue
+        if game_notes(story.title):
+            dropped.append((story, "a team's game notes or quotes sheet, not a story"))
             continue
         if story.source_kind == "rss" and personnel_move(story.title):
             dropped.append((story, "a hire announcement, not news"))
