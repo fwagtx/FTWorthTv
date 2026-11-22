@@ -156,6 +156,16 @@ _LOCAL_TEAMS_RE = re.compile(r"\b(?:tcu|horned frogs|frogs|cowboys|mavericks|mav
                              r"ut arlington|uta|mavericks)\b", re.I)
 
 
+_COLUMN_ROUNDUP_RE = re.compile(r"\b(?:winners and losers|takeaways|overreactions|what we learned|things we learned|observations from|"
+                         r"instant analysis|hot takes?|mailbag|studs and duds|stock up,? stock down)\b", re.I)
+
+
+def roundup_column(title: str) -> bool:
+    """'NFL Week 11 winners and losers: Cowboys offense makes history ...', '3 takeaways from ...': a writer's verdict on
+    games the page has already reported, not news (Nov 22, CBS Sports)."""
+    return bool(_COLUMN_ROUNDUP_RE.search(title or ""))
+
+
 def rankings_list(title: str) -> bool:
     """'Coaches Poll top 25: Texas, Tennessee climb; UCLA, Indiana tumble': a national ranking is a list, and two sentences
     from the middle of it ('Previously slotted at No. 13, Iowa remained there...') are not a post (Nov 22, render 123).
@@ -301,7 +311,7 @@ _SCORE_RE = re.compile(r"\b\d{1,3}-\d{1,3}\b")
 _RESULT_RE = re.compile(r"\b(?:falls? to|fell to|tops?|topped|beats?|edges?|edged|routs?|routed|blows? out|blew out|wins? over|"
                         r"loss to|loses to|lost to|comes? up short|came up short|seals?|sealed|holds? on|held on|knocks? off|"
                         r"outduels?|takes? down|dominates?|dominated|crush(?:es|ed)?|cruises? past|rolls? past|rall(?:y|ies|ied) past|"
-                        r"stuns?|stunned|upsets?|shuts? out|blanks?|outlasts?)\b", re.I)
+                        r"stuns?|stunned|upsets?|shuts? out|blanks?|outlasts?|ends? in|ended in|scorigami|final score)\b", re.I)
 
 
 def _sports_result(title: str) -> bool:
@@ -526,6 +536,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "rss" and not story.official and press_release(story.title, story.summary or ""):
             dropped.append((story, "an organization's press release, not news"))
+            continue
+        if story.source_kind == "rss" and roundup_column(story.title):
+            dropped.append((story, "a roundup column (winners and losers, takeaways), not news"))
             continue
         if story.source_kind == "rss" and rankings_list(story.title):
             dropped.append((story, "a national rankings list with no local team in it"))

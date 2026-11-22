@@ -453,3 +453,14 @@ def test_a_fire_or_gunfire_is_not_a_firing_and_a_city_is_not_a_person():
     lead = ("TCU Director of Intercollegiate Athletics Mike Buddie announced Sunday that head football coach Sonny Dykes "
             "has been relieved of his duties.")
     assert same("TCU Football Announces Change in Leadership", lead, "TCU fires Sonny Dykes four years after making CFP championship game")
+
+
+def test_a_scorigami_story_is_the_game_already_posted_and_roundups_are_columns():
+    """Nov 22, render 137: 'Cowboys vs. Titans ends in historic scorigami after late Tennessee touchdown' waited for the next
+    day under the sports cap although the 51-30 final had gone out, and CBS's 'NFL Week 11 winners and losers' waited too."""
+    from ftworthtv.filters import roundup_column, same_game
+    assert same_game("Cowboys vs. Titans ends in historic scorigami after late Tennessee touchdown",
+                     "Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs")
+    assert roundup_column("NFL Week 11 winners and losers: Cowboys offense makes history in get-right win, Steelers stumble")
+    assert roundup_column("3 takeaways from the Cowboys' 51-30 win over the Titans")
+    assert not roundup_column("Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs")
