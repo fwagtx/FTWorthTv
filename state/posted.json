@@ -4,7 +4,7 @@
     "2026-11-19": 20,
     "2026-11-20": 19,
     "2026-11-21": 16,
-    "2026-11-22": 3
+    "2026-11-22": 5
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -43,8 +43,8 @@
       "weather": 2
     },
     "2026-11-22": {
-      "crime": 1,
-      "sports": 1,
+      "crime": 2,
+      "sports": 2,
       "weather": 1
     }
   },
@@ -69,9 +69,9 @@
       "wanted": 2
     },
     "2026-11-22": {
-      "rss": 1,
+      "rss": 2,
       "video": 1,
-      "wanted": 1
+      "wanted": 2
     }
   },
   "daily_by_scope": {
@@ -96,7 +96,7 @@
     },
     "2026-11-22": {
       "dfw": 2,
-      "local": 1
+      "local": 3
     }
   },
   "deferred": {
@@ -167,7 +167,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-22T07:20:00-06:00",
+  "last_post_at": "2026-11-22T07:45:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -545,6 +545,18 @@
       "title": "Fort Worth Science and History Museum membership can get you savings at other museums",
       "url": "https://www.youtube.com/watch?v=ZtuZ-nKRsLg"
     },
+    "8d0602df4a20f81c": {
+      "at": "2026-11-22T07:45:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437553510",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2829964774250166678",
+      "publisher": "metricool-session",
+      "source": "TCU Athletics",
+      "title": "TCU Falls to Utah in Home Finale",
+      "url": "https://gofrogs.com/news/2026/11/22/football-tcu-falls-to-utah-in-home-finale"
+    },
     "8d6a55cfe2ff5f46": {
       "at": "2026-11-20T11:29:00-06:00",
       "category": "community",
@@ -592,6 +604,18 @@
       "source": "WFAA",
       "title": "Fort Worth ISD to serve free meals over Thanksgiving Break",
       "url": "https://www.youtube.com/watch?v=V4y-sexmRfI"
+    },
+    "99c8950734b9734c": {
+      "at": "2026-11-22T08:10:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "437553613",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1018958869351384962",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Dwight Sanders",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
     },
     "9e162c1750326578": {
       "at": "2026-11-21T08:00:00-06:00",
@@ -1010,7 +1034,7 @@
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 59,
+  "total_posts": 61,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
