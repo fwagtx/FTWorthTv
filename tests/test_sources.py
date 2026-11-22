@@ -217,3 +217,12 @@ def test_a_photographer_named_twice_by_the_page_is_credited_once():
     html = '<figure><img src="x.jpg"><figcaption><span>Credit:</span> Bob Daemmrich Bob Daemmrich for The Texas Tribune</figcaption></figure>'
     assert photo_credit(html, {}) == "Bob Daemmrich for The Texas Tribune"
     assert photo_credit('<figcaption>Photo by Jane Doe / Fort Worth Report</figcaption>', {}) == "Jane Doe"
+
+
+def test_a_bot_challenge_or_an_empty_body_is_a_failure_not_a_quiet_feed():
+    from ftworthtv.sources.rss import feed_problem
+    waf = b'<!DOCTYPE html><html><head><script>window.awsWafCookieDomainList = [];</script></head></html>'
+    assert feed_problem(202, waf) == "blocked by a bot challenge (HTTP 202)"
+    assert feed_problem(200, b"<html><title>Just a moment...</title></html>").startswith("blocked by a bot challenge")
+    assert feed_problem(200, b"") == "empty body (HTTP 200)"
+    assert feed_problem(200, b'<?xml version="1.0"?><rss><channel><title>x</title></channel></rss>') is None

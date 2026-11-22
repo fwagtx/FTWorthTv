@@ -91,8 +91,25 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
     return stories
 
 
+_CHALLENGE_MARKERS = (b"awsWafCookieDomainList", b"AwsWafIntegration", b"challenge-platform", b"_cf_chl_opt", b"Just a moment...")
+
+
+def feed_problem(status: int, content: bytes) -> str | None:
+    """Why a 2xx answer is not a feed: ESPN's WAF answers 202 with a JavaScript challenge page, a Sidearm site answers 200
+    with nothing. Both used to log as "0 items", which reads like a quiet news day instead of a broken source."""
+    head = (content or b"")[:4000]
+    if status == 202 or any(m in head for m in _CHALLENGE_MARKERS):
+        return f"blocked by a bot challenge (HTTP {status})"
+    if not head.strip():
+        return f"empty body (HTTP {status})"
+    return None
+
+
 def fetch_one(cfg: dict, now: datetime) -> list[Story]:
     resp = http.get(cfg["url"], headers={"Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.8"})
+    problem = feed_problem(resp.status_code, resp.content)
+    if problem:
+        raise ValueError(problem)
     return parse_feed(cfg, resp.content, now)
 
 
