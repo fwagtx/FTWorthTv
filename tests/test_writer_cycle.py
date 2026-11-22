@@ -135,3 +135,35 @@ def test_at_the_meeting_does_not_open_a_caption():
             "The Fort Worth City Plan Commission unanimously approved two waiver requests related to subdivisions.")
     sents = _sentences(text)
     assert sents[0].startswith("The Fort Worth City Plan Commission") and sents[1].startswith("At the meeting")
+
+
+def test_a_meeting_recap_more_than_a_week_old_is_skipped(settings, now):
+    from datetime import datetime, timezone
+    from ftworthtv.models import Story
+    from ftworthtv.writer import stale_meeting_recap, write_copy
+    settings.writer = "template"
+    old = Story(id="c", source="Fort Worth Report", source_kind="rss", title="Colleyville City Council considering pet resort permit", url="https://x/c",
+                published=datetime(2026, 11, 22, 0, 20, tzinfo=timezone.utc),
+                summary=("Editor's note: To learn more about how the transcript that informed this report was created, visit our site. "
+                         "A proposed All American Pet Resorts on Colleyville Boulevard dominated the Nov. 4 Colleyville City Council meeting, "
+                         "drawing hours of debate from residents, competing business owners, attorneys and council members."))
+    assert stale_meeting_recap(old, now)
+    copy, _ = write_copy(old, settings, now)
+    assert copy.skip and copy.skip_reason == "a meeting recap more than a week old"
+    fresh = Story(id="f", source="Fort Worth Report", source_kind="rss", title="Fort Worth council approves budget", url="https://x/f",
+                  published=datetime(2026, 11, 22, 0, 20, tzinfo=timezone.utc),
+                  summary="The Fort Worth City Council approved the budget at its Nov. 18 meeting after hours of debate, the city said.")
+    upcoming = Story(id="u", source="Fort Worth Report", source_kind="rss", title="Council to vote on budget", url="https://x/u",
+                     published=datetime(2026, 11, 22, 0, 20, tzinfo=timezone.utc),
+                     summary="The Fort Worth City Council will take up the budget at its Dec. 2 meeting, the city said Friday.")
+    assert not stale_meeting_recap(fresh, now) and not stale_meeting_recap(upcoming, now)
+
+
+def test_a_nut_graf_about_programs_moves_and_a_repeated_figure_is_dropped():
+    text = ("The city programs highlighted use $7 million of general and state funds to target homeless status among different demographics. "
+            "The city outlined its current strategies in curbing homelessness during a Human Relations Commission meeting earlier this month. "
+            "Highlighted initiatives include the Rapid Exit, High Impact and Flower Brewer Bridge programs. "
+            "The city has $7 million in general and state funds to allow flexibility and piloting of innovative programs.")
+    sents = _sentences(text)
+    assert sents[0].startswith("The city outlined its current strategies")
+    assert sum("$7 million" in s for s in sents) == 1

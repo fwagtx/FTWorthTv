@@ -411,6 +411,33 @@ def looks_like_photo_caption(sentence: str) -> bool:
 
 _QUESTION_REF_RE = re.compile(r"\b(?:that|this|the|those|these) questions?\b", re.I)
 _BACKREF_OPENER_RE = re.compile(r"^(?:At|During|In|After|Before) (?:the|that|this) (?:meeting|hearing|session|vote|event|ceremony|briefing|news conference|press conference)\b")
+_ITEMS_OPENER_RE = re.compile(r"^The (?:\w+ )?(?:programs?|plans?|projects?|proposals?|changes?|measures?|initiatives?|strategies|options|items) "
+                              r"(?:highlighted|mentioned|discussed|described|outlined|presented|listed)\b")   # "The city programs highlighted use..."
+_MONEY_RE = re.compile(r"\$\s?\d[\d,.]*(?:\s?(?:million|billion|thousand))?", re.I)
+_MEETING_DATE_RE = re.compile(r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.? (\d{1,2})(?:,? (\d{4}))?\b[^.]{0,80}?"
+                              r"\b(?:meeting|hearing|session)\b", re.I)
+
+
+def stale_meeting_recap(story: Story, now: datetime) -> bool:
+    """'A proposed pet resort dominated the Nov. 4 Colleyville City Council meeting' published on Nov. 21: a meeting recap
+    more than a week old is not news for a daily page. A meeting still to come is never stale."""
+    from datetime import date as _date
+    lead = " ".join(_split_sentences(collapse_ws(story.summary or ""))[:3])
+    m = _MEETING_DATE_RE.search(lead)
+    if not m:
+        return False
+    months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
+    ref = story.published or now
+    year = int(m.group(3)) if m.group(3) else ref.year
+    try:
+        when = _date(year, months.index(m.group(1)[:3].lower()) + 1, int(m.group(2)))
+    except ValueError:
+        return False
+    if not m.group(3) and (when - ref.date()).days > 200:
+        when = when.replace(year=year - 1)                    # a December meeting named in January
+    return (ref.date() - when).days > 7
+
+
 _FIRST_PERSON_RE = re.compile(r"^(?:I|I'm|I’m|I've|I’ve|I'd|I’d|My)\b")
 _DEFINITE_OPENER_RE = re.compile(r"^The (?:effort|plan|program|initiative|project|move|deal|change|decision|measure|proposal|event|ordinance|"
                                  r"policy|agreement|lawsuit|case|funding|money|vote|ruling|order|bill|law|ban|closure|expansion|partnership|"
@@ -450,6 +477,9 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
             continue                                          # photo captions end with a date: "...at the Capitol, on November 16, 2026."
         if any(_similar(part, prev) for prev in out):     # og:description often repeats the first paragraph
             continue
+        money = {m.lower().replace(" ", "") for m in _MONEY_RE.findall(part)}
+        if money and any(money & {x.lower().replace(" ", "") for x in _MONEY_RE.findall(prev)} for prev in out):
+            continue                                          # "$7 million" a second time is the nut graf repeating itself
         if _QUESTION_REF_RE.search(part):
             if not prev_q or len(out) + 2 > max_n:
                 continue                                      # "that question" with no question before it reads as a cut
@@ -458,7 +488,7 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
         if len(out) >= max_n:
             break
     def _backref(s: str) -> bool:
-        return bool(_DEFINITE_OPENER_RE.match(s) or _BACKREF_OPENER_RE.match(s))
+        return bool(_DEFINITE_OPENER_RE.match(s) or _BACKREF_OPENER_RE.match(s) or _ITEMS_OPENER_RE.match(s))
     if len(out) > 1 and _backref(out[0]) and not _backref(out[1]) and not out[0].endswith("?"):
         out[0], out[1] = out[1], out[0]      # a nut graf or "At the meeting, ..." does not open: the lead that names the subject goes first
     return out
@@ -735,6 +765,9 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
 
 
 def write_copy(story: Story, settings: Settings, now: datetime, *, force_template: bool = False) -> tuple[PostCopy, str]:
+    if story.source_kind == "rss" and not story.official and stale_meeting_recap(story, now):
+        return PostCopy(skip=True, skip_reason="a meeting recap more than a week old", category=story.category or "other",
+                        headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"
     if story.source_kind == "rss" and not story.official and not _sentences(story.summary or ""):
         # the feed gave a headline and nothing to say under it: a post that is its own headline is not a post
         return PostCopy(skip=True, skip_reason="no summary to post: the feed gave only a headline", category=story.category or "other",
