@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-225927/01-kyrie-irving-scores-25-cooper-flagg-22-as-the-ma/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-225927/01-kyrie-irving-scores-25-cooper-flagg-22-as-the-ma/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100",
+    "caption": "Kyrie Irving scored 25 points and Cooper Flagg had 22 points.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/syndication/kyrie-irving-scores-25-cooper-flagg-22-as-the-mavericks-top-the-clippers-110-100/616-330158e8-ea40-4da0-b0f2-aa9ae7468b4f\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:American Airlines Center",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "5575a51e4dbb955d",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100",
+    "summary": "Kyrie Irving scored 25 points and Cooper Flagg had 22 points.",
+    "url": "https://www.wfaa.com/article/syndication/kyrie-irving-scores-25-cooper-flagg-22-as-the-mavericks-top-the-clippers-110-100/616-330158e8-ea40-4da0-b0f2-aa9ae7468b4f",
+    "published": "2026-11-22T04:29:36+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/AssociatedPress/images/1a51936c-16bf-46c7-902e-6213f3c6ef1f/20261122T040009/1a51936c-16bf-46c7-902e-6213f3c6ef1f_750x422.jpg",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7200000000000001,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.8922
+  }
+}

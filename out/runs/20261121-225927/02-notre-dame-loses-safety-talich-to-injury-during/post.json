@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T05:24:27.569029+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-225927/02-notre-dame-loses-safety-talich-to-injury-during/post.jpg",
+    "credit": "Photo: Cactus0625 via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Paris_(67521).jpg",
+    "photo_id": "commons-203546930",
+    "subject": "entity:notre dame"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-225927/02-notre-dame-loses-safety-talich-to-injury-during/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Notre Dame loses safety Talich to injury during SMU's opening drive",
+    "caption": "Notre Dame starting safety Luke Talich left the Fighting Irish's game against SMU in the first quarter with an apparent right leg injury suffered on the opening drive of the game Saturday night in South Bend, Indiana.",
+    "first_comment": "Source: ESPN College Football https://www.espn.com/college-football/story/_/id/50556999/notre-dame-safety-luke-talich-exits-1st-half-injury\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "2739ccb60dc3cd5c",
+    "source": "ESPN College Football",
+    "source_kind": "rss",
+    "title": "Notre Dame loses safety Talich to injury during SMU's opening drive",
+    "summary": "Notre Dame starting safety Luke Talich left the Fighting Irish's game against SMU in the first quarter with an apparent right leg injury suffered on the opening drive of the game Saturday night in South Bend, Indiana.",
+    "url": "https://www.espn.com/college-football/story/_/id/50556999/notre-dame-safety-luke-talich-exits-1st-half-injury",
+    "published": "2026-11-22T04:26:51+00:00",
+    "category_hint": null,
+    "image_url": null,
+    "image_credit": "Photo: ESPN College Football",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "feed_title": "www.espn.com - NCF",
+      "national": true,
+      "scope": "dfw"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.7264
+  }
+}
