@@ -130,3 +130,17 @@ def test_a_charge_qualifier_is_not_a_second_charge():
     assert charge_phrase("Assault, Family Violence") == "for assault involving family violence"
     assert charge_phrase("Aggravated Assault, Parole Violation") == "for aggravated assault and parole violation"
     assert charge_phrase("Failure to Comply, Sex Offender") == "on a sex offender failure-to-comply charge"
+
+
+def test_a_sentence_that_restates_the_one_before_is_dropped():
+    """Render 121, Nov 22: the Cowboys' red-light caption said the same thing twice in other words; the TCC caption ended on
+    'The courses will remain available to students.' after opening with the same fact."""
+    from ftworthtv.writer import _sentences, _similar
+    a = "AT&T Stadium will glow red Nov. 23 as the Dallas Cowboys celebrate 30 years with The Salvation Army Red Kettle campaign."
+    b = ("The Dallas Cowboys will bathe AT&T Stadium in Arlington in red light to celebrate the 30th anniversary of the team's "
+         "partnership with The Salvation Army's Red Kettle campaign.")
+    assert _similar(a, b)
+    assert _similar("The eliminated courses are not being discontinued and will remain active in TCC's catalog and available for enrollment.",
+                    "The courses will remain available to students.")
+    assert not _similar("Police arrested the man Saturday night near Camp Bowie.", "The man was released Sunday after posting bond.")
+    assert len(_sentences(a + " " + b)) == 1

@@ -514,13 +514,41 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     return out
 
 
+_SIM_STOP = {"the", "and", "for", "with", "that", "this", "will", "are", "was", "were", "has", "have", "had", "its", "from", "into",
+             "their", "they", "them", "his", "her", "been", "being", "not", "but", "who", "which", "what", "when", "where", "about",
+             "after", "before", "over", "than", "then", "also", "said", "says", "say", "team", "team's"}
+
+
+def _content_stems(text: str) -> set[str]:
+    out = set()
+    for w in re.findall(r"[a-z0-9&]+", (text or "").lower().replace("’", "'").replace("'s", "")):
+        if len(w) <= 2 or w in _SIM_STOP:
+            continue
+        w = re.sub(r"(?<=\d)(st|nd|rd|th)$", "", w)            # "30th anniversary" and "30 years" share the 30
+        for end in ("ing", "ed", "es", "s"):
+            if len(w) > len(end) + 3 and w.endswith(end):
+                w = w[:-len(end)]
+                break
+        out.add(w)
+    return out
+
+
 def _similar(a: str, b: str) -> bool:
-    """Does sentence b just restate title a? (RSS summaries often open with the title.)"""
+    """Does sentence b just restate a (the title, or an earlier sentence)? RSS summaries often open with the title, and a
+    subhead and a lede often say the same thing in other words: Nov 22, "AT&T Stadium will glow red ... celebrate 30 years
+    with The Salvation Army Red Kettle campaign" then "The Dallas Cowboys will bathe AT&T Stadium ... in red light to
+    celebrate the 30th anniversary of the team's partnership with The Salvation Army's Red Kettle campaign"."""
     wa = {w for w in re.findall(r"[a-z0-9']+", a.lower()) if len(w) > 2}
     wb = {w for w in re.findall(r"[a-z0-9']+", b.lower()) if len(w) > 2}
     if not wa or not wb:
         return False
-    return a.lower()[:30] == b.lower()[:30] or len(wa & wb) / len(wa | wb) >= 0.5
+    if a.lower()[:30] == b.lower()[:30] or len(wa & wb) / len(wa | wb) >= 0.5:
+        return True
+    sa, sb = _content_stems(a), _content_stems(b)
+    if not sa or not sb:
+        return False
+    shared = len(sa & sb)
+    return shared >= max(3, 0.6 * min(len(sa), len(sb)))
 
 
 def agency_phrase(agency: str) -> str:
