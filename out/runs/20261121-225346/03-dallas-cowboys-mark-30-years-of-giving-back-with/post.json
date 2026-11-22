@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T05:43:46.440402+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-225346/03-dallas-cowboys-mark-30-years-of-giving-back-with/post.jpg",
+    "credit": "Photo: RMTip21 (CC BY-SA 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/24887901@N04/4585039010",
+    "photo_id": "openverse-a7c96dab-dfbe-4c9c-92ec-c207c4a85338",
+    "subject": "entity:dallas cowboys"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-225346/03-dallas-cowboys-mark-30-years-of-giving-back-with/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Dallas Cowboys mark 30 years of giving back with Salvation Army",
+    "caption": "The Dallas Cowboys celebrated 30 years of partnership with the Salvation Army by serving early Thanksgiving meals at facilities in Dallas and Fort Worth.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/video/dallas-cowboys-mark-30-years-of-giving-back-with-salvation-army/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3fe28025ba6d841d",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Dallas Cowboys mark 30 years of giving back with Salvation Army",
+    "summary": "The Dallas Cowboys celebrated 30 years of partnership with the Salvation Army by serving early Thanksgiving meals at facilities in Dallas and Fort Worth.",
+    "url": "https://www.cbsnews.com/texas/video/dallas-cowboys-mark-30-years-of-giving-back-with-salvation-army/",
+    "published": "2026-11-22T01:31:00+00:00",
+    "category_hint": null,
+    "image_url": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/11/22/a6b4cc76-e903-4a53-a63f-16863f338629/thumbnail/1024x576/ae199618375ce1017351c8fae86cc70d/e222a2734641b6ca8a439682771fe1dc.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 3,
+    "score": 0.684
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T05:18:46.440402+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-225346/02-cold-front-brings-cooler-fall-like-weather-to-no/post.jpg",
+    "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_Courthouse.jpg",
+    "photo_id": "lib-fort-worth-courthouse-jpg",
+    "subject": "beat:skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261121-225346/02-cold-front-brings-cooler-fall-like-weather-to-no/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Cold front brings cooler, fall-like weather to North Texas",
+    "caption": "A cold front is expected to move through North Texas Saturday night, bringing cooler temperatures ahead of Thanksgiving.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/video/cold-front-brings-cooler-fall-like-weather-to-north-texas/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Thanksgiving dinner table",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "a312360889849a91",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Cold front brings cooler, fall-like weather to North Texas",
+    "summary": "A cold front is expected to move through North Texas Saturday night, bringing cooler temperatures ahead of Thanksgiving.",
+    "url": "https://www.cbsnews.com/texas/video/cold-front-brings-cooler-fall-like-weather-to-north-texas/",
+    "published": "2026-11-22T01:33:00+00:00",
+    "category_hint": null,
+    "image_url": "https://assets2.cbsnewsstatic.com/hub/i/r/2026/11/22/917b1368-4eb4-43f4-81f7-afdb806a943e/thumbnail/1024x576/d0a7ce7d93edadbf58a318c08d78325e/4726c225ac8d042b2c2bc97d42f79412.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 0.6063
+  }
+}
