@@ -255,6 +255,19 @@ UNSAFE_PHOTO_WORDS = ("lingerie", "bikini", "nude", "naked", "sexy", "underwear"
                       "porn", "erotic", "fetish", "lap dance", "hooters", "burlesque", "corpse", "dead body", "gore", "nazi", "kkk")
 
 
+_NOT_A_PHOTO_RE = re.compile(r"\b(screenshot|screen shot|screencap|screen capture|wallpaper|desktop background|desktop|schedule|launchpad|"
+                             r"os x|mac ?os|windows \d+|ios \d+|user interface|gui|app icon|icons?|logo|wordmark|clip ?art|clipart|vector|"
+                             r"mock-?up|meme|collage|poster|flyer|graphic|infographic|illustration|rendering|render|banner|jersey number)\b", re.I)
+
+
+def not_a_photo(cand: "PhotoCandidate") -> bool:
+    """A screenshot, a wallpaper or a schedule graphic is not a photograph of anything: Nov 21, "Mavericks" found an OS X
+    Mavericks Launchpad screenshot, and "Dallas Cowboys" a 2010 schedule wallpaper stamped "photo property of the NFL"."""
+    name = (cand.source_url or "").rsplit("/", 1)[-1].replace("_", " ").replace("%27", "'")
+    blob = " ".join([name, cand.title or "", cand.alt or ""])
+    return bool(_NOT_A_PHOTO_RE.search(blob)) or "property of" in blob.lower()
+
+
 def unsafe_photo(cand: "PhotoCandidate") -> bool:
     blob = " ".join([cand.alt or "", cand.credit or "", cand.source_url or "", cand.url or ""]).lower()
     return any(w in blob for w in UNSAFE_PHOTO_WORDS)
@@ -323,7 +336,7 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             continue
         tried.add(q.lower())
         for cand in _search(q, settings):
-            if unsafe_photo(cand):
+            if unsafe_photo(cand) or not_a_photo(cand):
                 continue
             if exclude and (cand.id in exclude or cand.family in exclude):
                 continue

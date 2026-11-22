@@ -207,3 +207,18 @@ def test_a_team_name_reaches_its_stadium_only_for_a_game_there():
     assert "att-stadium" not in charity.entity_topics            # Nov 21: a Wisconsin bowl game at AT&T Stadium was the picture
     game = plan_subject("Cowboys host Eagles at AT&T Stadium on Thanksgiving", "Kickoff is at 3:30 p.m. in Arlington.", "sports")
     assert "att-stadium" in game.entity_topics
+
+
+def test_team_nicknames_are_searched_by_the_full_team_name_and_teams_age():
+    from datetime import datetime, timezone
+    from ftworthtv.images.subject import photo_age_bar, plan_subject, provider_queries
+    title = "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100"
+    plan = plan_subject(title, "Kyrie Irving scored 25 points and Cooper Flagg had 22 points.", "sports")
+    assert "uta" not in plan.entity_topics and "uta-sports" not in plan.entity_topics      # the UTA Mavericks are a college team
+    queries = [q[0] for q, _ in provider_queries(plan, title, "sports")]
+    assert any("Dallas Mavericks" in q for q in queries)                                    # never OS X Mavericks
+    assert not any("Clippers" in q for q in queries)                                        # a bare nickname finds hair clippers
+    now = datetime(2026, 11, 22, tzinfo=timezone.utc)
+    assert photo_age_bar("entity:dallas cowboys", now) == "2023-11-23"                      # a 2010 Romo wallpaper is not the 2026 team
+    assert photo_age_bar("entity:dickies arena", now) == "" and photo_age_bar("entity:fort worth isd", now) == ""
+    assert "uta" in plan_subject("UTA Mavericks beat Abilene Christian in overtime", "", "sports").entity_topics

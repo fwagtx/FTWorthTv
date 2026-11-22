@@ -216,3 +216,16 @@ def test_a_store_named_in_a_sponsor_line_is_never_the_picture():
             "It is sponsored by Central Market, H-E-B and JPS Health Network.")
     assert "heb" not in topics_for(body, "community", "local", title=title)
     assert topics_for("H-E-B opens its first Fort Worth store downtown", "business", "local", title="H-E-B opens its first Fort Worth store downtown")[0] == "heb"
+
+
+def test_a_screenshot_or_a_schedule_wallpaper_is_not_a_photo():
+    """Render 106, Nov 21: 'Mavericks' found an OS X Mavericks Launchpad screenshot on Commons and 'Dallas Cowboys' a 2010
+    Tony Romo schedule wallpaper on Flickr stamped 'photo property of the NFL'."""
+    from ftworthtv.images.providers import PhotoCandidate, not_a_photo
+    def cand(url, title=""):
+        return PhotoCandidate(id="x", url=url, credit="", license="", provider="", source_url=url, width=2000, height=1200, alt=title, title=title)
+    assert not_a_photo(cand("https://commons.wikimedia.org/wiki/File:OS_X_Mavericks%27_Launchpad.png", "OS X Mavericks' Launchpad"))
+    assert not_a_photo(cand("https://www.flickr.com/photos/24887901@N04/4585039010", "Tony Romo 2010 Cowboys Schedule Wallpaper"))
+    assert not_a_photo(cand("https://www.flickr.com/photos/1/2", "Dallas Cowboys logo"))
+    assert not not_a_photo(cand("https://commons.wikimedia.org/wiki/File:Luka_Doncic_Dallas_Mavericks_2024.jpg", "Luka Doncic Dallas Mavericks 2024"))
+    assert not not_a_photo(cand("https://commons.wikimedia.org/wiki/File:Fort_Worth_skyline_photographic_survey.jpg", "Fort Worth skyline"))

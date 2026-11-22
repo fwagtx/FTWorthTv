@@ -183,8 +183,9 @@ def entity_topics_for(names: list[str], category: str, title: str | None = None,
     out: list[str] = []
     for name in names:
         low = " " + name.lower() + " "
+        nickname = low.strip() in TEAM_FULL_NAMES      # "Mavericks" alone is not "uta mavericks": only a phrase inside the name counts
         for phrases, topic in TOPIC_RULES:
-            if topic not in ENTITY_TOPICS or not any(p.strip() and (p in low or low.strip() in p) for p in phrases):
+            if topic not in ENTITY_TOPICS or not any(p.strip() and (p in low or (not nickname and low.strip() in p)) for p in phrases):
                 continue
             if _elsewhere(name) and topic in FORT_WORTH_ONLY:        # Dallas City Hall is not Fort Worth City Hall
                 continue
@@ -274,13 +275,28 @@ ORG_WORDS = ("isd", "inc", "llc", "corp", "company", "university", "college", "s
              "smu", "unt", "baylor", "tech", "aggies", "longhorns") + VENUE_WORDS
 
 
+TEAM_WORDS = ("cowboys", "rangers", "mavericks", "stars", "frogs", "mavs", "wings", "texans", "astros", "rockets", "spurs", "aggies",
+              "longhorns", "mustangs", "mean green", "red raiders", "bears", "cougars", "clippers", "timbers", "fc", "team")
+
+# a nickname alone names many things (OS X Mavericks, hair clippers, the UTA Mavericks): sports searches use the full name
+TEAM_FULL_NAMES = {"mavericks": "Dallas Mavericks", "mavs": "Dallas Mavericks", "cowboys": "Dallas Cowboys", "stars": "Dallas Stars",
+                   "rangers": "Texas Rangers", "wings": "Dallas Wings", "texans": "Houston Texans", "astros": "Houston Astros",
+                   "rockets": "Houston Rockets", "spurs": "San Antonio Spurs", "horned frogs": "TCU Horned Frogs", "frogs": "TCU Horned Frogs",
+                   "longhorns": "Texas Longhorns", "aggies": "Texas A&M Aggies", "mean green": "North Texas Mean Green",
+                   "mustangs": "SMU Mustangs", "red raiders": "Texas Tech Red Raiders"}
+
+
 def photo_age_bar(label: str, stamp, years: int = 3) -> str:
     """A team or a person changes: a photo older than `years` (or undated) is not a picture of them today. Buildings, venues
-    and institutions keep their file photos. Returns the earliest acceptable 'taken' date (ISO) or '' for no bar."""
+    and institutions keep their file photos. Returns the earliest acceptable 'taken' date (ISO) or '' for no bar.
+    Team names used to count as institutions (they sit in ORG_WORDS so "Dallas Cowboys" is not read as a person): a 2010
+    Tony Romo wallpaper passed for a 2026 Cowboys story."""
     if not label.startswith("entity:"):
         return ""
     name = label.split(":", 1)[1]
-    if is_venue(name) or any(w in name.lower().split() for w in ORG_WORDS):
+    low = f" {name.lower()} "
+    team = any(f" {w} " in low for w in TEAM_WORDS)
+    if is_venue(name) or (not team and any(w in name.lower().split() for w in ORG_WORDS)):
         return ""
     from datetime import timedelta
     return (stamp - timedelta(days=365 * years)).date().isoformat()
@@ -364,6 +380,10 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
     performer_story = category in ("events", "culture") or any(w in low_title for w in ("concert", "tour", "live", "festival", "show"))
     out: list[tuple[tuple, str]] = []
     for name in plan.search_names[:3]:
+        if category == "sports" and len(name.split()) <= 2 and name.lower() in TEAM_FULL_NAMES:
+            name = TEAM_FULL_NAMES[name.lower()]        # "Mavericks" -> "Dallas Mavericks", never OS X Mavericks
+        elif category == "sports" and len(name.split()) == 1 and not name.isupper():
+            continue                                   # "Clippers", "Timbers": a bare nickname finds hair clippers and lumber
         words = (" ".join(name.lower().split()),)      # the whole name, in order: "Ty Myers" is not "Ty Cobb at Fort Myers"
         if len(name.split()) == 1:
             m = re.search(re.escape(name) + r"(?:'s|’s)\s+(\w+)", title or "", re.I)
