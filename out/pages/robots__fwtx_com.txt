@@ -1,0 +1,120 @@
+# 200
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: meta-externalfetcher
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: SeekportBot
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: AwarioBot
+Disallow: /
+
+User-agent: AwarioRssBot
+Disallow: /
+
+User-agent: AwarioSmartBot
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-Agent: trendictionbot
+Disallow: /
+
+User-agent: sentibot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-Agent: ImagesiftBot
+Disallow: /
+
+User-Agent: Paqlebot/2.0
+Disallow: /
+
+User-agent: Pinterestbot
+Disallow: /
+
+User-Agent: serpstatbot
+Disallow: /
+
+User-agent: Slackbot
+Disallow: /
+
+User-agent: bingbot
+Disallow: /
+
+User-agent: GnowitNewsbot
+Disallow: /
+
+User-Agent: FacebookBot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: TurnitinBot
+Disallow: /
+
+User-agent: ExaSearchBot
+Disallow: /
+
+User-agent: *
+Disallow: /api/search
+
+Sitemap: https://fwtx.com/sitemap.xml
+Sitemap: https://fwtx.com/sitemap_news.xml

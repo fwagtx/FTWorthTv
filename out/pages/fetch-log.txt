@@ -1,0 +1,13 @@
+200   150277  https://www.cbsnews.com/texas/latest/rss/main  -> https://www.cbsnews.com/texas/latest/rss/main
+200   655017  https://www.cbsnews.com/texas/news/north-texas-hospital-sued-for-refusing-to-allow-organ-transplants-from-brain-dead-woman/  -> https://www.cbsnews.com/texas/news/north-texas-hospital-sued-for-refusing-to-allow-organ-transplants-from-brain-dead-woman/
+200   654746  https://www.cbsnews.com/philadelphia/news/declaration-sold-3-million-goldin-auctions/  -> https://www.cbsnews.com/philadelphia/news/declaration-sold-3-million-goldin-auctions/
+200   661793  https://www.cbsnews.com/philadelphia/news/george-washington-stephen-moylan-letter-1780-briggs/  -> https://www.cbsnews.com/philadelphia/news/george-washington-stephen-moylan-letter-1780-briggs/
+200   643509  https://www.cbsnews.com/news/princess-kate-cancer-announcement/  -> https://www.cbsnews.com/news/princess-kate-cancer-announcement/
+200        0  https://gofrogs.com/rss.aspx?path=football  -> https://gofrogs.com/rss.aspx?path=football
+200    13835  https://gofrogs.com/rss?path=football  -> https://gofrogs.com/api/v2/rss/xml?path=football
+200    37436  https://www.cbssports.com/rss/headlines/  -> https://www.cbssports.com/rss/headlines/
+200    36502  https://www.cbssports.com/rss/headlines/nfl/  -> https://www.cbssports.com/rss/headlines/nfl/
+200   301682  https://sports.yahoo.com/rss/  -> https://sports.yahoo.com/rss/
+SKIP (robots.txt disallows) https://fwtx.com/
+robots.txt fetch failed for https://www.star-telegram.com: HTTPSConnectionPool(host='www.star-telegram.com', port=443): Read timed out. (read timeout=20)
+ERR https://www.star-telegram.com/news/local/?widgetName=rssfeed&widgetContentId=712015&getXmlFeed=true: HTTPSConnectionPool(host='www.star-telegram.com', port=443): Read timed out. (read timeout=30)
