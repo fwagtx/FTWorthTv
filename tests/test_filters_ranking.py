@@ -332,6 +332,9 @@ def test_sportsbook_picks_and_promos_are_not_news():
     assert betting_promo("F1 odds, predictions: Get almost $4,000 in bonuses from betting apps, sportsbooks for Las Vegas")
     assert betting_promo("NFL Week 11 last-minute picks, best bets: Fernando Mendoza's Raiders face tough task")
     assert betting_promo("Mavericks vs. Lakers", "Use this DraftKings promo code to claim bonus bets before tipoff")
+    assert betting_promo("Cowboys vs. Commanders prediction, pick, odds, spread: Dallas looks to stay alive")   # singular "pick" slipped through
+    assert betting_promo("Week 12 NFL score predictions, best picks today: Expert reveals exact scores")
     assert not betting_promo("Cowboys beat Eagles 31-24 as Prescott throws three touchdowns")
+    assert not betting_promo("Mavericks beat the odds to win in overtime")
     assert not betting_promo("Rangers games will stay on FanDuel Sports Network Southwest next season")
     assert not betting_promo("Texas Lottery: Powerball jackpot climbs to $900 million")
