@@ -15,7 +15,8 @@ log = logging.getLogger(__name__)
 # keyword heuristics used before Claude refines the category (and as the only signal in template mode)
 CATEGORY_KEYWORDS: dict[str, list[str]] = {
     "weather": ["storm", "tornado", "thunder", "hail", "flood", "freeze", "ice storm", "icy", "sleet", "freezing rain", "snow", "heat advisory", "weather",
-                "forecast", "rain", "wind advisory", "cold front", "warning for"],
+                "forecast", "rain", "wind advisory", "cold front", "cold fronts", "warning for", "temps", "temperatures", "wind chill",
+                "wind chills", "frost", "first freeze", "chilly", "highs in", "lows in", "drizzle", "showers"],
     "traffic": ["crash", "wreck", "i-35w", "35w", "i-30", "i-20", "loop 820", "highway", "lanes closed", "road closure",
                 "traffic", "pileup", "18-wheeler", "trinity metro", "texrail", "dfw airport delays"],
     "crime": ["police", "shooting", "shot", "arrested", "arrest", "stabbing", "robbery", "homicide", "murder", "suspect", "steal", "stole",
@@ -136,6 +137,16 @@ def game_notes(title: str) -> bool:
 
 _COLUMN_RE = re.compile(r"^(?:[A-Z][a-z]+ on [A-Z][a-z]+|Opinion|Column|Commentary|Editorial|Letters?(?: to the [Ee]ditor)?|Analysis|Perspective|"
                         r"Guest column|Op-Ed|Essay|Review|Where I Live|My Fort Worth|Diary|Notebook|Letter from [A-Z][a-z]+|First Person|Voices)\s*[:|—–-]\s")
+
+
+_EXPERT_RE = re.compile(r"\b(?:experts?|ethicists?|analysts?|professors?|economists?|attorneys?|lawyers?|historians?|psychologists?|"
+                        r"doctors?|scientists?|strategists?|insiders?)\s+(?:weighs?|weighed)\s+in\b", re.I)
+
+
+def expert_commentary(title: str) -> bool:
+    """'Medical ethicist weighs in on North Texas transplant case': an outside expert's opinion of a story, not the story
+    (Nov 22: two outlets' versions reached review an hour apart)."""
+    return bool(_EXPERT_RE.search(title or ""))
 
 
 def column_label(title: str) -> bool:
@@ -394,6 +405,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "rss" and column_label(story.title):
             dropped.append((story, "a column"))
+            continue
+        if expert_commentary(story.title):
+            dropped.append((story, "an expert's commentary, not news"))
             continue
         if story.source_kind == "rss" and digest_title(story.title):
             dropped.append((story, "a digest, not a story"))

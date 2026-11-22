@@ -350,3 +350,16 @@ def test_a_teams_game_notes_sheet_is_not_a_story():
     for title in ("TCU Falls to Utah in Home Finale", "Mavericks notebook: Flagg's rookie season so far",
                   "Fort Worth council notes concerns over budget"):
         assert not game_notes(title), title
+
+
+def test_an_experts_view_is_not_the_story_and_cold_fronts_are_weather():
+    from datetime import datetime, timezone
+    from ftworthtv.filters import expert_commentary, infer_category
+    from ftworthtv.models import Story
+    assert expert_commentary("Medical ethicist weighs in on North Texas transplant case involving brain-dead woman")
+    assert expert_commentary("Medical ethics expert weighs in on Dallas organ donation dispute")
+    assert not expert_commentary("Fort Worth mayor weighs in on the budget vote")          # an official's view is news
+    s = Story(id="cf", source="CBS Texas", source_kind="video", title="Cold fronts in store for North Texas this week",
+              summary="A cold front on Sunday will keep temps across North Texas in the 60s into Monday.", url="https://x",
+              published=datetime(2026, 11, 22, tzinfo=timezone.utc))
+    assert infer_category(s) == "weather"                                                   # was "business" ("in store")
