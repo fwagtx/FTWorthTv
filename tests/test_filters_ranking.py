@@ -338,6 +338,7 @@ def test_sportsbook_picks_and_promos_are_not_news():
     assert not betting_promo("Mavericks beat the odds to win in overtime")
     assert betting_promo("Prisco's Week 11 NFL picks: 49ers over Vikings, Cowboys rout Titans, Panthers edge Falcons")   # Nov 22
     assert not betting_promo("Cowboys pick up a fifth-round pick in the trade")
+    assert betting_promo("NFL Week 11 upset alert: Can Titans shock Cowboys? Two straight losses for Steelers?")   # Nov 22
     assert not betting_promo("Rangers games will stay on FanDuel Sports Network Southwest next season")
     assert not betting_promo("Texas Lottery: Powerball jackpot climbs to $900 million")
 

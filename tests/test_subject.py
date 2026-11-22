@@ -289,3 +289,12 @@ def test_a_letter_grade_or_a_generic_word_is_not_a_subject():
                         "When Texas quarterback Arch Manning takes care of the football ...", "sports")
     assert "D" not in plan.entities and "College" not in plan.entities
     assert "att-stadium" not in plan.entity_topics and "dickies-arena" not in plan.entity_topics
+
+
+def test_a_quoted_work_title_is_not_mined_for_words():
+    """Render 118, Nov 22: "'Hunger Games: Sunrise on the Reaping' Slays $120M at Box Office" searched "Sunrise" and drew
+    a sunrise over a mosque."""
+    from ftworthtv.images.subject import plan_subject
+    plan = plan_subject("‘Hunger Games: Sunrise on the Reaping’ Slays $120M at Box Office as Franchise Heats Back Up",
+                        "The sixth film in the Lionsgate series rebounded.", "culture")
+    assert not any("sunrise" in n.lower() for n in plan.entities) and "Box Office" not in plan.entities

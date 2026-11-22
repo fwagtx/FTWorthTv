@@ -129,7 +129,10 @@ COMMON_NOUNS = {"theater", "theatre", "theaters", "performances", "performance",
                 "fans", "kids", "students", "teachers", "voters", "residents", "families", "workers", "update", "updates", "video", "photos",
                 "watch", "live", "breaking", "exclusive", "report", "news", "forecast", "birthday", "b-day", "christmas", "thanksgiving",
                 "college", "football", "basketball", "baseball", "softball", "soccer", "hockey", "volleyball", "grades", "week", "stats",
-                "notes", "season", "playoffs", "conference", "championship"}
+                "notes", "season", "playoffs", "conference", "championship", "box office", "franchise", "sequel", "trailer"}
+
+
+_QUOTED_RE = re.compile(r"[‘“\"]([^’”\"]{3,80})[’”\"]|(?<![\w])'([^']{3,80})'(?![\w])")
 
 
 def entities(title: str, body: str = "") -> list[str]:
@@ -137,6 +140,9 @@ def entities(title: str, body: str = "") -> list[str]:
     acronym, or appear capitalised again mid-sentence in the body (so 'Largest enrollment drop' names nothing, while
     'Anthropic's IPO' and 'Northwest ISD' do). Places are returned too; callers decide what to do with them."""
     tokens: list[str] = []
+    quoted = [(a or b).strip() for a, b in _QUOTED_RE.findall(title or "") if len((a or b).strip().split()) >= 2]
+    if quoted:                       # "'Hunger Games: Sunrise on the Reaping' Slays $120M": the work's title is one subject,
+        title = _QUOTED_RE.sub(" | ", title or "")     # never its words (Nov 22: "Sunrise" found a sunrise over a mosque)
     for segment in re.split(r"[,;:|()\[\]\u2013\u2014]|\s-\s", title or ""):   # "Dickies Arena, Sun, Nov 22" is three segments
         seg = _TOKEN.findall(segment)
         if seg:
