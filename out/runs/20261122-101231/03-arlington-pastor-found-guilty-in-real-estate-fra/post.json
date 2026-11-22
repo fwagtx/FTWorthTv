@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T17:02:31.528094+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-101231/03-arlington-pastor-found-guilty-in-real-estate-fra/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-101231/03-arlington-pastor-found-guilty-in-real-estate-fra/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Arlington pastor found guilty in real estate fraud case",
+    "caption": "A jury found an Arlington pastor guilty on conspiracy and wire fraud charges in a real estate and investment scheme.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/north-texas-pastor-found-guilty-in-real-estate-fraud-case/4109007/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Arlington Texas downtown",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "d6d49de937e1c328",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Arlington pastor found guilty in real estate fraud case",
+    "summary": "A jury found an Arlington pastor guilty on conspiracy and wire fraud charges in a real estate and investment scheme. Sentencing is March 4, 2027. A federal jury found an Arlington pastor guilty of orchestrating a real estate and investment fraud scheme that impacted more than 70 victims in the United States, Colombia, Mexico, and the Dominican Republic, according to the U.S. Attorney's Office. After a four-day trial before U.S. District Judge Mark T. Pittman, the jury found 53-year-old Richard Reinaldo Garcia, a pastor at several churches in Arlington, guilty on Thursday of one count of conspiracy to commit wire fraud and three counts of wire fraud. “This defendant didn't just take money from his victims,” said Ryan Raybould, U.S. Attorney for the Northern District of Texas. “He abused personal relationships, exploited the trust people placed in him as a pastor and used false promises…",
+    "url": "https://www.nbcdfw.com/news/local/north-texas-pastor-found-guilty-in-real-estate-fraud-case/4109007/",
+    "published": "2026-11-22T09:33:47+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/TLMD_IGLESIA_ARLINGTON_PASTOR_FRAUDE.png?fit=871,503&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.4641
+  }
+}

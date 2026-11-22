@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-22T16:37:31.528094+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-101231/02-from-100-losses-to-building-a-world-series-conte/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-101231/02-from-100-losses-to-building-a-world-series-conte/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "From 100 losses to ... building a World Series contender? Why Mike Trout has new hope for Angels",
+    "caption": "The sale of the Angels has the franchise's greatest player excited about the future again. Mike Trout 's loyalty to the Los Angeles Angels had become a subject of fascination to some of his former teammates and coaches, never more so than in the leadup to this year's trade deadline.\n\nThe Angels were trending toward an 11th consecutive losing season with no discernable path to contention. But Trout was healthy and productive, and many of those who once shared a clubhouse with him began to wonder whether he was finally opening up to the possibility of leaving, even if he did not say so explicitly.",
+    "first_comment": "Source: ESPN Top Headlines https://www.espn.com/mlb/story/_/id/50531850/mike-trout-angels-new-owner-stan-kroenke\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "e51f21bf25bc63e9",
+    "source": "ESPN Top Headlines",
+    "source_kind": "rss",
+    "title": "From 100 losses to ... building a World Series contender? Why Mike Trout has new hope for Angels",
+    "summary": "The sale of the Angels has the franchise's greatest player excited about the future again. Mike Trout 's loyalty to the Los Angeles Angels had become a subject of fascination to some of his former teammates and coaches, never more so than in the leadup to this year's trade deadline. The Angels were trending toward an 11th consecutive losing season with no discernable path to contention. But Trout was healthy and productive, and many of those who once shared a clubhouse with him began to wonder whether he was finally opening up to the possibility of leaving, even if he did not say so explicitly. If not at midsummer, then surely, some thought, Trout and the Angels would figure out a way to cut ties over the offseason. On Sept. 1, Stan Kroenke, one of the wealthiest people in the world, agreed to purchase the Angels from Arte Moreno, widely considered one of Major League Baseball's worst…",
+    "url": "https://www.espn.com/mlb/story/_/id/50531850/mike-trout-angels-new-owner-stan-kroenke",
+    "published": "2026-11-22T15:38:22+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN Top Headlines",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.39,
+    "extra": {
+      "feed_title": "www.espn.com - TOP",
+      "national": true,
+      "scope": "national",
+      "national_term": "world series"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.6231
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-101231/01-lone-unbeaten-utah-seals-spot-in-big-12-title-ga/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Texas_Christian_University_June_2017_85_(Amon_G._Carter_Stadium).jpg",
+    "photo_id": "lib-texas-christian-university-june-2017-85-amon-g-carter-stadiu",
+    "subject": "topic:tcu-football"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-101231/01-lone-unbeaten-utah-seals-spot-in-big-12-title-ga/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Lone unbeaten Utah seals spot in Big 12 title game win win over TCU",
+    "caption": "Devon Dampier threw a 68-yard touchdown pass before halftime and an 85-yard clincher in the fourth quarter as No. 2 Utah beat TCU 38-17 for its 17th straight victory, clinching a spot in the Big 12 championship game.",
+    "first_comment": "Source: ESPN College Football https://www.espn.com/college-football/story/_/id/50561074/no-2-utah-seals-spot-big-12-title-game-beating-tcu\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:Amon G. Carter Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "75d48bfc93540c72",
+    "source": "ESPN College Football",
+    "source_kind": "rss",
+    "title": "Lone unbeaten Utah seals spot in Big 12 title game win win over TCU",
+    "summary": "Devon Dampier threw a 68-yard touchdown pass before halftime and an 85-yard clincher in the fourth quarter as No. 2 Utah beat TCU 38-17 for its 17th straight victory, clinching a spot in the Big 12 championship game.",
+    "url": "https://www.espn.com/college-football/story/_/id/50561074/no-2-utah-seals-spot-big-12-title-game-beating-tcu",
+    "published": "2026-11-22T12:48:03+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN College Football",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "www.espn.com - NCF",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.8057
+  }
+}
