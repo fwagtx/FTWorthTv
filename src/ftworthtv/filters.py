@@ -41,7 +41,9 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
                   "church", "celebration", "holiday", "christmas", "thanksgiving", "enrollment", "isd", "superintendent", "teachers",
                   "teacher", "classroom", "campus", "families", "foster", "adoption"],
     "breaking": ["breaking:", "breaking news", "developing:", "developing story", "evacuat", "explosion", "massive fire", "amber alert",
-                 "active shooter", "lockdown", "shelter in place"],   # "breaking records" is not breaking news
+                 "active shooter", "lockdown", "shelter in place",   # "breaking records" is not breaking news
+                 "house fire", "apartment fire", "structure fire", "home fire", "grass fire", "brush fire", "wildfire", "blaze",
+                 "firefighters", "gas leak", "hazmat"],              # Nov 22: a 2-story house fire was filed "other" and got a parked fire truck
 }
 
 

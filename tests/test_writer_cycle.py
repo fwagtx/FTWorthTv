@@ -397,3 +397,18 @@ def test_a_demonstrative_opener_needs_the_sentence_before_it():
     assert not any(s.startswith("That involves") for s in sents)
     kept = _sentences("Fort Worth will close two pools next summer for repairs. That means families will have to drive farther to swim.")
     assert any(s.startswith("That means") for s in kept)
+
+
+def test_a_house_fire_is_breaking_news_and_takes_a_picture_of_the_fire_or_none():
+    """Nov 22, render 131: WFAA's 'Fort Worth firefighters battle large 2-story house fire' was filed as 'other' and got a
+    library photo of a parked Fort Worth Fire rescue truck, a stand-in for a fire that happened."""
+    from ftworthtv.filters import infer_category
+    from ftworthtv.images.subject import happened
+    from ftworthtv.models import Story
+    t = "Fort Worth firefighters battle large 2-story house fire"
+    st = Story(id="x", title=t, url="u", source="WFAA", source_kind="rss",
+               summary="Photos of the fire showed flames coming up through the roof of the home. Officials say no injuries were reported.")
+    assert infer_category(st) == "breaking"
+    assert happened(t)
+    assert happened("Apartment fire displaces 12 families in east Fort Worth")
+    assert not happened("Fort Worth Fire Department hiring new recruits for spring academy")
