@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-071250/01-fort-worth-forecast-for-sunday-november-22/post.jpg",
+    "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth_Skyline.jpg",
+    "photo_id": "lib-downtown-fort-worth-skyline-jpg",
+    "subject": "beat:skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-071250/01-fort-worth-forecast-for-sunday-november-22/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Fort Worth forecast: mostly cloudy, high near 61",
+    "caption": "Mostly cloudy and a high of 61 in Fort Worth today. Mostly clear, low near 40° tonight.",
+    "first_comment": "Source: National Weather Service https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline sunrise",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "forecast-2026-11-22",
+    "source": "National Weather Service Fort Worth",
+    "source_kind": "nws_forecast",
+    "title": "Fort Worth forecast for Sunday, November 22",
+    "summary": "Today: Mostly Cloudy, high near 61°F. Wind 10 to 15 mph NW. Tonight: Mostly Clear, low near 40°. Mostly cloudy. High near 61, with temperatures falling to around 59 in the afternoon. Northwest wind 10 to 15 mph, with gusts as high as 35 mph.",
+    "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308",
+    "published": "2026-11-22T13:12:39.145260+00:00",
+    "category_hint": "weather",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": "public-domain",
+    "image_policy": "none",
+    "official": true,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "high": 61,
+      "short": "Mostly Cloudy",
+      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+      "low": 40,
+      "pop": 0,
+      "wind": "10 to 15 mph",
+      "scope": "local"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 1.95
+  }
+}
