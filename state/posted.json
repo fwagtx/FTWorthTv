@@ -3,7 +3,7 @@
     "2026-11-18": 1,
     "2026-11-19": 20,
     "2026-11-20": 19,
-    "2026-11-21": 11
+    "2026-11-21": 13
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -33,10 +33,11 @@
       "weather": 1
     },
     "2026-11-21": {
+      "business": 1,
       "community": 3,
       "crime": 2,
       "other": 2,
-      "politics": 1,
+      "politics": 2,
       "sports": 1,
       "weather": 2
     }
@@ -57,7 +58,7 @@
     },
     "2026-11-21": {
       "nws_forecast": 1,
-      "rss": 6,
+      "rss": 8,
       "video": 2,
       "wanted": 2
     }
@@ -79,8 +80,8 @@
     },
     "2026-11-21": {
       "dfw": 2,
-      "local": 7,
-      "texas": 2
+      "local": 8,
+      "texas": 3
     }
   },
   "deferred": {
@@ -123,10 +124,15 @@
       "at": "2026-11-21T13:46:39.757158+00:00",
       "reason": "daily cap for crime reached",
       "title": "WANTED: Quimari WILLIAMS"
+    },
+    "f04b97638d8faa75": {
+      "at": "2026-11-22T00:16:17.247576+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Summer projects reviewed, winter events announced by Park & Recreation Advisory Board"
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-21T17:50:00-06:00",
+  "last_post_at": "2026-11-21T18:45:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -456,6 +462,18 @@
       "title": "North Texas preschoolers donate food to Mission Arlington ahead of Thanksgiving",
       "url": "https://www.youtube.com/watch?v=762jvSUQYhM"
     },
+    "8d9c36121583aac2": {
+      "at": "2026-11-21T18:45:00-06:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437145449",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-454080916658434884",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth plan commission approves platting waivers, closing an alley for development",
+      "url": "https://fortworthreport.org/2026/11/21/fort-worth-plan-commission-approves-platting-waivers-closing-an-alley-for-development/"
+    },
     "8f8740ad5adae026": {
       "at": "2026-11-20T14:24:00-06:00",
       "category": "business",
@@ -653,6 +671,18 @@
       "source": "Fort Worth Report",
       "title": "Northwest ISD approves revised high school boundaries after parents speak out",
       "url": "https://fortworthreport.org/2026/11/18/northwest-isd-approves-revised-high-school-boundaries-after-parents-speak-out/"
+    },
+    "e4aff03671357cfc": {
+      "at": "2026-11-21T18:20:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437145387",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3410097083184101582",
+      "publisher": "metricool-session",
+      "source": "KXAN Austin",
+      "title": "State of Texas: Agriculture commissioner-elect Clayton Tucker pushes for new data center rules",
+      "url": "https://www.kxan.com/state-of-texas/state-of-texas-agriculture-commissioner-elect-clayton-tucker-pushes-for-new-data-center-rules/"
     },
     "eb7d9121d20c9020": {
       "at": "2026-11-20T15:56:00-06:00",
@@ -857,7 +887,7 @@
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 51,
+  "total_posts": 53,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -867,7 +897,8 @@
     "lib-2026-05-26-texas-state-capitol-11-jpg",
     "lib-downtown-fort-worth-jpg",
     "lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
-    "commons-199552537"
+    "commons-199552537",
+    "commons-196088447"
   ],
   "version": 1
 }
