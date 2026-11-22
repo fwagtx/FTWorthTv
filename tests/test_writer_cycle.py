@@ -440,3 +440,16 @@ def test_two_fort_worth_events_are_not_the_same_game():
 def test_north_texas_news_is_not_a_unt_game():
     from ftworthtv.filters import same_game
     assert not same_game("North Texas man killed in Dallas crash", "North Texas woman shot in Dallas, police say")
+
+
+def test_a_fire_or_gunfire_is_not_a_firing_and_a_city_is_not_a_person():
+    """Nov 22, render 134: NBC 5's van crash ('... catches fire in Fort Worth') was dropped as the same news as 'Fort Worth
+    firefighters battle large 2-story house fire': 'fire' read as a firing and 'Fort Worth' as a person."""
+    from ftworthtv.filters import same_personnel_news as same
+    assert not same("2 minors killed, 3 others seriously injured after van crashes and catches fire in Fort Worth", "",
+                    "Fort Worth firefighters battle large 2-story house fire")
+    assert not same("Police: shots fired at officer during chase", "Officer Jane Doe was not hurt.",
+                    "Arlington fires police officer Jane Doe after investigation")
+    lead = ("TCU Director of Intercollegiate Athletics Mike Buddie announced Sunday that head football coach Sonny Dykes "
+            "has been relieved of his duties.")
+    assert same("TCU Football Announces Change in Leadership", lead, "TCU fires Sonny Dykes four years after making CFP championship game")

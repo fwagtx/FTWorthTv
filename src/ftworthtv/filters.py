@@ -361,9 +361,13 @@ def same_story(a: str, b: str, threshold: float = 0.6) -> bool:
     return shared >= 4 and shared / min(len(ka), len(kb)) >= threshold
 
 
-_PERSONNEL_RE = re.compile(r"\b(?:fire[sd]?|firing|relieved of|dismiss(?:es|ed|al)?|part(?:s|ed)? ways|parting ways|"
+_PERSONNEL_RE = re.compile(r"\b(?:fires|fired|firing|relieved of|dismiss(?:es|ed|al)?|part(?:s|ed)? ways|parting ways|"
                            r"change in leadership|leadership change|coaching change|out as|ousts?|ousted|let go|"
                            r"resign(?:s|ed|ation)?|steps? down|stepping down)\b", re.I)
+_GUNFIRE_RE = re.compile(r"\b(?:shots? (?:were |was |being )?fired|fired (?:shots?|rounds?|at|into|upon|on|a gun|a weapon)|"
+                         r"gunfire|opened fire|fire[sd]? (?:upon|on) )", re.I)
+_ROLE_RE = re.compile(r"\b(?:coach|coordinator|manager|president|chief|director|ceo|superintendent|chancellor|principal|commissioner|"
+                      r"chair(?:man|woman)?|pastor|executive|officer|athletic director|ad|gm|head coach|staff|employee)\b", re.I)
 _HIRE_RE = re.compile(r"\b(?:names?|named|hires?|hired|tabs?|promotes?|promoted|picks?|selects?|introduces?|interim|replacement|successor)\b", re.I)
 _FULL_NAME_RE = re.compile(r"\b([A-Z][a-z]+(?:\s[A-Z][a-z]+){1,2})\b")
 
@@ -372,15 +376,16 @@ def same_personnel_news(title: str, summary: str, posted_title: str) -> bool:
     """'TCU Football Announces Change in Leadership' after 'TCU fires Sonny Dykes ...' is the same firing in the school's
     own words (Nov 22): when a post in the last two days reported a person's firing or resignation, a story whose title or
     lead reports a departure and names that person is the same news. A hire ('TCU names X interim coach') is new news."""
-    if not _PERSONNEL_RE.search(posted_title or ""):
+    posted = _GUNFIRE_RE.sub(" ", posted_title or "")
+    if not _PERSONNEL_RE.search(posted):
         return False
     if _HIRE_RE.search(title or "") and not _HIRE_RE.search(posted_title or ""):
         return False
-    text = f"{title or ''} {(summary or '')[:500]}"
-    if not _PERSONNEL_RE.search(text):
-        return False
-    from .images.subject import looks_like_person
-    names = [n for n in _FULL_NAME_RE.findall(posted_title or "") if looks_like_person(n)]
+    text = _GUNFIRE_RE.sub(" ", f"{title or ''} {(summary or '')[:500]}")
+    if not _PERSONNEL_RE.search(text) or not (_ROLE_RE.search(text) or _ROLE_RE.search(posted)):
+        return False                     # Nov 22: "catches fire in Fort Worth" was read as the firing of a "Fort Worth"
+    from .images.subject import _is_place, looks_like_person
+    names = [n for n in _FULL_NAME_RE.findall(posted) if looks_like_person(n) and not _is_place(n)]
     return any(n in text for n in names)
 
 
