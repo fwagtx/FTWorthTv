@@ -4,7 +4,7 @@
     "2026-11-19": 20,
     "2026-11-20": 19,
     "2026-11-21": 16,
-    "2026-11-22": 5
+    "2026-11-22": 7
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -44,8 +44,8 @@
     },
     "2026-11-22": {
       "crime": 2,
-      "sports": 2,
-      "weather": 1
+      "sports": 3,
+      "weather": 2
     }
   },
   "daily_by_kind": {
@@ -69,7 +69,8 @@
       "wanted": 2
     },
     "2026-11-22": {
-      "rss": 2,
+      "nws_forecast": 1,
+      "rss": 3,
       "video": 1,
       "wanted": 2
     }
@@ -95,8 +96,8 @@
       "texas": 4
     },
     "2026-11-22": {
-      "dfw": 2,
-      "local": 3
+      "dfw": 3,
+      "local": 4
     }
   },
   "deferred": {
@@ -167,7 +168,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-22T08:10:00-06:00",
+  "last_post_at": "2026-11-22T09:00:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -286,6 +287,18 @@
       "source": "NBC 5 DFW",
       "title": "Wreaths Across America needs 36,000 wreaths in North Texas",
       "url": "https://www.youtube.com/watch?v=3aMNvGI5UFE"
+    },
+    "395f55d24521d400": {
+      "at": "2026-11-22T09:00:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437577269",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7363175201731165741",
+      "publisher": "metricool-session",
+      "source": "WFAA Sports",
+      "title": "Joaquín Valiente scores 2 goals, Dallas beats Timbers 3-0 in Game 1 of best-of-3 series",
+      "url": "https://www.wfaa.com/article/syndication/associatedpress/joaqun-valiente-scores-2-goals-dallas-beats-timbers-3-0-in-game-1-of-best-of-3-series/616-31a19ba9-89b8-4fb0-bee2-2e15e2b2942d"
     },
     "3b0f1374a667b201": {
       "at": "2026-11-19T13:45:00+00:00",
@@ -891,6 +904,18 @@
       "title": "Fort Worth forecast for Saturday, November 21",
       "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
     },
+    "forecast-2026-11-22": {
+      "at": "2026-11-22T08:35:00-06:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": "437577194",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2306995416716590067",
+      "publisher": "metricool-session",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Sunday, November 22",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
     "manual-anthropic-ipo-2026-11-19": {
       "at": "2026-11-19T20:00:00+00:00",
       "category": "business",
@@ -936,6 +961,10 @@
     "04746e697d5f874a": {
       "at": "2026-11-21T19:15:20.036318+00:00",
       "reason": "a Dallas shooting with no death and no arrest is Dallas police blotter, not Fort Worth news"
+    },
+    "0e9f09cd424fe7e9": {
+      "at": "2026-11-22T13:45:41.339341+00:00",
+      "reason": "TCU's postgame notes sheet for the game the 7:45 recap already covered; a stats page, not a story (rule added)"
     },
     "0ebdefdcec430122": {
       "at": "2026-11-20T19:15:08.920313+00:00",
@@ -1034,7 +1063,7 @@
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
     }
   },
-  "total_posts": 61,
+  "total_posts": 63,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -1045,7 +1074,8 @@
     "lib-downtown-fort-worth-jpg",
     "lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
     "commons-199552537",
-    "commons-196088447"
+    "commons-196088447",
+    "clouds-lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg"
   ],
   "version": 1
 }
