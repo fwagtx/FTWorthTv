@@ -143,6 +143,9 @@ _QUOTED_RE = re.compile(r"[‘“\"]([^’”\"]{3,80})[’”\"]|(?<![\w])'([^'
 
 # names that begin with a number word, which the run builder would otherwise strip as "Two Fort Worth men" (Nov 22:
 # "'Holiday in the Park' kicks off at Six Flags Over Texas" searched for "Flags Over Texas")
+# adjectives and numbers that open names when they sit mid-headline ("at Big Bear's Smokehouse", "at First Baptist")
+NAME_LEADERS = {"big", "six", "five", "four", "three", "two", "one", "ten", "first", "good", "happy", "new", "major", "best",
+                "free", "last", "local", "national", "little", "grand", "great", "old"}
 NUMBER_NAMES = ("six flags", "five guys", "four seasons", "three rivers", "one world", "two rivers", "seven seas", "ten mile",
                 "one main", "first baptist", "first united", "first presbyterian", "first methodist")
 
@@ -184,8 +187,10 @@ def entities(title: str, body: str = "") -> list[str]:
             continue
         words = [_clean(w) for w in run]
         words = [w for w in words if w]
-        if words and words[0].lower() in STOP and len(words) > 1 and not " ".join(words).lower().startswith(NUMBER_NAMES):
-            words = words[1:]
+        seg_start = i == 0 or tokens[i - 1] == "|"
+        if (words and words[0].lower() in STOP and len(words) > 1 and not " ".join(words).lower().startswith(NUMBER_NAMES)
+                and (seg_start or words[0].lower() not in NAME_LEADERS)):
+            words = words[1:]                              # "Big crash on I-35W" -> no "Big"; "at Big Bear's Smokehouse" keeps it
         phrase = " ".join(words)
         low = phrase.lower()
         possessive = any(w.endswith(("'s", "’s")) for w in run)
@@ -200,7 +205,9 @@ def entities(title: str, body: str = "") -> list[str]:
             i = max(j, i + 1)                              # "Hall of Fame broadcaster Tom Jackson": an honor, not a subject (Nov 22:
             continue                                       # "Hall of Fame" found another man at a hall of fame induction)
         keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and low not in COMMON_NOUNS and low not in ADJECTIVES and (
-            len(words) > 1 or possessive or acronym or low in body_mid or _known_subject(low) or i > 0 and low not in STOP)
+            len(words) > 1 or possessive or acronym or low in body_mid or _known_subject(low) or not seg_start and low not in STOP)
+        # a lone capitalised word that opens a segment ("Made in Tarrant: Gobble up barbecue ...") is capitalised for the
+        # colon, not because it names anything (Nov 22: "Gobble" was searched for a barbecue restaurant story)
         if keep and phrase not in out:
             out.append(phrase)
         i = max(j, i + 1)

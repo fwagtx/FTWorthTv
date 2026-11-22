@@ -314,3 +314,14 @@ def test_a_schools_change_in_leadership_release_is_the_firing_already_posted():
     assert not same_personnel_news("TCU Football Announces Change in Leadership", "", posted)          # nothing to tie it yet
     assert not same_personnel_news("TCU names Jim Smith interim coach after firing Sonny Dykes", lead, posted)   # a hire is news
     assert not same_personnel_news("TCU Football Announces Change in Leadership", lead, "Sonny Dykes talks bowl hopes")
+
+
+def test_a_word_capitalised_by_a_colon_is_not_a_subject_and_mid_headline_names_keep_their_adjective():
+    """Nov 22, render 126: "Made in Tarrant: Gobble up barbecue at Big Bear's Smokehouse" searched for "Gobble" (a turkey
+    photo could have passed) and for "Bear Smokehouse"."""
+    from ftworthtv.images.subject import entities, plan_subject
+    t = "Made in Tarrant: Gobble up barbecue at Big Bear’s Smokehouse"
+    names = entities(t, "Big Bear’s Smokehouse in Haltom City smokes turkeys.")
+    assert "Gobble" not in names and "Big Bear Smokehouse" in names
+    assert plan_subject(t, "Big Bear’s Smokehouse in Haltom City smokes turkeys.", "food").primary != "Gobble"
+    assert not any(n.lower().startswith("big") for n in entities("Big crash closes lanes on I-35W in north Fort Worth"))
