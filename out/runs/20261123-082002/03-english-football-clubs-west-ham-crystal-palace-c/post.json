@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T15:10:02.917273+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-082002/03-english-football-clubs-west-ham-crystal-palace-c/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-082002/03-english-football-clubs-west-ham-crystal-palace-c/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "English football clubs West Ham, Crystal Palace competing in Dallas Cup in 2027",
+    "caption": "West Ham was relegated from the English Premier League last spring and is currently battling for elevation in the Championship, England’s second division. Two squads that have recently competed in the English Premier League will compete in the Dallas Cup in 2027, the oldest youth soccer tournament in the United States.\n\nThe Hammers lifted the trophy in 1992.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/english-football-clubs-west-ham-crystal-palace-returning-to-dallas-cup-in-2027/4107856/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "0dcde3ec7bc5a81f",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "English football clubs West Ham, Crystal Palace competing in Dallas Cup in 2027",
+    "summary": "West Ham was relegated from the English Premier League last spring and is currently battling for elevation in the Championship, England’s second division. Two squads that have recently competed in the English Premier League will compete in the Dallas Cup in 2027, the oldest youth soccer tournament in the United States. Crystal Palace, which is currently at the bottom of the Premier League table, and West Ham United, which is currently competing in the Championship (England's second division), accepted invitations to compete in March. West Ham's last appearance was in 2001. This will be their sixth. The Hammers lifted the trophy in 1992. Nottingham Forest (2002), Liverpool (2008), Fulham (2013), and Everton (2016) have also won the trophy. Former Manchester United player and manager Michael Carrick competed with West Ham in 2000. West Ham is known for producing young players, including…",
+    "url": "https://www.nbcdfw.com/news/sports/english-football-clubs-west-ham-crystal-palace-returning-to-dallas-cup-in-2027/4107856/",
+    "published": "2026-11-23T08:11:24+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/GettyImages-2271742208.jpg?quality=85&strip=all&fit=5000,3172",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7200000000000001,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.4647
+  }
+}

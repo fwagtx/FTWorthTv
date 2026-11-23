@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T14:45:02.917273+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-082002/02-driver-arrested-after-car-crashes-into-bedford-b/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-082002/02-driver-arrested-after-car-crashes-into-bedford-b/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Driver arrested after car crashes into Bedford business following pursuit",
+    "caption": "Officers stopped the pursuit due to the risk to the driver and other motorists. A short time later, police received a call about a car that had crashed into a business.\n\nA driver is under arrest after crashing a car into a business along Brown Trail in Bedford, police said. The crash happened overnight in the 2700 block of Brown Trail.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/driver-arrested-after-car-crashes-into-bedford-business-following-pursuit/4109509/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Bedford, TX"
+  },
+  "story": {
+    "id": "7154d9b7e3239f3a",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Driver arrested after car crashes into Bedford business following pursuit",
+    "summary": "Officers stopped the pursuit due to the risk to the driver and other motorists. A short time later, police received a call about a car that had crashed into a business. A driver is under arrest after crashing a car into a business along Brown Trail in Bedford, police said. The crash happened overnight in the 2700 block of Brown Trail. Police said officers initially received a call about a possible intoxicated driver. When officers attempted to conduct a traffic stop, the driver fled at a high speed while crossing into oncoming traffic. Officers stopped the pursuit out of caution and due to the risk to the driver and other motorists on the road. A short time later, police received a call about a car that had crashed into a business. The driver was located at the scene and taken into custody. He was then transported to a hospital to be checked out, police said. He was booked into jail a…",
+    "url": "https://www.nbcdfw.com/news/local/driver-arrested-after-car-crashes-into-bedford-business-following-pursuit/4109509/",
+    "published": "2026-11-23T08:11:24+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/0_07-KXAS-WKND-5P-SUN-_-VO-DFW-Bedford-Car-Into-Business.png?fit=1920,1080&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.5655
+  }
+}

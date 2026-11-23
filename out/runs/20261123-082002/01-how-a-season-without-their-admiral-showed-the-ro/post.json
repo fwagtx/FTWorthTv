@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-082002/01-how-a-season-without-their-admiral-showed-the-ro/post.jpg",
+    "credit": "Photo: Original uploader was Hequalstohenry of en.wikipedia via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Toyota_Center_inside.jpg",
+    "photo_id": "lib-toyota-center-inside-jpg",
+    "subject": "topic:toyota-center"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-082002/01-how-a-season-without-their-admiral-showed-the-ro/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "How a season without their 'admiral' showed the Rockets what they were missing",
+    "caption": "A healthy Fred VanVleet is commanding the surging Rockets after an ACL injury derailed his 2025-26 season.",
+    "first_comment": "Source: ESPN NBA https://www.espn.com/nba/story/_/id/50524821/nba-houston-rockets-fred-vanvleet-injury-comeback\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "b0d02a7515d38b45",
+    "source": "ESPN NBA",
+    "source_kind": "rss",
+    "title": "How a season without their 'admiral' showed the Rockets what they were missing",
+    "summary": "A healthy Fred VanVleet is commanding the surging Rockets after an ACL injury derailed his 2025-26 season. Here's why he's so important.",
+    "url": "https://www.espn.com/nba/story/_/id/50524821/nba-houston-rockets-fred-vanvleet-injury-comeback",
+    "published": "2026-11-23T12:40:00+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN NBA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.63,
+    "extra": {
+      "feed_title": "www.espn.com - NBA",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.682
+  }
+}
