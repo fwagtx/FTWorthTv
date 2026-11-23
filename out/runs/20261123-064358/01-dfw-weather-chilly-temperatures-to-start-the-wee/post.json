@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=wRT4xLy_Tws",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "DFW Weather: Chilly temperatures to start the week, here's your Thanksgiving forecast",
+    "caption": "WATCH: DFW Weather: Chilly temperatures to start the week, here's your Thanksgiving forecast\n\nVideo: WFAA on YouTube",
+    "first_comment": "Source: WFAA on YouTube https://www.youtube.com/watch?v=wRT4xLy_Tws\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline storm clouds",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "a841df25e5caeb55",
+    "source": "WFAA",
+    "source_kind": "video",
+    "title": "DFW Weather: Chilly temperatures to start the week, here's your Thanksgiving forecast",
+    "summary": "DFW Weather: Chilly temperatures to start the week, here's your Thanksgiving forecast",
+    "url": "https://www.youtube.com/watch?v=wRT4xLy_Tws",
+    "published": "2026-11-23T12:26:48+00:00",
+    "category_hint": null,
+    "image_url": "https://i4.ytimg.com/vi/wRT4xLy_Tws/hqdefault.jpg",
+    "image_credit": "Video: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "wRT4xLy_Tws",
+      "channel": "WFAA",
+      "handle": "@WFAA8",
+      "views": 96,
+      "feed_title": "WFAA",
+      "scope": "dfw"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 0.8203
+  }
+}

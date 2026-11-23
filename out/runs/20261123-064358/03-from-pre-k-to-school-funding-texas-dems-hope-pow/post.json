@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T13:33:58.053126+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-064358/03-from-pre-k-to-school-funding-texas-dems-hope-pow/post.jpg",
+    "credit": "Photo: Lago Vista Sergio Flores for The Texas Tribune",
+    "license": "republish-ok",
+    "provider": "source",
+    "source_url": "https://feeds.texastribune.org/link/16799/17538206/texas-democrats-education-priorities-school-funding",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-064358/03-from-pre-k-to-school-funding-texas-dems-hope-pow/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "From pre-K to school funding, Texas Dems hope power shift gives education priorities momentum",
+    "caption": "Education bills filed ahead of next year’s session include those that failed in a GOP-controlled Legislature. Democrats now have the House, but the Senate retained a Republican majority.",
+    "first_comment": "Source: The Texas Tribune @TexasTribune https://feeds.texastribune.org/link/16799/17538206/texas-democrats-education-priorities-school-funding\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3844f02bf391d604",
+    "source": "The Texas Tribune",
+    "source_kind": "rss",
+    "title": "From pre-K to school funding, Texas Dems hope power shift gives education priorities momentum",
+    "summary": "Education bills filed ahead of next year’s session include those that failed in a GOP-controlled Legislature. Democrats now have the House, but the Senate retained a Republican majority.",
+    "url": "https://feeds.texastribune.org/link/16799/17538206/texas-democrats-education-priorities-school-funding",
+    "published": "2026-11-23T11:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/11/20250909-Cell-Phone-Ban-SF-03.jpg?fit=1024%2C683&ssl=1",
+    "image_credit": "Photo: Lago Vista Sergio Flores for The Texas Tribune",
+    "image_license": "republish-ok",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5599999999999999,
+    "extra": {
+      "feed_title": "The Texas Tribune",
+      "national": false,
+      "social_tag": "@TexasTribune",
+      "article_fetched": true,
+      "scope": "texas",
+      "page_caption": "Students walk through the hallway at Lago Vista High School on Sept. 9, 2025, in Lago Vista Sergio Flores for The Texas Tribune",
+      "page_credit": "Lago Vista Sergio Flores for The Texas Tribune"
+    },
+    "category": "politics",
+    "relevance": 2,
+    "score": 0.6807
+  }
+}

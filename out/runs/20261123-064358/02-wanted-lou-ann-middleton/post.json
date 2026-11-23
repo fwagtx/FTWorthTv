@@ -1,0 +1,60 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T13:08:58.053126+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-064358/02-wanted-lou-ann-middleton/post.jpg",
+    "credit": "Photo: Arlington Police Department",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-064358/02-wanted-lou-ann-middleton/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Arlington police searching for Lou Ann MIDDLETON, wanted for burglary",
+    "caption": "Arlington police are looking for Lou Ann MIDDLETON, wanted for burglary. Crime Stoppers is offering up to $2,000 for information leading to an arrest.\n\nCall 817-469-TIPS (8477) or submit a tip at 469tips.com. You stay anonymous.",
+    "first_comment": "Source: Arlington Police Department most wanted https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives\n{photo_credit}\nTips: https://469tips.com\nCharges are accusations. All suspects are presumed innocent until proven guilty in a court of law.",
+    "hashtags": [],
+    "image_query": "police lights street night",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "3307c59443181c18",
+    "source": "Arlington Police Department",
+    "source_kind": "wanted",
+    "title": "WANTED: Lou Ann MIDDLETON",
+    "summary": "Lou Ann MIDDLETON is wanted by the Arlington Police Department for Burglary. Crime Stoppers will pay up to $2,000 for information leading to an arrest. Call 817-469-TIPS (8477) or submit a tip at https://469tips.com. Tipsters stay anonymous.",
+    "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives",
+    "published": "2026-11-23T12:43:45.729900+00:00",
+    "category_hint": "crime",
+    "image_url": "https://www.arlingtontx.gov/files/assets/city/v/13/police/images/wanted-fugitives/wanted-fugitive-02.jpg",
+    "image_credit": "Photo: Arlington Police Department",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.7,
+    "extra": {
+      "name": "Lou Ann MIDDLETON",
+      "charge": "Burglary",
+      "agency": "Arlington Police Department",
+      "reward": "$2,000",
+      "tip_phone": "817-469-TIPS (8477)",
+      "tip_url": "https://469tips.com",
+      "age": null,
+      "city": "Arlington",
+      "details": "",
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 1,
+    "score": 0.7655
+  }
+}
