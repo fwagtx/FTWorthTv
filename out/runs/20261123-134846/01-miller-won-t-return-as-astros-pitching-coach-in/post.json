@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-134846/01-miller-won-t-return-as-astros-pitching-coach-in/post.jpg",
+    "credit": "Photo: Lance Cpl. Perri Wood via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Astros_game_Fleet_Week_Houston_(260415-M-GQ491-3018).jpg",
+    "photo_id": "lib-astros-game-fleet-week-houston-260415-m-gq491-3018-jpg",
+    "subject": "topic:daikin-park"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-134846/01-miller-won-t-return-as-astros-pitching-coach-in/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Miller won't return as Astros' pitching coach in '27 (source)",
+    "caption": "A longtime fixture on the Astros’ coaching staff will not be back next season under new manager Brad Ausmus. A source told MLB.com’s Brian McTaggart on Monday that Josh Miller will not return as Houston’s pitching coach next season.\n\nThe club has not confirmed the news.",
+    "first_comment": "Source: Houston Astros (MLB.com) https://www.mlb.com/astros/news/josh-miller-will-not-return-astros-pitching-coach\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3eae7c89d63660eb",
+    "source": "Houston Astros (MLB.com)",
+    "source_kind": "rss",
+    "title": "Miller won't return as Astros' pitching coach in '27 (source)",
+    "summary": "A longtime fixture on the Astros’ coaching staff will not be back next season under new manager Brad Ausmus. A source told MLB.com’s Brian McTaggart on Monday that Josh Miller will not return as Houston’s pitching coach next season. The club has not confirmed the news. The Astros announced last A longtime fixture on the Astros’ coaching staff will not be back next season under new manager Brad Ausmus . A source told MLB.com’s Brian McTaggart on Monday that Josh Miller will not return as Houston’s pitching coach next season. The club has not confirmed the news. The Astros announced last month that Miller, first-base coach Dave Clark, field coordinator Jason Bell, hitting coach Victor Rodriguez and bullpen catcher Javier Bracamonte would return next season. However, that was before Houston named Ausmus its manager on Nov. 13, and Miller is now the second coach from that quartet who has…",
+    "url": "https://www.mlb.com/astros/news/josh-miller-will-not-return-astros-pitching-coach",
+    "published": "2026-11-23T19:28:30+00:00",
+    "category_hint": null,
+    "image_url": null,
+    "image_credit": "Photo: Houston Astros (MLB.com)",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "Astros News",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.3787
+  }
+}
