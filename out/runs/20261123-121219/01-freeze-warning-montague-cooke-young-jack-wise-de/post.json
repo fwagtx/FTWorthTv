@@ -1,0 +1,58 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-121219/01-freeze-warning-montague-cooke-young-jack-wise-de/post.jpg",
+    "credit": "Photo: NOAA National Weather Service, Dallas-Fort Worth Office via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Snowstorm_Dallas-Fort_Worth_week_of_14_February_2021.png",
+    "photo_id": "lib-snowstorm-dallas-fort-worth-week-of-14-february-2021-png",
+    "subject": "beat:ice"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-121219/01-freeze-warning-montague-cooke-young-jack-wise-de/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Freeze Warning for Tarrant and 20 other North Texas counties from 11 PM Tuesday to 9 AM Wednesday",
+    "caption": "The National Weather Service has issued a Freeze Warning for Montague, Cooke, Young, Jack, Wise, Denton, Stephens, Palo Pinto, Parker, Tarrant, Eastland, Erath, Hood, Somervell, Johnson, Comanche, Mills, Hamilton, Bosque, Lampasas and Coryell counties from 11 PM Tuesday to 9 AM Wednesday.\n\nA Freeze Warning means that the season's first episode of sub-freezing temperatures are likely to occur.",
+    "first_comment": "Source: National Weather Service https://forecast.weather.gov/MapClick.php?zoneid=TXZ118\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "storm clouds Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c04167340c05c53e",
+    "source": "National Weather Service Fort Worth",
+    "source_kind": "nws_alert",
+    "title": "Freeze Warning: Montague; Cooke; Young; Jack; Wise; Denton; Stephens; Palo Pinto; Parker; Tarrant; Eastland; Erath; Hood; Somervell; Johnson; Comanche; Mills; Hamilton; Bosque; Lampasas; Coryell",
+    "summary": "Freeze Warning issued November 23 at 11:24AM CST until November 25 at 9:00AM CST by NWS Fort Worth TX. * WHAT...Sub-freezing temperatures as low as 27 expected. * WHERE...Areas along and west of a line from Gainesville to Fort Worth to Meridian to Lampasas. * WHEN...From 11 PM Tuesday to 9 AM CST Wednesday. * IMPACTS...Frost and freeze conditions could kill crops, other sensitive vegetation and possibly damage unprotected outdoor plumbing.",
+    "url": "https://forecast.weather.gov/MapClick.php?zoneid=TXZ118",
+    "published": "2026-11-23T11:24:00-06:00",
+    "category_hint": "weather",
+    "image_url": "https://radar.weather.gov/ridge/standard/KFWS_0.gif",
+    "image_credit": "Radar: National Weather Service (public domain)",
+    "image_license": "public-domain",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 1.3,
+    "extra": {
+      "severity": "Severe",
+      "event": "Freeze Warning",
+      "area": "Montague; Cooke; Young; Jack; Wise; Denton; Stephens; Palo Pinto; Parker; Tarrant; Eastland; Erath; Hood; Somervell; Johnson; Comanche; Mills; Hamilton; Bosque; Lampasas; Coryell",
+      "ends": "2026-11-25T09:00:00-06:00",
+      "instruction": "A Freeze Warning means that the season's first episode of sub-freezing temperatures are likely to occur. These conditions will kill sensitive plants, and residents are advised to protect tender vegetation. Automatic sprinkler systems should also be turned off to avoid creating ice patches on nearby roads, driveways, and sidewalks. Take steps now to protect tender plants from the cold. Make sure…",
+      "urgency": "Expected",
+      "radar_loop": "https://radar.weather.gov/ridge/standard/KFWS_loop.gif",
+      "scope": "local"
+    },
+    "category": "weather",
+    "relevance": 3,
+    "score": 8.5251
+  }
+}
