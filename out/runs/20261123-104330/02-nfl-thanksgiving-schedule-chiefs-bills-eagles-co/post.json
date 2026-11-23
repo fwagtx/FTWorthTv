@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T17:08:30.511425+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-104330/02-nfl-thanksgiving-schedule-chiefs-bills-eagles-co/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-104330/02-nfl-thanksgiving-schedule-chiefs-bills-eagles-co/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "NFL Thanksgiving schedule: Chiefs-Bills, Eagles-Cowboys, Bears-Lions on the menu",
+    "caption": "The NFL's loaded Thanksgiving schedule includes Bears-Lions, Eagles-Cowboys and Chiefs-Bills, plus a Thanksgiving Eve game and a Black Friday game. NFL fans will be treated to a football feast this Thanksgiving.\n\nFor two decades, the NFL has brought three Thanksgiving games to the table each year. That will continue in 2026 with a three-course schedule filled with intriguing matchups.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/nfl/nfl-thanksgiving-schedule-2026-chiefs-bills-eagles-cowboys-bears-lions/4023914/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "713d1254c04d9f99",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "NFL Thanksgiving schedule: Chiefs-Bills, Eagles-Cowboys, Bears-Lions on the menu",
+    "summary": "The NFL's loaded Thanksgiving schedule includes Bears-Lions, Eagles-Cowboys and Chiefs-Bills, plus a Thanksgiving Eve game and a Black Friday game. NFL fans will be treated to a football feast this Thanksgiving. For two decades, the NFL has brought three Thanksgiving games to the table each year. That will continue in 2026 with a three-course schedule filled with intriguing matchups. That's not all this year, though. The league introduced a Thanksgiving Eve game for the first time, and it will also have its fourth annual Black Friday. Here is a look at the NFL’s loaded Thanksgiving menu in 2026. This year's holiday festivities will kick off on Thanksgiving Eve, as the Los Angeles Rams will host the Green Bay Packers on Wednesday, Nov. 25. That leads into a stacked menu of three Thanksgiving games on Thursday, Nov. 26: the Chicago Bears at the Detroit Lions as the appetizer, the…",
+    "url": "https://www.nbcdfw.com/news/sports/nfl/nfl-thanksgiving-schedule-2026-chiefs-bills-eagles-cowboys-bears-lions/4023914/",
+    "published": "2026-11-23T08:11:24+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/261123-nfl-thanksgiving-2026.jpg?quality=85&strip=all&fit=1200,675",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.3917
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-104330/01-justin-timberlake-documentary-trailer-apple-tv-s/post.jpg",
+    "credit": "Photo: dph1110 (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/56181704@N00/471774448",
+    "photo_id": "openverse-176bf003-f72d-4224-b0e3-1282cc99893a",
+    "subject": "beat:Fort Worth Stockyards"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-104330/01-justin-timberlake-documentary-trailer-apple-tv-s/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "Justin Timberlake Documentary Trailer: Apple TV Series to Unpack Britney Spears, Janet Jackson Controversies",
+    "caption": "The trailer for Apple TV's upcoming Justin Timberlake documentary teases details about his controversies around Britney Spears and Janet Jackson. It will launch “Timberlake,” a new four-part documentary on Justin Timberlake ’s life and career helmed by Academy Award winner Fisher Stevens; Variety first reported the news earlier this month.",
+    "first_comment": "Source: Variety https://variety.com/2026/music/news/justin-timberlake-documentary-trailer-britney-spears-janet-jackson-1236955955/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c8616030f39edfa5",
+    "source": "Variety",
+    "source_kind": "rss",
+    "title": "Justin Timberlake Documentary Trailer: Apple TV Series to Unpack Britney Spears, Janet Jackson Controversies",
+    "summary": "The trailer for Apple TV's upcoming Justin Timberlake documentary teases details about his controversies around Britney Spears and Janet Jackson. Apple TV has confirmed that it will launch “Timberlake,” a new four-part documentary on Justin Timberlake ’s life and career helmed by Academy Award winner Fisher Stevens; Variety first reported the news earlier this month. The series premieres globally on Apple TV on Friday, December 11 with the first two episodes, followed by the third episode on Friday, December 18 and the finale on Wednesday, December 23, 2026.",
+    "url": "https://variety.com/2026/music/news/justin-timberlake-documentary-trailer-britney-spears-janet-jackson-1236955955/",
+    "published": "2026-11-23T16:03:04+00:00",
+    "category_hint": null,
+    "image_url": "https://variety.com/wp-content/uploads/2026/11/Screenshot-2026-11-23-at-10.49.21-AM-e1795449557290.png",
+    "image_credit": "Photo: Variety",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "Variety",
+      "national": true,
+      "scope": "national",
+      "national_term": "trailer"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.3469
+  }
+}
