@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T18:09:16.583393+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-114416/02-dallas-cowboys-partner-with-carter-bloodcare-to/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Arlington_June_2020_2_(AT%26T_Stadium).jpg",
+    "photo_id": "lib-arlington-june-2020-2-at-t-stadium-jpg",
+    "subject": "topic:att-stadium"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-114416/02-dallas-cowboys-partner-with-carter-bloodcare-to/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Dallas Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving",
+    "caption": "Texas It's the season of giving, and the Dallas Cowboys are teaming with Carter BloodCare to hold a blood drive at AT&T Stadium in Arlington next week. The event, scheduled for Monday, Nov. 23, from 10 a.m. to 6 p.m., will feature Cowboys legends, player appearances and the Dallas Cowboys Cheerleaders.\n\nThe first 250 donors will receive a standing-room-only ticket to the Cowboys' Thanksgiving game against the Philadelphia Eagles. All donors will be entered for a chance to win two tickets to the game too.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/dallas-cowboys-carter-bloodcare-blood-drive-thanksgiving-game-tickets-philadelphia-eagles/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "7db1ddf48ca929d8",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Dallas Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving",
+    "summary": "The event, scheduled for Monday, Nov. 23, from 10 a.m. to 6 p.m., will feature Cowboys legends, player appearances and the Dallas Cowboys Cheerleaders. Updated on: November 23, 2026 / 11:23 AM CST / CBS Texas It's the season of giving, and the Dallas Cowboys are teaming with Carter BloodCare to hold a blood drive at AT&T Stadium in Arlington next week. The event, scheduled for Monday, Nov. 23, from 10 a.m. to 6 p.m., will feature Cowboys legends, player appearances and the Dallas Cowboys Cheerleaders. The first 250 donors will receive a standing-room-only ticket to the Cowboys' Thanksgiving game against the Philadelphia Eagles . All donors will be entered for a chance to win two tickets to the game too. The team also recently announced that country music star and Texas native Miranda Lambert will perform during the 30th consecutive Salvation Army Red Kettle Kickoff Halftime Show.",
+    "url": "https://www.cbsnews.com/texas/news/dallas-cowboys-carter-bloodcare-blood-drive-thanksgiving-game-tickets-philadelphia-eagles/",
+    "published": "2026-11-23T17:23:52+00:00",
+    "category_hint": null,
+    "image_url": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/11/23/5e02309f-cba2-40e1-ba03-4bbe720056fe/thumbnail/1024x576/4e7a6e50c342412a5fe42f947fb6089e/0a5f74a88e86211ca571820e55c1e97b.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.8833
+  }
+}

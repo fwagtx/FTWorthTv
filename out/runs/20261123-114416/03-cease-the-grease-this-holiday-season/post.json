@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T18:34:16.583393+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-114416/03-cease-the-grease-this-holiday-season/post.jpg",
+    "credit": "Photo: City of Fort Worth",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.fortworthtexas.gov/news/2026/11/Cease-the-Grease-this-holiday-season",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-114416/03-cease-the-grease-this-holiday-season/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "‘Cease the Grease’ this holiday season",
+    "caption": "Protect your plumbing, prevent sewer blockages, and support recycling efforts by properly disposing of fats, oils, and grease.",
+    "first_comment": "Source: City of Fort Worth https://www.fortworthtexas.gov/news/2026/11/Cease-the-Grease-this-holiday-season\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "fd892b6f65802353",
+    "source": "City of Fort Worth",
+    "source_kind": "rss",
+    "title": "‘Cease the Grease’ this holiday season",
+    "summary": "Protect your plumbing, prevent sewer blockages, and support recycling efforts by properly disposing of fats, oils, and grease.",
+    "url": "https://www.fortworthtexas.gov/news/2026/11/Cease-the-Grease-this-holiday-season",
+    "published": "2026-11-23T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.fortworthtexas.gov/files/assets/public/v/2/environmental-services/solid-waste/images/envd-solid-waste-holiday-grease-roundup-thumbnail-graphic-2026.jpg",
+    "image_credit": "Photo: City of Fort Worth",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.8,
+    "extra": {
+      "listing_image": "https://www.fortworthtexas.gov/files/assets/public/v/2/environmental-services/solid-waste/images/envd-solid-waste-holiday-grease-roundup-thumbnail-graphic-2026.jpg",
+      "generic_image": false,
+      "article_fetched": true,
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 0,
+    "score": 0.7776
+  }
+}

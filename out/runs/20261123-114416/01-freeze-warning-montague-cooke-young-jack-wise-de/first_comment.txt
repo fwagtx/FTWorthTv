@@ -1,0 +1,2 @@
+Source: National Weather Service https://forecast.weather.gov/MapClick.php?zoneid=TXZ118
+Radar: NWS Fort Worth (public domain)
