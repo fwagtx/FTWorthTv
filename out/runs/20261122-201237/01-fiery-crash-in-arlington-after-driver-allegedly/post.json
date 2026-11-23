@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-201237/01-fiery-crash-in-arlington-after-driver-allegedly/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261122-201237/01-fiery-crash-in-arlington-after-driver-allegedly/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "traffic",
+    "headline": "Fiery crash in Arlington after driver allegedly flees from police, officials say",
+    "caption": "A high-speed incident on Highway 360 in Arlington ends in a fiery crash, sending one driver to the hospital on Sunday. The Arlington Police Department said officers were conducting speed enforcement along Hwy. 360 around 3:30 p.m. when they clocked a Chevrolet Malibu traveling nearly 90 miles per hour in a posted 60 mph zone.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/fiery-crash-in-arlington-after-driver-allegedly-flees-from-police-officials-say/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "d1cbca42989fdf79",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Fiery crash in Arlington after driver allegedly flees from police, officials say",
+    "summary": "A high-speed incident on Highway 360 in Arlington ends in a fiery crash, sending one driver to the hospital on Sunday. November 22, 2026 / 7:52 PM CST / CBS Texas A high-speed incident on Highway 360 in Arlington ends in a fiery crash, sending one driver to the hospital on Sunday with serious injuries. The Arlington Police Department said officers were conducting speed enforcement along Hwy. 360 around 3:30 p.m. when they clocked a Chevrolet Malibu traveling nearly 90 miles per hour in a posted 60 mph zone. Officers activated their emergency lights and sirens and attempted to pull over the driver; however, the driver did not stop and began making dangerous lane changes, police said. The officers ultimately decided not to pursue the Malibu and turned off their emergency equipment. Moments later, officers spotted the same Malibu wrecked along the side of the highway near the Mitchell…",
+    "url": "https://www.cbsnews.com/texas/news/fiery-crash-in-arlington-after-driver-allegedly-flees-from-police-officials-say/",
+    "published": "2026-11-23T01:52:31+00:00",
+    "category_hint": null,
+    "image_url": "https://assets3.cbsnewsstatic.com/hub/i/r/2023/09/23/0fcea893-c11b-41e3-90e7-c4644e0f9890/thumbnail/1024x576/e1848e7d4cac6f5bcf339aa05257f346/gettyimages-1354288530.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "traffic",
+    "relevance": 2,
+    "score": 0.968
+  }
+}
