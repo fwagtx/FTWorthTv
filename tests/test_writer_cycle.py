@@ -546,3 +546,17 @@ def test_team_highlight_reels_are_not_news():
     assert highlight_reel("George Pickens' Best Plays from 102-yard game | Week 11 Highlights")
     assert highlight_reel("Javonte Williams' Best plays from 2-TD game vs. Titans | Week 11 Highlights")
     assert not highlight_reel("Fort Worth police release video of Sunday chase on I-35W")
+
+
+def test_a_holiday_light_show_takes_a_picture_of_the_lights_or_none():
+    """Nov 23, render 150: 'Christmas in the Garden returns to Fort Worth Botanic Garden' came with the garden's arbors on a
+    sunny October day in 2019."""
+    from ftworthtv.images.subject import LIGHT_WORDS, light_show, plan_subject, provider_queries
+    t = "Christmas in the Garden returns to Fort Worth Botanic Garden"
+    body = "Christmas in the Garden returns to the Fort Worth Botanic Garden with the Winter Cathedral and new light installations."
+    plan = plan_subject(t, body, "culture")
+    assert plan.entity_topics == []
+    for (query, _avoid, words), _label in provider_queries(plan, t, "culture"):
+        assert LIGHT_WORDS in words
+    assert light_show("GM Financial Parade of Lights returns to Fort Worth for the 2026 holiday season")
+    assert not light_show("Fort Worth Botanic Garden opens new rose garden")

@@ -258,12 +258,26 @@ def resolve_titled(name: str, body: str) -> str | None:
     return None
 
 
+_LIGHT_SHOW_RE = re.compile(r"\b(?:christmas in the garden|light trail|lights? (?:show|display|festival|trail|walk|drive)|holiday lights|"
+                            r"christmas lights|light installations?|luminarias?|illuminat\w+|lantern festival|winter wonderland|"
+                            r"parade of lights|trail of lights|festival of lights|zoo lights|enchant)\b", re.I)
+LIGHT_WORDS = "light|lights|christmas|holiday|lantern|lanterns|luminaria|illumination|illuminations|night"
+
+
+def light_show(title: str) -> bool:
+    """'Christmas in the Garden returns to Fort Worth Botanic Garden': a holiday light show is seen at night; a daytime
+    photo of the venue is a stand-in (Nov 23)."""
+    return bool(_LIGHT_SHOW_RE.search(title or ""))
+
+
 def plan_subject(title: str, body: str, category: str) -> SubjectPlan:
     names = [n for n in (resolve_titled(x, body) for x in entities(title, body)) if n]
     subjects = [n for n in names if not _is_place(n)]
     if _DEATH_RE.search(title or "") and any(looks_like_person(n) for n in subjects):
         subjects = [n for n in subjects if looks_like_person(n)]   # a death is about the person: no team, venue or honor photo
     topics = entity_topics_for(subjects, category, title, body)
+    if light_show(title):
+        topics = []                  # the garden by day is not the light trail (Nov 23: Christmas in the Garden, Oct 2019 arbors)
     plan = SubjectPlan(primary=subjects[0] if subjects else None, entities=names, entity_topics=topics)
     if topics:
         plan.mode = "entity"
@@ -500,6 +514,8 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
         animal = animal_in(title)
         if animal:
             words = words + (animal,)                   # a zoo story's picture shows the animal, not an inspection of another one
+        if light_show(title):
+            words = words + (LIGHT_WORDS,)              # a holiday light show takes a picture of the lights, never the venue by day
         label = f"entity:{name.lower()}"
         if looks_like_person(name) and not people_allowed:
             continue                                   # a stranger with the same name is the worst mistake a page can make
