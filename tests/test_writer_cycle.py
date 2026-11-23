@@ -940,3 +940,12 @@ def test_render_170_rules():
     assert not _national_result("Taylor Swift Shares the Sweetest Moment With Her Niece After Travis Kelce Scores Epic Touchdown")
     assert _national_result("Chiefs beat Eagles to win Super Bowl LXI")
     assert _national_result("Cowboys roll past Eagles after Prescott throws three touchdowns")
+
+
+def test_render_172_rules():
+    """Nov 23, render 172: ESPN's "Texas A&M names Thornton interim athletic director, effective Dec. 1" drew Kyle Field:
+    a name between "names" and the role hid the job change from the happening rule."""
+    from ftworthtv.images.subject import happened
+    assert happened("Texas A&M names Thornton interim athletic director, effective Dec. 1")
+    assert happened("Keller ISD board names lone finalist for superintendent")
+    assert not happened("Fort Worth names new park after longtime council member")

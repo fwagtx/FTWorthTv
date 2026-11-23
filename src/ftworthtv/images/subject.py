@@ -550,7 +550,7 @@ def happened(title: str, kind: str = "rss") -> bool:
     low = f" {(title or '').lower()} "
     hits = [w for w in HAPPENED_WORDS if w in low]
     if not hits:
-        return False
+        return bool(_NAMED_TO_ROLE_RE.search(low))   # "Texas A&M names Thornton interim athletic director" drew Kyle Field (Nov 23)
     if all(w in PERSONNEL_WORDS for w in hits) and not _ROLE_RE.search(low):
         return False                  # "Fort Worth introduces new recycling carts" is a program, not a person taking a job
     hits = [w for w in hits if w not in PERSONNEL_WORDS] or hits
@@ -560,6 +560,9 @@ def happened(title: str, kind: str = "rss") -> bool:
     return True
 
 
+_NAMED_TO_ROLE_RE = re.compile(r"\b(?:names?|named|appoints?|appointed|taps|tapped|tabs|tabbed)\b[^.]{0,40}?\b(?:interim |acting |new )?"
+                               r"(?:head coach|coach|athletic director|coordinator|police chief|fire chief|chief|superintendent|"
+                               r"president|ceo|director|manager|chancellor|provost|dean|principal|commissioner)\b")
 # a job changing hands is a happening only for a person in a role: "TCU interim HC Andy Avalos introduced", "Fort Worth hires
 # new police chief"; "Fort Worth introduces new recycling carts" is a program
 PERSONNEL_WORDS = {" introduced", " introduces", "named interim", "names interim", " hires ", " hired ", "promoted to", "takes over as"}
