@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T23:37:38.603368+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-171238/02-gta-6-players-are-upset-its-new-train-can-actual/post.jpg",
+    "credit": "Photo: InclusiveGameLab via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:InclusiveGameLab_Person-with-PS5-Controller_2_CC-BY-SA.jpg",
+    "photo_id": "lib-inclusivegamelab-person-with-ps5-controller-2-cc-by-sa-jpg",
+    "subject": "beat:gaming"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-171238/02-gta-6-players-are-upset-its-new-train-can-actual/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "GTA 6 Players Are Upset Its New Train Can Actually Be Stopped After Spending 13 Years With the Unstoppable…",
+    "caption": "GTA 5's unstoppable train has been a meme for a decade, so naturally, players wasted no time trying to stop GTA 6's train – but they were sad to find out that it wasn't all that hard to do.",
+    "first_comment": "Source: IGN https://www.ign.com/articles/gta-6-players-are-upset-its-new-train-can-actually-be-stopped-after-spending-13-years-with-the-unstoppable-gta-5-train\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3d1f98e2f4a22827",
+    "source": "IGN",
+    "source_kind": "rss",
+    "title": "GTA 6 Players Are Upset Its New Train Can Actually Be Stopped After Spending 13 Years With the Unstoppable GTA 5 Train",
+    "summary": "GTA 5's unstoppable train has been a meme for a decade, so naturally, players wasted no time trying to stop GTA 6's train – but they were sad to find out that it wasn't all that hard to do.",
+    "url": "https://www.ign.com/articles/gta-6-players-are-upset-its-new-train-can-actually-be-stopped-after-spending-13-years-with-the-unstoppable-gta-5-train",
+    "published": "2026-11-23T22:10:23+00:00",
+    "category_hint": null,
+    "image_url": "https://assets-prd.ignimgs.com/2026/11/23/gta-6-train-1795470147994.png",
+    "image_credit": "Photo: IGN",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "IGN All",
+      "national": true,
+      "scope": "national",
+      "national_term": "gta 6"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.3243
+  }
+}
