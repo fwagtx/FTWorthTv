@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T18:03:11.982864+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-111311/03-holiday-cooking-and-potluck-food-safety-tips/post.jpg",
+    "credit": "Photo: City of Arlington",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.arlingtontx.gov/News-Articles/2026/November/Holiday-Cooking-and-Potluck-Food-Safety-Tips",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-111311/03-holiday-cooking-and-potluck-food-safety-tips/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Holiday Cooking and Potluck Food Safety Tips",
+    "caption": "As holiday season approaches, Tarrant County Public Health reminds residents to follow safe food handling practices to keep foodborne illness off the guest list.",
+    "first_comment": "Source: City of Arlington https://www.arlingtontx.gov/News-Articles/2026/November/Holiday-Cooking-and-Potluck-Food-Safety-Tips\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "fec67b42ed1a3951",
+    "source": "City of Arlington",
+    "source_kind": "rss",
+    "title": "Holiday Cooking and Potluck Food Safety Tips",
+    "summary": "As holiday season approaches, Tarrant County Public Health reminds residents to follow safe food handling practices to keep foodborne illness off the guest list.",
+    "url": "https://www.arlingtontx.gov/News-Articles/2026/November/Holiday-Cooking-and-Potluck-Food-Safety-Tips",
+    "published": "2026-11-23T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.arlingtontx.gov/files/assets/city/v/1/news/2026/november/articles-pot-luck-health-and-safety.jpg",
+    "image_credit": "Photo: City of Arlington",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.6,
+    "extra": {
+      "listing_image": "https://www.arlingtontx.gov/files/assets/city/v/1/news/2026/november/articles-pot-luck-health-and-safety.jpg",
+      "generic_image": false,
+      "article_fetched": true,
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 1,
+    "score": 0.6561
+  }
+}
