@@ -859,3 +859,17 @@ def test_render_164_rules():
     assert _source_posts_on(state, "NBC 5 DFW", "2026-11-23") == 0
     assert _source_posts_on(state, "The Texas Tribune", "2026-11-23") == 1
     assert _source_posts_on(state, "KXAN Austin", "2026-11-23") == 1
+
+
+def test_render_165_rules():
+    """Nov 23, render 165: FOX 4's "Northbound Dallas North Tollway to close overnight at Northwest Highway" drafted as a
+    text card, and Variety's "Super Bowl 2027 and Jay-Z Halftime Show to Screen in Imax Theaters" ("Worry not, because Imax
+    is bringing Super Bowl LXI to the big screen") drafted as a sports text card."""
+    from ftworthtv.filters import another_citys_traffic
+    from ftworthtv.pipeline import _national_result
+    assert another_citys_traffic("Northbound Dallas North Tollway to close overnight at Northwest Highway")
+    assert not another_citys_traffic("I-30 eastbound closed overnight near Cooper Street in Arlington")
+    assert not another_citys_traffic("SH 360 lanes close for bridge work")
+    assert not another_citys_traffic("Crash shuts down westbound I-20 in Grand Prairie")
+    assert not _national_result("Super Bowl 2027 and Jay-Z Halftime Show to Screen in Imax Theaters")
+    assert _national_result("Chiefs beat Eagles to win Super Bowl LXI")

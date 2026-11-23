@@ -462,6 +462,22 @@ def another_citys_blotter(title: str) -> bool:
     return bool(_BLOTTER_RE.search(low)) and not any(w in low for w in ("dead", "dies", "died", "killed", "fatal", "murder", "homicide", "manhunt", "amber alert"))
 
 
+# roads and places a Fort Worth driver uses: a closure on one of them is this page's traffic news
+FORT_WORTH_SIDE_TRAFFIC = ("fort worth", "tarrant", "arlington", "grand prairie", "keller", "southlake", "mansfield", "haltom", "hurst",
+                           "euless", "bedford", "grapevine", "north richland", "benbrook", "burleson", "crowley", "white settlement",
+                           "saginaw", "watauga", "azle", "weatherford", "colleyville", "i-30", "interstate 30", "i-20", "interstate 20",
+                           "i-35w", "35w", "i-820", "loop 820", "sh 360", "highway 360", "state highway 360", "sh 183", "highway 183",
+                           "airport freeway", "sh 121", "highway 121", "sh 114", "highway 114", "chisholm trail", "dfw airport",
+                           "trinity railway express", "trinity metro", "tex rail", "texrail")
+
+
+def another_citys_traffic(title: str) -> bool:
+    """'Northbound Dallas North Tollway to close overnight at Northwest Highway' (Nov 23): a closure on Dallas's own roads is
+    Dallas's traffic; a Fort Worth-side road or a road between the two cities (I-30, I-20, SH 360, SH 183, DFW Airport) stays."""
+    low = (title or "").lower()
+    return not any(w in low for w in FORT_WORTH_SIDE_TRAFFIC)
+
+
 OTHER_METRO_AGENCIES = ("hpd", "apd", "sapd", "harris county", "travis county", "bexar county", "el paso county", "houston isd", "austin isd")
 
 
@@ -921,6 +937,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 continue
             if tier[0] == "dfw" and cat == "crime" and another_citys_blotter(story.title):
                 dropped.append((story, "another city's police blotter"))     # a Dallas shooting with no death and no arrest is Dallas's blotter
+                continue
+            if tier[0] == "dfw" and cat == "traffic" and another_citys_traffic(story.title):
+                dropped.append((story, "another city's traffic"))            # a Dallas North Tollway closure is Dallas's traffic
                 continue
             if tier[0] in ("texas", "dfw") and other_metro_roundup(story.title):
                 dropped.append((story, "another city's weekend roundup"))      # "Austin weekend: theater, Bastrop B-day" is KXAN's calendar

@@ -256,7 +256,8 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                         # the article's own photo appears through Facebook's link preview (the outlet's image, no copy made)
                         draft.image, draft.story_path, draft.mode, draft.link = None, None, "link", story.url
                         report.notes.append(f"link post (outlet's own photo in the preview): {story.title[:60]}")
-                    elif draft.image.provider == "card" and ((copy.category or "other") in TEXT_CARD_CATEGORIES or story.is_urgent):
+                    elif draft.image.provider == "card" and (story.is_urgent or (copy.category or "other") in TEXT_CARD_CATEGORIES
+                                                              and (story.extra.get("scope") != "national" or _national_result(story.title))):
                         # hard news with no licensed picture of it still goes out, as a text card: an original post with
                         # nothing to mismatch (a fan's death at the stadium must not wait for a photo that cannot exist)
                         report.notes.append(f"text card (no licensed picture of the subject): {story.title[:60]}")
@@ -442,6 +443,13 @@ def _same_outlet_forecast(state, story, now) -> bool:
         if abs((now - at).total_seconds()) <= 12 * 3600:
             return True
     return False
+
+
+def _national_result(title: str) -> bool:
+    """A national story goes out as a text card only when it is a result ("Chiefs win Super Bowl LXI"): Nov 23, Variety's
+    "Super Bowl 2027 and Jay-Z Halftime Show to Screen in Imax Theaters" drafted as a sports text card."""
+    from .images.subject import happened
+    return happened(title)
 
 
 def _source_posts_on(state, source: str, day: str) -> int:
