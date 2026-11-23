@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-161258/01-mansfield-isd-school-board-elections-are-changin/post.jpg",
+    "credit": "Photo: Jacob Sanchez | Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/23/mansfield-isd-school-board-elections-are-changing-heres-what-voters-need-to-know/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-161258/01-mansfield-isd-school-board-elections-are-changin/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "Mansfield ISD school board elections are changing. Here’s what voters need to know",
+    "caption": "Trustees voted 4-3 to elect five board members by geographic area and let candidates with the most votes — not the majority — win. In a pair of 4-3 votes Nov. 17, trustees approved electing five members from single-member districts and two districtwide, replacing a system in which all seven were elected at large.\n\nThey also scrapped a requirement that winners get more than half the vote.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/23/mansfield-isd-school-board-elections-are-changing-heres-what-voters-need-to-know/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Mansfield, TX"
+  },
+  "story": {
+    "id": "be179f7aa07eb5f5",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Mansfield ISD school board elections are changing. Here’s what voters need to know",
+    "summary": "Trustees voted 4-3 to elect five board members by geographic area and let candidates with the most votes — not the majority — win. A divided Mansfield ISD school board overhauled how trustees are elected, carving most members into geographic districts and letting candidates win without a majority of votes. In a pair of 4-3 votes Nov. 17, trustees approved electing five members from single-member districts and two districtwide , replacing a system in which all seven were elected at large. They also scrapped a requirement that winners get more than half the vote. Candidates with the most votes will now win. Trustees Benita Reed, Michelle Newsom and Jesse Cannon II voted against the changes. The trustees and residents opposed to the switch said board members withheld information and rushed a decision months before the next election and three years before the 2030 redistricting cycle. The…",
+    "url": "https://fortworthreport.org/2026/11/23/mansfield-isd-school-board-elections-are-changing-heres-what-voters-need-to-know/",
+    "published": "2026-11-23T21:44:30+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/20261117_MansfieldISDBoardMeeting-300x225.jpg",
+    "image_credit": "Photo: Jacob Sanchez | Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "Mansfield ISD trustees listen to a presentation during a meeting Nov. 17, 2026, at the Dr. Jim Vaszauskas Center for the Performing Arts in Mansfield. (Jacob Sanchez | Fort Worth Report)",
+      "page_credit": "Jacob Sanchez | Fort Worth Report"
+    },
+    "category": "politics",
+    "relevance": 2,
+    "score": 1.4058
+  }
+}
