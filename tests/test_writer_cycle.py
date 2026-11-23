@@ -604,3 +604,24 @@ def test_render_152_rules():
              "partnership with the Cowboys.")
     assert same_subjects(video, "Dallas Cowboys mark 30 years of giving back with Salvation Army")
     assert not same_subjects(video, "Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs")
+
+
+def test_render_153_rules():
+    """Nov 23, render 153: a Texas Tribune explainer whose caption ended 'Here's what their plans could mean for taxpayers.',
+    an hour after another Tribune agenda piece; and KXAN's 'SEC Championship Game scenarios: How Texas can join Georgia'."""
+    from ftworthtv.filters import hypothetical_sports
+    from ftworthtv.pipeline import _source_posts_on
+    from ftworthtv.state import State
+    from ftworthtv.writer import _sentences
+    sents = _sentences("Texas Democrats are considering cutting property taxes and ending corporate subsidies. Here’s what their "
+                       "plans could mean for taxpayers. Texas Republican lawmakers spent years and billions of dollars trying to "
+                       "rein in the state’s property taxes.")
+    assert not any(s.lower().startswith("here") for s in sents) and len(sents) == 2
+    state = State.__new__(State)
+    state.data = {"posted": {"a": {"source": "The Texas Tribune", "at": "2026-11-23T07:37:00-06:00"},
+                             "b": {"source": "WFAA", "at": "2026-11-23T06:47:00-06:00"}}}
+    assert _source_posts_on(state, "The Texas Tribune", "2026-11-23") == 1
+    assert _source_posts_on(state, "The Texas Tribune", "2026-11-24") == 0
+    assert hypothetical_sports("SEC Championship Game scenarios: How Texas can join Georgia in Atlanta")
+    assert hypothetical_sports("What needs to happen for TCU to become bowl eligible")
+    assert not hypothetical_sports("TCU fires Sonny Dykes four years after making CFP championship game")

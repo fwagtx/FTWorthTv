@@ -236,6 +236,16 @@ def routine_presser(title: str) -> bool:
     return bool(_SPORTS_CUE_RE.search(low)) or any(f" {w} " in low for w in TEAM_WORDS if w not in _PLAIN_TEAM_WORDS)
 
 
+_SCENARIO_RE = re.compile(r"\b(?:scenarios?|what needs to happen|how [\w .'&-]{1,30} can (?:reach|make|join|clinch|get|win)|path to|"
+                          r"playoff picture|bowl projections?|projected|projections?|bracketology|mock draft)\b", re.I)
+
+
+def hypothetical_sports(title: str) -> bool:
+    """'SEC Championship Game scenarios: How Texas can join Georgia in Atlanta': what might happen is not news, and the
+    sports cap carried it into the next morning (Nov 23, KXAN)."""
+    return bool(_SCENARIO_RE.search(title or ""))
+
+
 def roundup_column(title: str) -> bool:
     """'NFL Week 11 winners and losers: Cowboys offense makes history ...', '3 takeaways from ...': a writer's verdict on
     games the page has already reported, not news (Nov 22, CBS Sports)."""
@@ -628,6 +638,10 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "video" and routine_presser(story.title):
             dropped.append((story, "a team's routine press conference video"))
+            continue
+        if story.source_kind == "rss" and hypothetical_sports(story.title) and (story.category_hint == "sports" or
+                                                                                 infer_category(story) == "sports"):
+            dropped.append((story, "a what-if sports piece (scenarios, projections), not news"))
             continue
         if story.source_kind == "rss" and roundup_column(story.title):
             dropped.append((story, "a roundup column (winners and losers, takeaways), not news"))

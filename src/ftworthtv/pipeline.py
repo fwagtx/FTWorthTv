@@ -175,6 +175,10 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             if clips_day_left <= 0 or any(d.story.source_kind == "submission" for d in drafts):
                 report.skipped.append((story, "viewer clip used (a couple a day, one a run)"))
                 continue
+        if story.extra.get("scope") in ("texas", "national") and story.source_kind == "rss" and not story.is_urgent \
+                and _source_posts_on(state, story.source, day) >= 1:
+            report.skipped.append((story, "this statewide outlet already had its post today"))   # Nov 23: two Texas Tribune
+            continue                                                                             # agenda explainers in an hour
         if story.extra.get("scope", "local") != "local" and not story.is_urgent:
             if non_local_left <= 0 or non_local_day_left <= 0:
                 report.skipped.append((story, "DFW/Texas share used (per run or per day)"))
@@ -433,3 +437,9 @@ def _same_outlet_forecast(state, story, now) -> bool:
         if abs((now - at).total_seconds()) <= 12 * 3600:
             return True
     return False
+
+
+def _source_posts_on(state, source: str, day: str) -> int:
+    """How many posts from one outlet went out (or are scheduled) on a local day."""
+    return sum(1 for info in (state.data.get("posted", {}) or {}).values()
+               if info.get("source") == source and str(info.get("at", ""))[:10] == day)

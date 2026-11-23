@@ -413,6 +413,8 @@ def _split_sentences(text: str) -> list[str]:
     return out
 
 
+# "Here's what their plans could mean for taxpayers.": a teaser for the article, not a sentence of news (Nov 23, Texas Tribune)
+_TEASER_RE = re.compile(r"\s*(?:here[’']s|here is|here are|this is|find out|learn|read on|keep reading|see)\s+(?:what|how|why|who|where|when|the|a)\b", re.I)
 # "Watch Titans rookie Carnell Tate score ...", "Check out the play here": a sentence that points at a clip
 _CLIP_LEAD_RE = re.compile(r"\s*(?:watch|check out|see|listen to|take a look at)\b(?! (?:out|for)\b)", re.I)
 # "That involves the West Fork and Parker County public utility agencies." after a sentence that was dropped for length
@@ -491,7 +493,7 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
         parts = parts[:-1]                    # the lead limit cut the last sentence: drop it whole, never at "Judge Mark T." (Nov 22)
     merged: list[str] = []
     parts = [re.sub(r"\s+([,.;:!?])", r"\1", _CONFIRMED_RE.sub("", p)) for p in parts]   # "the Tennessee Titans , stripping"
-    parts = [p for p in parts if not _CLIP_LEAD_RE.match(p)]
+    parts = [p for p in parts if not _CLIP_LEAD_RE.match(p) and not _TEASER_RE.match(p)]
     parts = [p[0].upper() + p[1:] if p else p for p in parts]
     for part in parts:                                        # a sentence that opens a quote keeps going until it closes it
         if merged and (merged[-1].count('"') % 2 == 1 or merged[-1].count("“") != merged[-1].count("”")):
