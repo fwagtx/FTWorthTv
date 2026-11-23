@@ -424,7 +424,10 @@ _DANGLING_RE = re.compile(r"\b(?:before that|after that|since then|at that point
 # "CBS Sports Texas has independently confirmed that TCU fired ...": the outlet is credited in the first comment, the fact leads
 _CONFIRMED_RE = re.compile(r"^(?:[A-Z][\w&.'’-]*\s){1,4}(?:has|have) (?:independently |exclusively )?(?:confirmed|learned) that ")
 # CBS pages: "Updated on: November 22, 2026 / 12:51 PM CST / CBS/AP" glued to the front of the lead sentence
-_UPDATED_RE = re.compile(r"(?:Updated|Published) on:[^/]{5,40}/[^/]{3,20}/\s*[A-Z]{2,}(?:/[A-Z]{2,})*\s+")
+_UPDATED_RE = re.compile(r"(?:(?:Updated|Published) on:[^/]{5,40}/[^/]{3,20}/\s*[A-Z]{2,}(?:/[A-Z]{2,})*\s+"
+                         r"|(?:(?:Updated|Published) on:\s*)?(?:January|February|March|April|May|June|July|August|September|October|"
+                         r"November|December) \d{1,2}, \d{4} / \d{1,2}:\d{2} [AP]M [A-Z]{2,4} / "
+                         r"(?:CBS News Texas|CBS Texas|CBS News|CBS/AP|AP|CBS)\s+)")   # "November 22, 2026 / 7:52 PM CST / CBS Texas "
 
 _DATELINE_RE = re.compile(r"^(?:[A-Z][A-Z .'’-]{2,40}, (?:Texas|TX|Okla\.|La\.|N\.M\.)|[A-Z][A-Z .'’-]{2,40}) ?[-–—] ")
 _CAPTION_RE = re.compile(r"\b(?:on )?(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}\.$")

@@ -482,3 +482,14 @@ def test_a_grades_column_is_a_column():
     assert not game_notes("Fort Worth ISD grades: TEA releases A-F ratings for district schools")
     assert not game_notes("Texas releases school report cards; see how Tarrant County districts did")
     assert game_notes("Cowboys vs. Titans grades: Dak Prescott earns an A in a 51-30 rout")
+
+
+def test_a_bare_cbs_date_stamp_is_stripped():
+    """Nov 22, render 143: 'November 22, 2026 / 7:52 PM CST / CBS Texas A high-speed incident on Highway 360 ...'."""
+    from ftworthtv.writer import _sentences
+    text = ("A high-speed incident on Highway 360 in Arlington ends in a fiery crash, sending one driver to the hospital on Sunday. "
+            "November 22, 2026 / 7:52 PM CST / CBS Texas The Arlington Police Department said officers were conducting speed "
+            "enforcement along Hwy. 360 around 3:30 p.m. when they clocked a Chevrolet Malibu.")
+    sents = _sentences(text)
+    assert not any("CST" in s or "CBS Texas" in s for s in sents)
+    assert any(s.startswith("The Arlington Police Department said") for s in sents)
