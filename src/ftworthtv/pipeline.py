@@ -461,7 +461,8 @@ def _national_result(title: str) -> bool:
     """A national story goes out as a text card only when it is a result ("Chiefs win Super Bowl LXI"): Nov 23, Variety's
     "Super Bowl 2027 and Jay-Z Halftime Show to Screen in Imax Theaters" drafted as a sports text card."""
     from .images.subject import happened
-    return happened(title)
+    head = re.split(r"\b(?:after|as|when|while|following|before)\b", title or "", maxsplit=1, flags=re.I)[0]
+    return happened(head)     # Nov 23: "Taylor Swift Shares the Sweetest Moment With Her Niece After Travis Kelce Scores ..." is gossip
 
 
 def _source_posts_on(state, source: str, day: str) -> int:

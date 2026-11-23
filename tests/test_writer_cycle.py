@@ -931,3 +931,12 @@ def test_render_169_rules():
     bird = "Rare whooping crane spotted at Fort Worth Nature Center"
     assert all("inaturalist" not in q[1] for q, _ in provider_queries(plan_subject(bird, "", "community"), bird, "community"))
     assert national_feature("Family-Friendly Fortnite Streamer Goes Viral After Picking Up GTA 6 And Performing the Ultimate Heelturn")
+
+
+def test_render_170_rules():
+    """Nov 23, render 170: Billboard's "Taylor Swift Shares the Sweetest Moment With Her Niece After Travis Kelce Scores Epic
+    Touchdown" drafted as a national sports text card: the result sat in the "after" clause of a celebrity item."""
+    from ftworthtv.pipeline import _national_result
+    assert not _national_result("Taylor Swift Shares the Sweetest Moment With Her Niece After Travis Kelce Scores Epic Touchdown")
+    assert _national_result("Chiefs beat Eagles to win Super Bowl LXI")
+    assert _national_result("Cowboys roll past Eagles after Prescott throws three touchdowns")
