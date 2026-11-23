@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-144240/01-850-000-texas-two-step-jackpot-set-to-expire/post.jpg",
+    "credit": "Photo: (c) Russell Pfau, some rights reserved (CC BY) via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Texas_Two-step_Flasher_iNaturalist_506168881.jpg",
+    "photo_id": "commons-181924918",
+    "subject": "entity:texas two step"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-144240/01-850-000-texas-two-step-jackpot-set-to-expire/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "$850,000 Texas Two Step jackpot set to expire",
+    "caption": "A Texas Two Step ticket worth $850,000 remains unclaimed after being sold in San Antonio.",
+    "first_comment": "Source: KXAN Austin https://www.kxan.com/news/texas/850000-texas-two-step-jackpot-set-to-expire/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "e3ea87c4008710e1",
+    "source": "KXAN Austin",
+    "source_kind": "rss",
+    "title": "$850,000 Texas Two Step jackpot set to expire",
+    "summary": "A Texas Two Step ticket worth $850,000 remains unclaimed after being sold in San Antonio.",
+    "url": "https://www.kxan.com/news/texas/850000-texas-two-step-jackpot-set-to-expire/",
+    "published": "2026-11-23T20:33:38+00:00",
+    "category_hint": null,
+    "image_url": "https://www.kxan.com/wp-content/uploads/sites/40/2026/08/Original_1433956559688_1301289_ver1.0-1.jpg?w=720",
+    "image_credit": "Photo: KXAN Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "KXAN Austin",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.387
+  }
+}

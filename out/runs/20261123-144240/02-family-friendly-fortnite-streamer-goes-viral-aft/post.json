@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T21:07:40.033115+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-144240/02-family-friendly-fortnite-streamer-goes-viral-aft/post.jpg",
+    "credit": "Photo: TaurusEmerald via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Monster_Jam_x_Fortnite_Monster_Truck.jpg",
+    "photo_id": "commons-148535436",
+    "subject": "entity:fortnite"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-144240/02-family-friendly-fortnite-streamer-goes-viral-aft/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "Family-Friendly Fortnite Streamer Goes Viral After Picking Up GTA 6 And Performing the Ultimate Heelturn",
+    "caption": "Nice-guy Fortnite streamer Nick Eh 30 has gone viral after trying GTA 6 — and immediately pushing the violence in Rockstar's game to its limit. For almost a decade, cheery Canadian streamer Nicholas \" Nick Eh 30 \" Amyoony has amassed a community of millions around his family-friendly Fortnite streams.",
+    "first_comment": "Source: IGN https://www.ign.com/articles/family-friendly-fortnite-streamer-viral-gta-6-zoo-rampage\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "hockey arena ice",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "e1601bb252b09275",
+    "source": "IGN",
+    "source_kind": "rss",
+    "title": "Family-Friendly Fortnite Streamer Goes Viral After Picking Up GTA 6 And Performing the Ultimate Heelturn, Including a Bloody Zoo Rampage",
+    "summary": "Nice-guy Fortnite streamer Nick Eh 30 has gone viral after trying GTA 6 — and immediately pushing the violence in Rockstar's game to its limit. Nice-guy Fortnite streamer Nick Eh 30 has gone viral after trying GTA 6 — and immediately pushing the violence in Rockstar's game to its limit. For almost a decade, cheery Canadian streamer Nicholas \" Nick Eh 30 \" Amyoony has amassed a community of millions around his family-friendly Fortnite streams. His personal brand is based on pushing positivity, he's known for never swearing on camera, and he's become one of the few Twitch stars partnered with Epic Games to get a skin of himself made available in-game. So it has, understandably, come as something of a surprise to see wholesome Nick Eh 30 embracing the most dastardly deeds GTA 6 has on offer: kicking pet dogs to death in the street , shooting animals in the zoo , and walking down the…",
+    "url": "https://www.ign.com/articles/family-friendly-fortnite-streamer-viral-gta-6-zoo-rampage",
+    "published": "2026-11-23T18:57:06+00:00",
+    "category_hint": null,
+    "image_url": "https://assets-prd.ignimgs.com/2026/11/23/screenshot-2026-11-23-185649-1795460219133.png",
+    "image_credit": "Photo: IGN",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "IGN All",
+      "national": true,
+      "scope": "national",
+      "national_term": "gta 6"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.3519
+  }
+}
