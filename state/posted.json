@@ -4,7 +4,7 @@
     "2026-11-19": 20,
     "2026-11-20": 19,
     "2026-11-21": 16,
-    "2026-11-22": 17
+    "2026-11-22": 18
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -48,7 +48,7 @@
       "crime": 4,
       "other": 1,
       "sports": 6,
-      "traffic": 1,
+      "traffic": 2,
       "weather": 2
     }
   },
@@ -74,7 +74,7 @@
     },
     "2026-11-22": {
       "nws_forecast": 1,
-      "rss": 13,
+      "rss": 14,
       "video": 1,
       "wanted": 2
     }
@@ -100,7 +100,7 @@
       "texas": 4
     },
     "2026-11-22": {
-      "dfw": 3,
+      "dfw": 4,
       "local": 14
     }
   },
@@ -260,6 +260,11 @@
       "reason": "daily cap for weather reached",
       "title": "NBC 5 Forecast: Thanks to a cold front, breezy and cooler weather arriving into North Texas"
     },
+    "cd8b90548451d4e4": {
+      "at": "2026-11-23T03:14:00.954991+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "George Pickens' Best Plays from 102-yard game | Week 11 Highlights"
+    },
     "ce67407b2a835e4a": {
       "at": "2026-11-22T22:56:40.788889+00:00",
       "reason": "daily cap for sports reached",
@@ -269,6 +274,11 @@
       "at": "2026-11-22T18:44:36.023316+00:00",
       "reason": "daily cap for crime reached",
       "title": "Arrest made in shooting that killed woman on her birthday in Dallas, police say"
+    },
+    "db78cea6737f9576": {
+      "at": "2026-11-23T03:14:00.955018+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "Javonte Williams' Best plays from 2-TD game vs. Titans | Week 11 Highlights"
     },
     "e2d80f6590db51c9": {
       "at": "2026-11-21T13:46:39.757158+00:00",
@@ -297,7 +307,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-22T20:19:00-06:00",
+  "last_post_at": "2026-11-22T21:19:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -867,6 +877,18 @@
       "title": "TCU fires Sonny Dykes four years after making CFP championship game",
       "url": "https://www.cbsnews.com/texas/news/tcu-fires-sonny-dykes-four-years-after-making-cfp-championship-game/"
     },
+    "a2a9d1282220d047": {
+      "at": "2026-11-22T21:19:00-06:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438232846",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-479855673414433724",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "Police charge North Texas man with intoxicated manslaughter after fatal crash on South Freeway",
+      "url": "https://www.wfaa.com/article/news/crime/police-charge-north-texas-man-with-intoxicated-manslaughter-after-fatal-crash-south-freeway/287-509d79c3-9d58-433f-9ced-bb6e814ee5e1"
+    },
     "a6ea3e7042a06af0": {
       "at": "2026-11-20T13:09:00-06:00",
       "category": "sports",
@@ -1400,7 +1422,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 73,
+  "total_posts": 74,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
