@@ -79,6 +79,9 @@ def test_headline_lessons_fixture():
             assert name in plan.search_names, (row["title"], plan.search_names)
         for name in row.get("not_search", []):
             assert name not in plan.search_names, (row["title"], plan.search_names, row["lesson"])
+        if "happened" in row:                      # an event: no library stand-in, a picture of it or a text card
+            from ftworthtv.images.subject import happened
+            assert happened(row["title"]) == row["happened"], (row["title"], row["lesson"])
 
 
 def test_a_venue_is_searched_as_a_building_not_as_someone_elses_show():

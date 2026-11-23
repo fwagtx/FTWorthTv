@@ -1,256 +1,311 @@
 [
-  {
-    "title": "Anthropic's $81.3 billion IPO is the largest ever; shares open at $111.50 on the Nasdaq",
-    "body": "Anthropic raised $81.3 billion.",
-    "category": "business",
-    "mode": "entity",
-    "topics": [
-      "anthropic"
-    ],
-    "lesson": "the company is the subject, never the exchange building"
-  },
-  {
-    "title": "Utah visits TCU, close to Big 12 title game",
-    "body": "No. 2 Utah comes to Fort Worth.",
-    "category": "sports",
-    "mode": "entity",
-    "first_topic": "tcu-football",
-    "lesson": "a football story wants the stadium, not a campus chapel"
-  },
-  {
-    "title": "Northwest ISD approves revised high school boundaries after parents speak out",
-    "body": "",
-    "category": "community",
-    "mode": "entity",
-    "topics": [
-      "northwest-isd"
-    ],
-    "lesson": "a district's own schools first; buses only as the institution fallback"
-  },
-  {
-    "title": "Largest enrollment drop in Texas' recorded history means challenges for public schools, Morath says",
-    "body": "Commissioner Mike Morath said.",
-    "category": "community",
-    "mode": "beat",
-    "lesson": "'Morath says' is attribution, not the subject"
-  },
-  {
-    "title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
-    "body": "",
-    "category": "sports",
-    "mode": "entity",
-    "topics": [
-      "aac"
-    ],
-    "lesson": "the team's arena stands in for a player"
-  },
-  {
-    "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
-    "body": "",
-    "category": "sports",
-    "mode": "search",
-    "lesson": "a coaching decision is about the coordinator: search for him, never the team's stadium (library.venue_fits)",
-    "search": [
-      "Christian Parker"
-    ]
-  },
-  {
-    "title": "Voters will likely decide Dallas City Hall's future in May election",
-    "body": "",
-    "category": "politics",
-    "mode": "search",
-    "search": [
-      "Dallas City Hall"
-    ],
-    "lesson": "another city's landmark is searched for, never swapped for ours"
-  },
-  {
-    "title": "Fort Worth police set new policies for Flock cameras",
-    "body": "Flock cameras.",
-    "category": "crime",
-    "mode": "institution",
-    "fallback": [
-      "police"
-    ],
-    "lesson": "a police department is depicted by the police beat"
-  },
-  {
-    "title": "Grand Theft Auto VI is out today on PS5 and Xbox",
-    "body": "",
-    "category": "culture",
-    "mode": "institution",
-    "fallback": [
-      "gaming"
-    ],
-    "lesson": "a game is depicted by the gaming beat (controllers), never a skyline"
-  },
-  {
-    "title": "These are the 14 best things to do in Fort Worth this weekend",
-    "body": "Ice skating is back in the Stockyards.",
-    "category": "events",
-    "mode": "beat",
-    "lesson": "no named subject: the city itself is fine"
-  },
-  {
-    "title": "Tarrant County jail death under investigation",
-    "body": "",
-    "category": "crime",
-    "mode": "beat",
-    "lesson": "a county name alone is a place, the jail beat applies"
-  },
-  {
-    "title": "Trinity Metro board approves cuts to On-Demand service",
-    "body": "",
-    "category": "traffic",
-    "mode": "entity",
-    "topics": [
-      "transit"
-    ],
-    "lesson": "the agency's own buses and station"
-  },
-  {
-    "title": "Women's Funkytown Showdown at Dickies Arena, Sun, Nov 22 12:00 PM",
-    "body": "",
-    "category": "sports",
-    "mode": "entity",
-    "topics": [
-      "dickies-arena"
-    ],
-    "search": [
-      "Women Funkytown Showdown",
-      "Dickies Arena"
-    ],
-    "lesson": "punctuation ends a name; the venue is a building, never another artist's show"
-  },
-  {
-    "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
-    "body": "",
-    "category": "events",
-    "mode": "entity",
-    "topics": [
-      "dickies-arena"
-    ],
-    "search": [
-      "Ty Myers",
-      "Dickies Arena"
-    ],
-    "lesson": "the performer and the venue are two subjects; a colon ends the first"
-  },
-  {
-    "title": "Parade of Lights rolls through downtown Fort Worth this Sunday",
-    "body": "",
-    "category": "events",
-    "mode": "search",
-    "search": [
-      "Parade of Lights"
-    ],
-    "lesson": "a generic event name needs the city in the file name: Lake Mead has a Parade of Lights too"
-  },
-  {
-    "title": "One last love letter: San Antonio Zoo mourns Fiona, Timothy the hippo's longtime sweetheart",
-    "body": "",
-    "category": "culture",
-    "mode": "search",
-    "search": [
-      "San Antonio Zoo"
-    ],
-    "lesson": "a zoo story's picture shows the animal in the headline, never an inspection of another animal"
-  },
-  {
-    "title": "Austin weekend: Theater performances, Bastrop B-day",
-    "body": "",
-    "category": "culture",
-    "mode": "search",
-    "not_search": [
-      "Theater"
-    ],
-    "lesson": "a lone common noun after a colon is not a subject: 'Theater' found a Minneapolis theater"
-  },
-  {
-    "title": "Why fall foliage looks different across South Central Texas",
-    "body": "",
-    "category": "other",
-    "mode": "beat",
-    "not_search": [
-      "South Central Texas"
-    ],
-    "lesson": "a region is a place, not a subject: searching it found a storm satellite image"
-  },
-  {
-    "title": "Sarkisian hopes to send Texas seniors out in style against Arkansas",
-    "body": "",
-    "category": "sports",
-    "mode": "beat",
-    "not_search": [
-      "Arkansas"
-    ],
-    "lesson": "an opponent named by its state is a place, not a subject: 'Arkansas' found a landscape"
-  },
-  {
-    "title": "Dallas Cowboys mark 30 years of giving back with Salvation Army",
-    "body": "The Dallas Cowboys celebrated 30 years of partnership with the Salvation Army by serving early Thanksgiving meals at facilities in Dallas and Fort Worth.",
-    "category": "sports",
-    "mode": "search",
-    "search": [
-      "Dallas Cowboys"
-    ],
-    "lesson": "Nov 21: a charity meal service is not a game at AT&T Stadium; the team's name reaches its stadium only for a game there",
-    "not_topics": [
-      "att-stadium"
-    ]
-  },
-  {
-    "title": "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100",
-    "body": "Kyrie Irving scored 25 points and Cooper Flagg had 22 points.",
-    "category": "sports",
-    "mode": "entity",
-    "topics": [
-      "aac"
-    ],
-    "lesson": "Nov 21: 'Mavericks' is the Dallas team (never OS X Mavericks, never the UTA Mavericks); a bare 'Clippers' is never searched",
-    "not_topics": [
-      "uta",
-      "uta-sports"
-    ]
-  },
-  {
-    "title": "Senator Cruz launches Saving Texas to win back the State House and some Congressional seats in 2028",
-    "body": "Following the blue wave election in Texas, U.S. Senator Ted Cruz pledges to recapture the State House and some Congressional seats for Republicans.",
-    "category": "politics",
-    "mode": "search",
-    "search": [
-      "Ted Cruz"
-    ],
-    "not_search": [
-      "Congressional",
-      "Senator Cruz"
-    ],
-    "lesson": "Nov 22: 'Congressional' is an adjective, not a subject (it found an unnamed congressman); 'Senator Cruz' is searched as the full name the story gives"
-  },
-  {
-    "title": "College football grades: Texas earns 'A' for dominant win, Indiana gets 'D' on Week 12 report card",
-    "body": "When Texas quarterback Arch Manning takes care of the football, it does wonders for his team's championship viability.",
-    "category": "sports",
-    "mode": "beat",
-    "not_topics": [
-      "att-stadium",
-      "dickies-arena",
-      "stars-ice"
-    ],
-    "lesson": "Nov 22: the letter grade 'D' was kept as a name and matched nearly every topic phrase; AT&T Stadium was drawn for a Longhorns win in Austin"
-  },
-  {
-    "title": "Broncos Ring of Fame linebacker and Hall of Fame broadcaster Tom Jackson dies at 75",
-    "body": "Denver Broncos legend and Ring of Fame linebacker Tom Jackson has died at the age of 75.",
-    "category": "sports",
-    "mode": "search",
-    "search": [
-      "Tom Jackson"
-    ],
-    "not_search": [
-      "Hall of Fame",
-      "Broncos Ring of Fame"
-    ],
-    "lesson": "Nov 22: 'Hall of Fame' drew another man at a hall of fame induction for a story about Tom Jackson's death"
-  }
+ {
+  "title": "Anthropic's $81.3 billion IPO is the largest ever; shares open at $111.50 on the Nasdaq",
+  "body": "Anthropic raised $81.3 billion.",
+  "category": "business",
+  "mode": "entity",
+  "topics": [
+   "anthropic"
+  ],
+  "lesson": "the company is the subject, never the exchange building"
+ },
+ {
+  "title": "Utah visits TCU, close to Big 12 title game",
+  "body": "No. 2 Utah comes to Fort Worth.",
+  "category": "sports",
+  "mode": "entity",
+  "first_topic": "tcu-football",
+  "lesson": "a football story wants the stadium, not a campus chapel"
+ },
+ {
+  "title": "Northwest ISD approves revised high school boundaries after parents speak out",
+  "body": "",
+  "category": "community",
+  "mode": "entity",
+  "topics": [
+   "northwest-isd"
+  ],
+  "lesson": "a district's own schools first; buses only as the institution fallback"
+ },
+ {
+  "title": "Largest enrollment drop in Texas' recorded history means challenges for public schools, Morath says",
+  "body": "Commissioner Mike Morath said.",
+  "category": "community",
+  "mode": "beat",
+  "lesson": "'Morath says' is attribution, not the subject"
+ },
+ {
+  "title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
+  "body": "",
+  "category": "sports",
+  "mode": "entity",
+  "topics": [
+   "aac"
+  ],
+  "lesson": "the team's arena stands in for a player"
+ },
+ {
+  "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
+  "body": "",
+  "category": "sports",
+  "mode": "search",
+  "lesson": "a coaching decision is about the coordinator: search for him, never the team's stadium (library.venue_fits)",
+  "search": [
+   "Christian Parker"
+  ]
+ },
+ {
+  "title": "Voters will likely decide Dallas City Hall's future in May election",
+  "body": "",
+  "category": "politics",
+  "mode": "search",
+  "search": [
+   "Dallas City Hall"
+  ],
+  "lesson": "another city's landmark is searched for, never swapped for ours"
+ },
+ {
+  "title": "Fort Worth police set new policies for Flock cameras",
+  "body": "Flock cameras.",
+  "category": "crime",
+  "mode": "institution",
+  "fallback": [
+   "police"
+  ],
+  "lesson": "a police department is depicted by the police beat"
+ },
+ {
+  "title": "Grand Theft Auto VI is out today on PS5 and Xbox",
+  "body": "",
+  "category": "culture",
+  "mode": "institution",
+  "fallback": [
+   "gaming"
+  ],
+  "lesson": "a game is depicted by the gaming beat (controllers), never a skyline"
+ },
+ {
+  "title": "These are the 14 best things to do in Fort Worth this weekend",
+  "body": "Ice skating is back in the Stockyards.",
+  "category": "events",
+  "mode": "beat",
+  "lesson": "no named subject: the city itself is fine"
+ },
+ {
+  "title": "Tarrant County jail death under investigation",
+  "body": "",
+  "category": "crime",
+  "mode": "beat",
+  "lesson": "a county name alone is a place, the jail beat applies"
+ },
+ {
+  "title": "Trinity Metro board approves cuts to On-Demand service",
+  "body": "",
+  "category": "traffic",
+  "mode": "entity",
+  "topics": [
+   "transit"
+  ],
+  "lesson": "the agency's own buses and station"
+ },
+ {
+  "title": "Women's Funkytown Showdown at Dickies Arena, Sun, Nov 22 12:00 PM",
+  "body": "",
+  "category": "sports",
+  "mode": "entity",
+  "topics": [
+   "dickies-arena"
+  ],
+  "search": [
+   "Women Funkytown Showdown",
+   "Dickies Arena"
+  ],
+  "lesson": "punctuation ends a name; the venue is a building, never another artist's show"
+ },
+ {
+  "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+  "body": "",
+  "category": "events",
+  "mode": "entity",
+  "topics": [
+   "dickies-arena"
+  ],
+  "search": [
+   "Ty Myers",
+   "Dickies Arena"
+  ],
+  "lesson": "the performer and the venue are two subjects; a colon ends the first"
+ },
+ {
+  "title": "Parade of Lights rolls through downtown Fort Worth this Sunday",
+  "body": "",
+  "category": "events",
+  "mode": "search",
+  "search": [
+   "Parade of Lights"
+  ],
+  "lesson": "a generic event name needs the city in the file name: Lake Mead has a Parade of Lights too"
+ },
+ {
+  "title": "One last love letter: San Antonio Zoo mourns Fiona, Timothy the hippo's longtime sweetheart",
+  "body": "",
+  "category": "culture",
+  "mode": "search",
+  "search": [
+   "San Antonio Zoo"
+  ],
+  "lesson": "a zoo story's picture shows the animal in the headline, never an inspection of another animal"
+ },
+ {
+  "title": "Austin weekend: Theater performances, Bastrop B-day",
+  "body": "",
+  "category": "culture",
+  "mode": "search",
+  "not_search": [
+   "Theater"
+  ],
+  "lesson": "a lone common noun after a colon is not a subject: 'Theater' found a Minneapolis theater"
+ },
+ {
+  "title": "Why fall foliage looks different across South Central Texas",
+  "body": "",
+  "category": "other",
+  "mode": "beat",
+  "not_search": [
+   "South Central Texas"
+  ],
+  "lesson": "a region is a place, not a subject: searching it found a storm satellite image"
+ },
+ {
+  "title": "Sarkisian hopes to send Texas seniors out in style against Arkansas",
+  "body": "",
+  "category": "sports",
+  "mode": "beat",
+  "not_search": [
+   "Arkansas"
+  ],
+  "lesson": "an opponent named by its state is a place, not a subject: 'Arkansas' found a landscape"
+ },
+ {
+  "title": "Dallas Cowboys mark 30 years of giving back with Salvation Army",
+  "body": "The Dallas Cowboys celebrated 30 years of partnership with the Salvation Army by serving early Thanksgiving meals at facilities in Dallas and Fort Worth.",
+  "category": "sports",
+  "mode": "search",
+  "search": [
+   "Dallas Cowboys"
+  ],
+  "lesson": "Nov 21: a charity meal service is not a game at AT&T Stadium; the team's name reaches its stadium only for a game there",
+  "not_topics": [
+   "att-stadium"
+  ]
+ },
+ {
+  "title": "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100",
+  "body": "Kyrie Irving scored 25 points and Cooper Flagg had 22 points.",
+  "category": "sports",
+  "mode": "entity",
+  "topics": [
+   "aac"
+  ],
+  "lesson": "Nov 21: 'Mavericks' is the Dallas team (never OS X Mavericks, never the UTA Mavericks); a bare 'Clippers' is never searched",
+  "not_topics": [
+   "uta",
+   "uta-sports"
+  ]
+ },
+ {
+  "title": "Senator Cruz launches Saving Texas to win back the State House and some Congressional seats in 2028",
+  "body": "Following the blue wave election in Texas, U.S. Senator Ted Cruz pledges to recapture the State House and some Congressional seats for Republicans.",
+  "category": "politics",
+  "mode": "search",
+  "search": [
+   "Ted Cruz"
+  ],
+  "not_search": [
+   "Congressional",
+   "Senator Cruz"
+  ],
+  "lesson": "Nov 22: 'Congressional' is an adjective, not a subject (it found an unnamed congressman); 'Senator Cruz' is searched as the full name the story gives"
+ },
+ {
+  "title": "College football grades: Texas earns 'A' for dominant win, Indiana gets 'D' on Week 12 report card",
+  "body": "When Texas quarterback Arch Manning takes care of the football, it does wonders for his team's championship viability.",
+  "category": "sports",
+  "mode": "beat",
+  "not_topics": [
+   "att-stadium",
+   "dickies-arena",
+   "stars-ice"
+  ],
+  "lesson": "Nov 22: the letter grade 'D' was kept as a name and matched nearly every topic phrase; AT&T Stadium was drawn for a Longhorns win in Austin"
+ },
+ {
+  "title": "Broncos Ring of Fame linebacker and Hall of Fame broadcaster Tom Jackson dies at 75",
+  "body": "Denver Broncos legend and Ring of Fame linebacker Tom Jackson has died at the age of 75.",
+  "category": "sports",
+  "mode": "search",
+  "search": [
+   "Tom Jackson"
+  ],
+  "not_search": [
+   "Hall of Fame",
+   "Broncos Ring of Fame"
+  ],
+  "lesson": "Nov 22: 'Hall of Fame' drew another man at a hall of fame induction for a story about Tom Jackson's death"
+ },
+ {
+  "title": "TCU fires Sonny Dykes four years after making CFP championship game",
+  "body": "Texas Christian University fired head football coach Sonny Dykes.",
+  "category": "sports",
+  "lesson": "Nov 22: 'fires' was not an event word, so an empty Amon G. Carter Stadium stood in for a coach's firing (an event takes a picture of it or a text card)",
+  "mode": "entity",
+  "happened": true
+ },
+ {
+  "title": "Made in Tarrant: Gobble up barbecue at Big Bear’s Smokehouse",
+  "body": "Big Bear’s Smokehouse in Haltom City smokes turkeys for Thanksgiving.",
+  "category": "food",
+  "search": [
+   "Big Bear Smokehouse"
+  ],
+  "not_search": [
+   "Gobble",
+   "Bear Smokehouse"
+  ],
+  "lesson": "Nov 22: 'Gobble' (capitalised by the colon) and 'Bear Smokehouse' (without 'Big') were searched for a barbecue restaurant",
+  "mode": "search"
+ },
+ {
+  "title": "'Holiday in the Park' kicks off at Six Flags Over Texas with new lights",
+  "body": "",
+  "category": "community",
+  "search": [
+   "Six Flags Over Texas"
+  ],
+  "not_search": [
+   "Flags Over Texas"
+  ],
+  "lesson": "Nov 22: the number word 'Six' was stripped from 'Six Flags Over Texas'",
+  "mode": "search"
+ },
+ {
+  "title": "Christmas in the Garden returns to Fort Worth Botanic Garden",
+  "body": "Christmas in the Garden returns with the Winter Cathedral and new light installations.",
+  "category": "culture",
+  "not_topics": [
+   "botanic-garden"
+  ],
+  "lesson": "Nov 23: the garden's arbors on a sunny October day (2019) stood in for a holiday light trail",
+  "mode": "search"
+ },
+ {
+  "title": "North Texas traffic stop leads to arrest of armed man accused of soliciting 15-year-old on Snapchat",
+  "body": "Police in Fate pulled over a driver.",
+  "category": "crime",
+  "not_search": [
+   "Snapchat"
+  ],
+  "lesson": "Nov 22: 'Snapchat' was searched and found a pair of Snap Spectacles",
+  "mode": "beat"
+ }
 ]
