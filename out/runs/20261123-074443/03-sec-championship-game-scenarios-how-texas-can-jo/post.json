@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T14:34:43.610856+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-074443/03-sec-championship-game-scenarios-how-texas-can-jo/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-074443/03-sec-championship-game-scenarios-how-texas-can-jo/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "SEC Championship Game scenarios: How Texas can join Georgia in Atlanta",
+    "caption": "No. 5 Texas enters the final week of the regular season with a chance to face No. 1 Georgia in the SEC Championship Game. Here's what needs to happen for the Longhorns to reach Atlanta.",
+    "first_comment": "Source: KXAN Austin https://www.kxan.com/sports-general/horns-report/sec-championship-game-scenarios-how-texas-can-join-georgia-in-atlanta/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "045d600936d6ac43",
+    "source": "KXAN Austin",
+    "source_kind": "rss",
+    "title": "SEC Championship Game scenarios: How Texas can join Georgia in Atlanta",
+    "summary": "No. 5 Texas enters the final week of the regular season with a chance to face No. 1 Georgia in the SEC Championship Game. Here's what needs to happen for the Longhorns to reach Atlanta.",
+    "url": "https://www.kxan.com/sports-general/horns-report/sec-championship-game-scenarios-how-texas-can-join-georgia-in-atlanta/",
+    "published": "2026-11-23T00:12:18+00:00",
+    "category_hint": null,
+    "image_url": "https://www.kxan.com/wp-content/uploads/sites/40/2026/11/AP24247646231219.jpg?w=900",
+    "image_credit": "Photo: KXAN Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.54,
+    "extra": {
+      "feed_title": "KXAN Austin",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.1705
+  }
+}

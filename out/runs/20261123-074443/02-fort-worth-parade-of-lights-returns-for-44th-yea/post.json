@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=uKWXagyqkFI",
+  "scheduled_at": "2026-11-23T14:09:43.610856+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Fort Worth Parade of Lights returns for 44th year to kick off holiday season",
+    "caption": "WATCH: Fort Worth Parade of Lights returns for 44th year to kick off holiday season\n\nVideo: NBC 5 DFW on YouTube",
+    "first_comment": "Source: NBC 5 DFW on YouTube https://www.youtube.com/watch?v=uKWXagyqkFI\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "63cd7227c8336ff5",
+    "source": "NBC 5 DFW",
+    "source_kind": "video",
+    "title": "Fort Worth Parade of Lights returns for 44th year to kick off holiday season",
+    "summary": "Fort Worth is shining bright for the holidays! The 44th annual Parade of Lights returns with this year’s theme, “A Legacy in Lights,” celebrating more than four decades of holiday tradition. NBC 5’s Jala Washington takes us to Fort Worth for a look at the holiday magic and the celebration.",
+    "url": "https://www.youtube.com/watch?v=uKWXagyqkFI",
+    "published": "2026-11-23T05:19:04+00:00",
+    "category_hint": null,
+    "image_url": "https://i2.ytimg.com/vi/uKWXagyqkFI/hqdefault.jpg",
+    "image_credit": "Video: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "uKWXagyqkFI",
+      "channel": "NBC 5 DFW",
+      "handle": "@NBCDFW",
+      "views": 188,
+      "feed_title": "NBC 5 DFW",
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.2826
+  }
+}
