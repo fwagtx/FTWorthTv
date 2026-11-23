@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 15
+    "2026-11-23": 16
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -56,7 +56,7 @@
       "community": 3,
       "crime": 4,
       "culture": 1,
-      "politics": 1,
+      "politics": 2,
       "sports": 3,
       "weather": 3
     }
@@ -90,7 +90,7 @@
     "2026-11-23": {
       "nws_alert": 1,
       "nws_forecast": 1,
-      "rss": 9,
+      "rss": 10,
       "video": 2,
       "wanted": 2
     }
@@ -122,7 +122,7 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 12,
+      "local": 13,
       "national": 1,
       "texas": 1
     }
@@ -400,7 +400,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T15:58:00-06:00",
+  "last_post_at": "2026-11-23T16:23:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -1198,6 +1198,19 @@
       "title": "Dallas Cowboys fan dies after ‘altercation' during 49ers game: Arlington Police",
       "url": "https://www.nbcdfw.com/news/sports/blue-star/dallas-cowboys-fan-dies-after-fight-during-49ers-game-arlington-police/4108895/"
     },
+    "be179f7aa07eb5f5": {
+      "at": "2026-11-23T16:23:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439510864",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3936849857256208296",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "Mansfield ISD school board elections are changing. Here’s what voters need to know",
+      "url": "https://fortworthreport.org/2026/11/23/mansfield-isd-school-board-elections-are-changing-heres-what-voters-need-to-know/"
+    },
     "be30deab42bde11a": {
       "at": "2026-11-19T14:55:00+00:00",
       "category": "other",
@@ -1693,6 +1706,10 @@
       "at": "2026-11-22T14:47:12.892536+00:00",
       "reason": "a third weather item today (WFAA outlook 6:55, NWS forecast 8:35); it was filed as business, which the weather cap missed (rule added)"
     },
+    "79edd98f008b11a6": {
+      "at": "2026-11-23T22:15:30.424563+00:00",
+      "reason": "ESPN's Texas A&M interim athletic director: College Station's athletics office is not Fort Worth news, and Kyle Field stood in for a job cha"
+    },
     "7a4751ec306d6836": {
       "at": "2026-11-20T16:46:40.176561+00:00",
       "reason": "Georgia vs. LSU is not Texas news; the SEC keyword let it through"
@@ -1818,7 +1835,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 90,
+  "total_posts": 91,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
