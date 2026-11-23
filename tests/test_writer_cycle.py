@@ -733,3 +733,25 @@ def test_render_158_rules(settings, now):
                 summary=summary, url="https://www.fwweekly.com/x", published=now - timedelta(hours=1), always_relevant=True)
     kept, dropped = filter_stories([fww], settings, State(settings.state_path), now)
     assert not kept and "season" in dropped[0][1]
+
+
+def test_render_159_rules():
+    """Nov 23, render 159: Variety's "Justin Timberlake Documentary Trailer: Apple TV Series to Unpack Britney Spears, Janet
+    Jackson Controversies" went out of the render with a Fort Worth Stockyards beat photo. The planner was handed
+    story.text(), which is lowercased, so every word of a Title Case headline looked like a common word and the names were
+    lost; the publish-time check read the same lowercased text and agreed. Both now read the summary as written."""
+    from pathlib import Path
+    from ftworthtv.checks import photo_subject_problem
+    from ftworthtv.images.subject import plan_subject
+    from ftworthtv.models import ImageAsset, PostCopy, PostDraft, Story
+    title = "Justin Timberlake Documentary Trailer: Apple TV Series to Unpack Britney Spears, Janet Jackson Controversies"
+    summary = ("The trailer for Apple TV's upcoming Justin Timberlake documentary teases details about his controversies around "
+               "Britney Spears and Janet Jackson. Apple TV has confirmed that it will launch a new four-part documentary.")
+    story = Story(id="jt", source="Variety", source_kind="rss", title=title, summary=summary, url="https://variety.com/x")
+    plan = plan_subject(title, summary, "culture")
+    assert plan.primary == "Justin Timberlake" and plan.mode == "search"
+    assert plan_subject(title, story.text(), "culture").mode != "beat"       # even a lowercased text keeps a named subject
+    draft = PostDraft(story=story, copy=PostCopy(headline=title, caption=summary, category="culture"), writer="template",
+                      image=ImageAsset(path=Path("post.jpg"), credit="Photo: x", license="openverse-cc", provider="openverse",
+                                       subject="beat:Fort Worth Stockyards"))
+    assert photo_subject_problem(draft) and "Justin Timberlake" in photo_subject_problem(draft)

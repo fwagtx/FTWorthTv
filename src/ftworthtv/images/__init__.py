@@ -215,7 +215,9 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         from .library import PROVIDER_FIRST, avoid_words_for, pick as pick_library, topics_for
         from .subject import plan_subject
         scope = str(story.extra.get("scope", "local"))
-        sp = plan_subject(story.title, story.text(), copy.category)
+        # the planner reads names from capitals, so it gets the summary as written: story.text() is lowercased (Nov 23: every
+        # Title Case headline lost its names and drew a Stockyards beat photo, Justin Timberlake's documentary among them)
+        sp = plan_subject(story.title, story.summary or "", copy.category)
         weather_text = " ".join(str(x) for x in (story.title, story.extra.get("short"), story.extra.get("event"))).lower()
         if story.source_kind in ("nws_forecast", "nws_alert") or copy.category == "weather" and sp.mode == "beat":
             from .subject import weather_topics

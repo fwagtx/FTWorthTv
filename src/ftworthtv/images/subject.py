@@ -212,7 +212,7 @@ def _sentence_case(tokens: list[str], title: str, body: str) -> tuple[list[str],
     shouting = sum(1 for t in tokens if t != "|" and _clean(t).isupper()) >= 0.8 * max(1, sum(1 for t in tokens if t != "|"))
     known = _known_spans(tokens)
     out: list[str] = []
-    if len(words) >= 8:
+    if len(words) >= 8 and any(ch.isupper() for ch in text):    # a lowercased text says nothing about capitals
         caps, lower = set(), set()
         for w in words:
             (caps if w[0].isupper() else lower).add(_clean(w).lower())
