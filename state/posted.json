@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 5
+    "2026-11-23": 6
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -53,6 +53,7 @@
       "weather": 2
     },
     "2026-11-23": {
+      "community": 1,
       "crime": 2,
       "politics": 1,
       "weather": 2
@@ -87,7 +88,7 @@
     "2026-11-23": {
       "nws_forecast": 1,
       "rss": 1,
-      "video": 1,
+      "video": 2,
       "wanted": 2
     }
   },
@@ -118,7 +119,7 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 3,
+      "local": 4,
       "texas": 1
     }
   },
@@ -152,11 +153,6 @@
       "at": "2026-11-22T23:13:44.569070+00:00",
       "reason": "daily cap for sports reached",
       "title": "NFL Week 11 winners and losers: Cowboys offense makes history in get-right win, Steelers slump"
-    },
-    "3307c59443181c18": {
-      "at": "2026-11-21T13:46:39.757160+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "WANTED: Lou Ann MIDDLETON"
     },
     "33f31747e40cda73": {
       "at": "2026-11-22T17:44:51.353367+00:00",
@@ -198,6 +194,11 @@
       "reason": "daily cap for crime reached",
       "title": "Police shot at suspected burglar in Far East Dallas, no injuries reported"
     },
+    "5bccd0dafd702046": {
+      "at": "2026-11-23T13:46:46.663754+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Chilly days ahead for North Texas as temperatures top out in the 50s this week"
+    },
     "5d3dc4a68a3a9813": {
       "at": "2026-11-22T17:44:51.353364+00:00",
       "reason": "daily cap for crime reached",
@@ -228,11 +229,6 @@
       "reason": "daily cap for weather reached",
       "title": "DFW Weather: When to expect the first freeze this season; 7 day forecast"
     },
-    "99c8950734b9734c": {
-      "at": "2026-11-21T13:46:39.757154+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "WANTED: Dwight Sanders"
-    },
     "9acb79fd5715c4ab": {
       "at": "2026-11-22T14:23:34.181481+00:00",
       "reason": "daily cap for weather reached",
@@ -257,11 +253,6 @@
       "at": "2026-11-22T17:44:51.353339+00:00",
       "reason": "daily cap for crime reached",
       "title": "Bedford police arrest suspected intoxicated driver after chase ends in crash into local business"
-    },
-    "aed8d0a4aa2a3f16": {
-      "at": "2026-11-21T13:46:39.757162+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "WANTED: Amy JOHNSON"
     },
     "b0d02a7515d38b45": {
       "at": "2026-11-22T16:27:33.856882+00:00",
@@ -303,11 +294,6 @@
       "reason": "daily cap for sports reached",
       "title": "Javonte Williams' Best plays from 2-TD game vs. Titans | Week 11 Highlights"
     },
-    "e2d80f6590db51c9": {
-      "at": "2026-11-21T13:46:39.757158+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "WANTED: Quimari WILLIAMS"
-    },
     "ef2a3fb11a5adaf8": {
       "at": "2026-11-22T15:20:35.832593+00:00",
       "reason": "daily cap for weather reached",
@@ -330,7 +316,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T08:02:00-06:00",
+  "last_post_at": "2026-11-23T08:27:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -703,6 +689,18 @@
       "source": "Fort Worth Police Department",
       "title": "WANTED: Kenneth Gaines",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "63cd7227c8336ff5": {
+      "at": "2026-11-23T08:27:00-06:00",
+      "category": "community",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "438814834",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5565486892600083792",
+      "publisher": "metricool-session",
+      "source": "NBC 5 DFW",
+      "title": "Fort Worth Parade of Lights returns for 44th year to kick off holiday season",
+      "url": "https://www.youtube.com/watch?v=uKWXagyqkFI"
     },
     "65d47cc8eb75ba30": {
       "at": "2026-11-22T16:55:00-06:00",
@@ -1324,6 +1322,10 @@
     }
   },
   "skipped": {
+    "045d600936d6ac43": {
+      "at": "2026-11-23T13:46:46.663078+00:00",
+      "reason": "KXAN's SEC title game scenarios for the Longhorns: a what-if piece, not Fort Worth news; rule added"
+    },
     "04746e697d5f874a": {
       "at": "2026-11-21T19:15:20.036318+00:00",
       "reason": "a Dallas shooting with no death and no arrest is Dallas police blotter, not Fort Worth news"
@@ -1468,6 +1470,10 @@
       "at": "2026-11-22T14:47:12.892548+00:00",
       "reason": "an expert commentary piece, the second outlet's version of the one skipped at 8:12 (rule added)"
     },
+    "a272b3d30b4b736f": {
+      "at": "2026-11-23T13:46:46.663056+00:00",
+      "reason": "the Texas Tribune's second Democratic-agenda explainer of the morning, its caption ending in a teaser ('Here's what...'); rules added"
+    },
     "a312360889849a91": {
       "at": "2026-11-22T04:58:17.921718+00:00",
       "reason": "a cold front due Saturday night is stale by Sunday morning, and the morning forecast post covers the cooler weather"
@@ -1529,7 +1535,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 80,
+  "total_posts": 81,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
