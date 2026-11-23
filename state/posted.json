@@ -4,7 +4,7 @@
     "2026-11-19": 20,
     "2026-11-20": 19,
     "2026-11-21": 16,
-    "2026-11-22": 16
+    "2026-11-22": 17
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -48,6 +48,7 @@
       "crime": 4,
       "other": 1,
       "sports": 6,
+      "traffic": 1,
       "weather": 2
     }
   },
@@ -73,7 +74,7 @@
     },
     "2026-11-22": {
       "nws_forecast": 1,
-      "rss": 12,
+      "rss": 13,
       "video": 1,
       "wanted": 2
     }
@@ -100,7 +101,7 @@
     },
     "2026-11-22": {
       "dfw": 3,
-      "local": 13
+      "local": 14
     }
   },
   "deferred": {
@@ -199,6 +200,11 @@
       "reason": "daily cap for crime reached",
       "title": "Driver arrested after slamming in to Bedford business"
     },
+    "8d5ffe95b1913b8b": {
+      "at": "2026-11-23T02:13:53.472441+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "Dak Prescott: Postgame Week 11 #TENvsDAL"
+    },
     "99c8950734b9734c": {
       "at": "2026-11-21T13:46:39.757154+00:00",
       "reason": "daily cap for crime reached",
@@ -281,7 +287,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-22T16:55:00-06:00",
+  "last_post_at": "2026-11-22T20:19:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -999,6 +1005,18 @@
       "title": "Parade of Lights rolls through downtown Fort Worth this Sunday 🎄",
       "url": "https://www.fortworthparadeoflights.org/"
     },
+    "d1cbca42989fdf79": {
+      "at": "2026-11-22T20:19:00-06:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438196785",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=345253828362519046",
+      "publisher": "metricool-session",
+      "source": "CBS News Texas",
+      "title": "Fiery crash in Arlington after driver allegedly flees from police, officials say",
+      "url": "https://www.cbsnews.com/texas/news/fiery-crash-in-arlington-after-driver-allegedly-flees-from-police-officials-say/"
+    },
     "d6d49de937e1c328": {
       "at": "2026-11-22T10:35:00-06:00",
       "category": "crime",
@@ -1372,7 +1390,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 72,
+  "total_posts": 73,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
