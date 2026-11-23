@@ -4,7 +4,7 @@
     "2026-11-19": 20,
     "2026-11-20": 19,
     "2026-11-21": 16,
-    "2026-11-22": 18
+    "2026-11-22": 19
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -44,7 +44,7 @@
     },
     "2026-11-22": {
       "breaking": 1,
-      "community": 2,
+      "community": 3,
       "crime": 4,
       "other": 1,
       "sports": 6,
@@ -74,7 +74,7 @@
     },
     "2026-11-22": {
       "nws_forecast": 1,
-      "rss": 14,
+      "rss": 15,
       "video": 1,
       "wanted": 2
     }
@@ -101,7 +101,8 @@
     },
     "2026-11-22": {
       "dfw": 4,
-      "local": 14
+      "local": 14,
+      "texas": 1
     }
   },
   "deferred": {
@@ -312,7 +313,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-22T21:19:00-06:00",
+  "last_post_at": "2026-11-22T21:51:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -723,6 +724,18 @@
       "source": "NBC 5 DFW",
       "title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
       "url": "https://www.nbcdfw.com/news/sports/dallas-mavericks/cooper-flagg-scores-33-as-mavericks-keep-warriors-winless-since-stephen-currys-injury/4108189/"
+    },
+    "72a869c2c30b0716": {
+      "at": "2026-11-22T21:51:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438251907",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6526758872594758649",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "Gas prices drop ahead of Thanksgiving, but fewer Texans are hitting the road",
+      "url": "https://www.wfaa.com/article/news/local/gas-prices-drop-ahead-thanksgiving-but-fewer-texans-hitting-road/287-73e4ba73-c378-4a44-9752-a0245ca51306"
     },
     "78ead7b6e1e65d77": {
       "at": "2026-11-20T06:54:00-06:00",
@@ -1427,7 +1440,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 74,
+  "total_posts": 75,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -1439,7 +1452,8 @@
     "lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
     "commons-199552537",
     "commons-196088447",
-    "clouds-lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg"
+    "clouds-lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
+    "openverse-9fd1f01c-ba88-4699-9323-54aee9a330fa"
   ],
   "version": 1
 }
