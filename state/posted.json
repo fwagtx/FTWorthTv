@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 14
+    "2026-11-23": 15
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -57,7 +57,7 @@
       "crime": 4,
       "culture": 1,
       "politics": 1,
-      "sports": 2,
+      "sports": 3,
       "weather": 3
     }
   },
@@ -90,7 +90,7 @@
     "2026-11-23": {
       "nws_alert": 1,
       "nws_forecast": 1,
-      "rss": 8,
+      "rss": 9,
       "video": 2,
       "wanted": 2
     }
@@ -122,7 +122,7 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 11,
+      "local": 12,
       "national": 1,
       "texas": 1
     }
@@ -353,6 +353,11 @@
       "reason": "daily cap for sports reached",
       "title": "Javonte Williams' Best plays from 2-TD game vs. Titans | Week 11 Highlights"
     },
+    "e754e8e54525beae": {
+      "at": "2026-11-23T21:53:17.859674+00:00",
+      "reason": "daily cap for community reached",
+      "title": "All of the lights shine extra bright at Fort Worth’s annual holiday parade"
+    },
     "ef2a3fb11a5adaf8": {
       "at": "2026-11-22T15:20:35.832593+00:00",
       "reason": "daily cap for weather reached",
@@ -362,6 +367,11 @@
       "at": "2026-11-22T00:16:17.247576+00:00",
       "reason": "daily cap for community reached",
       "title": "Summer projects reviewed, winter events announced by Park & Recreation Advisory Board"
+    },
+    "f353b938213ccd0e": {
+      "at": "2026-11-23T21:53:17.859702+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Wanted sex offender arrested in Dallas at homeless encampment"
     },
     "f4baef3c6d9ae61a": {
       "at": "2026-11-23T14:22:51.706640+00:00",
@@ -390,7 +400,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T13:05:00-06:00",
+  "last_post_at": "2026-11-23T15:58:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -942,6 +952,19 @@
       "source": "Fort Worth Police Department",
       "title": "WANTED: Erik Hernandez",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "86f1021042d7c4e4": {
+      "at": "2026-11-23T15:58:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439486905",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-29940217628638769",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "NBC 5 DFW",
+      "title": "TCU interim HC Andy Avalos introduced ahead of regular-season finale against TTU",
+      "url": "https://www.nbcdfw.com/news/sports/ncaaf/tcu-interim-hc-andy-avalos-introduced-ahead-of-regular-season-finale-against-texas-tech/4109823/"
     },
     "8755cbd9312410c2": {
       "at": "2026-11-21T20:50:00-06:00",
@@ -1795,7 +1818,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 89,
+  "total_posts": 90,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
