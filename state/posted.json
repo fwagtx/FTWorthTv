@@ -189,11 +189,6 @@
       "reason": "daily cap for community reached",
       "title": "90-year-old mowing lawns to get by in Fort Worth sparks community support"
     },
-    "59e1cab2c6fd87ec": {
-      "at": "2026-11-21T14:15:44.252076+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Police shot at suspected burglar in Far East Dallas, no injuries reported"
-    },
     "5bccd0dafd702046": {
       "at": "2026-11-23T13:46:46.663754+00:00",
       "reason": "daily cap for weather reached",
@@ -303,6 +298,11 @@
       "at": "2026-11-22T00:16:17.247576+00:00",
       "reason": "daily cap for community reached",
       "title": "Summer projects reviewed, winter events announced by Park & Recreation Advisory Board"
+    },
+    "f4baef3c6d9ae61a": {
+      "at": "2026-11-23T14:22:51.706640+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Chilly mornings in store as temperatures top out in the 50s this week for North Texas"
     },
     "f989aae4100907ea": {
       "at": "2026-11-22T23:43:02.890575+00:00",
@@ -1338,6 +1338,10 @@
       "at": "2026-11-22T19:26:15.235108+00:00",
       "reason": "a national Coaches Poll list captioned from its middle (Iowa at No. 13); rankings rule added"
     },
+    "0dcde3ec7bc5a81f": {
+      "at": "2026-11-23T14:22:51.705168+00:00",
+      "reason": "a Dallas youth tournament four months away (March 2027), captioned with West Ham's relegation instead of the news"
+    },
     "0e9f09cd424fe7e9": {
       "at": "2026-11-22T13:45:41.339341+00:00",
       "reason": "TCU's postgame notes sheet for the game the 7:45 recap already covered; a stats page, not a story (rule added)"
@@ -1430,6 +1434,10 @@
       "at": "2026-11-20T15:19:26.662256+00:00",
       "reason": "another city's government (Austin mayor pro tem)"
     },
+    "7154d9b7e3239f3a": {
+      "at": "2026-11-23T14:22:51.705165+00:00",
+      "reason": "the Bedford chase-and-crash from Sunday morning, captioned 'happened overnight' on Monday; rule added"
+    },
     "756a87efa20690f5": {
       "at": "2026-11-21T23:31:56.450301+00:00",
       "reason": "a weekly series profile whose own photo is a courtesy photo; the picture offered was an H-E-B store in Boerne matched from a sponsor line"
@@ -1493,6 +1501,10 @@
     "aca6a69e9b423ec9": {
       "at": "2026-11-21T15:50:03.621342+00:00",
       "reason": "a Bloomberg segment on the Anthropic IPO is not Fort Worth news; a video can only be a link post"
+    },
+    "b0d02a7515d38b45": {
+      "at": "2026-11-23T14:22:51.705143+00:00",
+      "reason": "ESPN's Houston Rockets feature with a Toyota Center stand-in and an 'Original uploader was' credit; rules added"
     },
     "c0bd1402482091bb": {
       "at": "2026-11-21T13:20:14.600210+00:00",
