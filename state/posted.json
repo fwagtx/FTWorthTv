@@ -208,6 +208,11 @@
       "reason": "daily cap for weather reached",
       "title": "DFW Weather: Seasonally cool today with partly sunny skies"
     },
+    "51bf70359facc230": {
+      "at": "2026-11-23T21:22:10.424929+00:00",
+      "reason": "daily cap for community reached",
+      "title": "‘People who care for people’: Mission Arlington marks 40th year distributing Thanksgiving meals"
+    },
     "533c0d6f27251966": {
       "at": "2026-11-23T00:13:31.415997+00:00",
       "reason": "daily cap for crime reached",
@@ -1688,6 +1693,10 @@
     "9428392a765ff728": {
       "at": "2026-11-20T15:19:26.662237+00:00",
       "reason": "a Dallas park amenity is not Fort Worth news"
+    },
+    "986e3876f5533509": {
+      "at": "2026-11-23T21:22:10.422646+00:00",
+      "reason": "Billboard's Taylor Swift and her niece after a Travis Kelce touchdown: celebrity news drafted as a national sports text card; rule added"
     },
     "98a170db0b288a49": {
       "at": "2026-11-22T14:23:34.180849+00:00",
