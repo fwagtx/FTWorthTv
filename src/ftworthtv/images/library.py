@@ -196,8 +196,17 @@ TOPIC_EXCLUDE = {"baylor": ("medical center", "scott & white", "scott and white"
                  "ut-austin": ("ut southwestern", "ut health", "ut arlington", "ut dallas", "ut tyler", "ut permian")}
 
 
+_HOLIDAY_AS_TIME_RE = re.compile(r"\b(?:ahead of|before|after|over|during|for) (?:the )?(?:thanksgiving|christmas)\b|"
+                                 r"\b(?:thanksgiving|christmas) (?:week|weekend|travel|holiday travel|rush|break)\b")
+_HOLIDAY_SUBJECT_RE = re.compile(r"\b(?:turkey|turkeys|dinner|feast|meal|meals|pie|pies|tree|trees|lights|parade|gifts?|santa|food drive|giveaway)\b")
+# topics that are the subject itself: no skyline or Capitol stands in when the library has no photo of the subject
+SUBJECT_ONLY = {"gas", "lottery", "stock-market", "power", "smartphone", "streaming", "gaming", "space", "eclipse"}
+
+
 def topic_excluded(topic: str, text: str) -> bool:
     low = (text or "").lower()
+    if topic in ("thanksgiving", "christmas") and _HOLIDAY_AS_TIME_RE.search(low) and not _HOLIDAY_SUBJECT_RE.search(low):
+        return True                  # "Gas prices drop ahead of Thanksgiving": the holiday is when, not what (Nov 22)
     return any(p in low for p in TOPIC_EXCLUDE.get(topic, ()))
 
 
@@ -216,6 +225,8 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
             out.append(topic)
             if len(out) >= 2:
                 break
+    if out and out[0] in SUBJECT_ONLY:
+        return out[:1]               # a gas-price story gets a gas pump or nothing, never the skyline or the Capitol
     for t in CATEGORY_DEFAULTS.get(category, []) + SCOPE_DEFAULTS.get(scope, SCOPE_DEFAULTS["local"]):
         if t not in out and not (elsewhere and t in FORT_WORTH_ONLY) and venue_fits(t, whole, title):
             out.append(t)

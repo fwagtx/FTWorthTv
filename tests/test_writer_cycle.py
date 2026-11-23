@@ -514,3 +514,15 @@ def test_routine_postgame_pressers_are_not_news():
     assert not routine_presser("Fort Worth police chief press conference on Sunday shooting")   # news, not routine
     assert routine_presser("Mike McCarthy press conference: Cowboys coach on the Titans game")
     assert not routine_presser("Watch: Fort Worth Zoo welcomes baby giraffe")
+
+
+def test_a_gas_price_story_gets_a_gas_photo_or_none_and_thanksgiving_as_a_date_is_not_a_subject():
+    """Nov 22, render 144: 'Gas prices drop ahead of Thanksgiving ...' would have fallen to the Thanksgiving turkey or the
+    Capitol: the library has no gas photo, and 'ahead of Thanksgiving' is when, not what."""
+    from ftworthtv.images.library import topic_excluded, topics_for
+    t = "Gas prices drop ahead of Thanksgiving, but fewer Texans are hitting the road"
+    assert topics_for(t.lower(), "business", "texas", title=t) == ["gas"]
+    assert topic_excluded("thanksgiving", t)
+    assert not topic_excluded("thanksgiving", "Food bank hands out turkey dinners ahead of Thanksgiving")
+    assert "thanksgiving" in topics_for("thanksgiving dinner served to 500 at fort worth shelter", "community", "local",
+                                        title="Thanksgiving dinner served to 500 at Fort Worth shelter")
