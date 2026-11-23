@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 6
+    "2026-11-23": 7
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -54,7 +54,7 @@
     },
     "2026-11-23": {
       "community": 1,
-      "crime": 2,
+      "crime": 3,
       "politics": 1,
       "weather": 2
     }
@@ -87,7 +87,7 @@
     },
     "2026-11-23": {
       "nws_forecast": 1,
-      "rss": 1,
+      "rss": 2,
       "video": 2,
       "wanted": 2
     }
@@ -119,7 +119,7 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 4,
+      "local": 5,
       "texas": 1
     }
   },
@@ -163,11 +163,6 @@
       "at": "2026-11-23T00:13:31.416000+00:00",
       "reason": "daily cap for sports reached",
       "title": "NFL Week 11 grades for every team: Cowboys earn 'A-' for high-flying win, Steelers nearly fail"
-    },
-    "4a957d22615b7e02": {
-      "at": "2026-11-21T14:45:14.052474+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "WANTED: Edgar CASTELLANOS"
     },
     "4c02de6d7d714478": {
       "at": "2026-11-23T02:43:18.447921+00:00",
@@ -309,6 +304,11 @@
       "reason": "daily cap for sports reached",
       "title": "From TCU AD Mike Buddie: Our Next Steps"
     },
+    "fa2017e04848900e": {
+      "at": "2026-11-23T14:55:31.756025+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Turkey Day wind chills after chance of snow for North Texas"
+    },
     "fc6d62f2c03160f2": {
       "at": "2026-11-22T04:45:06.516446+00:00",
       "reason": "daily cap for community reached",
@@ -316,7 +316,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T08:27:00-06:00",
+  "last_post_at": "2026-11-23T08:55:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -982,6 +982,18 @@
       "title": "Texas Sports Academy, tied to AI-driven Alpha School, is Texas’ biggest voucher recipient so far",
       "url": "https://feeds.texastribune.org/link/16799/17537271/texas-school-vouchers-alpha-sports-academy-ai"
     },
+    "ab13521a28cf5e32": {
+      "at": "2026-11-23T08:55:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438908834",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3297699025101831469",
+      "publisher": "metricool-session",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Bedford police arrest suspected intoxicated driver after chase ends in crash into local business",
+      "url": "https://www.fox4news.com/news/bedford-police-arrest-suspected-intoxicated-driver-after-chase-ends-crash-local-business"
+    },
     "b437712d96d893e6": {
       "at": "2026-11-22T06:55:00-06:00",
       "category": "weather",
@@ -1410,6 +1422,10 @@
       "at": "2026-11-22T15:49:39.045375+00:00",
       "reason": "the source says the I-30 closure lasts until 'Monday, Nov. 26', a Thursday this year, so its dates cannot be trusted; and the photo was I-35"
     },
+    "53bdbedbeb9933eb": {
+      "at": "2026-11-23T14:55:31.754763+00:00",
+      "reason": "Variety's Tyson Fury schizophrenia story: Netflix is where the documentary airs, not a national moment, and the photo was a TV remote; rules"
+    },
     "57aab8ca367891f5": {
       "at": "2026-11-21T12:49:26.226495+00:00",
       "reason": "KVUE's Austin forecast page under a statewide headline: another metro's weather, a caption that only named the station's weather team, and a"
@@ -1547,7 +1563,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 81,
+  "total_posts": 82,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
