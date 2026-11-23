@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T19:37:40.829989+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-131240/02-super-bowl-2027-and-jay-z-halftime-show-to-scree/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-131240/02-super-bowl-2027-and-jay-z-halftime-show-to-scree/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Super Bowl 2027 and Jay-Z Halftime Show to Screen in Imax Theaters",
+    "caption": "Worry not, because Imax is bringing Super Bowl LXI to the big screen. Imax is working with ESPN, the Walt Disney Company and the NFL to screen the Super Bowl in the company’s premium theaters for the first time.",
+    "first_comment": "Source: Variety https://variety.com/2026/film/news/super-bowl-jay-z-halftime-show-imax-theaters-1236955971/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "52cc0a6d3af0ef4c",
+    "source": "Variety",
+    "source_kind": "rss",
+    "title": "Super Bowl 2027 and Jay-Z Halftime Show to Screen in Imax Theaters",
+    "summary": "Can’t get a ticket to the big game? Worry not, because Imax is bringing Super Bowl LXI to the big screen. Imax is working with ESPN, the Walt Disney Company and the NFL to screen the Super Bowl in the company’s premium theaters for the first time. The game will play in hundreds of Imax …",
+    "url": "https://variety.com/2026/film/news/super-bowl-jay-z-halftime-show-imax-theaters-1236955971/",
+    "published": "2026-11-23T19:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://variety.com/wp-content/uploads/2026/11/SBLXI_IMAX_1080x1350.png",
+    "image_credit": "Photo: Variety",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.39,
+    "extra": {
+      "feed_title": "Variety",
+      "national": true,
+      "scope": "national",
+      "national_term": "super bowl"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5745
+  }
+}
