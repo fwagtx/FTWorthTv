@@ -143,6 +143,11 @@
       "reason": "daily cap for community reached",
       "title": "'Holiday in the Park' kicks off at Six Flags Over Texas with new entertainment and ticket deals"
     },
+    "11076d117cf531b7": {
+      "at": "2026-11-23T19:55:45.917506+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Protect Your Pets, Plants and Pipes During Freezing Temperatures"
+    },
     "1b61e429f5d7fc6e": {
       "at": "2026-11-23T18:19:35.032798+00:00",
       "reason": "daily cap for community reached",
@@ -177,6 +182,11 @@
       "at": "2026-11-22T17:44:51.353367+00:00",
       "reason": "daily cap for crime reached",
       "title": "Man charged with killing Dallas mother in post-crash shooting on her birthday, police say"
+    },
+    "39e11db7251ace11": {
+      "at": "2026-11-23T19:55:45.917511+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Stay Safe While Preparing Holiday Meals"
     },
     "43cabe48009af1a9": {
       "at": "2026-11-23T18:31:18.601261+00:00",
@@ -1560,6 +1570,10 @@
     "39eb16f305f86458": {
       "at": "2026-11-20T21:18:54.918609+00:00",
       "reason": "a conviction with no picture of the defendant or the courtroom; the render offered AT&T Stadium"
+    },
+    "3eae7c89d63660eb": {
+      "at": "2026-11-23T19:55:45.916407+00:00",
+      "reason": "MLB.com's Astros pitching coach story: Houston's team news (filed as 'other', so the other-metro rule never ran), with the Astros' ballpark "
     },
     "4483cc540033149a": {
       "at": "2026-11-23T16:17:22.718712+00:00",
