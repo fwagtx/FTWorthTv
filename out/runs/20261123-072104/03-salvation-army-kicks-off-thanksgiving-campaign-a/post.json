@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=2tVNIxzVUyc",
+  "scheduled_at": "2026-11-23T14:11:04.908682+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Salvation Army kicks off Thanksgiving campaign at AT&T Stadium",
+    "caption": "WATCH: Salvation Army kicks off Thanksgiving campaign at AT&T Stadium\n\nVideo: WFAA on YouTube",
+    "first_comment": "Source: WFAA on YouTube https://www.youtube.com/watch?v=2tVNIxzVUyc\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "660ff8860075a27a",
+    "source": "WFAA",
+    "source_kind": "video",
+    "title": "Salvation Army kicks off Thanksgiving campaign at AT&T Stadium",
+    "summary": "Salvation Army kicks off Thanksgiving campaign at AT&T Stadium. The nonprofit is celebrating decades of partnership with the Cowboys.",
+    "url": "https://www.youtube.com/watch?v=2tVNIxzVUyc",
+    "published": "2026-11-23T12:38:34+00:00",
+    "category_hint": null,
+    "image_url": "https://i3.ytimg.com/vi/2tVNIxzVUyc/hqdefault.jpg",
+    "image_credit": "Video: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "2tVNIxzVUyc",
+      "channel": "WFAA",
+      "handle": "@WFAA8",
+      "views": 15,
+      "feed_title": "WFAA",
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 3,
+    "score": 0.7583
+  }
+}

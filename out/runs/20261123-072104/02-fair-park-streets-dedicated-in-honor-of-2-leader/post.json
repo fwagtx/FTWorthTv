@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T13:46:04.908682+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-072104/02-fair-park-streets-dedicated-in-honor-of-2-leader/post.jpg",
+    "credit": "Photo: Photo: Andreas Praefcke via Wikimedia Commons (CC BY 3.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_Fair_Park_2009_4.jpg",
+    "photo_id": "commons-8910295",
+    "subject": "entity:fair park"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-072104/02-fair-park-streets-dedicated-in-honor-of-2-leader/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "events",
+    "headline": "Fair Park streets dedicated in honor of 2 leaders from African American Museum in Dallas",
+    "caption": "Two streets in Fair Park are now dedicated to two leaders from the African American Museum in Dallas: Dr. Harry Robinson Jr. and Richard Knight Jr.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/video/fair-park-streets-dedicated-in-honor-of-2-leaders-from-african-american-museum-in-dallas/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "concert crowd lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "4fc66aa39c20fbc7",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Fair Park streets dedicated in honor of 2 leaders from African American Museum in Dallas",
+    "summary": "Two streets in Fair Park are now dedicated to two leaders from the African American Museum in Dallas: Dr. Harry Robinson Jr. and Richard Knight Jr.",
+    "url": "https://www.cbsnews.com/texas/video/fair-park-streets-dedicated-in-honor-of-2-leaders-from-african-american-museum-in-dallas/",
+    "published": "2026-11-23T12:58:00+00:00",
+    "category_hint": null,
+    "image_url": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/11/23/4a686db6-0da6-4ac1-934d-8e8617ea691f/thumbnail/1024x576/a7df2907c2fb81ed2b8ffab0ff409bc6/37affd4f931a43027bf3108e73884ac9.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "events",
+    "relevance": 2,
+    "score": 0.7826
+  }
+}

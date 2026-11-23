@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-072104/01-fort-worth-forecast-for-monday-november-23/post.jpg",
+    "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth.jpg",
+    "photo_id": "sunshine-lib-downtown-fort-worth-jpg",
+    "subject": "beat:sunshine"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-072104/01-fort-worth-forecast-for-monday-november-23/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Fort Worth forecast: partly sunny, high near 57",
+    "caption": "Partly sunny and a high of 57 in Fort Worth today. Partly cloudy, low near 38° tonight.",
+    "first_comment": "Source: National Weather Service https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline sunrise",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "forecast-2026-11-23",
+    "source": "National Weather Service Fort Worth",
+    "source_kind": "nws_forecast",
+    "title": "Fort Worth forecast for Monday, November 23",
+    "summary": "Today: Partly Sunny, high near 57°F. Wind 10 mph N. Tonight: Partly Cloudy, low near 38°. Partly sunny. High near 57, with temperatures falling to around 55 in the afternoon. North wind around 10 mph, with gusts as high as 20 mph.",
+    "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308",
+    "published": "2026-11-23T13:20:38.631243+00:00",
+    "category_hint": "weather",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": "public-domain",
+    "image_policy": "none",
+    "official": true,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "high": 57,
+      "short": "Partly Sunny",
+      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+      "low": 38,
+      "pop": 0,
+      "wind": "10 mph",
+      "scope": "local"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 1.95
+  }
+}
