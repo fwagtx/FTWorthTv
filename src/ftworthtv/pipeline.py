@@ -1,6 +1,8 @@
 """One scheduled run: collect -> filter -> rank -> write -> illustrate -> publish -> remember."""
 from __future__ import annotations
 
+import re
+
 import html
 import json
 import logging
@@ -207,6 +209,9 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         copy, writer = write_copy(story, settings, now, force_template=story.source_kind == "submission")   # a viewer's words stay theirs
         if copy.skip:
             report.skipped.append((story, copy.skip_reason or "writer skipped"))
+            continue
+        if story.source_kind == "rss" and _stale_relative_time(state, story, copy.caption or "", now):
+            report.skipped.append((story, "its caption says 'overnight' or 'this morning', but the event was first reported over 14 hours ago"))
             continue
         from .checks import caption_problems
         problems = caption_problems(copy, story, writer=writer)
@@ -443,3 +448,30 @@ def _source_posts_on(state, source: str, day: str) -> int:
     """How many posts from one outlet went out (or are scheduled) on a local day."""
     return sum(1 for info in (state.data.get("posted", {}) or {}).values()
                if info.get("source") == source and str(info.get("at", ""))[:10] == day)
+
+
+_RELATIVE_TIME_RE = re.compile(r"\b(?:overnight|last night|this morning|early this morning|this afternoon|this evening|tonight|"
+                               r"early (?:today|sunday|monday|tuesday|wednesday|thursday|friday|saturday) morning)\b", re.I)
+
+
+def _stale_relative_time(state, story, caption: str, now) -> bool:
+    """Nov 23: NBC 5's 'Driver arrested after car crashes into Bedford business following pursuit' (published 2 a.m.
+    Monday) said 'The crash happened overnight'; FOX 4 had reported the same crash Sunday morning, and a cap held both.
+    A caption that dates the event relative to today cannot run once the event is more than 14 hours old."""
+    if not _RELATIVE_TIME_RE.search(caption or ""):
+        return False
+    from datetime import datetime as _dt, timezone as _tz
+    from .filters import same_story
+    first = story.published
+    for bucket in ("deferred", "posted", "skipped"):
+        for info in (state.data.get(bucket, {}) or {}).values():
+            if not isinstance(info, dict) or not info.get("title") or not same_story(story.title, info["title"]):
+                continue
+            try:
+                at = _dt.fromisoformat(str(info.get("at", "")))
+            except ValueError:
+                continue
+            if at.tzinfo is None:
+                at = at.replace(tzinfo=_tz.utc)
+            first = at if first is None or at < first else first
+    return first is not None and (now - first).total_seconds() > 14 * 3600

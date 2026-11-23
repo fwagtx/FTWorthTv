@@ -240,6 +240,17 @@ _SCENARIO_RE = re.compile(r"\b(?:scenarios?|what needs to happen|how [\w .'&-]{1
                           r"playoff picture|bowl projections?|projected|projections?|bracketology|mock draft)\b", re.I)
 
 
+_OTHER_METRO_TEAM_RE = re.compile(r"\b(?:rockets|spurs|astros|texans|dynamo|houston dash|austin fc|san antonio fc)\b", re.I)
+_DFW_TEAM_RE = re.compile(r"\b(?:cowboys|mavericks|mavs|rangers|stars|fc dallas|wings|tcu|horned frogs|frogs|smu|mustangs|unt|mean green|"
+                          r"uta|baylor|texas tech|longhorns|aggies|dallas)\b", re.I)
+
+
+def other_metro_team(title: str) -> bool:
+    """'How a season without their admiral showed the Rockets what they were missing': another metro's team feature is
+    that city's sports news (Nov 23, ESPN). A game against a DFW team stays."""
+    return bool(_OTHER_METRO_TEAM_RE.search(title or "")) and not _DFW_TEAM_RE.search(title or "")
+
+
 def hypothetical_sports(title: str) -> bool:
     """'SEC Championship Game scenarios: How Texas can join Georgia in Atlanta': what might happen is not news, and the
     sports cap carried it into the next morning (Nov 23, KXAN)."""
@@ -638,6 +649,10 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "video" and routine_presser(story.title):
             dropped.append((story, "a team's routine press conference video"))
+            continue
+        if story.source_kind == "rss" and other_metro_team(story.title) and (story.category_hint == "sports" or
+                                                                             infer_category(story) == "sports"):
+            dropped.append((story, "another metro's team feature"))
             continue
         if story.source_kind == "rss" and hypothetical_sports(story.title) and (story.category_hint == "sports" or
                                                                                  infer_category(story) == "sports"):

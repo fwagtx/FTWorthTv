@@ -625,3 +625,25 @@ def test_render_153_rules():
     assert hypothetical_sports("SEC Championship Game scenarios: How Texas can join Georgia in Atlanta")
     assert hypothetical_sports("What needs to happen for TCU to become bowl eligible")
     assert not hypothetical_sports("TCU fires Sonny Dykes four years after making CFP championship game")
+
+
+def test_render_154_rules():
+    """Nov 23, render 154: ESPN's Rockets feature with the Toyota Center and an 'Original uploader was ...' credit; NBC 5's
+    Bedford crash ('The crash happened overnight') the morning after FOX 4 reported the same crash."""
+    from datetime import datetime, timezone
+    from ftworthtv.filters import other_metro_team
+    from ftworthtv.images.providers import _clean_artist
+    from ftworthtv.models import Story
+    from ftworthtv.pipeline import _stale_relative_time
+    from ftworthtv.state import State
+    assert _clean_artist("Original uploader was Hequalstohenry of en.wikipedia") == "Hequalstohenry"
+    assert other_metro_team("How a season without their 'admiral' showed the Rockets what they were missing")
+    assert not other_metro_team("Mavericks beat Rockets 112-104 behind Flagg's 31")
+    state = State.__new__(State)
+    state.data = {"deferred": {"x": {"at": "2026-11-22T17:44:51+00:00", "reason": "daily cap for crime reached",
+                                     "title": "Bedford police arrest suspected intoxicated driver after chase ends in crash into local business"}}}
+    st = Story(id="n", title="Driver arrested after car crashes into Bedford business following pursuit", url="u", source="NBC 5 DFW",
+               source_kind="rss", summary="", published=datetime(2026, 11, 23, 8, 11, tzinfo=timezone.utc))
+    now = datetime(2026, 11, 23, 14, 20, tzinfo=timezone.utc)
+    assert _stale_relative_time(state, st, "A driver is under arrest. The crash happened overnight in the 2700 block of Brown Trail.", now)
+    assert not _stale_relative_time(state, st, "A driver is under arrest after a crash on Brown Trail.", now)
