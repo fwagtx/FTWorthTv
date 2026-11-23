@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T00:32:54.444842+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-174254/03-marvel-s-avengers-doomsday-won-t-screen-for-baft/post.jpg",
+    "credit": "Photo: Mickey83 via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cosplayer_di_Scarlet_(Marvel_Cinematic_Universe)_a_Levante_For_2024,_Bari.jpg",
+    "photo_id": "commons-149203088",
+    "subject": "entity:marvel"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-174254/03-marvel-s-avengers-doomsday-won-t-screen-for-baft/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Marvel’s ‘Avengers: Doomsday’ Won’t Screen for BAFTA, Golden Globes and Other Early Awards Groups",
+    "caption": "Earth’s Mightiest Heroes will fight Doctor Doom in the latest Avengers installment, but they won’t face the first wave of critics and major guilds on the awards calendar.",
+    "first_comment": "Source: Variety https://variety.com/2026/film/awards/avengers-doomsday-skips-bafta-golden-globes-vfx-oscars-1236956302/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "805bf167fa9d92a1",
+    "source": "Variety",
+    "source_kind": "rss",
+    "title": "Marvel’s ‘Avengers: Doomsday’ Won’t Screen for BAFTA, Golden Globes and Other Early Awards Groups to Guard Its Spoilers (EXCLUSIVE)",
+    "summary": "Earth’s Mightiest Heroes will fight Doctor Doom in the latest Avengers installment, but they won’t face the first wave of critics and major guilds on the awards calendar. Marvel Studios’ “Avengers: Doomsday” will not screen for awards voting bodies before its world premiere, Variety has learned exclusively, a move designed to protect its theatrical run …",
+    "url": "https://variety.com/2026/film/awards/avengers-doomsday-skips-bafta-golden-globes-vfx-oscars-1236956302/",
+    "published": "2026-11-23T23:03:55+00:00",
+    "category_hint": null,
+    "image_url": "https://variety.com/wp-content/uploads/2026/11/avengers-doomsday.jpg",
+    "image_credit": "Photo: Variety",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "Variety",
+      "national": true,
+      "scope": "national",
+      "national_term": "avengers"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.2609
+  }
+}
