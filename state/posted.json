@@ -318,6 +318,11 @@
       "reason": "daily cap for weather reached",
       "title": "DFW Weather: Low rain coverage expected Tuesday"
     },
+    "b9a25e1f37a14d81": {
+      "at": "2026-11-23T22:46:17.337790+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Chilly days ahead for North Texas with freezing temperatures mid-week"
+    },
     "bd175546ae59b1fc": {
       "at": "2026-11-23T18:47:29.567687+00:00",
       "reason": "daily cap for crime reached",
@@ -357,6 +362,11 @@
       "at": "2026-11-23T21:53:17.859674+00:00",
       "reason": "daily cap for community reached",
       "title": "All of the lights shine extra bright at Fort Worth’s annual holiday parade"
+    },
+    "e8d6f811a6a2b7cd": {
+      "at": "2026-11-23T22:46:17.337819+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Proteja a mascotas, plantas y tuberías durante las bajas temperaturas"
     },
     "ef2a3fb11a5adaf8": {
       "at": "2026-11-22T15:20:35.832593+00:00",
