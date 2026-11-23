@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T16:07:37.527898+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-094237/02-all-cma-awards-new-artist-of-the-year-winners-ov/post.jpg",
+    "credit": "Photo: Damian B Oh via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Volvo_XC40_Ultra_CMA_FL_Charcoal_Blond_Two-tone_(12).jpg",
+    "photo_id": "commons-203478539",
+    "subject": "entity:cma"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-094237/02-all-cma-awards-new-artist-of-the-year-winners-ov/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "All CMA Awards New Artist of the Year Winners Over 30: Stephen Wilson Jr., Jelly Roll & More",
+    "caption": "The CMA has presented new artist of the year (formerly known as the Horizon Award) 46 times. As the years have gone by, the winners have gotten appreciably older.",
+    "first_comment": "Source: Billboard https://www.billboard.com/lists/cma-awards-new-artist-of-the-year-winners-over-age-30/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "202bbe7a51bc9bfc",
+    "source": "Billboard",
+    "source_kind": "rss",
+    "title": "All CMA Awards New Artist of the Year Winners Over 30: Stephen Wilson Jr., Jelly Roll & More",
+    "summary": "The CMA has presented new artist of the year (formerly known as the Horizon Award) 46 times. As the years have gone by, the winners have gotten appreciably older.",
+    "url": "https://www.billboard.com/lists/cma-awards-new-artist-of-the-year-winners-over-age-30/",
+    "published": "2026-11-23T15:35:00+00:00",
+    "category_hint": null,
+    "image_url": null,
+    "image_credit": "Photo: Billboard",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "Billboard",
+      "national": true,
+      "scope": "national",
+      "national_term": "cma awards"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.4804
+  }
+}
