@@ -156,6 +156,9 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
             continue
         caps = (settings.brand.get("content_mix", {}) or {}).get("caps_per_day", {}) or {}
         cat = story.category or "other"
+        if cat == "weather" and story.source_kind in ("rss", "video") and _same_outlet_forecast(state, story, now):
+            report.skipped.append((story, "this outlet's forecast already went out in the last 12 hours"))
+            continue
         from .filters import same_story
         if any(same_story(story.title, d.story.title) for d in drafts):
             report.skipped.append((story, "same story as one already chosen this run"))
@@ -412,3 +415,21 @@ h1{{font-size:18px}} ul{{color:var(--muted);font-size:13px}} small{{color:var(--
     latest = settings.out_dir / "latest-preview.html"
     latest.write_text(page.replace('src="', f'src="runs/{report.run_dir.name}/'), encoding="utf-8")
     return out
+
+
+def _same_outlet_forecast(state, story, now) -> bool:
+    """Nov 23: WFAA's 'Possible Frost and Freeze for North Texas This Week' went out at 6:47 and WFAA's 'Chilly temperatures
+    to start the week, here's your Thanksgiving forecast' was drafted for 7:12: one outlet's forecast is one post a morning."""
+    from datetime import datetime as _dt, timezone as _tz
+    for info in (state.data.get("posted", {}) or {}).values():
+        if info.get("category") != "weather" or info.get("source") != story.source:
+            continue
+        try:
+            at = _dt.fromisoformat(str(info.get("at", "")))
+        except ValueError:
+            continue
+        if at.tzinfo is None:
+            at = at.replace(tzinfo=_tz.utc)
+        if abs((now - at).total_seconds()) <= 12 * 3600:
+            return True
+    return False

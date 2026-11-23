@@ -26,6 +26,7 @@ _FIGCAPTION_RE = re.compile(r"<figcaption[^>]*>(.*?)</figcaption>", re.I | re.S)
 _NOT_STORY_RE = re.compile(r"<(figure|figcaption|aside)[^>]*>.*?</\1>", re.I | re.S)   # a photo caption or a sidebar is not a paragraph of the story
 _CAPTION_BLOCK_RE = re.compile(r"<(div|span|p)[^>]*class=\"[^\"]*(?:caption|credit|photo-info|image-info)[^\"]*\"[^>]*>.*?</\1>", re.I | re.S)
 _BYLINE_TAIL_RE = re.compile(r"([A-Z][\w.'’-]+(?: [A-Z][\w.'’-]+){1,3}) (?:for|/|\|) ((?:The )?[A-Z][\w&.'’ -]{3,40}?)\s*\.?\)?$")   # "Michael Cavazos for The Texas Tribune", "(Cristian ArguetaSoto | Fort Worth Report)"
+_BYLINE_TAIL2_RE = re.compile(r"([A-Z][\w.'’-]+ [A-Z][\w.'’-]+) (?:for|/|\|) ((?:The )?[A-Z][\w&.'’ -]{3,40}?)\s*\.?\)?$")
 _CREDIT_RE = re.compile(r"(?:(?:photo|image|picture)s?\s*(?:by|:|credit:?)|courtesy(?: of)?|credit:)\s*([^()|<\n/]{3,60})", re.I)
 
 
@@ -46,9 +47,10 @@ def photo_credit(html: str, meta: dict[str, str]) -> str:
         m = _CREDIT_RE.search(text)
         if m:
             return _once(m.group(1).strip(" .,-")[:80])
-        tail = _BYLINE_TAIL_RE.search(text)
+        tail = _BYLINE_TAIL2_RE.search(text) or _BYLINE_TAIL_RE.search(text)
         if tail:                                                   # no "Photo by": the byline at the caption's end is the credit
-            return _once(tail.group(0).strip(" .,-()")[:80])
+            return _once(tail.group(0).strip(" .,-()")[:80])     # (two-word names first: "... in Lago Vista Sergio Flores for
+                                                                   #  The Texas Tribune" is Sergio Flores, Nov 23)
         if 0 < len(text) <= 60 and ("/" in text or " by " in text.lower()):
             return _once(text.strip(" .,-"))
     alt = meta.get("og:image:alt") or meta.get("twitter:image:alt") or ""

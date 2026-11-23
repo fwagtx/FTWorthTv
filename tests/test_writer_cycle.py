@@ -560,3 +560,32 @@ def test_a_holiday_light_show_takes_a_picture_of_the_lights_or_none():
         assert LIGHT_WORDS in words
     assert light_show("GM Financial Parade of Lights returns to Fort Worth for the 2026 holiday season")
     assert not light_show("Fort Worth Botanic Garden opens new rose garden")
+
+
+def test_a_photo_credit_is_the_photographer_not_the_town_before_the_name():
+    """Nov 23, render 151: a Texas Tribune caption ending '... in Lago Vista Sergio Flores for The Texas Tribune' was
+    credited to 'Lago Vista Sergio Flores'."""
+    from ftworthtv.sources.article import photo_credit
+    html = ("<figure><img src='a.jpg'><figcaption>Students walk the halls between classes at Lago Vista High School in "
+            "Lago Vista Sergio Flores for The Texas Tribune</figcaption></figure>")
+    assert photo_credit(html, {}) == "Sergio Flores for The Texas Tribune"
+    html2 = "<figure><figcaption>(Cristian ArguetaSoto | Fort Worth Report)</figcaption></figure>"
+    assert "Cristian ArguetaSoto" in photo_credit(html2, {})
+
+
+def test_one_forecast_per_outlet_per_morning():
+    """Nov 23, render 151: WFAA's 'Chilly temperatures to start the week, here's your Thanksgiving forecast' was drafted
+    25 minutes after WFAA's 'Possible Frost and Freeze for North Texas This Week' went out."""
+    from datetime import datetime, timedelta, timezone
+    from ftworthtv.models import Story
+    from ftworthtv.pipeline import _same_outlet_forecast
+    from ftworthtv.state import State
+    now = datetime(2026, 11, 23, 12, 44, tzinfo=timezone.utc)
+    state = State.__new__(State)
+    state.data = {"posted": {"a": {"at": (now - timedelta(minutes=30)).isoformat(), "category": "weather", "source": "WFAA",
+                                   "title": "Possible Frost and Freeze for North Texas This Week"}}}
+    wfaa = Story(id="b", title="DFW Weather: Chilly temperatures to start the week", url="u", source="WFAA", source_kind="video", summary="")
+    nbc = Story(id="c", title="NBC 5 Forecast: cold front arrives", url="u", source="NBC 5 DFW", source_kind="rss", summary="")
+    assert _same_outlet_forecast(state, wfaa, now)
+    assert not _same_outlet_forecast(state, nbc, now)
+    assert not _same_outlet_forecast(state, wfaa, now + timedelta(hours=13))
