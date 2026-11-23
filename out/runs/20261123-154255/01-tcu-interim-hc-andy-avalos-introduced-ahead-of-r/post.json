@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-154255/01-tcu-interim-hc-andy-avalos-introduced-ahead-of-r/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-154255/01-tcu-interim-hc-andy-avalos-introduced-ahead-of-r/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "TCU interim HC Andy Avalos introduced ahead of regular-season finale against TTU",
+    "caption": "TCU needs a win against Texas Tech on Thanksgiving to be eligible for a bowl game. TCU introduced the interim head coach, Andy Avalos, for the football team ahead of the regular season finale Thursday in Lubbock.\n\nAvalos has also coached defenses at Oregon and Boise State; he also played linebacker at Boise State (2000-04). Avalos started his tenure by thanking his predecessor, Sonny Dykes.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/ncaaf/tcu-interim-hc-andy-avalos-introduced-ahead-of-regular-season-finale-against-texas-tech/4109823/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:Amon G. Carter Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "86f1021042d7c4e4",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "TCU interim HC Andy Avalos introduced ahead of regular-season finale against TTU",
+    "summary": "TCU needs a win against Texas Tech on Thanksgiving to be eligible for a bowl game. TCU introduced the interim head coach, Andy Avalos, for the football team ahead of the regular season finale Thursday in Lubbock. Avalos has served as the defensive coordinator since the start of the 2024 season; he was previously the head coach of Boise State, winning Mountain West Coach of the Year in 2022 after leading Boise State to a 10-4 record. Avalos has also coached defenses at Oregon and Boise State; he also played linebacker at Boise State (2000-04). Avalos started his tenure by thanking his predecessor, Sonny Dykes. \"It's been unbelievable for our family, and I and the rest of the staff feel the same way. The players are very grateful for him and the things that he's done for all of us in our lives and the opportunities he's given us. And that being said, like, I think the biggest thing is we…",
+    "url": "https://www.nbcdfw.com/news/sports/ncaaf/tcu-interim-hc-andy-avalos-introduced-ahead-of-regular-season-finale-against-texas-tech/4109823/",
+    "published": "2026-11-23T08:11:24+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/poster-frame-1795457118223.png?fit=1920,1080&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.2201
+  }
+}
