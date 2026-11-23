@@ -767,3 +767,31 @@ def test_render_160_rules():
     out = _sentences(thr)
     assert out[1].startswith("Justin Timberlake is the subject")
     assert not any("Logo text" in s or "blogherads" in s for s in out)
+
+
+def test_render_160_broken_feed_descriptions():
+    """Nov 23, render 160: NBC 5's feed carried one Sunday Night Football article under every item's <description>, so
+    "Christmas in the Garden returns to Fort Worth Botanic Garden" and nine other items were filed as sports news (and sports
+    may go out as a text card). A description that is not about its headline, or that repeats under several headlines, is
+    dropped for the item's own excerpt or the article."""
+    from datetime import datetime, timezone
+    from ftworthtv.filters import infer_category
+    from ftworthtv.sources.rss import parse_feed
+    snf = ("<p>Sunday Night Football is heading to Cleveland for the first time in seven years, as the Browns will host the Las Vegas "
+           "Raiders in primetime. The Browns are in the thick of the AFC wild card race; quarterback Deshaun Watson threw a touchdown.</p>")
+    feed = f"""<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>NBC 5</title>
+<item><title>Christmas in the Garden returns to Fort Worth Botanic Garden</title><link>https://www.nbcdfw.com/news/local/garden/1/</link>
+<excerpt><![CDATA[Christmas in the Garden brings 22 light installations to the Fort Worth Botanic Garden.]]></excerpt>
+<description><![CDATA[{snf}]]></description></item>
+<item><title>Parade of Lights returns to downtown Fort Worth</title><link>https://www.nbcdfw.com/news/local/parade/2/</link>
+<excerpt><![CDATA[The 44th annual Parade of Lights returns with more than 100 floats.]]></excerpt>
+<description><![CDATA[{snf}]]></description></item>
+<item><title>Browns host Raiders on Sunday Night Football</title><link>https://www.nbcdfw.com/news/sports/snf/3/</link>
+<description><![CDATA[The Browns host the Raiders in primetime as quarterback Deshaun Watson faces his former team.]]></description></item>
+</channel></rss>"""
+    stories = {s.title: s for s in parse_feed({"name": "NBC 5 DFW"}, feed, datetime.now(timezone.utc))}
+    garden = stories["Christmas in the Garden returns to Fort Worth Botanic Garden"]
+    assert "Sunday Night Football" not in garden.summary and "light installations" in garden.summary
+    assert infer_category(garden) != "sports"
+    assert infer_category(stories["Parade of Lights returns to downtown Fort Worth"]) != "sports"
+    assert "Deshaun Watson" in stories["Browns host Raiders on Sunday Night Football"].summary      # a real description stays

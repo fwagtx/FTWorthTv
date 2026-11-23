@@ -56,11 +56,27 @@ def clean_feed_text(text: str) -> str:
     return collapse_ws(text)
 
 
+def about_headline(title: str, text: str) -> bool:
+    """Does a feed's description talk about its own headline? NBC 5's feed (Nov 23) carried one Sunday Night Football article
+    under every item, so "Christmas in the Garden returns to Fort Worth Botanic Garden" was filed as sports news."""
+    from .article import _words
+    t = _words(title)
+    if not text or not t:
+        return True
+    shared = len(t & _words(text[:700]))
+    return shared >= (1 if len(t) <= 3 else 2)
+
+
 def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
     """Parse one feed's body into Stories. Pure function so it is testable without network."""
     parsed = feedparser.parse(content)
     name = cfg["name"]
     stories: list[Story] = []
+    seen: dict[str, set[str]] = {}               # the same description under different headlines is a broken feed
+    for entry in parsed.entries:
+        text = clean_feed_text(strip_html(entry.get("summary") or ""))[:300]
+        if text:
+            seen.setdefault(text, set()).add(strip_html(entry.get("title") or ""))
     for entry in parsed.entries:
         link = (entry.get("link") or "").strip()
         title = strip_html(entry.get("title") or "")
@@ -69,6 +85,9 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
         summary = clean_feed_text(strip_html(entry.get("summary") or ""))
         if not summary and entry.get("content"):
             summary = clean_feed_text(strip_html(entry["content"][0].get("value", "")))
+        if summary and (len(seen.get(summary[:300], ())) > 1 or not about_headline(title, summary)):
+            excerpt = clean_feed_text(strip_html(entry.get("excerpt") or ""))
+            summary = excerpt if excerpt and about_headline(title, excerpt) else ""   # the article is read later (enrich_summary)
         stories.append(Story(
             id=stable_id("rss", entry.get("id") or link),
             source=name,
