@@ -298,6 +298,16 @@
       "reason": "daily cap for weather reached",
       "title": "DFW Weather: Low rain coverage expected Tuesday"
     },
+    "bd175546ae59b1fc": {
+      "at": "2026-11-23T18:47:29.567687+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Dallas mom of 4 killed by relatives after asking for a divorce, report says"
+    },
+    "c5815dc5ac446806": {
+      "at": "2026-11-23T18:47:29.567693+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "18-year-old linked to two separate shootings involving Dallas and Garland Police"
+    },
     "cd0b4c14017e96bb": {
       "at": "2026-11-23T02:43:18.447950+00:00",
       "reason": "daily cap for weather reached",
@@ -481,6 +491,7 @@
       "post_id": "438734040",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8585774393542201176",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "Arlington Police Department",
       "title": "WANTED: Lou Ann MIDDLETON",
       "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
@@ -543,6 +554,7 @@
       "post_id": "438734187",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4111506729010378226",
       "publisher": "metricool-session",
+      "scope": "texas",
       "source": "The Texas Tribune",
       "title": "From pre-K to school funding, Texas Dems hope power shift gives education priorities momentum",
       "url": "https://feeds.texastribune.org/link/16799/17538206/texas-democrats-education-priorities-school-funding"
@@ -737,6 +749,7 @@
       "post_id": "438814834",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5565486892600083792",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "NBC 5 DFW",
       "title": "Fort Worth Parade of Lights returns for 44th year to kick off holiday season",
       "url": "https://www.youtube.com/watch?v=uKWXagyqkFI"
@@ -797,6 +810,7 @@
       "post_id": "439091138",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1678833342493342364",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "NBC 5 DFW",
       "title": "NFL Thanksgiving schedule: Chiefs-Bills, Eagles-Cowboys, Bears-Lions on the menu",
       "url": "https://www.nbcdfw.com/news/sports/nfl/nfl-thanksgiving-schedule-2026-chiefs-bills-eagles-cowboys-bears-lions/4023914/"
@@ -835,6 +849,7 @@
       "post_id": "438964775",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=6707679346767249525",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "NBC 5 DFW",
       "title": "Man dead, another injured after altercation leads to shooting in Fort Worth",
       "url": "https://www.nbcdfw.com/news/local/man-dead-another-injured-after-altercation-leads-to-shooting-in-fort-worth/4109502/"
@@ -873,6 +888,7 @@
       "post_id": "439176442",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7032274807033346806",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "CBS News Texas",
       "title": "Dallas Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving",
       "url": "https://www.cbsnews.com/texas/news/dallas-cowboys-carter-bloodcare-blood-drive-thanksgiving-game-tickets-philadelphia-eagles/"
@@ -885,6 +901,7 @@
       "post_id": "439138549",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4759346713513999171",
       "publisher": "metricool-session",
+      "scope": "national",
       "source": "The Hollywood Reporter",
       "title": "Justin Timberlake Documentary Trailer: “He’s Not Who I Thought He Was”",
       "url": "https://www.hollywoodreporter.com/tv/tv-news/justin-timberlake-documentary-trailer-apple-1236761080/"
@@ -921,6 +938,7 @@
       "post_id": "438700605",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=2570314757405296557",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "WFAA",
       "title": "Possible Frost and Freeze for North Texas This Week",
       "url": "https://www.youtube.com/watch?v=ejNuemk8F3I"
@@ -1077,6 +1095,7 @@
       "post_id": "438908834",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3297699025101831469",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Bedford police arrest suspected intoxicated driver after chase ends in crash into local business",
       "url": "https://www.fox4news.com/news/bedford-police-arrest-suspected-intoxicated-driver-after-chase-ends-crash-local-business"
@@ -1153,6 +1172,7 @@
       "post_id": "439237914",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=9102465759759781357",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "National Weather Service Fort Worth",
       "title": "Freeze Warning: Montague; Cooke; Young; Jack; Wise; Denton; Stephens; Palo Pinto; Parker; Tarrant; Eastland; Erath; Hood; Somervell; Johnson",
       "url": "https://forecast.weather.gov/MapClick.php?zoneid=TXZ118"
@@ -1275,6 +1295,7 @@
       "post_id": "438700523",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1907889613036470741",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "Arlington Police Department",
       "title": "WANTED: Quimari WILLIAMS",
       "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
@@ -1351,6 +1372,7 @@
       "post_id": "439176715",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=4708336744371865402",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "City of Fort Worth",
       "title": "‘Cease the Grease’ this holiday season",
       "url": "https://www.fortworthtexas.gov/news/2026/11/Cease-the-Grease-this-holiday-season"
@@ -1363,6 +1385,7 @@
       "post_id": "439137797",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5263995974400427799",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "City of Arlington",
       "title": "Holiday Cooking and Potluck Food Safety Tips",
       "url": "https://www.arlingtontx.gov/News-Articles/2026/November/Holiday-Cooking-and-Potluck-Food-Safety-Tips"
@@ -1411,6 +1434,7 @@
       "post_id": "438782621",
       "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5279706198977037801",
       "publisher": "metricool-session",
+      "scope": "local",
       "source": "National Weather Service Fort Worth",
       "title": "Fort Worth forecast for Monday, November 23",
       "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
