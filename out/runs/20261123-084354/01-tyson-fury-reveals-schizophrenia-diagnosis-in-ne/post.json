@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-084354/01-tyson-fury-reveals-schizophrenia-diagnosis-in-ne/post.jpg",
+    "credit": "Photo: SilverBullet X via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:ENIE_EXILENCE.jpg",
+    "photo_id": "lib-enie-exilence-jpg",
+    "subject": "topic:streaming"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-084354/01-tyson-fury-reveals-schizophrenia-diagnosis-in-ne/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary: ‘I Thought I’d End Up in a Padded Room’",
+    "caption": "Netflix’s feature-length documentary 'Tyson Fury' reveals that the boxer has been diagnosed with schizophrenia. The film, which is directed by Lucy Wilcox, will debut on Nov. 27, just two weeks before Fury’s live Netflix bout against Anthony Joshua.",
+    "first_comment": "Source: Variety https://variety.com/2026/tv/global/tyson-fury-schizophrenia-diagnosis-netflix-documentary-1236955855/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "53bdbedbeb9933eb",
+    "source": "Variety",
+    "source_kind": "rss",
+    "title": "Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary: ‘I Thought I’d End Up in a Padded Room’",
+    "summary": "Netflix’s feature-length documentary 'Tyson Fury' reveals that the boxer has been diagnosed with schizophrenia. Netflix ’s feature-length documentary “ Tyson Fury ,” which follows the two-time heavyweight champion of the world’s journey from childhood to the pinnacle of his sport, reveals that the boxer has been diagnosed with schizophrenia. The film, which is directed by Lucy Wilcox, will debut on Nov. 27, just two weeks before Fury’s live Netflix bout against Anthony Joshua. The film charts the triumphs and setbacks of his career, his struggles with mental health and addiction, the loss of a child, complex family relationships and the question of what it means to be a man. blogherads.adq.push(function () { blogherads .defineSlot( 'medrec', 'gpt-variety-article-mid-article-uid0' ) .setTargeting( 'pos', [\"mid-article1\",\"mid-articleX\",\"mid\",\"mid-article\"] ) .setTargeting( 'viewable'…",
+    "url": "https://variety.com/2026/tv/global/tyson-fury-schizophrenia-diagnosis-netflix-documentary-1236955855/",
+    "published": "2026-11-23T14:37:00+00:00",
+    "category_hint": null,
+    "image_url": "https://variety.com/wp-content/uploads/2026/11/Fury.jpg",
+    "image_credit": "Photo: Variety",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "Variety",
+      "national": true,
+      "scope": "national",
+      "national_term": "netflix"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.3701
+  }
+}
