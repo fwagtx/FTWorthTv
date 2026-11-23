@@ -182,7 +182,7 @@ def routine_presser(title: str) -> bool:
     if not _PRESSER_RE.search(t):
         return False
     from .images.subject import TEAM_WORDS, _PLAIN_TEAM_WORDS, _SPORTS_CUE_RE
-    low = f" {t.lower()} "
+    low = f" {_PRESSER_RE.sub(' ', t).lower()} "            # "press conference" is not a sports "conference"
     return bool(_SPORTS_CUE_RE.search(low)) or any(f" {w} " in low for w in TEAM_WORDS if w not in _PLAIN_TEAM_WORDS)
 
 
