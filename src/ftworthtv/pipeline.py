@@ -136,6 +136,18 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                 return "DFW/Texas share used (per run or per day)"
             if story.extra.get("scope") == "national" and national_day_left <= 0:
                 return "national share used (two a day, one a run)"
+        # Nov 23, render 167: community, crime and weather stories whose caps were already used filled the pool, and the
+        # TCU interim coach story (ranked lower) was never written. A category spent for the day takes no pool slot.
+        caps = (settings.brand.get("content_mix", {}) or {}).get("caps_per_day", {}) or {}
+        cat = story.category or "other"
+        if cat in caps and story.source_kind not in ("wanted", "submission"):
+            used = state.posts_on_by_category(day, cat)
+            if cat == "crime":
+                used -= state.posts_on_kind(day, "wanted")       # the morning's bulletins must not silence the day's crime news
+            if used >= int(caps[cat]):
+                return f"daily cap for {cat} reached"
+        if story.extra.get("scope") in ("texas", "national") and story.source_kind == "rss" and _source_posts_on(state, story.source, day) >= 1:
+            return "this statewide outlet already had its post today"
         return None
 
     draftable: list[Story] = []

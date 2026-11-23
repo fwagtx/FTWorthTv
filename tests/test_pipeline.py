@@ -299,3 +299,25 @@ def test_last_post_at_keeps_the_latest_time_whatever_order_posts_are_recorded(se
     state.record(draft("a"), PublishResult(ok=True, publisher="metricool"), late, "2026-11-22")
     state.record(draft("b"), PublishResult(ok=True, publisher="metricool"), early, "2026-11-22")
     assert state.last_post_at == late
+
+
+def test_categories_whose_daily_cap_is_spent_do_not_fill_the_writer_pool(settings, now):
+    """Nov 23, render 167: community, crime and weather stories whose daily caps were used took the pool's slots, and NBC 5's
+    "TCU interim HC Andy Avalos introduced ahead of regular-season finale", ranked lower, was never written."""
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    settings.max_posts = 1
+    settings.brand.setdefault("content_mix", {}).setdefault("caps_per_day", {})["community"] = 0
+
+    def stuck(i):
+        return Story(id=f"comm{i}", source=f"outlet-{i}", source_kind="rss", title=f"Fort Worth library hosts holiday craft day number {i}",
+                     summary="The Fort Worth Public Library will host a holiday craft day for families this weekend, the city said.",
+                     url=f"https://x/comm{i}", published=now - timedelta(minutes=30), category_hint="community", always_relevant=True, weight=3.0)
+    tcu = Story(id="tcu", source="NBC 5 DFW", source_kind="rss", title="TCU interim HC Andy Avalos introduced ahead of regular-season finale against TTU",
+                summary="TCU introduced Andy Avalos as interim head coach on Monday ahead of the Horned Frogs' regular-season finale against Texas Tech.",
+                url="https://x/tcu", published=now - timedelta(hours=1), category_hint="sports", always_relevant=True, weight=0.5)
+    report = run(settings, now=now, stories=[stuck(i) for i in range(16)] + [tcu], publisher_name="dryrun")
+    reasons = {s.id: r for s, r in report.skipped}
+    assert reasons.get("comm3") == "daily cap for community reached"
+    seen = {d.story.id for d in report.drafts} | {s.id for s, r in report.skipped if not r.startswith("daily cap")}
+    assert "tcu" in seen                                  # written (or judged by the writer), not starved by sixteen capped stories
