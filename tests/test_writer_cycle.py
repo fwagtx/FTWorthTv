@@ -755,3 +755,15 @@ def test_render_159_rules():
                       image=ImageAsset(path=Path("post.jpg"), credit="Photo: x", license="openverse-cc", provider="openverse",
                                        subject="beat:Fort Worth Stockyards"))
     assert photo_subject_problem(draft) and "Justin Timberlake" in photo_subject_problem(draft)
+
+
+def test_render_160_rules():
+    """Nov 23, render 160: The Hollywood Reporter's page gave "Logo text Justin Timberlake is the subject of ..." and an ad
+    script ("blogherads.adq.push(function () { ...") inside the article text."""
+    from ftworthtv.writer import _sentences
+    thr = ('A "raw, reflective and revealing portrait" of Timberlake is coming to Apple TV. Logo text Justin Timberlake is the '
+           'subject of a new four-part documentary series that promises to explore his personal and professional life. '
+           "blogherads.adq.push(function () { blogherads .defineSlot( 'medrec', 'gpt-article-mid-article-uid0' ) .setTargeting( 'pos', 'mid' ) });")
+    out = _sentences(thr)
+    assert out[1].startswith("Justin Timberlake is the subject")
+    assert not any("Logo text" in s or "blogherads" in s for s in out)

@@ -425,6 +425,11 @@ _DEMONSTRATIVE_RE = re.compile(r"^(?:That|This|These|Those|Such)\s+(?:is|are|was
 _DANGLING_RE = re.compile(r"\b(?:before that|after that|since then|at that point|that loss|that win|that game|that decision)\b", re.I)
 # "CBS Sports Texas has independently confirmed that TCU fired ...": the outlet is credited in the first comment, the fact leads
 _CONFIRMED_RE = re.compile(r"^(?:[A-Z][\w&.'’-]*\s){1,4}(?:has|have) (?:independently |exclusively )?(?:confirmed|learned) that ")
+# a scraped page's image labels and ad slots that run into the text: "Logo text Justin Timberlake is the subject of ..." (Nov 23,
+# The Hollywood Reporter), "blogherads.adq.push(function () { ..."
+_PAGE_LABEL_RE = re.compile(r"\b(?:Logo text|Logo image|Image credit|Advertisement|ADVERTISEMENT|Skip Ad|Story continues below advertisement)\s+(?=[A-Z])")
+_SCRIPT_RE = re.compile(r"\b(?:blogherads|googletag|adq\.push|window\.\w+|function\s*\(\))", re.I)
+_SCRIPT_CUT_RE = re.compile(r"\b(?:blogherads|googletag)\b.*?(?:\}\s*\)\s*;|$)", re.S)   # an ad script runs to its "});" or the end
 # CBS pages: "Updated on: November 22, 2026 / 12:51 PM CST / CBS/AP" glued to the front of the lead sentence
 _UPDATED_RE = re.compile(r"(?:(?:Updated|Published) on:[^/]{5,40}/[^/]{3,20}/\s*[A-Z]{2,}(?:/[A-Z]{2,})*\s+"
                          r"|(?:(?:Updated|Published) on:\s*)?(?:January|February|March|April|May|June|July|August|September|October|"
@@ -503,7 +508,7 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     page can belong to another item, so only the first `lead` characters are considered)."""
     out: list[str] = []
     text = _DATELINE_RE.sub("", _UPDATED_RE.sub("", collapse_ws(text or "")))   # datelines and "Updated on: ..." stamps are not sentences
-    text = _story_start(text)
+    text = _story_start(_SCRIPT_CUT_RE.sub(" ", text))
     cut_short = len(text) > lead
     if cut_short:
         text = text[:lead]
@@ -511,7 +516,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     if cut_short and parts:
         parts = parts[:-1]                    # the lead limit cut the last sentence: drop it whole, never at "Judge Mark T." (Nov 22)
     merged: list[str] = []
-    parts = [re.sub(r"\s+([,.;:!?])", r"\1", _CONFIRMED_RE.sub("", p)) for p in parts]   # "the Tennessee Titans , stripping"
+    parts = [re.sub(r"\s+([,.;:!?])", r"\1", _CONFIRMED_RE.sub("", _PAGE_LABEL_RE.sub("", p))) for p in parts]   # "the Tennessee Titans , stripping"
+    parts = [p for p in parts if not _SCRIPT_RE.search(p)]          # an ad script is not a sentence
     parts = [p for p in parts if not _CLIP_LEAD_RE.match(p) and not _TEASER_RE.match(p)]
     parts = [p[0].upper() + p[1:] if p else p for p in parts]
     for part in parts:                                        # a sentence that opens a quote keeps going until it closes it
