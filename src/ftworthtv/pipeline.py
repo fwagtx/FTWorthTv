@@ -445,9 +445,12 @@ def _same_outlet_forecast(state, story, now) -> bool:
 
 
 def _source_posts_on(state, source: str, day: str) -> int:
-    """How many posts from one outlet went out (or are scheduled) on a local day."""
+    """How many statewide or national posts one outlet had on a local day. A local station's own local stories do not count:
+    Nov 23, NBC 5's Texas Tech result was held as "this statewide outlet already had its post today" after NBC 5's local
+    shooting, schedule and parade posts. Entries recorded before scopes were stored count as before."""
     return sum(1 for info in (state.data.get("posted", {}) or {}).values()
-               if info.get("source") == source and str(info.get("at", ""))[:10] == day)
+               if info.get("source") == source and str(info.get("at", ""))[:10] == day
+               and info.get("scope", "texas") in ("texas", "national"))
 
 
 _RELATIVE_TIME_RE = re.compile(r"\b(?:overnight|last night|this morning|early this morning|this afternoon|this evening|tonight|"

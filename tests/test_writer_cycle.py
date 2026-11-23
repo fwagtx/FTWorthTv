@@ -842,3 +842,20 @@ def test_render_162_rules():
     assert subject_fits(title, body, "weather", "beat:skyline", kind="nws_alert")[0] is True
     assert alert_image_query("Freeze Warning") == "frost on grass"
     assert alert_image_query("Winter Storm Warning") == "snow ice road Texas"
+
+
+def test_render_164_rules():
+    """Nov 23, render 164: NBC 5's Texas Tech result was held as "this statewide outlet already had its post today" because
+    NBC 5's local shooting, schedule and parade posts counted. Only an outlet's statewide or national posts count."""
+    from ftworthtv.pipeline import _source_posts_on
+    from ftworthtv.state import State
+    state = State.__new__(State)
+    state.data = {"posted": {
+        "a": {"source": "NBC 5 DFW", "at": "2026-11-23T09:55:00-06:00", "scope": "local"},
+        "b": {"source": "NBC 5 DFW", "at": "2026-11-23T10:58:00-06:00", "scope": "local"},
+        "c": {"source": "The Texas Tribune", "at": "2026-11-23T07:37:00-06:00", "scope": "texas"},
+        "d": {"source": "KXAN Austin", "at": "2026-11-23T08:00:00-06:00"},                 # recorded before scopes: counts
+    }}
+    assert _source_posts_on(state, "NBC 5 DFW", "2026-11-23") == 0
+    assert _source_posts_on(state, "The Texas Tribune", "2026-11-23") == 1
+    assert _source_posts_on(state, "KXAN Austin", "2026-11-23") == 1

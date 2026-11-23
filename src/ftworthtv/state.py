@@ -128,6 +128,7 @@ class State:
             "post_id": result.post_id,
             "post_url": result.url,
             "mode": draft.mode,
+            "scope": story.extra.get("scope", "local"),   # the one-post-a-day rule counts an outlet's statewide/national posts only
         }
         prev = self.last_post_at
         if prev is None or when > prev:               # a session records several posts in any order: keep the latest time
