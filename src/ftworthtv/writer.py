@@ -480,11 +480,30 @@ _DEFINITE_OPENER_RE = re.compile(r"^The (?:effort|plan|program|initiative|projec
                                  r"contract) (?:is|was|will|would|has|had|comes|came|includes|aims|calls)\b")
 
 
+def _story_start(text: str) -> str:
+    """Where the story itself begins. A feed that opens with a sentence the story repeats further down has put a teaser
+    first: NBC 5's "Detectives learned that the shooting victim and suspect were involved in a verbal and physical
+    altercation ..." came before "Fort Worth police are investigating a homicide ..." and again four sentences later
+    (Nov 23). An excerpt followed by the full text (the same sentences twice) starts at the full text; a lone teaser
+    sentence is dropped."""
+    parts = _split_sentences(text)
+    norm = [re.sub(r"\W+", " ", p).strip().lower() for p in parts]
+    if len(parts) < 3 or len(norm[0]) < 25:
+        return text
+    j = next((k for k in range(1, len(parts)) if norm[k] == norm[0]), None)
+    if j is None or j == 1:
+        return text                                   # never repeated, or the lead itself twice in a row
+    if all(k + j < len(parts) and norm[k + j] == norm[k] for k in range(1, j)):
+        return " ".join(parts[j:])
+    return " ".join(parts[1:])
+
+
 def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> list[str]:
     """Complete, boilerplate-free sentences from the lead of an article summary, in order (later paragraphs of a scraped
     page can belong to another item, so only the first `lead` characters are considered)."""
     out: list[str] = []
     text = _DATELINE_RE.sub("", _UPDATED_RE.sub("", collapse_ws(text or "")))   # datelines and "Updated on: ..." stamps are not sentences
+    text = _story_start(text)
     cut_short = len(text) > lead
     if cut_short:
         text = text[:lead]

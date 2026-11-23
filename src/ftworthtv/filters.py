@@ -119,6 +119,30 @@ _BETTING_RE = re.compile(r"\b(best bets?|best picks|odds,? (?:and )?(?:picks?|pr
                          r"(?:week \d+ )?(?:nfl|nba|mlb|nhl|college football|college basketball|cfb|bowl)(?: week \d+)? picks)\b", re.I)
 
 
+# Nov 23, Fort Worth Weekly: "Game Show Sets Have Found a Second Life on Interactive Live Streams" ("Some streams let adults
+# wager on the action") is a paid gambling post on a local site: it names no place, so it is no one's local news
+_GAMBLING_RE = re.compile(r"\b(wager(?:s|ed|ing)?|gambl(?:e|ing|ers?)|casinos?|slots?(?: machines?| games?)|sweepstakes|"
+                          r"real[- ]money|live dealers?|roulette|blackjack|poker sites?|crash games?|plinko|igaming)\b", re.I)
+
+
+def gambling_advertorial(title: str, summary: str = "") -> bool:
+    """A gambling pitch that never names a Texas place. 'Texas lawmakers weigh casino gambling' names Texas and stays news."""
+    text = f"{title or ''} {summary or ''}"
+    return bool(_GAMBLING_RE.search(text)) and not any(w in _plain(text) for w in PLACE_WORDS + ("tarrant", "metroplex"))
+
+
+# a magazine feature is not a national moment, even about a watchlist subject (Nov 23: Billboard's "'It's Not Just a Song on
+# the Radio': How Music Became A Main Character In 'Grand Theft Auto VI'", a cover story four days after the launch)
+_FEATURE_TITLE_RE = re.compile(r"(?:^|[:—–]\s*)(?:how(?! to\b)|why|inside|behind the|the making of|the story of|meet the|"
+                               r"in conversation)\b|\b(?:q&a|cover story|oral history|interview)\b|"
+                               r"\bI (?:wish|think|played|love|loved|hate|tried|spent|can't|don't|need|want)\b", re.I)
+_FEATURE_URL_RE = re.compile(r"/(?:features?|longform|long-reads?|interviews?|cover-stor(?:y|ies)|in-depth)/|-cover-\d", re.I)
+
+
+def national_feature(title: str, url: str = "") -> bool:
+    return bool(_FEATURE_TITLE_RE.search(title or "") or _FEATURE_URL_RE.search(url or ""))
+
+
 def betting_promo(title: str, summary: str = "") -> bool:
     """'Cowboys vs. Eagles odds, picks, best bets', 'Get almost $4,000 in bonuses from betting apps': a sportsbook pitch
     carries a team name, so the DFW tier would keep it; it is an ad, not news."""
@@ -642,6 +666,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if betting_promo(story.title, story.summary or ""):
             dropped.append((story, "sports betting picks or promo, not news"))
             continue
+        if not story.official and gambling_advertorial(story.title, story.summary or ""):
+            dropped.append((story, "a gambling pitch that names no Texas place, not news"))
+            continue
         if game_notes(story.title):
             dropped.append((story, "a team's game notes or quotes sheet, not a story"))
             continue
@@ -752,6 +779,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                                 and len(term_outlets.get(t, ())) >= min_outlets), None)
                 if hit and infer_category(story) in ("crime", "traffic"):
                     hit = None
+                if hit and national_feature(story.title, story.url):
+                    dropped.append((story, f"a magazine feature about {hit}, not the moment itself"))
+                    continue
                 if hit and any(hit in t.lower() for t in recent_titles):
                     dropped.append((story, f"national moment already covered: {hit}"))
                     continue

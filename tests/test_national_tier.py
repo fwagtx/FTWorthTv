@@ -114,3 +114,14 @@ def test_platform_named_in_passing_is_not_a_moment(settings, now):
     stories += [_s(4, "The Verge", "Netflix raises prices again", now=now), _s(5, "Variety", "Netflix’s price hike hits subscribers", now=now)]
     kept, dropped = filter_stories(stories, settings, State(settings.state_path), now)
     assert {s.id for s in kept} == {"n4", "n5"}
+
+
+def test_magazine_feature_is_not_the_moment(settings, now):
+    """Nov 23, render 156: Billboard's GTA VI soundtrack cover story hit the watchlist and drafted as the national post."""
+    state = State(settings.state_path)
+    feature = _s(1, "Billboard", "‘It’s Not Just a Song on the Radio’: How Music Became A Main Character In ‘Grand Theft Auto VI’", now=now)
+    feature.url = "https://www.billboard.com/music/features/gta-6-radio-songs-soundtrack-justice-billboard-cover-1236386805/"
+    kept, dropped = filter_stories([feature, _s(2, "Variety", "GTA VI is finally here: Rockstar's long-awaited sequel launches", now=now)],
+                                   settings, state, now)
+    assert [s.id for s in kept] == ["n2"]
+    assert "magazine feature" in dict((s.id, r) for s, r in dropped)["n1"]

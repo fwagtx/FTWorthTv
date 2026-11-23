@@ -647,3 +647,35 @@ def test_render_154_rules():
     now = datetime(2026, 11, 23, 14, 20, tzinfo=timezone.utc)
     assert _stale_relative_time(state, st, "A driver is under arrest. The crash happened overnight in the 2700 block of Brown Trail.", now)
     assert not _stale_relative_time(state, st, "A driver is under arrest after a crash on Brown Trail.", now)
+
+
+def test_render_156_rules():
+    """Nov 23, render 156: NBC 5's feed put a sentence from further down the story ahead of its lede; Fort Worth Weekly
+    carried a gambling-stream advertorial; Billboard's GTA VI soundtrack cover story drafted as the national post."""
+    from ftworthtv.filters import gambling_advertorial, national_feature
+    from ftworthtv.writer import _sentences
+    nbc = ("Detectives learned that the shooting victim and suspect were involved in a verbal and physical altercation when the "
+           "suspect shot the victim at least one time. Fort Worth police are investigating a homicide that left a man dead and "
+           "another arrested after an altercation on Saturday. Officers were dispatched to a shooting near the 600 block of The "
+           "Heights Dr. and found a man with a gunshot wound to his torso. Officials said he was pronounced dead at the scene. "
+           "Detectives learned that the shooting victim and suspect were involved in a verbal and physical altercation when the "
+           "suspect shot the victim at least one time. Police said that the shooting suspect contacted 911 for medical assistance.")
+    out = _sentences(nbc)
+    assert out[0].startswith("Fort Worth police are investigating a homicide")
+    assert sum(s.startswith("Detectives learned") for s in out) <= 1
+    # an excerpt followed by the full text starts at the full text, in order
+    excerpt = ("The city council approved the new budget on Tuesday night. The plan adds twelve officers to the patrol division. "
+               "The vote was seven to two. The city council approved the new budget on Tuesday night. The plan adds twelve "
+               "officers to the patrol division. The vote was seven to two. Two members said the plan spends too much on overtime.")
+    out = _sentences(excerpt)
+    assert out[0].startswith("The city council approved") and out[1].startswith("The plan adds")
+    fww = ("Game Show Sets Have Found a Second Life on Interactive Live Streams",
+           "The wheel slows beneath a flapper. Anyone who grew up watching game shows knows the rhythm. Some streams let adults wager on the action.")
+    assert gambling_advertorial(*fww)
+    assert not gambling_advertorial("Texas lawmakers weigh casino gambling bill", "The Texas House will debate whether to allow casinos.")
+    assert not gambling_advertorial("Cowboys' fourth-down gamble pays off in win over Eagles")
+    assert national_feature("‘It’s Not Just a Song on the Radio’: How Music Became A Main Character In ‘Grand Theft Auto VI’",
+                            "https://www.billboard.com/music/features/gta-6-radio-songs-soundtrack-justice-billboard-cover-1236386805/")
+    assert national_feature("Robbing Banks is a Blast, But I Wish There Were More Houses to Repair in GTA 6")
+    assert not national_feature("GTA VI is finally here: Rockstar's long-awaited sequel launches")
+    assert not national_feature("How to watch the Cowboys Thanksgiving game")
