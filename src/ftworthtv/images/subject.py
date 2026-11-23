@@ -24,7 +24,7 @@ ENTITY_TOPICS = {
     "tcu-football", "tcu", "uta", "nrg-stadium", "daikin-park", "toyota-center", "frost-bank-center", "ut-austin", "texas-am",
     "texas-tech", "baylor", "smu", "unt", "keller-isd", "northwest-isd", "transit", "courthouse", "sundance-square", "stockyards",
     "kimbell", "modern", "bass-hall", "zoo", "botanic-garden", "water-gardens", "convention-center", "dfw-airport", "alliance",
-    "trinity-river", "heb", "bucees", "whataburger", "capitol", "city-hall", "anthropic",
+    "trinity-river", "heb", "bucees", "whataburger", "capitol", "city-hall", "anthropic", "lottery",
 }
 # an institution named in the headline may be shown by the beat photo that depicts it
 INSTITUTION_FALLBACK = {
@@ -686,6 +686,8 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
         else:
             avoid = () if performer_story else PERFORMANCE_WORDS
             avoid = avoid + tuple(w for w in ART_WORDS if w not in low_title)
+            if not animal:
+                avoid = avoid + ("inaturalist",)      # a species record: a "Texas Two-step Flasher" firefly for a lottery game (Nov 23)
             if category == "sports" and name not in TEAM_FULL_NAMES.values():
                 words = words + (SPORT_CONTEXT,)          # "Notre Dame football", never Notre-Dame de Paris
             out += [((f"fresh:{name}", avoid, words), label), ((name, avoid, words), label)]

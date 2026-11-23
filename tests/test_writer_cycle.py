@@ -914,3 +914,20 @@ def test_render_168_rules():
     assert not stale_result("Cowboys beat Eagles", "The Cowboys beat the Eagles 30-20 on Sunday.", monday)
     assert not stale_result("TCU preview", "TCU visits Texas Tech on Thursday after a loss to Utah.", monday)
     assert stale_result("Mavericks recap", "Saturday's 110-100 win over the Clippers put Dallas at .500.", monday)
+
+
+def test_render_169_rules():
+    """Nov 23, render 169: KXAN's "$850,000 Texas Two Step jackpot set to expire" searched the game's name and found a
+    firefly (an iNaturalist record of the Texas Two-step Flasher); IGN's "Family-Friendly Fortnite Streamer Goes Viral After
+    Picking Up GTA 6" passed as a national moment with a Monster Jam x Fortnite truck."""
+    from ftworthtv.filters import national_feature
+    from ftworthtv.images.subject import plan_subject, provider_queries
+    plan = plan_subject("$850,000 Texas Two Step jackpot set to expire", "A Texas Two Step ticket worth $850,000 remains unclaimed.", "other")
+    assert plan.mode == "entity" and plan.entity_topics == ["lottery"]
+    title = "Mavericks guard signs extension with Dallas"
+    queries = provider_queries(plan_subject(title, "The Dallas Mavericks signed their guard to a new deal on Monday.", "sports"), title, "sports",
+                               people_allowed=True)
+    assert queries and all("inaturalist" in q[1] for q, _ in queries)       # a species record is never a picture of a person or a team
+    bird = "Rare whooping crane spotted at Fort Worth Nature Center"
+    assert all("inaturalist" not in q[1] for q, _ in provider_queries(plan_subject(bird, "", "community"), bird, "community"))
+    assert national_feature("Family-Friendly Fortnite Streamer Goes Viral After Picking Up GTA 6 And Performing the Ultimate Heelturn")

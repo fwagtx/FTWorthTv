@@ -84,7 +84,9 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("anthropic", "claude ai", "dario amodei"), "anthropic"),
     (("ipo", "initial public offering", "nasdaq", "nyse", "wall street", "stock market", "dow jones", "s&p 500", "shares soar", "shares fall", "market cap"), "stock-market"),
     (("gta vi", "gta 6", "grand theft auto", "playstation", "xbox", "nintendo", "switch 2", "video game", "rockstar games", "steam"), "gaming"),
-    (("powerball", "mega millions", "jackpot", "lottery"), "lottery"),
+    # Nov 23: "$850,000 Texas Two Step jackpot set to expire" searched the game's name and found a firefly (the Texas Two-step Flasher)
+    (("powerball", "mega millions", "jackpot", "lottery", "texas two step", "lotto texas", "cash five", "pick 3", "daily 4",
+      "all or nothing", "scratch-off", "scratch ticket", "texas lottery", "unclaimed prize"), "lottery"),
     (("thanksgiving day parade", "macy's parade"), "parade"),
     (("black friday", "cyber monday", "holiday shopping"), "shopping"),
     (("thanksgiving",), "thanksgiving"),

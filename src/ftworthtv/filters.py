@@ -139,7 +139,8 @@ def gambling_advertorial(title: str, summary: str = "") -> bool:
 # the Radio': How Music Became A Main Character In 'Grand Theft Auto VI'", a cover story four days after the launch)
 _FEATURE_TITLE_RE = re.compile(r"(?:^|[:—–]\s*)(?:how(?! to\b)|why|inside|behind the|the making of|the story of|meet the|"
                                r"in conversation)\b|\b(?:q&a|cover story|oral history|interview)\b|"
-                               r"\bI (?:wish|think|played|love|loved|hate|tried|spent|can't|don't|need|want)\b", re.I)
+                               r"\bI (?:wish|think|played|love|loved|hate|tried|spent|can't|don't|need|want)\b|"
+                               r"\b(?:goes|went|going) viral\b", re.I)   # Nov 23: a streamer's viral GTA 6 clip is not a moment
 _FEATURE_URL_RE = re.compile(r"/(?:features?|lists?|galler(?:y|ies)|longform|long-reads?|interviews?|cover-stor(?:y|ies)|in-depth)/|-cover-\d", re.I)
 
 
