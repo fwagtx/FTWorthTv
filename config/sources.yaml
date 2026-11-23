@@ -162,11 +162,13 @@ rss:
     url: https://www.mlb.com/rangers/feeds/news/rss.xml
     weight: 0.8
     image_policy: none
+    category_hint: sports           # a team's own feed is sports news, whatever its headline words
     verify: true
   - name: Houston Astros (MLB.com)
     url: https://www.mlb.com/astros/feeds/news/rss.xml
     weight: 0.6
     image_policy: none
+    category_hint: sports           # a team's own feed is sports news, whatever its headline words
     verify: true
   - name: Fort Worth Report
     url: https://fortworthreport.org/feed/

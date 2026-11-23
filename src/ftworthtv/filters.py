@@ -25,7 +25,11 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
     "sports": ["tcu", "horned frogs", "frogs", "cowboys", "rangers", "mavericks", "stars", "fc dallas", "texas motor speedway",
                "longhorns", "aggies", "razorbacks", "sooners", "senior day", "sec championship", "big 12 championship", "touchdown",
                "quarterback", "halftime", "kickoff", "playoff", "head coach",
-               "nascar", "indycar", "rodeo", "stock show", "panther city", "pga", "colonial", "golf", "football", "basketball", "baseball"],
+               "nascar", "indycar", "rodeo", "stock show", "panther city", "pga", "colonial", "golf", "football", "basketball", "baseball",
+               # Nov 23: "Miller won't return as Astros' pitching coach in '27" read as "other", so the other-metro team rule
+               # (sports only) let it through with the Astros' ballpark as its picture
+               "astros", "mlb", "nfl", "nba", "nhl", "pitching coach", "pitcher", "bullpen", "inning", "home run",
+               "offensive coordinator", "defensive coordinator"],
     "food": ["restaurant", "barbecue", "bbq", "brisket", "taco", "brewery", "bar ", "cafe", "coffee", "bakery", "food hall",
              "menu", "chef", "opens its", "grand opening", "margarita", "tex-mex", "burger", "pizza"],
     "events": ["concert", "festival", "tour", "live at", "dickies arena", "billy bob", "bass hall", "will rogers", "fair",

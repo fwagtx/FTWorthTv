@@ -873,3 +873,22 @@ def test_render_165_rules():
     assert not another_citys_traffic("Crash shuts down westbound I-20 in Grand Prairie")
     assert not _national_result("Super Bowl 2027 and Jay-Z Halftime Show to Screen in Imax Theaters")
     assert _national_result("Chiefs beat Eagles to win Super Bowl LXI")
+
+
+def test_render_166_rules(settings, now):
+    """Nov 23, render 166: MLB.com's "Miller won't return as Astros' pitching coach in '27 (source)" read as "other" (the
+    Astros feed had no sports hint and no sports word matched), so the other-metro team rule let it through with the
+    Astros' ballpark as its picture."""
+    from datetime import timedelta
+    from ftworthtv.filters import filter_stories, infer_category
+    from ftworthtv.models import Story
+    from ftworthtv.state import State
+    astros = Story(id="hou", source="Houston Astros (MLB.com)", source_kind="rss", title="Miller won't return as Astros' pitching coach in '27 (source)",
+                   summary="A longtime fixture on the Astros' coaching staff will not be back next season under new manager Brad Ausmus.",
+                   url="https://www.mlb.com/news/x", published=now - timedelta(hours=1))
+    assert infer_category(astros) == "sports"
+    kept, dropped = filter_stories([astros], settings, State(settings.state_path), now)
+    assert not kept and "another metro" in dropped[0][1]
+    assert any(src.get("name") == "Houston Astros (MLB.com)" and src.get("category_hint") == "sports" for src in settings.sources.get("rss", []))
+    texans = Story(id="tx", source="KXAN Austin", source_kind="rss", title="Texans vote on 17 constitutional amendments", summary="Voters across Texas decide.", url="u")
+    assert infer_category(texans) != "sports"
