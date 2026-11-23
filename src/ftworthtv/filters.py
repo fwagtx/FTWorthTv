@@ -140,7 +140,12 @@ def gambling_advertorial(title: str, summary: str = "") -> bool:
 _FEATURE_TITLE_RE = re.compile(r"(?:^|[:—–]\s*)(?:how(?! to\b)|why|inside|behind the|the making of|the story of|meet the|"
                                r"in conversation)\b|\b(?:q&a|cover story|oral history|interview)\b|"
                                r"\bI (?:wish|think|played|love|loved|hate|tried|spent|can't|don't|need|want)\b|"
-                               r"\b(?:goes|went|going) viral\b", re.I)   # Nov 23: a streamer's viral GTA 6 clip is not a moment
+                               r"\b(?:goes|went|going) viral\b|"   # Nov 23: a streamer's viral GTA 6 clip is not a moment
+                               # Nov 23: IGN's "GTA 6 Players Are Upset Its New Train Can Actually Be Stopped": a fan reaction
+                               r"\b(?:players|fans|gamers|viewers|users|subscribers|swifties)\s+(?:are|were|seem|get|got)?\s*"
+                               r"(?:upset|angry|furious|livid|mad|divided|split|losing it|freaking out|obsessed|baffled|confused|"
+                               r"think|thought|discover(?:ed)?|found|notice[ds]?|spot(?:ted)?|realize[ds]?|convinced|debating|"
+                               r"can't stop|cannot stop|have (?:found|discovered|noticed|spotted))\b", re.I)
 _FEATURE_URL_RE = re.compile(r"/(?:features?|lists?|galler(?:y|ies)|longform|long-reads?|interviews?|cover-stor(?:y|ies)|in-depth)/|-cover-\d", re.I)
 
 
@@ -576,6 +581,30 @@ def _game_keys(title: str) -> set[str]:
     return keys
 
 
+# one subject, several spellings: two outlets carry the same moment whichever spelling each uses
+WATCHLIST_ALIASES = {"grand theft auto vi": "gta 6", "grand theft auto 6": "gta 6", "gta vi": "gta 6",
+                     "the oscars": "oscars", "oscar winners": "oscars", "academy awards": "oscars",
+                     "grammy winners": "grammys", "macy's parade": "thanksgiving day parade"}
+
+
+def watch_term(term: str) -> str:
+    return WATCHLIST_ALIASES.get(term, term)
+
+
+def watch_title(title: str) -> str:
+    """The plain headline with every watchlist spelling folded to one ("Grand Theft Auto VI" and "GTA 6" read alike)."""
+    t = _plain(title)
+    for alias in sorted(WATCHLIST_ALIASES, key=len, reverse=True):
+        t = re.sub(r"\b" + re.escape(alias) + r"\b", WATCHLIST_ALIASES[alias], t)
+    return t
+
+
+def watchlist_hit(watchlist: list[str], title: str) -> str | None:
+    """The watchlist subject a headline names, as a whole phrase: "GTA Vice City" is not "GTA VI"."""
+    t = _plain(title)
+    return next((w for w in watchlist if re.search(r"(?<![a-z0-9])" + re.escape(w) + r"(?![a-z0-9])", t)), None)
+
+
 SPORTS_EVENT_TERMS = {"super bowl", "world series", "nba finals", "stanley cup final", "world cup final", "college football playoff",
                       "march madness", "final four", "halftime show", "heisman trophy", "nfl draft", "nba draft"}
 _HYPOTHETICAL_RE = re.compile(r"\?|\b(contenders?|hopes?|hopeful|chances|odds|could|would|might|favou?rites?|dark horse|path to|"
@@ -741,8 +770,10 @@ _TITLE_CRIME_RE = re.compile(r"\b(?:convicted|sentenced|arrested|(?<!cardiac )ar
 
 
 _NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b"
-                           r"|\b(?:texas |state )?bar (?:foundation|association|exam|of texas)\b|\bstate bar\b", re.I)
-# ("Texas Bar Foundation" is lawyers, not a bar: Nov 22 a young lawyers' grant was filed as food)
+                           r"|\b(?:texas |state )?bar (?:foundation|association|exam|of texas)\b|\bstate bar\b"
+                           r"|\bgrand theft auto\b", re.I)
+# ("Texas Bar Foundation" is lawyers, not a bar: Nov 22 a young lawyers' grant was filed as food; "Grand Theft Auto VI" is a
+# game, and its "theft" filed The Verge's GTA headlines as crime, which no national moment may be)
 
 
 def infer_category(story: Story) -> str:
@@ -798,9 +829,24 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 if term in t and term_is_subject(term, s.title):
                     term_titles.setdefault(term, []).append((s.source, s.title))
 
+    # the same count for watchlist subjects: an outlet's own beat writes about its subject all day (Nov 23: IGN's "GTA 6 Players
+    # Are Upset Its New Train Can Actually Be Stopped" took the national slot as a "GTA 6" story); the moment is the story
+    # several national outlets carry at once
+    watch_titles: dict[str, list[tuple[str, str]]] = {}
+    for s in stories:
+        if s.extra.get("national"):
+            w = watchlist_hit(watchlist, s.title)
+            if w:
+                watch_titles.setdefault(watch_term(w), []).append((s.source, watch_title(s.title)))
+
     def outlets_carrying(term: str, story: Story) -> set[str]:
         return {src for src, title in term_titles.get(term, [])
                 if src == story.source and title == story.title or shared_subject(title, story.title, term)}
+
+    def outlets_watching(term: str, story: Story) -> set[str]:
+        key, mine = watch_term(term), watch_title(story.title)
+        return {src for src, title in watch_titles.get(key, [])
+                if src == story.source and title == mine or shared_subject(title, mine, key)}
     for story in stories:
         if state.skipped(story.id):
             dropped.append((story, "skipped by the reviewing session"))
@@ -922,19 +968,26 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                     break
             if tier is None and story.extra.get("national"):
                 title = _plain(story.title)
-                hit = next((w for w in watchlist if w in title), None)
+                hit = watchlist_hit(watchlist, story.title)
                 if hit and hit in SPORTS_EVENT_TERMS and _HYPOTHETICAL_RE.search(title):
                     hit = None                    # "building a World Series contender?": a feature that names the event, not the event
+                lone = None
+                if hit and hit not in SPORTS_EVENT_TERMS and len(outlets_watching(hit, story)) < min_outlets:
+                    lone, hit = hit, None         # one outlet's story about a watchlist subject is that outlet's beat
                 if hit is None:
                     hit = next((t for t in national_terms if t in title and term_is_subject(t, story.title)
                                 and len(outlets_carrying(t, story)) >= min_outlets), None)
                 if hit and infer_category(story) in ("crime", "traffic"):
                     hit = None
-                if hit and national_feature(story.title, story.url):
-                    dropped.append((story, f"a magazine feature about {hit}, not the moment itself"))
+                seen = hit or lone
+                if seen and national_feature(story.title, story.url):
+                    dropped.append((story, f"a magazine feature about {seen}, not the moment itself"))
                     continue
-                if hit and any(hit in t.lower() for t in recent_titles):
-                    dropped.append((story, f"national moment already covered: {hit}"))
+                if seen and any(watch_term(seen) in watch_title(t) for t in recent_titles):
+                    dropped.append((story, f"national moment already covered: {seen}"))
+                    continue
+                if lone and hit is None:
+                    dropped.append((story, f"one outlet's {lone} story: a national moment is one several national outlets carry"))
                     continue
                 if hit:
                     tier = ("national", 0.6)

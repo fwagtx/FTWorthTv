@@ -949,3 +949,17 @@ def test_render_172_rules():
     assert happened("Texas A&M names Thornton interim athletic director, effective Dec. 1")
     assert happened("Keller ISD board names lone finalist for superintendent")
     assert not happened("Fort Worth names new park after longtime council member")
+
+
+def test_render_174_rules():
+    """Nov 23, render 174: the Fort Worth Report's Keller ISD bond story ended '..."a bond is critical to that work," Wilson
+    said.' after the sentence naming Superintendent Cory Wilson was cut: a bare surname is no one to a reader."""
+    from ftworthtv.writer import introduce_speakers
+    text = ("Keller ISD Superintendent Cory Wilson said the district needs a bond. “There’s a lot of work that needs to take place "
+            "within the school district, and a bond is critical to that work,” Wilson said.")
+    cap = "Keller ISD could ask voters again in May.\n\n“There’s a lot of work,” Wilson said."
+    assert introduce_speakers(cap, text).endswith("“There’s a lot of work,” Superintendent Cory Wilson said.")
+    already = "Superintendent Cory Wilson wants a smaller bond. “There’s a lot of work,” Wilson said."
+    assert introduce_speakers(already, text) == already
+    assert introduce_speakers("“We found him,” Police said.", "Fort Worth Police said they found him.") == "“We found him,” Police said."
+    assert introduce_speakers("Cory Wilson said the bond matters.", text) == "Cory Wilson said the bond matters."

@@ -966,6 +966,35 @@ def restate_relative_day(caption: str, text: str, now: datetime, tz) -> str:
     return re.sub(r"\bnext week\b", "today", caption, flags=re.I)
 
 
+# a quote's attribution: the closing quote, then a bare capitalized surname and the verb ('...that work," Wilson said.')
+_BARE_SAID_RE = re.compile(r"[,.!?…]\s?[\"”’]\s+([A-Z][a-z]+(?:-[A-Z][a-z]+)?) (?:said|says|told|added|noted|explained)\b")
+_ROLE_TITLE = r"(?:Superintendent|Mayor|Police Chief|Fire Chief|Chief|Coach|Trustee|Commissioner|Councilmember|Council member|" \
+              r"President|Sen\.|Senator|Rep\.|Representative|Gov\.|Governor|Judge|Sheriff|Officer|Sgt\.|Lt\.|Dr\.|Pastor|Principal)"
+# capitalized words that sit before a name-like word without being a first name ("Fort Worth Police said")
+_NOT_FIRST_NAMES = {"Fort", "Worth", "North", "South", "East", "West", "Texas", "Tarrant", "Dallas", "Arlington", "County", "City",
+                    "Police", "Fire", "Department", "District", "School", "State", "University", "The", "A", "An", "In", "On", "At",
+                    "And", "But", "For", "With", "From", "After", "Before", "When", "While", "New", "Old", "Lake", "River"}
+
+
+def introduce_speakers(caption: str, text: str) -> str:
+    """A quote credited to a bare surname whose first reference was left out: Nov 23, the Fort Worth Report's Keller ISD bond
+    story ended "... a bond is critical to that work," Wilson said, after the sentence naming Superintendent Cory Wilson was
+    too long to keep. The surname takes its full first reference from the article ("Superintendent Cory Wilson said")."""
+    out = caption or ""
+    for m in list(_BARE_SAID_RE.finditer(out)):
+        surname = m.group(1)
+        if any(f.group(1) not in _NOT_FIRST_NAMES
+               for f in re.finditer(r"\b([A-Z][a-z]+)(?: [A-Z]\.)? " + re.escape(surname) + r"\b", out[:m.start(1)])):
+            continue                                            # already introduced earlier in the caption
+        for f in re.finditer(r"\b((?:" + _ROLE_TITLE + r"\s+)?([A-Z][a-z]+)(?: [A-Z]\.)? " + re.escape(surname) + r")\b", text or ""):
+            if f.group(2) in _NOT_FIRST_NAMES:
+                continue
+            out = out[:m.start(1)] + f.group(1) + out[m.end(1):]
+            break
+        break                                                   # one speaker per caption: the offsets above moved
+    return out
+
+
 def write_copy(story: Story, settings: Settings, now: datetime, *, force_template: bool = False) -> tuple[PostCopy, str]:
     if (story.source_kind == "rss" and not story.official and (story.category or "") == "sports"
             and not _sentences(story.summary or "") and cut_off(story.summary or "")):
@@ -996,4 +1025,5 @@ def write_copy(story: Story, settings: Settings, now: datetime, *, force_templat
         return copy, writer
     out = finalize(copy, story, settings)
     out.caption = restate_relative_day(out.caption, story.summary or "", now, settings.tz)
+    out.caption = introduce_speakers(out.caption, story.summary or "")
     return out, writer

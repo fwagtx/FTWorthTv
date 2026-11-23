@@ -14,7 +14,8 @@ def _s(i, source, title, national=True, now=None):
 def test_national_watchlist_and_buzz(settings, now):
     state = State(settings.state_path)
     stories = [
-        _s(1, "Variety", "GTA VI is finally here: Rockstar's long-awaited sequel launches", now=now),          # watchlist: one hit is enough
+        _s(1, "Variety", "GTA VI is finally here: Rockstar's long-awaited sequel launches", now=now),          # watchlist subject carried
+        _s(7, "IGN", "Grand Theft Auto 6 launches: Rockstar's sequel is out now", now=now),                     #   by two outlets
         _s(2, "Variety", "Some actor joins an indie film nobody has heard of", now=now),                        # nothing
         _s(3, "Billboard", "Pop star announces tour dates for 2027 stadium run", now=now),                      # big-moment term, one outlet
         _s(4, "The Verge", "Netflix raises prices again", now=now),                                             # term carried by 2 outlets ->
@@ -121,9 +122,10 @@ def test_magazine_feature_is_not_the_moment(settings, now):
     state = State(settings.state_path)
     feature = _s(1, "Billboard", "‘It’s Not Just a Song on the Radio’: How Music Became A Main Character In ‘Grand Theft Auto VI’", now=now)
     feature.url = "https://www.billboard.com/music/features/gta-6-radio-songs-soundtrack-justice-billboard-cover-1236386805/"
-    kept, dropped = filter_stories([feature, _s(2, "Variety", "GTA VI is finally here: Rockstar's long-awaited sequel launches", now=now)],
+    kept, dropped = filter_stories([feature, _s(2, "Variety", "GTA VI is finally here: Rockstar's long-awaited sequel launches", now=now),
+                                    _s(3, "IGN", "GTA 6 launches: Rockstar's sequel is out now on PS5 and Xbox", now=now)],
                                    settings, state, now)
-    assert [s.id for s in kept] == ["n2"]
+    assert [s.id for s in kept] == ["n2", "n3"]
     assert "magazine feature" in dict((s.id, r) for s, r in dropped)["n1"]
 
 
@@ -138,3 +140,27 @@ def test_one_outlets_trailer_is_not_a_moment(settings, now):
     ]
     kept, dropped = filter_stories(stories, settings, state, now)
     assert {s.id for s in kept} == {"n2", "n3"}
+
+
+def test_one_outlets_watchlist_story_is_not_a_moment(settings, now):
+    """Nov 23, render 174: IGN's "GTA 6 Players Are Upset Its New Train Can Actually Be Stopped" drafted as the national post
+    on the "GTA 6" watchlist subject. An outlet's own beat writes about its subject all day; the moment is the story several
+    national outlets carry at once, whichever spelling each uses."""
+    from ftworthtv.filters import national_feature, watchlist_hit
+    state = State(settings.state_path)
+    train = _s(1, "IGN", "GTA 6 Players Are Upset Its New Train Can Actually Be Stopped, and It's Causing Chaos", now=now)
+    other = _s(2, "IGN", "GTA 6 map is bigger than you think, according to a new leak", now=now)          # same outlet: still one
+    kept, dropped = filter_stories([train, other], settings, state, now)
+    assert not kept
+    assert "one outlet" in dict((s.id, r) for s, r in dropped)["n2"]
+    assert national_feature(train.title)                                   # and a fan reaction is a feature, not the moment
+    assert national_feature("Swifties think they found a hidden clue in the new video")
+    assert not national_feature("GTA 6 release date confirmed for May 2027")
+    dated = [_s(3, "IGN", "Rockstar sets GTA 6 release date for May 2027", now=now),
+             _s(4, "The Verge", "Grand Theft Auto VI release date confirmed: Rockstar picks May 2027", now=now)]
+    kept, dropped = filter_stories(dated, settings, state, now)
+    assert {s.id for s in kept} == {"n3", "n4"}
+    assert watchlist_hit(["gta vi", "gta 6"], "GTA Vice City Definitive Edition hits a new low price") is None
+    finals = _s(5, "ESPN NFL", "Chiefs win Super Bowl LXI over the Eagles", now=now)           # a final is a moment from one wire
+    kept, dropped = filter_stories([finals], settings, state, now)
+    assert [s.id for s in kept] == ["n5"]
