@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 16
+    "2026-11-23": 17
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -56,7 +56,7 @@
       "community": 3,
       "crime": 4,
       "culture": 1,
-      "politics": 2,
+      "politics": 3,
       "sports": 3,
       "weather": 3
     }
@@ -90,7 +90,7 @@
     "2026-11-23": {
       "nws_alert": 1,
       "nws_forecast": 1,
-      "rss": 10,
+      "rss": 11,
       "video": 2,
       "wanted": 2
     }
@@ -122,7 +122,7 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 13,
+      "local": 14,
       "national": 1,
       "texas": 1
     }
@@ -147,6 +147,11 @@
       "at": "2026-11-23T19:55:45.917506+00:00",
       "reason": "daily cap for weather reached",
       "title": "Protect Your Pets, Plants and Pipes During Freezing Temperatures"
+    },
+    "1ab71d52f1a1af3a": {
+      "at": "2026-11-23T23:22:06.682836+00:00",
+      "reason": "daily cap for community reached",
+      "title": "How Society of St. Vincent de Paul helps NorthTexans in need"
     },
     "1b61e429f5d7fc6e": {
       "at": "2026-11-23T18:19:35.032798+00:00",
@@ -193,6 +198,11 @@
       "reason": "daily cap for community reached",
       "title": "TIME names TCC one of America’s Best Community Colleges for 2027"
     },
+    "46afc276c8ccbb6d": {
+      "at": "2026-11-23T23:22:06.682850+00:00",
+      "reason": "daily cap for politics reached",
+      "title": "The United States won the 2031 Women’s World Cup bid. What does that mean for Arlington?"
+    },
     "49d1e3961cf129ef": {
       "at": "2026-11-23T00:13:31.416000+00:00",
       "reason": "daily cap for sports reached",
@@ -233,6 +243,11 @@
       "reason": "daily cap for crime reached",
       "title": "Alleged intoxicated driver crashes into Bedford business after brief chase, police say"
     },
+    "5e30b1070b88315c": {
+      "at": "2026-11-23T23:22:06.682849+00:00",
+      "reason": "daily cap for politics reached",
+      "title": "Tarrant County College trustees approve $57M software overhaul after cost debate"
+    },
     "5f29a2aee52f0b26": {
       "at": "2026-11-23T18:19:35.032829+00:00",
       "reason": "daily cap for community reached",
@@ -267,6 +282,11 @@
       "at": "2026-11-23T04:43:22.003454+00:00",
       "reason": "daily cap for weather reached",
       "title": "DFW Weather: When to expect the first freeze this season; 7 day forecast"
+    },
+    "98f6fa4a5454d59b": {
+      "at": "2026-11-23T23:22:06.682844+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Proteja a Mascotas, Plantas y Tuberías Durante las Bajas Temperaturas"
     },
     "9acb79fd5715c4ab": {
       "at": "2026-11-22T14:23:34.181481+00:00",
@@ -327,6 +347,11 @@
       "at": "2026-11-23T18:47:29.567687+00:00",
       "reason": "daily cap for crime reached",
       "title": "Dallas mom of 4 killed by relatives after asking for a divorce, report says"
+    },
+    "bfc33158c44e768d": {
+      "at": "2026-11-23T23:22:06.682820+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Keller church offers prayer for Transgender Day of Remembrance"
     },
     "c5815dc5ac446806": {
       "at": "2026-11-23T18:47:29.567693+00:00",
@@ -407,10 +432,15 @@
       "at": "2026-11-22T04:45:06.516446+00:00",
       "reason": "daily cap for community reached",
       "title": "North Texas Food Bank helps feed 1,000 families ahead of Thanksgiving"
+    },
+    "ffef147f17f927a7": {
+      "at": "2026-11-23T23:22:06.682810+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Freeze warning issued for North Texas Tuesday through Wednesday. Here’s what to know"
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T16:23:00-06:00",
+  "last_post_at": "2026-11-23T17:25:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -1272,6 +1302,19 @@
       "title": "Texas House District 61 race margin is just seven votes; recount filed with state",
       "url": "https://www.wfaa.com/article/news/politics/elections/texas-house-district-61-race-margin-is-just-seven-votes-recount-filed-with-state/287-ccfc44c6-f7b2-4854-894c-8d12ea8b0a3e"
     },
+    "c72b466f5037ee45": {
+      "at": "2026-11-23T17:25:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439570475",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5226124804192158272",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "Keller ISD eyes May bond election after voters reject $828M proposal",
+      "url": "https://fortworthreport.org/2026/11/23/keller-isd-eyes-may-bond-election-after-voters-reject-828m-proposal/"
+    },
     "c781fe47659b2dbf": {
       "at": "2026-11-20T09:49:00-06:00",
       "category": "food",
@@ -1632,6 +1675,10 @@
       "at": "2026-11-20T21:18:54.918609+00:00",
       "reason": "a conviction with no picture of the defendant or the courtroom; the render offered AT&T Stadium"
     },
+    "3d1f98e2f4a22827": {
+      "at": "2026-11-23T23:22:06.681940+00:00",
+      "reason": "IGN's GTA 6 train piece: one outlet's fan-reaction story about a watchlist subject, not a national moment, with a stock PS5-controller photo"
+    },
     "3eae7c89d63660eb": {
       "at": "2026-11-23T19:55:45.916407+00:00",
       "reason": "MLB.com's Astros pitching coach story: Houston's team news (filed as 'other', so the other-metro rule never ran), with the Astros' ballpark "
@@ -1845,7 +1892,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 91,
+  "total_posts": 92,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
