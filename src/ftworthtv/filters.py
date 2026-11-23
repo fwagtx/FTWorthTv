@@ -386,6 +386,23 @@ def holiday_not_yet(title: str, summary: str, published: datetime | None) -> boo
     return False
 
 
+# Nov 23, Fort Worth Weekly: "Simple Ways To Enjoy The End Of A North Texas Summer" ("several weeks of triple digits to
+# negotiate") dated the week of Thanksgiving: a piece about the season we are not in is evergreen filler or an old story
+_SUMMER_NOW_RE = re.compile(r"\b(?:end of (?:a |the |this )?(?:\w+ ){0,2}summer|last (?:days|weeks) of summer|beat the(?: \w+)? heat|"
+                            r"summer heat|survive (?:the )?(?:\w+ )?summer|weeks of triple digits)\b", re.I)
+_WINTER_NOW_RE = re.compile(r"\b(?:end of (?:a |the |this )?(?:\w+ ){0,2}winter|survive (?:the )?(?:\w+ )?winter|"
+                            r"stay warm this winter|winter weather tips)\b", re.I)
+
+
+def out_of_season(title: str, summary: str, published: datetime | None) -> bool:
+    """A summer-is-here piece from November to March, or a winter-is-here piece from June to August."""
+    if published is None:
+        return False
+    text = f"{title or ''} {(summary or '')[:400]}"
+    month = published.month
+    return bool(month in (11, 12, 1, 2, 3) and _SUMMER_NOW_RE.search(text) or month in (6, 7, 8) and _WINTER_NOW_RE.search(text))
+
+
 def expert_commentary(title: str) -> bool:
     """'Medical ethicist weighs in on North Texas transplant case': an outside expert's opinion of a story, not the story
     (Nov 22: two outlets' versions reached review an hour apart)."""
@@ -530,6 +547,32 @@ _HYPOTHETICAL_RE = re.compile(r"\?|\b(contenders?|hopes?|hopeful|chances|odds|co
 # a story airs there: Nov 23, "Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary" (Variety and Deadline) took
 # the day's national slot, and "Netflix" in two unrelated headlines counted as two outlets carrying one moment
 PLATFORM_TERMS = ("netflix", "disney+", "hbo max", "hulu", "peacock", "paramount+", "prime video", "apple tv")
+
+
+_MOMENT_GENERIC = {"season", "series", "official", "final", "first", "trailer", "teaser", "show", "film", "movie", "release",
+                   "date", "episode", "premiere", "finale", "watch", "review", "update", "announces", "reveals", "revealed", "gets",
+                   "more", "after", "with", "from", "into", "about", "this", "that", "what", "when", "year", "years", "their",
+                   "will", "have", "been", "just", "over", "here", "says", "back", "big", "news", "week", "today", "night"}
+
+
+def _moment_words(title: str, term: str) -> set[str]:
+    out = set()
+    for w in re.findall(r"[a-z0-9+]+", _plain(title).replace("'s", "")):
+        if len(w) < 4 or w in term.split() or w in _MOMENT_GENERIC:
+            continue
+        for end in ("ing", "ed", "s"):
+            if len(w) > len(end) + 3 and w.endswith(end):
+                w = w[:-len(end)]
+                break
+        out.add(w)
+    return out
+
+
+def shared_subject(a: str, b: str, term: str) -> bool:
+    """Two headlines that carry a big-moment term are one moment only when they share a subject besides the term:
+    "Netflix raises prices again" and "Netflix's price hike hits subscribers" share "price"; a 'Lil Kev' trailer and an
+    Avengers trailer share nothing but "trailer"."""
+    return bool(_moment_words(a, term) & _moment_words(b, term))
 
 
 def term_is_subject(term: str, title: str) -> bool:
@@ -707,14 +750,19 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
     watchlist = [w.lower() for w in (rel.get("watchlist", []) or [])]
     national_terms = [w.lower() for w in (rel.get("national_keywords", []) or [])]
     min_outlets = int(rel.get("national_min_outlets", 2))
-    # how many national outlets carry each big-moment term right now: one outlet is a story, several is a moment
-    term_outlets: dict[str, set[str]] = {}
+    # which national headlines carry each big-moment term right now: one outlet is a story, several carrying the same
+    # story is a moment (Nov 23: "trailer" in Deadline's 'Lil Kev' headline counted Variety's Avengers trailer as a second outlet)
+    term_titles: dict[str, list[tuple[str, str]]] = {}
     for s in stories:
         if s.extra.get("national"):
             t = _plain(s.title)
             for term in national_terms:
                 if term in t and term_is_subject(term, s.title):
-                    term_outlets.setdefault(term, set()).add(s.source)
+                    term_titles.setdefault(term, []).append((s.source, s.title))
+
+    def outlets_carrying(term: str, story: Story) -> set[str]:
+        return {src for src, title in term_titles.get(term, [])
+                if src == story.source and title == story.title or shared_subject(title, story.title, term)}
     for story in stories:
         if state.skipped(story.id):
             dropped.append((story, "skipped by the reviewing session"))
@@ -768,6 +816,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "rss" and archive_replay(story.title):
             dropped.append((story, "an archive broadcast to watch on the station's site, not news"))
+            continue
+        if story.source_kind == "rss" and out_of_season(story.title, story.summary or "", story.published):
+            dropped.append((story, "a piece about a season we are not in"))
             continue
         if story.source_kind == "rss" and holiday_not_yet(story.title, story.summary or "", story.published):
             dropped.append((story, "an old story: it dates a death to a holiday that has not come yet this year"))
@@ -838,7 +889,7 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                     hit = None                    # "building a World Series contender?": a feature that names the event, not the event
                 if hit is None:
                     hit = next((t for t in national_terms if t in title and term_is_subject(t, story.title)
-                                and len(term_outlets.get(t, ())) >= min_outlets), None)
+                                and len(outlets_carrying(t, story)) >= min_outlets), None)
                 if hit and infer_category(story) in ("crime", "traffic"):
                     hit = None
                 if hit and national_feature(story.title, story.url):

@@ -713,3 +713,23 @@ def test_render_157_rules(settings, now):
     bare = plan_subject("CMA is back", "", "culture")
     assert bare.search_names == ["CMA"]
     assert not [q for q, label in provider_queries(bare, "CMA is back", "culture") if label == "entity:cma"]
+
+
+def test_render_158_rules(settings, now):
+    """Nov 23, render 158: Fort Worth Weekly's "Simple Ways To Enjoy The End Of A North Texas Summer" (late September, weeks
+    of triple digits) dated the week of Thanksgiving."""
+    from datetime import datetime, timedelta, timezone
+    from ftworthtv.filters import filter_stories, out_of_season
+    from ftworthtv.models import Story
+    from ftworthtv.state import State
+    nov = datetime(2026, 11, 23, 16, tzinfo=timezone.utc)
+    summary = ("There is a specific moment every year, usually somewhere in late September, when you step outside in Fort Worth "
+               "and realize the air has finally let go. Until then, there are still several weeks of triple digits to negotiate.")
+    assert out_of_season("Simple Ways To Enjoy The End Of A North Texas Summer", summary, nov)
+    assert not out_of_season("Simple Ways To Enjoy The End Of A North Texas Summer", summary, datetime(2026, 8, 20, tzinfo=timezone.utc))
+    assert not out_of_season("Fort Worth ISD summer school changes approved", "The board approved changes.", nov)
+    assert not out_of_season("Fort Worth recorded 50 triple-digit days this year", "", nov)
+    fww = Story(id="fww", source="Fort Worth Weekly", source_kind="rss", title="Simple Ways To Enjoy The End Of A North Texas Summer",
+                summary=summary, url="https://www.fwweekly.com/x", published=now - timedelta(hours=1), always_relevant=True)
+    kept, dropped = filter_stories([fww], settings, State(settings.state_path), now)
+    assert not kept and "season" in dropped[0][1]

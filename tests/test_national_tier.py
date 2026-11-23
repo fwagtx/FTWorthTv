@@ -125,3 +125,16 @@ def test_magazine_feature_is_not_the_moment(settings, now):
                                    settings, state, now)
     assert [s.id for s in kept] == ["n2"]
     assert "magazine feature" in dict((s.id, r) for s, r in dropped)["n1"]
+
+
+def test_one_outlets_trailer_is_not_a_moment(settings, now):
+    """Nov 23, render 158: Deadline's 'Lil Kev' season 2 trailer counted as a national moment because "trailer" sat in other
+    outlets' headlines about the Avengers trailer. Two outlets make a moment only when they carry the same story."""
+    state = State(settings.state_path)
+    stories = [
+        _s(1, "Deadline", "‘Lil Kev’ Ends Up Behind Bars In Season 2 Trailer For Kevin Hart Animated Series", now=now),
+        _s(2, "Deadline", "Final ‘Avengers: Doomsday’ Trailer Has Fantastic Four Pulling Steve Rogers Out Of His Quiet Life", now=now),
+        _s(3, "Variety", "‘Avengers: Doomsday’ Final Trailer: Captain America’s Son Revealed, Fantastic Four Rescues Steve Rogers", now=now),
+    ]
+    kept, dropped = filter_stories(stories, settings, state, now)
+    assert {s.id for s in kept} == {"n2", "n3"}
