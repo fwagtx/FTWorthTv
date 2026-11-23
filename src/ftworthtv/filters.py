@@ -128,14 +128,21 @@ def betting_promo(title: str, summary: str = "") -> bool:
 _GAME_NOTES_RE = re.compile(r"^(?:(?:post|pre)-?game|game|weekly|match|series|week \d+)\s+(?:notes|quotes|notebook|stats)\b|"
                            r"^(?:notes|quotes)\s*(?:&|and)\s*(?:notes|quotes)\b|^box score\b|\bpostgame (?:notes|quotes)\b|"
                            r"^(?:game|match) (?:info|central|day central)\b|\bdepth chart\b|\bweekly release\b|"
-                           r"^stats?\s*:|\bgrades\s*:|\breport cards?\b|^by the numbers\b", re.I)   # Nov 22: CBS's grades column, KXAN's stats explainer
+                           r"^stats?\s*:|^by the numbers\b", re.I)   # Nov 22: KXAN's stats explainer
+_GRADES_RE = re.compile(r"\bgrades\s*:|\breport cards?\b", re.I)          # CBS's grades column, but only for a game: a school's
+                                                                          # A-F grades or report card are education news
 
 
 def game_notes(title: str) -> bool:
     """'Postgame Notes - vs. Utah', 'Notes & Quotes', 'Box Score', 'Weekly Release': a team's stat sheet for a game the page
     has already posted (Nov 22: TCU's postgame notes came an hour after the recap and opened "TEAM NOTES TCU has now scored
     in 432 consecutive games")."""
-    return bool(_GAME_NOTES_RE.search((title or "").strip()))
+    t = (title or "").strip()
+    if _GAME_NOTES_RE.search(t):
+        return True
+    sports = re.search(r"\bvs\.?\s|\b(?:college football|football|basketball|baseball|hockey|soccer|nfl|nba|mlb|nhl|mls|ncaa|"
+                       r"week \d+|win|loss|game|season)\b", t, re.I)
+    return bool(_GRADES_RE.search(t)) and (_sports_result(t) or bool(sports))
 
 
 _COLUMN_RE = re.compile(r"^(?:[A-Z][a-z]+ on [A-Z][a-z]+|Opinion|Column|Commentary|Editorial|Letters?(?: to the [Ee]ditor)?|Analysis|Perspective|"
@@ -158,7 +165,7 @@ _LOCAL_TEAMS_RE = re.compile(r"\b(?:tcu|horned frogs|frogs|cowboys|mavericks|mav
 
 _COLUMN_ROUNDUP_RE = re.compile(r"\b(?:winners and losers|takeaways|overreactions|what we learned|things we learned|observations from|"
                          r"instant analysis|hot takes?|mailbag|studs and duds|stock up,? stock down|"
-                         r"grades for (?:every|each|all)|week \d+ grades|grades: )", re.I)   # Nov 22: CBS's "NFL Week 11 grades for every team"
+                         r"grades for (?:every|each|all) (?:team|player|game)|week \d+ grades)\b", re.I)   # Nov 22: CBS's "NFL Week 11 grades for every team"
 
 
 def roundup_column(title: str) -> bool:

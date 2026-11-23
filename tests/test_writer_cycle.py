@@ -477,4 +477,8 @@ def test_ends_in_alone_does_not_make_a_crime_story_a_game():
 def test_a_grades_column_is_a_column():
     from ftworthtv.filters import roundup_column
     assert roundup_column("NFL Week 11 grades for every team: Cowboys earn 'A-' for high-flying win, Steelers nearly fail")
-    assert not roundup_column("Fort Worth ISD grades: TEA releases A-F ratings for district schools") is None
+    from ftworthtv.filters import game_notes
+    assert not roundup_column("Fort Worth ISD grades: TEA releases A-F ratings for district schools")
+    assert not game_notes("Fort Worth ISD grades: TEA releases A-F ratings for district schools")
+    assert not game_notes("Texas releases school report cards; see how Tarrant County districts did")
+    assert game_notes("Cowboys vs. Titans grades: Dak Prescott earns an A in a 51-30 rout")
