@@ -493,3 +493,15 @@ def test_a_bare_cbs_date_stamp_is_stripped():
     sents = _sentences(text)
     assert not any("CST" in s or "CBS Texas" in s for s in sents)
     assert any(s.startswith("The Arlington Police Department said") for s in sents)
+
+
+def test_a_price_drop_or_a_grant_win_is_not_a_game_that_happened():
+    """Nov 22, render 144: 'Gas prices drop ahead of Thanksgiving, but fewer Texans are hitting the road' counted as an
+    event ('drop' is a game result word, and 'Texans' read as the NFL team), so no topic photo could be used."""
+    from ftworthtv.images.subject import happened
+    assert not happened("Gas prices drop ahead of Thanksgiving, but fewer Texans are hitting the road")
+    assert not happened("Fort Worth wins $5 million grant for trails")
+    assert not happened("Texas tops list of states with most new residents")
+    assert happened("TCU Falls to Utah in Home Finale")
+    assert happened("Cowboys drop to 5-6 after loss in Philadelphia")
+    assert happened("Texans beat Colts 24-17")

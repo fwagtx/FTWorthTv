@@ -410,7 +410,26 @@ def happened(title: str, kind: str = "rss") -> bool:
     if kind not in ("rss", "video"):
         return False
     low = f" {(title or '').lower()} "
-    return any(w in low for w in HAPPENED_WORDS)
+    hits = [w for w in HAPPENED_WORDS if w in low]
+    if not hits:
+        return False
+    if all(w in SPORTS_ONLY_RESULT_WORDS for w in hits) and not _SPORTS_CUE_RE.search(low) and \
+            not any(f" {t} " in low or f" {t}'" in low for t in TEAM_WORDS if t not in _PLAIN_TEAM_WORDS):
+        return False                  # "Gas prices drop ahead of Thanksgiving": a price is not a play (Nov 22)
+    return True
+
+
+# result verbs that mean a game only when the headline is about sports: "Gas prices drop", "Fort Worth wins grant",
+# "Texas tops list" are not things that happened in front of a camera
+SPORTS_ONLY_RESULT_WORDS = {" beat ", " beats ", " wins ", " won ", " loses ", " lost ", " falls to ", " fall to ", " falls in ",
+                            " fell to ", " drops ", " dropped ", " edges ", " edged ", " tops ", " topped ", " top the ", " edge ",
+                            " drop ", " blank ", " sweep ", " outlast "}
+_PLAIN_TEAM_WORDS = {"texans", "stars", "bears", "cougars", "mustangs", "wings", "team", "fc"}   # "fewer Texans are hitting the road"
+_SPORTS_CUE_RE = re.compile(r"\b(?:tcu|smu|unt|uta|baylor|texas tech|texas a&m|byu|ucf|lsu|usc|ucla|notre dame|ohio state|penn state|"
+                            r"home finale|senior day|shootout|power play|hat trick|home runs?|homers?|series|"
+                            r"game|games|season|playoffs?|coach|quarterback|qb|touchdowns?|tds?|innings?|overtime|halftime|"
+                            r"match|tournament|title|championship|bowl|league|conference|nfl|nba|mlb|nhl|mls|ncaa|big 12|sec|"
+                            r"no\. \d+|\d{1,3}-\d{1,3}|vs\.?|football|basketball|baseball|soccer|hockey|volleyball|softball)\b")
 
 
 GENERIC_EVENT_WORDS = ("parade", "festival", "market", "fair", "show", "lights", "run", "race", "marathon", "gala", "expo", "fest",
