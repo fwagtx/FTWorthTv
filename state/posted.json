@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 13
+    "2026-11-23": 14
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -58,7 +58,7 @@
       "culture": 1,
       "politics": 1,
       "sports": 2,
-      "weather": 2
+      "weather": 3
     }
   },
   "daily_by_kind": {
@@ -88,6 +88,7 @@
       "wanted": 2
     },
     "2026-11-23": {
+      "nws_alert": 1,
       "nws_forecast": 1,
       "rss": 8,
       "video": 2,
@@ -121,7 +122,7 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 10,
+      "local": 11,
       "national": 1,
       "texas": 1
     }
@@ -176,6 +177,11 @@
       "at": "2026-11-22T17:44:51.353367+00:00",
       "reason": "daily cap for crime reached",
       "title": "Man charged with killing Dallas mother in post-crash shooting on her birthday, police say"
+    },
+    "43cabe48009af1a9": {
+      "at": "2026-11-23T18:31:18.601261+00:00",
+      "reason": "daily cap for community reached",
+      "title": "TIME names TCC one of America’s Best Community Colleges for 2027"
     },
     "49d1e3961cf129ef": {
       "at": "2026-11-23T00:13:31.416000+00:00",
@@ -349,7 +355,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T12:40:00-06:00",
+  "last_post_at": "2026-11-23T13:05:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -1139,6 +1145,18 @@
       "title": "Tarrant County to mark 25 years of celebrating National Adoption Day",
       "url": "https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/"
     },
+    "c04167340c05c53e": {
+      "at": "2026-11-23T13:05:00-06:00",
+      "category": "weather",
+      "kind": "nws_alert",
+      "mode": "photo",
+      "post_id": "439237914",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=9102465759759781357",
+      "publisher": "metricool-session",
+      "source": "National Weather Service Fort Worth",
+      "title": "Freeze Warning: Montague; Cooke; Young; Jack; Wise; Denton; Stephens; Palo Pinto; Parker; Tarrant; Eastland; Erath; Hood; Somervell; Johnson",
+      "url": "https://forecast.weather.gov/MapClick.php?zoneid=TXZ118"
+    },
     "c2dc10ff632831c2": {
       "at": "2026-11-20T11:04:00-06:00",
       "category": "sports",
@@ -1700,7 +1718,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 88,
+  "total_posts": 89,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -1716,7 +1734,8 @@
     "openverse-9fd1f01c-ba88-4699-9323-54aee9a330fa",
     "sunshine-lib-downtown-fort-worth-jpg",
     "commons-177882492",
-    "lib-arlington-june-2020-2-at-t-stadium-jpg"
+    "lib-arlington-june-2020-2-at-t-stadium-jpg",
+    "lib-aachen-forest-frosted-soil-01-jpg"
   ],
   "version": 1
 }
