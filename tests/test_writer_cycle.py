@@ -472,3 +472,9 @@ def test_ends_in_alone_does_not_make_a_crime_story_a_game():
     assert not same_game("East Fort Worth altercation ends in deadly shooting, police say", "Arlington standoff ends in arrest after 4 hours")
     assert same_game("Cowboys vs. Titans ends in historic scorigami after late Tennessee touchdown",
                      "Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs")
+
+
+def test_a_grades_column_is_a_column():
+    from ftworthtv.filters import roundup_column
+    assert roundup_column("NFL Week 11 grades for every team: Cowboys earn 'A-' for high-flying win, Steelers nearly fail")
+    assert not roundup_column("Fort Worth ISD grades: TEA releases A-F ratings for district schools") is None

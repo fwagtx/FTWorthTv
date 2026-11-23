@@ -157,7 +157,8 @@ _LOCAL_TEAMS_RE = re.compile(r"\b(?:tcu|horned frogs|frogs|cowboys|mavericks|mav
 
 
 _COLUMN_ROUNDUP_RE = re.compile(r"\b(?:winners and losers|takeaways|overreactions|what we learned|things we learned|observations from|"
-                         r"instant analysis|hot takes?|mailbag|studs and duds|stock up,? stock down)\b", re.I)
+                         r"instant analysis|hot takes?|mailbag|studs and duds|stock up,? stock down|"
+                         r"grades for (?:every|each|all)|week \d+ grades|grades: )", re.I)   # Nov 22: CBS's "NFL Week 11 grades for every team"
 
 
 def roundup_column(title: str) -> bool:
