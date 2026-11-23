@@ -590,6 +590,24 @@ ART_WORDS = ("sculpture", "statue", "relief", "plaque", "memorial", "monument", 
              "stained glass", "headstone", "grave")
 
 
+_GENERIC_CONTEXT = {"winners", "winner", "after", "before", "about", "their", "there", "these", "those", "where", "which", "while",
+                    "years", "first", "since", "under", "other", "today", "night", "season", "video", "photos", "watch", "update",
+                    "report", "could", "would", "should", "still", "again", "every", "never", "always", "people"}
+
+
+def _context_words(title: str, name: str) -> list[str]:
+    """The headline's other distinctive words ("awards", "artist", "jelly"), singular and plural, that a photo of a bare
+    acronym must also carry: CMA is the Country Music Association and a Volvo car platform."""
+    out: list[str] = []
+    for w in re.findall(r"[a-z]+", (title or "").lower()):
+        if len(w) < 5 or w == name.lower() or w in STOP or w in _GENERIC_CONTEXT or w in PLACES:
+            continue
+        for form in (w, w[:-1] if w.endswith("s") else f"{w}s"):
+            if form not in out:
+                out.append(form)
+    return out
+
+
 def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_allowed: bool = False, city: str = "") -> list[tuple[tuple, str]]:
     """(query tuple, subject label) pairs for the search providers, one named subject at a time.
 
@@ -617,6 +635,11 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
             words = words + (animal,)                   # a zoo story's picture shows the animal, not an inspection of another one
         if light_show(title):
             words = words + (LIGHT_WORDS,)              # a holiday light show takes a picture of the lights, never the venue by day
+        if len(name.split()) == 1 and name.isupper() and len(name) <= 5 and not _known_subject(name.lower()):
+            context = _context_words(title, name)
+            if not context:
+                continue                               # a bare acronym with nothing to check it against
+            words = words + ("|".join(context),)       # Nov 23: "CMA" (the awards) found a Volvo XC40 built on Volvo's CMA platform
         label = f"entity:{name.lower()}"
         if looks_like_person(name) and not people_allowed:
             continue                                   # a stranger with the same name is the worst mistake a page can make

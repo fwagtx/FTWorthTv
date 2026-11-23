@@ -136,7 +136,7 @@ def gambling_advertorial(title: str, summary: str = "") -> bool:
 _FEATURE_TITLE_RE = re.compile(r"(?:^|[:—–]\s*)(?:how(?! to\b)|why|inside|behind the|the making of|the story of|meet the|"
                                r"in conversation)\b|\b(?:q&a|cover story|oral history|interview)\b|"
                                r"\bI (?:wish|think|played|love|loved|hate|tried|spent|can't|don't|need|want)\b", re.I)
-_FEATURE_URL_RE = re.compile(r"/(?:features?|longform|long-reads?|interviews?|cover-stor(?:y|ies)|in-depth)/|-cover-\d", re.I)
+_FEATURE_URL_RE = re.compile(r"/(?:features?|lists?|galler(?:y|ies)|longform|long-reads?|interviews?|cover-stor(?:y|ies)|in-depth)/|-cover-\d", re.I)
 
 
 def national_feature(title: str, url: str = "") -> bool:
@@ -325,6 +325,65 @@ def archive_replay(title: str) -> bool:
     """'Watch the breaking news, coverage of President JFK's assassination in Dallas as it happened in 1963': a station's
     archive broadcast to watch on its site is history, not today's news, and has nothing to post but a link (Nov 22, KVUE)."""
     return bool(_ARCHIVE_RE.search((title or "").strip()))
+
+
+_HOLIDAYS = r"thanksgiving|christmas|new year'?s|fourth of july|july 4(?:th)?|independence day|halloween|labor day|memorial day"
+# the event is dated to a holiday's eve, or to the holiday itself or after it; "days before Thanksgiving" is true today
+_HOLIDAY_EVE_RE = re.compile(rf"\b(?:the night before|the eve of)\s+({_HOLIDAYS})\b|\b({_HOLIDAYS})\s+eve\b", re.I)
+_HOLIDAY_ON_RE = re.compile(rf"\b(?:on|after|during|over|the day after)\s+({_HOLIDAYS})\b|\b({_HOLIDAYS})\s+(?:day|morning|night|weekend)\b", re.I)
+_PAST_HARM_RE = re.compile(r"\b(?:were|was) (?:killed|shot|found|hurt|injured)\b|\b(?:killed|died|dies|stabbed|murdered|drowned|crashed)\b|"
+                           r"\b(?:fatally shot|shot and killed|(?:man|woman|teen|boy|girl|person|people|officer|deputy|\d+) shot)\b", re.I)
+_DATED_PAST_RE = re.compile(r"\b(?:years? (?:ago|after|later|since)|anniversary|last year|a year after|since 20\d\d|in 20\d\d)\b", re.I)
+
+
+def _holiday_date(name: str, year: int) -> datetime | None:
+    from datetime import date, timedelta
+    n = name.lower().replace("’", "'")
+    if n == "thanksgiving":
+        first = date(year, 11, 1)
+        d = first + timedelta(days=(3 - first.weekday()) % 7 + 21)          # fourth Thursday of November
+    elif n == "christmas":
+        d = date(year, 12, 25)
+    elif n.startswith("new year"):
+        d = date(year + 1, 1, 1)
+    elif n in ("fourth of july", "july 4", "july 4th", "independence day"):
+        d = date(year, 7, 4)
+    elif n == "halloween":
+        d = date(year, 10, 31)
+    elif n == "labor day":
+        first = date(year, 9, 1)
+        d = first + timedelta(days=(0 - first.weekday()) % 7)               # first Monday of September
+    elif n == "memorial day":
+        last = date(year, 5, 31)
+        d = last - timedelta(days=last.weekday())                           # last Monday of May
+    else:
+        return None
+    return datetime(d.year, d.month, d.day)
+
+
+def holiday_not_yet(title: str, summary: str, published: datetime | None) -> bool:
+    """'Crash report details how Fort Worth CEO, two children were killed the night before Thanksgiving', dated Nov 23 2026
+    (Thanksgiving is Nov 26): a death dated to a holiday that has not come yet this year happened in an earlier year. KENS 5's
+    feed brought back its Nov 2023 story with a new date (Nov 23). Dated follow-ups ("a year after ...") are news."""
+    from datetime import timedelta
+    if published is None:
+        return False
+    text = f"{title or ''}. {summary or ''}"
+    if _DATED_PAST_RE.search(text):
+        return False
+    now = published.replace(tzinfo=None)
+    for sentence in re.split(r"(?<=[.!?])\s+", text):
+        if not _PAST_HARM_RE.search(sentence):
+            continue
+        for regex, offset in ((_HOLIDAY_EVE_RE, 1), (_HOLIDAY_ON_RE, 0)):
+            for m in regex.finditer(sentence):
+                day = _holiday_date(m.group(1) or m.group(2), now.year)
+                if day is None:
+                    continue
+                event = day - timedelta(days=offset)
+                if now < event and (event - now).days <= 45:
+                    return True
+    return False
 
 
 def expert_commentary(title: str) -> bool:
@@ -709,6 +768,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "rss" and archive_replay(story.title):
             dropped.append((story, "an archive broadcast to watch on the station's site, not news"))
+            continue
+        if story.source_kind == "rss" and holiday_not_yet(story.title, story.summary or "", story.published):
+            dropped.append((story, "an old story: it dates a death to a holiday that has not come yet this year"))
             continue
         if story.source_kind == "rss" and personnel_move(story.title):
             dropped.append((story, "a hire announcement, not news"))

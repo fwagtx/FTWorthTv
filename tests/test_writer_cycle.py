@@ -679,3 +679,37 @@ def test_render_156_rules():
     assert national_feature("Robbing Banks is a Blast, But I Wish There Were More Houses to Repair in GTA 6")
     assert not national_feature("GTA VI is finally here: Rockstar's long-awaited sequel launches")
     assert not national_feature("How to watch the Cowboys Thanksgiving game")
+
+
+def test_render_157_rules(settings, now):
+    """Nov 23, render 157: KENS 5's feed brought back its Nov 2023 story on a Fort Worth CEO and two children killed the night
+    before Thanksgiving with a new date; Billboard's list of CMA new-artist winners found a Volvo XC40 for "CMA"."""
+    from datetime import datetime, timedelta, timezone
+    from ftworthtv.filters import filter_stories, holiday_not_yet, national_feature
+    from ftworthtv.images.subject import plan_subject, provider_queries
+    from ftworthtv.models import Story
+    from ftworthtv.state import State
+    nov23 = datetime(2026, 11, 23, 15, 23, tzinfo=timezone.utc)                      # Thanksgiving 2026 is Nov 26
+    assert holiday_not_yet("Crash report details how Fort Worth CEO, two children were killed the night before Thanksgiving", "", nov23)
+    assert holiday_not_yet("Three killed in Thanksgiving Day crash", "", nov23)
+    assert not holiday_not_yet("Two killed in crash days before Thanksgiving on I-35W", "", nov23)   # true today
+    assert not holiday_not_yet("Man killed while hanging Christmas lights in Keller", "", nov23)    # the lights are not a date
+    assert not holiday_not_yet("A year after Thanksgiving crash killed Fort Worth CEO, family remembers", "", nov23)
+    assert not holiday_not_yet("Thanksgiving Day forecast: dry and cold, but a dead calm wind", "", nov23)
+    assert not holiday_not_yet("Cowboys vs. Chiefs on Thanksgiving Day: Prescott shot down rumors of injury", "", nov23)
+    assert not holiday_not_yet("Man killed in crash on Christmas Eve", "", datetime(2026, 12, 25, 3, tzinfo=timezone.utc))
+    kens = Story(id="kens", source="KENS 5 San Antonio", source_kind="rss",
+                 title="Crash report details how Fort Worth CEO, two children were killed the night before Thanksgiving",
+                 summary="Zach Muckleroy, the CEO of Muckleroy & Falls construction company in Fort Worth, and his children died in the crash.",
+                 url="https://www.kens5.com/article/news/local/x", published=now - timedelta(hours=1))
+    kept, dropped = filter_stories([kens], settings, State(settings.state_path), now)
+    assert not kept and "old story" in dropped[0][1]
+    assert national_feature("All CMA Awards New Artist of the Year Winners Over 30: Stephen Wilson Jr., Jelly Roll & More",
+                            "https://www.billboard.com/lists/cma-awards-new-artist-of-the-year-winners-over-age-30/")
+    title = "All CMA Awards New Artist of the Year Winners Over 30: Stephen Wilson Jr., Jelly Roll & More"
+    plan = plan_subject(title, "The CMA has presented new artist of the year 46 times.", "culture")
+    queries = provider_queries(plan, title, "culture")
+    assert queries and all(len(q[2]) == 2 and "awards" in q[2][1].split("|") for q, _ in queries)   # "cma" alone never decides
+    bare = plan_subject("CMA is back", "", "culture")
+    assert bare.search_names == ["CMA"]
+    assert not [q for q, label in provider_queries(bare, "CMA is back", "culture") if label == "entity:cma"]
