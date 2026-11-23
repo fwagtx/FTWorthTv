@@ -539,3 +539,10 @@ def test_a_gas_price_story_searches_for_a_gas_station_not_a_dinner_table():
     st2 = Story(id="h", title="Food bank hands out 2,000 Thanksgiving turkeys in east Fort Worth", url="u", source="FWR",
                 source_kind="rss", summary="Volunteers handed out turkeys and sides ahead of Thanksgiving.")
     assert "turkey" in topic_image_query(st2, "Fort Worth skyline")
+
+
+def test_team_highlight_reels_are_not_news():
+    from ftworthtv.filters import highlight_reel
+    assert highlight_reel("George Pickens' Best Plays from 102-yard game | Week 11 Highlights")
+    assert highlight_reel("Javonte Williams' Best plays from 2-TD game vs. Titans | Week 11 Highlights")
+    assert not highlight_reel("Fort Worth police release video of Sunday chase on I-35W")

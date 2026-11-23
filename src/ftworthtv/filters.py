@@ -172,6 +172,16 @@ _GAME_PRESSER_RE = re.compile(r"\b(?:post-?game|pre-?game)\b", re.I)
 _PRESSER_RE = re.compile(r"\b(?:press conference|presser|media availability|media session)\b", re.I)
 
 
+_HIGHLIGHT_REEL_RE = re.compile(r"\b(?:best plays|top plays|week \d+ highlights|full highlights|game highlights|every (?:catch|touchdown|td|snap|sack)|"
+                                r"mic'?d up|all-22|film room|condensed game)\b", re.I)
+
+
+def highlight_reel(title: str) -> bool:
+    """'George Pickens' Best Plays from 102-yard game | Week 11 Highlights': a team channel's highlight reel is a link
+    to a clip, not Fort Worth news, and the sports cap carried two of them to the next morning (Nov 22)."""
+    return bool(_HIGHLIGHT_REEL_RE.search(title or ""))
+
+
 def routine_presser(title: str) -> bool:
     """'Jerry Jones: Postgame #TENvsDAL', 'Dak Prescott: Postgame Week 11': a team channel's press conference after a game
     the page has already reported is not news, and a cap would carry it to the next morning (Nov 22). A police chief's
@@ -563,6 +573,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "rss" and not story.official and press_release(story.title, story.summary or ""):
             dropped.append((story, "an organization's press release, not news"))
+            continue
+        if story.source_kind == "video" and highlight_reel(story.title):
+            dropped.append((story, "a team's highlight reel video"))
             continue
         if story.source_kind == "video" and routine_presser(story.title):
             dropped.append((story, "a team's routine press conference video"))
