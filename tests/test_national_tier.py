@@ -97,3 +97,20 @@ def test_datelines_and_photo_captions_are_not_caption_sentences():
     sents = _sentences("ARLINGTON, Texas - The Tarrant Area Food Bank is partnering with the Cotton Bowl to feed 5,000 families Thursday. "
                        "Attorney General-elect Nathan Johnson at the Capitol, on November 16, 2026. FOX 4's Alex Boyer has more.")
     assert sents == ["The Tarrant Area Food Bank is partnering with the Cotton Bowl to feed 5,000 families Thursday."]
+
+
+def test_platform_named_in_passing_is_not_a_moment(settings, now):
+    """Nov 23, render 155: 'Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary' (Variety and Deadline) took the
+    day's national slot because 'netflix' sat in two headlines. A platform counts only when it is the story."""
+    state = State(settings.state_path)
+    stories = [
+        _s(1, "Variety", "Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary: ‘I Thought I’d End Up in a Padded Room’", now=now),
+        _s(2, "Deadline", "Tyson Fury Reveals Schizophrenia Diagnosis In Netflix Doc", now=now),
+        _s(3, "Deadline", "Controversial “Netflix Tax” Could Raise Extra $2.1B For BBC By 2032, Research Finds", now=now),
+    ]
+    kept, dropped = filter_stories(stories, settings, state, now)
+    assert not kept, [s.title for s in kept]
+    # the platform as the story still counts, once two outlets carry it
+    stories += [_s(4, "The Verge", "Netflix raises prices again", now=now), _s(5, "Variety", "Netflix’s price hike hits subscribers", now=now)]
+    kept, dropped = filter_stories(stories, settings, State(settings.state_path), now)
+    assert {s.id for s in kept} == {"n4", "n5"}

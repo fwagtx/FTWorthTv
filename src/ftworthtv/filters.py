@@ -443,6 +443,19 @@ SPORTS_EVENT_TERMS = {"super bowl", "world series", "nba finals", "stanley cup f
 _HYPOTHETICAL_RE = re.compile(r"\?|\b(contenders?|hopes?|hopeful|chances|odds|could|would|might|favou?rites?|dark horse|path to|"
                               r"projections?|predictions?|picks?|bubble|scenarios?|race)\b", re.I)
 
+# a streaming service is a national moment when it is the story (a price hike, an outage, a password crackdown), never because
+# a story airs there: Nov 23, "Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary" (Variety and Deadline) took
+# the day's national slot, and "Netflix" in two unrelated headlines counted as two outlets carrying one moment
+PLATFORM_TERMS = ("netflix", "disney+", "hbo max", "hulu", "peacock", "paramount+", "prime video", "apple tv")
+
+
+def term_is_subject(term: str, title: str) -> bool:
+    """A big-moment term counts for a headline unless it is a platform the headline only mentions in passing."""
+    if term not in PLATFORM_TERMS:
+        return True
+    lead = re.sub(r"^[\s'\"‘’“”]+", "", _plain(title))
+    return lead.startswith(term)
+
 
 def same_game(a: str, b: str) -> bool:
     """'Arch Manning steps up as Longhorns blow out Arkansas' and 'No. 5 Texas avoids letdown, routs Arkansas 45-3' are one
@@ -617,7 +630,7 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if s.extra.get("national"):
             t = _plain(s.title)
             for term in national_terms:
-                if term in t:
+                if term in t and term_is_subject(term, s.title):
                     term_outlets.setdefault(term, set()).add(s.source)
     for story in stories:
         if state.skipped(story.id):
@@ -735,7 +748,8 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 if hit and hit in SPORTS_EVENT_TERMS and _HYPOTHETICAL_RE.search(title):
                     hit = None                    # "building a World Series contender?": a feature that names the event, not the event
                 if hit is None:
-                    hit = next((t for t in national_terms if t in title and len(term_outlets.get(t, ())) >= min_outlets), None)
+                    hit = next((t for t in national_terms if t in title and term_is_subject(t, story.title)
+                                and len(term_outlets.get(t, ())) >= min_outlets), None)
                 if hit and infer_category(story) in ("crime", "traffic"):
                     hit = None
                 if hit and any(hit in t.lower() for t in recent_titles):

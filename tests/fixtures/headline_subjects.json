@@ -307,5 +307,45 @@
   ],
   "lesson": "Nov 22: 'Snapchat' was searched and found a pair of Snap Spectacles",
   "mode": "beat"
+ },
+ {
+  "title": "Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary: ‘I Thought I’d End Up in a Padded Room’",
+  "body": "Netflix’s feature-length documentary 'Tyson Fury' reveals that the boxer has been diagnosed with schizophrenia. The film will debut on Nov. 27, two weeks before Fury’s live Netflix bout against Anthony Joshua.",
+  "category": "culture",
+  "mode": "search",
+  "search": [
+   "Tyson Fury"
+  ],
+  "not_search": [
+   "Tyson Fury Reveals Schizophrenia Diagnosis"
+  ],
+  "not_fallback": [
+   "streaming"
+  ],
+  "lesson": "Nov 23: a Title Case headline read as one name, and 'Netflix' in it put a TV remote on a story about a boxer"
+ },
+ {
+  "title": "Hailee Steinfeld Confirms She’s In ‘Avengers: Doomsday’",
+  "body": "Hailee Steinfeld has confirmed she will appear in Marvel's upcoming film, the actress said on Sunday.",
+  "category": "culture",
+  "mode": "search",
+  "search": [
+   "Hailee Steinfeld"
+  ],
+  "lesson": "Nov 23: 'Steinfeld Confirms' at the start of a headline is the subject, not attribution like '..., Morath says'"
+ },
+ {
+  "title": "Molly Meldrum, Australian Music Broadcaster and ‘Countdown’ Host, Dies at 83",
+  "body": "Ian 'Molly' Meldrum, the Australian music journalist and television host, has died at 83.",
+  "category": "culture",
+  "mode": "search",
+  "search": [
+   "Molly Meldrum"
+  ],
+  "not_search": [
+   "Australian",
+   "Australian Music Broadcaster and Countdown Host"
+  ],
+  "lesson": "Nov 23: a nationality and a job description in Title Case are not subjects"
  }
 ]

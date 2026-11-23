@@ -75,6 +75,8 @@ def test_headline_lessons_fixture():
             assert plan.entity_topics[0] == row["first_topic"], (row["title"], plan.entity_topics)
         for topic in row.get("fallback", []):
             assert topic in plan.fallback_topics, (row["title"], plan.fallback_topics)
+        for topic in row.get("not_fallback", []):
+            assert topic not in plan.fallback_topics, (row["title"], plan.fallback_topics, row["lesson"])
         for name in row.get("search", []):
             assert name in plan.search_names, (row["title"], plan.search_names)
         for name in row.get("not_search", []):
@@ -320,3 +322,32 @@ def test_results_written_as_losses_or_muscling_past_are_things_that_happened():
     assert happened("Udoka says Rockets 'mentally fragile,' blasts defense after loss to Nuggets")
     assert happened("Houston muscles past Kansas to cap 3-day run, stamps claim to No. 1 ranking")
     assert not happened("Houston hosts Kansas on Saturday night")
+
+
+def test_title_case_headlines_name_their_subjects():
+    """Nov 23, render 155: Variety's "Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary" read as one name and
+    'Netflix' in it gave the streaming topic (a TV remote). In a Title Case headline the story text says which words are names;
+    without text, a headline verb ends the name."""
+    fury = ("Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary: ‘I Thought I’d End Up in a Padded Room’",
+            "Netflix’s feature-length documentary 'Tyson Fury' reveals that the boxer has been diagnosed with schizophrenia. "
+            "The film will debut on Nov. 27, two weeks before Fury’s live Netflix bout against Anthony Joshua.")
+    assert entities(*fury) == ["Tyson Fury", "Netflix"]
+    plan = plan_subject(*fury, "culture")
+    assert plan.primary == "Tyson Fury" and plan.mode == "search" and plan.fallback_topics == []
+    assert subject_fits(*fury, "culture", "topic:streaming")[0] is False
+    assert entities("Tyson Fury Reveals Schizophrenia Diagnosis In Netflix Doc") == ["Tyson Fury"]
+    assert entities("TCU Falls to Utah in Home Finale", "The Horned Frogs lost to Utah 31-28 on Saturday at Amon G. Carter Stadium.") == ["TCU", "Utah"]
+    assert entities("TCU Falls to Utah in Home Finale") == ["TCU", "Utah"]
+    assert entities("Mahershala Ali Talks New Role in ‘Blade’ Reboot") == ["Mahershala Ali"]
+    assert entities("Dickies Arena Hosts Big 12 Championship Game") == ["Dickies Arena"]
+    # the platform as the subject keeps its category photo
+    prices = plan_subject("Netflix Raises Prices Again in the US", "Netflix is raising the price of its plans in the United States, the company said.", "business")
+    assert prices.mode == "institution" and prices.fallback_topics == ["streaming"]
+    # a sentence-case headline is untouched
+    assert entities("Fort Worth police set new policies for Flock cameras", "Flock cameras.") == ["Fort Worth police", "Flock"]
+
+
+def test_attribution_is_only_a_trailing_source():
+    """'..., Morath says' credits a source; 'Hailee Steinfeld confirms she's in Avengers' is about her (Nov 23)."""
+    assert "Morath" not in entities("Largest enrollment drop in Texas' recorded history means challenges for public schools, Morath says", "Mike Morath said.")
+    assert entities("Hailee Steinfeld Confirms She’s In ‘Avengers: Doomsday’", "Hailee Steinfeld has confirmed she will appear in Marvel's upcoming film, the actress said on Sunday.") == ["Hailee Steinfeld"]

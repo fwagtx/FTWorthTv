@@ -120,7 +120,10 @@ def _capitalised(tok: str) -> bool:
 # congressman's official portrait for a story about Ted Cruz (Nov 22, render 108)
 ADJECTIVES = {"congressional", "republican", "republicans", "democrat", "democrats", "democratic", "gop", "federal", "statewide",
               "legislative", "presidential", "gubernatorial", "conservative", "liberal", "progressive", "bipartisan", "partisan",
-              "american", "midterm", "midterms", "election", "elections", "primary", "runoff", "senate", "senators", "lawmakers"}
+              "american", "midterm", "midterms", "election", "elections", "primary", "runoff", "senate", "senators", "lawmakers",
+              # nationalities describe a subject, they never are one ("Molly Meldrum, Australian Music Broadcaster")
+              "australian", "british", "canadian", "mexican", "english", "irish", "scottish", "welsh", "french", "german", "italian",
+              "spanish", "japanese", "korean", "chinese", "indian", "russian", "ukrainian", "israeli", "brazilian", "european"}
 COMMON_NOUNS = {"theater", "theatre", "theaters", "performances", "performance", "market", "markets", "festival", "festivals", "concert",
                 "concerts", "weekend", "holiday", "holidays", "parade", "show", "shows", "game", "games", "lights", "music", "food", "restaurant",
                 "restaurants", "school", "schools", "police", "fire", "weather", "storm", "storms", "traffic", "shooting", "crash", "council",
@@ -149,12 +152,97 @@ NAME_LEADERS = {"big", "six", "five", "four", "three", "two", "one", "ten", "fir
 NUMBER_NAMES = ("six flags", "five guys", "four seasons", "three rivers", "one world", "two rivers", "seven seas", "ten mile",
                 "one main", "first baptist", "first united", "first presbyterian", "first methodist")
 
+# Title Case headlines (Variety, Deadline, IGN, team and city releases) capitalise every word, so a run of capitals is no
+# longer a name: Nov 23, "Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary" read as one name, and the
+# "Netflix" in it put a TV remote on a story about a boxer. The story text, written in sentence case, says which words are names.
+_MINOR = {"a", "an", "the", "and", "or", "but", "nor", "of", "in", "on", "at", "to", "for", "by", "with", "from", "as", "vs",
+          "vs.", "via", "per", "into", "onto", "off", "up", "out", "over", "is", "are", "be"}
+# without story text, these words end a name in a Title Case headline
+HEADLINE_VERBS = {
+    "reveals", "revealed", "confirms", "confirmed", "announces", "announced", "says", "said", "talks", "joins", "joined", "sign",
+    "signs", "signed", "wins", "won", "dies", "died", "drops", "dropped", "releases", "released", "shares", "shared", "opens",
+    "opened", "teases", "teased", "sets", "gets", "got", "lands", "landed", "makes", "takes", "leaves", "exits", "returns",
+    "returned", "launches", "launched", "debuts", "debuted", "slams", "slammed", "responds", "addresses", "denies", "denied",
+    "files", "filed", "sues", "sued", "settles", "settled", "celebrates", "honors", "honored", "unveils", "unveiled", "books",
+    "booked", "cancels", "canceled", "cancelled", "renews", "renewed", "hires", "hired", "fires", "fired", "names", "named",
+    "taps", "tapped", "picks", "picked", "plays", "played", "performs", "performed", "tops", "topped", "hits", "breaks",
+    "explains", "details", "recalls", "remembers", "admits", "apologizes", "calls", "called", "criticizes", "defends", "praises",
+    "thanks", "welcomes", "mourns", "pays", "gives", "wants", "plans", "hosts", "hosted", "headlines", "leads", "nabs", "scores",
+    "scored", "earns", "earned", "receives", "received", "accepts", "rejects", "rejected", "splits", "marries", "weds", "falls",
+    "fell", "beats", "defeats", "defeated", "loses", "lost", "edges", "routs", "clinches", "clinched", "advances", "approves",
+    "approved", "votes", "voted", "passes", "passed", "delays", "delayed", "postpones", "postponed", "expands", "closes",
+    "closed", "reopens", "reopened", "arrested", "charged", "sentenced", "indicted", "accused", "killed", "injured",
+    "hospitalized", "plows", "slays", "soars", "surges", "sinks", "tumbles", "rises", "jumps", "climbs", "nears", "reaches",
+    "eyes", "mulls", "weighs", "seeks", "faces", "inks", "extends", "agrees", "trades", "traded", "waives", "waived", "cuts",
+    "activates", "promotes", "brings", "adds", "added", "enters", "retires", "retired", "resigns", "resigned", "sparks", "draws",
+    "raises", "raised", "hikes", "hiked", "lowers", "lowered", "increases", "increased", "slashes", "slashed", "ends", "ended",
+    "begins", "starts", "started", "unveil", "reveal", "announce", "confirm", "set", "gets", "goes", "comes", "becomes",
+    "has", "have", "had", "was", "were", "will", "could", "would", "may", "might", "can", "should", "his", "her", "their", "its",
+    "our", "your", "my", "he", "she", "they", "we", "you", "it", "this", "that", "these", "those", "after", "before", "amid",
+    "despite", "during", "about", "against", "without", "than", "when", "why", "how", "what", "who"}
+
+
+def _title_case(tokens: list[str]) -> bool:
+    words = [t for t in tokens if t != "|" and len(_clean(t)) >= 2 and _clean(t).lower() not in _MINOR]
+    return len(words) >= 4 and sum(1 for t in words if _capitalised(t)) >= 0.9 * len(words)
+
+
+def _known_spans(tokens: list[str]) -> set[int]:
+    """Positions of tokens that spell a known place or library subject ("Utah", "Wichita Falls", "Dickies Arena"): those are
+    names however the story text writes them."""
+    lows = [_clean(t).lower() for t in tokens]
+    known = set(PLACES) | {p.strip() for p in _KNOWN}
+    keep: set[int] = set()
+    for start in range(len(tokens)):
+        for size in (4, 3, 2, 1):
+            span = lows[start:start + size]
+            if len(span) == size and "|" not in span and " ".join(span) in known:
+                keep.update(range(start, start + size))
+                break
+    return keep
+
+
+def _sentence_case(tokens: list[str], title: str, body: str) -> tuple[list[str], set[str]]:
+    """A Title Case headline rewritten the way the story text writes it: words the text never capitalises are lowered, so
+    they end a run. Acronyms, places and library subjects stay ("TCU Falls to Utah" -> "TCU", "Utah"). With no text to go
+    by, a headline verb ends the name and what follows it is dropped: the object of a Title Case headline is more often
+    "Schizophrenia Diagnosis" than a name. Returns the tokens and the words the text writes as names."""
+    text = (body or "").replace(title or "", " ")           # a summary that repeats the headline proves nothing
+    words = _TOKEN.findall(text)
+    shouting = sum(1 for t in tokens if t != "|" and _clean(t).isupper()) >= 0.8 * max(1, sum(1 for t in tokens if t != "|"))
+    known = _known_spans(tokens)
+    out: list[str] = []
+    if len(words) >= 8:
+        caps, lower = set(), set()
+        for w in words:
+            (caps if w[0].isupper() else lower).add(_clean(w).lower())
+        mid = {_clean(m.group(1)).lower() for m in re.finditer(r"(?<![.!?]\s)(?<!^)\b([A-Z][A-Za-z0-9&'’.-]+)", text)}
+        proper = mid | (caps - lower)
+        for k, tok in enumerate(tokens):
+            word = _clean(tok)
+            keep = tok == "|" or not _capitalised(tok) or k in known or word.lower() in proper or (
+                not shouting and len(word) >= 2 and word.isupper())
+            out.append(tok if keep else tok.lower())
+        return out, proper
+    after_verb = False
+    for k, tok in enumerate(tokens):
+        low = _clean(tok).lower()
+        if tok == "|":
+            after_verb = False
+            out.append(tok)
+            continue
+        verb = (low in HEADLINE_VERBS or low in _MINOR) and k not in known and k > 0 and tokens[k - 1] != "|"
+        after_verb = after_verb or verb
+        out.append(tok.lower() if (verb or after_verb) and k not in known else tok)
+    return out, set()
+
 
 def entities(title: str, body: str = "") -> list[str]:
     """Named subjects in a headline: runs of capitalised words, kept when they are more than one word, possessive, an
     acronym, or appear capitalised again mid-sentence in the body (so 'Largest enrollment drop' names nothing, while
     'Anthropic's IPO' and 'Northwest ISD' do). Places are returned too; callers decide what to do with them."""
     tokens: list[str] = []
+    headline = title or ""
     quoted = [(a or b).strip() for a, b in _QUOTED_RE.findall(title or "") if len((a or b).strip().split()) >= 2]
     if quoted:                       # "'Hunger Games: Sunrise on the Reaping' Slays $120M": the work's title is one subject,
         title = _QUOTED_RE.sub(" | ", title or "")     # never its words (Nov 22: "Sunrise" found a sunrise over a mosque)
@@ -165,6 +253,9 @@ def entities(title: str, body: str = "") -> list[str]:
     body_mid = set()
     for m in re.finditer(r"(?<![.!?]\s)(?<!^)\b([A-Z][A-Za-z0-9&'’.-]+)", body or ""):
         body_mid.add(_clean(m.group(1)).lower())
+    if _title_case(tokens):
+        tokens, proper = _sentence_case(tokens, headline, body)
+        body_mid |= proper                    # "Netflix Raises Prices": a name the text writes as one may open the headline
     out: list[str] = []
     i = 0
     while i < len(tokens):
@@ -182,8 +273,9 @@ def entities(title: str, body: str = "") -> list[str]:
         if j < len(tokens) and tokens[j].lower() in INSTITUTION_FALLBACK:    # "Fort Worth police", "Tarrant County jail"
             run.append(tokens[j])
             j += 1
-        if j < len(tokens) and _clean(tokens[j]).lower() in ATTRIBUTION:     # "..., Morath says": a source, not the subject
-            i = max(j, i + 1)
+        if (j < len(tokens) and _clean(tokens[j]).lower() in ATTRIBUTION
+                and (j + 1 >= len(tokens) or tokens[j + 1] == "|")):            # "..., Morath says": a source, not the subject;
+            i = max(j, i + 1)                                                 # "Hailee Steinfeld confirms she's in" is the subject
             continue
         words = [_clean(w) for w in run]
         words = [w for w in words if w]
@@ -270,6 +362,10 @@ def light_show(title: str) -> bool:
     return bool(_LIGHT_SHOW_RE.search(title or ""))
 
 
+def _institution_words(name: str) -> list[str]:
+    return [w for w in name.lower().replace("-", " ").split() if w in INSTITUTION_FALLBACK]
+
+
 def plan_subject(title: str, body: str, category: str) -> SubjectPlan:
     names = [n for n in (resolve_titled(x, body) for x in entities(title, body)) if n]
     subjects = [n for n in names if not _is_place(n)]
@@ -286,9 +382,14 @@ def plan_subject(title: str, body: str, category: str) -> SubjectPlan:
         plan.mode = "beat"
         return plan
     fallback: list[str] = []
-    for name in subjects:
-        for word in name.lower().replace("-", " ").split():
-            fallback += [t for t in INSTITUTION_FALLBACK.get(word, []) if t not in fallback]
+    pool = subjects
+    if looks_like_person(subjects[0]) and not _institution_words(subjects[0]):
+        # a person's story: a platform or agency named later is where it happened, not who it is about (Nov 23: "Tyson Fury
+        # reveals schizophrenia diagnosis in Netflix documentary" went out with a TV remote from the streaming topic)
+        pool = []
+    for name in pool:
+        for word in _institution_words(name):
+            fallback += [t for t in INSTITUTION_FALLBACK[word] if t not in fallback]
     plan.fallback_topics = fallback
     plan.mode = "institution" if fallback else "search"
     return plan
