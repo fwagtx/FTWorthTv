@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 11
+    "2026-11-23": 13
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -53,11 +53,11 @@
       "weather": 2
     },
     "2026-11-23": {
-      "community": 2,
+      "community": 3,
       "crime": 4,
       "culture": 1,
       "politics": 1,
-      "sports": 1,
+      "sports": 2,
       "weather": 2
     }
   },
@@ -89,7 +89,7 @@
     },
     "2026-11-23": {
       "nws_forecast": 1,
-      "rss": 6,
+      "rss": 8,
       "video": 2,
       "wanted": 2
     }
@@ -121,7 +121,7 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 8,
+      "local": 10,
       "national": 1,
       "texas": 1
     }
@@ -252,6 +252,11 @@
       "reason": "daily cap for crime reached",
       "title": "Bedford police arrest suspected intoxicated driver after chase ends in crash into local business"
     },
+    "ab77611999c77a39": {
+      "at": "2026-11-23T17:49:45.599419+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "What is the weather forecast for Thanksgiving? Brace for chilly temperatures in North Texas"
+    },
     "b0d02a7515d38b45": {
       "at": "2026-11-22T16:27:33.856882+00:00",
       "reason": "daily cap for sports reached",
@@ -324,7 +329,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T11:50:00-06:00",
+  "last_post_at": "2026-11-23T12:40:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -834,6 +839,18 @@
       "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
       "url": "https://www.nbcdfw.com/news/sports/blue-star/cowboys-strip-play-calling-duties-from-defensive-coordinator-christian-parker/4107747/"
     },
+    "7db1ddf48ca929d8": {
+      "at": "2026-11-23T12:15:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439176442",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7032274807033346806",
+      "publisher": "metricool-session",
+      "source": "CBS News Texas",
+      "title": "Dallas Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving",
+      "url": "https://www.cbsnews.com/texas/news/dallas-cowboys-carter-bloodcare-blood-drive-thanksgiving-game-tickets-philadelphia-eagles/"
+    },
     "7f74b6e8b27a39fa": {
       "at": "2026-11-23T11:50:00-06:00",
       "category": "culture",
@@ -1288,6 +1305,18 @@
       "title": "Study finds North Texas could see billions in flood damages. Here’s what can help mitigate",
       "url": "https://fortworthreport.org/2026/11/20/study-finds-north-texas-could-see-billions-in-flood-damages-heres-what-can-help-mitigate/"
     },
+    "fd892b6f65802353": {
+      "at": "2026-11-23T12:40:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439176715",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=4708336744371865402",
+      "publisher": "metricool-session",
+      "source": "City of Fort Worth",
+      "title": "‘Cease the Grease’ this holiday season",
+      "url": "https://www.fortworthtexas.gov/news/2026/11/Cease-the-Grease-this-holiday-season"
+    },
     "fec67b42ed1a3951": {
       "at": "2026-11-23T11:25:00-06:00",
       "category": "community",
@@ -1651,7 +1680,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 86,
+  "total_posts": 88,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -1666,7 +1695,8 @@
     "clouds-lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
     "openverse-9fd1f01c-ba88-4699-9323-54aee9a330fa",
     "sunshine-lib-downtown-fort-worth-jpg",
-    "commons-177882492"
+    "commons-177882492",
+    "lib-arlington-june-2020-2-at-t-stadium-jpg"
   ],
   "version": 1
 }
