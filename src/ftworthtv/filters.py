@@ -168,6 +168,24 @@ _COLUMN_ROUNDUP_RE = re.compile(r"\b(?:winners and losers|takeaways|overreaction
                          r"grades for (?:every|each|all) (?:team|player|game)|week \d+ grades)\b", re.I)   # Nov 22: CBS's "NFL Week 11 grades for every team"
 
 
+_GAME_PRESSER_RE = re.compile(r"\b(?:post-?game|pre-?game)\b", re.I)
+_PRESSER_RE = re.compile(r"\b(?:press conference|presser|media availability|media session)\b", re.I)
+
+
+def routine_presser(title: str) -> bool:
+    """'Jerry Jones: Postgame #TENvsDAL', 'Dak Prescott: Postgame Week 11': a team channel's press conference after a game
+    the page has already reported is not news, and a cap would carry it to the next morning (Nov 22). A police chief's
+    press conference about a shooting is news: only a sports presser is routine."""
+    t = title or ""
+    if _GAME_PRESSER_RE.search(t):
+        return True
+    if not _PRESSER_RE.search(t):
+        return False
+    from .images.subject import TEAM_WORDS, _PLAIN_TEAM_WORDS, _SPORTS_CUE_RE
+    low = f" {t.lower()} "
+    return bool(_SPORTS_CUE_RE.search(low)) or any(f" {w} " in low for w in TEAM_WORDS if w not in _PLAIN_TEAM_WORDS)
+
+
 def roundup_column(title: str) -> bool:
     """'NFL Week 11 winners and losers: Cowboys offense makes history ...', '3 takeaways from ...': a writer's verdict on
     games the page has already reported, not news (Nov 22, CBS Sports)."""
@@ -545,6 +563,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "rss" and not story.official and press_release(story.title, story.summary or ""):
             dropped.append((story, "an organization's press release, not news"))
+            continue
+        if story.source_kind == "video" and routine_presser(story.title):
+            dropped.append((story, "a team's routine press conference video"))
             continue
         if story.source_kind == "rss" and roundup_column(story.title):
             dropped.append((story, "a roundup column (winners and losers, takeaways), not news"))

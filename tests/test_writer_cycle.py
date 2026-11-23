@@ -505,3 +505,12 @@ def test_a_price_drop_or_a_grant_win_is_not_a_game_that_happened():
     assert happened("TCU Falls to Utah in Home Finale")
     assert happened("Cowboys drop to 5-6 after loss in Philadelphia")
     assert happened("Texans beat Colts 24-17")
+
+
+def test_routine_postgame_pressers_are_not_news():
+    from ftworthtv.filters import routine_presser
+    assert routine_presser("Jerry Jones: Postgame #TENvsDAL | Dallas Cowboys 2026")
+    assert routine_presser("Dak Prescott: Postgame Week 11 #TENvsDAL")
+    assert not routine_presser("Fort Worth police chief press conference on Sunday shooting")   # news, not routine
+    assert routine_presser("Mike McCarthy press conference: Cowboys coach on the Titans game")
+    assert not routine_presser("Watch: Fort Worth Zoo welcomes baby giraffe")
