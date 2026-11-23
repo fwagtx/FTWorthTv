@@ -795,3 +795,32 @@ def test_render_160_broken_feed_descriptions():
     assert infer_category(garden) != "sports"
     assert infer_category(stories["Parade of Lights returns to downtown Fort Worth"]) != "sports"
     assert "Deshaun Watson" in stories["Browns host Raiders on Sunday Night Football"].summary      # a real description stays
+
+
+def test_render_161_rules(settings):
+    """Nov 23, render 161: NWS's Freeze Warning for Tarrant and 20 other counties said only "until 9:00 AM" (the freeze is
+    Tuesday night into Wednesday) under an empty radar map; CBS Texas's Cowboys blood drive caption opened "Texas It's the
+    season of giving" and said "next week" for a drive held that day."""
+    from datetime import datetime, timezone
+    from ftworthtv.images.subject import radar_fits
+    from ftworthtv.writer import _UPDATED_RE, alert_area, alert_when, restate_relative_day
+    monday = datetime(2026, 11, 23, 18, 0, tzinfo=timezone.utc)
+    summary = ("Freeze Warning issued November 23 at 11:24AM CST until November 25 at 9:00AM CST by NWS Fort Worth TX. * WHAT..."
+               "Sub-freezing temperatures as low as 27 expected. * WHERE...Areas along and west of a line from Gainesville to Fort "
+               "Worth. * WHEN...From 11 PM Tuesday to 9 AM CST Wednesday. * IMPACTS...Frost and freeze conditions could kill crops.")
+    assert alert_when(summary, "2026-11-25T09:00:00-06:00", monday, settings.tz) == " from 11 PM Tuesday to 9 AM Wednesday"
+    assert alert_when("", "2026-11-25T09:00:00-06:00", monday, settings.tz) == " until 9:00 AM Wednesday"
+    assert alert_when("", "2026-11-24T09:00:00-06:00", monday, settings.tz) == " until 9:00 AM tomorrow"
+    assert alert_when("", "2026-11-23T21:00:00-06:00", monday, settings.tz) == " until 9:00 PM"
+    area = "Montague; Cooke; Young; Jack; Wise; Denton; Stephens; Palo Pinto; Parker; Tarrant; Eastland"
+    assert alert_area(area, short=True) == "Tarrant and 10 other North Texas counties"
+    assert alert_area("Tarrant; Johnson") == "Tarrant and Johnson counties"
+    assert alert_area("Tarrant") == "Tarrant County" and alert_area("Tarrant, TX") == "Tarrant, TX"
+    assert not radar_fits("Freeze Warning") and not radar_fits("Heat Advisory") and not radar_fits("Wind Advisory")
+    assert radar_fits("Severe Thunderstorm Warning") and radar_fits("Winter Weather Advisory") and radar_fits("Flash Flood Warning")
+    cbs = "Updated on: November 23, 2026 / 11:23 AM CST / CBS Texas It's the season of giving."
+    assert _UPDATED_RE.sub("", cbs) == "It's the season of giving."
+    caption = "The Cowboys are teaming with Carter BloodCare to hold a blood drive at AT&T Stadium in Arlington next week."
+    text = "The event, scheduled for Monday, Nov. 23, from 10 a.m. to 6 p.m., will feature Cowboys legends."
+    assert restate_relative_day(caption, text, monday, settings.tz).endswith("in Arlington today.")
+    assert restate_relative_day(caption, "The event is scheduled for Monday, Nov. 30.", monday, settings.tz) == caption

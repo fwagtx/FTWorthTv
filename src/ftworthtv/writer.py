@@ -431,10 +431,12 @@ _PAGE_LABEL_RE = re.compile(r"\b(?:Logo text|Logo image|Image credit|Advertiseme
 _SCRIPT_RE = re.compile(r"\b(?:blogherads|googletag|adq\.push|window\.\w+|function\s*\(\))", re.I)
 _SCRIPT_CUT_RE = re.compile(r"\b(?:blogherads|googletag)\b.*?(?:\}\s*\)\s*;|$)", re.S)   # an ad script runs to its "});" or the end
 # CBS pages: "Updated on: November 22, 2026 / 12:51 PM CST / CBS/AP" glued to the front of the lead sentence
-_UPDATED_RE = re.compile(r"(?:(?:Updated|Published) on:[^/]{5,40}/[^/]{3,20}/\s*[A-Z]{2,}(?:/[A-Z]{2,})*\s+"
-                         r"|(?:(?:Updated|Published) on:\s*)?(?:January|February|March|April|May|June|July|August|September|October|"
+# the full outlet name is tried first: "Updated on: November 23, 2026 / 11:23 AM CST / CBS Texas It's the season ..." left
+# "Texas It's the season" when "CBS" alone matched (Nov 23)
+_UPDATED_RE = re.compile(r"(?:(?:(?:Updated|Published) on:\s*)?(?:January|February|March|April|May|June|July|August|September|October|"
                          r"November|December) \d{1,2}, \d{4} / \d{1,2}:\d{2} [AP]M [A-Z]{2,4} / "
-                         r"(?:CBS News Texas|CBS Texas|CBS News|CBS/AP|AP|CBS)\s+)")   # "November 22, 2026 / 7:52 PM CST / CBS Texas "
+                         r"(?:CBS News Texas|CBS Texas|CBS News|CBS/AP|AP|CBS)\s+"
+                         r"|(?:Updated|Published) on:[^/]{5,40}/[^/]{3,20}/\s*[A-Z]{2,}(?:/[A-Z]{2,})*(?:\s+(?:News\s+)?Texas\b)?\s+)")
 
 _DATELINE_RE = re.compile(r"^(?:[A-Z][A-Z .'’-]{2,40}, (?:Texas|TX|Okla\.|La\.|N\.M\.)|[A-Z][A-Z .'’-]{2,40}) ?[-–—] ")
 _CAPTION_RE = re.compile(r"\b(?:on )?(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}\.$")
@@ -628,10 +630,9 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
         parts.append(f"Video: {channel} on YouTube")
         return parts
     if kind == "nws_alert":
-        ends = x.get("ends")
-        until = f" until {fmt_time(dtparse.isoparse(ends), settings.tz)}" if ends else ""
+        until = alert_when(story.summary or "", x.get("ends"), now, settings.tz)
         instr = _first_sentence(x.get("instruction", "")) if x.get("instruction") else ""
-        return [f"The National Weather Service has issued a {x.get('event', 'weather alert')} for {x.get('area', 'Tarrant County')}{until}.", instr]
+        return [f"The National Weather Service has issued a {x.get('event', 'weather alert')} for {alert_area(x.get('area', ''))}{until}.", instr]
     if kind == "culture":
         return [_tidy(story.title) if not story.title.rstrip().endswith(("🐂", "🏃", "🇲🇽", "⛳", "✊🏾", "🎆", "🥵", "🐸", "🎡", "💀🌼", "🎃", "🎬", "🎄", "🦃", "🥶")) else story.title.strip()]
     if kind == "nws_forecast":
@@ -726,13 +727,12 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
     headline = _tidy(smart_headline(story.title, 110), story.summary or "")
 
     if kind == "nws_alert":
-        ends = story.extra.get("ends")
-        until = f" until {fmt_time(dtparse.isoparse(ends), settings.tz)}" if ends else ""
-        lines = [f"⚠️ {story.extra.get('event', 'Weather Alert')} for {story.extra.get('area', 'Tarrant County')}{until}"]
+        until = alert_when(story.summary or "", story.extra.get("ends"), now, settings.tz)
+        lines = [f"⚠️ {story.extra.get('event', 'Weather Alert')} for {alert_area(story.extra.get('area', ''))}{until}"]
         if story.extra.get("instruction"):
             lines.append(truncate(story.extra["instruction"], 220))
         lines += ["Stay safe out there, Fort Worth 💜", cta]
-        headline = truncate(f"{story.extra.get('event', 'Weather alert')} issued for {story.extra.get('area', 'Tarrant County')}{until}", 110, "")
+        headline = truncate(f"{story.extra.get('event', 'Weather alert')} for {alert_area(story.extra.get('area', ''), short=True)}{until}", 110, "")
         first_comment = f"Source: National Weather Service {story.url}\n{{photo_credit}}"
         image_query = "storm clouds Texas"
     elif kind == "nws_forecast":
@@ -900,6 +900,54 @@ _GAME_VERB_RE = re.compile(r"\b(scored|had|beat|beats|led|won|lost|threw|ran|rus
                            r"sank|drained|tallied|posted|recorded|picked off|intercepted|blocked|saved|stopped)\b", re.I)
 
 
+_ALERT_WHEN_RE = re.compile(r"\*\s*WHEN\.\.\.\s*(.+?)(?=\s*\*|\.\s|$)", re.S)
+
+
+def alert_when(summary: str, ends: str | None, now: datetime, tz) -> str:
+    """When an alert is in force, with its day: NWS's own "WHEN...From 11 PM Tuesday to 9 AM CST Wednesday" when the text
+    has it, else "until 9:00 AM Wednesday". A bare "until 9:00 AM" on a Monday read as tomorrow morning for a freeze that
+    starts Tuesday night (Nov 23)."""
+    m = _ALERT_WHEN_RE.search(summary or "")
+    if m:
+        when = re.sub(r"\s+(?:CST|CDT|CT)\b", "", m.group(1).strip().rstrip("."))
+        return " " + when[0].lower() + when[1:]
+    if not ends:
+        return ""
+    end = dtparse.isoparse(ends)
+    day = relative_day(end, now, tz)
+    day = "" if day in ("Today", "Tonight") else (" tomorrow" if day == "Tomorrow" else " " + day.replace("This ", ""))
+    return f" until {fmt_time(end, tz)}{day}"
+
+
+def alert_area(area: str, short: bool = False) -> str:
+    """"Montague; Cooke; ...; Coryell" as a reader says it; the short form leads with Tarrant County."""
+    parts = [a.strip() for a in (area or "").split(";") if a.strip()]
+    if not parts:
+        return "Tarrant County"
+    if short and len(parts) > 4:
+        lead = "Tarrant" if "Tarrant" in parts else parts[0]
+        return f"{lead} and {len(parts) - 1} other North Texas counties"
+    if len(parts) == 1:
+        one = parts[0]
+        return one if "," in one or one.lower().endswith(("county", "counties")) else f"{one} County"
+    return ", ".join(parts[:-1]) + f" and {parts[-1]} counties"
+
+
+_TODAY_RE_FMT = r"\b(?:{wd},?\s+)?(?:{mon}\.?|{month})\s+{day}\b"
+
+
+def restate_relative_day(caption: str, text: str, now: datetime, tz) -> str:
+    """A story written last week says the event is "next week" and names its date. When that date is today, "next week" is
+    stale: Nov 23, CBS Texas's Cowboys blood drive "at AT&T Stadium in Arlington next week ... scheduled for Monday, Nov. 23"."""
+    if "next week" not in (caption or "").lower():
+        return caption
+    local = now.astimezone(tz)
+    pattern = _TODAY_RE_FMT.format(wd=local.strftime("%A"), mon=local.strftime("%b"), month=local.strftime("%B"), day=local.day)
+    if not re.search(pattern, f"{caption} {text}", re.I):
+        return caption
+    return re.sub(r"\bnext week\b", "today", caption, flags=re.I)
+
+
 def write_copy(story: Story, settings: Settings, now: datetime, *, force_template: bool = False) -> tuple[PostCopy, str]:
     if (story.source_kind == "rss" and not story.official and (story.category or "") == "sports"
             and not _sentences(story.summary or "") and cut_off(story.summary or "")):
@@ -928,4 +976,6 @@ def write_copy(story: Story, settings: Settings, now: datetime, *, force_templat
         copy, writer = template_copy(story, settings, now), "template"
     if copy.skip:
         return copy, writer
-    return finalize(copy, story, settings), writer
+    out = finalize(copy, story, settings)
+    out.caption = restate_relative_day(out.caption, story.summary or "", now, settings.tz)
+    return out, writer

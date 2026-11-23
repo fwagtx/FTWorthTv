@@ -148,9 +148,10 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         if ends:
             from dateutil import parser as dtparse
             subline = f"{story.extra.get('severity', '')} · until {fmt_time(dtparse.isoparse(ends), tz)}"
-        if story.image_url and not settings.offline:
-            background = _download(story.image_url, workdir / "radar", headers={"User-Agent": settings.nws_user_agent})
-            if background:
+        from .subject import radar_fits
+        if story.image_url and not settings.offline and radar_fits(story.extra.get("event", "")):   # a freeze shows on no radar:
+            background = _download(story.image_url, workdir / "radar", headers={"User-Agent": settings.nws_user_agent})   # its photo
+            if background:                                                                     # comes from the weather topics below
                 credit, license_, provider, fit = "Radar: NWS Fort Worth (public domain)", "public-domain", "nws", "contain"
     elif story.source_kind == "nws_forecast":
         label = "FORECAST"

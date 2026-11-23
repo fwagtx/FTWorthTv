@@ -432,6 +432,17 @@ WEATHER_TOPICS = (
 )
 
 
+RADAR_EVENTS = ("tornado", "thunderstorm", "flood", "winter storm", "winter weather", "ice storm", "snow", "sleet", "freezing rain",
+                "blizzard", "hail", "rain", "storm", "tropical", "hurricane", "squall")
+
+
+def radar_fits(event: str) -> bool:
+    """A radar map shows rain, storms and snow. A freeze, heat, wind or fog alert has nothing on it: Nov 23, a Freeze Warning
+    for Tarrant and 20 other counties drafted with an empty radar map under a tornado and thunderstorm legend."""
+    low = (event or "").lower()
+    return any(w in low for w in RADAR_EVENTS)
+
+
 def weather_topics(text: str) -> list[str]:
     """Library topics for a forecast or weather story, by the conditions it describes: a sunny 65-degree day is shown
     with a bright skyline, never with a supercell."""
