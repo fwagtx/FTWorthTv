@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 8
+    "2026-11-23": 9
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -56,6 +56,7 @@
       "community": 1,
       "crime": 4,
       "politics": 1,
+      "sports": 1,
       "weather": 2
     }
   },
@@ -87,7 +88,7 @@
     },
     "2026-11-23": {
       "nws_forecast": 1,
-      "rss": 3,
+      "rss": 4,
       "video": 2,
       "wanted": 2
     }
@@ -119,7 +120,7 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 6,
+      "local": 7,
       "texas": 1
     }
   },
@@ -128,6 +129,11 @@
       "at": "2026-11-23T00:43:21.354520+00:00",
       "reason": "daily cap for sports reached",
       "title": "SEC Championship Game scenarios: How Texas can join Georgia in Atlanta"
+    },
+    "0cacf719029c4008": {
+      "at": "2026-11-23T16:51:43.125852+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Car burglary suspect on the run after shooting at officers, says Dallas Police"
     },
     "0e5159ead072df9d": {
       "at": "2026-11-23T04:12:50.906867+00:00",
@@ -316,7 +322,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T09:55:00-06:00",
+  "last_post_at": "2026-11-23T10:58:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -749,6 +755,18 @@
       "source": "ESPN NFL",
       "title": "Braswell, in debut for Texans, carted off with knee injury on opening kickoff",
       "url": "https://www.espn.com/nfl/story/_/id/50536083/texans-lose-chris-braswell-serious-looking-knee-injury"
+    },
+    "713d1254c04d9f99": {
+      "at": "2026-11-23T10:58:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439091138",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1678833342493342364",
+      "publisher": "metricool-session",
+      "source": "NBC 5 DFW",
+      "title": "NFL Thanksgiving schedule: Chiefs-Bills, Eagles-Cowboys, Bears-Lions on the menu",
+      "url": "https://www.nbcdfw.com/news/sports/nfl/nfl-thanksgiving-schedule-2026-chiefs-bills-eagles-cowboys-bears-lions/4023914/"
     },
     "727a28e05fabf606": {
       "at": "2026-11-19T19:15:00+00:00",
@@ -1558,6 +1576,10 @@
       "at": "2026-11-21T13:20:14.600210+00:00",
       "reason": "a U.S. Navy PTSD Awareness Month poster is a graphic, not a picture of the subject, and the caption was the headline alone"
     },
+    "c8616030f39edfa5": {
+      "at": "2026-11-23T16:51:43.124763+00:00",
+      "reason": "Variety's Justin Timberlake documentary trailer with a Fort Worth Stockyards beat photo: the planner read a lowercased text and lost every n"
+    },
     "ccb3de752389d80d": {
       "at": "2026-11-22T15:20:35.831806+00:00",
       "reason": "a stats explainer, not news (rule added)"
@@ -1599,7 +1621,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 83,
+  "total_posts": 84,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
