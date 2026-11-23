@@ -526,3 +526,16 @@ def test_a_gas_price_story_gets_a_gas_photo_or_none_and_thanksgiving_as_a_date_i
     assert not topic_excluded("thanksgiving", "Food bank hands out turkey dinners ahead of Thanksgiving")
     assert "thanksgiving" in topics_for("thanksgiving dinner served to 500 at fort worth shelter", "community", "local",
                                         title="Thanksgiving dinner served to 500 at Fort Worth shelter")
+
+
+def test_a_gas_price_story_searches_for_a_gas_station_not_a_dinner_table():
+    """Nov 22, render 146: the gas story's beat search was 'Thanksgiving dinner table' and found a Flickr photo of
+    strangers at a family table."""
+    from ftworthtv.models import Story
+    from ftworthtv.writer import topic_image_query
+    st = Story(id="g", title="Gas prices drop ahead of Thanksgiving, but fewer Texans are hitting the road", url="u", source="KXAN",
+               source_kind="rss", summary="Gas prices are falling fast ahead of Thanksgiving, but AAA expects fewer Texans on the road.")
+    assert topic_image_query(st, "Fort Worth skyline") == "gasoline pump nozzle fueling car"
+    st2 = Story(id="h", title="Food bank hands out 2,000 Thanksgiving turkeys in east Fort Worth", url="u", source="FWR",
+                source_kind="rss", summary="Volunteers handed out turkeys and sides ahead of Thanksgiving.")
+    assert "turkey" in topic_image_query(st2, "Fort Worth skyline")

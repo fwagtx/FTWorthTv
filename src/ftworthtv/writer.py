@@ -664,15 +664,21 @@ TOPIC_IMAGE_QUERIES = [  # first match wins; specific landmarks before generic b
     ("downtown", "Fort Worth downtown"), ("dfw airport", "DFW Airport terminal"), ("i-35w", "Fort Worth highway I-35W"),
     ("35w", "Fort Worth highway I-35W"), ("loop 820", "Texas highway traffic"), ("goodwill", "thrift store"), ("h-e-b", "H-E-B grocery store"),
     ("barbecue", "Texas barbecue brisket"), ("bbq", "Texas barbecue brisket"), ("taco", "street tacos"), ("brewery", "craft beer taproom"),
-    ("thanksgiving", "Thanksgiving dinner table"), ("christmas", "Christmas lights downtown"), ("halloween", "Halloween decorations"),
+    ("gas prices", "gasoline pump nozzle fueling car"), ("gasoline", "gasoline pump nozzle fueling car"), ("price of gas", "gasoline pump nozzle fueling car"),
+    ("pump prices", "gasoline pump nozzle fueling car"),
+    ("thanksgiving", "roast turkey Thanksgiving food"), ("christmas", "Christmas lights downtown"), ("halloween", "Halloween decorations"),
     ("police", "police car lights"), ("arlington", "Arlington Texas downtown"), ("haslet", "Fort Worth suburb"), ("keller", "Keller Texas"),
 ]
 
 
 def topic_image_query(story: Story, default: str) -> str:
+    """A search phrase for the story's beat. A holiday named as a date ('Gas prices drop ahead of Thanksgiving') is not
+    the subject (Nov 22: the gas story searched 'Thanksgiving dinner table' and found strangers at a family table), and a
+    beat search asks for things, not people."""
+    from .images.library import topic_excluded
     text = story.text()
     for key, query in TOPIC_IMAGE_QUERIES:
-        if key in text:
+        if key in text and not (key in ("thanksgiving", "christmas") and topic_excluded(key, text)):
             return query
     return default
 
