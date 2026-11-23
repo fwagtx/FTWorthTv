@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 17
+    "2026-11-23": 18
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -57,7 +57,7 @@
       "crime": 4,
       "culture": 1,
       "politics": 3,
-      "sports": 3,
+      "sports": 4,
       "weather": 3
     }
   },
@@ -90,7 +90,7 @@
     "2026-11-23": {
       "nws_alert": 1,
       "nws_forecast": 1,
-      "rss": 11,
+      "rss": 12,
       "video": 2,
       "wanted": 2
     }
@@ -122,7 +122,7 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 14,
+      "local": 15,
       "national": 1,
       "texas": 1
     }
@@ -147,6 +147,11 @@
       "at": "2026-11-23T19:55:45.917506+00:00",
       "reason": "daily cap for weather reached",
       "title": "Protect Your Pets, Plants and Pipes During Freezing Temperatures"
+    },
+    "14f1dd301b2e0bc9": {
+      "at": "2026-11-23T23:50:26.017781+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Thanksgiving grocery costs rise as more North Texas families turn to food banks"
     },
     "1ab71d52f1a1af3a": {
       "at": "2026-11-23T23:22:06.682836+00:00",
@@ -262,6 +267,11 @@
       "at": "2026-11-22T18:14:13.280657+00:00",
       "reason": "daily cap for crime reached",
       "title": "51-year-old man fatally shot in Far North Dallas; police searching for suspect"
+    },
+    "7bce8b6ecf54f8f3": {
+      "at": "2026-11-23T23:50:26.017780+00:00",
+      "reason": "daily cap for politics reached",
+      "title": "Clayton Tucker names former state Rep. Tracy King as deputy agriculture commissioner"
     },
     "7d7105b0cb0132d4": {
       "at": "2026-11-23T00:13:31.416002+00:00",
@@ -440,7 +450,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T17:25:00-06:00",
+  "last_post_at": "2026-11-23T17:55:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -1387,6 +1397,19 @@
       "title": "City Improves Pedestrian Safety, Access in Entertainment District",
       "url": "https://www.arlingtontx.gov/News-Articles/2026/November/City-Improves-Pedestrian-Safety-Access-in-Entertainment-District"
     },
+    "e2216bfbb0df3d8a": {
+      "at": "2026-11-23T17:55:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439597296",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3211741824643543739",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "CBS News Texas",
+      "title": "Cowboys, Salvation Army to illuminate AT&T Stadium red in celebration of 30-year partnership",
+      "url": "https://www.cbsnews.com/texas/news/cowboys-salvation-army-to-illuminate-at-t-stadium-red-in-celebration-of-30-year-partnership/"
+    },
     "e2bbe323b0da4a7a": {
       "at": "2026-11-19T14:20:00+00:00",
       "category": "community",
@@ -1595,6 +1618,10 @@
     }
   },
   "skipped": {
+    "0076511ed9addbf8": {
+      "at": "2026-11-23T23:50:26.016678+00:00",
+      "reason": "FOX 4's Cowboys blood-drive raffle: the same Cowboys and Carter BloodCare blood drive posted at 12:15, with AT&T Stadium standing in for a b"
+    },
     "045d600936d6ac43": {
       "at": "2026-11-23T13:46:46.663078+00:00",
       "reason": "KXAN's SEC title game scenarios for the Longhorns: a what-if piece, not Fort Worth news; rule added"
@@ -1771,6 +1798,10 @@
       "at": "2026-11-20T16:46:40.176561+00:00",
       "reason": "Georgia vs. LSU is not Texas news; the SEC keyword let it through"
     },
+    "805bf167fa9d92a1": {
+      "at": "2026-11-23T23:50:26.016698+00:00",
+      "reason": "Variety's Avengers: Doomsday awards-screening story: awards-season trade news, not a national moment, with a Scarlet Witch cosplayer photo; "
+    },
     "8143b8e89c9ca81c": {
       "at": "2026-11-20T15:47:44.701022+00:00",
       "reason": "another city's ballot fight (Austin Prop J)"
@@ -1892,7 +1923,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 92,
+  "total_posts": 93,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
