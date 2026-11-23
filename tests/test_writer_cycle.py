@@ -824,3 +824,21 @@ def test_render_161_rules(settings):
     text = "The event, scheduled for Monday, Nov. 23, from 10 a.m. to 6 p.m., will feature Cowboys legends."
     assert restate_relative_day(caption, text, monday, settings.tz).endswith("in Arlington today.")
     assert restate_relative_day(caption, "The event is scheduled for Monday, Nov. 30.", monday, settings.tz) == caption
+
+
+def test_render_162_rules():
+    """Nov 23, render 162: the Freeze Warning (frost, lows near 27) drew the library's only "ice" photo, the February 2021
+    Dallas-Fort Worth snowstorm. A dry freeze takes frost (or gray skies), never snow; an ice storm is not a thunderstorm."""
+    from ftworthtv.images.subject import subject_fits, weather_topics
+    from ftworthtv.writer import alert_image_query
+    title = "Freeze Warning: Montague; Cooke; Parker; Tarrant; Johnson"
+    body = "Sub-freezing temperatures as low as 27 expected. Frost and freeze conditions could kill crops."
+    assert weather_topics(f"{title} {body}")[0] == "frost" and "ice" not in weather_topics(f"{title} {body}")
+    assert weather_topics("Ice Storm Warning for Tarrant County")[0] == "ice"
+    assert weather_topics("Winter Storm Warning: heavy snow")[0] == "ice"
+    assert weather_topics("Severe Thunderstorm Warning")[0] == "storm"
+    assert subject_fits(title, body, "weather", "beat:ice", kind="nws_alert")[0] is False
+    assert subject_fits(title, body, "weather", "beat:frost", kind="nws_alert")[0] is True
+    assert subject_fits(title, body, "weather", "beat:skyline", kind="nws_alert")[0] is True
+    assert alert_image_query("Freeze Warning") == "frost on grass"
+    assert alert_image_query("Winter Storm Warning") == "snow ice road Texas"

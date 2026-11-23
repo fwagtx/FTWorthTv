@@ -405,6 +405,11 @@ def subject_fits(title: str, body: str, category: str, subject: str | None, kind
     plan = plan_subject(title, body, category)
     if kind in WEATHER_KINDS or category == "weather" and plan.mode == "beat":
         plan.mode = "beat"                       # weather pictures follow the conditions (images/subject.py: weather_topics)
+        low = subject.lower()
+        _, _, topic = low.partition(":")
+        named = {t for _, topics in WEATHER_TOPICS for t in topics}
+        if low.startswith("beat:") and topic in named and topic not in weather_topics(f"{title} {body}"):
+            return False, f"a {topic} photo does not show these conditions"   # Nov 23: a freeze drew the 2021 snowstorm
     low = subject.lower()
     kind, _, value = low.partition(":")
     if kind == "entity":
@@ -421,8 +426,11 @@ def subject_fits(title: str, body: str, category: str, subject: str | None, kind
 
 
 WEATHER_TOPICS = (
+    # snow and ice come before storms ("Ice Storm Warning" is not a thunderstorm) and before a dry freeze
+    (("ice storm", "sleet", "freezing rain", "freezing drizzle", "winter storm", "winter weather", "snow", "wintry"), ["ice", "skyline"]),
     (("tornado", "severe", "thunderstorm", "hail", "storms", "storm", "lightning", "flash flood", "flood"), ["storm"]),
-    (("ice storm", "sleet", "freezing", "winter storm", "snow", "wintry", "freeze", "wind chill", "hard freeze"), ["ice", "skyline"]),
+    # Nov 23: a Freeze Warning (frost, lows near 27) drew the February 2021 snowstorm: a dry freeze is not snow
+    (("freeze", "freezing", "frost", "wind chill", "sub-freezing"), ["frost", "clouds", "skyline"]),
     (("heat advisory", "excessive heat", "triple digit", "100 degrees", "hot ", "heat"), ["heat", "skyline"]),
     (("rain", "showers", "drizzle", "wet"), ["rain", "storm", "skyline"]),
     (("partly cloudy", "partly sunny", "mostly sunny"), ["sunshine", "skyline"]),

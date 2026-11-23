@@ -89,6 +89,7 @@ TOPICS: dict[str, tuple[list[str], list[str]]] = {
     "frost-bank-center": (["Frost Bank Center", "AT&T Center"], ["Spurs arena San Antonio"]),
     "storm": ([], ["Texas thunderstorm clouds", "supercell Texas"]),
     "ice": ([], ["ice storm Texas road", "snow Dallas Fort Worth"]),
+    "frost": (["Frost"], ["frost on grass", "frost covered leaves", "hoarfrost plants"]),   # a dry freeze (Nov 23)
     "heat": ([], ["Texas summer sun heat"]),
     "bbq": (["Barbecue in Texas"], ["Texas barbecue brisket plate"]),
     "tacos": ([], ["tacos plate Texas"]),

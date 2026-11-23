@@ -734,7 +734,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
         lines += ["Stay safe out there, Fort Worth 💜", cta]
         headline = truncate(f"{story.extra.get('event', 'Weather alert')} for {alert_area(story.extra.get('area', ''), short=True)}{until}", 110, "")
         first_comment = f"Source: National Weather Service {story.url}\n{{photo_credit}}"
-        image_query = "storm clouds Texas"
+        image_query = alert_image_query(story.extra.get("event", ""))
     elif kind == "nws_forecast":
         high, low, short = story.extra.get("high"), story.extra.get("low"), story.extra.get("short")
         lines = ["Good morning, Fort Worth ☀️", f"Today: {short}, high near {high}°" if high else truncate(story.summary, 160)]
@@ -917,6 +917,24 @@ def alert_when(summary: str, ends: str | None, now: datetime, tz) -> str:
     day = relative_day(end, now, tz)
     day = "" if day in ("Today", "Tonight") else (" tomorrow" if day == "Tomorrow" else " " + day.replace("This ", ""))
     return f" until {fmt_time(end, tz)}{day}"
+
+
+def alert_image_query(event: str) -> str:
+    """A stock-photo search for the alert's weather: a Freeze Warning searched "storm clouds Texas" (Nov 23)."""
+    low = (event or "").lower()
+    if any(w in low for w in ("snow", "ice", "sleet", "winter", "blizzard")):
+        return "snow ice road Texas"
+    if any(w in low for w in ("freeze", "frost", "wind chill", "cold")):
+        return "frost on grass"
+    if "heat" in low:
+        return "Texas summer sun heat"
+    if "fog" in low:
+        return "fog morning road"
+    if "wind" in low:
+        return "wind trees blowing"
+    if any(w in low for w in ("fire", "red flag")):
+        return "dry grass field Texas"
+    return "storm clouds Texas"
 
 
 def alert_area(area: str, short: bool = False) -> str:
