@@ -291,7 +291,9 @@ _NOT_A_PHOTO_RE = re.compile(r"\b(screenshot|screen shot|screencap|screen captur
                              r"os x|mac ?os|windows \d+|ios \d+|user interface|gui|app icon|icons?|logo|wordmark|clip ?art|clipart|vector|"
                              r"mock-?up|meme|collage|poster|flyer|graphic|infographic|illustration|rendering|render|banner|jersey number|"
                              r"caricature|cartoon|satire|satirical|parody|political art|editorial cartoon|donkeyhotey|"
-                             r"photoshop|photoshopped|manipulated|digital art|painting|drawing)\b", re.I)
+                             r"photoshop|photoshopped|manipulated|digital art|painting|drawing|"
+                             # Nov 23: "Marvel" found a Scarlet Witch cosplayer at a fair in Bari for an Avengers: Doomsday story
+                             r"cosplay|cosplayer|cosplayers|cosplaying|fan art|fanart)\b", re.I)
 # Nov 22, render 128: "Medicare" found DonkeyHotey's "Dr. Oz Is In Charge of Your Medicare and Medicaid. You Better Watch
 # Out!", a caricature captioned "Medicare for All Sucks, Go Trumpcare!", for a Medicare counseling story
 _OPINION_TITLE_RE = re.compile(r"[!?]|\byou better\b|\byour\b.{0,40}\b(?:watch out|beware)\b", re.I)

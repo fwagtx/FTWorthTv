@@ -505,6 +505,29 @@ def _story_start(text: str) -> str:
     return " ".join(parts[1:])
 
 
+# a long sentence's trailing participle phrase is detail: ", kicking off Thanksgiving week and celebrating the annual ..."
+_TRAILING_PHRASE_RE = re.compile(r",\s+(?!according\b)(?:[a-z]{3,}ing|which|while|as well as|along with)\b")
+_REPORTING_END_RE = re.compile(r"\b(?:said|says|told|announced|reported|added|explained|wrote)(?:\s+\w+){0,2}$", re.I)
+
+
+def trim_trailing_phrase(sentence: str, limit: int) -> str:
+    """A sentence over the length limit keeps its main clause when the rest is a trailing phrase. Nov 23, CBS Texas: "The
+    Dallas Cowboys and The Salvation Army will mark a major milestone ... at AT&T Stadium on Monday, kicking off Thanksgiving
+    week and celebrating the annual Red Kettle Campaign." and the sentence after it both ran past the limit and were dropped
+    whole, so the caption kept only the dek about money raised, without the lighting ceremony the headline announced."""
+    if not sentence.endswith((".", "!")) or sentence.count('"') % 2 or sentence.count("“") != sentence.count("”"):
+        return ""
+    best = ""
+    for m in _TRAILING_PHRASE_RE.finditer(sentence):
+        head = sentence[:m.start()].rstrip(" ,;:")
+        if len(head) > limit:
+            break
+        if (len(head.split()) >= 8 and head.count('"') % 2 == 0 and head.count("“") == head.count("”")
+                and not _REPORTING_END_RE.search(head)):
+            best = head + "."
+    return best
+
+
 def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> list[str]:
     """Complete, boilerplate-free sentences from the lead of an article summary, in order (later paragraphs of a scraped
     page can belong to another item, so only the first `lead` characters are considered)."""
@@ -540,6 +563,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
             continue                                          # a columnist's rhetorical question or second person is not a news sentence
         if _FIRST_PERSON_RE.match(part):
             continue                                          # "I typically start my mornings walking my dogs": a resident's essay, not news
+        if len(part) > limit:
+            part = trim_trailing_phrase(part, limit) or part
         if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")) or len(part.split()) < 6:
             continue
         if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")) or looks_like_photo_caption(part):

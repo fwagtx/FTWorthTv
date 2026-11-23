@@ -963,3 +963,44 @@ def test_render_174_rules():
     assert introduce_speakers(already, text) == already
     assert introduce_speakers("“We found him,” Police said.", "Fort Worth Police said they found him.") == "“We found him,” Police said."
     assert introduce_speakers("Cory Wilson said the bond matters.", text) == "Cory Wilson said the bond matters."
+
+
+def test_render_175_rules():
+    """Nov 23, render 175: three drafts, three hand fixes.
+    CBS Texas's "Cowboys, Salvation Army to illuminate AT&T Stadium red" captioned only its dek about money raised: the two
+    sentences announcing the lighting ceremony ran past the length limit and were dropped whole.
+    FOX 4's blood-drive raffle repeated the 12:15 post on the same Cowboys and Carter BloodCare blood drive.
+    Variety's "Avengers: Doomsday Won't Screen for BAFTA, Golden Globes ..." took the national slot with a cosplayer photo."""
+    from ftworthtv.filters import awards_trade, same_event
+    from ftworthtv.images.providers import PhotoCandidate, not_a_photo
+    from ftworthtv.writer import _sentences, trim_trailing_phrase
+    summary = ("Since joining forces, the Cowboys and The Salvation Army have helped raise more than $3.4 billion through their "
+               "partnership. November 23, 2026 / 5:16 PM CST / CBS Texas The Dallas Cowboys and The Salvation Army will mark a major "
+               "milestone in their 30-year partnership with a first-of-its-kind lighting ceremony at AT&T Stadium on Monday, kicking "
+               "off Thanksgiving week and celebrating the annual Red Kettle Campaign. Four generations of the Gene and Jerry Jones "
+               "family will gather to illuminate AT&T Stadium's exterior in red, recognizing three decades of working together and "
+               "the organizations' shared commitment to helping individuals and families in need. Since joining forces, the Cowboys "
+               "and The Salvation Army have helped raise more than $3.4 billion through their partnership.")
+    out = _sentences(summary)
+    assert out[0] == ("The Dallas Cowboys and The Salvation Army will mark a major milestone in their 30-year partnership with a "
+                      "first-of-its-kind lighting ceremony at AT&T Stadium on Monday.")
+    assert out[1] == "Four generations of the Gene and Jerry Jones family will gather to illuminate AT&T Stadium's exterior in red."
+    long_said = ("Fort Worth police officers said Monday, citing a long report from the department's homicide unit and two witnesses "
+                 "at the scene, that the man had been shot after an argument outside the convenience store on East Berry Street.")
+    assert trim_trailing_phrase(long_said, 120) == ""                    # never cut a sentence down to "police said Monday."
+    blood = ("Donors who participated in a blood drive at AT&T Stadium might win tickets. On Monday, November 23, the Dallas Cowboys "
+             "teamed up with Carter BloodCare to host a blood drive at AT&T Stadium in Arlington.")
+    assert same_event("Dallas Cowboys raffle off Thanksgiving game tickets for blood drive donors", blood,
+                      "Dallas Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving")
+    assert not same_event("Fort Worth forecast for Tuesday, November 24", "A cold Monday night gives way to a sunny Tuesday.",
+                          "Fort Worth forecast for Monday, November 23")
+    assert not same_event("Fort Worth police investigate shooting at East Berry gas station", "Fort Worth police said a man was shot.",
+                          "Fort Worth police investigate shooting on East Lancaster Avenue")
+    assert awards_trade("Marvel’s ‘Avengers: Doomsday’ Won’t Screen for BAFTA, Golden Globes and Other Early Awards Groups")
+    assert not awards_trade("Oscars 2027: The full list of winners")
+    assert not awards_trade("Golden Globes nominations: 'Wicked' leads the pack")
+    cosplay = PhotoCandidate(id="c", url="https://upload.wikimedia.org/x.jpg", credit="Photo: Mickey83 via Wikimedia Commons (CC BY-SA 4.0)",
+                             license="wikimedia-cc", provider="wikimedia",
+                             source_url="https://commons.wikimedia.org/wiki/File:Cosplayer_di_Scarlet_(Marvel_Cinematic_Universe)_a_Levante_For_2024,_Bari.jpg",
+                             title="Cosplayer di Scarlet (Marvel Cinematic Universe) a Levante For 2024, Bari")
+    assert not_a_photo(cosplay)

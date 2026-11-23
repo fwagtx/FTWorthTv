@@ -164,3 +164,20 @@ def test_one_outlets_watchlist_story_is_not_a_moment(settings, now):
     finals = _s(5, "ESPN NFL", "Chiefs win Super Bowl LXI over the Eagles", now=now)           # a final is a moment from one wire
     kept, dropped = filter_stories([finals], settings, state, now)
     assert [s.id for s in kept] == ["n5"]
+
+
+def test_awards_trade_and_same_event_are_dropped(settings, now):
+    """Nov 23, render 175: Variety's awards-screening story took the national slot on "marvel"/"avengers", and FOX 4's
+    blood-drive raffle repeated the 12:15 post on the same Cowboys blood drive."""
+    state = State(settings.state_path)
+    stories = [_s(1, "Variety", "Marvel’s ‘Avengers: Doomsday’ Won’t Screen for BAFTA, Golden Globes and Other Early Awards Groups", now=now),
+               _s(2, "Deadline", "‘Avengers: Doomsday’ Skips Early Awards Screenings Ahead of Its Marvel Premiere", now=now)]
+    kept, dropped = filter_stories(stories, settings, state, now)
+    assert not kept and all("awards-season trade" in r for _, r in dropped)
+    state.data["posted"]["b"] = {"at": (now - timedelta(hours=5)).isoformat(),
+                                 "title": "Dallas Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving"}
+    raffle = _s(3, "FOX 4 Dallas-Fort Worth", "Dallas Cowboys raffle off Thanksgiving game tickets for blood drive donors", national=False, now=now)
+    raffle.summary = ("Donors who participated in a blood drive at AT&T Stadium might win tickets. On Monday, the Dallas Cowboys teamed "
+                      "up with Carter BloodCare to host a blood drive at AT&T Stadium in Arlington.")
+    kept, dropped = filter_stories([raffle], settings, state, now)
+    assert not kept and "already posted" in dropped[0][1]

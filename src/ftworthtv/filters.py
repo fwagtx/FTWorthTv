@@ -149,6 +149,19 @@ _FEATURE_TITLE_RE = re.compile(r"(?:^|[:—–]\s*)(?:how(?! to\b)|why|inside|be
 _FEATURE_URL_RE = re.compile(r"/(?:features?|lists?|galler(?:y|ies)|longform|long-reads?|interviews?|cover-stor(?:y|ies)|in-depth)/|-cover-\d", re.I)
 
 
+# an awards campaign is the trade press's beat, not a moment (Nov 23: Variety's "Marvel's 'Avengers: Doomsday' Won't Screen for
+# BAFTA, Golden Globes and Other Early Awards Groups" took the national slot on "marvel" and "avengers")
+_AWARDS_TRADE_RE = re.compile(r"\b(?:won't|will not|wont|to|doesn't|skips?|skipping|skipped)\s+screen\b|"
+                              r"\bawards?[- ](?:groups?|bodies|voters?|voting|season|campaigns?|push|strategy|screenings?|"
+                              r"contenders?|race|circuit|consideration|chances|hopefuls?|predictions?|calendar|qualifying)\b|"
+                              r"\bfor your consideration\b|\bfyc\b|\boscars? (?:race|campaign|buzz|contenders?|hopefuls?|predictions?|"
+                              r"chances|push|eligib\w*|shortlist\w*)\b", re.I)
+
+
+def awards_trade(title: str) -> bool:
+    return bool(_AWARDS_TRADE_RE.search(_plain(title)))
+
+
 def national_feature(title: str, url: str = "") -> bool:
     return bool(_FEATURE_TITLE_RE.search(title or "") or _FEATURE_URL_RE.search(url or ""))
 
@@ -675,6 +688,32 @@ def same_story(a: str, b: str, threshold: float = 0.6) -> bool:
     return shared >= 4 and shared / min(len(ka), len(kb)) >= threshold
 
 
+_NOT_NAMES = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "january", "february", "march", "april",
+              "may", "june", "july", "august", "september", "october", "november", "december", "thanksgiving", "christmas",
+              "halloween", "easter", "texas", "north", "the", "a", "an", "new", "breaking", "update", "watch", "video", "photos"}
+
+
+def same_event(title: str, summary: str, posted_title: str) -> bool:
+    """Nov 23: FOX 4's "Dallas Cowboys raffle off Thanksgiving game tickets for blood drive donors" five hours after "Dallas
+    Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving": the headlines share five words, just
+    under same_story's bar, and the new story's lead names the partner the first headline named. Headlines that share four
+    content words are one event when every name the earlier headline carried beyond them is in the new headline or lead."""
+    ka = {_stem(w) for w in title_key(_digits_to_words(title))}
+    kb = {_stem(w) for w in title_key(_digits_to_words(posted_title))}
+    shared = ka & kb
+    if len(shared) < 4:
+        return False
+    names = []
+    for n in re.findall(r"\b[A-Z][A-Za-z&'’.-]*(?:\s+[A-Z][A-Za-z&'’.-]*)*", posted_title or ""):
+        words = [w for w in re.findall(r"[a-z0-9']+", n.lower()) if w not in _NOT_NAMES and len(w) > 2]
+        if words and not all(_stem(w) in shared for w in words):
+            names.append(" ".join(words))
+    if not names:
+        return False                       # nothing but the shared words: "Fort Worth forecast for Tuesday" is another day's forecast
+    lead = " ".join(re.findall(r"[a-z0-9']+", f"{title or ''} {(summary or '')[:700]}".lower()))
+    return all(f" {n} " in f" {lead} " for n in names)
+
+
 _PERSONNEL_RE = re.compile(r"\b(?:fires|fired|firing|relieved of|dismiss(?:es|ed|al)?|part(?:s|ed)? ways|parting ways|"
                            r"change in leadership|leadership change|coaching change|out as|ousts?|ousted|let go|"
                            r"resign(?:s|ed|ation)?|steps? down|stepping down)\b", re.I)
@@ -918,7 +957,7 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if state.has(story.id):
             dropped.append((story, "already posted"))
             continue
-        twin = next((t for t in recent_titles if same_story(story.title, t)), None)
+        twin = next((t for t in recent_titles if same_story(story.title, t) or same_event(story.title, story.summary or "", t)), None)
         if twin:
             dropped.append((story, f"already posted from another outlet: {twin[:60]}"))
             continue
@@ -982,6 +1021,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 seen = hit or lone
                 if seen and national_feature(story.title, story.url):
                     dropped.append((story, f"a magazine feature about {seen}, not the moment itself"))
+                    continue
+                if seen and awards_trade(story.title):
+                    dropped.append((story, f"awards-season trade news about {seen}, not the moment itself"))
                     continue
                 if seen and any(watch_term(seen) in watch_title(t) for t in recent_titles):
                     dropped.append((story, f"national moment already covered: {seen}"))
