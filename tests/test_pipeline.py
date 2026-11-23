@@ -133,7 +133,7 @@ def test_a_play_that_happened_never_takes_the_stadium_as_a_stand_in(settings, no
     from datetime import timedelta
     from ftworthtv.models import Story
     story = Story(id="p1", source="NBC 5 DFW (AP)", source_kind="rss", title="Cowboys beat Eagles 24-17 at AT&T Stadium as Dak Prescott throws three touchdowns",
-                  summary="The Dallas Cowboys beat the Philadelphia Eagles 24-17 on Sunday at AT&T Stadium in Arlington.", url="https://www.nbcdfw.com/x",
+                  summary="The Dallas Cowboys beat the Philadelphia Eagles 24-17 on Thursday at AT&T Stadium in Arlington.", url="https://www.nbcdfw.com/x",
                   published=now - timedelta(hours=2), category_hint="sports", extra={"scope": "local"})
     settings.max_posts = 1
     report = run(settings, now=now, stories=[story], publisher_name="dryrun")
@@ -254,7 +254,7 @@ def test_a_sports_result_without_a_picture_goes_out_as_a_text_card(settings, now
     settings.brand.setdefault("card", {})["placeholder_when_no_photo"] = False
     settings.max_posts = 1
     game = Story(id="hs", source="Fort Worth Star-Telegram", source_kind="rss", title="Wilmer-Hutchins and White Settlement Brewer keep playoff hopes alive",
-                 summary="Brewer beat Wilmer-Hutchins 28-21 on Friday night to stay alive in the playoffs, the coaches said.", url="https://x/hs",
+                 summary="Brewer beat Wilmer-Hutchins 28-21 on Wednesday night to stay alive in the playoffs, the coaches said.", url="https://x/hs",
                  published=now - timedelta(hours=1), always_relevant=True, category_hint="sports")
     report = run(settings, now=now, stories=[game], publisher_name="dryrun")
     assert [d.story.id for d in report.drafts] == ["hs"] and report.drafts[0].image.provider == "card"
@@ -275,7 +275,7 @@ def test_kinds_whose_daily_share_is_spent_do_not_fill_the_writer_pool(settings, 
                      published=now - timedelta(minutes=30), category_hint="crime" if kind == "wanted" else "community", always_relevant=True, weight=3.0)
     blockers = [stuck(i, "wanted") for i in range(10)] + [stuck(i, "video") for i in range(6)]
     recap = Story(id="mavs", source="WFAA Sports", source_kind="rss", title="Mavericks beat the Clippers 110-100 behind Irving and Flagg in Dallas",
-                  summary="Kyrie Irving scored 25 points and Cooper Flagg had 22 as the Dallas Mavericks beat the Los Angeles Clippers 110-100 on Friday night.",
+                  summary="Kyrie Irving scored 25 points and Cooper Flagg had 22 as the Dallas Mavericks beat the Los Angeles Clippers 110-100 on Wednesday night.",
                   url="https://x/mavs", published=now - timedelta(hours=1), category_hint="sports", always_relevant=True, weight=0.5)
     report = run(settings, now=now, stories=blockers + [recap], publisher_name="dryrun")
     reasons = {s.id: r for s, r in report.skipped}

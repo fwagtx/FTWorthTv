@@ -533,7 +533,11 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   " beating ", " clinching ", " loss to ", " loss at ", " losses to ", "muscles past", "slips past", "pulls past",
                   "holds on", "hangs on", "knocks off", "outduels", "takes down", "falls at ", " fall at ",
                   # personnel moves (Nov 22: "TCU fires Sonny Dykes" drew an empty Amon G. Carter Stadium)
-                  " fires ", "part ways", "parts ways", " dismiss ", "dismisses", "dismissed", " let go", "relieved of", "ousts", "ousted")
+                  " fires ", "part ways", "parts ways", " dismiss ", "dismisses", "dismissed", " let go", "relieved of", "ousts", "ousted",
+                  # Nov 23: "Texas Tech moves closer ... with win at Baylor" drew Jones AT&T Stadium (2013), and "TCU interim HC
+                  # Andy Avalos introduced ahead of regular-season finale" drew an empty Amon G. Carter Stadium
+                  " win at ", " win against ", "with win", "with a win", " loss at ", " loss against ", " road win", " home win",
+                  " introduced", " introduces", "named interim", "names interim", " hires ", " hired ", "promoted to", "takes over as")
 
 
 def happened(title: str, kind: str = "rss") -> bool:
@@ -547,17 +551,28 @@ def happened(title: str, kind: str = "rss") -> bool:
     hits = [w for w in HAPPENED_WORDS if w in low]
     if not hits:
         return False
+    if all(w in PERSONNEL_WORDS for w in hits) and not _ROLE_RE.search(low):
+        return False                  # "Fort Worth introduces new recycling carts" is a program, not a person taking a job
+    hits = [w for w in hits if w not in PERSONNEL_WORDS] or hits
     if all(w in SPORTS_ONLY_RESULT_WORDS for w in hits) and not _SPORTS_CUE_RE.search(low) and \
             not any(f" {t} " in low or f" {t}'" in low for t in TEAM_WORDS if t not in _PLAIN_TEAM_WORDS):
         return False                  # "Gas prices drop ahead of Thanksgiving": a price is not a play (Nov 22)
     return True
 
 
+# a job changing hands is a happening only for a person in a role: "TCU interim HC Andy Avalos introduced", "Fort Worth hires
+# new police chief"; "Fort Worth introduces new recycling carts" is a program
+PERSONNEL_WORDS = {" introduced", " introduces", "named interim", "names interim", " hires ", " hired ", "promoted to", "takes over as"}
+_ROLE_RE = re.compile(r"\b(?:coach|hc|coordinator|chief|superintendent|manager|ceo|president|director|athletic director|ad|"
+                      r"quarterback|qb|pastor|principal|commissioner|chancellor|provost|dean)\b")
+
+
 # result verbs that mean a game only when the headline is about sports: "Gas prices drop", "Fort Worth wins grant",
 # "Texas tops list" are not things that happened in front of a camera
 SPORTS_ONLY_RESULT_WORDS = {" beat ", " beats ", " wins ", " won ", " loses ", " lost ", " falls to ", " fall to ", " falls in ",
                             " fell to ", " drops ", " dropped ", " edges ", " edged ", " tops ", " topped ", " top the ", " edge ",
-                            " drop ", " blank ", " sweep ", " outlast "}
+                            " drop ", " blank ", " sweep ", " outlast ", " win at ", " win against ", "with win", "with a win",
+                            " loss at ", " loss against ", " road win", " home win"}
 _PLAIN_TEAM_WORDS = {"texans", "stars", "bears", "cougars", "mustangs", "wings", "team", "fc"}   # "fewer Texans are hitting the road"
 _SPORTS_CUE_RE = re.compile(r"\b(?:tcu|smu|unt|uta|baylor|texas tech|texas a&m|byu|ucf|lsu|usc|ucla|notre dame|ohio state|penn state|"
                             r"home finale|senior day|shootout|power play|hat trick|home runs?|homers?|series|"

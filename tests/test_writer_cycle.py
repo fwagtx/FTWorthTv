@@ -892,3 +892,25 @@ def test_render_166_rules(settings, now):
     assert any(src.get("name") == "Houston Astros (MLB.com)" and src.get("category_hint") == "sports" for src in settings.sources.get("rss", []))
     texans = Story(id="tx", source="KXAN Austin", source_kind="rss", title="Texans vote on 17 constitutional amendments", summary="Voters across Texas decide.", url="u")
     assert infer_category(texans) != "sports"
+
+
+def test_render_168_rules():
+    """Nov 23 (a Monday), render 168: NBC 5's "No. 11 Texas Tech moves closer to another Big 12 title game with win at
+    Baylor" ("after Tech's 20-10 win over Baylor on Saturday") drew Jones AT&T Stadium from 2013 for a game played at
+    Baylor, and "TCU interim HC Andy Avalos introduced ahead of regular-season finale against TTU" drew an empty Amon G.
+    Carter Stadium."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from ftworthtv.filters import stale_result
+    from ftworthtv.images.subject import happened
+    assert happened("No. 11 Texas Tech moves closer to another Big 12 title game with win at Baylor")
+    assert happened("TCU interim HC Andy Avalos introduced ahead of regular-season finale against TTU")
+    assert happened("Fort Worth hires new police chief")
+    assert not happened("Fort Worth introduces new recycling carts")
+    assert not happened("City council introduced a budget amendment")
+    monday = datetime(2026, 11, 23, 14, 0, tzinfo=ZoneInfo("America/Chicago"))
+    tech = "coach Joey McGuire said after Tech's 20-10 win over Baylor on Saturday."
+    assert stale_result("No. 11 Texas Tech moves closer to another Big 12 title game with win at Baylor", tech, monday)
+    assert not stale_result("Cowboys beat Eagles", "The Cowboys beat the Eagles 30-20 on Sunday.", monday)
+    assert not stale_result("TCU preview", "TCU visits Texas Tech on Thursday after a loss to Utah.", monday)
+    assert stale_result("Mavericks recap", "Saturday's 110-100 win over the Clippers put Dallas at .500.", monday)

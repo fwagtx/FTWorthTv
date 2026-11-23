@@ -407,6 +407,23 @@ def out_of_season(title: str, summary: str, published: datetime | None) -> bool:
     return bool(month in (11, 12, 1, 2, 3) and _SUMMER_NOW_RE.search(text) or month in (6, 7, 8) and _WINTER_NOW_RE.search(text))
 
 
+_WEEKDAYS = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
+_RESULT_WORD = r"(?:win|won|wins|beat|beats|victory|loss|lost|defeat|defeated|fell|rout|routed|edged|upset|blowout)"
+_RESULT_DAY_RE = re.compile(rf"\b{_RESULT_WORD}\b[^.!?]{{0,80}}?\b(?:on |last )?({'|'.join(_WEEKDAYS)})\b|"
+                            rf"\b({'|'.join(_WEEKDAYS)})(?: night| afternoon)?(?:'s|’s)\s+[^.!?]{{0,30}}?\b{_RESULT_WORD}\b", re.I)
+
+
+def stale_result(title: str, summary: str, now_local) -> bool:
+    """A game result dated two or more days back: Nov 23 (a Monday), NBC 5's "No. 11 Texas Tech moves closer to another Big 12
+    title game with win at Baylor" said "after Tech's 20-10 win over Baylor on Saturday". The next game's day ("visits Texas
+    Tech on Thursday") has no result word beside it and does not count."""
+    for m in _RESULT_DAY_RE.finditer(f"{title or ''}. {summary or ''}"):
+        day = (m.group(1) or m.group(2)).lower()
+        if (now_local.weekday() - _WEEKDAYS.index(day)) % 7 >= 2:
+            return True
+    return False
+
+
 def expert_commentary(title: str) -> bool:
     """'Medical ethicist weighs in on North Texas transplant case': an outside expert's opinion of a story, not the story
     (Nov 22: two outlets' versions reached review an hour apart)."""
@@ -954,6 +971,10 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 story.weight = min(story.weight / tier[1] * 0.9, story.weight * 1.3)
             story.relevance = min_rel
         story.category = infer_category(story)
+        if story.category == "sports" and story.source_kind == "rss" and \
+                stale_result(story.title, story.summary or "", now.astimezone(settings.tz)):
+            dropped.append((story, "a game result two or more days old"))
+            continue
         if story.category in excluded:
             dropped.append((story, f"excluded category: {story.category}"))
             continue
