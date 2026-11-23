@@ -1,0 +1,5 @@
+200   577173  https://www.nbcdfw.com/?rss=y  -> https://www.nbcdfw.com/?rss=y
+200   355247  https://www.nbcdfw.com/news/sports/nfl/sunday-night-football-schedule-2026/  -> https://www.nbcdfw.com/news/sports/nfl/sunday-night-football-schedule-2026/4024260/
+200   350485  https://www.nbcdfw.com/news/sports/nfl/vikings-kirk-cousins-trade-raiders/  -> https://www.nbcdfw.com/news/sports/nfl/vikings-kirk-cousins-trade-raiders/4104028/
+200   353463  https://www.nbcdfw.com/news/sports/nfl/raiders-fernando-mendoza-broncos-second-start/  -> https://www.nbcdfw.com/news/sports/nfl/raiders-fernando-mendoza-broncos-second-start/4109534/
+200   359139  https://www.nbcdfw.com/news/sports/nfl/nfl-draft-heisman-winners-top-pick/  -> https://www.nbcdfw.com/news/sports/nfl/nfl-draft-heisman-winners-top-pick/4007389/
