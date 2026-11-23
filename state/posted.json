@@ -358,6 +358,11 @@
       "reason": "daily cap for weather reached",
       "title": "Chilly mornings in store as temperatures top out in the 50s this week for North Texas"
     },
+    "f978100a95e058ee": {
+      "at": "2026-11-23T20:28:52.393032+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "NBC 5 Forecast: A reinforcing cold front is on the way; A Freeze Warning is in effect for western North Texas"
+    },
     "f989aae4100907ea": {
       "at": "2026-11-22T23:43:02.890575+00:00",
       "reason": "daily cap for sports reached",
@@ -1574,6 +1579,10 @@
     "3eae7c89d63660eb": {
       "at": "2026-11-23T19:55:45.916407+00:00",
       "reason": "MLB.com's Astros pitching coach story: Houston's team news (filed as 'other', so the other-metro rule never ran), with the Astros' ballpark "
+    },
+    "40929dc118a94fb9": {
+      "at": "2026-11-23T20:28:52.392211+00:00",
+      "reason": "NBC 5's Texas Tech win at Baylor: Saturday's result drafted on Monday, with Jones AT&T Stadium (2013) standing in for a game played at Baylo"
     },
     "4483cc540033149a": {
       "at": "2026-11-23T16:17:22.718712+00:00",
