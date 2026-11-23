@@ -176,6 +176,46 @@ _HIGHLIGHT_REEL_RE = re.compile(r"\b(?:best plays|top plays|week \d+ highlights|
                                 r"mic'?d up|all-22|film room|condensed game)\b", re.I)
 
 
+_CIVIC_NAMING_RE = re.compile(r"\b(?:streets?|roads?|avenues?|parks?|schools?|plazas?|library|libraries|buildings?|bridges?)\b[^.]{0,40}"
+                              r"\b(?:dedicated|renamed|named after|named for)\b|\b(?:dedicat\w+|renam\w+)\b[^.]{0,40}"
+                              r"\b(?:streets?|roads?|parks?|schools?|plazas?|library|bridges?)\b", re.I)
+_NON_TARRANT_PLACES = ("dallas", "fair park", "plano", "frisco", "garland", "irving", "mckinney", "denton", "richardson", "mesquite",
+                       "carrollton", "lewisville", "allen", "rowlett", "desoto", "duncanville", "cedar hill", "lancaster", "addison")
+_TARRANT_PLACES = ("fort worth", "tarrant", "arlington", "grand prairie", "mansfield", "keller", "southlake", "grapevine", "colleyville",
+                   "euless", "bedford", "hurst", "north richland hills", "haltom city", "benbrook", "crowley", "saginaw", "azle",
+                   "white settlement", "watauga", "richland hills", "forest hill", "kennedale", "burleson", "weatherford")
+
+
+def other_city_civic(title: str) -> bool:
+    """'Fair Park streets dedicated in honor of 2 leaders from African American Museum in Dallas': another city's street
+    names, park names and dedications are that city's civic news, not Fort Worth's (Nov 23, CBS News Texas)."""
+    low = (title or "").lower()
+    return bool(_CIVIC_NAMING_RE.search(title or "")) and any(p in low for p in _NON_TARRANT_PLACES) \
+        and not any(p in low for p in _TARRANT_PLACES)
+
+
+_NAME_RUN_RE = re.compile(r"\b([A-Z][\w&.'’-]+(?:\s+(?:of\s+)?[A-Z][\w&.'’-]+)+)\b")
+
+
+def _subject_names(text: str) -> set[str]:
+    from .images.subject import TEAM_WORDS
+    names = set()
+    for m in _NAME_RUN_RE.findall(text or ""):
+        n = re.sub(r"^(?:the|dallas|fort worth|texas)\s+", "", m.lower())    # "Dallas Cowboys" is the Cowboys
+        if len(n) > 3:
+            names.add(n)
+    low = f" {(text or '').lower()} "
+    names.update(t for t in TEAM_WORDS if f" {t} " in low or f" {t}." in low or f" {t}," in low)
+    return names
+
+
+def same_subjects(text: str, posted_title: str) -> bool:
+    """WFAA's 'Salvation Army kicks off Thanksgiving campaign at AT&T Stadium ... partnership with the Cowboys' came the
+    morning after 'Dallas Cowboys mark 30 years of giving back with Salvation Army' went out (Nov 23): a video naming the
+    same two subjects as a recent post is that post again."""
+    return len(_subject_names(text) & _subject_names(posted_title)) >= 2
+
+
 def highlight_reel(title: str) -> bool:
     """'George Pickens' Best Plays from 102-yard game | Week 11 Highlights': a team channel's highlight reel is a link
     to a clip, not Fort Worth news, and the sports cap carried two of them to the next morning (Nov 22)."""
@@ -574,6 +614,15 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if story.source_kind == "rss" and not story.official and press_release(story.title, story.summary or ""):
             dropped.append((story, "an organization's press release, not news"))
             continue
+        if story.source_kind == "rss" and other_city_civic(story.title):
+            dropped.append((story, "another city's street or park dedication"))
+            continue
+        if story.source_kind == "video":
+            vtwin = state.recent_title_like(story.title, now, hours=48,
+                                            match=lambda x, y: same_subjects(f"{x}. {(story.summary or '')[:300]}", y))
+            if vtwin:
+                dropped.append((story, f"a video of a story already posted: {vtwin[:60]}"))
+                continue
         if story.source_kind == "video" and highlight_reel(story.title):
             dropped.append((story, "a team's highlight reel video"))
             continue

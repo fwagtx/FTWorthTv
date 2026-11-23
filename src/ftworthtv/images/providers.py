@@ -71,6 +71,7 @@ def _clean_artist(raw: str) -> str:
     a = re.sub(r"No machine-readable author provided\.?", "", a, flags=re.I)
     a = re.sub(r"\s*assumed\s*\(based on copyright(?: claims\)\.?| ?\w*)", "", a, flags=re.I)      # also the form a 60-char cut leaves behind
     a = re.sub(r"^User:", "", a.strip())
+    a = re.sub(r"^(?:photos?|photograph(?:ed)?|foto|image|picture)\s*(?:by|:)\s*", "", a, flags=re.I)   # "Photo: Andreas Praefcke" (Nov 23)
     a = re.sub(r"\s*\(talk\)", "", a)
     a = re.sub(r"\S+@\S+\.\w+", "", a)                       # e-mail addresses some uploaders put in the author field
     a = re.sub(r"\s+from\s+[A-Z][\w.]*(?:[ ,]+[A-Z][\w.]*)*\s*$", "", a)   # "Jane Doe from Austin, Texas. USA"

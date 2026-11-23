@@ -589,3 +589,18 @@ def test_one_forecast_per_outlet_per_morning():
     assert _same_outlet_forecast(state, wfaa, now)
     assert not _same_outlet_forecast(state, nbc, now)
     assert not _same_outlet_forecast(state, wfaa, now + timedelta(hours=13))
+
+
+def test_render_152_rules():
+    """Nov 23, render 152: a Dallas street dedication, 'Photo: Photo: Andreas Praefcke', and WFAA's Salvation Army video the
+    morning after the Cowboys-Salvation Army post."""
+    from ftworthtv.filters import other_city_civic, same_subjects
+    from ftworthtv.images.providers import _clean_artist
+    assert other_city_civic("Fair Park streets dedicated in honor of 2 leaders from African American Museum in Dallas")
+    assert not other_city_civic("Fort Worth renames Northside park for longtime community leader")
+    assert _clean_artist("Photo: Andreas Praefcke") == "Andreas Praefcke"
+    assert _clean_artist("Photograph by Jane Doe") == "Jane Doe"
+    video = ("Salvation Army kicks off Thanksgiving campaign at AT&T Stadium. The nonprofit is celebrating decades of "
+             "partnership with the Cowboys.")
+    assert same_subjects(video, "Dallas Cowboys mark 30 years of giving back with Salvation Army")
+    assert not same_subjects(video, "Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs")
