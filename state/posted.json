@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 4
+    "2026-11-23": 5
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -55,7 +55,7 @@
     "2026-11-23": {
       "crime": 2,
       "politics": 1,
-      "weather": 1
+      "weather": 2
     }
   },
   "daily_by_kind": {
@@ -85,6 +85,7 @@
       "wanted": 2
     },
     "2026-11-23": {
+      "nws_forecast": 1,
       "rss": 1,
       "video": 1,
       "wanted": 2
@@ -117,7 +118,7 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 2,
+      "local": 3,
       "texas": 1
     }
   },
@@ -131,11 +132,6 @@
       "at": "2026-11-23T04:12:50.906867+00:00",
       "reason": "daily cap for community reached",
       "title": "'Holiday in the Park' kicks off at Six Flags Over Texas with new entertainment and ticket deals"
-    },
-    "15d87ae9fe2062fa": {
-      "at": "2026-11-21T13:20:14.601553+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "WANTED: Elkin Daniel Hernandez"
     },
     "21f48d05ec91439a": {
       "at": "2026-11-22T01:45:00.694426+00:00",
@@ -334,7 +330,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T07:37:00-06:00",
+  "last_post_at": "2026-11-23T08:02:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -1274,6 +1270,18 @@
       "title": "Fort Worth forecast for Sunday, November 22",
       "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
     },
+    "forecast-2026-11-23": {
+      "at": "2026-11-23T08:02:00-06:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": "438782621",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5279706198977037801",
+      "publisher": "metricool-session",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Monday, November 23",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
     "manual-anthropic-ipo-2026-11-19": {
       "at": "2026-11-19T20:00:00+00:00",
       "category": "business",
@@ -1384,6 +1392,10 @@
       "at": "2026-11-22T00:47:03.700665+00:00",
       "reason": "a recap of the Nov. 4 Colleyville council meeting published Nov. 21: more than two weeks old"
     },
+    "4fc66aa39c20fbc7": {
+      "at": "2026-11-23T13:23:30.240555+00:00",
+      "reason": "a Dallas street dedication at Fair Park (another city's civic item), with a 2009 Fair Park building and a 'Photo: Photo:' credit; rules adde"
+    },
     "5141dc7617cadc0a": {
       "at": "2026-11-21T17:50:45.925537+00:00",
       "reason": "a crash on San Antonio's I-35 is San Antonio's news, not ours; the I-35 statewide exemption is gone"
@@ -1403,6 +1415,10 @@
     "610f84058f8bd367": {
       "at": "2026-11-22T15:49:39.045409+00:00",
       "reason": "the same game as 'Arch Manning steps up as Longhorns blow out Arkansas', posted Nov 21 at 7:35 pm (rule added)"
+    },
+    "660ff8860075a27a": {
+      "at": "2026-11-23T13:23:30.240585+00:00",
+      "reason": "WFAA video of the Salvation Army-Cowboys campaign kickoff, posted Nov 22 at 9:25 from CBS; rule added"
     },
     "6c595148dfbc1224": {
       "at": "2026-11-22T18:14:13.279753+00:00",
@@ -1513,7 +1529,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 79,
+  "total_posts": 80,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -1526,7 +1542,8 @@
     "commons-199552537",
     "commons-196088447",
     "clouds-lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
-    "openverse-9fd1f01c-ba88-4699-9323-54aee9a330fa"
+    "openverse-9fd1f01c-ba88-4699-9323-54aee9a330fa",
+    "sunshine-lib-downtown-fort-worth-jpg"
   ],
   "version": 1
 }
