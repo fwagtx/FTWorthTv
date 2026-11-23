@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-23T15:41:33.550861+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-091633/02-man-dead-another-injured-after-altercation-leads/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-091633/02-man-dead-another-injured-after-altercation-leads/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Man dead, another injured after altercation leads to shooting in Fort Worth",
+    "caption": "Detectives learned that the shooting victim and suspect were involved in a verbal and physical altercation when the suspect shot the victim at least one time. Fort Worth police are investigating a homicide that left a man dead and another arrested after an altercation on Saturday.\n\nOfficers were dispatched to a shooting near the 600 block of The Heights Dr. and found a man with a gunshot wound to his torso. Officials said he was pronounced dead at the scene.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/man-dead-another-injured-after-altercation-leads-to-shooting-in-fort-worth/4109502/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "7829beec819920fa",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Man dead, another injured after altercation leads to shooting in Fort Worth",
+    "summary": "Detectives learned that the shooting victim and suspect were involved in a verbal and physical altercation when the suspect shot the victim at least one time. Fort Worth police are investigating a homicide that left a man dead and another arrested after an altercation on Saturday. Officers were dispatched to a shooting near the 600 block of The Heights Dr. and found a man with a gunshot wound to his torso. Officials said he was pronounced dead at the scene. Detectives learned that the shooting victim and suspect were involved in a verbal and physical altercation when the suspect shot the victim at least one time. Police said that the shooting suspect contacted 911 for medical assistance. The suspect was arrested for outstanding warrants for his arrest, upon their arrival.",
+    "url": "https://www.nbcdfw.com/news/local/man-dead-another-injured-after-altercation-leads-to-shooting-in-fort-worth/4109502/",
+    "published": "2026-11-23T06:58:37+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2019/09/Fort-Worth-police-generic-1.jpg?quality=85&strip=all&fit=1920,1080",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.4409
+  }
+}
