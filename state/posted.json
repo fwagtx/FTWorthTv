@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 9
+    "2026-11-23": 11
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -53,8 +53,9 @@
       "weather": 2
     },
     "2026-11-23": {
-      "community": 1,
+      "community": 2,
       "crime": 4,
+      "culture": 1,
       "politics": 1,
       "sports": 1,
       "weather": 2
@@ -88,7 +89,7 @@
     },
     "2026-11-23": {
       "nws_forecast": 1,
-      "rss": 4,
+      "rss": 6,
       "video": 2,
       "wanted": 2
     }
@@ -120,7 +121,8 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 7,
+      "local": 8,
+      "national": 1,
       "texas": 1
     }
   },
@@ -322,7 +324,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T10:58:00-06:00",
+  "last_post_at": "2026-11-23T11:50:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -832,6 +834,18 @@
       "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
       "url": "https://www.nbcdfw.com/news/sports/blue-star/cowboys-strip-play-calling-duties-from-defensive-coordinator-christian-parker/4107747/"
     },
+    "7f74b6e8b27a39fa": {
+      "at": "2026-11-23T11:50:00-06:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439138549",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4759346713513999171",
+      "publisher": "metricool-session",
+      "source": "The Hollywood Reporter",
+      "title": "Justin Timberlake Documentary Trailer: “He’s Not Who I Thought He Was”",
+      "url": "https://www.hollywoodreporter.com/tv/tv-news/justin-timberlake-documentary-trailer-apple-1236761080/"
+    },
     "83ad354dab700578": {
       "at": "2026-11-21T07:35:00-06:00",
       "category": "crime",
@@ -1274,6 +1288,18 @@
       "title": "Study finds North Texas could see billions in flood damages. Here’s what can help mitigate",
       "url": "https://fortworthreport.org/2026/11/20/study-finds-north-texas-could-see-billions-in-flood-damages-heres-what-can-help-mitigate/"
     },
+    "fec67b42ed1a3951": {
+      "at": "2026-11-23T11:25:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439137797",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5263995974400427799",
+      "publisher": "metricool-session",
+      "source": "City of Arlington",
+      "title": "Holiday Cooking and Potluck Food Safety Tips",
+      "url": "https://www.arlingtontx.gov/News-Articles/2026/November/Holiday-Cooking-and-Potluck-Food-Safety-Tips"
+    },
     "forecast-2026-11-20": {
       "at": "2026-11-20T11:54:00-06:00",
       "category": "weather",
@@ -1544,6 +1570,10 @@
       "at": "2026-11-22T14:47:12.892548+00:00",
       "reason": "an expert commentary piece, the second outlet's version of the one skipped at 8:12 (rule added)"
     },
+    "a06f352204bb29bb": {
+      "at": "2026-11-23T17:24:33.134159+00:00",
+      "reason": "NBC 5's Christmas in the Garden as a text card: tagged sports (NBC items are being read as sports), and a community story needs a picture of"
+    },
     "a272b3d30b4b736f": {
       "at": "2026-11-23T13:46:46.663056+00:00",
       "reason": "the Texas Tribune's second Democratic-agenda explainer of the morning, its caption ending in a teaser ('Here's what...'); rules added"
@@ -1621,7 +1651,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 84,
+  "total_posts": 86,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -1635,7 +1665,8 @@
     "commons-196088447",
     "clouds-lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
     "openverse-9fd1f01c-ba88-4699-9323-54aee9a330fa",
-    "sunshine-lib-downtown-fort-worth-jpg"
+    "sunshine-lib-downtown-fort-worth-jpg",
+    "commons-177882492"
   ],
   "version": 1
 }
