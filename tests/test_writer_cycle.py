@@ -1021,3 +1021,20 @@ def test_render_176_rules():
     assert infer_category(mk(title, lead, "texas")) != "breaking"
     assert infer_category(mk("Explosion rocks chemical plant near Houston", "Crews responded to the explosion.", "texas")) == "breaking"
     assert infer_category(mk("Crews respond to east Fort Worth business", "An explosion shook the building.", "local")) == "breaking"
+
+
+def test_render_177_rules(settings, now):
+    """Nov 23, render 177: FOX 4's "Police, SWAT units responding after 1 shot by barricaded suspect in Arlington home" waited
+    behind the day's crime cap forty minutes after it broke: a police scene still under way is breaking news."""
+    from ftworthtv.filters import active_scene, filter_stories
+    from ftworthtv.models import Story
+    from ftworthtv.state import State
+    assert active_scene("Police, SWAT units responding after 1 shot by barricaded suspect in Arlington home")
+    assert not active_scene("SWAT standoff ends with suspect in custody in east Fort Worth")
+    assert not active_scene("Man shot outside Fort Worth convenience store")
+    s = Story(id="swat", source="FOX 4 Dallas-Fort Worth", source_kind="rss",
+              title="Police, SWAT units responding after 1 shot by barricaded suspect in Arlington home",
+              summary="Arlington police and SWAT units are responding to a home where a barricaded suspect shot one person.",
+              url="https://www.fox4news.com/news/arlington-swat", published=now)
+    kept, dropped = filter_stories([s], settings, State(settings.state_path), now)
+    assert kept and kept[0].category == "breaking" and kept[0].is_urgent

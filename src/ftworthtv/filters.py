@@ -815,6 +815,18 @@ _NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b"
 # game, and its "theft" filed The Verge's GTA headlines as crime, which no national moment may be)
 
 
+# a police scene still under way is breaking news, not the day's crime roundup: Nov 23, FOX 4's "Police, SWAT units responding
+# after 1 shot by barricaded suspect in Arlington home" waited behind the crime cap while the standoff went on
+_ACTIVE_SCENE_RE = re.compile(r"\b(?:swat|standoff|barricaded|barricade situation|active shooter|shelter[- ]in[- ]place|lockdown|"
+                              r"hostage|manhunt)\b", re.I)
+_SCENE_OVER_RE = re.compile(r"\b(?:ends?|ended|over|arrested|in custody|surrender(?:s|ed)?|apprehended|captured|charged|identified|"
+                            r"lifted|resolved|peacefully)\b", re.I)
+
+
+def active_scene(title: str) -> bool:
+    return bool(_ACTIVE_SCENE_RE.search(title or "")) and not _SCENE_OVER_RE.search(title or "")
+
+
 def infer_category(story: Story) -> str:
     if _TITLE_CRIME_RE.search(story.title or "") and story.category_hint != "sports":
         return "crime"                      # "Arlington pastor convicted for Ponzi scheme" is crime, whatever a channel's boilerplate says
@@ -1072,6 +1084,8 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 story.weight = min(story.weight / tier[1] * 0.9, story.weight * 1.3)
             story.relevance = min_rel
         story.category = infer_category(story)
+        if story.category == "crime" and story.extra.get("scope", "local") == "local" and active_scene(story.title):
+            story.category = "breaking"
         if story.category == "sports" and story.source_kind == "rss" and \
                 stale_result(story.title, story.summary or "", now.astimezone(settings.tz)):
             dropped.append((story, "a game result two or more days old"))
