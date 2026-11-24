@@ -1098,3 +1098,29 @@ def test_render_190_rules():
                      "FRISCO, Texas -- If anything, the Dallas Cowboys ' 51-30 win against the Tennessee Titans kept them afloat with "
                      "six games to play.")
     assert out[1].startswith("If anything, the Dallas Cowboys' 51-30 win")
+
+
+def test_render_191_rules():
+    """Nov 24, render 191: WFAA's "Texas high school football: Playoff matchups, schedule" drew a Dell City ISD school bus, and
+    the gas-prices story a Flickr pump stamped 09/06/2010."""
+    from ftworthtv.images.library import topics_for
+    from ftworthtv.images.providers import PhotoCandidate, parse_flickr, stale_photo
+    topics = topics_for("Texas high school football playoffs heat up as teams across the state compete in the regional round.",
+                        "sports", "texas", title="Texas high school football: Playoff matchups, schedule")
+    assert "school-bus" not in topics and "schools" not in topics
+    assert "school-bus" in topics_for("Keller ISD trustees approve a new high school schedule.", "politics", "local",
+                                      title="Keller ISD trustees approve new high school schedule")
+    cands = parse_flickr({"photos": {"photo": [{"id": "4964526969", "owner": "9148720@N05", "ownername": "wachovia_138", "license": "4",
+                                                 "url_l": "https://live.staticflickr.com/x.jpg", "title": "gas pump", "datetaken": "2010-09-06 10:11:12"}]}})
+    assert cands and cands[0].taken.startswith("2010") and stale_photo(cands[0], 2026)
+    fresh = PhotoCandidate(id="f", url="u", credit="c", license="l", provider="flickr", source_url="https://flickr.com/p/1", taken="2024-05-01")
+    assert not stale_photo(fresh, 2026)
+    titled = PhotoCandidate(id="t", url="u", credit="c", license="l", provider="wikimedia",
+                            source_url="https://commons.wikimedia.org/wiki/File:Gas_station_2009.jpg")
+    assert stale_photo(titled, 2026)
+
+
+def test_render_191_listing():
+    from ftworthtv.filters import game_notes
+    assert game_notes("Texas high school football: Playoff matchups, schedule")
+    assert not game_notes("NFL Thanksgiving schedule: Chiefs-Bills, Eagles-Cowboys, Bears-Lions on the menu")

@@ -246,7 +246,7 @@ def parse_flickr(payload: dict) -> list[PhotoCandidate]:
             id=f"flickr-{ph.get('id')}", url=url, credit=f"Photo: {ph.get('ownername', 'Flickr user')} ({lic}) via Flickr",
             license="flickr-cc", provider="flickr", source_url=f"https://www.flickr.com/photos/{ph.get('owner')}/{ph.get('id')}",
             width=int(ph.get("width_l") or ph.get("width_c") or 0), height=int(ph.get("height_l") or ph.get("height_c") or 0), alt=(ph.get("title") or "")[:200],
-            title=(ph.get("title") or "")[:200],
+            title=(ph.get("title") or "")[:200], taken=str(ph.get("datetaken") or ""),
         ))
     return out
 
@@ -254,7 +254,7 @@ def parse_flickr(payload: dict) -> list[PhotoCandidate]:
 def search_flickr(query: str, api_key: str, *, per_page: int = 20) -> list[PhotoCandidate]:
     payload = http.get_json(FLICKR_API, params={
         "method": "flickr.photos.search", "api_key": api_key, "text": query, "license": "4,5,7,9,10", "sort": "relevance",
-        "content_type": 1, "safe_search": 1, "media": "photos", "extras": "url_l,url_c,owner_name,license", "per_page": per_page,
+        "content_type": 1, "safe_search": 1, "media": "photos", "extras": "url_l,url_c,owner_name,license,date_taken", "per_page": per_page,
         "format": "json", "nojsoncallback": 1})
     return parse_flickr(payload)
 
@@ -315,6 +315,22 @@ def not_a_photo(cand: "PhotoCandidate") -> bool:
 _ARCHIVE_RE = re.compile(r"\b(?:archives?|historical society|history center|history museum|heritage (?:society|center|collection)|"
                          r"library of congress|state library|digital collections?|special collections|vintage|retro|circa|"
                          r"(?:18|19)\d0s)\b", re.I)
+
+
+STALE_PHOTO_YEARS = 10
+
+
+def stale_photo(cand: "PhotoCandidate", year: int | None = None) -> bool:
+    """A search photo more than ten years old is not today's picture: Nov 24, the gas-prices story drew a Flickr pump with
+    "09/06/2010" burned into the frame. The taken date when the file has one, else a year in its title or file name."""
+    from datetime import datetime
+    bar = (year or datetime.now().year) - STALE_PHOTO_YEARS
+    taken = iso_date(cand.taken)
+    if taken:
+        return int(taken[:4]) < bar
+    name = (cand.source_url or "").rsplit("/", 1)[-1].replace("_", " ")
+    years = [int(y) for y in re.findall(r"(?<!\d)((?:19|20)\d\d)(?!\d)", f"{cand.title or ''} {name}")]
+    return bool(years) and max(years) < bar
 
 
 def archive_photo(cand: "PhotoCandidate") -> bool:
@@ -427,7 +443,7 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             continue
         tried.add(q.lower())
         for cand in _search(q, settings):
-            if unsafe_photo(cand) or not_a_photo(cand) or archive_photo(cand):
+            if unsafe_photo(cand) or not_a_photo(cand) or archive_photo(cand) or stale_photo(cand):
                 continue
             if exclude and (cand.id in exclude or cand.family in exclude):
                 continue

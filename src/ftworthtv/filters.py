@@ -175,7 +175,9 @@ def betting_promo(title: str, summary: str = "") -> bool:
 _GAME_NOTES_RE = re.compile(r"^(?:(?:post|pre)-?game|game|weekly|match|series|week \d+)\s+(?:notes|quotes|notebook|stats)\b|"
                            r"^(?:notes|quotes)\s*(?:&|and)\s*(?:notes|quotes)\b|^box score\b|\bpostgame (?:notes|quotes)\b|"
                            r"^(?:game|match) (?:info|central|day central)\b|\bdepth chart\b|\bweekly release\b|"
-                           r"^stats?\s*:|^by the numbers\b", re.I)   # Nov 22: KXAN's stats explainer
+                           r"^stats?\s*:|^by the numbers\b|"   # Nov 22: KXAN's stats explainer
+                           # Nov 24: WFAA's "Texas high school football: Playoff matchups, schedule" is a listing
+                           r":\s*(?:playoff\s+|bowl\s+|game\s+)?(?:matchups?|pairings|brackets?)(?:,?\s*(?:and\s+)?(?:schedules?|times|tv))?\s*$", re.I)
 _GRADES_RE = re.compile(r"\bgrades\s*:|\breport cards?\b", re.I)          # CBS's grades column, but only for a game: a school's
                                                                           # A-F grades or report card are education news
 

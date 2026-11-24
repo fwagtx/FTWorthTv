@@ -233,6 +233,8 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
         if t not in out and not (elsewhere and t in FORT_WORTH_ONLY) and venue_fits(t, whole, title):
             out.append(t)
     if category == "sports":
+        # Nov 24: WFAA's "Texas high school football: Playoff matchups, schedule" drew a Dell City ISD school bus
+        out = [t for t in out if t not in ("school-bus", "schools")]
         for i, t in enumerate(list(out)):
             variant = SPORTS_VARIANTS.get(t)
             if variant and variant not in out:
