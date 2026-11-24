@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T22:07:59.665580+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-154259/02-inter-alia-starring-rosamund-pike-sells-out-hami/post.jpg",
+    "credit": "Photo: Number 10 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Prime_Minister_Keir_Starmer_and_Rosamund_Pike_arts_visit_(55069968388).jpg",
+    "photo_id": "commons-182859662",
+    "subject": "entity:rosamund pike"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-154259/02-inter-alia-starring-rosamund-pike-sells-out-hami/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "‘Inter Alia’ Starring Rosamund Pike Sells Out; ‘Hamilton’ With Christopher Jackson Tops $3M",
+    "caption": "Inter Alia, the previewing production of Suzie Miller’s new play starring Rosamund Pike, seems about to repeat its London success here on Broadway, with the first seven-performance week selling out and grossing $993,103. The play (opening at the Music Box Theatre on December 1) was one of the stronger performers on Broadway for the week ending November 22.",
+    "first_comment": "Source: Deadline https://deadline.com/2026/11/broadway-box-office-rosamund-pike-christopher-jackson-1237232642/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "2998b3c145eb81a2",
+    "source": "Deadline",
+    "source_kind": "rss",
+    "title": "‘Inter Alia’ Starring Rosamund Pike Sells Out; ‘Hamilton’ With Christopher Jackson Tops $3M – Broadway Box Office",
+    "summary": "Deadline's Broadway box office report for the week ending November 22, 2026. Inter Alia, the previewing production of Suzie Miller’s new play starring Rosamund Pike, seems about to repeat its London success here on Broadway , with the first seven-performance week selling out and grossing $993,103 . The play (opening at the Music Box Theatre on December 1) was one of the stronger performers on Broadway for the week ending November 22, along with other sell-outs A Few Good Men, Hamilton, Much Ado About Nothing , Other Desert Cities and, in its final week, The Imaginary Invalid starring Bill Irwin (grossing $599,290 ).",
+    "url": "https://deadline.com/2026/11/broadway-box-office-rosamund-pike-christopher-jackson-1237232642/",
+    "published": "2026-11-24T20:52:30+00:00",
+    "category_hint": null,
+    "image_url": "https://deadline.com/wp-content/uploads/2026/04/Rosamund-Pike-Jessica-in-Inter-Alia-at-the-National-Theatre.-c-Manuel-Harlan-056-2.jpg",
+    "image_credit": "Photo: Deadline",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "Deadline",
+      "national": true,
+      "scope": "national",
+      "national_term": "box office"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.3403
+  }
+}

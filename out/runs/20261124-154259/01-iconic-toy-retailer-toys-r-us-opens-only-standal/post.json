@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-154259/01-iconic-toy-retailer-toys-r-us-opens-only-standal/post.jpg",
+    "credit": "Photo: U.S. Navy photo by Petty Officer 1st Class Elizabeth Thompso via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:NEX_Atsugi_Toys_R_Us_Grand_Opening_(10104222).jpg",
+    "photo_id": "commons-203504402",
+    "subject": "entity:toys r us"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-154259/01-iconic-toy-retailer-toys-r-us-opens-only-standal/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Iconic toy retailer Toys 'R' Us opens only standalone store in Fort Worth",
+    "caption": "Beloved toy store Toys \"R\" Us, the chain that sells toys, games, electronics, and gear, has debuted in Fort Worth in time for 2026 holiday shopping. According to a release, a Toys \"R\" Us store has opened at Tanger Outlets Fort Worth, 15853 N Fwy., Ste. 1140, in far north Fort Worth.",
+    "first_comment": "Source: CultureMap Fort Worth https://fortworth.culturemap.com/news/home-design/toys-r-us-tanger-outlets/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "f77b520578ebe607",
+    "source": "CultureMap Fort Worth",
+    "source_kind": "rss",
+    "title": "Iconic toy retailer Toys 'R' Us opens only standalone store in Fort Worth",
+    "summary": "Beloved toy store Toys \"R\" Us , the chain that sells toys, games, electronics, and gear, has debuted in Fort Worth in time for 2026 holiday shopping. According to a release, a Toys \"R\" Us store has opened at Tanger Outlets Fort Worth, 15853 N Fwy., Ste. 1140, in far north Fort Worth.",
+    "url": "https://fortworth.culturemap.com/news/home-design/toys-r-us-tanger-outlets/",
+    "published": "2026-11-24T20:59:01+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: CultureMap Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.9,
+    "extra": {
+      "feed_title": "CultureMap Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.951
+  }
+}
