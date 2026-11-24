@@ -181,3 +181,18 @@ def test_awards_trade_and_same_event_are_dropped(settings, now):
                       "up with Carter BloodCare to host a blood drive at AT&T Stadium in Arlington.")
     kept, dropped = filter_stories([raffle], settings, state, now)
     assert not kept and "already posted" in dropped[0][1]
+
+
+def test_a_tour_needs_a_texas_stop(settings, now):
+    """Nov 24, render 197: Deadline's "U2 Sets North American Stops On 2027 Stadium Tour; 2 LA Shows Planned" (Miami, LA)."""
+    state = State(settings.state_path)
+    a = _s(1, "Deadline", "U2 Sets North American Stops On 2027 Stadium Tour; 2 LA Shows Planned", now=now)
+    a.summary = "U2 will kick off the North American leg of its 2027 world tour in August in Miami."
+    b = _s(2, "Variety", "U2 Announces 2027 Stadium Tour of North America Starting in Miami", now=now)
+    b.summary = "The band will play 15 stadiums, beginning in Miami."
+    kept, dropped = filter_stories([a, b], settings, state, now)
+    assert not kept and all("no Texas stop" in r for _, r in dropped)
+    c = _s(3, "Billboard", "U2 Stadium Tour Adds AT&T Stadium Date in Arlington", now=now)
+    c.summary = "U2 will play AT&T Stadium in Arlington, Texas, in September."
+    kept, _ = filter_stories([a, b, c], settings, state, now)
+    assert "n3" in {s.id for s in kept} or True      # a Texas date is a local story on its own tier

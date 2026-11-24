@@ -168,6 +168,10 @@ _MAGAZINE_SECTION_RE = re.compile(r"texasmonthly\.com/(?:culture|arts-entertainm
                                   r"style|music|books|television|movies)/", re.I)
 
 
+_TEXAS_STOP_RE = re.compile(r"\b(?:texas|arlington|dallas|fort worth|houston|austin|san antonio|el paso|frisco|irving|grand prairie|"
+                            r"at&t stadium|dickies arena|american airlines center|globe life|toyota music factory)\b", re.I)
+
+
 def magazine_section(url: str) -> bool:
     return bool(_MAGAZINE_SECTION_RE.search(url or ""))
 
@@ -893,6 +897,7 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
     kept: list[Story] = []
     dropped: list[tuple[Story, str]] = []
     recent_titles = state.recent_titles(now, hours=72)
+    skipped_titles = state.recent_skipped_titles(now, hours=72) if hasattr(state, "recent_skipped_titles") else []
     watchlist = [w.lower() for w in (rel.get("watchlist", []) or [])]
     national_terms = [w.lower() for w in (rel.get("national_keywords", []) or [])]
     min_outlets = int(rel.get("national_min_outlets", 2))
@@ -1006,6 +1011,11 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if twin:
             dropped.append((story, f"already posted from another outlet: {twin[:60]}"))
             continue
+        # Nov 24: WFAA's "Texas A&M names Dr. John Thornton as Interim Athletic Director", a day after the session skipped ESPN's
+        stwin = next((t for t in skipped_titles if same_story(story.title, t) or same_event(story.title, story.summary or "", t)), None)
+        if stwin:
+            dropped.append((story, f"another outlet's version of a story the session skipped: {stwin[:60]}"))
+            continue
         if not is_fresh(story, now, max_age) and not (state.deferred(story.id) and is_fresh(story, now, DEFERRED_MAX_AGE_HOURS)):
             dropped.append((story, f"older than {max_age:.0f}h"))      # a cap-held story gets a second day (State.defer)
             continue
@@ -1063,6 +1073,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                                 and len(outlets_carrying(t, story)) >= min_outlets), None)
                 if hit and infer_category(story) in ("crime", "traffic"):
                     hit = None
+                if hit in ("announces tour", "tour dates", "stadium tour") and not _TEXAS_STOP_RE.search(f"{story.title} {story.summary or ''}"):
+                    dropped.append((story, "a tour with no Texas stop"))   # Nov 24: U2's 2027 stadium tour, Miami and two LA shows
+                    continue
                 seen = hit or lone
                 if seen and national_feature(story.title, story.url):
                     dropped.append((story, f"a magazine feature about {seen}, not the moment itself"))

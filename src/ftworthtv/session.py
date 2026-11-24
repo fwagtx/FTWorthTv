@@ -142,9 +142,16 @@ def record_posted(run_dir: Path, settings: Settings, posted: dict[str, dict], sk
     skipped: {story_id: reason} for drafts the session chose not to post; they are remembered so no later render redrafts them."""
     state = State(settings.state_path)
     n = 0
+    titles = {}
+    for folder in sorted(p for p in Path(run_dir).iterdir() if p.is_dir()):
+        try:
+            d = load_draft(folder)
+            titles[d.story.id] = d.story.title
+        except Exception:
+            continue
     for story_id, reason in (skipped or {}).items():
         if not state.has(story_id):
-            state.mark_skipped(story_id, reason, datetime.now(timezone.utc))
+            state.mark_skipped(story_id, reason, datetime.now(timezone.utc), title=titles.get(story_id, ""))
     for sid, title, reason in cap_held(Path(run_dir)):
         if not state.has(sid) and sid not in posted and not state.skipped(sid):
             state.defer(sid, title, reason, datetime.now(timezone.utc))      # tomorrow's render may still take it

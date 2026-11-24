@@ -1242,3 +1242,25 @@ def test_render_196_rules():
     assert national_feature("Why the Cowboys and Lions always play on Thanksgiving Day: All 32 NFL team's record on the holiday")
     assert roundup_column("Arch Manning may be ready to leave Texas. Is he ready to start in the NFL?")
     assert not roundup_column("Arch Manning declares for the NFL draft")
+
+
+def test_render_197_rules(settings, now):
+    """Nov 24, render 197: WFAA's "Texas A&M names Dr. John Thornton as Interim Athletic Director" drew Kyle Field a day after
+    the session skipped ESPN's version ("Dr." hid the job change); Deadline's U2 tour (Miami, two LA shows) drew a North
+    American T-6 Texan airplane."""
+    from ftworthtv.filters import filter_stories
+    from ftworthtv.images.subject import happened, plan_subject
+    from ftworthtv.models import Story
+    from ftworthtv.state import State
+    from datetime import timedelta
+    assert happened("Texas A&M names Dr. John Thornton as Interim Athletic Director")
+    assert "North American" not in plan_subject("U2 Sets North American Stops On 2027 Stadium Tour; 2 LA Shows Planned",
+                                                "U2 will kick off the North American leg of its 2027 world tour.", "events").search_names
+    state = State(settings.state_path)
+    state.mark_skipped("espn-am", "College Station's athletics office", now - timedelta(hours=20),
+                       title="Texas A&M names Thornton interim athletic director, effective Dec. 1")
+    s = Story(id="wfaa-am", source="WFAA Sports", source_kind="rss", title="Texas A&M names Dr. John Thornton as Interim Athletic Director",
+              summary="Texas A&M has named Dr. John Thornton Interim Athletic Director as Trev Alberts is set to become AD at Michigan.",
+              url="https://www.wfaa.com/a", published=now)
+    kept, dropped = filter_stories([s], settings, state, now)
+    assert not kept and "skipped" in dropped[0][1]

@@ -125,7 +125,9 @@ ADJECTIVES = {"congressional", "republican", "republicans", "democrat", "democra
               "american", "midterm", "midterms", "election", "elections", "primary", "runoff", "senate", "senators", "lawmakers",
               # nationalities describe a subject, they never are one ("Molly Meldrum, Australian Music Broadcaster")
               "australian", "british", "canadian", "mexican", "english", "irish", "scottish", "welsh", "french", "german", "italian",
-              "spanish", "japanese", "korean", "chinese", "indian", "russian", "ukrainian", "israeli", "brazilian", "european"}
+              "spanish", "japanese", "korean", "chinese", "indian", "russian", "ukrainian", "israeli", "brazilian", "european",
+              # Nov 24: "U2 Sets North American Stops" searched "North American" and found a T-6 Texan airplane
+              "north american", "south american", "latin american", "central american", "north", "south"}
 COMMON_NOUNS = {"theater", "theatre", "theaters", "performances", "performance", "market", "markets", "festival", "festivals", "concert",
                 "concerts", "weekend", "holiday", "holidays", "parade", "show", "shows", "game", "games", "lights", "music", "food", "restaurant",
                 "restaurants", "school", "schools", "police", "fire", "weather", "storm", "storms", "traffic", "shooting", "crash", "council",
@@ -569,7 +571,7 @@ def happened(title: str, kind: str = "rss") -> bool:
     return True
 
 
-_NAMED_TO_ROLE_RE = re.compile(r"\b(?:names?|named|appoints?|appointed|taps|tapped|tabs|tabbed)\b[^.]{0,40}?\b(?:interim |acting |new )?"
+_NAMED_TO_ROLE_RE = re.compile(r"\b(?:names?|named|appoints?|appointed|taps|tapped|tabs|tabbed)\b(?:[^.]|\b(?:dr|jr|sr|st|mr|mrs|ms|lt|sgt|gen|col|rev)\.){0,50}?\b(?:interim |acting |new )?"
                                r"(?:head coach|coach|athletic director|coordinator|police chief|fire chief|chief|superintendent|"
                                r"president|ceo|director|manager|chancellor|provost|dean|principal|commissioner)\b")
 # a job changing hands is a happening only for a person in a role: "TCU interim HC Andy Avalos introduced", "Fort Worth hires
