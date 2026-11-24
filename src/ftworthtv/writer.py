@@ -542,6 +542,9 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
         parts = parts[:-1]                    # the lead limit cut the last sentence: drop it whole, never at "Judge Mark T." (Nov 22)
     merged: list[str] = []
     parts = [re.sub(r"\s+([,.;:!?])", r"\1", _CONFIRMED_RE.sub("", _PAGE_LABEL_RE.sub("", p))) for p in parts]   # "the Tennessee Titans , stripping"
+    # a dateline after the dek opens the article's own first sentence: FOX 4's "... Tarrant counties. DALLAS - North Texas
+    # faces a gloomy, chilly Tuesday ..." (Nov 24)
+    parts = [_DATELINE_RE.sub("", p) for p in parts]
     parts = [p for p in parts if not _SCRIPT_RE.search(p)]          # an ad script is not a sentence
     parts = [p for p in parts if not _CLIP_LEAD_RE.match(p) and not _TEASER_RE.match(p)]
     parts = [p[0].upper() + p[1:] if p else p for p in parts]
@@ -569,7 +572,7 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
             continue
         if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")) or looks_like_photo_caption(part):
             continue                                          # photo captions end with a date: "...at the Capitol, on November 16, 2026."
-        if any(_similar(part, prev) for prev in out):     # og:description often repeats the first paragraph
+        if any(_similar(part, prev) or shared_run(prev, part) for prev in out):     # og:description often repeats the first paragraph
             continue
         money = {m.lower().replace(" ", "") for m in _MONEY_RE.findall(part)}
         if money and any(money & {x.lower().replace(" ", "") for x in _MONEY_RE.findall(prev)} for prev in out):
@@ -610,6 +613,15 @@ def _content_stems(text: str) -> set[str]:
                 break
         out.add(w)
     return out
+
+
+def shared_run(a: str, b: str, n: int = 7) -> bool:
+    """b repeats a run of n words from a: the lede restating the dek. Nov 24, FOX 4: "The first freeze warning of the season
+    takes effect Tuesday night for parts of North Texas ..." then "North Texas faces a gloomy, chilly Tuesday with scattered
+    showers before the first freeze warning of the season takes effect tonight"."""
+    wa, wb = re.findall(r"[a-z0-9']+", (a or "").lower()), re.findall(r"[a-z0-9']+", (b or "").lower())
+    grams = {tuple(wa[i:i + n]) for i in range(len(wa) - n + 1)}
+    return any(tuple(wb[i:i + n]) in grams for i in range(len(wb) - n + 1))
 
 
 def _similar(a: str, b: str) -> bool:
@@ -890,9 +902,23 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
     if "{photo_credit}" not in first_comment:
         first_comment += "\n{photo_credit}"
     headline = re.sub(r"[#@]", "", copy.headline).strip().rstrip(".")
+    if story.source_kind in ("rss", "video") and not story.official:
+        headline = strip_section_label(headline)
     headline = smart_headline(headline, 120) if len(headline) > 120 else headline
     return copy.model_copy(update={"caption": caption, "hashtags": tags, "first_comment": first_comment,
                                    "headline": headline or smart_headline(story.title, 110)})
+
+
+# an outlet's section label is not part of the headline: FOX 4's "Dallas Weather: First freeze warning of the season takes
+# effect tonight across parts of North Texas" went on a Fort Worth card with "Dallas Weather:" in front (Nov 24)
+_SECTION_LABEL_RE = re.compile(r"^(?:(?:Dallas|DFW|Dallas-Fort Worth|North Texas|Fort Worth|Texas|FOX 4|NBC 5|NBC DFW|WFAA|CBS Texas|"
+                               r"CBS News Texas|KERA|KXAN|KHOU|KVUE|KENS)\s+)?(?:Weather|Traffic|First Alert|Weather Alert|Weather Live|"
+                               r"Weather Update)\s*(?:Live|Update|Alert)?\s*:\s+(?=[A-Z0-9\"“‘'])")
+
+
+def strip_section_label(headline: str) -> str:
+    out = _SECTION_LABEL_RE.sub("", headline or "")
+    return out if len(out.split()) >= 4 else headline
 
 
 def cut_off(text: str) -> bool:

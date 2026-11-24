@@ -1038,3 +1038,23 @@ def test_render_177_rules(settings, now):
               url="https://www.fox4news.com/news/arlington-swat", published=now)
     kept, dropped = filter_stories([s], settings, State(settings.state_path), now)
     assert kept and kept[0].category == "breaking" and kept[0].is_urgent
+
+
+def test_render_187_rules():
+    """Nov 24, render 187: FOX 4's freeze warning went on the card as "Dallas Weather: First freeze warning ...", and its
+    caption kept a "DALLAS - " dateline after the dek and a lede restating the dek."""
+    from ftworthtv.writer import _sentences, shared_run, strip_section_label
+    assert strip_section_label("Dallas Weather: First freeze warning of the season takes effect tonight across parts of North Texas") == \
+        "First freeze warning of the season takes effect tonight across parts of North Texas"
+    assert strip_section_label("DFW Traffic: I-35W closed in both directions near Alliance") == "I-35W closed in both directions near Alliance"
+    assert strip_section_label("Fort Worth forecast: cold, high near 45") == "Fort Worth forecast: cold, high near 45"
+    summary = ("The first freeze warning of the season takes effect Tuesday night for parts of North Texas, including Collin, Denton "
+               "and Tarrant counties. DALLAS - North Texas faces a gloomy, chilly Tuesday with scattered showers before the first "
+               "freeze warning of the season takes effect tonight. The National Weather Service has issued a Freeze Warning for "
+               "parts of North Texas from 11 p.m. on Tuesday, November 24 to 8 a.m. on Wednesday, November 25.")
+    out = _sentences(summary)
+    assert not any("DALLAS -" in s for s in out)
+    assert not any(s.startswith("North Texas faces") for s in out)          # the lede restating the dek
+    assert out[1].startswith("The National Weather Service has issued a Freeze Warning")
+    assert shared_run("the first freeze warning of the season takes effect Tuesday", "before the first freeze warning of the season takes effect tonight")
+    assert not shared_run("Fort Worth police arrested a man on Monday night", "Fort Worth police said the woman was taken to a hospital")
