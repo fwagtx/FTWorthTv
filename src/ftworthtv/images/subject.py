@@ -526,6 +526,23 @@ def photo_age_bar(label: str, stamp, years: int = 3) -> str:
     return (stamp - timedelta(days=365 * years)).date().isoformat()
 
 
+def with_recent_years(pairs: list[tuple[tuple, str]], stamp) -> list[tuple[tuple, str]]:
+    """After each plain search for a subject with an age bar (a person, a band, a team), the same search on Commons with
+    this year and the two before it. Nov 24: U2's photos dated inside the three-year bar ("U2 performing at Sphere in Las
+    Vegas on Feb 15 2024") ranked below 2017-2019 tour photos and a Berlin subway map, so a plain "U2" search never
+    reached them."""
+    out: list[tuple[tuple, str]] = []
+    for q, lab in pairs:
+        out.append((q, lab))
+        query = q[0] if isinstance(q, tuple) else q
+        if not isinstance(query, str) or ":" in query.split(" ", 1)[0] or not photo_age_bar(lab, stamp):
+            continue
+        rest = tuple(q[1:]) if isinstance(q, tuple) else ()
+        for year in (stamp.year, stamp.year - 1, stamp.year - 2):
+            out.append(((f"commons:{query} {year}",) + rest, lab))
+    return out
+
+
 def looks_like_person(name: str) -> bool:
     """Two or three capitalised words with no organisation or venue word: Ty Myers, Cooper Flagg, Bo French."""
     words = name.split()

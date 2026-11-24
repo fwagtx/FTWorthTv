@@ -375,3 +375,26 @@ def test_a_bands_tour_photo_counts_as_context():
     ctx = _context_words("U2 will bring 'Greatest Show' to Arlington on 2027 world tour", "U2")
     assert "tour" in ctx and "performing" in ctx and "concert" in ctx
     assert "tour" not in _context_words("CMA Awards nominees announced", "CMA")
+
+
+def test_recent_years_are_searched_for_people_and_bands():
+    """Nov 24, render 202: U2's photos inside the three-year bar (Sphere, Feb 2024) ranked below older files on Commons."""
+    from datetime import datetime, timezone
+    from ftworthtv.images.subject import with_recent_years
+    stamp = datetime(2026, 11, 24, tzinfo=timezone.utc)
+    pairs = [(("fresh:U2", ("statue",), ("u2",)), "entity:u2"), (("U2", ("statue",), ("u2",)), "entity:u2"),
+             (("category:Dickies Arena", ("concert",), ()), "entity:dickies arena"), (("Dickies Arena", (), ()), "entity:dickies arena")]
+    out = [q[0] for q, _ in with_recent_years(pairs, stamp)]
+    assert out == ["fresh:U2", "U2", "commons:U2 2026", "commons:U2 2025", "commons:U2 2024", "category:Dickies Arena", "Dickies Arena"]
+    assert with_recent_years(pairs, stamp)[2][0][1:] == (("statue",), ("u2",))       # the same checks on the file name
+
+
+def test_commons_prefix_searches_commons_only(settings, monkeypatch):
+    from ftworthtv.images import providers
+    calls = []
+    monkeypatch.setattr(providers, "search_openverse", lambda q, s=None, **k: (calls.append(("openverse", q)), [])[1])
+    monkeypatch.setattr(providers, "search_wikimedia", lambda q, **k: (calls.append(("wikimedia", q)), [])[1])
+    monkeypatch.setattr(providers, "_PROVIDERS_DOWN", set())
+    monkeypatch.setattr(providers, "_search_started", [])
+    assert providers._search("commons:U2 2024", settings) == []
+    assert calls == [("wikimedia", "U2 2024")]

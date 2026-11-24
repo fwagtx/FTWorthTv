@@ -260,11 +260,12 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             if sp.mode in ("entity", "search"):
                 from datetime import datetime as _dt, timedelta, timezone as _tz
                 from .judge import available as judge_available
-                from .subject import provider_queries, wants_recent_picture
+                from .subject import provider_queries, wants_recent_picture, with_recent_years
                 import os as _os
                 reviewed = _os.environ.get("FTWTV_PHOTO_REVIEW", "").lower() == "session"   # a person looks at every card before it is posted
                 local_city = str(brand.get("city", "Fort Worth")) if str(story.extra.get("scope", "local")) == "local" else ""
                 pairs = provider_queries(sp, story.title, copy.category, people_allowed=judge_available(settings) or reviewed, city=local_city)
+                pairs = with_recent_years(pairs, story.published or _dt.now(_tz.utc))
                 queries, labels = [q for q, _ in pairs], [lab for _, lab in pairs]
                 recent_flags = [False] * len(queries)
                 recent_after = ""

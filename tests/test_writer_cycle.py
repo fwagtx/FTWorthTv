@@ -1295,3 +1295,16 @@ def test_charged_in_a_scam_is_crime():
     assert infer_category(st) == "crime"
     st.title = "Electric buses charged in minutes at the new Trinity Metro depot"
     assert infer_category(st) != "crime"
+
+
+def test_a_gerund_subject_is_not_a_trailing_phrase():
+    """Nov 24, render 202: NBC 5's "As North Texans hit the roads for Thanksgiving meals, Black Friday shopping and weekend
+    outings, avoiding the region's busiest routes may be inevitable; ..." became "As North Texans hit the roads ... outings."."""
+    from ftworthtv.writer import trim_trailing_phrase
+    s = ("As North Texans hit the roads for Thanksgiving meals, Black Friday shopping and weekend outings, avoiding the region’s "
+         "busiest routes may be inevitable; drivers heading out around midday may encounter the worst of the worst.")
+    assert trim_trailing_phrase(s, 220) == ""
+    assert not any(x.startswith("As North Texans") for x in _sentences("Highways include I-30 and I-20. " + s))
+    t = ("Crews from the Fort Worth Fire Department pulled a woman from a burning home on Tuesday morning in the city's south side, "
+         "avoiding what could have been a deadly fire.")
+    assert trim_trailing_phrase(t, 150).startswith("Crews from the Fort Worth Fire Department pulled a woman")

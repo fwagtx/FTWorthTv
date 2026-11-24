@@ -508,6 +508,13 @@ def _story_start(text: str) -> str:
 # a long sentence's trailing participle phrase is detail: ", kicking off Thanksgiving week and celebrating the annual ..."
 _TRAILING_PHRASE_RE = re.compile(r",\s+(?!according\b)(?:[a-z]{3,}ing|which|while|as well as|along with)\b")
 _REPORTING_END_RE = re.compile(r"\b(?:said|says|told|announced|reported|added|explained|wrote)(?:\s+\w+){0,2}$", re.I)
+# Nov 24, NBC 5: "As North Texans hit the roads for Thanksgiving meals, Black Friday shopping and weekend outings, avoiding the
+# region's busiest routes may be inevitable; ..." was cut to its "As ..." clause. A head that opens with a subordinating word
+# is not a main clause, and an "-ing" word followed by its own verb ("avoiding ... may be") is the subject, not a trailing phrase.
+_SUBORDINATE_START_RE = re.compile(r"^(?:as|when|whenever|while|if|because|although|though|since|after|before|until|once|unless|"
+                                   r"whether|even as|even though|now that|so that)\b", re.I)
+_FINITE_VERB_RE = re.compile(r"\b(?:may|might|will|would|could|can|should|must|is|are|was|were|has|have|had|does|do|did|remains?|"
+                             r"seems?|appears?|becomes?)\b")
 
 
 _CONGRATS_RE = re.compile(r"^Congratulations to (?:the )?([A-Z][^,]{2,80}?),\s+(?:which|who)\s+(was|were|is|are|has|have|earned|won)\s+")
@@ -549,10 +556,16 @@ def trim_trailing_phrase(sentence: str, limit: int) -> str:
     if not sentence.endswith((".", "!")) or sentence.count('"') % 2 or sentence.count("“") != sentence.count("”"):
         return ""
     best = ""
+    if _SUBORDINATE_START_RE.match(sentence):
+        return ""                                   # "As North Texans hit the roads, ...": the main clause comes later
     for m in _TRAILING_PHRASE_RE.finditer(sentence):
         head = sentence[:m.start()].rstrip(" ,;:")
         if len(head) > limit:
             break
+        rest = re.split(r"[;:]", sentence[m.end():], maxsplit=1)[0]
+        verb = _FINITE_VERB_RE.search(rest) if m.group(0).rstrip().endswith("ing") else None
+        if verb and not re.search(r"\b(?:what|that|which|who|whom|whose|where|when|if|as)\b", rest[:verb.start()]):
+            continue                                # ", avoiding the busiest routes may be inevitable": a gerund subject
         if (len(head.split()) >= 8 and head.count('"') % 2 == 0 and head.count("“") == head.count("”")
                 and not _REPORTING_END_RE.search(head)):
             best = head + "."

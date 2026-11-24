@@ -393,9 +393,21 @@ def _search_each(query: str, settings):
     """Each provider's results in turn, so find_photo can move on when none of one provider's files will do: Nov 24,
     Openverse's 15 results for "U2" were Dublin graffiti walls, a spy plane and 2005-2009 concerts, while Commons had
     U2 on tour in 2018 and at the Sphere in 2023."""
-    if query.lower().startswith(("category:", "fresh:")) and "wikimedia" in _PROVIDERS_DOWN:
+    if query.lower().startswith(("category:", "fresh:", "commons:")) and "wikimedia" in _PROVIDERS_DOWN:
         return
     if _over_budget():
+        return
+    if query.lower().startswith("commons:"):    # Commons only: "commons:U2 2024" (a subject's recent files, see plan_image)
+        try:
+            found = search_wikimedia(query.split(":", 1)[1].strip())
+        except Exception as exc:
+            log.warning("wikimedia search failed for %r: %s", query, exc)
+            if _is_timeout(exc):
+                _PROVIDERS_DOWN.add("wikimedia")
+            return
+        if found:
+            log.info("photo: wikimedia gave %d result(s) for %r", len(found), query)
+            yield found
         return
     if query.lower().startswith("category:"):   # Commons category lookup (venues, landmarks)
         try:
