@@ -6,7 +6,7 @@
     "2026-11-21": 16,
     "2026-11-22": 19,
     "2026-11-23": 20,
-    "2026-11-24": 4
+    "2026-11-24": 5
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -64,7 +64,7 @@
     },
     "2026-11-24": {
       "breaking": 1,
-      "crime": 2,
+      "crime": 3,
       "weather": 1
     }
   },
@@ -103,7 +103,7 @@
     },
     "2026-11-24": {
       "rss": 1,
-      "video": 1,
+      "video": 2,
       "wanted": 2
     }
   },
@@ -140,7 +140,7 @@
     },
     "2026-11-24": {
       "dfw": 1,
-      "local": 3
+      "local": 4
     }
   },
   "deferred": {
@@ -471,7 +471,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-24T07:37:00-06:00",
+  "last_post_at": "2026-11-24T08:02:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -1547,6 +1547,19 @@
       "title": "Texas power grid CEO secures multimillion-dollar contract extension, angering Dan Patrick",
       "url": "https://feeds.texastribune.org/link/16799/17536469/ercot-texas-electric-grid-ceo-contract"
     },
+    "ec89fa8f7a7b73d1": {
+      "at": "2026-11-24T08:02:00-06:00",
+      "category": "crime",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "440221368",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7204886886099697181",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "CBS Texas",
+      "title": "Man in custody after allegedly shooting wife, hours-long standoff in Arlington, police say",
+      "url": "https://www.youtube.com/watch?v=J2VsiZdXCKI"
+    },
     "f288f7af12924966": {
       "at": "2026-11-19T21:00:00+00:00",
       "category": "sports",
@@ -1925,6 +1938,10 @@
       "at": "2026-11-20T15:19:26.662237+00:00",
       "reason": "a Dallas park amenity is not Fort Worth news"
     },
+    "96b1b1546b7d83d3": {
+      "at": "2026-11-24T12:45:17.421653+00:00",
+      "reason": "CBS Texas freeze conditions: held by the pipeline (the frost photo did not show the story) and a repeat of the 6:47 freeze warning post"
+    },
     "986e3876f5533509": {
       "at": "2026-11-23T21:22:10.422646+00:00",
       "reason": "Billboard's Taylor Swift and her niece after a Travis Kelce touchdown: celebrity news drafted as a national sports text card; rule added"
@@ -2030,7 +2047,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 99,
+  "total_posts": 100,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
