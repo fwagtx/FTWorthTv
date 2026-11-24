@@ -351,3 +351,12 @@ def test_attribution_is_only_a_trailing_source():
     """'..., Morath says' credits a source; 'Hailee Steinfeld confirms she's in Avengers' is about her (Nov 23)."""
     assert "Morath" not in entities("Largest enrollment drop in Texas' recorded history means challenges for public schools, Morath says", "Mike Morath said.")
     assert entities("Hailee Steinfeld Confirms She’s In ‘Avengers: Doomsday’", "Hailee Steinfeld has confirmed she will appear in Marvel's upcoming film, the actress said on Sunday.") == ["Hailee Steinfeld"]
+
+
+def test_a_team_that_fires_a_coach_is_not_a_fire_department():
+    """Nov 24, render 200: "Cardinals fire DC Rallis" drew a Fort Worth Fire Department rescue truck."""
+    plan = plan_subject("Cardinals fire DC Rallis; Austin takes over on interim basis",
+                        "The Cardinals have fired defensive coordinator Nick Rallis.", "sports")
+    assert plan.primary == "Cardinals" and "fire" not in plan.fallback_topics and plan.mode != "institution"
+    assert "fire" in plan_subject("Fort Worth Fire crews battle blaze at vacant house", "", "breaking").fallback_topics
+    assert "police" in plan_subject("Fort Worth police set new policies for Flock cameras", "", "crime").fallback_topics

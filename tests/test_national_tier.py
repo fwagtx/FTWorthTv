@@ -196,3 +196,17 @@ def test_a_tour_needs_a_texas_stop(settings, now):
     c.summary = "U2 will play AT&T Stadium in Arlington, Texas, in September."
     kept, _ = filter_stories([a, b, c], settings, state, now)
     assert "n3" in {s.id for s in kept} or True      # a Texas date is a local story on its own tier
+
+
+def test_a_person_named_austin_is_not_texas(settings, now):
+    """Nov 24, render 200: ESPN's "Cardinals fire DC Rallis; Austin takes over on interim basis" counted as Texas news
+    because the interim coordinator is named Austin."""
+    state = State(settings.state_path)
+    s = _s(1, "ESPN NFL", "Cardinals fire DC Rallis; Austin takes over on interim basis", now=now)
+    s.summary = "The Arizona Cardinals fired defensive coordinator Nick Rallis, and Austin will take over."
+    kept, dropped = filter_stories([s], settings, state, now)
+    assert not kept and "no watchlist" in dropped[0][1]
+    t = _s(2, "ESPN NFL", "Austin police arrest suspect in 6th Street shooting", now=now)
+    t.summary = "Police in Austin, Texas, arrested a man early Monday."
+    kept, dropped = filter_stories([t], settings, state, now)
+    assert not kept and dropped[0][1] == "other-metro crime, not statewide"      # the city still counts as a Texas place

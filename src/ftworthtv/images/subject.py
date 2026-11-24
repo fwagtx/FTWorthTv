@@ -163,6 +163,8 @@ _MINOR = {"a", "an", "the", "and", "or", "but", "nor", "of", "in", "on", "at", "
           "vs.", "via", "per", "into", "onto", "off", "up", "out", "over", "is", "are", "be"}
 # without story text, these words end a name in a Title Case headline
 HEADLINE_VERBS = {
+    # plural subjects' verbs (a team is plural): Nov 24, "Cardinals fire DC Rallis" read "Cardinals fire" as a fire department
+    "fire", "hire", "name", "beat", "win", "lose", "trade", "waive", "promote", "acquire", "extend", "agree", "claim", "release",
     "reveals", "revealed", "confirms", "confirmed", "announces", "announced", "says", "said", "talks", "joins", "joined", "sign",
     "signs", "signed", "wins", "won", "dies", "died", "drops", "dropped", "releases", "released", "shares", "shared", "opens",
     "opened", "teases", "teased", "sets", "gets", "got", "lands", "landed", "makes", "takes", "leaves", "exits", "returns",
@@ -367,11 +369,22 @@ def light_show(title: str) -> bool:
 
 
 def _institution_words(name: str) -> list[str]:
-    return [w for w in name.lower().replace("-", " ").split() if w in INSTITUTION_FALLBACK]
+    """The agency words in a name ("Fort Worth police", "Fort Worth Fire"). A lowercase "fire" is the verb: Nov 24, "Cardinals
+    fire DC Rallis" read as a fire department and drew a Fort Worth Fire rescue truck."""
+    words = name.replace("-", " ").split()
+    return [w.lower() for w in words if w.lower() in INSTITUTION_FALLBACK and not (w in ("fire", "fires") and any(ch.isupper() for ch in name))]
+
+
+def _strip_trailing_verb(name: str) -> str:
+    words = name.split()
+    while len(words) > 1 and words[-1].islower() and words[-1] in HEADLINE_VERBS:
+        words = words[:-1]                       # "Cardinals fire" (DC Rallis) is the Cardinals
+    return " ".join(words)
 
 
 def _plan_subject(title: str, body: str, category: str) -> SubjectPlan:
     names = [n for n in (resolve_titled(x, body) for x in entities(title, body)) if n]
+    names = [_strip_trailing_verb(n) for n in names]
     subjects = [n for n in names if not _is_place(n)]
     if _DEATH_RE.search(title or "") and any(looks_like_person(n) for n in subjects):
         subjects = [n for n in subjects if looks_like_person(n)]   # a death is about the person: no team, venue or honor photo

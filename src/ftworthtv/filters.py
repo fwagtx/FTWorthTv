@@ -802,15 +802,29 @@ def _stem(word: str) -> str:
     return word
 
 
+# Texas places that are also people's names: Nov 24, ESPN's "Cardinals fire DC Rallis; Austin takes over on interim basis" (a
+# coach named Austin) counted as a Texas story. These need a place's context to count.
+AMBIGUOUS_PLACES = ("austin", "tyler", "irving", "allen", "sherman", "temple", "marshall", "denton", "kyle", "victoria")
+_PLACE_CONTEXT_FMT = (r"(?:\b(?:in|at|near|from|of|to|outside|around|across)\s+{p}\b|\b{p}(?:'s|’s)?\s+(?:police|fire|isd|city|area|"
+                      r"council|mayor|energy|fc|metro|market|airport|county|residents|school|schools|police department|-based)\b|"
+                      r"\b{p},?\s+(?:texas|tx)\b|\b{p}-area\b|\b{p}-based\b)")
+
+
+def _place_hit(kw: str, text: str) -> bool:
+    if kw not in AMBIGUOUS_PLACES:
+        return _has_word(kw, text)
+    return bool(re.search(_PLACE_CONTEXT_FMT.format(p=re.escape(kw)), text))
+
+
 def relevance_score(story: Story, keywords: list[str]) -> int:
     title = story.title.lower()
     summary = story.summary.lower()
     score = 0
     for kw in keywords:
         kw = kw.lower()
-        if _has_word(kw, title):
+        if _place_hit(kw, title):
             score += 2
-        elif _has_word(kw, summary):
+        elif _place_hit(kw, summary):
             score += 1
     return score
 
