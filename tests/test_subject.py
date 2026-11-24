@@ -438,3 +438,16 @@ def test_a_board_or_party_is_an_institution_not_a_person():
         assert photo_age_bar(f"entity:{name}", stamp) == ""
         assert place_words(f"entity:{name}", stamp, ("georgia",)) == ("georgia",)
     assert photo_age_bar("entity:u2", stamp) and photo_age_bar("entity:ken paxton", stamp)
+
+
+def test_a_named_politician_is_searched_for_not_the_capitol():
+    """Nov 24, render 208: "Paxton drops series of high-profile Texas lawsuits after election loss" drew the Texas Capitol; a
+    bare surname takes the full name the story gives ("Ken Paxton"), never a namesake."""
+    from ftworthtv.images.subject import full_name
+    body = "After losing the election, Attorney General Ken Paxton and his office have dropped a series of high-profile lawsuits."
+    sp = plan_subject("Paxton drops series of high-profile Texas lawsuits after election loss", body, "politics")
+    assert sp.primary == "Ken Paxton" and "capitol" not in sp.entity_topics
+    assert full_name("Paxton", "Attorney General Paxton said.") == "Paxton"           # no first name in the story: unchanged
+    assert full_name("TCU", "TCU fans cheered.") == "TCU"
+    assert "capitol" in plan_subject("Texas lawmakers file bill to cut property taxes", "", "politics").entity_topics + \
+        plan_subject("Texas lawmakers file bill to cut property taxes", "", "politics").fallback_topics

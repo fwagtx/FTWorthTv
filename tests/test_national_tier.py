@@ -224,3 +224,11 @@ def test_a_story_filed_under_another_citys_local_news(settings, now):
                  "it could leave Austin's Brackenridge Field Lab vulnerable to future development.")
     kept, dropped = filter_stories([s], settings, State(settings.state_path), now)
     assert not kept
+
+
+def test_industry_trade_news_is_not_a_moment():
+    """Nov 24, render 208: Variety's "Netflix Closes $380 Million Acquisition of Radford Studio Center"."""
+    from ftworthtv.filters import industry_trade
+    assert industry_trade("Netflix Closes $380 Million Acquisition of Radford Studio Center")
+    assert industry_trade("Warner Bros. signs first-look deal with director")
+    assert not industry_trade("Netflix raises prices again for US subscribers")

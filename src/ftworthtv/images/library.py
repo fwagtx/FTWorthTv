@@ -79,7 +79,9 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("taco", "tacos", "taqueria"), "tacos"),
     (("apartments", "apartment complex", "mixed-use", "development", "construction", "developer", "rezoning"), "apartments"),
     (("home prices", "housing", "homebuyers", "mortgage", "homeowners", "neighborhood"), "housing"),
-    (("legislature", "lawmakers", "texas house", "texas senate", "governor", "abbott", "state rep", "state sen", "bill filed", "signed into law", "capitol", "attorney general", "paxton"), "capitol"),
+    # a person named in the headline is searched for, never stood in for by the Capitol: Nov 24, "Paxton drops series of
+    # high-profile Texas lawsuits after election loss" drew the Capitol building
+    (("legislature", "lawmakers", "texas house", "texas senate", "state rep", "state sen", "bill filed", "signed into law", "capitol"), "capitol"),
     # the national beat
     (("anthropic", "claude ai", "dario amodei"), "anthropic"),
     (("ipo", "initial public offering", "nasdaq", "nyse", "wall street", "stock market", "dow jones", "s&p 500", "shares soar", "shares fall", "market cap"), "stock-market"),

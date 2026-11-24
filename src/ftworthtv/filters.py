@@ -164,6 +164,18 @@ def awards_trade(title: str) -> bool:
     return bool(_AWARDS_TRADE_RE.search(_plain(title)))
 
 
+# the business of making entertainment is the trades' beat, not a national moment: Nov 24, Variety's "Netflix Closes $380
+# Million Acquisition of Radford Studio Center" (a Studio City soundstage lot) went to a draft with a TV remote control
+_INDUSTRY_TRADE_RE = re.compile(r"\b(?:closes?|completes?|finalizes?|seals?)\b.{0,40}\b(?:acquisition|purchase|sale|buyout)\b|"
+                                r"\bstudio (?:center|lot|campus|complex)\b|\bsoundstages?\b|\b(?:first-look|overall|production|"
+                                r"distribution|licensing|rights|output|carriage) (?:deal|pact|agreement)\b|\bbox office (?:preview|tracking)\b",
+                                re.I)
+
+
+def industry_trade(title: str) -> bool:
+    return bool(_INDUSTRY_TRADE_RE.search(title or ""))
+
+
 # a statewide magazine's culture, food and travel sections are features, not news: Nov 24, Texas Monthly's "Shana Feste's Road
 # to 'Heartland' Began and Ended in Texas" (texasmonthly.com/culture/) drafted as a Texas story
 _MAGAZINE_SECTION_RE = re.compile(r"texasmonthly\.com/(?:culture|arts-entertainment|food|travel|being-texan|the-culture|"
@@ -1132,6 +1144,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                     continue
                 if seen and awards_trade(story.title):
                     dropped.append((story, f"awards-season trade news about {seen}, not the moment itself"))
+                    continue
+                if seen and industry_trade(story.title):
+                    dropped.append((story, f"industry trade news about {seen}, not the moment itself"))
                     continue
                 if seen and any(watch_term(seen) in watch_title(t) for t in recent_titles):
                     dropped.append((story, f"national moment already covered: {seen}"))

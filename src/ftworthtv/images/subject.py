@@ -388,9 +388,21 @@ def _strip_trailing_verb(name: str) -> str:
     return " ".join(words)
 
 
+def full_name(name: str, body: str) -> str:
+    """A bare surname in a headline ("Paxton") takes the full name the story itself gives ("Ken Paxton"): a surname alone
+    finds relatives and namesakes (Angela Paxton, Bill Paxton)."""
+    if len(name.split()) != 1 or not name[:1].isupper() or name.isupper() or _known_subject(name.lower()):
+        return name
+    found = re.findall(r"\b([A-Z][a-z]+(?: [A-Z]\.)?) " + re.escape(name) + r"\b", body or "")
+    firsts = [f for f in found if f.lower() not in STOP and f.lower() not in ADJECTIVES and not _TITLED_RE.match(f"{f} {name}")
+              and f.lower() not in ("attorney", "general", "gov", "governor", "sen", "senator", "rep", "mayor", "president", "judge",
+                                    "coach", "chief", "commissioner", "sheriff", "officer", "deputy", "lt", "former", "acting")]
+    return f"{max(set(firsts), key=firsts.count)} {name}" if firsts else name
+
+
 def _plan_subject(title: str, body: str, category: str) -> SubjectPlan:
     names = [n for n in (resolve_titled(x, body) for x in entities(title, body)) if n]
-    names = [_strip_trailing_verb(n) for n in names]
+    names = [full_name(_strip_trailing_verb(n), body) for n in names]
     subjects = [n for n in names if not _is_place(n)]
     if _DEATH_RE.search(title or "") and any(looks_like_person(n) for n in subjects):
         subjects = [n for n in subjects if looks_like_person(n)]   # a death is about the person: no team, venue or honor photo
