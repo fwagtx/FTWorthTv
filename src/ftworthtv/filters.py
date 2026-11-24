@@ -226,7 +226,9 @@ _LOCAL_TEAMS_RE = re.compile(r"\b(?:tcu|horned frogs|frogs|cowboys|mavericks|mav
 
 _COLUMN_ROUNDUP_RE = re.compile(r"\b(?:winners and losers|takeaways|overreactions|what we learned|things we learned|observations from|"
                          r"instant analysis|hot takes?|mailbag|studs and duds|stock up,? stock down|"
-                         r"grades for (?:every|each|all) (?:team|player|game)|week \d+ grades)\b", re.I)   # Nov 22: CBS's "NFL Week 11 grades for every team"
+                         r"grades for (?:every|each|all) (?:team|player|game)|week \d+ grades)\b|"   # Nov 22: CBS's "NFL Week 11 grades for every team"
+                         # Nov 24: NBC 5's "Perfect offense, tolerable defense give Cowboys something to build on; will they?"
+                         r"[;:,]\s*(?:but\s+)?(?:will|can|could|should|would|do|does|did|is|are)\s+(?:they|he|she|it|we|you)\b[^?]{0,30}\?\s*$", re.I)
 
 
 _GAME_PRESSER_RE = re.compile(r"\b(?:post-?game|pre-?game)\b", re.I)

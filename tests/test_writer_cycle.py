@@ -1199,3 +1199,12 @@ def test_render_193_rules():
     for query, label in provider_queries(plan, title, "culture", people_allowed=True):
         if label == "entity:heartland":
             assert any("netflix" in w for w in query[2])
+
+
+def test_render_194_rules():
+    """Nov 24, render 194: NBC 5's "Perfect offense, tolerable defense give Cowboys something to build on; will they?" (its
+    Blue Star column) drafted as a sports text card."""
+    from ftworthtv.filters import roundup_column
+    assert roundup_column("Perfect offense, tolerable defense give Cowboys something to build on; will they?")
+    assert not roundup_column("Will it snow in Fort Worth this week?")
+    assert not roundup_column("Cowboys beat Titans 51-30 as Prescott throws four touchdowns")
