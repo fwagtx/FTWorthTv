@@ -154,6 +154,11 @@
       "reason": "daily cap for sports reached",
       "title": "SEC Championship Game scenarios: How Texas can join Georgia in Atlanta"
     },
+    "0656f21ae4a32165": {
+      "at": "2026-11-24T16:17:06.647155+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Volunteers Needed for Annual Point-in-Time Count Jan. 28, 2027"
+    },
     "0cacf719029c4008": {
       "at": "2026-11-23T16:51:43.125852+00:00",
       "reason": "daily cap for crime reached",
@@ -213,6 +218,11 @@
       "at": "2026-11-22T17:44:51.353367+00:00",
       "reason": "daily cap for crime reached",
       "title": "Man charged with killing Dallas mother in post-crash shooting on her birthday, police say"
+    },
+    "353b7e193ef52f16": {
+      "at": "2026-11-24T16:17:06.647166+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Dallas nonprofit collects Christmas gifts for families at risk of homelessness"
     },
     "39e11db7251ace11": {
       "at": "2026-11-23T19:55:45.917511+00:00",
@@ -1899,6 +1909,11 @@
     "105f049f04122d0a": {
       "at": "2026-11-22T19:19:33.795690+00:00",
       "reason": "KVUE's 1963 JFK archive replay to watch on its site, not today's news (archive rule added)"
+    },
+    "1dd4144257351681": {
+      "at": "2026-11-24T16:17:06.646020+00:00",
+      "reason": "KENS 5's 2027 San Antonio Rodeo final performers: another metro's event filed as Texas sports; rule added",
+      "title": "Parker McCollum, Lyle Lovett revealed as final performers announced for 2027 San Antonio Rodeo"
     },
     "1f6c147f0a13ad43": {
       "at": "2026-11-22T17:14:19.269083+00:00",
