@@ -6,7 +6,7 @@
     "2026-11-21": 16,
     "2026-11-22": 19,
     "2026-11-23": 20,
-    "2026-11-24": 6
+    "2026-11-24": 7
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -66,7 +66,7 @@
       "breaking": 1,
       "community": 1,
       "crime": 3,
-      "weather": 1
+      "weather": 2
     }
   },
   "daily_by_kind": {
@@ -103,6 +103,7 @@
       "wanted": 2
     },
     "2026-11-24": {
+      "nws_forecast": 1,
       "rss": 2,
       "video": 2,
       "wanted": 2
@@ -141,7 +142,7 @@
     },
     "2026-11-24": {
       "dfw": 1,
-      "local": 5
+      "local": 6
     }
   },
   "deferred": {
@@ -1702,6 +1703,19 @@
       "title": "Fort Worth forecast for Monday, November 23",
       "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
     },
+    "forecast-2026-11-24": {
+      "at": "2026-11-24T08:27:00-06:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": "440268323",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=2336406553190219837",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Tuesday, November 24",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
     "manual-anthropic-ipo-2026-11-19": {
       "at": "2026-11-19T20:00:00+00:00",
       "category": "business",
@@ -2008,6 +2022,10 @@
       "at": "2026-11-21T13:20:14.600210+00:00",
       "reason": "a U.S. Navy PTSD Awareness Month poster is a graphic, not a picture of the subject, and the caption was the headline alone"
     },
+    "c832f03c76bc50fc": {
+      "at": "2026-11-24T13:24:16.478705+00:00",
+      "reason": "WFAA's 'Texas high school football: Playoff matchups, schedule': a statewide listing with a one-line caption, and a Dell City ISD school bus"
+    },
     "c8616030f39edfa5": {
       "at": "2026-11-23T16:51:43.124763+00:00",
       "reason": "Variety's Justin Timberlake documentary trailer with a Fort Worth Stockyards beat photo: the planner read a lowercased text and lost every n"
@@ -2065,7 +2083,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 101,
+  "total_posts": 102,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2083,7 +2101,8 @@
     "commons-177882492",
     "lib-arlington-june-2020-2-at-t-stadium-jpg",
     "lib-aachen-forest-frosted-soil-01-jpg",
-    "lib-tamu-kyle-field-2022-01-14-4-jpg"
+    "lib-tamu-kyle-field-2022-01-14-4-jpg",
+    "clouds-lib-fort-worth-courthouse-jpg"
   ],
   "version": 1
 }
