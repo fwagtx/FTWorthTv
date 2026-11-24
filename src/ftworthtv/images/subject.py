@@ -625,8 +625,10 @@ SPORTS_ONLY_RESULT_WORDS = {" beat ", " beats ", " wins ", " won ", " loses ", "
                             " drop ", " blank ", " sweep ", " outlast ", " win at ", " win against ", "with win", "with a win",
                             " loss at ", " loss against ", " road win", " home win"}
 _PLAIN_TEAM_WORDS = {"texans", "stars", "bears", "cougars", "mustangs", "wings", "team", "fc"}   # "fewer Texans are hitting the road"
+# "series of" is a quantity, not a playoff series: Nov 24, "Paxton drops series of high-profile Texas lawsuits after election
+# loss" read as a game result and wanted a picture of the "game"
 _SPORTS_CUE_RE = re.compile(r"\b(?:tcu|smu|unt|uta|baylor|texas tech|texas a&m|byu|ucf|lsu|usc|ucla|notre dame|ohio state|penn state|"
-                            r"home finale|senior day|shootout|power play|hat trick|home runs?|homers?|series|"
+                            r"home finale|senior day|shootout|power play|hat trick|home runs?|homers?|series(?! of\b)|"
                             r"game|games|season|playoffs?|coach|quarterback|qb|touchdowns?|tds?|innings?|overtime|halftime|"
                             r"match|tournament|title|championship|bowl|league|conference|nfl|nba|mlb|nhl|mls|ncaa|big 12|sec|"
                             r"no\. \d+|\d{1,3}-\d{1,3}|vs\.?|football|basketball|baseball|soccer|hockey|volleyball|softball)\b")

@@ -409,3 +409,10 @@ def test_a_band_photo_may_be_taken_in_another_city():
     assert place_words("entity:u2", stamp, avoid) == ()
     assert place_words("entity:dickies arena", stamp, avoid) == avoid          # a building keeps the other-city check
     assert place_words("beat:skyline", stamp, avoid) == avoid
+
+
+def test_a_series_of_lawsuits_is_not_a_game():
+    """Nov 24, render 203: "Paxton drops series of high-profile Texas lawsuits after election loss" read as a game result."""
+    from ftworthtv.images.subject import happened
+    assert not happened("Paxton drops series of high-profile Texas lawsuits after election loss")
+    assert happened("Rangers drop series finale to Astros")
