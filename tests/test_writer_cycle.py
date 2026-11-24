@@ -1058,3 +1058,14 @@ def test_render_187_rules():
     assert out[1].startswith("The National Weather Service has issued a Freeze Warning")
     assert shared_run("the first freeze warning of the season takes effect Tuesday", "before the first freeze warning of the season takes effect tonight")
     assert not shared_run("Fort Worth police arrested a man on Monday night", "Fort Worth police said the woman was taken to a hospital")
+
+
+def test_render_188_rules():
+    """Nov 24, render 188: the City of Arlington's "Discover Unique Stories at the 'People Library' on Dec. 5, 2026" was
+    captioned only with its ad copy, no time and no place."""
+    from ftworthtv.writer import promo_blurb
+    assert promo_blurb("“Borrow” time with community members to hear about their experiences, careers and personal journeys. "
+                       "Ask questions, share conversations and discover new perspectives.")
+    assert not promo_blurb("Join the city for the tree lighting at Sundance Square at 6 p.m. Friday.")
+    assert not promo_blurb("The Fort Worth Public Library will host a 'People Library' on Dec. 5. Ask questions and hear stories.")
+    assert not promo_blurb("Arlington police are looking for Edgar CASTELLANOS, wanted for theft.")

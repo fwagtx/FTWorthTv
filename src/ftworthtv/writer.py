@@ -1046,6 +1046,25 @@ def introduce_speakers(caption: str, text: str) -> str:
     return out
 
 
+# an announcement that only tells the reader to do something, with no time and no place, is the organizer's ad copy: Nov 24,
+# the City of Arlington's "Discover Unique Stories at the 'People Library' on Dec. 5" captioned only "“Borrow” time with
+# community members ... Ask questions, share conversations and discover new perspectives."
+_IMPERATIVE_START_RE = re.compile(r"^[“\"‘']?(?:Borrow|Ask|Join|Discover|Come|Enjoy|Celebrate|Learn|Bring|Visit|Explore|Get|Register|"
+                                  r"Sign up|Grab|Don't miss|Don’t miss|Mark your calendars?|Experience|Shop|Try|Find|Meet|Take|"
+                                  r"Stop by|Head (?:out|over|to)|Check out|Listen|Watch|Share|Connect|Hear|Spend|Treat|Gather|Savor|"
+                                  r"Unwind|Escape|Make|Start|Kick off|Ring in|Support|Volunteer|Donate|Reserve|RSVP)\b", re.I)
+_WHEN_RE = re.compile(r"\b\d{1,2}(?::\d{2})?\s?(?:a\.?m\.?|p\.?m\.?)|\bnoon\b|\bmidnight\b|"
+                      r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b|"
+                      r"\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.? \d{1,2}\b", re.I)
+_WHERE_RE = re.compile(r"\b(?:at|in|on)\s+(?:the\s+)?[A-Z][A-Za-z.'’&-]+")
+
+
+def promo_blurb(caption: str) -> bool:
+    sentences = [x.strip() for x in _split_sentences(collapse_ws(caption or "")) if x.strip()]
+    return (bool(sentences) and all(_IMPERATIVE_START_RE.match(x) for x in sentences)
+            and not _WHEN_RE.search(caption or "") and not _WHERE_RE.search(caption or ""))
+
+
 def write_copy(story: Story, settings: Settings, now: datetime, *, force_template: bool = False) -> tuple[PostCopy, str]:
     if (story.source_kind == "rss" and not story.official and (story.category or "") == "sports"
             and not _sentences(story.summary or "") and cut_off(story.summary or "")):
@@ -1077,4 +1096,7 @@ def write_copy(story: Story, settings: Settings, now: datetime, *, force_templat
     out = finalize(copy, story, settings)
     out.caption = restate_relative_day(out.caption, story.summary or "", now, settings.tz)
     out.caption = introduce_speakers(out.caption, story.summary or "")
+    if story.source_kind == "rss" and promo_blurb(out.caption):
+        return out.model_copy(update={"skip": True, "skip_reason": "a promotional blurb: it only tells the reader to do something, "
+                                                                     "with no time and no place"}), writer
     return out, writer
