@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T14:33:18.258030+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-074318/03-how-to-watch-the-nfl-s-thanksgiving-day-games/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-074318/03-how-to-watch-the-nfl-s-thanksgiving-day-games/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "How to watch the NFL's Thanksgiving Day games",
+    "caption": "The NFL's Thanksgiving Day tradition features the Detroit Lions, Dallas Cowboys, and Baltimore Ravens, plus a live halftime show.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/sports/nfl/nfl-thanksgiving-day-games-where-to-watch/507-10453418-5a3c-4aa2-acae-60a2d7f288d1\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3361aaab85cdc7a2",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "How to watch the NFL's Thanksgiving Day games",
+    "summary": "The NFL's Thanksgiving Day tradition features the Detroit Lions, Dallas Cowboys, and Baltimore Ravens, plus a live halftime show.",
+    "url": "https://www.wfaa.com/article/sports/nfl/nfl-thanksgiving-day-games-where-to-watch/507-10453418-5a3c-4aa2-acae-60a2d7f288d1",
+    "published": "2026-11-24T13:24:23+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/CCT/images/b83dcbd1-41c0-4ff6-ba7f-52623da932bc/20261119T172140/b83dcbd1-41c0-4ff6-ba7f-52623da932bc_750x422.jpg",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7200000000000001,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.9112
+  }
+}
