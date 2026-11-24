@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T14:45:16.306101+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-082016/02-perfect-offense-tolerable-defense-give-cowboys-s/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-082016/02-perfect-offense-tolerable-defense-give-cowboys-s/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Perfect offense, tolerable defense give Cowboys something to build on; will they?",
+    "caption": "Every NFC East team won last week, as the Cowboys take on the Eagles with a third-string quarterback. The Giants remain atop the division.\n\nA week after Dak Prescott said it would be disrespectful to the rest of the NFL to believe his offense could score on every drive in a game, the Dallas Cowboys did just that.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/blue-star/perfect-offense-and-tolerable-defense-give-cowboys-something-to-build-on-but-will-they/4110139/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "b2820d52d45c93a2",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Perfect offense, tolerable defense give Cowboys something to build on; will they?",
+    "summary": "Every NFC East team won last week, as the Cowboys take on the Eagles with a third-string quarterback. The Giants remain atop the division. A week after Dak Prescott said it would be disrespectful to the rest of the NFL to believe his offense could score on every drive in a game, the Dallas Cowboys did just that. The seven touchdowns and a field goal on those eight possessions in a 51-30 victory over the Tennessee Titans would be part of the reason team owner Jerry Jones said it would be “inaccurate” to conclude the win was a result of the Cowboys pulling play-calling duties from defensive coordinator Christian Parker. Dallas made the move to have veteran coach Mike Pettine call the defensive plays after a 46-40 loss to San Francisco in which the Cowboys set a club record by allowing 584 yards in a home game. The opponent is another reason Jones didn’t want to pin the win over the…",
+    "url": "https://www.nbcdfw.com/news/sports/blue-star/perfect-offense-and-tolerable-defense-give-cowboys-something-to-build-on-but-will-they/4110139/",
+    "published": "2026-11-24T08:01:37+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2022/12/AP22364089728965.jpg?quality=85&strip=all&fit=5221,3481",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5065
+  }
+}
