@@ -6,7 +6,7 @@
     "2026-11-21": 16,
     "2026-11-22": 19,
     "2026-11-23": 20,
-    "2026-11-24": 18
+    "2026-11-24": 20
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -64,12 +64,12 @@
     },
     "2026-11-24": {
       "breaking": 1,
-      "business": 1,
+      "business": 2,
       "community": 3,
       "crime": 4,
       "events": 2,
       "other": 1,
-      "politics": 1,
+      "politics": 2,
       "sports": 1,
       "traffic": 2,
       "weather": 2
@@ -110,7 +110,7 @@
     },
     "2026-11-24": {
       "nws_forecast": 1,
-      "rss": 13,
+      "rss": 15,
       "video": 2,
       "wanted": 2
     }
@@ -148,8 +148,8 @@
     },
     "2026-11-24": {
       "dfw": 4,
-      "local": 13,
-      "texas": 1
+      "local": 14,
+      "texas": 2
     }
   },
   "deferred": {
@@ -172,6 +172,11 @@
       "at": "2026-11-23T04:12:50.906867+00:00",
       "reason": "daily cap for community reached",
       "title": "'Holiday in the Park' kicks off at Six Flags Over Texas with new entertainment and ticket deals"
+    },
+    "1083ec391421435f": {
+      "at": "2026-11-24T22:45:41.059257+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Bomb threats prompt security precautions at hospitals in The Woodlands, Texas Medical Center"
     },
     "11076d117cf531b7": {
       "at": "2026-11-23T19:55:45.917506+00:00",
@@ -308,6 +313,11 @@
       "reason": "daily cap for weather reached",
       "title": "‘Clashing Through The Snow’ Director Carlson Young Breaks Down Buc-ee’s Knockoff, Ryan’s Counsel From Chat GPT & Her Way Into The “Holiday H"
     },
+    "781a2a11fa89e7b5": {
+      "at": "2026-11-24T22:45:41.059260+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "NBC ‘Monitoring’ Storm That Could Ground Macy’s Thanksgiving Day Parade Balloons: ‘Decisions Will Be Made on Parade Morning’"
+    },
     "7bce8b6ecf54f8f3": {
       "at": "2026-11-23T23:50:26.017780+00:00",
       "reason": "daily cap for politics reached",
@@ -347,11 +357,6 @@
       "at": "2026-11-23T23:22:06.682844+00:00",
       "reason": "daily cap for community reached",
       "title": "Proteja a Mascotas, Plantas y Tuberías Durante las Bajas Temperaturas"
-    },
-    "9c9e5690aa4fc924": {
-      "at": "2026-11-22T22:44:12.587929+00:00",
-      "reason": "daily cap for sports reached",
-      "title": "Dominant Cowboys offense shines as they lead Titans 27-9 at halftime"
     },
     "9e3623e5a26d3fbf": {
       "at": "2026-11-22T23:43:02.890580+00:00",
@@ -525,7 +530,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-24T17:09:00-06:00",
+  "last_post_at": "2026-11-24T17:59:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -694,6 +699,19 @@
       "source": "Fort Worth Report",
       "title": "This Arlington teen started a new homecoming tradition for classmates without mums",
       "url": "https://fortworthreport.org/2026/11/24/this-arlington-teen-started-a-new-homecoming-tradition-for-classmates-without-mums/"
+    },
+    "32125dcf35433cb5": {
+      "at": "2026-11-24T17:59:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "441008771",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6583910862860104407",
+      "publisher": "metricool-session",
+      "scope": "texas",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Texas House District 93 winner remains unknown amid eligibility dispute",
+      "url": "https://www.fox4news.com/news/texas-house-district-93-winner-remains-unknown-amid-eligibility-dispute"
     },
     "3307c59443181c18": {
       "at": "2026-11-23T07:12:00-06:00",
@@ -1266,6 +1284,19 @@
       "source": "The Texas Tribune",
       "title": "“We need to be compensated”: Texas Tech chair pushed Fermi data center company for lucrative deals, despite university ties",
       "url": "https://feeds.texastribune.org/link/16799/17536360/texas-tech-cody-campbell-board-fermi-data-center-matador"
+    },
+    "917ebb94f9f4a2f2": {
+      "at": "2026-11-24T17:34:00-06:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "441008661",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5954826893733282799",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth recommends experienced developer for convention center hotel project",
+      "url": "https://fortworthreport.org/2026/11/24/fort-worth-recommends-experienced-developer-for-convention-center-hotel-project/"
     },
     "9393ab4e851866b4": {
       "at": "2026-11-24T07:12:00-06:00",
@@ -2377,7 +2408,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 113,
+  "total_posts": 115,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2402,7 +2433,9 @@
     "lib-i-35w-south-exit-82-fm2449-49166504151-jpg",
     "commons-145438696",
     "lib-nov2025-dallas-mavericks-game-panorama-jpg",
-    "commons-145047354"
+    "commons-145047354",
+    "lib-fort-worth-june-2016-62-fort-worth-convention-center-jpg",
+    "lib-2026-05-26-texas-state-capitol-01-jpg"
   ],
   "version": 1
 }
