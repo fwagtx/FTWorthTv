@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-104250/01-at-t-stadium-lights-up-kettle-red/post.jpg",
+    "credit": "Photo: Wikimedia Commons contributor via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:AT%26T_Stadium_Aerial.jpeg",
+    "photo_id": "commons-74375189",
+    "subject": "entity:at&t stadium"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-104250/01-at-t-stadium-lights-up-kettle-red/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "AT&T Stadium lights up kettle red",
+    "caption": "The Dallas Cowboys and The Salvation Army mark a major milestone in their 30-year partnership Monday with a first-of-its-kind lighting ceremony at AT&T Stadium.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/video/at-t-stadium-lights-up-kettle-red/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "70dc9b0f8b8849ee",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "AT&T Stadium lights up kettle red",
+    "summary": "The Dallas Cowboys and The Salvation Army mark a major milestone in their 30-year partnership Monday with a first-of-its-kind lighting ceremony at AT&T Stadium, kicking off Thanksgiving week and celebrating the annual Red Kettle Campaign.",
+    "url": "https://www.cbsnews.com/texas/video/at-t-stadium-lights-up-kettle-red/",
+    "published": "2026-11-24T04:12:00+00:00",
+    "category_hint": null,
+    "image_url": "https://assets1.cbsnewsstatic.com/hub/i/r/2026/11/24/5deeb905-8529-4002-9ef4-c2f03ee07244/thumbnail/1024x576/fc381458861175db76a140821dd12c59/3f1a46da2bea791d22381ef99f084684.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 3,
+    "score": 0.2381
+  }
+}
