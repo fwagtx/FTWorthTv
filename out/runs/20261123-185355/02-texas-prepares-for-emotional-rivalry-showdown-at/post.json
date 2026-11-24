@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T01:18:55.372154+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-185355/02-texas-prepares-for-emotional-rivalry-showdown-at/post.jpg",
+    "credit": "Photo: Oldag07 via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:TAMU_Kyle_Field_2022-01-14_4.jpg",
+    "photo_id": "lib-tamu-kyle-field-2022-01-14-4-jpg",
+    "subject": "topic:texas-am"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-185355/02-texas-prepares-for-emotional-rivalry-showdown-at/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Texas prepares for emotional rivalry showdown at Texas A&M as postseason stakes rise",
+    "caption": "No. 5 Texas couldn't have asked for a much better performance heading into rivalry week. But after dismantling Arkansas 45-3 on Saturday, the Longhorns face a different challenge: keeping their emotions in check with their postseason hopes hanging in the balance.",
+    "first_comment": "Source: KXAN Austin https://www.kxan.com/sports-general/horns-report/texas-prepares-for-emotional-rivalry-showdown-at-texas-am-as-postseason-stakes-rise/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "faa0fc0c17804213",
+    "source": "KXAN Austin",
+    "source_kind": "rss",
+    "title": "Texas prepares for emotional rivalry showdown at Texas A&M as postseason stakes rise",
+    "summary": "No. 5 Texas couldn't have asked for a much better performance heading into rivalry week. But after dismantling Arkansas 45-3 on Saturday, the Longhorns face a different challenge: keeping their emotions in check with their postseason hopes hanging in the balance.",
+    "url": "https://www.kxan.com/sports-general/horns-report/texas-prepares-for-emotional-rivalry-showdown-at-texas-am-as-postseason-stakes-rise/",
+    "published": "2026-11-24T00:46:28+00:00",
+    "category_hint": null,
+    "image_url": "https://www.kxan.com/wp-content/uploads/sites/40/2025/11/AP25333166785118.jpg?w=900",
+    "image_credit": "Photo: KXAN Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.54,
+    "extra": {
+      "feed_title": "KXAN Austin",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.6986
+  }
+}
