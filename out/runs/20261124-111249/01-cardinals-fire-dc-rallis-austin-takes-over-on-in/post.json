@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-111249/01-cardinals-fire-dc-rallis-austin-takes-over-on-in/post.jpg",
+    "credit": "Photo: Whiskey5jda via Wikimedia Commons (CC BY-SA 3.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_Fire_Department_Rescue_14.jpg",
+    "photo_id": "lib-fort-worth-fire-department-rescue-14-jpg",
+    "subject": "topic:fire"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-111249/01-cardinals-fire-dc-rallis-austin-takes-over-on-in/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Cardinals fire DC Rallis; Austin takes over on interim basis",
+    "caption": "The Cardinals have fired defensive coordinator Nick Rallis, coach Mike LaFleur announced Monday. Senior defensive assistant coach Teryl Austin will take over as interim defensive coordinator.",
+    "first_comment": "Source: ESPN NFL https://www.espn.com/nfl/story/_/id/50575938/cardinals-fire-defensive-coordinator-nick-rallis-sources-say\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "439d83114736ca15",
+    "source": "ESPN NFL",
+    "source_kind": "rss",
+    "title": "Cardinals fire DC Rallis; Austin takes over on interim basis",
+    "summary": "The Cardinals have fired defensive coordinator Nick Rallis, coach Mike LaFleur announced Monday. TEMPE, Ariz. -- The Arizona Cardinals fired defensive coordinator Nick Rallis on Monday, first-year head coach Mike LaFleur announced on Monday. The move came a day after the Cardinals gave up 34 points to the Kansas City Chiefs , the second straight game Arizona allowed 34 points and the eighth time in 11 games this season that the defense gave up 30 or more points. Senior defensive assistant coach Teryl Austin will take over as interim defensive coordinator. LaFleur said the decision to fire Rallis was his alone and that it just felt right to make it Monday morning. \"I just felt in my heart this morning that we needed a change,\" LaFleur said. \"We needed a fresh perspective, a fresh voice, albeit the foundation of what T.A.'s going to do is not necessarily what he was able to put in…",
+    "url": "https://www.espn.com/nfl/story/_/id/50575938/cardinals-fire-defensive-coordinator-nick-rallis-sources-say",
+    "published": "2026-11-24T15:56:15+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN NFL",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.63,
+    "extra": {
+      "feed_title": "www.espn.com - NFL",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.7135
+  }
+}
