@@ -398,3 +398,14 @@ def test_commons_prefix_searches_commons_only(settings, monkeypatch):
     monkeypatch.setattr(providers, "_search_started", [])
     assert providers._search("commons:U2 2024", settings) == []
     assert calls == [("wikimedia", "U2 2024")]
+
+
+def test_a_band_photo_may_be_taken_in_another_city():
+    """Nov 24, render 203: "U2 performing at Sphere in Las Vegas" carried "Nevada" and was refused for U2's Arlington show."""
+    from datetime import datetime, timezone
+    from ftworthtv.images import place_words
+    stamp = datetime(2026, 11, 24, tzinfo=timezone.utc)
+    avoid = ("houston", "nevada")
+    assert place_words("entity:u2", stamp, avoid) == ()
+    assert place_words("entity:dickies arena", stamp, avoid) == avoid          # a building keeps the other-city check
+    assert place_words("beat:skyline", stamp, avoid) == avoid

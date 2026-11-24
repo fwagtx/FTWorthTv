@@ -95,6 +95,14 @@ def short_agency(name: str) -> str:
     return name
 
 
+def place_words(label: str, stamp, avoid: tuple[str, ...]) -> tuple[str, ...]:
+    """The other-city words a photo for this subject must not carry. A person, band or team is the same wherever the picture
+    was taken: Nov 24, "U2 performing at Sphere in Las Vegas" (Nevada) was refused for a story about U2 in Arlington. Places,
+    buildings and beats keep the check (a "Texas skyline" that is really Houston)."""
+    from .subject import photo_age_bar
+    return () if photo_age_bar(label, stamp) else avoid
+
+
 def _download(url: str, dest: Path, headers: dict | None = None) -> Path | None:
     try:
         return download_image(url, dest, headers=headers)
@@ -300,7 +308,8 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                 if visual_event and not recent:
                     continue                                  # only a picture taken at the event will do
                 bar = max(recent_after if recent else "", photo_age_bar(lab, stamp_all))   # a 2012 team photo is not the 2026 team
-                cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=avoid, fallback=sp.mode == "beat",
+                place_check = place_words(lab, stamp_all, avoid)
+                cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=place_check, fallback=sp.mode == "beat",
                                   taken_after=bar)
                 if not cand:
                     continue
