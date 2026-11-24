@@ -5,7 +5,7 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 18
+    "2026-11-23": 20
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -53,11 +53,12 @@
       "weather": 2
     },
     "2026-11-23": {
+      "breaking": 1,
       "community": 3,
       "crime": 4,
       "culture": 1,
       "politics": 3,
-      "sports": 4,
+      "sports": 5,
       "weather": 3
     }
   },
@@ -90,7 +91,7 @@
     "2026-11-23": {
       "nws_alert": 1,
       "nws_forecast": 1,
-      "rss": 12,
+      "rss": 14,
       "video": 2,
       "wanted": 2
     }
@@ -122,9 +123,9 @@
     },
     "2026-11-23": {
       "dfw": 1,
-      "local": 15,
+      "local": 16,
       "national": 1,
-      "texas": 1
+      "texas": 2
     }
   },
   "deferred": {
@@ -450,7 +451,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T17:55:00-06:00",
+  "last_post_at": "2026-11-23T19:25:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -1397,6 +1398,19 @@
       "title": "City Improves Pedestrian Safety, Access in Entertainment District",
       "url": "https://www.arlingtontx.gov/News-Articles/2026/November/City-Improves-Pedestrian-Safety-Access-in-Entertainment-District"
     },
+    "e10f1c3863a282c4": {
+      "at": "2026-11-23T19:00:00-06:00",
+      "category": "breaking",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439658556",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5809780566077557037",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Police, SWAT units responding after 1 shot by barricaded suspect in Arlington home",
+      "url": "https://www.fox4news.com/news/police-swat-units-responding-after-1-shot-by-barricaded-suspect-in-arlington-home"
+    },
     "e2216bfbb0df3d8a": {
       "at": "2026-11-23T17:55:00-06:00",
       "category": "sports",
@@ -1488,6 +1502,19 @@
       "source": "Fort Worth Report",
       "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
       "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/"
+    },
+    "faa0fc0c17804213": {
+      "at": "2026-11-23T19:25:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439658814",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=6038820500717521323",
+      "publisher": "metricool-session",
+      "scope": "texas",
+      "source": "KXAN Austin",
+      "title": "Texas prepares for emotional rivalry showdown at Texas A&M as postseason stakes rise",
+      "url": "https://www.kxan.com/sports-general/horns-report/texas-prepares-for-emotional-rivalry-showdown-at-texas-am-as-postseason-stakes-rise/"
     },
     "fce28073d4f440ec": {
       "at": "2026-11-21T08:50:00-06:00",
@@ -1927,7 +1954,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 93,
+  "total_posts": 95,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -1944,7 +1971,8 @@
     "sunshine-lib-downtown-fort-worth-jpg",
     "commons-177882492",
     "lib-arlington-june-2020-2-at-t-stadium-jpg",
-    "lib-aachen-forest-frosted-soil-01-jpg"
+    "lib-aachen-forest-frosted-soil-01-jpg",
+    "lib-tamu-kyle-field-2022-01-14-4-jpg"
   ],
   "version": 1
 }
