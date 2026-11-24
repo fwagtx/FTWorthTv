@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T16:05:29.922092+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-091529/03-arch-manning-may-be-ready-to-leave-texas-is-he-r/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-091529/03-arch-manning-may-be-ready-to-leave-texas-is-he-r/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Arch Manning may be ready to leave Texas. Is he ready to start in the NFL?",
+    "caption": "The Texas quarterback can make throws few prospects in the 2027 class can match. Much of that is a function of the world we now live in and, of course, that last name.\n\nIt's also not an exaggeration to point out that few (any?) high-profile quarterbacks have been so incredibly divisive.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/college-football/news/arch-manning-nfl-draft-outlook-if-leaving-texas/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "e5fb3840dffa90e8",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "Arch Manning may be ready to leave Texas. Is he ready to start in the NFL?",
+    "summary": "The Texas quarterback can make throws few prospects in the 2027 class can match. An NFL scouting director explains why he'd still advise Manning to spend another year in college It's not an exaggeration to say that no quarterback in college football history has been consistently under the microscope like Arch Manning . Not Peyton or Eli. Not Tim Tebow. Not even Johnny Manziel. Much of that is a function of the world we now live in and, of course, that last name. It's also not an exaggeration to point out that few (any?) high-profile quarterbacks have been so incredibly divisive. Watch Manning's best throws and it's easy to understand why he was frequently talked about as the top prospect in the class. Watch some of his worst decisions and you'll wonder how someone with his talent, experience – and last name – could continue making the same mistakes for two seasons now. We've written…",
+    "url": "https://www.cbssports.com/college-football/news/arch-manning-nfl-draft-outlook-if-leaving-texas/",
+    "published": "2026-11-24T14:54:23+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/23/ba95390e-5388-4342-961a-95eba3d19fa0/archmanningtexas.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.45,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5671
+  }
+}

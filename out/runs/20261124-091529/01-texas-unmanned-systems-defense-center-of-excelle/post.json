@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-091529/01-texas-unmanned-systems-defense-center-of-excelle/post.jpg",
+    "credit": "Photo: U.S. Air Force photo by Senior Airman Catherine Daniel via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:39th_CES,_Spanish_allies_sharpen_base_defense_posture_during_Operation_Seesaw_(10114514).jpg",
+    "photo_id": "commons-203723222",
+    "subject": "entity:defense"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-091529/01-texas-unmanned-systems-defense-center-of-excelle/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Texas Unmanned Systems Defense Center of Excellence gains momentum as national Defense industry leaders…",
+    "caption": "Seven companies commit, while additional companies explore participation in growing defense ecosystem focused on manufacturing, testing, workforce development a Seven companies commit.",
+    "first_comment": "Source: Fort Worth Business Press https://fortworthbusiness.com/business/texas-unmanned-systems-defense-center-of-excellence-gains-momentum-as-national-defense-industry-leaders-rally-around-shared-vision/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "d612e22e4b79cd07",
+    "source": "Fort Worth Business Press",
+    "source_kind": "rss",
+    "title": "TEXAS UNMANNED SYSTEMS DEFENSE CENTER OF EXCELLENCE GAINS MOMENTUM AS NATIONAL DEFENSE INDUSTRY LEADERS RALLY AROUND SHARED VISION",
+    "summary": "Seven companies commit, while additional companies explore participation in growing defense ecosystem focused on manufacturing, testing, workforce development a Seven companies commit, while additional companies explore participation in growing defense ecosystem focused on manufacturing, testing, workforce development and autonomous systems. MINERAL WELLS, Texas Nov. 23, 2026 — XMX Defense, an American defense technology company developing advanced unmanned aircraft systems (UAS), today announced that seven companies from across the United States have committed to joining the Texas Unmanned Systems Defense Center of Excellence (COE), a private-sector initiative established and led by XMX at Mineral Wells Regional Airport. Four additional companies are in discussions about participating, and XMX leadership is actively soliciting interest from other organizations. For XMX Defense…",
+    "url": "https://fortworthbusiness.com/business/texas-unmanned-systems-defense-center-of-excellence-gains-momentum-as-national-defense-industry-leaders-rally-around-shared-vision/",
+    "published": "2026-11-24T05:01:22+00:00",
+    "category_hint": "business",
+    "image_url": null,
+    "image_credit": "Photo: Fort Worth Business Press",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "The Business Press",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "business",
+    "relevance": 0,
+    "score": 0.1226
+  }
+}
