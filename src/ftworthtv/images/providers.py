@@ -385,26 +385,40 @@ def _is_timeout(exc: Exception) -> bool:
 
 
 def _search(query: str, settings) -> list[PhotoCandidate]:
+    """The first provider's results for the query."""
+    return next(_search_each(query, settings), [])
+
+
+def _search_each(query: str, settings):
+    """Each provider's results in turn, so find_photo can move on when none of one provider's files will do: Nov 24,
+    Openverse's 15 results for "U2" were Dublin graffiti walls, a spy plane and 2005-2009 concerts, while Commons had
+    U2 on tour in 2018 and at the Sphere in 2023."""
     if query.lower().startswith(("category:", "fresh:")) and "wikimedia" in _PROVIDERS_DOWN:
-        return []
+        return
     if _over_budget():
-        return []
+        return
     if query.lower().startswith("category:"):   # Commons category lookup (venues, landmarks)
         try:
-            return search_wikimedia_category(query.split(":", 1)[1].strip())
+            found = search_wikimedia_category(query.split(":", 1)[1].strip())
         except Exception as exc:
             log.warning("wikimedia category failed for %r: %s", query, exc)
             if _is_timeout(exc):
                 _PROVIDERS_DOWN.add("wikimedia")
-            return []
+            return
+        if found:
+            yield found
+        return
     if query.lower().startswith("fresh:"):      # newest Commons uploads about the subject first (events, games, ceremonies)
         try:
-            return search_wikimedia(query.split(":", 1)[1].strip(), fresh=True)
+            found = search_wikimedia(query.split(":", 1)[1].strip(), fresh=True)
         except Exception as exc:
             log.warning("wikimedia fresh search failed for %r: %s", query, exc)
             if _is_timeout(exc):
                 _PROVIDERS_DOWN.add("wikimedia")
-            return []
+            return
+        if found:
+            yield found
+        return
     keyed = {
         "pexels": lambda: search_pexels(query, settings.pexels_api_key) if settings.pexels_api_key else [],
         "unsplash": lambda: search_unsplash(query, settings.unsplash_access_key) if getattr(settings, "unsplash_access_key", None) else [],
@@ -415,7 +429,7 @@ def _search(query: str, settings) -> list[PhotoCandidate]:
     }
     for name in provider_order(settings):
         fn = keyed.get(name)
-        if not fn or name in _PROVIDERS_DOWN:
+        if not fn or name in _PROVIDERS_DOWN or _over_budget():
             continue
         try:
             found = fn()
@@ -427,8 +441,7 @@ def _search(query: str, settings) -> list[PhotoCandidate]:
             continue
         if found:
             log.info("photo: %s gave %d result(s) for %r", name, len(found), query)
-            return found
-    return []
+            yield found
 
 
 def find_photo(query: "str | list[str]", settings, state: State | None = None, exclude: set[str] | None = None,
@@ -452,7 +465,7 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
         if not q or q.lower() in tried:
             continue
         tried.add(q.lower())
-        for cand in _search(q, settings):
+        for cand in (c for found in _search_each(q, settings) for c in found):
             if unsafe_photo(cand) or not_a_photo(cand) or archive_photo(cand) or stale_photo(cand) or other_production(cand):
                 continue
             if exclude and (cand.id in exclude or cand.family in exclude):

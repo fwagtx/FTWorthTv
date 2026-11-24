@@ -862,9 +862,12 @@ def _plain(title: str) -> str:
 
 
 _TITLE_CRIME_RE = re.compile(r"\b(?:convicted|sentenced|arrested|(?<!cardiac )arrests?|charged with|accused of|indicted|pleads? guilty|found guilty|"
+                             r"charged in(?=.{0,60}\b(?:scam|fraud|scheme|murder|killing|death|shooting|stabbing|robbery|attack|case|theft|"
+                             r"heist|assault|kidnapping|crash)\b)|"
                              r"wanted|murder|homicide|shooting|stabbing|robbery|burglar\w*|ponzi|fraud|assault|kidnapp\w*|manhunt|suspect|"
                              r"solicit\w* (?:a |an )?(?:minor|child|teen|\d{1,2}-year-old|sex|prostitution)|solicitation of a minor)\b", re.I)
 # Nov 22: "North Texas traffic stop leads to arrest of armed man accused of soliciting 15-year-old on Snapchat" was filed as traffic
+# Nov 24: "Georgia prison inmates charged in $1 million jury duty scam targeting North Texans" was filed as "other"
 
 
 _NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b"

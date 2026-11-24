@@ -112,7 +112,7 @@ def test_find_photo_skips_a_show_photo_when_the_story_is_the_building(monkeypatc
                           source_url="https://commons.wikimedia.org/w/index.php?curid=1", width=2000, height=1300, alt="TWICE World Tour at Dickies Arena")
     bldg = PhotoCandidate(id="c2", url="https://x/2.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
                           source_url="https://commons.wikimedia.org/wiki/File:Dickies_Arena_exterior.jpg", width=2000, height=1300, alt="Dickies Arena exterior")
-    monkeypatch.setattr(providers, "_search", lambda q, s: [show, bldg])
+    monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[show, bldg]]))
     got = find_photo([("category:Dickies Arena", providers.PERFORMANCE_WORDS, ("dickies arena",))], settings, None, fallback=False)
     assert got is bldg
 
@@ -128,9 +128,9 @@ def test_a_description_mention_is_not_a_photo_of_the_subject(monkeypatch, settin
     cobb = PhotoCandidate(id="c3", url="https://x/3.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
                           source_url="https://commons.wikimedia.org/wiki/File:Ty_Cobb_at_Fort_Myers.jpg", width=2000, height=1300, alt="",
                           title="Ty Cobb, Thomas Edison, and Connie Mack at a Fort Myers baseball park")
-    monkeypatch.setattr(providers, "_search", lambda q, s: [stranger, cobb, real])
+    monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[stranger, cobb, real]]))
     assert find_photo([("Ty Myers", (), ("ty myers",))], settings, None, fallback=False) is real
-    monkeypatch.setattr(providers, "_search", lambda q, s: [stranger, cobb])
+    monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[stranger, cobb]]))
     assert find_photo([("Ty Myers", (), ("ty myers",))], settings, None, fallback=False) is None
 
 
@@ -360,3 +360,18 @@ def test_a_team_that_fires_a_coach_is_not_a_fire_department():
     assert plan.primary == "Cardinals" and "fire" not in plan.fallback_topics and plan.mode != "institution"
     assert "fire" in plan_subject("Fort Worth Fire crews battle blaze at vacant house", "", "breaking").fallback_topics
     assert "police" in plan_subject("Fort Worth police set new policies for Flock cameras", "", "crime").fallback_topics
+
+
+def test_residents_are_not_a_photo_subject():
+    """Nov 24, render 201: "... jury duty scam targeting North Texans" searched photos of "North Texans"."""
+    assert "North Texans" not in entities("Georgia prison inmates charged in $1 million jury duty scam targeting North Texans", "")
+    from ftworthtv.images.subject import DEMONYM_RE
+    assert not DEMONYM_RE.match("texans") and not DEMONYM_RE.match("houston texans")   # the team is still a subject
+
+
+def test_a_bands_tour_photo_counts_as_context():
+    """Nov 24, render 201: "U2 performing in Paris ... on Experience and Innocence Tour" lacked "bring", "greatest" and "world"."""
+    from ftworthtv.images.subject import _context_words
+    ctx = _context_words("U2 will bring 'Greatest Show' to Arlington on 2027 world tour", "U2")
+    assert "tour" in ctx and "performing" in ctx and "concert" in ctx
+    assert "tour" not in _context_words("CMA Awards nominees announced", "CMA")

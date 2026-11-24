@@ -93,7 +93,7 @@ def test_unsafe_photos_are_filtered(settings, monkeypatch):
                                    source_url="https://flickr.com/p/1", alt="Lingerie Football League game")
     good = providers.PhotoCandidate(id="openverse-2", url="https://x/b.jpg", credit="Photo: B", license="openverse-cc", provider="openverse",
                                     source_url="https://flickr.com/p/2", alt="AT&T Stadium exterior")
-    monkeypatch.setattr(providers, "_search", lambda q, s: [bad, good])
+    monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[bad, good]]))
     assert providers.find_photo("football stadium Texas", settings).id == "openverse-2"
 
 
@@ -153,12 +153,12 @@ def test_required_phrase_alternatives(settings):
     import ftworthtv.images.providers as prov
     cands = [PhotoCandidate(id="a", provider="wikimedia", url="u", source_url="https://commons.wikimedia.org/wiki/File:APHIS_inspection_San_Antonio_Zoo.jpg", credit="c", license="cc0", title="APHIS inspection at San Antonio Zoo"),
              PhotoCandidate(id="b", provider="wikimedia", url="u", source_url="https://commons.wikimedia.org/wiki/File:Hippopotamus_at_San_Antonio_Zoo.jpg", credit="c", license="cc0", title="Hippopotamus at San Antonio Zoo")]
-    orig = prov._search
+    orig = prov._search_each
     try:
-        prov._search = lambda *a, **k: list(cands)
+        prov._search_each = lambda *a, **k: iter([list(cands)])
         got = find_photo([("san antonio zoo", (), ("san antonio zoo", "hippo|hippopotamus"))], settings, fallback=False)
     finally:
-        prov._search = orig
+        prov._search_each = orig
     assert got is not None and got.id == "b"
 
 
@@ -269,3 +269,23 @@ def test_photo_searches_stop_when_the_run_budget_is_spent(monkeypatch, settings)
     monkeypatch.setattr(providers, "_search_started", [time.monotonic() - providers.SEARCH_BUDGET_S - 1])
     monkeypatch.setattr(providers, "search_wikimedia", lambda q, fresh=False: (_ for _ in ()).throw(AssertionError("searched after the budget")))
     assert providers._search("fresh:Parade of Lights", settings) == []
+
+
+def test_find_photo_moves_to_the_next_provider_when_none_will_do(settings, monkeypatch):
+    """Nov 24, render 201: Openverse's 15 results for "U2" were graffiti walls, a spy plane and 2005-2009 concerts; the search
+    stopped there while Commons had U2 on tour in 2018."""
+    from ftworthtv.images import providers
+    wall = providers.PhotoCandidate(id="openverse-1", url="https://x/a.jpg", credit="Photo: A", license="openverse-cc", provider="openverse",
+                                    source_url="https://flickr.com/p/1", title="U2 360 Tour Barcelona 2009", taken="2009-07-02")
+    tour = providers.PhotoCandidate(id="commons-1", url="https://x/b.jpg", credit="Photo: B", license="wikimedia-cc", provider="wikimedia",
+                                    source_url="https://commons.wikimedia.org/wiki/File:U2_Paris_2018.jpg",
+                                    title="U2 performing in Paris on Sept 8 2018 on Experience and Innocence Tour", taken="2018-09-08")
+    calls = []
+    monkeypatch.setattr(providers, "search_openverse", lambda q, s=None, **k: (calls.append("openverse"), [wall])[1])
+    monkeypatch.setattr(providers, "search_wikimedia", lambda q, **k: (calls.append("wikimedia"), [tour])[1])
+    monkeypatch.setattr(providers, "provider_order", lambda s: ["openverse", "wikimedia"])
+    monkeypatch.setattr(providers, "_PROVIDERS_DOWN", set())
+    monkeypatch.setattr(providers, "_search_started", [])
+    got = providers.find_photo([("U2", (), ("u2",))], settings, fallback=False)
+    assert got is not None and got.id == "commons-1" and calls == ["openverse", "wikimedia"]
+    assert providers._search("U2", settings) == [wall]               # the first provider's results, as before

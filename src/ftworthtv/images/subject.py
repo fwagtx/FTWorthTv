@@ -243,6 +243,11 @@ def _sentence_case(tokens: list[str], title: str, body: str) -> tuple[list[str],
     return out, set()
 
 
+# Residents, not a subject: Nov 24, "... jury duty scam targeting North Texans" searched for photos of "North Texans"
+DEMONYM_RE = re.compile(r"^(?:(?:north|south|east|west|central|north central|northeast|northwest|southeast|southwest)\s+texans|"
+                        r"fort worthians|dallasites|tarrant countians|arlingtonians|texas residents|north texas residents)$")
+
+
 def entities(title: str, body: str = "") -> list[str]:
     """Named subjects in a headline: runs of capitalised words, kept when they are more than one word, possessive, an
     acronym, or appear capitalised again mid-sentence in the body (so 'Largest enrollment drop' names nothing, while
@@ -302,7 +307,7 @@ def entities(title: str, body: str = "") -> list[str]:
         if any(h in low for h in HONORS):
             i = max(j, i + 1)                              # "Hall of Fame broadcaster Tom Jackson": an honor, not a subject (Nov 22:
             continue                                       # "Hall of Fame" found another man at a hall of fame induction)
-        keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and low not in COMMON_NOUNS and low not in ADJECTIVES and (
+        keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and low not in COMMON_NOUNS and low not in ADJECTIVES and not DEMONYM_RE.match(low) and (
             len(words) > 1 or possessive or acronym or low in body_mid or _known_subject(low) or not seg_start and low not in STOP)
         # a lone capitalised word that opens a segment ("Made in Tarrant: Gobble up barbecue ...") is capitalised for the
         # colon, not because it names anything (Nov 22: "Gobble" was searched for a barbecue restaurant story)
@@ -658,16 +663,26 @@ _GENERIC_CONTEXT = {"winners", "winner", "after", "before", "about", "their", "t
                     "report", "could", "would", "should", "still", "again", "every", "never", "always", "people"}
 
 
+_SHORT_CONTEXT = {"tour", "band", "show", "song", "film"}
+# a band's tour headline takes a photo of the band on stage: Nov 24, "U2 will bring 'Greatest Show' to Arlington on 2027 world
+# tour" needed "bring", "greatest" or "world" in the file name, and "U2 performing in Paris ... on Experience and Innocence
+# Tour" had none of them
+_STAGE_CONTEXT = ("tour", "tours", "concert", "concerts", "performing", "performs", "perform", "live", "stage", "show")
+
+
 def _context_words(title: str, name: str) -> list[str]:
     """The headline's other distinctive words ("awards", "artist", "jelly"), singular and plural, that a photo of a bare
     acronym must also carry: CMA is the Country Music Association and a Volvo car platform."""
     out: list[str] = []
-    for w in re.findall(r"[a-z]+", (title or "").lower()):
-        if len(w) < 5 or w == name.lower() or w in STOP or w in _GENERIC_CONTEXT or w in PLACES:
+    words = re.findall(r"[a-z]+", (title or "").lower())
+    for w in words:
+        if (len(w) < 5 and w not in _SHORT_CONTEXT) or w == name.lower() or w in STOP or w in _GENERIC_CONTEXT or w in PLACES:
             continue
         for form in (w, w[:-1] if w.endswith("s") else f"{w}s"):
             if form not in out:
                 out.append(form)
+    if any(w in ("tour", "concert", "concerts") for w in words):
+        out += [w for w in _STAGE_CONTEXT if w not in out]
     return out
 
 

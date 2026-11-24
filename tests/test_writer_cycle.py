@@ -1,5 +1,5 @@
 """Lessons from the first session-publishing cycles (Nov 19): what the template writer got wrong and must not again."""
-from datetime import timedelta
+from datetime import datetime, timedelta, timezone
 
 from ftworthtv.models import Story
 from ftworthtv.writer import _sentences, charge_phrase, template_copy
@@ -280,9 +280,9 @@ def test_a_text_date_on_commons_cannot_pass_a_date_bar(settings, monkeypatch):
     fresh = providers.PhotoCandidate(id="commons-3", url="https://x/c.jpg", credit="Photo: C", license="wikimedia-cc",
                                      provider="wikimedia", source_url="https://commons.wikimedia.org/wiki/File:Sonny_Dykes_TCU_Utah.jpg",
                                      title="Sonny Dykes TCU Utah", taken="21 November 2026")
-    monkeypatch.setattr(providers, "_search", lambda q, s: [old, undated_name])
+    monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[old, undated_name]]))
     assert providers.find_photo("fresh:Sonny Dykes", settings, fallback=False, taken_after="2026-11-08") is None
-    monkeypatch.setattr(providers, "_search", lambda q, s: [old, undated_name, fresh])
+    monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[old, undated_name, fresh]]))
     assert providers.find_photo("fresh:Sonny Dykes", settings, fallback=False, taken_after="2026-11-08").id == "commons-3"
     assert providers.iso_date("July 11, 2016") == "2016-07-11" and providers.iso_date("2016:07:11 14:22:05") == "2016-07-11"
     assert providers.iso_date("unknown") == ""
@@ -1285,3 +1285,13 @@ def test_render_199_rules():
     assert station_video_page("https://www.cbsnews.com/texas/video/at-t-stadium-lights-up-kettle-red/")
     assert not station_video_page("https://www.cbsnews.com/texas/news/cowboys-salvation-army-to-illuminate-at-t-stadium-red/")
     assert happened("AT&T Stadium lights up kettle red")
+
+
+def test_charged_in_a_scam_is_crime():
+    """Nov 24, render 201: FOX 4's "Georgia prison inmates charged in $1 million jury duty scam targeting North Texans" was "other"."""
+    from ftworthtv.filters import infer_category
+    st = Story(id="x", source="FOX 4 Dallas-Fort Worth", source_kind="rss", url="https://example.com/x", published=datetime.now(timezone.utc),
+               title="Georgia prison inmates charged in $1 million jury duty scam targeting North Texans", summary="")
+    assert infer_category(st) == "crime"
+    st.title = "Electric buses charged in minutes at the new Trinity Metro depot"
+    assert infer_category(st) != "crime"
