@@ -494,8 +494,12 @@ PERFORMANCE_WORDS = ("concert", "live", "performing", "performs", "tour", "festi
                      "kpop", "band", "singer", "rapper", "dj ", "fans", "crowd", "halftime", "vs", "game", "match")
 
 
+# Nov 24: "board of education", "Texas Dems" and "Texas Cyber Command" read as people (a three-year photo bar and no other-city
+# check), and a Georgia county's board of education building went on a Texas State Board of Education story
 ORG_WORDS = ("isd", "inc", "llc", "corp", "company", "university", "college", "school", "district", "department", "police", "county",
              "city", "council", "foundation", "church", "hospital", "bank", "airlines", "group", "association", "club", "team", "fc",
+             "board", "education", "commission", "commissioners", "command", "agency", "office", "authority", "court", "committee",
+             "party", "dems", "democrats", "republicans", "gop", "legislature", "senate", "coalition", "alliance", "institute",
              "cowboys", "rangers", "mavericks", "stars", "frogs", "mavs", "wings", "texans", "astros", "rockets", "spurs", "tcu", "uta",
              "smu", "unt", "baylor", "tech", "aggies", "longhorns") + VENUE_WORDS
 

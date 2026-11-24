@@ -558,6 +558,14 @@ def another_citys_traffic(title: str) -> bool:
 OTHER_METRO_AGENCIES = ("hpd", "apd", "sapd", "harris county", "travis county", "bexar county", "el paso county", "houston isd", "austin isd")
 
 
+def other_metro_url(url: str) -> bool:
+    """A station that files a story under its own city ("kxan.com/news/local/austin/...") calls it that city's local news:
+    Nov 24, KXAN's "Save Muny deal sparks concerns about future of Austin research lab" (a golf course deal) passed as Texas
+    sports, the one beat the other-metro headline check leaves alone."""
+    low = (url or "").lower()
+    return any(f"/local/{m.replace(' ', '-')}/" in low for m in OTHER_METROS)
+
+
 def other_metro_title(title: str) -> bool:
     """'HPD: Teens find man\'s body in elevator shaft of abandoned downtown Houston building': a headline set in another metro,
     with none of our places in it, is that metro's local story whatever its beat."""
@@ -1141,6 +1149,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             cat = infer_category(story)
             if tier[0] == "texas" and cat in ("crime", "traffic", "food", "events") and not any(w in story.text() for w in STATEWIDE_WORDS):
                 dropped.append((story, f"other-metro {cat}, not statewide"))   # a San Antonio DWI verdict or food truck is not Fort Worth news
+                continue
+            if tier[0] == "texas" and other_metro_url(story.url) and not any(w in story.text() for w in STATEWIDE_WORDS):
+                dropped.append((story, "another metro's local story"))         # the outlet filed it under its own city
                 continue
             if tier[0] == "texas" and cat not in ("sports", "politics", "business") and other_metro_title(story.title) \
                     and not any(w in story.text() for w in STATEWIDE_WORDS):

@@ -210,3 +210,17 @@ def test_a_person_named_austin_is_not_texas(settings, now):
     t.summary = "Police in Austin, Texas, arrested a man early Monday."
     kept, dropped = filter_stories([t], settings, state, now)
     assert not kept and dropped[0][1] == "other-metro crime, not statewide"      # the city still counts as a Texas place
+
+
+def test_a_story_filed_under_another_citys_local_news(settings, now):
+    """Nov 24, render 207: KXAN's "Save Muny deal sparks concerns about future of Austin research lab", filed under
+    /news/local/austin/, passed as Texas sports."""
+    from ftworthtv.filters import other_metro_url
+    assert other_metro_url("https://www.kxan.com/news/local/austin/save-muny-deal-sparks-concerns-about-future-of-austin-research-lab/")
+    assert not other_metro_url("https://www.kxan.com/news/texas/texas-parks-and-wildlife-stock-state-waters/")
+    s = _s(1, "KXAN Austin", "Save Muny deal sparks concerns about future of Austin research lab", national=False, now=now)
+    s.url = "https://www.kxan.com/news/local/austin/save-muny-deal-sparks-concerns-about-future-of-austin-research-lab/"
+    s.summary = ("A proposed agreement to permanently preserve Lions Municipal Golf Course is drawing concern from researchers who say "
+                 "it could leave Austin's Brackenridge Field Lab vulnerable to future development.")
+    kept, dropped = filter_stories([s], settings, State(settings.state_path), now)
+    assert not kept

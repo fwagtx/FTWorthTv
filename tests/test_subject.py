@@ -425,3 +425,16 @@ def test_a_teams_stadium_only_for_a_game_there():
     assert "tcu-football" in plan_subject("TCU hosts Baylor at Amon G. Carter Stadium in rivalry game", "", "sports").entity_topics
     assert plan_subject("One year after 11-0 start, Texas A&M enters rivalry week as a cautionary tale", "", "sports").entity_topics == []
     assert "texas-am" in plan_subject("Texas A&M hosts No. 5 Texas at Kyle Field in rivalry game", "", "sports").entity_topics
+
+
+def test_a_board_or_party_is_an_institution_not_a_person():
+    """Nov 24, render 207: "board of education" got the people-and-teams photo bar, so the other-city check was off and a
+    Georgia county's board of education building went on the Texas State Board of Education story."""
+    from datetime import datetime, timezone
+    from ftworthtv.images import place_words
+    from ftworthtv.images.subject import photo_age_bar
+    stamp = datetime(2026, 11, 24, tzinfo=timezone.utc)
+    for name in ("board of education", "texas dems", "texas cyber command"):
+        assert photo_age_bar(f"entity:{name}", stamp) == ""
+        assert place_words(f"entity:{name}", stamp, ("georgia",)) == ("georgia",)
+    assert photo_age_bar("entity:u2", stamp) and photo_age_bar("entity:ken paxton", stamp)
