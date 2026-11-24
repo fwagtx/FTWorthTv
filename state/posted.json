@@ -6,7 +6,7 @@
     "2026-11-21": 16,
     "2026-11-22": 19,
     "2026-11-23": 20,
-    "2026-11-24": 13
+    "2026-11-24": 14
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -66,7 +66,7 @@
       "breaking": 1,
       "community": 3,
       "crime": 4,
-      "events": 1,
+      "events": 2,
       "other": 1,
       "traffic": 1,
       "weather": 2
@@ -107,7 +107,7 @@
     },
     "2026-11-24": {
       "nws_forecast": 1,
-      "rss": 8,
+      "rss": 9,
       "video": 2,
       "wanted": 2
     }
@@ -145,7 +145,7 @@
     },
     "2026-11-24": {
       "dfw": 3,
-      "local": 9,
+      "local": 10,
       "texas": 1
     }
   },
@@ -482,7 +482,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-24T12:20:00-06:00",
+  "last_post_at": "2026-11-24T12:54:00-06:00",
   "posted": {
     "030ed0c71b8273e3": {
       "at": "2026-11-24T10:07:00-06:00",
@@ -1384,6 +1384,19 @@
       "title": "Thanksgiving traffic could build near these North Texas malls and highways",
       "url": "https://www.nbcdfw.com/news/local/dallas-morning-news/thanksgiving-traffic-could-build-near-these-north-texas-malls-and-highways/4110260/"
     },
+    "bc8b54aba5d79363": {
+      "at": "2026-11-24T12:54:00-06:00",
+      "category": "events",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "440738035",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=4900247848670546033",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "CultureMap Fort Worth",
+      "title": "U2 will bring 'Greatest Show' to Arlington on 2027 world tour",
+      "url": "https://fortworth.culturemap.com/news/entertainment/u2-2027-world-tour-arlington/"
+    },
     "be179f7aa07eb5f5": {
       "at": "2026-11-23T16:23:00-06:00",
       "category": "politics",
@@ -2224,7 +2237,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 108,
+  "total_posts": 109,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2246,7 +2259,8 @@
     "clouds-lib-fort-worth-courthouse-jpg",
     "lib-fuel-pumps-at-a-pilot-flying-j-gas-station-in-cleveland-tenn",
     "lib-fort-worth-june-2016-55-bass-performance-hall-jpg",
-    "lib-i-35w-south-exit-82-fm2449-49166504151-jpg"
+    "lib-i-35w-south-exit-82-fm2449-49166504151-jpg",
+    "commons-145438696"
   ],
   "version": 1
 }
