@@ -284,7 +284,10 @@ def routine_presser(title: str) -> bool:
 
 
 _SCENARIO_RE = re.compile(r"\b(?:scenarios?|what needs to happen|how [\w .'&-]{1,30} can (?:reach|make|join|clinch|get|win)|path to|"
-                          r"playoff picture|bowl projections?|projected|projections?|bracketology|mock draft)\b", re.I)
+                          r"playoff picture|bowl projections?|projected|projections?|bracketology|mock draft)\b|"
+                          # Nov 24, ESPN: "To stay alive in NFC East, Cowboys need first back-to-back wins in a year"
+                          r"^to (?:stay alive|stay in|keep pace|keep up|make the playoffs|reach the playoffs|win the|clinch|catch)\b|"
+                          r"\bneeds? (?:first|to win|to beat|to string|a win|wins|help|a run|a miracle)\b", re.I)
 
 
 _OTHER_METRO_TEAM_RE = re.compile(r"\b(?:rockets|spurs|astros|texans|dynamo|houston dash|austin fc|san antonio fc)\b", re.I)

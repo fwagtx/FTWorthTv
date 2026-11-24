@@ -438,7 +438,7 @@ _UPDATED_RE = re.compile(r"(?:(?:(?:Updated|Published) on:\s*)?(?:January|Februa
                          r"(?:CBS News Texas|CBS Texas|CBS News|CBS/AP|AP|CBS)\s+"
                          r"|(?:Updated|Published) on:[^/]{5,40}/[^/]{3,20}/\s*[A-Z]{2,}(?:/[A-Z]{2,})*(?:\s+(?:News\s+)?Texas\b)?\s+)")
 
-_DATELINE_RE = re.compile(r"^(?:[A-Z][A-Z .'’-]{2,40}, (?:Texas|TX|Okla\.|La\.|N\.M\.)|[A-Z][A-Z .'’-]{2,40}) ?[-–—] ")
+_DATELINE_RE = re.compile(r"^(?:[A-Z][A-Z .'’-]{2,40}, (?:Texas|TX|Okla\.|La\.|N\.M\.)|[A-Z][A-Z .'’-]{2,40}) ?(?:--|[-–—]) ")   # ESPN: "FRISCO, Texas -- "
 _CAPTION_RE = re.compile(r"\b(?:on )?(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}, \d{4}\.$")
 _PHOTO_CAPTION_RE = re.compile(
     r"\(\d{1,2}\) [a-z]"                                                                                         # "Dak Prescott (4) looks to pass": a jersey number
@@ -545,6 +545,7 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     # a dateline after the dek opens the article's own first sentence: FOX 4's "... Tarrant counties. DALLAS - North Texas
     # faces a gloomy, chilly Tuesday ..." (Nov 24)
     parts = [_DATELINE_RE.sub("", p) for p in parts]
+    parts = [re.sub(r"(\w)s ' (?=\S)", r"\1s' ", p) for p in parts]          # ESPN's "the Dallas Cowboys ' 51-30 win" (Nov 24)
     parts = [p for p in parts if not _SCRIPT_RE.search(p)]          # an ad script is not a sentence
     parts = [p for p in parts if not _CLIP_LEAD_RE.match(p) and not _TEASER_RE.match(p)]
     parts = [p[0].upper() + p[1:] if p else p for p in parts]

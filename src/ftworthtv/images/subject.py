@@ -432,7 +432,8 @@ WEATHER_TOPICS = (
     # Nov 23: a Freeze Warning (frost, lows near 27) drew the February 2021 snowstorm: a dry freeze is not snow
     (("freeze", "freezing", "frost", "wind chill", "sub-freezing"), ["frost", "clouds", "skyline"]),
     (("heat advisory", "excessive heat", "triple digit", "100 degrees", "hot ", "heat"), ["heat", "skyline"]),
-    (("rain", "showers", "drizzle", "wet"), ["rain", "storm", "skyline"]),
+    # Nov 24: "chance rain showers, high near 49" drew a supercell: showers are not a thunderstorm, and the library has no rain
+    (("rain", "showers", "drizzle", "wet"), ["rain", "clouds", "skyline"]),
     (("partly cloudy", "partly sunny", "mostly sunny"), ["sunshine", "skyline"]),
     # Nov 22: "mostly cloudy, high near 61" drew a blue-sky skyline; the gray courthouse photo was filed under sunshine
     (("fog", "cloudy", "overcast", "gray", "clouds"), ["clouds", "skyline"]),

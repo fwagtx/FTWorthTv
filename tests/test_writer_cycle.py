@@ -1081,3 +1081,20 @@ def test_render_189_rules():
     assert archive_photo(cand("Photo: Orange County Archives (CC BY 2.0) via Flickr"))
     assert archive_photo(cand("Photo: Jane Doe (CC BY 2.0) via Flickr", "Vintage gas pump, 1970s"))
     assert not archive_photo(cand("Photo: Jane Doe (CC BY 2.0) via Flickr", "Gas pump at a Fort Worth QuikTrip"))
+
+
+def test_render_190_rules():
+    """Nov 24, render 190: the NWS forecast "chance rain showers, high near 49" drew a supercell thunderstorm; ESPN's "To stay
+    alive in NFC East, Cowboys need first back-to-back wins in a year" drafted as a sports text card with "FRISCO, Texas --"
+    and "the Dallas Cowboys ' 51-30 win" in its caption."""
+    from ftworthtv.filters import hypothetical_sports
+    from ftworthtv.images.subject import WEATHER_TOPICS
+    from ftworthtv.writer import _sentences
+    rain = next(topics for words, topics in WEATHER_TOPICS if "showers" in words)
+    assert "storm" not in rain and "clouds" in rain
+    assert hypothetical_sports("To stay alive in NFC East, Cowboys need first back-to-back wins in a year")
+    assert not hypothetical_sports("Cowboys beat Titans 51-30 as six players score touchdowns")
+    out = _sentences("If Dallas is going to catch up to New York in the division, it needs to start stringing wins together. "
+                     "FRISCO, Texas -- If anything, the Dallas Cowboys ' 51-30 win against the Tennessee Titans kept them afloat with "
+                     "six games to play.")
+    assert out[1].startswith("If anything, the Dallas Cowboys' 51-30 win")
