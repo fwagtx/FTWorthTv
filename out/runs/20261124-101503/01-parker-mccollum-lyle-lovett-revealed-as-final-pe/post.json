@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-101503/01-parker-mccollum-lyle-lovett-revealed-as-final-pe/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-101503/01-parker-mccollum-lyle-lovett-revealed-as-final-pe/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Parker McCollum, Lyle Lovett revealed as final performers announced for 2027 San Antonio Rodeo",
+    "caption": "The Rodeo's lineup is now fully set as the final two performers have been announced.",
+    "first_comment": "Source: KENS 5 San Antonio https://www.kens5.com/article/news/entertainment-news/final-performers-announced-2027-san-antonio-rodeo/273-d4d32107-5a04-404a-8528-722d370cd6c9\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "1dd4144257351681",
+    "source": "KENS 5 San Antonio",
+    "source_kind": "rss",
+    "title": "Parker McCollum, Lyle Lovett revealed as final performers announced for 2027 San Antonio Rodeo",
+    "summary": "The Rodeo's lineup is now fully set as the final two performers have been announced.",
+    "url": "https://www.kens5.com/article/news/entertainment-news/final-performers-announced-2027-san-antonio-rodeo/273-d4d32107-5a04-404a-8528-722d370cd6c9",
+    "published": "2026-11-24T16:01:58+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/KENS/images/d6248b55-84dc-449d-9548-cf5820c6cd0a/20261124T023126/d6248b55-84dc-449d-9548-cf5820c6cd0a_750x422.jpg",
+    "image_credit": "Photo: KENS 5 San Antonio",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.54,
+    "extra": {
+      "feed_title": "KENS RSS Feed: local",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.6911
+  }
+}
