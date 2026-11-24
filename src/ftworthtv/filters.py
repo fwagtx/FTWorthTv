@@ -820,8 +820,13 @@ def infer_category(story: Story) -> str:
         return "crime"                      # "Arlington pastor convicted for Ponzi scheme" is crime, whatever a channel's boilerplate says
     text = _NOT_CRIME_RE.sub(" ", story.text())          # "Runner in cardiac arrest saved by nurses" is not a crime story
     title = _NOT_CRIME_RE.sub(" ", story.title.lower())
+    # another region's story is breaking news only when its headline says so: Nov 23, KVUE's "Mexico demands SpaceX clean up
+    # suspected rocket debris washing ashore near Texas" was filed as breaking for "explosion" in its lead, a background fact
+    title_only_breaking = (story.extra or {}).get("scope") in ("texas", "national") or bool((story.extra or {}).get("national"))
     best, best_hits = None, 0
     for cat, words in CATEGORY_KEYWORDS.items():
+        if cat == "breaking" and title_only_breaking and not any(_has_word(w, title) for w in words):
+            continue
         hits = sum(1 for w in words if _has_word(w, text))
         # title hits count double
         hits += sum(1 for w in words if _has_word(w, title))

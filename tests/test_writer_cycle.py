@@ -1004,3 +1004,20 @@ def test_render_175_rules():
                              source_url="https://commons.wikimedia.org/wiki/File:Cosplayer_di_Scarlet_(Marvel_Cinematic_Universe)_a_Levante_For_2024,_Bari.jpg",
                              title="Cosplayer di Scarlet (Marvel Cinematic Universe) a Levante For 2024, Bari")
     assert not_a_photo(cosplay)
+
+
+def test_render_176_rules():
+    """Nov 23, render 176: KVUE's "Mexico demands SpaceX clean up suspected rocket debris washing ashore near Texas" drew a
+    SpaceX hangar at Kennedy Space Center, Florida, and was filed as breaking news for "explosion" in its lead."""
+    from ftworthtv.filters import infer_category
+    from ftworthtv.images.subject import happened
+    from ftworthtv.models import Story
+    title = "Mexico demands SpaceX clean up suspected rocket debris washing ashore near Texas"
+    lead = ("Suspected debris from a SpaceX rocket explosion has washed up in Mexico, prompting cleanup efforts and new questions "
+            "about environmental risks near Texas.")
+    assert happened(title)
+    def mk(t, summary, scope):
+        return Story(id="x", source="KVUE Austin", source_kind="rss", title=t, summary=summary, url="https://e.com", extra={"scope": scope})
+    assert infer_category(mk(title, lead, "texas")) != "breaking"
+    assert infer_category(mk("Explosion rocks chemical plant near Houston", "Crews responded to the explosion.", "texas")) == "breaking"
+    assert infer_category(mk("Crews respond to east Fort Worth business", "An explosion shook the building.", "local")) == "breaking"

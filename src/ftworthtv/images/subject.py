@@ -519,6 +519,9 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   "collapsed", "caught fire", "burned", "burns ", "house fire", "apartment fire", "structure fire", "home fire",
                   "grass fire", "brush fire", "wildfire", "blaze", "flames", "fire breaks out", "fire destroys", "fire damages",
                   "battle fire", "battle large", "battling", "explosion", "flooded", "flooding", "tornado", "hail ", "evacuated",
+                  # Nov 23: KVUE's "Mexico demands SpaceX clean up suspected rocket debris washing ashore near Texas" drew a
+                  # SpaceX hangar at Kennedy Space Center
+                  " debris", "washing ashore", "washed ashore", "washes ashore", "washing up", "washed up", "washes up",
                   "rescued", "pulled from", " dies ", " died ", "killed", " dead ", "arrested", "charged with", "indicted", "sentenced",
                   " fired", "resigns", "resigned", "steps down", "walks out", "protest", "ceremony", "ribbon", "reopens", "debut",
                   "convicted", "found guilty", "pleads guilty", "pleaded guilty", "acquitted", "verdict", "sentenced to", "raided",
