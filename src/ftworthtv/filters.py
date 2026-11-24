@@ -172,7 +172,9 @@ def awards_trade(title: str) -> bool:
 # Million Acquisition of Radford Studio Center" (a Studio City soundstage lot) went to a draft with a TV remote control
 _INDUSTRY_TRADE_RE = re.compile(r"\b(?:closes?|completes?|finalizes?|seals?)\b.{0,40}\b(?:acquisition|purchase|sale|buyout)\b|"
                                 r"\bstudio (?:center|lot|campus|complex)\b|\bsoundstages?\b|\b(?:first-look|overall|production|"
-                                r"distribution|licensing|rights|output|carriage) (?:deal|pact|agreement)\b|\bbox office (?:preview|tracking)\b",
+                                r"distribution|licensing|rights|output|carriage) (?:deal|pact|agreement)\b|\bbox office (?:preview|tracking)\b|"
+                                # Nov 24, Deadline: "'Inter Alia' Starring Rosamund Pike Sells Out; ... – Broadway Box Office"
+                                r"\bbroadway (?:box office|grosses)\b",
                                 re.I)
 
 

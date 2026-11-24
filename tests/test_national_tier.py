@@ -232,3 +232,9 @@ def test_industry_trade_news_is_not_a_moment():
     assert industry_trade("Netflix Closes $380 Million Acquisition of Radford Studio Center")
     assert industry_trade("Warner Bros. signs first-look deal with director")
     assert not industry_trade("Netflix raises prices again for US subscribers")
+
+
+def test_broadway_grosses_are_trade_news():
+    from ftworthtv.filters import industry_trade
+    assert industry_trade("‘Inter Alia’ Starring Rosamund Pike Sells Out; ‘Hamilton’ With Christopher Jackson Tops $3M – Broadway Box Office")
+    assert not industry_trade("‘Wicked: For Good’ tops box office with $150 million opening")

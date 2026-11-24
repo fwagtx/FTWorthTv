@@ -462,8 +462,28 @@ def _search_each(query: str, settings):
 _SPECIES_FILE_RE = re.compile(r"^(?:file:)?[a-z]+ [a-z]+(?: [a-z]+)? \(?\d{5,}\)?\.(?:jpe?g|png|webp)$")
 
 
+# a picture of one event is that event: Nov 24, "NEX Atsugi Toys R Us Grand Opening" (Navy officers at a Navy Exchange shop in
+# Japan) for a Toys "R" Us opening at Tanger Outlets Fort Worth
+_EVENT_PHOTO_RE = re.compile(r"\b(?:grand opening|ribbon[- ]cutting|groundbreaking|ground breaking|ceremony|dedication|opening day|"
+                             r"unveiling|parade|festival)\b", re.I)
+_PLACE_STOP = {"the", "a", "an", "of", "at", "in", "on", "and", "for", "with", "by", "to", "from", "jpg", "jpeg", "png", "file",
+               "photo", "grand", "opening", "ribbon", "cutting", "groundbreaking", "ground", "breaking", "ceremony", "dedication",
+               "day", "unveiling", "parade", "festival", "new", "store", "shop", "celebrates", "celebration", "held", "hosts"}
+
+
+def other_event_photo(titled: str, query: str, story_text: str) -> bool:
+    """The file shows a named event ("grand opening") somewhere the story never mentions."""
+    if not story_text or not _EVENT_PHOTO_RE.search(titled):
+        return False
+    subject = set(re.findall(r"[a-z0-9]+", (query or "").lower()))
+    words = {w for w in re.findall(r"[a-z]{3,}", titled.lower()) if w not in _PLACE_STOP and w not in subject}
+    story = set(re.findall(r"[a-z]{3,}", story_text.lower()))
+    return bool(words) and not (words & story)
+
+
 def find_photo(query: "str | list[str]", settings, state: State | None = None, exclude: set[str] | None = None,
-               avoid_words: tuple[str, ...] = (), fallback: bool = True, taken_after: str = "") -> PhotoCandidate | None:
+               avoid_words: tuple[str, ...] = (), fallback: bool = True, taken_after: str = "",
+               story_text: str = "") -> PhotoCandidate | None:
     """Pexels first (best quality, simplest license), Wikimedia Commons as the fallback.
 
     Tries the given query/queries in order, then generic city queries, and skips photos used earlier in this run or recently
@@ -492,6 +512,8 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             titled = name + " " + (cand.title or "").lower()
             if "inaturalist" in avoid and _SPECIES_FILE_RE.match(name):
                 continue                  # Nov 24: "Acacia cyclops 452574694.jpg" (seed pods) for the X-Men's Cyclops
+            if other_event_photo(name + " " + (cand.title or ""), q, story_text):
+                continue                  # another place's grand opening is not this one
             if avoid and (any(w in titled for w in avoid) or " - " in titled):   # "Artist - Venue, 2022.jpg" is a performance photo
                 continue
             plain = " " + re.sub(r"[\s_\-,.:;()'’\"]+", " ", titled).strip() + " "    # "Ty_Myers_2025.jpg" -> " ty myers 2025 jpg "

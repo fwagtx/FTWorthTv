@@ -310,6 +310,7 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                 bar = max(recent_after if recent else "", photo_age_bar(lab, stamp_all))   # a 2012 team photo is not the 2026 team
                 place_check = place_words(lab, stamp_all, avoid)
                 cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=place_check, fallback=sp.mode == "beat",
+                                  story_text=f"{story.title} {story.summary or ''}",
                                   taken_after=bar)
                 if not cand:
                     continue

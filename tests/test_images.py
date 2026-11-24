@@ -308,3 +308,17 @@ def test_liminal_space_and_ai_images_are_not_photos():
         c = PhotoCandidate(id=name, url="u", credit="c", license="wikimedia-cc", provider="wikimedia",
                            source_url=f"https://commons.wikimedia.org/wiki/File:{name}", title=name.rsplit(".", 1)[0].replace("_", " "))
         assert not_a_photo(c), name
+
+
+def test_another_places_grand_opening_is_not_this_one(settings, monkeypatch):
+    """Nov 24, render 211: "NEX Atsugi Toys R Us Grand Opening" (Navy officers in Japan) for a Toys "R" Us opening in Fort Worth."""
+    from ftworthtv.images import providers
+    navy = providers.PhotoCandidate(id="commons-7", url="https://x/a.jpg", credit="c", license="wikimedia-pd", provider="wikimedia",
+                                    source_url="https://commons.wikimedia.org/wiki/File:NEX_Atsugi_Toys_R_Us_Grand_Opening_(10104222).jpg",
+                                    title="NEX Atsugi Toys R Us Grand Opening")
+    store = providers.PhotoCandidate(id="commons-8", url="https://x/b.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
+                                     source_url="https://commons.wikimedia.org/wiki/File:Toys_R_Us_storefront.jpg", title="Toys R Us storefront")
+    monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[navy, store]]))
+    story = "Iconic toy retailer Toys 'R' Us opens only standalone store in Fort Worth, at Tanger Outlets Fort Worth."
+    assert providers.find_photo([("Toys R Us", (), ("toys r us",))], settings, fallback=False, story_text=story) is store
+    assert providers.find_photo([("Toys R Us", (), ("toys r us",))], settings, fallback=False) is navy   # no story text: unchanged
