@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-064314/01-freeze-conditions-expected-across-north-texas-as/post.jpg",
+    "credit": "Photo: Bärbel Miemietz via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:2021-12-22_Annateich_01.JPG",
+    "photo_id": "lib-2021-12-22-annateich-01-jpg",
+    "subject": "beat:frost"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-064314/01-freeze-conditions-expected-across-north-texas-as/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Freeze conditions expected across North Texas as colder air moves in ahead of Thanksgiving",
+    "caption": "Definitely grab a jacket on your way out the door. It's another cold start with an even colder night on the way Tuesday.\n\nExpect a cloudy, chilly day with a chance of a few showers. Some sleet pellets may be possible across the far western counties.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/freeze-warning-dallas-fort-worth-texas-weather-temperatures-thanksgiving-forecast-nov-24/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline storm clouds",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "96b1b1546b7d83d3",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Freeze conditions expected across North Texas as colder air moves in ahead of Thanksgiving",
+    "summary": "Some sleet pellets may be possible across the far western counties. Definitely grab a jacket on your way out the door. November 24, 2026 / 6:05 AM CST / CBS Texas It's another cold start with an even colder night on the way Tuesday. Expect a cloudy, chilly day with a chance of a few showers. Some sleet pellets may be possible across the far western counties. Definitely grab a jacket on your way out the door. Looking ahead to Wednesday and Thursday mornings, temperatures will be at or below the freezing mark across most of the viewing area, and as a result, First Alert Weather Days are in place. Temperatures will be as cold as 25°, but across DFW it does look like temperatures will stay just above the freezing mark. Thanksgiving morning will still be cold with morning temperatures in the 30s, but it will warm to the mid-50s by the afternoon with plenty of sunshine. The warming trend…",
+    "url": "https://www.cbsnews.com/texas/news/freeze-warning-dallas-fort-worth-texas-weather-temperatures-thanksgiving-forecast-nov-24/",
+    "published": "2026-11-24T12:05:22+00:00",
+    "category_hint": null,
+    "image_url": "https://assets1.cbsnewsstatic.com/hub/i/r/2026/11/24/79f64641-1750-405f-be6f-41a1dc8a97a2/thumbnail/1024x576/1d686d4cc632263e58dae8359fda830e/weather-2.png",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 0.9542
+  }
+}
