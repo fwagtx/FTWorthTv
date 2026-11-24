@@ -368,6 +368,11 @@
       "reason": "daily cap for crime reached",
       "title": "18-year-old linked to two separate shootings involving Dallas and Garland Police"
     },
+    "c5b3ba6d9fcbccbf": {
+      "at": "2026-11-24T00:15:25.491085+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Suspects connected in Dallas and Garland officer-involved shootings, according to police"
+    },
     "cd0b4c14017e96bb": {
       "at": "2026-11-23T02:43:18.447950+00:00",
       "reason": "daily cap for weather reached",
@@ -1917,6 +1922,10 @@
     "fb03df9f8419331f": {
       "at": "2026-11-23T15:47:12.031256+00:00",
       "reason": "KENS 5 resurfaced its 2023 story on the Fort Worth CEO and two children killed the night before Thanksgiving (crash Nov 22, 2023) with today"
+    },
+    "fd436e8b08e55d73": {
+      "at": "2026-11-24T00:15:25.489741+00:00",
+      "reason": "KVUE SpaceX debris story: a SpaceX hangar at Kennedy Space Center, Florida stood in for debris washing ashore in Mexico, and a statewide fol"
     },
     "fd6bc56f0612b01b": {
       "at": "2026-11-22T17:44:51.352099+00:00",
