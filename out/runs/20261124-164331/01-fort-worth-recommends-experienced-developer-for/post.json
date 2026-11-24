@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-164331/01-fort-worth-recommends-experienced-developer-for/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_June_2016_62_(Fort_Worth_Convention_Center).jpg",
+    "photo_id": "lib-fort-worth-june-2016-62-fort-worth-convention-center-jpg",
+    "subject": "beat:convention-center"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-164331/01-fort-worth-recommends-experienced-developer-for/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Fort Worth recommends experienced developer for convention center hotel project",
+    "caption": "The plans call for a 600- to 800-room, four-star or higher hotel. Downtown could soon see another major hotel as city staff have recommended Matthews Hospitality to develop a site just east of the Fort Worth Convention Center.\n\nThe recommendation will go before the city council in the first quarter next year. The hotel, on 4.6 acres, is targeted to open in the fourth quarter of 2029 or early 2030, along with a refurbished and expanded Fort Worth Convention Center.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/24/fort-worth-recommends-experienced-developer-for-convention-center-hotel-project/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "917ebb94f9f4a2f2",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Fort Worth recommends experienced developer for convention center hotel project",
+    "summary": "The plans call for a 600- to 800-room, four-star or higher hotel. Downtown could soon see another major hotel as city staff have recommended Matthews Hospitality to develop a site just east of the Fort Worth Convention Center. The recommendation will go before the city council in the first quarter next year. The hotel, on 4.6 acres, is targeted to open in the fourth quarter of 2029 or early 2030, along with a refurbished and expanded Fort Worth Convention Center. The convention center is in the second phase of a massive $701 million makeover that will nearly double its capacity. A new convention center hotel has been seen as key to the success of the expanded center. According to the request for proposal the city released in April, the hotel project must include a 600- to 800-room hotel and be rated four-star or higher. It must also have more than 100,000 square feet of ballroom and…",
+    "url": "https://fortworthreport.org/2026/11/24/fort-worth-recommends-experienced-developer-for-convention-center-hotel-project/",
+    "published": "2026-11-24T22:31:51+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/02/image005-300x180.jpg",
+    "image_credit": "Photo: photo / Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "The convention center’s glass facade will serve as a “beacon” for visitors at night, a city official said. (Courtesy photo | City of Fort Worth)",
+      "page_credit": "photo"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 1.056
+  }
+}

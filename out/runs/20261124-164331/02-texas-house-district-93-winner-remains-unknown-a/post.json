@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T23:08:31.100996+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-164331/02-texas-house-district-93-winner-remains-unknown-a/post.jpg",
+    "credit": "Photo: Oleg Yunakov via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:2026-05-26_-_Texas_State_Capitol_-_01.jpg",
+    "photo_id": "lib-2026-05-26-texas-state-capitol-01-jpg",
+    "subject": "topic:capitol"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-164331/02-texas-house-district-93-winner-remains-unknown-a/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "Texas House District 93 winner remains unknown amid eligibility dispute",
+    "caption": "Three weeks after the election, it’s still not clear who will represent Tarrant County’s Texas House District 93. Erick Lomick (left) and Alan Blaylock (right) Democrat Erika Lomick narrowly beat Republican Alan Blaylock in both a special election and the general election held on Nov. 3.\n\nBut the win came after Lomick suspended her campaign in September. It was revealed that she had a mortgage fraud conviction from 2011.",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth https://www.fox4news.com/news/texas-house-district-93-winner-remains-unknown-amid-eligibility-dispute\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "32125dcf35433cb5",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "rss",
+    "title": "Texas House District 93 winner remains unknown amid eligibility dispute",
+    "summary": "Three weeks after the election, it’s still not clear who will represent Tarrant County’s Texas House District 93. Here's why. FORT WORTH, Texas - Three weeks after the election, it’s still not clear who will represent Tarrant County’s Texas House District 93. Erick Lomick (left) and Alan Blaylock (right) Democrat Erika Lomick narrowly beat Republican Alan Blaylock in both a special election and the general election held on Nov. 3. But the win came after Lomick suspended her campaign in September. It was revealed that she had a mortgage fraud conviction from 2011. The Texas Supreme Court is still deciding if it has the authority to determine her eligibility. FOX 4’s Steven Dial talked to constitutional lawyer David Coale about the controversy on Dallas News Live. Coale said even though Lomick suspended her campaign months before the election, that has no legal effect. There’s still a…",
+    "url": "https://www.fox4news.com/news/texas-house-district-93-winner-remains-unknown-amid-eligibility-dispute",
+    "published": "2026-11-24T21:37:59+00:00",
+    "category_hint": null,
+    "image_url": "https://static.fox4news.com/www.fox4news.com/content/uploads/2026/11/lomickblaylock.png",
+    "image_credit": "Photo: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5599999999999999,
+    "extra": {
+      "feed_title": "Latest News | FOX 4 News",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "politics",
+    "relevance": 2,
+    "score": 0.7805
+  }
+}
