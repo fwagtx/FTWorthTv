@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-144305/01-netflix-closes-380-million-acquisition-of-radfor/post.jpg",
+    "credit": "Photo: Wendaoz Saimu via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:HK_residential_building_TV_set_Television_remote_control_August_2021_SS2_02.jpg",
+    "photo_id": "lib-hk-residential-building-tv-set-television-remote-control-aug",
+    "subject": "topic:streaming"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-144305/01-netflix-closes-380-million-acquisition-of-radfor/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Netflix Closes $380 Million Acquisition of Radford Studio Center",
+    "caption": "Netflix is the proud new owner of Radford Studio Center, the 98-year-old soundstage complex that was home to “Gunsmoke,” “The Mary Tyler Moore Show,” and “Seinfeld.” The streamer is set to close the $380 million acquisition this afternoon, the company said in a statement.",
+    "first_comment": "Source: Variety https://variety.com/2026/film/news/netflix-closes-380-million-radford-studio-center-1236957311/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "e99730ff7ee90ac0",
+    "source": "Variety",
+    "source_kind": "rss",
+    "title": "Netflix Closes $380 Million Acquisition of Radford Studio Center",
+    "summary": "Netflix is the proud new owner of Radford Studio Center, the 98-year-old soundstage complex that was home to “Gunsmoke,” “The Mary Tyler Moore Show,” and “Seinfeld.” The streamer is set to close the $380 million acquisition this afternoon, the company said in a statement. The facility last sold to Hackman Capital Partners for $1.85 billion …",
+    "url": "https://variety.com/2026/film/news/netflix-closes-380-million-radford-studio-center-1236957311/",
+    "published": "2026-11-24T20:15:00+00:00",
+    "category_hint": null,
+    "image_url": "https://variety.com/wp-content/uploads/2026/01/Radford-Studio-Center.jpg",
+    "image_credit": "Photo: Variety",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "Variety",
+      "national": true,
+      "scope": "national",
+      "national_term": "netflix"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.3695
+  }
+}
