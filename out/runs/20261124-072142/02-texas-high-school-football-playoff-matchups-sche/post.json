@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T13:46:42.625719+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-072142/02-texas-high-school-football-playoff-matchups-sche/post.jpg",
+    "credit": "Photo: WhisperToMe via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dell_City_ISD_school_bus.jpg",
+    "photo_id": "lib-dell-city-isd-school-bus-jpg",
+    "subject": "beat:school-bus"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-072142/02-texas-high-school-football-playoff-matchups-sche/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Texas high school football: Playoff matchups, schedule",
+    "caption": "Texas high school football playoffs heat up as teams across the state compete in the regional round.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/sports/high-school/hs-football/texas-high-school-football-playoff-matchups-schedule-uil-state-regional-round/287-72fa18a2-51be-4859-bf9b-b04251ad8af1\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c832f03c76bc50fc",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "Texas high school football: Playoff matchups, schedule",
+    "summary": "Texas high school football playoffs heat up as teams across the state compete in the regional round.",
+    "url": "https://www.wfaa.com/article/sports/high-school/hs-football/texas-high-school-football-playoff-matchups-schedule-uil-state-regional-round/287-72fa18a2-51be-4859-bf9b-b04251ad8af1",
+    "published": "2026-11-24T13:12:57+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/288e3454-efd4-4a87-abb3-4403f9f8deb7/288e3454-efd4-4a87-abb3-4403f9f8deb7_750x422.png",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.72,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 1.0686
+  }
+}

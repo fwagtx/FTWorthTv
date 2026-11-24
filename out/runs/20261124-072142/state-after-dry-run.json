@@ -1,0 +1,2134 @@
+{
+  "daily": {
+    "2026-11-18": 1,
+    "2026-11-19": 20,
+    "2026-11-20": 19,
+    "2026-11-21": 16,
+    "2026-11-22": 19,
+    "2026-11-23": 20,
+    "2026-11-24": 9
+  },
+  "daily_by_category": {
+    "2026-11-18": {
+      "business": 1
+    },
+    "2026-11-19": {
+      "business": 2,
+      "community": 3,
+      "crime": 2,
+      "culture": 2,
+      "events": 1,
+      "other": 3,
+      "politics": 2,
+      "sports": 3,
+      "traffic": 2
+    },
+    "2026-11-20": {
+      "business": 1,
+      "community": 3,
+      "crime": 2,
+      "culture": 2,
+      "events": 1,
+      "food": 1,
+      "other": 1,
+      "politics": 3,
+      "sports": 4,
+      "weather": 1
+    },
+    "2026-11-21": {
+      "business": 1,
+      "community": 3,
+      "crime": 3,
+      "other": 3,
+      "politics": 2,
+      "sports": 2,
+      "weather": 2
+    },
+    "2026-11-22": {
+      "breaking": 1,
+      "community": 3,
+      "crime": 4,
+      "other": 1,
+      "sports": 6,
+      "traffic": 2,
+      "weather": 2
+    },
+    "2026-11-23": {
+      "breaking": 1,
+      "community": 3,
+      "crime": 4,
+      "culture": 1,
+      "politics": 3,
+      "sports": 5,
+      "weather": 3
+    },
+    "2026-11-24": {
+      "breaking": 1,
+      "community": 2,
+      "crime": 3,
+      "sports": 1,
+      "weather": 2
+    }
+  },
+  "daily_by_kind": {
+    "2026-11-19": {
+      "event": 1,
+      "rss": 3,
+      "video": 1,
+      "wanted": 1
+    },
+    "2026-11-20": {
+      "culture": 1,
+      "nws_forecast": 1,
+      "rss": 12,
+      "video": 3,
+      "wanted": 2
+    },
+    "2026-11-21": {
+      "nws_forecast": 1,
+      "rss": 11,
+      "video": 2,
+      "wanted": 2
+    },
+    "2026-11-22": {
+      "nws_forecast": 1,
+      "rss": 15,
+      "video": 1,
+      "wanted": 2
+    },
+    "2026-11-23": {
+      "nws_alert": 1,
+      "nws_forecast": 1,
+      "rss": 14,
+      "video": 2,
+      "wanted": 2
+    },
+    "2026-11-24": {
+      "nws_forecast": 1,
+      "rss": 4,
+      "video": 2,
+      "wanted": 2
+    }
+  },
+  "daily_by_scope": {
+    "2026-11-18": {
+      "local": 1
+    },
+    "2026-11-19": {
+      "dfw": 4,
+      "local": 12,
+      "national": 2,
+      "texas": 2
+    },
+    "2026-11-20": {
+      "dfw": 2,
+      "local": 11,
+      "texas": 6
+    },
+    "2026-11-21": {
+      "dfw": 2,
+      "local": 10,
+      "texas": 4
+    },
+    "2026-11-22": {
+      "dfw": 4,
+      "local": 14,
+      "texas": 1
+    },
+    "2026-11-23": {
+      "dfw": 1,
+      "local": 16,
+      "national": 1,
+      "texas": 2
+    },
+    "2026-11-24": {
+      "dfw": 2,
+      "local": 6,
+      "texas": 1
+    }
+  },
+  "deferred": {
+    "045d600936d6ac43": {
+      "at": "2026-11-23T00:43:21.354520+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "SEC Championship Game scenarios: How Texas can join Georgia in Atlanta"
+    },
+    "0cacf719029c4008": {
+      "at": "2026-11-23T16:51:43.125852+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Car burglary suspect on the run after shooting at officers, says Dallas Police"
+    },
+    "0e5159ead072df9d": {
+      "at": "2026-11-23T04:12:50.906867+00:00",
+      "reason": "daily cap for community reached",
+      "title": "'Holiday in the Park' kicks off at Six Flags Over Texas with new entertainment and ticket deals"
+    },
+    "11076d117cf531b7": {
+      "at": "2026-11-23T19:55:45.917506+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Protect Your Pets, Plants and Pipes During Freezing Temperatures"
+    },
+    "14f1dd301b2e0bc9": {
+      "at": "2026-11-23T23:50:26.017781+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Thanksgiving grocery costs rise as more North Texas families turn to food banks"
+    },
+    "1ab71d52f1a1af3a": {
+      "at": "2026-11-23T23:22:06.682836+00:00",
+      "reason": "daily cap for community reached",
+      "title": "How Society of St. Vincent de Paul helps NorthTexans in need"
+    },
+    "1b61e429f5d7fc6e": {
+      "at": "2026-11-23T18:19:35.032798+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Sugar Plum Brunch tops 6 best food & drink events in Fort Worth this week"
+    },
+    "1e9e28d1a3e749a9": {
+      "at": "2026-11-23T18:19:35.032825+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Support Arlington Entrepreneurs on Small Business Saturday"
+    },
+    "2561337a19306d37": {
+      "at": "2026-11-23T00:13:31.415977+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "North Texas tracks chance of snow ahead of beautiful Thanksgiving"
+    },
+    "3132b30defdc6442": {
+      "at": "2026-11-22T23:13:44.569070+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "NFL Week 11 winners and losers: Cowboys offense makes history in get-right win, Steelers slump"
+    },
+    "33f31747e40cda73": {
+      "at": "2026-11-22T17:44:51.353367+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Man charged with killing Dallas mother in post-crash shooting on her birthday, police say"
+    },
+    "39e11db7251ace11": {
+      "at": "2026-11-23T19:55:45.917511+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Stay Safe While Preparing Holiday Meals"
+    },
+    "43cabe48009af1a9": {
+      "at": "2026-11-23T18:31:18.601261+00:00",
+      "reason": "daily cap for community reached",
+      "title": "TIME names TCC one of America’s Best Community Colleges for 2027"
+    },
+    "46afc276c8ccbb6d": {
+      "at": "2026-11-23T23:22:06.682850+00:00",
+      "reason": "daily cap for politics reached",
+      "title": "The United States won the 2031 Women’s World Cup bid. What does that mean for Arlington?"
+    },
+    "49d1e3961cf129ef": {
+      "at": "2026-11-23T00:13:31.416000+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "NFL Week 11 grades for every team: Cowboys earn 'A-' for high-flying win, Steelers nearly fail"
+    },
+    "4c02de6d7d714478": {
+      "at": "2026-11-23T02:43:18.447921+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "Jerry Jones: Postgame #TENvsDAL | Dallas Cowboys 2026"
+    },
+    "4c3371fceb755dab": {
+      "at": "2026-11-24T03:42:58.782529+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Texas flood survivors had to wait more than 100 days to apply for FEMA aid. Now they want change."
+    },
+    "4feb919f9efba30c": {
+      "at": "2026-11-22T18:14:13.280652+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "DFW Weather: Seasonally cool today with partly sunny skies"
+    },
+    "51bf70359facc230": {
+      "at": "2026-11-23T21:22:10.424929+00:00",
+      "reason": "daily cap for community reached",
+      "title": "‘People who care for people’: Mission Arlington marks 40th year distributing Thanksgiving meals"
+    },
+    "533c0d6f27251966": {
+      "at": "2026-11-23T00:13:31.415997+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Driver arrested after slamming in to Bedford business"
+    },
+    "5bccd0dafd702046": {
+      "at": "2026-11-23T13:46:46.663754+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Chilly days ahead for North Texas as temperatures top out in the 50s this week"
+    },
+    "5d3dc4a68a3a9813": {
+      "at": "2026-11-22T17:44:51.353364+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Alleged intoxicated driver crashes into Bedford business after brief chase, police say"
+    },
+    "5e30b1070b88315c": {
+      "at": "2026-11-23T23:22:06.682849+00:00",
+      "reason": "daily cap for politics reached",
+      "title": "Tarrant County College trustees approve $57M software overhaul after cost debate"
+    },
+    "5f29a2aee52f0b26": {
+      "at": "2026-11-23T18:19:35.032829+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Discover Unique Stories at the 'People Library' on Dec. 5, 2026"
+    },
+    "6746cd7ea579feb4": {
+      "at": "2026-11-22T21:45:04.877412+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "TCU football coaching search 2026: Candidates, hot board, names to watch from Horned Frogs experts"
+    },
+    "6a60f8453509b09b": {
+      "at": "2026-11-22T18:14:13.280657+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "51-year-old man fatally shot in Far North Dallas; police searching for suspect"
+    },
+    "6bd93bfe3b5a053c": {
+      "at": "2026-11-24T02:13:44.148398+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Weather changes and migraines: what North Texans need to know"
+    },
+    "6f79f24ac5290f83": {
+      "at": "2026-11-24T04:42:51.727172+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Freeze warning in North Texas Tuesday night"
+    },
+    "7bce8b6ecf54f8f3": {
+      "at": "2026-11-23T23:50:26.017780+00:00",
+      "reason": "daily cap for politics reached",
+      "title": "Clayton Tucker names former state Rep. Tracy King as deputy agriculture commissioner"
+    },
+    "7d7105b0cb0132d4": {
+      "at": "2026-11-23T00:13:31.416002+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Driver arrested after slamming in to Bedford business"
+    },
+    "8d5ffe95b1913b8b": {
+      "at": "2026-11-23T02:13:53.472441+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "Dak Prescott: Postgame Week 11 #TENvsDAL"
+    },
+    "94b856b5fceae4b3": {
+      "at": "2026-11-23T20:50:26.818147+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "City prepared to provide emergency overflow shelter in cold weather"
+    },
+    "987b2c11b57eac58": {
+      "at": "2026-11-23T04:43:22.003454+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "DFW Weather: When to expect the first freeze this season; 7 day forecast"
+    },
+    "98f6fa4a5454d59b": {
+      "at": "2026-11-23T23:22:06.682844+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Proteja a Mascotas, Plantas y Tuberías Durante las Bajas Temperaturas"
+    },
+    "9acb79fd5715c4ab": {
+      "at": "2026-11-22T14:23:34.181481+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "North Texas gets a cold front for Sunday, with another one on the way"
+    },
+    "9c9e5690aa4fc924": {
+      "at": "2026-11-22T22:44:12.587929+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "Dominant Cowboys offense shines as they lead Titans 27-9 at halftime"
+    },
+    "9e3623e5a26d3fbf": {
+      "at": "2026-11-22T23:43:02.890580+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "East Fort Worth altercation ends in deadly shooting, police say"
+    },
+    "a581887e44d9f1ed": {
+      "at": "2026-11-23T18:19:35.032827+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Make Ornaments, Holiday Stickers & More with Arlington Public Library"
+    },
+    "a728cc1626c0929b": {
+      "at": "2026-11-23T00:13:31.416003+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "North Texas tracks chance of snow ahead of beautiful Thanksgiving"
+    },
+    "ab13521a28cf5e32": {
+      "at": "2026-11-22T17:44:51.353339+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Bedford police arrest suspected intoxicated driver after chase ends in crash into local business"
+    },
+    "ab77611999c77a39": {
+      "at": "2026-11-23T17:49:45.599419+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "What is the weather forecast for Thanksgiving? Brace for chilly temperatures in North Texas"
+    },
+    "b0d02a7515d38b45": {
+      "at": "2026-11-22T16:27:33.856882+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "How a season without their 'admiral' showed the Rockets what they were missing"
+    },
+    "b1eb18c9b208a61f": {
+      "at": "2026-11-23T03:44:23.307629+00:00",
+      "reason": "daily cap for community reached",
+      "title": "GM Financial Parade of Lights returns to Fort Worth for the 2026 holiday season"
+    },
+    "b7c92690745f9ced": {
+      "at": "2026-11-22T17:14:19.269874+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "DFW Weather: Low rain coverage expected Tuesday"
+    },
+    "b9a25e1f37a14d81": {
+      "at": "2026-11-23T22:46:17.337790+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Chilly days ahead for North Texas with freezing temperatures mid-week"
+    },
+    "bd175546ae59b1fc": {
+      "at": "2026-11-23T18:47:29.567687+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Dallas mom of 4 killed by relatives after asking for a divorce, report says"
+    },
+    "bfc33158c44e768d": {
+      "at": "2026-11-23T23:22:06.682820+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Keller church offers prayer for Transgender Day of Remembrance"
+    },
+    "c5815dc5ac446806": {
+      "at": "2026-11-23T18:47:29.567693+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "18-year-old linked to two separate shootings involving Dallas and Garland Police"
+    },
+    "c5b3ba6d9fcbccbf": {
+      "at": "2026-11-24T00:15:25.491085+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Suspects connected in Dallas and Garland officer-involved shootings, according to police"
+    },
+    "cd0b4c14017e96bb": {
+      "at": "2026-11-23T02:43:18.447950+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "NBC 5 Forecast: Thanks to a cold front, breezy and cooler weather arriving into North Texas"
+    },
+    "cd8b90548451d4e4": {
+      "at": "2026-11-23T03:14:00.954991+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "George Pickens' Best Plays from 102-yard game | Week 11 Highlights"
+    },
+    "ce67407b2a835e4a": {
+      "at": "2026-11-22T22:56:40.788889+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "Cowboys vs. Titans ends in historic scorigami after late Tennessee touchdown"
+    },
+    "d2aaa769dae95fe5": {
+      "at": "2026-11-22T18:44:36.023316+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Arrest made in shooting that killed woman on her birthday in Dallas, police say"
+    },
+    "db78cea6737f9576": {
+      "at": "2026-11-23T03:14:00.955018+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "Javonte Williams' Best plays from 2-TD game vs. Titans | Week 11 Highlights"
+    },
+    "dc6045e198fd19ca": {
+      "at": "2026-11-24T02:13:44.148363+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Freeze Warning in effect for Tuesday night, Wednesday morning in several North Texas counties"
+    },
+    "e10f1c3863a282c4": {
+      "at": "2026-11-24T00:52:54.746094+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Police, SWAT units responding after 1 shot by barricaded suspect in Arlington home"
+    },
+    "e754e8e54525beae": {
+      "at": "2026-11-23T21:53:17.859674+00:00",
+      "reason": "daily cap for community reached",
+      "title": "All of the lights shine extra bright at Fort Worth’s annual holiday parade"
+    },
+    "e8d6f811a6a2b7cd": {
+      "at": "2026-11-23T22:46:17.337819+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Proteja a mascotas, plantas y tuberías durante las bajas temperaturas"
+    },
+    "ef2a3fb11a5adaf8": {
+      "at": "2026-11-22T15:20:35.832593+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Cold fronts in store for North Texas this week"
+    },
+    "f353b938213ccd0e": {
+      "at": "2026-11-23T21:53:17.859702+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Wanted sex offender arrested in Dallas at homeless encampment"
+    },
+    "f4baef3c6d9ae61a": {
+      "at": "2026-11-23T14:22:51.706640+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Chilly mornings in store as temperatures top out in the 50s this week for North Texas"
+    },
+    "f978100a95e058ee": {
+      "at": "2026-11-23T20:28:52.393032+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "NBC 5 Forecast: A reinforcing cold front is on the way; A Freeze Warning is in effect for western North Texas"
+    },
+    "f989aae4100907ea": {
+      "at": "2026-11-22T23:43:02.890575+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "From TCU AD Mike Buddie: Our Next Steps"
+    },
+    "fa2017e04848900e": {
+      "at": "2026-11-23T14:55:31.756025+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Turkey Day wind chills after chance of snow for North Texas"
+    },
+    "ffef147f17f927a7": {
+      "at": "2026-11-23T23:22:06.682810+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Freeze warning issued for North Texas Tuesday through Wednesday. Here’s what to know"
+    }
+  },
+  "flags": {},
+  "last_post_at": "2026-11-24T08:52:00-06:00",
+  "posted": {
+    "0483ca217fa88587": {
+      "at": "2026-11-19T13:10:00+00:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742237",
+      "post_url": null,
+      "posted_at": "2026-11-19T13:10:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Joshua Rodriguez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "15d87ae9fe2062fa": {
+      "at": "2026-11-22T07:20:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "437532939",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4151443187983299384",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Elkin Daniel Hernandez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "176dd74a4a7eba2f": {
+      "at": "2026-11-22T14:50:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437947517",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6843140034149004469",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth trans community space looks to build financial support",
+      "url": "https://fortworthreport.org/2026/11/22/fort-worth-trans-community-space-looks-to-build-financial-support/"
+    },
+    "17e3c2cb0873a471": {
+      "at": "2026-11-20T08:09:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "435528357",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1951409325963391523",
+      "publisher": "metricool-session",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "DFW Airport prepares for 3.1 million travelers during Thanksgiving rush",
+      "url": "https://www.fox4news.com/news/dfw-airport-prepares-3-1-million-travelers-during-thanksgiving-rush"
+    },
+    "1e9622bb525e0df0": {
+      "at": "2026-11-22T12:19:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437811371",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-9033048012586070207",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "Tarrant County College removes 4 courses from core offerings starting fall 2028",
+      "url": "https://fortworthreport.org/2026/11/22/tarrant-county-college-removes-4-courses-from-core-offerings-starting-fall-2028/"
+    },
+    "204e11f78e7566d5": {
+      "at": "2026-11-19T14:20:00+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand, verified against the article",
+      "post_id": "434256416",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "local",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Tarrant Area Food Bank hosts Thanksgiving mega food distribution at AT&T Stadium",
+      "url": "https://www.fox4news.com/good-day/tarrant-area-food-bank-hosts-thanksgiving-mega-food-distribution-att-stadium"
+    },
+    "24b87d7eea5e8a9f": {
+      "at": "2026-11-19T22:00:00+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand, verified against the article",
+      "post_id": "434256897",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "local",
+      "source": "CultureMap Fort Worth",
+      "title": "These are the 14 best things to do in Fort Worth this weekend",
+      "url": "https://fortworth.culturemap.com/news/entertainment/weekend-events-11-19-26/"
+    },
+    "2e82551a8239a528": {
+      "at": "2026-11-22T11:20:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437755200",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-5654258022958871010",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "1 man is dead after being shot following a fight in Fort Worth",
+      "url": "https://www.wfaa.com/article/news/local/fort-worth-shooting-fatal-the-heights-one-dead/287-9fdd12a8-06c9-4321-bd1e-a8d7bba86af3"
+    },
+    "2e8d6e753426167e": {
+      "at": "2026-11-19T04:30:00+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742199",
+      "post_url": null,
+      "posted_at": "2026-11-19T04:30:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "Barnes & Noble returns to central Fort Worth, opening in West 7th District",
+      "url": "https://fortworthreport.org/2026/11/18/barnes-noble-returns-to-central-fort-worth-opening-in-west-7th-district/"
+    },
+    "317532eba7095650": {
+      "at": "2026-11-24T08:52:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "440265911",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3404785419413206710",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "This Arlington teen started a new homecoming tradition for classmates without mums",
+      "url": "https://fortworthreport.org/2026/11/24/this-arlington-teen-started-a-new-homecoming-tradition-for-classmates-without-mums/"
+    },
+    "3307c59443181c18": {
+      "at": "2026-11-23T07:12:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "438734040",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8585774393542201176",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Arlington Police Department",
+      "title": "WANTED: Lou Ann MIDDLETON",
+      "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
+    },
+    "331393c0463e766b": {
+      "at": "2026-11-19T16:40:00+00:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433763067",
+      "post_url": null,
+      "posted_at": "2026-11-19T16:40:00+00:00",
+      "publisher": "metricool",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Voters will likely decide Dallas City Hall’s future in May election",
+      "url": "https://www.fox4news.com/news/voters-will-likely-decide-dallas-city-halls-future-may-election"
+    },
+    "342b07e2ce8bdf73": {
+      "at": "2026-11-21T19:10:00-06:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437160835",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-5601153579108514312",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth commission provides update on city strategies to curb homelessness",
+      "url": "https://fortworthreport.org/2026/11/21/fort-worth-commission-provides-update-on-city-strategies-to-curb-homelessness/"
+    },
+    "34341f53b9045b87": {
+      "at": "2026-11-21T10:25:00-06:00",
+      "category": "other",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "436807785",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=6913882303464556631",
+      "publisher": "metricool-session",
+      "source": "NBC 5 DFW",
+      "title": "Wreaths Across America needs 36,000 wreaths in North Texas",
+      "url": "https://www.youtube.com/watch?v=3aMNvGI5UFE"
+    },
+    "366d61ae0256b13f": {
+      "at": "2026-11-22T16:22:00-06:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438028053",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5675486671803793516",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "More counties look to Tarrant agency for water as North Texas growth drives demand",
+      "url": "https://fortworthreport.org/2026/11/22/more-counties-look-to-tarrant-agency-for-water-as-north-texas-growth-drives-demand/"
+    },
+    "3844f02bf391d604": {
+      "at": "2026-11-23T07:37:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438734187",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4111506729010378226",
+      "publisher": "metricool-session",
+      "scope": "texas",
+      "source": "The Texas Tribune",
+      "title": "From pre-K to school funding, Texas Dems hope power shift gives education priorities momentum",
+      "url": "https://feeds.texastribune.org/link/16799/17538206/texas-democrats-education-priorities-school-funding"
+    },
+    "395f55d24521d400": {
+      "at": "2026-11-22T09:00:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437577269",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7363175201731165741",
+      "publisher": "metricool-session",
+      "source": "WFAA Sports",
+      "title": "Joaquín Valiente scores 2 goals, Dallas beats Timbers 3-0 in Game 1 of best-of-3 series",
+      "url": "https://www.wfaa.com/article/syndication/associatedpress/joaqun-valiente-scores-2-goals-dallas-beats-timbers-3-0-in-game-1-of-best-of-3-series/616-31a19ba9-89b8-4fb0-bee2-2e15e2b2942d"
+    },
+    "3b0f1374a667b201": {
+      "at": "2026-11-19T13:45:00+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742281",
+      "post_url": null,
+      "posted_at": "2026-11-19T13:45:00+00:00",
+      "publisher": "metricool",
+      "source": "KVUE Austin",
+      "title": "'We're already running out' | SNAP backlog leaves Central Texas families waiting for food aid",
+      "url": "https://www.kvue.com/article/news/local/texas/texas-snap-benefit-backlog-delays/269-e2fcd38e-be9c-47b6-b7e6-94904a6d7492"
+    },
+    "3bb3a503549cd7e4": {
+      "at": "2026-11-21T12:31:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436909919",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4565273781692772406",
+      "publisher": "metricool-session",
+      "source": "KXAN Austin",
+      "title": "Texas Railroad Commission's lone Democrat Jon Rosenthal outlines plans for change",
+      "url": "https://www.kxan.com/state-of-texas/newsmaker-interviews/texas-railroad-commissions-lone-democrat-jon-rosenthal-outlines-plans-for-change/"
+    },
+    "3df3aed9f4c9b948": {
+      "at": "2026-11-22T15:49:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438001538",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8406365408921338725",
+      "publisher": "metricool-session",
+      "source": "CBS News Texas",
+      "title": "Cowboys dominate Titans 51-30 as Dak Prescott accounts for 5 TDs",
+      "url": "https://www.cbsnews.com/texas/news/cowboys-dominate-titans-51-30-112226/"
+    },
+    "3fe28025ba6d841d": {
+      "at": "2026-11-22T09:25:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437608156",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=7501075288085250616",
+      "publisher": "metricool-session",
+      "source": "CBS News Texas",
+      "title": "Dallas Cowboys mark 30 years of giving back with Salvation Army",
+      "url": "https://www.cbsnews.com/texas/video/dallas-cowboys-mark-30-years-of-giving-back-with-salvation-army/"
+    },
+    "40ffa78104c5b2b2": {
+      "at": "2026-11-20T13:34:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435849146",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8889765555974783156",
+      "publisher": "metricool-session",
+      "source": "WFAA Sports",
+      "title": "The Mavericks will sell Cooper Flag's secret weapon outside the AAC this weekend",
+      "url": "https://www.wfaa.com/article/sports/basketball/cooper-flagg-peanut-butter-and-jelly-pop-up-aac-the-jam-box/287-690d7924-7be8-4a56-9879-75d7a226e1cc"
+    },
+    "4674400665feac13": {
+      "at": "2026-11-19T21:16:00-06:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "435014908",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8030735395939269058",
+      "publisher": "metricool-session",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Dallas investigating potential inaccuracies in crime reports",
+      "url": "https://www.fox4news.com/news/dallas-investigating-potential-inaccuracies-crime-reports"
+    },
+    "4a957d22615b7e02": {
+      "at": "2026-11-24T07:37:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "440194861",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6918064718072888417",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Arlington Police Department",
+      "title": "WANTED: Edgar CASTELLANOS",
+      "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
+    },
+    "4eb9755a535205c4": {
+      "at": "2026-11-21T06:26:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "436620685",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-497155648751055920",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Daniel Muniz",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "53f327809e6ab025": {
+      "at": "2026-11-21T19:35:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437160870",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3964115499001884801",
+      "publisher": "metricool-session",
+      "source": "WFAA Sports",
+      "title": "Arch Manning steps up as Longhorns blow out Arkansas",
+      "url": "https://www.wfaa.com/article/sports/football/arch-manning-steps-up-as-longhorns-blow-out-arkansas/287-19be6b38-aab2-4370-8fe1-54b94142b9b7"
+    },
+    "5575a51e4dbb955d": {
+      "at": "2026-11-22T06:30:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437273870",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=3339344578627781263",
+      "publisher": "metricool-session",
+      "source": "WFAA Sports",
+      "title": "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100",
+      "url": "https://www.wfaa.com/article/syndication/kyrie-irving-scores-25-cooper-flagg-22-as-the-mavericks-top-the-clippers-110-100/616-330158e8-ea40-4da0-b0f2-aa9ae7468b4f"
+    },
+    "56865477238e9092": {
+      "at": "2026-11-20T08:59:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "435528437",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1919362400748420927",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Bria Greer",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "56f4f4b01365b602": {
+      "at": "2026-11-19T22:06:00-06:00",
+      "category": "traffic",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "435015060",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=3190941761795149822",
+      "publisher": "metricool-session",
+      "source": "Trinity Metro",
+      "title": "Lost 'N Sound 2026",
+      "url": "https://www.youtube.com/watch?v=yBgJ99dnLVk"
+    },
+    "59f2ab8099878dd8": {
+      "at": "2026-11-19T20:51:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "434999954",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=9221069834769809780",
+      "publisher": "metricool-session",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Fort Worth country club expels Bo French after social media controversies",
+      "url": "https://www.fox4news.com/news/fort-worth-country-club-expels-bo-french-after-social-media-controversies"
+    },
+    "601495a18c4f4f6c": {
+      "at": "2026-11-19T21:41:00-06:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435014993",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-5194816740297718144",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Business Press",
+      "title": "HILLWOOD EXPANDS ALLIANCETEXAS INDUSTRIAL PIPELINE WITH TWO NEW SPECULATIVE BUILDINGS",
+      "url": "https://fortworthbusiness.com/construction/hillwood-expands-alliancetexas-industrial-pipeline-with-two-new-speculative-buildings/"
+    },
+    "611b556b32e8e241": {
+      "at": "2026-11-20T07:19:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "435494612",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8595873482991909747",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Kenneth Gaines",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "63cd7227c8336ff5": {
+      "at": "2026-11-23T08:27:00-06:00",
+      "category": "community",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "438814834",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5565486892600083792",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "NBC 5 DFW",
+      "title": "Fort Worth Parade of Lights returns for 44th year to kick off holiday season",
+      "url": "https://www.youtube.com/watch?v=uKWXagyqkFI"
+    },
+    "65d47cc8eb75ba30": {
+      "at": "2026-11-22T16:55:00-06:00",
+      "category": "breaking",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438053430",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7792049482683562994",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "Fort Worth firefighters battle large 2-story house fire",
+      "url": "https://www.wfaa.com/article/news/local/tarrant-county/fort-worth-firefighters-battle-large-2-story-house-fire/287-cc073553-6915-4c39-8fb5-024cdc8d5fde"
+    },
+    "6726a8f006e85fd8": {
+      "at": "2026-11-19T20:26:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "435000719",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-222607015156758939",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Ronnie Trammell",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "6a9f803b2803e19d": {
+      "at": "2026-11-21T13:52:00-06:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436970978",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=4549702564416406992",
+      "publisher": "metricool-session",
+      "source": "The Texas Tribune",
+      "title": "Paxton drops suit against Dallas pediatrician over transgender care as he prepares to leave office",
+      "url": "https://feeds.texastribune.org/link/16799/17536922/texas-ken-paxton-lawsuit-dropped-brett-cooper-transgender-care-sb-14"
+    },
+    "6db6cf52283b0203": {
+      "at": "2026-11-20T10:39:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435621991",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=7678695549696296023",
+      "publisher": "metricool-session",
+      "source": "ESPN NFL",
+      "title": "Braswell, in debut for Texans, carted off with knee injury on opening kickoff",
+      "url": "https://www.espn.com/nfl/story/_/id/50536083/texans-lose-chris-braswell-serious-looking-knee-injury"
+    },
+    "713d1254c04d9f99": {
+      "at": "2026-11-23T10:58:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439091138",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1678833342493342364",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "NBC 5 DFW",
+      "title": "NFL Thanksgiving schedule: Chiefs-Bills, Eagles-Cowboys, Bears-Lions on the menu",
+      "url": "https://www.nbcdfw.com/news/sports/nfl/nfl-thanksgiving-schedule-2026-chiefs-bills-eagles-cowboys-bears-lions/4023914/"
+    },
+    "727a28e05fabf606": {
+      "at": "2026-11-19T19:15:00+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand, verified against the article",
+      "post_id": "434256672",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "dfw",
+      "source": "NBC 5 DFW",
+      "title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
+      "url": "https://www.nbcdfw.com/news/sports/dallas-mavericks/cooper-flagg-scores-33-as-mavericks-keep-warriors-winless-since-stephen-currys-injury/4108189/"
+    },
+    "72a869c2c30b0716": {
+      "at": "2026-11-22T21:51:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438251907",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6526758872594758649",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "Gas prices drop ahead of Thanksgiving, but fewer Texans are hitting the road",
+      "url": "https://www.wfaa.com/article/news/local/gas-prices-drop-ahead-thanksgiving-but-fewer-texans-hitting-road/287-73e4ba73-c378-4a44-9752-a0245ca51306"
+    },
+    "7829beec819920fa": {
+      "at": "2026-11-23T09:55:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438964775",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=6707679346767249525",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "NBC 5 DFW",
+      "title": "Man dead, another injured after altercation leads to shooting in Fort Worth",
+      "url": "https://www.nbcdfw.com/news/local/man-dead-another-injured-after-altercation-leads-to-shooting-in-fort-worth/4109502/"
+    },
+    "78ead7b6e1e65d77": {
+      "at": "2026-11-20T06:54:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "435494402",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1960919293519611740",
+      "publisher": "metricool-session",
+      "source": "The Texas Tribune",
+      "title": "Tarrant County Republicans, stung by defeat, are soul-searching and finger-pointing",
+      "url": "https://feeds.texastribune.org/link/16799/17536120/texas-tarrant-county-republicans-future-matt-krause"
+    },
+    "7be27b45a3d3be02": {
+      "at": "2026-11-19T18:30:00+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand, verified against the article",
+      "post_id": "434256538",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "dfw",
+      "source": "NBC 5 DFW",
+      "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
+      "url": "https://www.nbcdfw.com/news/sports/blue-star/cowboys-strip-play-calling-duties-from-defensive-coordinator-christian-parker/4107747/"
+    },
+    "7db1ddf48ca929d8": {
+      "at": "2026-11-23T12:15:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439176442",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7032274807033346806",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "CBS News Texas",
+      "title": "Dallas Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving",
+      "url": "https://www.cbsnews.com/texas/news/dallas-cowboys-carter-bloodcare-blood-drive-thanksgiving-game-tickets-philadelphia-eagles/"
+    },
+    "7f74b6e8b27a39fa": {
+      "at": "2026-11-23T11:50:00-06:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439138549",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4759346713513999171",
+      "publisher": "metricool-session",
+      "scope": "national",
+      "source": "The Hollywood Reporter",
+      "title": "Justin Timberlake Documentary Trailer: “He’s Not Who I Thought He Was”",
+      "url": "https://www.hollywoodreporter.com/tv/tv-news/justin-timberlake-documentary-trailer-apple-1236761080/"
+    },
+    "83ad354dab700578": {
+      "at": "2026-11-21T07:35:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "436640972",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2532700471496192195",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Erik Hernandez",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "86f1021042d7c4e4": {
+      "at": "2026-11-23T15:58:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439486905",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-29940217628638769",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "NBC 5 DFW",
+      "title": "TCU interim HC Andy Avalos introduced ahead of regular-season finale against TTU",
+      "url": "https://www.nbcdfw.com/news/sports/ncaaf/tcu-interim-hc-andy-avalos-introduced-ahead-of-regular-season-finale-against-texas-tech/4109823/"
+    },
+    "8755cbd9312410c2": {
+      "at": "2026-11-21T20:50:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437215926",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3487698037909337283",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "5 North Texas police officers among 30 nationwide honored by Justice Department",
+      "url": "https://www.wfaa.com/article/news/national/military-news/5-north-texas-police-officers-among-30-nationwide-honored-by-justice-department/287-acbc6501-0934-4ac0-a159-75e0164e81a7"
+    },
+    "8a6ec26f9fe8a685": {
+      "at": "2026-11-23T06:47:00-06:00",
+      "category": "weather",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "438700605",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=2570314757405296557",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA",
+      "title": "Possible Frost and Freeze for North Texas This Week",
+      "url": "https://www.youtube.com/watch?v=ejNuemk8F3I"
+    },
+    "8b4fd0691d844aec": {
+      "at": "2026-11-20T10:14:00-06:00",
+      "category": "culture",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "435604079",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6238789278276172016",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "Fort Worth Science and History Museum membership can get you savings at other museums",
+      "url": "https://www.youtube.com/watch?v=ZtuZ-nKRsLg"
+    },
+    "8c2e80ebfa90ac5b": {
+      "at": "2026-11-24T06:47:00-06:00",
+      "category": "weather",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "440194749",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-205531745271855994",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Dallas Weather: First freeze warning of the season takes effect tonight across parts of North Texas",
+      "url": "https://www.fox4news.com/weather/dallas-weather-first-freeze-warning-season-takes-effect-tonight-across-parts-north-texas"
+    },
+    "8d0602df4a20f81c": {
+      "at": "2026-11-22T07:45:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437553510",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2829964774250166678",
+      "publisher": "metricool-session",
+      "source": "TCU Athletics",
+      "title": "TCU Falls to Utah in Home Finale",
+      "url": "https://gofrogs.com/news/2026/11/22/football-tcu-falls-to-utah-in-home-finale"
+    },
+    "8d6a55cfe2ff5f46": {
+      "at": "2026-11-20T11:29:00-06:00",
+      "category": "community",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "435666634",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1706731619244423066",
+      "publisher": "metricool-session",
+      "source": "CBS Texas",
+      "title": "North Texas preschoolers donate food to Mission Arlington ahead of Thanksgiving",
+      "url": "https://www.youtube.com/watch?v=762jvSUQYhM"
+    },
+    "8d9c36121583aac2": {
+      "at": "2026-11-21T18:45:00-06:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437145449",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-454080916658434884",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "Fort Worth plan commission approves platting waivers, closing an alley for development",
+      "url": "https://fortworthreport.org/2026/11/21/fort-worth-plan-commission-approves-platting-waivers-closing-an-alley-for-development/"
+    },
+    "8f8740ad5adae026": {
+      "at": "2026-11-20T14:24:00-06:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "435881930",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=4423186947477358150",
+      "publisher": "metricool-session",
+      "source": "The Texas Tribune",
+      "title": "“We need to be compensated”: Texas Tech chair pushed Fermi data center company for lucrative deals, despite university ties",
+      "url": "https://feeds.texastribune.org/link/16799/17536360/texas-tech-cody-campbell-board-fermi-data-center-matador"
+    },
+    "9393ab4e851866b4": {
+      "at": "2026-11-24T07:12:00-06:00",
+      "category": "breaking",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "440190667",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8390075957893969530",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA",
+      "title": "One person life flighted after house fire in Crowley",
+      "url": "https://www.youtube.com/watch?v=T25hPYrmuuQ"
+    },
+    "98bb64127bc8fcfc": {
+      "at": "2026-11-21T07:10:00-06:00",
+      "category": "community",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "436620753",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3315957448057273716",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "Fort Worth ISD to serve free meals over Thanksgiving Break",
+      "url": "https://www.youtube.com/watch?v=V4y-sexmRfI"
+    },
+    "99c8950734b9734c": {
+      "at": "2026-11-22T08:10:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "437553613",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1018958869351384962",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Police Department",
+      "title": "WANTED: Dwight Sanders",
+      "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "9e162c1750326578": {
+      "at": "2026-11-21T08:00:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436641300",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-689474736292544251",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "New citywide initiative asks Fort Worthians to volunteer 500,000 hours by April",
+      "url": "https://fortworthreport.org/2026/11/20/new-citywide-initiative-asks-fort-worthians-to-volunteer-500000-hours-by-april/"
+    },
+    "a0f2fffafb298082": {
+      "at": "2026-11-22T13:35:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437877984",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1738402536747939202",
+      "publisher": "metricool-session",
+      "source": "CBS News Texas",
+      "title": "TCU fires Sonny Dykes four years after making CFP championship game",
+      "url": "https://www.cbsnews.com/texas/news/tcu-fires-sonny-dykes-four-years-after-making-cfp-championship-game/"
+    },
+    "a2a9d1282220d047": {
+      "at": "2026-11-22T21:19:00-06:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438232846",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-479855673414433724",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "Police charge North Texas man with intoxicated manslaughter after fatal crash on South Freeway",
+      "url": "https://www.wfaa.com/article/news/crime/police-charge-north-texas-man-with-intoxicated-manslaughter-after-fatal-crash-south-freeway/287-509d79c3-9d58-433f-9ced-bb6e814ee5e1"
+    },
+    "a6ea3e7042a06af0": {
+      "at": "2026-11-20T13:09:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435739375",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7528029533592859449",
+      "publisher": "metricool-session",
+      "source": "NBC 5 DFW",
+      "title": "CONCACAF W tourney taking over TX Nov. 27-Dec. 5; USWNT to play at least 2 games",
+      "url": "https://www.nbcdfw.com/news/sports/concacaf-w-tournament-taking-over-texas-nov-27-dec-5-uswnt-will-play-at-least-two-games/4108241/"
+    },
+    "a9091db50c1ea660": {
+      "at": "2026-11-21T17:50:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437127997",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8890007040712655971",
+      "publisher": "metricool-session",
+      "source": "The Texas Tribune",
+      "title": "Texas Sports Academy, tied to AI-driven Alpha School, is Texas’ biggest voucher recipient so far",
+      "url": "https://feeds.texastribune.org/link/16799/17537271/texas-school-vouchers-alpha-sports-academy-ai"
+    },
+    "ab13521a28cf5e32": {
+      "at": "2026-11-23T08:55:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438908834",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3297699025101831469",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Bedford police arrest suspected intoxicated driver after chase ends in crash into local business",
+      "url": "https://www.fox4news.com/news/bedford-police-arrest-suspected-intoxicated-driver-after-chase-ends-crash-local-business"
+    },
+    "aed8d0a4aa2a3f16": {
+      "at": "2026-11-24T06:22:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "440190512",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2687043324992598553",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Arlington Police Department",
+      "title": "WANTED: Amy JOHNSON",
+      "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
+    },
+    "b437712d96d893e6": {
+      "at": "2026-11-22T06:55:00-06:00",
+      "category": "weather",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "437509272",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-412968444435806582",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "DFW Weather: Near freezing weather approaching this Thanksgiving in 7 day forecast",
+      "url": "https://www.youtube.com/watch?v=-oNyE2180TA"
+    },
+    "b444633ff7ebc6c5": {
+      "at": "2026-11-20T09:24:00-06:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435532082",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4048032029633658688",
+      "publisher": "metricool-session",
+      "source": "KENS 5 San Antonio",
+      "title": "One last love letter: San Antonio Zoo mourns Fiona, Timothy the hippo’s longtime sweetheart",
+      "url": "https://www.kens5.com/article/news/local/one-last-love-letter-san-antonio-zoo-mourns-fiona-timothy-hippo-longtime-sweetheart-cincinnati-remembrance-hippos-birthday-mariachi-conservation/273-fe8f5028-bb95-4bab-a53d-670aeb3d8740"
+    },
+    "b7d958555f9a76c9": {
+      "at": "2026-11-19T16:05:00+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433763022",
+      "post_url": null,
+      "posted_at": "2026-11-19T16:05:00+00:00",
+      "publisher": "metricool",
+      "source": "KXAN Austin",
+      "title": "Largest enrollment drop in Texas’ recorded history means challenges for public schools, Morath says",
+      "url": "https://www.kxan.com/news/texas/declining-enrollment-texas/"
+    },
+    "b8e98488bc8899a9": {
+      "at": "2026-11-21T14:17:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436971107",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2359149227467781884",
+      "publisher": "metricool-session",
+      "source": "NBC 5 DFW",
+      "title": "Dallas Cowboys fan dies after ‘altercation' during 49ers game: Arlington Police",
+      "url": "https://www.nbcdfw.com/news/sports/blue-star/dallas-cowboys-fan-dies-after-fight-during-49ers-game-arlington-police/4108895/"
+    },
+    "be179f7aa07eb5f5": {
+      "at": "2026-11-23T16:23:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439510864",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3936849857256208296",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "Mansfield ISD school board elections are changing. Here’s what voters need to know",
+      "url": "https://fortworthreport.org/2026/11/23/mansfield-isd-school-board-elections-are-changing-heres-what-voters-need-to-know/"
+    },
+    "be30deab42bde11a": {
+      "at": "2026-11-19T14:55:00+00:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433743687",
+      "post_url": null,
+      "posted_at": "2026-11-19T14:55:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "Tarrant County to mark 25 years of celebrating National Adoption Day",
+      "url": "https://fortworthreport.org/2026/11/18/tarrant-county-to-mark-25-years-of-celebrating-national-adoption-day/"
+    },
+    "c04167340c05c53e": {
+      "at": "2026-11-23T13:05:00-06:00",
+      "category": "weather",
+      "kind": "nws_alert",
+      "mode": "photo",
+      "post_id": "439237914",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=9102465759759781357",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "National Weather Service Fort Worth",
+      "title": "Freeze Warning: Montague; Cooke; Young; Jack; Wise; Denton; Stephens; Palo Pinto; Parker; Tarrant; Eastland; Erath; Hood; Somervell; Johnson",
+      "url": "https://forecast.weather.gov/MapClick.php?zoneid=TXZ118"
+    },
+    "c2dc10ff632831c2": {
+      "at": "2026-11-20T11:04:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435640850",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=7863796702878452517",
+      "publisher": "metricool-session",
+      "source": "KXAN Austin",
+      "title": "Sarkisian hopes to send Texas seniors out in style against Arkansas",
+      "url": "https://www.kxan.com/sports-general/horns-report/sarkisian-hopes-to-send-texas-seniors-out-in-style-against-arkansas/"
+    },
+    "c2fb55cde9f7a888": {
+      "at": "2026-11-20T12:19:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "435667376",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=6069378612265042748",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "Texas House District 61 race margin is just seven votes; recount filed with state",
+      "url": "https://www.wfaa.com/article/news/politics/elections/texas-house-district-61-race-margin-is-just-seven-votes-recount-filed-with-state/287-ccfc44c6-f7b2-4854-894c-8d12ea8b0a3e"
+    },
+    "c72b466f5037ee45": {
+      "at": "2026-11-23T17:25:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439570475",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5226124804192158272",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "Keller ISD eyes May bond election after voters reject $828M proposal",
+      "url": "https://fortworthreport.org/2026/11/23/keller-isd-eyes-may-bond-election-after-voters-reject-828m-proposal/"
+    },
+    "c781fe47659b2dbf": {
+      "at": "2026-11-20T09:49:00-06:00",
+      "category": "food",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "435574174",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8991126805361964361",
+      "publisher": "metricool-session",
+      "source": "WFAA",
+      "title": "Downton Fort Worth restaurant reopens three years after an explosion",
+      "url": "https://www.youtube.com/watch?v=EFoDpQ7VQMk"
+    },
+    "c832f03c76bc50fc": {
+      "at": "2026-11-24T13:21:42.625719+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-072142/02-texas-high-school-football-playoff-matchups-sche",
+      "publisher": "dryrun",
+      "scope": "texas",
+      "source": "WFAA Sports",
+      "title": "Texas high school football: Playoff matchups, schedule",
+      "url": "https://www.wfaa.com/article/sports/high-school/hs-football/texas-high-school-football-playoff-matchups-schedule-uil-state-regional-round/287-72fa18a2-51be-4859-bf9b-b04251ad8af1"
+    },
+    "c8425095b9b0874d": {
+      "at": "2026-11-20T13:59:00-06:00",
+      "category": "other",
+      "kind": "rss",
+      "mode": "link",
+      "post_id": "435881605",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6364867301818675218",
+      "publisher": "metricool-session",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "White Castle vending machine debuts at Dallas Love Field ahead of first Texas location",
+      "url": "https://www.fox4news.com/news/white-castle-vending-machine-debuts-dallas-love-field-ahead-first-texas-location"
+    },
+    "culture-parade-of-lights-2026-0": {
+      "at": "2026-11-20T07:44:00-06:00",
+      "category": "events",
+      "kind": "culture",
+      "mode": "photo",
+      "post_id": "435496283",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6409550518459151121",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Texas TV",
+      "title": "Parade of Lights rolls through downtown Fort Worth this Sunday 🎄",
+      "url": "https://www.fortworthparadeoflights.org/"
+    },
+    "d19e6bea6dbf9024": {
+      "at": "2026-11-24T13:21:42.625719+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-072142/03-dfw-gas-prices-drop-below-3-ahead-of-thanksgivin",
+      "publisher": "dryrun",
+      "scope": "dfw",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "DFW gas prices drop below $3 ahead of Thanksgiving travel rush",
+      "url": "https://www.fox4news.com/news/dfw-gas-prices-drop-below-3-ahead-thanksgiving-travel-rush"
+    },
+    "d1cbca42989fdf79": {
+      "at": "2026-11-22T20:19:00-06:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "438196785",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=345253828362519046",
+      "publisher": "metricool-session",
+      "source": "CBS News Texas",
+      "title": "Fiery crash in Arlington after driver allegedly flees from police, officials say",
+      "url": "https://www.cbsnews.com/texas/news/fiery-crash-in-arlington-after-driver-allegedly-flees-from-police-officials-say/"
+    },
+    "d6d49de937e1c328": {
+      "at": "2026-11-22T10:35:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437713269",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=884010358661531428",
+      "publisher": "metricool-session",
+      "source": "NBC 5 DFW",
+      "title": "Arlington pastor found guilty in real estate fraud case",
+      "url": "https://www.nbcdfw.com/news/local/north-texas-pastor-found-guilty-in-real-estate-fraud-case/4109007/"
+    },
+    "dc582b93108be2aa": {
+      "at": "2026-11-20T12:44:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "435739235",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7362706870692134483",
+      "publisher": "metricool-session",
+      "source": "City of Arlington",
+      "title": "City Improves Pedestrian Safety, Access in Entertainment District",
+      "url": "https://www.arlingtontx.gov/News-Articles/2026/November/City-Improves-Pedestrian-Safety-Access-in-Entertainment-District"
+    },
+    "e10f1c3863a282c4": {
+      "at": "2026-11-23T19:00:00-06:00",
+      "category": "breaking",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439658556",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5809780566077557037",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Police, SWAT units responding after 1 shot by barricaded suspect in Arlington home",
+      "url": "https://www.fox4news.com/news/police-swat-units-responding-after-1-shot-by-barricaded-suspect-in-arlington-home"
+    },
+    "e2216bfbb0df3d8a": {
+      "at": "2026-11-23T17:55:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439597296",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3211741824643543739",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "CBS News Texas",
+      "title": "Cowboys, Salvation Army to illuminate AT&T Stadium red in celebration of 30-year partnership",
+      "url": "https://www.cbsnews.com/texas/news/cowboys-salvation-army-to-illuminate-at-t-stadium-red-in-celebration-of-30-year-partnership/"
+    },
+    "e2bbe323b0da4a7a": {
+      "at": "2026-11-19T14:20:00+00:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433742331",
+      "post_url": null,
+      "posted_at": "2026-11-19T14:20:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "Northwest ISD approves revised high school boundaries after parents speak out",
+      "url": "https://fortworthreport.org/2026/11/18/northwest-isd-approves-revised-high-school-boundaries-after-parents-speak-out/"
+    },
+    "e2d80f6590db51c9": {
+      "at": "2026-11-23T06:22:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "438700523",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1907889613036470741",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Arlington Police Department",
+      "title": "WANTED: Quimari WILLIAMS",
+      "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
+    },
+    "e4aff03671357cfc": {
+      "at": "2026-11-21T18:20:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "437145387",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3410097083184101582",
+      "publisher": "metricool-session",
+      "source": "KXAN Austin",
+      "title": "State of Texas: Agriculture commissioner-elect Clayton Tucker pushes for new data center rules",
+      "url": "https://www.kxan.com/state-of-texas/state-of-texas-agriculture-commissioner-elect-clayton-tucker-pushes-for-new-data-center-rules/"
+    },
+    "eb7d9121d20c9020": {
+      "at": "2026-11-20T15:56:00-06:00",
+      "category": "politics",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436125395",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8777971542460054490",
+      "publisher": "metricool-session",
+      "source": "The Texas Tribune",
+      "title": "Texas power grid CEO secures multimillion-dollar contract extension, angering Dan Patrick",
+      "url": "https://feeds.texastribune.org/link/16799/17536469/ercot-texas-electric-grid-ceo-contract"
+    },
+    "ec89fa8f7a7b73d1": {
+      "at": "2026-11-24T08:02:00-06:00",
+      "category": "crime",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "440221368",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7204886886099697181",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "CBS Texas",
+      "title": "Man in custody after allegedly shooting wife, hours-long standoff in Arlington, police say",
+      "url": "https://www.youtube.com/watch?v=J2VsiZdXCKI"
+    },
+    "f288f7af12924966": {
+      "at": "2026-11-19T21:00:00+00:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand, verified against the article",
+      "post_id": "434256784",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "local",
+      "source": "NBC 5 DFW",
+      "title": "Utah visits TCU, close to Big 12 title game with Scalley part of all 10-0 starts",
+      "url": "https://www.nbcdfw.com/news/sports/ncaaf/no-2-utah-visits-tcu-close-to-big-12-title-game-berth-with-scalley-part-of-all-10-0-starts/4108205/"
+    },
+    "f6005c351dbbb80d": {
+      "at": "2026-11-19T15:30:00+00:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on the first night",
+      "post_id": "433743723",
+      "post_url": null,
+      "posted_at": "2026-11-19T15:30:00+00:00",
+      "publisher": "metricool",
+      "source": "Fort Worth Report",
+      "title": "‘This will affect me greatly’: Transit users question rideshare cuts across Fort Worth",
+      "url": "https://fortworthreport.org/2026/11/18/this-will-affect-me-greatly-transit-users-question-rideshare-cuts-across-fort-worth/"
+    },
+    "faa0fc0c17804213": {
+      "at": "2026-11-23T19:25:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439658814",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=6038820500717521323",
+      "publisher": "metricool-session",
+      "scope": "texas",
+      "source": "KXAN Austin",
+      "title": "Texas prepares for emotional rivalry showdown at Texas A&M as postseason stakes rise",
+      "url": "https://www.kxan.com/sports-general/horns-report/texas-prepares-for-emotional-rivalry-showdown-at-texas-am-as-postseason-stakes-rise/"
+    },
+    "fce28073d4f440ec": {
+      "at": "2026-11-21T08:50:00-06:00",
+      "category": "weather",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "436687577",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=731192575471143839",
+      "publisher": "metricool-session",
+      "source": "Fort Worth Report",
+      "title": "Study finds North Texas could see billions in flood damages. Here’s what can help mitigate",
+      "url": "https://fortworthreport.org/2026/11/20/study-finds-north-texas-could-see-billions-in-flood-damages-heres-what-can-help-mitigate/"
+    },
+    "fd892b6f65802353": {
+      "at": "2026-11-23T12:40:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439176715",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=4708336744371865402",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "City of Fort Worth",
+      "title": "‘Cease the Grease’ this holiday season",
+      "url": "https://www.fortworthtexas.gov/news/2026/11/Cease-the-Grease-this-holiday-season"
+    },
+    "fec67b42ed1a3951": {
+      "at": "2026-11-23T11:25:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "439137797",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5263995974400427799",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "City of Arlington",
+      "title": "Holiday Cooking and Potluck Food Safety Tips",
+      "url": "https://www.arlingtontx.gov/News-Articles/2026/November/Holiday-Cooking-and-Potluck-Food-Safety-Tips"
+    },
+    "forecast-2026-11-20": {
+      "at": "2026-11-20T11:54:00-06:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": "435703843",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3860366059793202610",
+      "publisher": "metricool-session",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Friday, November 20",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
+    "forecast-2026-11-21": {
+      "at": "2026-11-21T08:25:00-06:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": "436665578",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8582190349169084352",
+      "publisher": "metricool-session",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Saturday, November 21",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
+    "forecast-2026-11-22": {
+      "at": "2026-11-22T08:35:00-06:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": "437577194",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2306995416716590067",
+      "publisher": "metricool-session",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Sunday, November 22",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
+    "forecast-2026-11-23": {
+      "at": "2026-11-23T08:02:00-06:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": "438782621",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5279706198977037801",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Monday, November 23",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
+    "forecast-2026-11-24": {
+      "at": "2026-11-24T13:21:42.625719+00:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-072142/01-fort-worth-forecast-for-tuesday-november-24",
+      "publisher": "dryrun",
+      "scope": "local",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Tuesday, November 24",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
+    "manual-anthropic-ipo-2026-11-19": {
+      "at": "2026-11-19T20:00:00+00:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on IPO day",
+      "post_id": "434607908",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "national",
+      "source": "CBS News",
+      "title": "Anthropic goes public in record $81.3 billion IPO, shares open at $111.50",
+      "url": "https://www.cbsnews.com/news/anthropic-ipo-nasdaq-debut-claude-ai/"
+    },
+    "manual-gta-vi-launch-2026-11-19": {
+      "at": "2026-11-19T13:10:00+00:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "note": "scheduled by hand on launch morning",
+      "post_id": "433774363",
+      "post_url": null,
+      "publisher": "metricool",
+      "scope": "national",
+      "source": "PlayStation Blog",
+      "title": "Grand Theft Auto VI is out today on PS5 and Xbox",
+      "url": "https://blog.playstation.com/2026/11/18/grand-theft-auto-vi-launches-tomorrow-november-19/"
+    },
+    "tm-ty-myers-2026-11-21": {
+      "at": "2026-11-19T20:01:00-06:00",
+      "category": "events",
+      "kind": "event",
+      "mode": "photo",
+      "post_id": "434991210",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-1696896136023879806",
+      "publisher": "metricool-session",
+      "source": "Ticketmaster",
+      "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+      "url": "https://www.ticketmaster.com/dickies-arena-tickets-fort-worth/venue/99330"
+    }
+  },
+  "skipped": {
+    "0076511ed9addbf8": {
+      "at": "2026-11-23T23:50:26.016678+00:00",
+      "reason": "FOX 4's Cowboys blood-drive raffle: the same Cowboys and Carter BloodCare blood drive posted at 12:15, with AT&T Stadium standing in for a b"
+    },
+    "045d600936d6ac43": {
+      "at": "2026-11-23T13:46:46.663078+00:00",
+      "reason": "KXAN's SEC title game scenarios for the Longhorns: a what-if piece, not Fort Worth news; rule added"
+    },
+    "04746e697d5f874a": {
+      "at": "2026-11-21T19:15:20.036318+00:00",
+      "reason": "a Dallas shooting with no death and no arrest is Dallas police blotter, not Fort Worth news"
+    },
+    "04938e54af556559": {
+      "at": "2026-11-22T21:14:45.135945+00:00",
+      "reason": "an organization's press release ('is pleased to announce') reprinted by FW Business Press, filed as food for 'Bar'; rules added"
+    },
+    "04c63d2b29d666a6": {
+      "at": "2026-11-23T16:17:22.718732+00:00",
+      "reason": "Deadline's 'Lil Kev' season 2 trailer: one outlet's story, counted as a national moment because 'trailer' sat in other outlets' headlines ab"
+    },
+    "09421d20533e0b5b": {
+      "at": "2026-11-22T19:26:15.235108+00:00",
+      "reason": "a national Coaches Poll list captioned from its middle (Iowa at No. 13); rankings rule added"
+    },
+    "0dcde3ec7bc5a81f": {
+      "at": "2026-11-23T14:22:51.705168+00:00",
+      "reason": "a Dallas youth tournament four months away (March 2027), captioned with West Ham's relegation instead of the news"
+    },
+    "0e9f09cd424fe7e9": {
+      "at": "2026-11-22T13:45:41.339341+00:00",
+      "reason": "TCU's postgame notes sheet for the game the 7:45 recap already covered; a stats page, not a story (rule added)"
+    },
+    "0ebdefdcec430122": {
+      "at": "2026-11-20T19:15:08.920313+00:00",
+      "reason": "the only image is the TechFW logo; a logo card reads like an ad, and the item is minor"
+    },
+    "105f049f04122d0a": {
+      "at": "2026-11-22T19:19:33.795690+00:00",
+      "reason": "KVUE's 1963 JFK archive replay to watch on its site, not today's news (archive rule added)"
+    },
+    "1f6c147f0a13ad43": {
+      "at": "2026-11-22T17:14:19.269083+00:00",
+      "reason": "a national picks column ('upset alert'), with AT&T Stadium for a game in Nashville (rule added)"
+    },
+    "202bbe7a51bc9bfc": {
+      "at": "2026-11-23T15:47:12.031275+00:00",
+      "reason": "Billboard's list of CMA new artist winners over 30: a list, not a moment, and 'CMA' found a Volvo XC40 (Volvo's CMA platform); rules added"
+    },
+    "214130b81122252c": {
+      "at": "2026-11-20T16:18:32.671901+00:00",
+      "reason": "a magazine gift guide, not news"
+    },
+    "21e0ae7a5a06917c": {
+      "at": "2026-11-21T15:50:03.621324+00:00",
+      "reason": "caption was the page's Imagn photo caption, and AT&T Stadium (a 2017 Cotton Bowl picture) stood in for a coaching story about Christian Park"
+    },
+    "21f48d05ec91439a": {
+      "at": "2026-11-22T18:14:13.279733+00:00",
+      "reason": "a Houston coach quoting his team after a loss in Denver: not Fort Worth news, and the photo was Toyota Center (rule added)"
+    },
+    "2739ccb60dc3cd5c": {
+      "at": "2026-11-22T05:02:52.173729+00:00",
+      "reason": "an opposing player hurt mid-game in South Bend is not Fort Worth news and is stale by morning; the photo was Notre-Dame de Paris (rule added"
+    },
+    "274fbd3e228ce68a": {
+      "at": "2026-11-22T14:23:34.180834+00:00",
+      "reason": "a third weather post before 10 am (WFAA's 7-day outlook at 6:55 and the NWS forecast at 8:35 already out); the weather cap is now 2"
+    },
+    "29e756adffe5cc3d": {
+      "at": "2026-11-21T12:18:30.407673+00:00",
+      "reason": "caption was the article's 2022 photo caption (Nissan Stadium, Nashville), and an AT&T Stadium stand-in for a game preview whose venue is not"
+    },
+    "2f3abe3a9ae80538": {
+      "at": "2026-11-22T12:47:08.192076+00:00",
+      "reason": "CBS Texas video of a cold front due Saturday night: stale by Sunday morning, and WFAA's 7-day forecast video is scheduled at 6:55"
+    },
+    "3761357513ce7271": {
+      "at": "2026-11-23T15:28:46.350691+00:00",
+      "reason": "Fort Worth Weekly's 'Game Show Sets Have Found a Second Life on Interactive Live Streams': a gambling-stream advertorial with no Fort Worth "
+    },
+    "39eb16f305f86458": {
+      "at": "2026-11-20T21:18:54.918609+00:00",
+      "reason": "a conviction with no picture of the defendant or the courtroom; the render offered AT&T Stadium"
+    },
+    "3d1f98e2f4a22827": {
+      "at": "2026-11-23T23:22:06.681940+00:00",
+      "reason": "IGN's GTA 6 train piece: one outlet's fan-reaction story about a watchlist subject, not a national moment, with a stock PS5-controller photo"
+    },
+    "3eae7c89d63660eb": {
+      "at": "2026-11-23T19:55:45.916407+00:00",
+      "reason": "MLB.com's Astros pitching coach story: Houston's team news (filed as 'other', so the other-metro rule never ran), with the Astros' ballpark "
+    },
+    "40929dc118a94fb9": {
+      "at": "2026-11-23T20:28:52.392211+00:00",
+      "reason": "NBC 5's Texas Tech win at Baylor: Saturday's result drafted on Monday, with Jones AT&T Stadium (2013) standing in for a game played at Baylo"
+    },
+    "4483cc540033149a": {
+      "at": "2026-11-23T16:17:22.718712+00:00",
+      "reason": "Fort Worth Weekly's 'Simple Ways To Enjoy The End Of A North Texas Summer' in late November (it speaks of late September and weeks of triple"
+    },
+    "449a16a0e5f8b897": {
+      "at": "2026-11-22T19:19:33.795759+00:00",
+      "reason": "a Fate (Rockwall County) arrest, outside Tarrant, with the crime cap reached; its Snapchat photo match is fixed in code"
+    },
+    "461ecbd45f87c35c": {
+      "at": "2026-11-22T00:47:03.700665+00:00",
+      "reason": "a recap of the Nov. 4 Colleyville council meeting published Nov. 21: more than two weeks old"
+    },
+    "4fc66aa39c20fbc7": {
+      "at": "2026-11-23T13:23:30.240555+00:00",
+      "reason": "a Dallas street dedication at Fair Park (another city's civic item), with a 2009 Fair Park building and a 'Photo: Photo:' credit; rules adde"
+    },
+    "5141dc7617cadc0a": {
+      "at": "2026-11-21T17:50:45.925537+00:00",
+      "reason": "a crash on San Antonio's I-35 is San Antonio's news, not ours; the I-35 statewide exemption is gone"
+    },
+    "5241b7fd7f49fa0b": {
+      "at": "2026-11-22T15:49:39.045375+00:00",
+      "reason": "the source says the I-30 closure lasts until 'Monday, Nov. 26', a Thursday this year, so its dates cannot be trusted; and the photo was I-35"
+    },
+    "52cc0a6d3af0ef4c": {
+      "at": "2026-11-23T19:21:26.509554+00:00",
+      "reason": "Variety's Super Bowl IMAX screening announcement as a text card, captioned 'Worry not, because Imax is bringing ...': an announcement, not a"
+    },
+    "53bdbedbeb9933eb": {
+      "at": "2026-11-23T14:55:31.754763+00:00",
+      "reason": "Variety's Tyson Fury schizophrenia story: Netflix is where the documentary airs, not a national moment, and the photo was a TV remote; rules"
+    },
+    "57aab8ca367891f5": {
+      "at": "2026-11-21T12:49:26.226495+00:00",
+      "reason": "KVUE's Austin forecast page under a statewide headline: another metro's weather, a caption that only named the station's weather team, and a"
+    },
+    "5a7906e784b99a96": {
+      "at": "2026-11-22T18:44:36.022478+00:00",
+      "reason": "the same Cowboys-Salvation Army 30-year partnership posted at 9:25, and its caption said one thing twice (rule added for the caption)"
+    },
+    "5f29a2aee52f0b26": {
+      "at": "2026-11-24T12:21:45.940128+00:00",
+      "reason": "City of Arlington's People Library (Dec. 5): captioned only with the city's promotional blurb, no time and no place, eleven days out; rule a"
+    },
+    "610f84058f8bd367": {
+      "at": "2026-11-22T15:49:39.045409+00:00",
+      "reason": "the same game as 'Arch Manning steps up as Longhorns blow out Arkansas', posted Nov 21 at 7:35 pm (rule added)"
+    },
+    "660ff8860075a27a": {
+      "at": "2026-11-23T13:23:30.240585+00:00",
+      "reason": "WFAA video of the Salvation Army-Cowboys campaign kickoff, posted Nov 22 at 9:25 from CBS; rule added"
+    },
+    "6b5a2f0b7960a22a": {
+      "at": "2026-11-23T19:21:26.509535+00:00",
+      "reason": "FOX 4's Dallas North Tollway overnight closure at Northwest Highway: Dallas's own road, not Fort Worth traffic; rule added"
+    },
+    "6c595148dfbc1224": {
+      "at": "2026-11-22T18:14:13.279753+00:00",
+      "reason": "a Houston college result with the Houston skyline as a stand-in (rule added)"
+    },
+    "6f71b25b567fa281": {
+      "at": "2026-11-20T15:19:26.662256+00:00",
+      "reason": "another city's government (Austin mayor pro tem)"
+    },
+    "7154d9b7e3239f3a": {
+      "at": "2026-11-23T14:22:51.705165+00:00",
+      "reason": "the Bedford chase-and-crash from Sunday morning, captioned 'happened overnight' on Monday; rule added"
+    },
+    "756a87efa20690f5": {
+      "at": "2026-11-21T23:31:56.450301+00:00",
+      "reason": "a weekly series profile whose own photo is a courtesy photo; the picture offered was an H-E-B store in Boerne matched from a sponsor line"
+    },
+    "75d48bfc93540c72": {
+      "at": "2026-11-22T16:27:33.855957+00:00",
+      "reason": "the same game as 'TCU Falls to Utah in Home Finale' (posted 7:45), drafted with the library's TCU stadium (rule added)"
+    },
+    "75ea53b519e16309": {
+      "at": "2026-11-22T14:47:12.892536+00:00",
+      "reason": "a third weather item today (WFAA outlook 6:55, NWS forecast 8:35); it was filed as business, which the weather cap missed (rule added)"
+    },
+    "79edd98f008b11a6": {
+      "at": "2026-11-23T22:15:30.424563+00:00",
+      "reason": "ESPN's Texas A&M interim athletic director: College Station's athletics office is not Fort Worth news, and Kyle Field stood in for a job cha"
+    },
+    "7a4751ec306d6836": {
+      "at": "2026-11-20T16:46:40.176561+00:00",
+      "reason": "Georgia vs. LSU is not Texas news; the SEC keyword let it through"
+    },
+    "805bf167fa9d92a1": {
+      "at": "2026-11-23T23:50:26.016698+00:00",
+      "reason": "Variety's Avengers: Doomsday awards-screening story: awards-season trade news, not a national moment, with a Scarlet Witch cosplayer photo; "
+    },
+    "8143b8e89c9ca81c": {
+      "at": "2026-11-20T15:47:44.701022+00:00",
+      "reason": "another city's ballot fight (Austin Prop J)"
+    },
+    "8cfab2ab8d999e9a": {
+      "at": "2026-11-23T15:28:46.350712+00:00",
+      "reason": "Billboard's GTA VI soundtrack cover feature: a magazine feature, not a national moment, under a PlayStation controller stand-in; rule added"
+    },
+    "8e92ba58e0d48b39": {
+      "at": "2026-11-21T17:16:18.352283+00:00",
+      "reason": "a third station video of the day (WFAA weather) is a link post; the feed stays original posts first, two station videos a day"
+    },
+    "8fd80ca409874112": {
+      "at": "2026-11-22T20:45:53.903721+00:00",
+      "reason": "a CBS Sports highlight-clip page ('Watch Titans rookie Carnell Tate score...') mid-game: the clip cannot ride a card; rule added"
+    },
+    "9428392a765ff728": {
+      "at": "2026-11-20T15:19:26.662237+00:00",
+      "reason": "a Dallas park amenity is not Fort Worth news"
+    },
+    "96b1b1546b7d83d3": {
+      "at": "2026-11-24T12:45:17.421653+00:00",
+      "reason": "CBS Texas freeze conditions: held by the pipeline (the frost photo did not show the story) and a repeat of the 6:47 freeze warning post"
+    },
+    "986e3876f5533509": {
+      "at": "2026-11-23T21:22:10.422646+00:00",
+      "reason": "Billboard's Taylor Swift and her niece after a Travis Kelce touchdown: celebrity news drafted as a national sports text card; rule added"
+    },
+    "98a170db0b288a49": {
+      "at": "2026-11-22T14:23:34.180849+00:00",
+      "reason": "an ethicist's commentary on a Dallas hospital lawsuit, not news; the photo was Baylor's McLane Stadium in Waco (rule added)"
+    },
+    "9eeb905d6b413c90": {
+      "at": "2026-11-22T14:47:12.892548+00:00",
+      "reason": "an expert commentary piece, the second outlet's version of the one skipped at 8:12 (rule added)"
+    },
+    "a06f352204bb29bb": {
+      "at": "2026-11-23T17:24:33.134159+00:00",
+      "reason": "NBC 5's Christmas in the Garden as a text card: tagged sports (NBC items are being read as sports), and a community story needs a picture of"
+    },
+    "a272b3d30b4b736f": {
+      "at": "2026-11-23T13:46:46.663056+00:00",
+      "reason": "the Texas Tribune's second Democratic-agenda explainer of the morning, its caption ending in a teaser ('Here's what...'); rules added"
+    },
+    "a312360889849a91": {
+      "at": "2026-11-22T04:58:17.921718+00:00",
+      "reason": "a cold front due Saturday night is stale by Sunday morning, and the morning forecast post covers the cooler weather"
+    },
+    "a3a82fefa869e67a": {
+      "at": "2026-11-22T17:14:19.269107+00:00",
+      "reason": "the photo was a sunrise over a mosque for the Hunger Games box office; the word 'Sunrise' came from the film's title (rule added)"
+    },
+    "a6adeefe796bc032": {
+      "at": "2026-11-22T15:20:35.831784+00:00",
+      "reason": "a national grades column, not news; the photo was AT&T Stadium for a Longhorns win in Austin (rule added)"
+    },
+    "a841df25e5caeb55": {
+      "at": "2026-11-23T12:46:33.250009+00:00",
+      "reason": "WFAA's second forecast video of the morning, 25 minutes after its frost-and-freeze video; rule added (one forecast per outlet per 12 hours)"
+    },
+    "a9cb74c033a1a073": {
+      "at": "2026-11-24T13:21:02.022970+00:00",
+      "reason": "ESPN's 'To stay alive in NFC East, Cowboys need first back-to-back wins': an analysis piece drafted as a sports text card, with a FRISCO dat"
+    },
+    "aca6a69e9b423ec9": {
+      "at": "2026-11-21T15:50:03.621342+00:00",
+      "reason": "a Bloomberg segment on the Anthropic IPO is not Fort Worth news; a video can only be a link post"
+    },
+    "b0d02a7515d38b45": {
+      "at": "2026-11-23T14:22:51.705143+00:00",
+      "reason": "ESPN's Houston Rockets feature with a Toyota Center stand-in and an 'Original uploader was' credit; rules added"
+    },
+    "c0bd1402482091bb": {
+      "at": "2026-11-21T13:20:14.600210+00:00",
+      "reason": "a U.S. Navy PTSD Awareness Month poster is a graphic, not a picture of the subject, and the caption was the headline alone"
+    },
+    "c8616030f39edfa5": {
+      "at": "2026-11-23T16:51:43.124763+00:00",
+      "reason": "Variety's Justin Timberlake documentary trailer with a Fort Worth Stockyards beat photo: the planner read a lowercased text and lost every n"
+    },
+    "ccb3de752389d80d": {
+      "at": "2026-11-22T15:20:35.831806+00:00",
+      "reason": "a stats explainer, not news (rule added)"
+    },
+    "cf227c7f4f2ef4b7": {
+      "at": "2026-11-20T20:15:20.921311+00:00",
+      "reason": "a nonprofit's hire announcement, not news"
+    },
+    "d4a2cb327d6cc322": {
+      "at": "2026-11-20T16:18:32.671884+00:00",
+      "reason": "same reopening as WFAA's video already scheduled (Musume)"
+    },
+    "ddb428b5d9566b04": {
+      "at": "2026-11-21T13:20:14.600227+00:00",
+      "reason": "a column (Bob on Business) in the writer's voice, with the developer's rendering credited as the outlet's own photo"
+    },
+    "e1601bb252b09275": {
+      "at": "2026-11-23T20:50:26.817368+00:00",
+      "reason": "IGN's Fortnite streamer going viral with GTA 6: not a national moment, and the photo was a Monster Jam x Fortnite truck; rule added"
+    },
+    "e3ea87c4008710e1": {
+      "at": "2026-11-23T20:50:26.817347+00:00",
+      "reason": "KXAN's Texas Two Step jackpot (a ticket sold in San Antonio) with a firefly photo, the Texas Two-step Flasher from iNaturalist; rules added"
+    },
+    "e51f21bf25bc63e9": {
+      "at": "2026-11-22T16:27:33.855979+00:00",
+      "reason": "an ESPN feature on the Angels that only names the World Series; not Fort Worth news or a national moment (rule added)"
+    },
+    "e6129f029c909573": {
+      "at": "2026-11-22T18:44:36.022499+00:00",
+      "reason": "a WFAA studio interview with St. Vincent de Paul, not clearly Fort Worth news"
+    },
+    "e841e96042468389": {
+      "at": "2026-11-21T16:16:17.467584+00:00",
+      "reason": "CultureMap's weekly digest (and more top stories) with an Editor's note caption and a Commons photo of a Peruvian school farm named for a Co"
+    },
+    "f0b6727d6150d591": {
+      "at": "2026-11-21T18:26:45.160854+00:00",
+      "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
+    },
+    "fb03df9f8419331f": {
+      "at": "2026-11-23T15:47:12.031256+00:00",
+      "reason": "KENS 5 resurfaced its 2023 story on the Fort Worth CEO and two children killed the night before Thanksgiving (crash Nov 22, 2023) with today"
+    },
+    "fd436e8b08e55d73": {
+      "at": "2026-11-24T00:15:25.489741+00:00",
+      "reason": "KVUE SpaceX debris story: a SpaceX hangar at Kennedy Space Center, Florida stood in for debris washing ashore in Mexico, and a statewide fol"
+    },
+    "fd6bc56f0612b01b": {
+      "at": "2026-11-22T17:44:51.352099+00:00",
+      "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
+    }
+  },
+  "total_posts": 104,
+  "used_photos": [
+    "commons-168451071",
+    "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
+    "lib-downtown-fort-worth-night-jpg",
+    "lib-texrail-dfw-airport-terminal-b-nov-2019-4-jpg",
+    "lib-nrg-stadium-houston-texas-united-states-jpg",
+    "lib-2026-05-26-texas-state-capitol-11-jpg",
+    "lib-downtown-fort-worth-jpg",
+    "lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
+    "commons-199552537",
+    "commons-196088447",
+    "clouds-lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
+    "openverse-9fd1f01c-ba88-4699-9323-54aee9a330fa",
+    "sunshine-lib-downtown-fort-worth-jpg",
+    "commons-177882492",
+    "lib-arlington-june-2020-2-at-t-stadium-jpg",
+    "lib-aachen-forest-frosted-soil-01-jpg",
+    "lib-tamu-kyle-field-2022-01-14-4-jpg",
+    "clouds-lib-fort-worth-courthouse-jpg",
+    "lib-dell-city-isd-school-bus-jpg",
+    "openverse-1af9e84c-a4e0-4b20-ba65-f8e6a97c01aa"
+  ],
+  "version": 1
+}
