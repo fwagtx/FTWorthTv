@@ -555,6 +555,16 @@ def other_metro_title(title: str) -> bool:
     return any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in OTHER_METROS + OTHER_METRO_AGENCIES)
 
 
+_METRO_EVENT_RE = re.compile(r"\b(?:rodeo|livestock show|stock show|state fair|county fair|festival|parade|concert series|"
+                             r"lineup|line-up|performers|headliners?)\b", re.I)
+
+
+def other_metro_event(title: str) -> bool:
+    """'Parker McCollum, Lyle Lovett revealed as final performers announced for 2027 San Antonio Rodeo' (Nov 24, KENS 5): another
+    metro's rodeo or festival is that city's calendar, whatever beat its keywords file it under (rodeo read as sports)."""
+    return other_metro_title(title) and bool(_METRO_EVENT_RE.search(title or ""))
+
+
 def other_metro_roundup(title: str) -> bool:
     """'Austin weekend: Theater performances, Bastrop B-day', 'Things to do in Houston this weekend': another city's events
     calendar, however good the weekend is there."""
@@ -1115,6 +1125,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 continue
             if tier[0] == "dfw" and cat == "traffic" and another_citys_traffic(story.title):
                 dropped.append((story, "another city's traffic"))            # a Dallas North Tollway closure is Dallas's traffic
+                continue
+            if tier[0] in ("texas", "dfw") and other_metro_event(story.title):
+                dropped.append((story, "another metro's rodeo, festival or lineup"))
                 continue
             if tier[0] in ("texas", "dfw") and other_metro_roundup(story.title):
                 dropped.append((story, "another city's weekend roundup"))      # "Austin weekend: theater, Bastrop B-day" is KXAN's calendar

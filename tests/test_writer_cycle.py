@@ -1264,3 +1264,14 @@ def test_render_197_rules(settings, now):
               url="https://www.wfaa.com/a", published=now)
     kept, dropped = filter_stories([s], settings, state, now)
     assert not kept and "skipped" in dropped[0][1]
+
+
+def test_render_198_rules():
+    """Nov 24, render 198: KENS 5's San Antonio Rodeo lineup drafted as Texas sports; NBC 5's Mavericks preview drew an August
+    2015 American Airlines Center with a circus banner dated July 29 - Aug. 9 (that photo is out of the library)."""
+    import json, pathlib
+    from ftworthtv.filters import other_metro_event
+    assert other_metro_event("Parker McCollum, Lyle Lovett revealed as final performers announced for 2027 San Antonio Rodeo")
+    assert not other_metro_event("Fort Worth Stock Show & Rodeo announces 2027 performers")
+    lib = json.loads(pathlib.Path("assets/photos/library.json").read_text())
+    assert not any("american-airlines-center-august-2015" in e["file"] for e in lib)
