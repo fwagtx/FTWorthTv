@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T16:07:41.016496+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-094241/02-texas-a-m-names-dr-john-thornton-as-interim-athl/post.jpg",
+    "credit": "Photo: Oldag07 via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:TAMU_Kyle_Field_2022-01-14_2.jpg",
+    "photo_id": "lib-tamu-kyle-field-2022-01-14-2-jpg",
+    "subject": "topic:texas-am"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-094241/02-texas-a-m-names-dr-john-thornton-as-interim-athl/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Texas A&M names Dr. John Thornton as Interim Athletic Director",
+    "caption": "Texas A&M has named Dr. John Thornton Interim Athletic Director as Trev Alberts is set to become AD at Michigan.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/news/local/texas-am-dr-john-thornton-interim-athletic-director/500-5a1ef41f-cb04-439b-8a41-71e0b275b540\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "ef6d8ee4082d08d6",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "Texas A&M names Dr. John Thornton as Interim Athletic Director",
+    "summary": "Texas A&M has named Dr. John Thornton Interim Athletic Director as Trev Alberts is set to become AD at Michigan.",
+    "url": "https://www.wfaa.com/article/news/local/texas-am-dr-john-thornton-interim-athletic-director/500-5a1ef41f-cb04-439b-8a41-71e0b275b540",
+    "published": "2026-11-24T14:19:11+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/KCEN/images/f8b933b7-a117-4903-93d4-8dea7de0189b/20261123T221033/f8b933b7-a117-4903-93d4-8dea7de0189b_750x422.jpg",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5599999999999999,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.447
+  }
+}
