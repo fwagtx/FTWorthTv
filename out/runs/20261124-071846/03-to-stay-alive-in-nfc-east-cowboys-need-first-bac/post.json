@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T14:08:46.804942+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-071846/03-to-stay-alive-in-nfc-east-cowboys-need-first-bac/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-071846/03-to-stay-alive-in-nfc-east-cowboys-need-first-bac/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "To stay alive in NFC East, Cowboys need first back-to-back wins in a year",
+    "caption": "If Dallas is going to catch up to New York in the division, it needs to start stringing wins together. FRISCO, Texas -- If anything, the Dallas Cowboys ' 51-30 win against the Tennessee Titans kept them afloat with six games to play.\n\nSix different players scored a touchdown. Only three first-half field goals for the Titans.",
+    "first_comment": "Source: ESPN NFL https://www.espn.com/nfl/story/_/id/50573980/dallas-cowboys-nfc-east-dak-prescott\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "a9cb74c033a1a073",
+    "source": "ESPN NFL",
+    "source_kind": "rss",
+    "title": "To stay alive in NFC East, Cowboys need first back-to-back wins in a year",
+    "summary": "If Dallas is going to catch up to New York in the division, it needs to start stringing wins together. FRISCO, Texas -- If anything, the Dallas Cowboys ' 51-30 win against the Tennessee Titans kept them afloat with six games to play. At 5-6, the Cowboys will need the NFC East --leading New York Giants (6-3-1) to lose some games if they want to win the division, but in the minutes after the Tennessee victory, owner and general manager Jerry Jones spoke optimistically about what his team had just done. Fifty-one points. Six different players scored a touchdown. Only three first-half field goals for the Titans. Five sacks for the defense. \"It gives me hope that we can do some of the things that we want to do,\" Jones said. Hope, however, can be a week-to-week thing. And in this case, maybe even shorter than that considering the Cowboys play NFC East rival Philadelphia Eagles (3-7) on…",
+    "url": "https://www.espn.com/nfl/story/_/id/50573980/dallas-cowboys-nfc-east-dak-prescott",
+    "published": "2026-11-24T12:46:23+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN NFL",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "www.espn.com - NFL",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 1.1221
+  }
+}

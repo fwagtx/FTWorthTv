@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T13:43:46.804942+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-071846/02-this-arlington-teen-started-a-new-homecoming-tra/post.jpg",
+    "credit": "Photo: Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/24/this-arlington-teen-started-a-new-homecoming-tradition-for-classmates-without-mums/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-071846/02-this-arlington-teen-started-a-new-homecoming-tra/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "This Arlington teen started a new homecoming tradition for classmates without mums",
+    "caption": "Libby Deakyne, 17, created Mum-Making Day to help Arlington High students feel included. Her work earned her a spot on the 18 Under 18 list.\n\nGrowing up in Arlington, Libby Deakyne always admired the elaborate strands of ribbon and oversized flowers that make up a Texas homecoming mum. But when she started her freshman year at Arlington High School, she noticed some students weren’t able to participate in the beloved Texas homecoming tradition.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/24/this-arlington-teen-started-a-new-homecoming-tradition-for-classmates-without-mums/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Arlington Texas downtown",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "317532eba7095650",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "This Arlington teen started a new homecoming tradition for classmates without mums",
+    "summary": "Libby Deakyne, 17, created Mum-Making Day to help Arlington High students feel included. Her work earned her a spot on the 18 Under 18 list. Growing up in Arlington, Libby Deakyne always admired the elaborate strands of ribbon and oversized flowers that make up a Texas homecoming mum. But when she started her freshman year at Arlington High School, she noticed some students weren’t able to participate in the beloved Texas homecoming tradition. Mums can be expensive, and some students could not afford to partake. So, Libby decided to help her classmates. She established Mum-Making Day at her high school and gathered the materials, raised money and organized volunteers. Since creating the day three years ago, the effort has provided a mum to more than 250 students. “It strengthens our school environment, and it is something that our students can really be proud of and feel like they’re…",
+    "url": "https://fortworthreport.org/2026/11/24/this-arlington-teen-started-a-new-homecoming-tradition-for-classmates-without-mums/",
+    "published": "2026-11-24T13:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/261024_BH_18u18_Libby4-300x202.jpg",
+    "image_credit": "Photo: Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "Libby Deakyne, 17, sits at her home on Oct. 24, 2026, in Arlington. Libby, a senior at Arlington High School, has demonstrated leadership through her involvement in the National Society of the Children of the American Revolution and student",
+      "page_credit": ""
+    },
+    "category": "community",
+    "relevance": 3,
+    "score": 1.4824
+  }
+}
