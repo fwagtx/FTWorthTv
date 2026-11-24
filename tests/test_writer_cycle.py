@@ -1352,3 +1352,15 @@ def test_an_interview_headline_is_a_feature():
     from ftworthtv.filters import national_feature
     assert national_feature("‘To Me, My X-Men’: James Marsden Says It Was ‘Important’ for Cyclops to Be a Leader in ‘Avengers: Doomsday’")
     assert not national_feature("‘Wicked: For Good’ tops box office with $150 million opening")
+
+
+def test_a_suite_number_does_not_end_a_sentence():
+    """Nov 24, render 210: "Tanger Outlets Fort Worth, 15853 N Fwy., Ste. 1140, in far north Fort Worth" split at "Ste."."""
+    s = ('According to a release, a Toys "R" Us store has opened at Tanger Outlets Fort Worth, 15853 N Fwy., Ste. 1140, '
+         'in far north Fort Worth.')
+    assert _sentences(s) == [s]
+
+
+def test_inside_after_a_comma_is_a_feature():
+    from ftworthtv.filters import national_feature
+    assert national_feature("From a camcorder to a Super Bowl mantra, inside Mike Macdonald's love for game film")

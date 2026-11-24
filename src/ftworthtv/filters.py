@@ -137,7 +137,8 @@ def gambling_advertorial(title: str, summary: str = "") -> bool:
 
 # a magazine feature is not a national moment, even about a watchlist subject (Nov 23: Billboard's "'It's Not Just a Song on
 # the Radio': How Music Became A Main Character In 'Grand Theft Auto VI'", a cover story four days after the launch)
-_FEATURE_TITLE_RE = re.compile(r"(?:^|[:—–]\s*)(?:how(?! to\b)|why|inside|behind the|the making of|the story of|meet the|"
+# Nov 24, ESPN: "From a camcorder to a Super Bowl mantra, inside Mike Macdonald's love for game film": "inside" after a comma
+_FEATURE_TITLE_RE = re.compile(r"(?:^|[:—–]\s*|,\s+)(?:how(?! to\b)|why|inside|behind the|the making of|the story of|meet the|"
                                r"in conversation)\b|\b(?:q&a|cover story|oral history|interview)\b|"
                                r"\bI (?:wish|think|played|love|loved|hate|tried|spent|can't|don't|need|want)\b|"
                                r"\b(?:goes|went|going) viral\b|"   # Nov 23: a streamer's viral GTA 6 clip is not a moment

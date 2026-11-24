@@ -299,3 +299,12 @@ def test_a_species_record_is_not_a_character(settings, monkeypatch):
     monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[pods]]))
     assert providers.find_photo([("Cyclops", ("statue", "inaturalist"), ("cyclops",))], settings, fallback=False) is None
     assert providers.find_photo([("Cyclops", ("statue",), ("cyclops",))], settings, fallback=False) is pods   # a nature story keeps it
+
+
+def test_liminal_space_and_ai_images_are_not_photos():
+    """Nov 24, render 210: "Toys R Us Backrooms Level.jpg" for a Toys "R" Us opening in Fort Worth."""
+    from ftworthtv.images.providers import PhotoCandidate, not_a_photo
+    for name in ("Toys_R_Us_Backrooms_Level.jpg", "Liminal_mall_corridor.jpg", "AI-generated_storefront.png"):
+        c = PhotoCandidate(id=name, url="u", credit="c", license="wikimedia-cc", provider="wikimedia",
+                           source_url=f"https://commons.wikimedia.org/wiki/File:{name}", title=name.rsplit(".", 1)[0].replace("_", " "))
+        assert not_a_photo(c), name

@@ -451,3 +451,10 @@ def test_a_named_politician_is_searched_for_not_the_capitol():
     assert full_name("TCU", "TCU fans cheered.") == "TCU"
     assert "capitol" in plan_subject("Texas lawmakers file bill to cut property taxes", "", "politics").entity_topics + \
         plan_subject("Texas lawmakers file bill to cut property taxes", "", "politics").fallback_topics
+
+
+def test_quote_marks_do_not_hide_a_named_subject():
+    """Nov 24, render 210: "entity:toys r us" against "Toys 'R' Us opens only standalone store in Fort Worth" was held."""
+    from ftworthtv.images.subject import subject_fits
+    assert subject_fits("Iconic toy retailer Toys 'R' Us opens only standalone store in Fort Worth", "", "business", "entity:toys r us")[0]
+    assert not subject_fits("Iconic toy retailer opens only standalone store in Fort Worth", "", "business", "entity:toys r us")[0]

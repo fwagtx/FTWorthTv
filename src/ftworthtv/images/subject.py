@@ -448,7 +448,9 @@ def subject_fits(title: str, body: str, category: str, subject: str | None, kind
     low = subject.lower()
     kind, _, value = low.partition(":")
     if kind == "entity":
-        return (value in title.lower(), f"headline no longer names {value!r}") if value else (False, "empty entity")
+        def bare(text: str) -> str:              # Nov 24: "toys r us" against "Toys 'R' Us" held the post
+            return re.sub(r"\s+", " ", re.sub(r"[\"'‘’“”]", "", text.lower())).strip()
+        return (bare(value) in bare(title), f"headline no longer names {value!r}") if value else (False, "empty entity")
     if kind == "topic":
         ok = value in plan.entity_topics or value in plan.fallback_topics
         if not ok and category in ("events", "culture"):

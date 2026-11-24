@@ -393,7 +393,8 @@ def _first_sentence(text: str, limit: int = 170) -> str:
 
 _ABBREVIATIONS = {"rep", "sen", "gov", "lt", "jr", "sr", "mr", "mrs", "ms", "dr", "st", "ave", "blvd", "rd", "hwy", "no", "vs", "inc", "co",
                   "corp", "ltd", "mt", "ft", "capt", "sgt", "det", "cmdr", "col", "gen", "pvt", "u.s", "a.m", "p.m", "jan", "feb", "mar",
-                  "apr", "jun", "jul", "aug", "sep", "sept", "oct", "nov", "dec", "e.g", "i.e", "etc", "tx", "dept"}
+                  "apr", "jun", "jul", "aug", "sep", "sept", "oct", "nov", "dec", "e.g", "i.e", "etc", "tx", "dept",
+                  "ste", "fwy", "pkwy", "ln", "dr"}   # Nov 24: "Tanger Outlets Fort Worth, 15853 N Fwy., Ste. 1140" split at "Ste."
 
 
 def _split_sentences(text: str) -> list[str]:
