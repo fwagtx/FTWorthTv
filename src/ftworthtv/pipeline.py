@@ -201,17 +201,29 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                 if national_day_left <= 0 or any(d.story.extra.get("scope") == "national" for d in drafts):
                     report.skipped.append((story, "national share used (two a day, one a run)"))
                     continue
-        if cat in caps and not story.is_urgent and story.source_kind != "wanted":        # bulletins have their own daily cap (wanted.max_per_day)
-            used_today = state.posts_on_by_category(day, cat) + sum(1 for d in drafts if (d.copy.category or "other") == cat)
-            if cat == "crime":                                                        # the morning's bulletins must not silence the day's crime news
+        def cap_reached(c: str) -> bool:
+            if c not in caps or story.is_urgent or story.source_kind in ("wanted", "submission"):
+                return False            # bulletins have their own daily cap (wanted.max_per_day), viewer clips theirs
+            used_today = state.posts_on_by_category(day, c) + sum(1 for d in drafts if (d.copy.category or "other") == c)
+            if c == "crime":                                                          # the morning's bulletins must not silence the day's crime news
                 used_today -= state.posts_on_kind(day, "wanted") + sum(1 for d in drafts if d.story.source_kind == "wanted")
-            if used_today >= int(caps[cat]) and story.source_kind != "submission":   # viewer clips have their own cap
-                report.skipped.append((story, f"daily cap for {cat} reached"))
-                continue
+            return used_today >= int(caps[c])
+
+        if cap_reached(cat):
+            report.skipped.append((story, f"daily cap for {cat} reached"))
+            continue
         from .writer import cut_off
         if not settings.offline and story.source_kind == "rss" and not story.official and (len(story.summary or "") < 160 or cut_off(story.summary or "")):
             from .sources.article import enrich_summary
             enrich_summary(story)      # the feed gave a teaser (short, or cut off with "..."): read the article lead
+            if cat == "other":
+                from .filters import infer_category
+                story.category = cat = infer_category(story)
+                # Nov 24: NBC 5's "Affidavit: Dallas mother ambushed on her birthday by brother-in-law, nephew" named no crime
+                # in its teaser; the lead ("shot and killed", "a murder charge") does, and the day's crime posts were used up
+                if cap_reached(cat):
+                    report.skipped.append((story, f"daily cap for {cat} reached"))
+                    continue
             from .filters import same_personnel_news
             twin = state.recent_title_like(story.title, now, hours=48, match=lambda x, y: same_personnel_news(x, story.summary or "", y))
             twin = twin or next((d.story.title for d in drafts if same_personnel_news(story.title, story.summary or "", d.story.title)), None)

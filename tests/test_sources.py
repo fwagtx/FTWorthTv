@@ -233,3 +233,25 @@ def test_feeds_use_the_quick_session_so_a_tarpit_costs_one_timeout():
     retry = http.quick_session().get_adapter("https://example.com/feed").max_retries
     assert retry.read == 0 and retry.total == 1
     assert http.session().get_adapter("https://example.com/feed").max_retries.total == 3     # pages and photos keep their retries
+
+
+def test_a_teaser_story_is_recategorized_after_its_lead_is_read(settings, now, monkeypatch):
+    """Nov 24, render 205: NBC 5's "Affidavit: Dallas mother ambushed on her birthday by brother-in-law, nephew" was "other" on
+    its teaser; the article lead made it crime, and the day's crime posts were used up, but it went out as "other"."""
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    from ftworthtv.pipeline import run
+    import ftworthtv.sources.article as article
+    story = Story(id="aff1", source="NBC 5 DFW", source_kind="rss", url="https://www.nbcdfw.com/news/local/x/1/", published=now - timedelta(hours=1),
+                  title="Affidavit: Fort Worth mother ambushed on her birthday by brother-in-law, nephew",
+                  summary="What first raised fears of road rage was an alleged family ambush.")
+    def lead(s, min_len=160):
+        s.summary = ("Police say a Fort Worth mother of four was shot and killed while driving home from work on her birthday. "
+                     "Police arrested a suspect on a murder charge on Sunday.")
+        return s
+    monkeypatch.setattr(article, "enrich_summary", lead)
+    settings.offline = False
+    settings.brand["content_mix"]["caps_per_day"] = {"crime": 0}
+    report = run(settings, now=now, stories=[story], publisher_name="dryrun")
+    assert not report.drafts
+    assert any(s.id == "aff1" and r == "daily cap for crime reached" for s, r in report.skipped)
