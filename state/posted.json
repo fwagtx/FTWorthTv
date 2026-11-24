@@ -384,11 +384,6 @@
       "reason": "daily cap for community reached",
       "title": "GM Financial Parade of Lights returns to Fort Worth for the 2026 holiday season"
     },
-    "b7c92690745f9ced": {
-      "at": "2026-11-22T17:14:19.269874+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "DFW Weather: Low rain coverage expected Tuesday"
-    },
     "b9a25e1f37a14d81": {
       "at": "2026-11-23T22:46:17.337790+00:00",
       "reason": "daily cap for weather reached",
@@ -1974,6 +1969,11 @@
       "at": "2026-11-24T15:45:40.458442+00:00",
       "reason": "Deadline's U2 2027 stadium tour: no Texas stop (Miami, LA), and a North American T-6 Texan airplane for 'North American'; rules added",
       "title": "U2 Sets North American Stops On 2027 Stadium Tour; 2 LA Shows Planned"
+    },
+    "439d83114736ca15": {
+      "at": "2026-11-24T17:18:18.966624+00:00",
+      "reason": "ESPN's Cardinals DC firing: Arizona NFL news counted as Texas for a coach named Austin, with a Fort Worth Fire truck for 'fire'; rules added",
+      "title": "Cardinals fire DC Rallis; Austin takes over on interim basis"
     },
     "4483cc540033149a": {
       "at": "2026-11-23T16:17:22.718712+00:00",
