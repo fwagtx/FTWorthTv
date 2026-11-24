@@ -6,7 +6,7 @@
     "2026-11-21": 16,
     "2026-11-22": 19,
     "2026-11-23": 20,
-    "2026-11-24": 12
+    "2026-11-24": 13
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -68,6 +68,7 @@
       "crime": 4,
       "events": 1,
       "other": 1,
+      "traffic": 1,
       "weather": 2
     }
   },
@@ -106,7 +107,7 @@
     },
     "2026-11-24": {
       "nws_forecast": 1,
-      "rss": 7,
+      "rss": 8,
       "video": 2,
       "wanted": 2
     }
@@ -144,7 +145,7 @@
     },
     "2026-11-24": {
       "dfw": 3,
-      "local": 8,
+      "local": 9,
       "texas": 1
     }
   },
@@ -254,11 +255,6 @@
       "reason": "daily cap for weather reached",
       "title": "Texas flood survivors had to wait more than 100 days to apply for FEMA aid. Now they want change."
     },
-    "4feb919f9efba30c": {
-      "at": "2026-11-22T18:14:13.280652+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "DFW Weather: Seasonally cool today with partly sunny skies"
-    },
     "51bf70359facc230": {
       "at": "2026-11-23T21:22:10.424929+00:00",
       "reason": "daily cap for community reached",
@@ -288,11 +284,6 @@
       "at": "2026-11-22T21:45:04.877412+00:00",
       "reason": "daily cap for sports reached",
       "title": "TCU football coaching search 2026: Candidates, hot board, names to watch from Horned Frogs experts"
-    },
-    "6a60f8453509b09b": {
-      "at": "2026-11-22T18:14:13.280657+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "51-year-old man fatally shot in Far North Dallas; police searching for suspect"
     },
     "6bd93bfe3b5a053c": {
       "at": "2026-11-24T02:13:44.148398+00:00",
@@ -363,6 +354,11 @@
       "at": "2026-11-23T17:49:45.599419+00:00",
       "reason": "daily cap for weather reached",
       "title": "What is the weather forecast for Thanksgiving? Brace for chilly temperatures in North Texas"
+    },
+    "b01cb769e03cadde": {
+      "at": "2026-11-24T18:18:42.702501+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Snow falls in Texas as freeze warning looms for parts of North Texas"
     },
     "b1eb18c9b208a61f": {
       "at": "2026-11-23T03:44:23.307629+00:00",
@@ -491,7 +487,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-24T10:57:00-06:00",
+  "last_post_at": "2026-11-24T12:20:00-06:00",
   "posted": {
     "030ed0c71b8273e3": {
       "at": "2026-11-24T10:07:00-06:00",
@@ -1380,6 +1376,19 @@
       "title": "Dallas Cowboys fan dies after ‘altercation' during 49ers game: Arlington Police",
       "url": "https://www.nbcdfw.com/news/sports/blue-star/dallas-cowboys-fan-dies-after-fight-during-49ers-game-arlington-police/4108895/"
     },
+    "b9fc814365bdbc61": {
+      "at": "2026-11-24T12:20:00-06:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "440696608",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-5139760597660647390",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "NBC 5 DFW",
+      "title": "Thanksgiving traffic could build near these North Texas malls and highways",
+      "url": "https://www.nbcdfw.com/news/local/dallas-morning-news/thanksgiving-traffic-could-build-near-these-north-texas-malls-and-highways/4110260/"
+    },
     "be179f7aa07eb5f5": {
       "at": "2026-11-23T16:23:00-06:00",
       "category": "politics",
@@ -2220,7 +2229,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 107,
+  "total_posts": 108,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2241,7 +2250,8 @@
     "lib-tamu-kyle-field-2022-01-14-4-jpg",
     "clouds-lib-fort-worth-courthouse-jpg",
     "lib-fuel-pumps-at-a-pilot-flying-j-gas-station-in-cleveland-tenn",
-    "lib-fort-worth-june-2016-55-bass-performance-hall-jpg"
+    "lib-fort-worth-june-2016-55-bass-performance-hall-jpg",
+    "lib-i-35w-south-exit-82-fm2449-49166504151-jpg"
   ],
   "version": 1
 }
