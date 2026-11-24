@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T15:08:09.242750+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-084309/02-tcc-makes-time-s-best-community-colleges-in-amer/post.jpg",
+    "credit": "Photo: City of Arlington",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.arlingtontx.gov/News-Articles/2026/November/TCC-Makes-TIMEs-Best-Community-Colleges-in-America-2027-List",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-084309/02-tcc-makes-time-s-best-community-colleges-in-amer/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "TCC Makes TIME's Best Community Colleges in America 2027 List",
+    "caption": "Congratulations to Tarrant County College, which was listed among the top community colleges in the United States by TIME and data firm Statista.",
+    "first_comment": "Source: City of Arlington https://www.arlingtontx.gov/News-Articles/2026/November/TCC-Makes-TIMEs-Best-Community-Colleges-in-America-2027-List\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "52b7e1e9663bcff8",
+    "source": "City of Arlington",
+    "source_kind": "rss",
+    "title": "TCC Makes TIME's Best Community Colleges in America 2027 List",
+    "summary": "Stay informed with this twice-weekly e-newsletter sent right to your inbox. Congratulations to Tarrant County College, which was listed among the top community colleges in the United States by TIME and data firm Statista. TIME and Statista released a report card on the best community colleges , an unranked list of the top 250 schools out of the approximately 1,100 community colleges in the U.S. Tarrant County College is one of the nation’s largest higher education institutions and boasts the second lowest tuition of Texas’ Top 10 community colleges. A comprehensive two-year college with six campuses in Tarrant County and online classes, TCC offers a range of opportunities for learners of all ages and backgrounds, including Associate of Arts and Associate of Applied Science degrees; workforce and economic development programs; technical and skilled trades programs; and customized…",
+    "url": "https://www.arlingtontx.gov/News-Articles/2026/November/TCC-Makes-TIMEs-Best-Community-Colleges-in-America-2027-List",
+    "published": "2026-11-24T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.arlingtontx.gov/files/assets/city/v/3/news/articles-tarrant-county-college-southeast.jpg",
+    "image_credit": "Photo: City of Arlington",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.6,
+    "extra": {
+      "listing_image": "https://www.arlingtontx.gov/files/assets/city/v/3/news/articles-tarrant-county-college-southeast.jpg",
+      "generic_image": false,
+      "article_fetched": true,
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 1,
+    "score": 0.7545
+  }
+}

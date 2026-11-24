@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-084309/01-1-man-sentenced-after-feds-arrest-8-known-gang-m/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-084309/01-1-man-sentenced-after-feds-arrest-8-known-gang-m/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "1 man sentenced after feds arrest 8 'known gang members' in Dallas, seizing guns, drugs and a live alligator",
+    "caption": "One of eight members of the 42 Oakland Crips gang in Dallas has pleaded guilty after being arrested during \"Operation Blue Laces,\" officials said.",
+    "first_comment": "Source: WFAA https://www.wfaa.com/article/news/crime/dallas-texas-operation-blue-laces-dead-end-fed-takedown-alligator/287-c92f1745-50db-435e-9cac-1d25ca19b401\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police lights street night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "e622293ca84cb536",
+    "source": "WFAA",
+    "source_kind": "rss",
+    "title": "1 man sentenced after feds arrest 8 'known gang members' in Dallas, seizing guns, drugs and a live alligator",
+    "summary": "One of eight members of the 42 Oakland Crips gang in Dallas has pleaded guilty after being arrested during \"Operation Blue Laces,\" officials said.",
+    "url": "https://www.wfaa.com/article/news/crime/dallas-texas-operation-blue-laces-dead-end-fed-takedown-alligator/287-c92f1745-50db-435e-9cac-1d25ca19b401",
+    "published": "2026-11-24T14:39:45+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/ab67b732-b2ea-43ad-a443-937b7a37dcee/20250301T182512/ab67b732-b2ea-43ad-a443-937b7a37dcee_750x422.jpg",
+    "image_credit": "Photo: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: local",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.8444
+  }
+}
