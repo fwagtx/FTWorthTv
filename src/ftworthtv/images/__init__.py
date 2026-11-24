@@ -232,8 +232,13 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             lib_topics = []
         else:
             lib_topics = topics_for(story.text(), copy.category, scope, title=story.title)
-        from .library import drop_stadiums_off_the_field
+        from .library import STAGE_TOPICS, drop_stadiums_off_the_field
         lib_topics = drop_stadiums_off_the_field(lib_topics, f"{story.title} {story.summary or ''}")
+        if copy.category in ("events", "culture") and sp.mode in ("entity", "search"):
+            stages = [t for t in topics_for(story.text(), copy.category, scope, title=story.title) if t in STAGE_TOPICS]
+            if stages:                                    # the stage is a picture the reader knows; another cast is not this one
+                lib_topics = stages[:1] + [t for t in lib_topics if t not in stages]
+                sp.mode = "entity"
         log.info("photo subject for %r: %s (%s)", story.title[:60], sp.mode, sp.primary or ", ".join(lib_topics[:3]))
         avoid = avoid_words_for(story.text())
         from .subject import happened as _happened

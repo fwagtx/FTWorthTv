@@ -177,7 +177,9 @@ _GAME_NOTES_RE = re.compile(r"^(?:(?:post|pre)-?game|game|weekly|match|series|we
                            r"^(?:game|match) (?:info|central|day central)\b|\bdepth chart\b|\bweekly release\b|"
                            r"^stats?\s*:|^by the numbers\b|"   # Nov 22: KXAN's stats explainer
                            # Nov 24: WFAA's "Texas high school football: Playoff matchups, schedule" is a listing
-                           r":\s*(?:playoff\s+|bowl\s+|game\s+)?(?:matchups?|pairings|brackets?)(?:,?\s*(?:and\s+)?(?:schedules?|times|tv))?\s*$", re.I)
+                           r":\s*(?:playoff\s+|bowl\s+|game\s+)?(?:matchups?|pairings|brackets?)(?:,?\s*(?:and\s+)?(?:schedules?|times|tv))?\s*$|"
+                           # Nov 24: WFAA's "How to watch the NFL's Thanksgiving Day games", a day after the schedule post
+                           r"^how to (?:watch|stream|listen)\b|\bwhere to (?:watch|stream)\b|\bwhat channel\b|\btv schedule\b", re.I)
 _GRADES_RE = re.compile(r"\bgrades\s*:|\breport cards?\b", re.I)          # CBS's grades column, but only for a game: a school's
                                                                           # A-F grades or report card are education news
 

@@ -257,6 +257,11 @@ def drop_stadiums_off_the_field(topics: list[str], text: str) -> list[str]:
     return [t for t in topics if t not in STADIUM_TOPICS]
 
 
+# a show coming to a local stage takes the stage, not a photo of another company's production: Nov 24, "Mamma Mia! coming
+# back to town" (Bass Performance Hall, Dec. 1-6) drew a 2017 community-theater staging with its photographer's watermark
+STAGE_TOPICS = {"bass-hall", "will-rogers", "convention-center", "kimbell", "modern", "botanic-garden", "zoo", "stockyards"}
+
+
 # a library photo marked with the season it shows stays out of the opposite season: Nov 24, the forecast for a 49-degree day
 # with a freeze that night drew the courthouse under May's green trees; Nov 23, a June 2020 AT&T Stadium with summer lawns
 _OFF_SEASON = {"summer": (11, 12, 1, 2), "winter": (5, 6, 7, 8, 9)}

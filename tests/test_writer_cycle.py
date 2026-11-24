@@ -1160,3 +1160,20 @@ def test_paren_byline_keeps_the_whole_name():
     assert photo_credit(keller, {}) == "Mary Abby Goss | Fort Worth Report"
     tribune = '<figure><figcaption>A hallway at Lago Vista High School in Lago Vista Sergio Flores for The Texas Tribune</figcaption></figure>'
     assert photo_credit(tribune, {}) == "Sergio Flores for The Texas Tribune"
+
+
+def test_render_192_rules():
+    """Nov 24, render 192: Fort Worth Business Press's "Mamma Mia! coming back to town" (Bass Performance Hall, Dec. 1-6) drew
+    a 2017 community-theater staging; WFAA's "How to watch the NFL's Thanksgiving Day games" drafted a day after the
+    schedule post."""
+    from ftworthtv.filters import game_notes
+    from ftworthtv.images.library import STAGE_TOPICS, topics_for
+    from ftworthtv.images.providers import PhotoCandidate, other_production
+    text = ("performing arts fort worth, the non-profit owner and operator of bass performance hall, is presenting mamma mia! "
+            "dec. 1-6 at bass performance hall as part of the musical's 25th anniversary american tour.")
+    assert [t for t in topics_for(text, "events", "local", title="Mamma Mia! coming back to town") if t in STAGE_TOPICS] == ["bass-hall"]
+    wlmt = PhotoCandidate(id="w", url="u", credit="c", license="l", provider="wikimedia",
+                          source_url="https://commons.wikimedia.org/wiki/File:WLMT_Production_of_Mamma_Mia.jpg")
+    assert other_production(wlmt)
+    assert game_notes("How to watch the NFL's Thanksgiving Day games")
+    assert not game_notes("Cowboys beat Eagles on Thanksgiving")

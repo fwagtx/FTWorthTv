@@ -333,6 +333,16 @@ def stale_photo(cand: "PhotoCandidate", year: int | None = None) -> bool:
     return bool(years) and max(years) < bar
 
 
+_OTHER_PRODUCTION_RE = re.compile(r"\b(?:production of|school production|high school (?:musical|production|theat(?:re|er))|"
+                                  r"community theat(?:re|er)|dinner theat(?:re|er)|summer stock|student production)\b", re.I)
+
+
+def other_production(cand: "PhotoCandidate") -> bool:
+    """A staging by another company (a school, a community theater) is not the tour coming to town."""
+    name = (cand.source_url or "").rsplit("/", 1)[-1].replace("_", " ")
+    return bool(_OTHER_PRODUCTION_RE.search(" ".join([cand.title or "", cand.alt or "", name])))
+
+
 def archive_photo(cand: "PhotoCandidate") -> bool:
     name = (cand.source_url or "").rsplit("/", 1)[-1].replace("_", " ")
     return bool(_ARCHIVE_RE.search(" ".join([cand.credit or "", cand.title or "", cand.alt or "", name])))
@@ -443,7 +453,7 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             continue
         tried.add(q.lower())
         for cand in _search(q, settings):
-            if unsafe_photo(cand) or not_a_photo(cand) or archive_photo(cand) or stale_photo(cand):
+            if unsafe_photo(cand) or not_a_photo(cand) or archive_photo(cand) or stale_photo(cand) or other_production(cand):
                 continue
             if exclude and (cand.id in exclude or cand.family in exclude):
                 continue
