@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T19:39:31.957822+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-131431/02-affidavit-dallas-mother-ambushed-on-her-birthday/post.jpg",
+    "credit": "Photo: IcedCowboyCoffee via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_Texas_skyline_from_Reunion_Tower_September_2025.png",
+    "photo_id": "lib-dallas-texas-skyline-from-reunion-tower-september-2025-png",
+    "subject": "beat:dallas-skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-131431/02-affidavit-dallas-mother-ambushed-on-her-birthday/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Affidavit: Dallas mother ambushed on her birthday by brother-in-law, nephew",
+    "caption": "What first raised fears of road rage was an alleged family ambush, police say. One relative is under arrest and another is accused.\n\nPolice say a Dallas mother of four, shot and killed while driving home from work on her birthday, was ambushed by two family members: her husband's brother and nephew. On Sunday, DPD announced the arrest of a suspect in the Nov. 15 shooting death of Stephanie Chavarria Gonzalez, 35, along 5500 CF Hawn Freeway in Dallas.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/charging-document-dallas-mother-gunned-down-while-driving-home-on-her-birthday-ambushed-by-brother-in-law-nephew/4110037/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "229032ec84639309",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Affidavit: Dallas mother ambushed on her birthday by brother-in-law, nephew",
+    "summary": "What first raised fears of road rage was an alleged family ambush, police say. One relative is under arrest and another is accused. Police say a Dallas mother of four, shot and killed while driving home from work on her birthday, was ambushed by two family members: her husband's brother and nephew. On Sunday, DPD announced the arrest of a suspect in the Nov. 15 shooting death of Stephanie Chavarria Gonzalez, 35, along 5500 CF Hawn Freeway in Dallas. Tragically, her final moments were captured on a 911 call, according to police. Police arrested Juan Antonio Gonzalez-Orduna on a murder charge. Orduna, 29, is listed as an undocumented migrant and is being held without bond. According to charging documents obtained by NBC 5, the alleged gunman is another man: Jose Antonio Samudio Gonzalez, the victim's nephew. DPD would not comment Monday on Samudio Gonzalez's whereabouts: whether he's in…",
+    "url": "https://www.nbcdfw.com/news/local/charging-document-dallas-mother-gunned-down-while-driving-home-on-her-birthday-ambushed-by-brother-in-law-nephew/4110037/",
+    "published": "2026-11-24T11:26:56+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/Stephanie-Chavarria-Gonzalez-crash.png?fit=1145,644&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.2591
+  }
+}

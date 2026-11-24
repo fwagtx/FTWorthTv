@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-131431/01-mavs-enter-nba-cup-matchup-on-nbc-with-eye-on-bu/post.jpg",
+    "credit": "Photo: Noah3500 via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Nov2025_Dallas_Mavericks_game_panorama.jpg",
+    "photo_id": "lib-nov2025-dallas-mavericks-game-panorama-jpg",
+    "subject": "topic:aac"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-131431/01-mavs-enter-nba-cup-matchup-on-nbc-with-eye-on-bu/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Mavs enter NBA Cup matchup on NBC with eye on building foundation for success",
+    "caption": "Dallas is in position to qualify for the knockout rounds of the midseason tournament with a game against Denver looming. If the regular season ended today, the Dallas Mavericks would be a lock for the Play-In tournament, with Portland, Phoenix and the very-injured Oklahoma City Thunder (OKC is missing three starters due to injuries).",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/dallas-mavericks/mavericks-enter-key-nba-cup-matchup-with-an-eye-on-building-a-foundation-for-success/4110142/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:American Airlines Center",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "ff58f9465c716a6a",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Mavs enter NBA Cup matchup on NBC with eye on building foundation for success",
+    "summary": "Dallas is in position to qualify for the knockout rounds of the midseason tournament with a game against Denver looming. If the regular season ended today, the Dallas Mavericks would be a lock for the Play-In tournament, with Portland, Phoenix and the very-injured Oklahoma City Thunder (OKC is missing three starters due to injuries). There are 60-plus games to be played before then, but the Mavericks are at least in position to qualify for the knockout rounds of the NBA Cup, the league’s annual midseason tournament. Dallas (10-7) sits atop the West Group A standings with a 2-0 record entering Tuesday’s nationally televised matchup against the Denver Nuggets (10-5), who are also undefeated in group play at 2-0. The game is on NBC 5 at 9 p.m. CST. The Mavericks could clinch one of the eight coveted spots in the single-elimination portion of the tourney with a win over Denver and a loss…",
+    "url": "https://www.nbcdfw.com/news/sports/dallas-mavericks/mavericks-enter-key-nba-cup-matchup-with-an-eye-on-building-a-foundation-for-success/4110142/",
+    "published": "2026-11-24T11:26:56+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/FSPrgFin-NBC-NBA-Cup-Tue-11-24-Dallas-Mavericks-Denver-Nuggets-Tonight-9PM-CT.png?fit=1920,1080&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7200000000000001,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.3841
+  }
+}
