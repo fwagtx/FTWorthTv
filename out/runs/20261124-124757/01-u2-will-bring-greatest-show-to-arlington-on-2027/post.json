@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-124757/01-u2-will-bring-greatest-show-to-arlington-on-2027/post.jpg",
+    "credit": "Photo: Frank Weigel via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:U2_performing_at_Sphere_in_Las_Vegas_on_Feb_7_2024_by_Frank_Weigel_(36).jpg",
+    "photo_id": "commons-145438696",
+    "subject": "entity:u2"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-124757/01-u2-will-bring-greatest-show-to-arlington-on-2027/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "events",
+    "headline": "U2 will bring 'Greatest Show' to Arlington on 2027 world tour",
+    "caption": "Iconic rock band U2 will embark on their first large-scale tour since 2018 with their Carnaval De Luz presents: The Greatest Show On Earth World Tour 2027.",
+    "first_comment": "Source: CultureMap Fort Worth https://fortworth.culturemap.com/news/entertainment/u2-2027-world-tour-arlington/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "bc8b54aba5d79363",
+    "source": "CultureMap Fort Worth",
+    "source_kind": "rss",
+    "title": "U2 will bring 'Greatest Show' to Arlington on 2027 world tour",
+    "summary": "Iconic rock band U2 will embark on their first large-scale tour since 2018 with their Carnaval De Luz presents: The Greatest Show On Earth World Tour 2027 , which will include a stop at AT&T Stadium in Arlington on Monday, September 27.",
+    "url": "https://fortworth.culturemap.com/news/entertainment/u2-2027-world-tour-arlington/",
+    "published": "2026-11-24T16:00:02+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: CultureMap Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.9,
+    "extra": {
+      "feed_title": "CultureMap Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "events",
+    "relevance": 3,
+    "score": 0.9852
+  }
+}
