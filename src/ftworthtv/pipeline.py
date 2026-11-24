@@ -224,18 +224,24 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                 if cap_reached(cat):
                     report.skipped.append((story, f"daily cap for {cat} reached"))
                     continue
+        if story.source_kind == "rss" and not story.official:
             from .filters import same_personnel_news
             twin = state.recent_title_like(story.title, now, hours=48, match=lambda x, y: same_personnel_news(x, story.summary or "", y))
             twin = twin or next((d.story.title for d in drafts if same_personnel_news(story.title, story.summary or "", d.story.title)), None)
-            if twin:                   # the lead the article gave names the departure already posted ("Change in Leadership")
-                report.skipped.append((story, f"same news already posted: {twin[:60]}"))
-                continue
+            if twin:                   # the lead the article gave names the departure already posted ("Change in Leadership");
+                report.skipped.append((story, f"same news already posted: {twin[:60]}"))   # Nov 24: a 160-character teaser
+                continue               # skipped the check, so WFAA's copy of a story NBC 5's was skipped for went through
         copy, writer = write_copy(story, settings, now, force_template=story.source_kind == "submission")   # a viewer's words stay theirs
         if copy.skip:
             report.skipped.append((story, copy.skip_reason or "writer skipped"))
             continue
         if story.source_kind == "rss" and _stale_relative_time(state, story, copy.caption or "", now):
             report.skipped.append((story, "its caption says 'overnight' or 'this morning', but the event was first reported over 14 hours ago"))
+            continue
+        from .writer import passed_window
+        window = passed_window(copy.caption or "", now.astimezone(settings.tz))
+        if window:                     # Nov 24: "will escort the remains ... between 6 and 7 a.m. Tuesday", drafted Tuesday at 1:42 pm
+            report.skipped.append((story, f"its time window has passed: {window}"))
             continue
         from .checks import caption_problems
         problems = caption_problems(copy, story, writer=writer)

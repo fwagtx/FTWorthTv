@@ -1317,3 +1317,23 @@ def test_a_length_cut_keeps_the_where_and_when():
          "Show On Earth World Tour 2027 , which will include a stop at AT&T Stadium in Arlington on Monday, September 27.")
     out = _sentences(s)
     assert out and out[0].endswith("at AT&T Stadium in Arlington on Monday, September 27.") and "2027, which" in out[0]
+
+
+def test_a_closed_time_window_is_stale():
+    """Nov 24, render 206: FOX 4's procession for a WWII soldier's remains "between 6 and 7 a.m. Tuesday", drafted at 1:42 pm."""
+    from zoneinfo import ZoneInfo
+    from ftworthtv.writer import passed_window
+    tz = ZoneInfo("America/Chicago")
+    cap = ("An Army Honor Guard and family members will escort the remains of U.S. Army Pvt. Carrol J. \"Sonny\" Arrington from DFW "
+           "Airport to Biggers Funeral Home in Fort Worth between 6 and 7 a.m. Tuesday.")
+    assert passed_window(cap, datetime(2026, 11, 24, 13, 42, tzinfo=tz)) == "between 6 and 7 a.m. Tuesday"
+    assert passed_window(cap, datetime(2026, 11, 24, 5, 30, tzinfo=tz)) == ""        # before the window
+    assert passed_window(cap, datetime(2026, 11, 23, 13, 0, tzinfo=tz)) == ""        # Monday: Tuesday's window is ahead
+    assert passed_window("Crews closed the road between 6 and 7 a.m. Tuesday.", datetime(2026, 11, 24, 13, 0, tzinfo=tz)) == ""
+
+
+def test_a_cautionary_tale_is_an_analysis():
+    """Nov 24, render 206: CBS Sports' Texas A&M season analysis."""
+    from ftworthtv.filters import national_feature
+    assert national_feature("One year after 11-0 start, Texas A&M enters rivalry week as a cautionary tale")
+    assert not national_feature("Texas A&M hosts No. 5 Texas in rivalry game")

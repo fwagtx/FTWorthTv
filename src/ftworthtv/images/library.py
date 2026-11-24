@@ -150,7 +150,9 @@ OTHER_CITIES = ("dallas", "houston", "austin", "san antonio", "arlington", "dent
 
 VENUE_NAMES = {"att-stadium": ("at&t stadium",), "globe-life-field": ("globe life",), "aac": ("american airlines center",),
                "toyota-stadium": ("toyota stadium",), "dickies-arena": ("dickies arena",), "nrg-stadium": ("nrg stadium",),
-               "texas-motor-speedway": ("texas motor speedway",), "tcu-football": ("amon g. carter", "amon carter stadium")}
+               "texas-motor-speedway": ("texas motor speedway",), "tcu-football": ("amon g. carter", "amon carter stadium"),
+               # the "texas-am" photos are all Kyle Field: Nov 24, an A&M season analysis went out with the stadium at dusk
+               "texas-am": ("kyle field",)}
 _VENUE_RE = re.compile(r"\b((?:[A-Z][\w&.'’-]*\s+){1,3}(?:Stadium|Arena|Field|Ballpark|Coliseum|Speedway))\b")
 _AWAY_RE = re.compile(r"\b(?:visit|visits|visiting|travel to|travels to|traveling to|head to|heads to|road game|road trip|on the road|away game)\b", re.I)
 
@@ -183,7 +185,16 @@ def venue_fits(topic: str, text: str, title: str | None = None) -> bool:
     if any(n in low for n in names):
         return True
     others = [v for v in _VENUE_RE.findall(text or "") if not any(n in v.lower() for n in names)]
-    return not others and not _AWAY_RE.search(text or "")
+    away = _AWAY_RE.search(text or "")
+    if away and any(w in low[away.end():away.end() + 40] for w in HOME_TEAMS.get(topic, ())):
+        away = None                                              # "Utah visits TCU": the visitor is the other team
+    return not others and not away
+
+
+# the team that plays at each venue topic, so "Utah visits TCU" reads as a home game
+HOME_TEAMS = {"tcu-football": ("tcu", "horned frogs"), "texas-am": ("texas a&m", "aggies"), "att-stadium": ("cowboys",),
+              "globe-life-field": ("rangers",), "aac": ("mavericks", "mavs", "stars"), "toyota-stadium": ("fc dallas",),
+              "nrg-stadium": ("texans",)}
 
 
 TITLE_ONLY = {"heb", "stock-market", "gaming", "lottery", "parade", "shopping", "thanksgiving", "christmas", "fireworks", "smartphone", "nfl", "space", "eclipse",

@@ -336,8 +336,9 @@ def entity_topics_for(names: list[str], category: str, title: str | None = None,
                 continue
             if topic_excluded(topic, f"{name} {title or ''} {body}"):
                 continue                                   # "Baylor University Medical Center" is a Dallas hospital, not the Waco campus
-            if category == "sports" and topic in SPORTS_VARIANTS and SPORTS_VARIANTS[topic] not in out:
-                out.append(SPORTS_VARIANTS[topic])
+            variant = SPORTS_VARIANTS.get(topic) if category == "sports" else None
+            if variant and variant not in out and (title is None or venue_fits(variant, f"{title} {body}", title)):
+                out.append(variant)        # Nov 24: "A wave of emotions for TCU after Dykes firing" drew an empty 2017 stadium
             if topic not in out:
                 out.append(topic)
     return out

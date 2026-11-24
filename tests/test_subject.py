@@ -416,3 +416,12 @@ def test_a_series_of_lawsuits_is_not_a_game():
     from ftworthtv.images.subject import happened
     assert not happened("Paxton drops series of high-profile Texas lawsuits after election loss")
     assert happened("Rangers drop series finale to Astros")
+
+
+def test_a_teams_stadium_only_for_a_game_there():
+    """Nov 24, render 206: "A wave of emotions for TCU after Dykes firing" drew an empty 2017 Amon G. Carter Stadium, and a Texas
+    A&M season analysis drew Kyle Field: the sports-ground variant skipped the venue check, and Kyle Field was no venue."""
+    assert "tcu-football" not in plan_subject("A wave of emotions for TCU after Dykes firing then a quick trip to No. 9 Texas Tech", "", "sports").entity_topics
+    assert "tcu-football" in plan_subject("TCU hosts Baylor at Amon G. Carter Stadium in rivalry game", "", "sports").entity_topics
+    assert plan_subject("One year after 11-0 start, Texas A&M enters rivalry week as a cautionary tale", "", "sports").entity_topics == []
+    assert "texas-am" in plan_subject("Texas A&M hosts No. 5 Texas at Kyle Field in rivalry game", "", "sports").entity_topics

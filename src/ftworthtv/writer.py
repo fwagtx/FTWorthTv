@@ -1114,6 +1114,27 @@ _WHEN_RE = re.compile(r"\b\d{1,2}(?::\d{2})?\s?(?:a\.?m\.?|p\.?m\.?)|\bnoon\b|\b
 _WHERE_RE = re.compile(r"\b(?:at|in|on)\s+(?:the\s+)?[A-Z][A-Za-z.'’&-]+")
 
 
+_WINDOW_RE = re.compile(r"\bbetween (\d{1,2})(?::(\d{2}))?\s*(?:(?:a\.?m\.?|p\.?m\.?)\s*)?and (\d{1,2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?)"
+                        r"(?:\s+(today|monday|tuesday|wednesday|thursday|friday|saturday|sunday))?", re.I)
+
+
+def passed_window(caption: str, now_local: datetime) -> str:
+    """A time window the caption announces in the future tense that has already closed today: "will escort the remains ...
+    between 6 and 7 a.m. Tuesday" drafted Tuesday afternoon. Returns the window, or "" when none has passed."""
+    weekday = now_local.strftime("%A").lower()
+    text = caption or ""
+    for m in _WINDOW_RE.finditer(text):
+        if not re.search(r"\bwill\b", text[max(0, m.start() - 250):m.start()], re.I):
+            continue                              # "between 6 and 7 a.m." in the past tense is what happened, not a plan
+        day = (m.group(6) or "").lower()
+        if day not in ("today", weekday):
+            continue                              # no day, or another day: not today's window
+        hour = int(m.group(3)) % 12 + (12 if m.group(5).lower().startswith("p") else 0)
+        if now_local > now_local.replace(hour=hour, minute=int(m.group(4) or 0), second=0, microsecond=0):
+            return m.group(0)
+    return ""
+
+
 def only_tail_places(head: str, tail: str) -> bool:
     """The part a length cut would drop says where or when, and the part it keeps says neither."""
     return bool((_WHEN_RE.search(tail) or _WHERE_RE.search(tail)) and not (_WHEN_RE.search(head) or _WHERE_RE.search(head)))

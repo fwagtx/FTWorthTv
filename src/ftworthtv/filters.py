@@ -141,6 +141,8 @@ _FEATURE_TITLE_RE = re.compile(r"(?:^|[:—–]\s*)(?:how(?! to\b)|why|inside|be
                                r"in conversation)\b|\b(?:q&a|cover story|oral history|interview)\b|"
                                r"\bI (?:wish|think|played|love|loved|hate|tried|spent|can't|don't|need|want)\b|"
                                r"\b(?:goes|went|going) viral\b|"   # Nov 23: a streamer's viral GTA 6 clip is not a moment
+                               # Nov 24: CBS Sports' "One year after 11-0 start, Texas A&M enters rivalry week as a cautionary tale"
+                               r"\bcautionary tale\b|\bwhat went wrong\b|\bpost-?mortem\b|"
                                # Nov 23: IGN's "GTA 6 Players Are Upset Its New Train Can Actually Be Stopped": a fan reaction
                                r"\b(?:players|fans|gamers|viewers|users|subscribers|swifties)\s+(?:are|were|seem|get|got)?\s*"
                                r"(?:upset|angry|furious|livid|mad|divided|split|losing it|freaking out|obsessed|baffled|confused|"
