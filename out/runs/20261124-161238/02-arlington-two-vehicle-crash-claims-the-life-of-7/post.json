@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T22:37:38.120182+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-161238/02-arlington-two-vehicle-crash-claims-the-life-of-7/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-161238/02-arlington-two-vehicle-crash-claims-the-life-of-7/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "traffic",
+    "headline": "Arlington two-vehicle crash claims the life of 77-year-old woman",
+    "caption": "Police say a driver ran a red light at a major Arlington intersection Tuesday morning, sparking a broadside crash that left one dead and two hospitalized.",
+    "first_comment": "Source: WFAA https://www.wfaa.com/article/news/local/arlington-two-vehicle-crash-claims-the-life-of-77-year-old-woman-fatal/287-fa48b334-1ad2-4d30-b354-2415de658cd9\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "072491db8a48d6bb",
+    "source": "WFAA",
+    "source_kind": "rss",
+    "title": "Arlington two-vehicle crash claims the life of 77-year-old woman",
+    "summary": "Police say a driver ran a red light at a major Arlington intersection Tuesday morning, sparking a broadside crash that left one dead and two hospitalized.",
+    "url": "https://www.wfaa.com/article/news/local/arlington-two-vehicle-crash-claims-the-life-of-77-year-old-woman-fatal/287-fa48b334-1ad2-4d30-b354-2415de658cd9",
+    "published": "2026-11-24T21:50:59+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/a31ec8ae-d486-4663-9ca0-f9c6828b2c41/20250525T194224/a31ec8ae-d486-4663-9ca0-f9c6828b2c41_750x422.jpg",
+    "image_credit": "Photo: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: local",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "traffic",
+    "relevance": 2,
+    "score": 1.103
+  }
+}
