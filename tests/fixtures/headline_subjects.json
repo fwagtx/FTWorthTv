@@ -347,5 +347,18 @@
    "Australian Music Broadcaster and Countdown Host"
   ],
   "lesson": "Nov 23: a nationality and a job description in Title Case are not subjects"
+ },
+ {
+  "title": "Dallas Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving",
+  "body": "The Dallas Cowboys teamed up with Carter BloodCare to host a blood drive at AT&T Stadium in Arlington.",
+  "category": "sports",
+  "mode": "entity",
+  "not_topics": [
+   "att-stadium"
+  ],
+  "not_fallback": [
+   "att-stadium"
+  ],
+  "lesson": "Nov 23 (review Nov 24): a team's stadium is not a picture of a blood drive held there"
  }
 ]

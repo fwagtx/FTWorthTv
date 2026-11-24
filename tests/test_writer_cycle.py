@@ -1150,3 +1150,13 @@ def test_card_wrap_no_orphan_number():
     width = int(draw.textlength("Fort Worth forecast: chance rain showers, high near", font=font)) + 2
     lines = wrap_text(draw, text, font, width)
     assert lines[-1] != "49" and lines[-1].endswith("near 49")
+
+
+def test_paren_byline_keeps_the_whole_name():
+    """Nov 24 review: the Keller ISD post credited "Abby Goss | Fort Worth Report"; the page says "(Mary Abby Goss | Fort Worth
+    Report)". The Texas Tribune's unparenthesized "... in Lago Vista Sergio Flores for The Texas Tribune" stays two words."""
+    from ftworthtv.sources.article import photo_credit
+    keller = '<figure><figcaption>Superintendent Cory Wilson speaks during a board meeting in July 2025. (Mary Abby Goss | Fort Worth Report)</figcaption></figure>'
+    assert photo_credit(keller, {}) == "Mary Abby Goss | Fort Worth Report"
+    tribune = '<figure><figcaption>A hallway at Lago Vista High School in Lago Vista Sergio Flores for The Texas Tribune</figcaption></figure>'
+    assert photo_credit(tribune, {}) == "Sergio Flores for The Texas Tribune"

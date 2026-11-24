@@ -366,7 +366,7 @@ def _institution_words(name: str) -> list[str]:
     return [w for w in name.lower().replace("-", " ").split() if w in INSTITUTION_FALLBACK]
 
 
-def plan_subject(title: str, body: str, category: str) -> SubjectPlan:
+def _plan_subject(title: str, body: str, category: str) -> SubjectPlan:
     names = [n for n in (resolve_titled(x, body) for x in entities(title, body)) if n]
     subjects = [n for n in names if not _is_place(n)]
     if _DEATH_RE.search(title or "") and any(looks_like_person(n) for n in subjects):
@@ -710,3 +710,14 @@ def wants_recent_picture(title: str, category: str, kind: str = "") -> bool:
     """A story about something that happened wants a picture from that happening, not a file photo of the place."""
     low = (title or "").lower()
     return kind in ("event", "event_roundup", "nws_alert") or category in ("events", "sports", "breaking") or any(w in low for w in EVENT_WORDS)
+
+
+def plan_subject(title: str, body: str = "", category: str = "") -> "SubjectPlan":
+    """The subject plan, without a team's stadium for a story that is not a game (a blood drive, a toy drive, a job fair held
+    there): Nov 23, the Cowboys and Carter BloodCare blood drive went out with an empty June 2020 AT&T Stadium."""
+    plan = _plan_subject(title, body, category)
+    from .library import drop_stadiums_off_the_field
+    text = f"{title} {body}"
+    plan.entity_topics = drop_stadiums_off_the_field(list(plan.entity_topics), text)
+    plan.fallback_topics = drop_stadiums_off_the_field(list(plan.fallback_topics), text)
+    return plan
