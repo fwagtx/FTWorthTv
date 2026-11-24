@@ -1308,3 +1308,12 @@ def test_a_gerund_subject_is_not_a_trailing_phrase():
     t = ("Crews from the Fort Worth Fire Department pulled a woman from a burning home on Tuesday morning in the city's south side, "
          "avoiding what could have been a deadly fire.")
     assert trim_trailing_phrase(t, 150).startswith("Crews from the Fort Worth Fire Department pulled a woman")
+
+
+def test_a_length_cut_keeps_the_where_and_when():
+    """Nov 24, render 204: CultureMap's U2 sentence was cut before ", which will include a stop at AT&T Stadium in Arlington on
+    Monday, September 27", leaving the tour's name without the local stop."""
+    s = ("Iconic rock band U2 will embark on their first large-scale tour since 2018 with their Carnaval De Luz presents: The Greatest "
+         "Show On Earth World Tour 2027 , which will include a stop at AT&T Stadium in Arlington on Monday, September 27.")
+    out = _sentences(s)
+    assert out and out[0].endswith("at AT&T Stadium in Arlington on Monday, September 27.") and "2027, which" in out[0]

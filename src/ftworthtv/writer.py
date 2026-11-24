@@ -613,9 +613,15 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
             continue                                          # a columnist's rhetorical question or second person is not a news sentence
         if _FIRST_PERSON_RE.match(part):
             continue                                          # "I typically start my mornings walking my dogs": a resident's essay, not news
+        part = re.sub(r"(?<=\w)\s+([,;])", r"\1", part)        # "World Tour 2027 , which": the feed's stray space
+        cap = limit
         if len(part) > limit:
-            part = trim_trailing_phrase(part, limit) or part
-        if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")) or len(part.split()) < 6:
+            trimmed = trim_trailing_phrase(part, limit)
+            if trimmed and len(part) <= limit + 100 and only_tail_places(trimmed, part[len(trimmed) - 1:]):
+                cap = limit + 100     # Nov 24: ", which will include a stop at AT&T Stadium in Arlington on Monday, September 27" was
+            else:                     # the story's only where and when, and the cut kept the tour's name without them
+                part = trimmed or part
+        if len(part) < 25 or len(part) > cap or not part.endswith((".", "!", "?", '"', "”", "’", ")")) or len(part.split()) < 6:
             continue
         if _PROMO_SENTENCE_RE.search(part):
             continue                                          # "The ultimate feel-good show ... presented by PNC Bank" (Nov 24)
@@ -1106,6 +1112,11 @@ _WHEN_RE = re.compile(r"\b\d{1,2}(?::\d{2})?\s?(?:a\.?m\.?|p\.?m\.?)|\bnoon\b|\b
                       r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b|"
                       r"\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.? \d{1,2}\b", re.I)
 _WHERE_RE = re.compile(r"\b(?:at|in|on)\s+(?:the\s+)?[A-Z][A-Za-z.'’&-]+")
+
+
+def only_tail_places(head: str, tail: str) -> bool:
+    """The part a length cut would drop says where or when, and the part it keeps says neither."""
+    return bool((_WHEN_RE.search(tail) or _WHERE_RE.search(tail)) and not (_WHEN_RE.search(head) or _WHERE_RE.search(head)))
 
 
 def promo_blurb(caption: str) -> bool:
