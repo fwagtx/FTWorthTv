@@ -1364,3 +1364,13 @@ def test_a_suite_number_does_not_end_a_sentence():
 def test_inside_after_a_comma_is_a_feature():
     from ftworthtv.filters import national_feature
     assert national_feature("From a camcorder to a Super Bowl mantra, inside Mike Macdonald's love for game film")
+
+
+def test_a_pages_photo_caption_is_not_part_of_the_story():
+    """Nov 24, render 213: FOX 4's "Erick Lomick (left) and Alan Blaylock (right) Democrat Erika Lomick narrowly beat ..."."""
+    s = ("Erick Lomick (left) and Alan Blaylock (right) Democrat Erika Lomick narrowly beat Republican Alan Blaylock in both a "
+         "special election and the general election held on Nov. 3.")
+    assert _sentences(s) == ["Democrat Erika Lomick narrowly beat Republican Alan Blaylock in both a special election and the "
+                             "general election held on Nov. 3."]
+    keep = "Mayor Mattie Parker (center) cut the ribbon on Tuesday at the new library branch in east Fort Worth, city officials said."
+    assert _sentences(keep) == [keep]

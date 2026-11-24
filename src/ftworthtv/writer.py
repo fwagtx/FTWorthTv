@@ -431,6 +431,11 @@ _CONFIRMED_RE = re.compile(r"^(?:[A-Z][\w&.'’-]*\s){1,4}(?:has|have) (?:indepe
 _PAGE_LABEL_RE = re.compile(r"\b(?:Logo text|Logo image|Image credit|Advertisement|ADVERTISEMENT|Skip Ad|Story continues below advertisement)\s+(?=[A-Z])")
 _SCRIPT_RE = re.compile(r"\b(?:blogherads|googletag|adq\.push|window\.\w+|function\s*\(\))", re.I)
 _SCRIPT_CUT_RE = re.compile(r"\b(?:blogherads|googletag)\b.*?(?:\}\s*\)\s*;|$)", re.S)   # an ad script runs to its "});" or the end
+# a page's photo caption scraped into the lead: Nov 24, FOX 4's "Erick Lomick (left) and Alan Blaylock (right) Democrat Erika
+# Lomick narrowly beat Republican Alan Blaylock ...": the people "(left)" and "(right)" are in a picture we do not show
+_POSITION_CAPTION_RE = re.compile(r"\b(?:[A-Z][\w'’.-]+(?: [A-Z][\w'’.-]+){0,3} \((?:left|right|center|centre|top|bottom|l|r|c|"
+                                  r"from left|second from left|second from right)\)(?:,? (?:and|&) |, | )){2,4}(?=[A-Z])")
+# two or more people placed in a picture and then a new sentence; "Mayor Mattie Parker (center) cut the ribbon" is the sentence
 # CBS pages: "Updated on: November 22, 2026 / 12:51 PM CST / CBS/AP" glued to the front of the lead sentence
 # the full outlet name is tried first: "Updated on: November 23, 2026 / 11:23 AM CST / CBS Texas It's the season ..." left
 # "Texas It's the season" when "CBS" alone matched (Nov 23)
@@ -579,6 +584,7 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     out: list[str] = []
     text = _DATELINE_RE.sub("", _UPDATED_RE.sub("", collapse_ws(text or "")))   # datelines and "Updated on: ..." stamps are not sentences
     text = _story_start(_SCRIPT_CUT_RE.sub(" ", text))
+    text = _POSITION_CAPTION_RE.sub("", text)
     cut_short = len(text) > lead
     if cut_short:
         text = text[:lead]
