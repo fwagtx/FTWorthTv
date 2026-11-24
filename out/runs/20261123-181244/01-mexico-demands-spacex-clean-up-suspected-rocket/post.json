@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-181244/01-mexico-demands-spacex-clean-up-suspected-rocket/post.jpg",
+    "credit": "Photo: Olga Ernst via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:SpaceX_hangar_at_LC39A,_Kennedy_Space_Center.jpg",
+    "photo_id": "commons-183934457",
+    "subject": "entity:spacex"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261123-181244/01-mexico-demands-spacex-clean-up-suspected-rocket/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "breaking",
+    "headline": "Mexico demands SpaceX clean up suspected rocket debris washing ashore near Texas",
+    "caption": "Suspected debris from a SpaceX rocket explosion has washed up in Mexico, prompting cleanup efforts and new questions about environmental risks near Texas.",
+    "first_comment": "Source: KVUE Austin https://www.kvue.com/article/news/state/texas-news/mexico-demands-spacex-clean-suspected-rocket-debris-washing-ashore-texas/287-d6374a3f-d02f-4de0-8d19-6c39015a232e\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "fd436e8b08e55d73",
+    "source": "KVUE Austin",
+    "source_kind": "rss",
+    "title": "Mexico demands SpaceX clean up suspected rocket debris washing ashore near Texas",
+    "summary": "Suspected debris from a SpaceX rocket explosion has washed up in Mexico, prompting cleanup efforts and new questions about environmental risks near Texas.",
+    "url": "https://www.kvue.com/article/news/state/texas-news/mexico-demands-spacex-clean-suspected-rocket-debris-washing-ashore-texas/287-d6374a3f-d02f-4de0-8d19-6c39015a232e",
+    "published": "2026-11-23T23:47:35+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/25f77d93-73d6-4e76-91ab-a3d523bbb5c9/20261111T173611/25f77d93-73d6-4e76-91ab-a3d523bbb5c9_750x422.jpg",
+    "image_credit": "Photo: KVUE Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "KVUE RSS Feed: local",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "breaking",
+    "relevance": 2,
+    "score": 0.8003
+  }
+}
