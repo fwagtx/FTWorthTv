@@ -310,6 +310,18 @@ def not_a_photo(cand: "PhotoCandidate") -> bool:
     return bool(_NOT_A_PHOTO_RE.search(blob)) or "property of" in blob.lower() or bool(_OPINION_TITLE_RE.search(title))
 
 
+# an archive's account holds history, not today: Nov 24, "gasoline pump nozzle fueling car" found Orange County Archives'
+# 1970s pump priced at 51.8 cents a gallon for FOX 4's "DFW gas prices drop below $3 ahead of Thanksgiving travel rush"
+_ARCHIVE_RE = re.compile(r"\b(?:archives?|historical society|history center|history museum|heritage (?:society|center|collection)|"
+                         r"library of congress|state library|digital collections?|special collections|vintage|retro|circa|"
+                         r"(?:18|19)\d0s)\b", re.I)
+
+
+def archive_photo(cand: "PhotoCandidate") -> bool:
+    name = (cand.source_url or "").rsplit("/", 1)[-1].replace("_", " ")
+    return bool(_ARCHIVE_RE.search(" ".join([cand.credit or "", cand.title or "", cand.alt or "", name])))
+
+
 def unsafe_photo(cand: "PhotoCandidate") -> bool:
     blob = " ".join([cand.alt or "", cand.credit or "", cand.source_url or "", cand.url or ""]).lower()
     return any(w in blob for w in UNSAFE_PHOTO_WORDS)
@@ -415,7 +427,7 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
             continue
         tried.add(q.lower())
         for cand in _search(q, settings):
-            if unsafe_photo(cand) or not_a_photo(cand):
+            if unsafe_photo(cand) or not_a_photo(cand) or archive_photo(cand):
                 continue
             if exclude and (cand.id in exclude or cand.family in exclude):
                 continue

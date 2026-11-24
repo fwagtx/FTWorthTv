@@ -1069,3 +1069,15 @@ def test_render_188_rules():
     assert not promo_blurb("Join the city for the tree lighting at Sundance Square at 6 p.m. Friday.")
     assert not promo_blurb("The Fort Worth Public Library will host a 'People Library' on Dec. 5. Ask questions and hear stories.")
     assert not promo_blurb("Arlington police are looking for Edgar CASTELLANOS, wanted for theft.")
+
+
+def test_render_189_rules():
+    """Nov 24, render 189: FOX 4's "DFW gas prices drop below $3 ahead of Thanksgiving travel rush" drew Orange County
+    Archives' 1970s gas pump priced at 51.8 cents a gallon."""
+    from ftworthtv.images.providers import PhotoCandidate, archive_photo
+    def cand(credit, title=""):
+        return PhotoCandidate(id="f", url="https://live.staticflickr.com/x.jpg", credit=credit, license="cc-by", provider="flickr",
+                              source_url="https://www.flickr.com/photos/30346812@N07/12443400304", title=title)
+    assert archive_photo(cand("Photo: Orange County Archives (CC BY 2.0) via Flickr"))
+    assert archive_photo(cand("Photo: Jane Doe (CC BY 2.0) via Flickr", "Vintage gas pump, 1970s"))
+    assert not archive_photo(cand("Photo: Jane Doe (CC BY 2.0) via Flickr", "Gas pump at a Fort Worth QuikTrip"))
