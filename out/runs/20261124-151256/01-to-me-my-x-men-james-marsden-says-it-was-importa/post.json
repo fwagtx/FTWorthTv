@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-151256/01-to-me-my-x-men-james-marsden-says-it-was-importa/post.jpg",
+    "credit": "Photo: insiderelic via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Acacia_cyclops_452574694.jpg",
+    "photo_id": "commons-157652565",
+    "subject": "entity:cyclops"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-151256/01-to-me-my-x-men-james-marsden-says-it-was-importa/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "‘To Me, My X-Men’: James Marsden Says It Was ‘Important’ for Cyclops to Be a Leader in ‘Avengers",
+    "caption": "James Marsden dominated social media buzz after Disney and Marvel Studios launched the final “Avengers: Doomsday” trailer. Marsden event got to recite his character’s iconic line: “To me, my X-Men!”",
+    "first_comment": "Source: Variety https://variety.com/2026/film/news/james-marsden-cyclops-leader-x-men-avengers-doomsday-1236957270/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "bcad66bd0b5153a1",
+    "source": "Variety",
+    "source_kind": "rss",
+    "title": "‘To Me, My X-Men’: James Marsden Says It Was ‘Important’ for Cyclops to Be a Leader in ‘Avengers: Doomsday’ After Taking a ‘Back Seat to Wolverine’",
+    "summary": "James Marsden dominated social media buzz after Disney and Marvel Studios launched the final “Avengers: Doomsday” trailer, which ended on the viral moment of Marsden’s Cyclops uniting the X-Men and Avengers in battle against Robert Downey Jr.’s Doctor Doom. Marsden event got to recite his character’s iconic line: “To me, my X-Men!” Whether or not …",
+    "url": "https://variety.com/2026/film/news/james-marsden-cyclops-leader-x-men-avengers-doomsday-1236957270/",
+    "published": "2026-11-24T20:31:03+00:00",
+    "category_hint": null,
+    "image_url": "https://variety.com/wp-content/uploads/2026/11/marsden.png",
+    "image_credit": "Photo: Variety",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "Variety",
+      "national": true,
+      "scope": "national",
+      "national_term": "avengers"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.2595
+  }
+}
