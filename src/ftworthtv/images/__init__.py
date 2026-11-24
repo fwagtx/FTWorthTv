@@ -232,6 +232,8 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             lib_topics = []
         else:
             lib_topics = topics_for(story.text(), copy.category, scope, title=story.title)
+        from .library import drop_stadiums_off_the_field
+        lib_topics = drop_stadiums_off_the_field(lib_topics, f"{story.title} {story.summary or ''}")
         log.info("photo subject for %r: %s (%s)", story.title[:60], sp.mode, sp.primary or ", ".join(lib_topics[:3]))
         avoid = avoid_words_for(story.text())
         from .subject import happened as _happened

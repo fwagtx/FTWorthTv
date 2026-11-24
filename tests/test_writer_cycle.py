@@ -1124,3 +1124,29 @@ def test_render_191_listing():
     from ftworthtv.filters import game_notes
     assert game_notes("Texas high school football: Playoff matchups, schedule")
     assert not game_notes("NFL Thanksgiving schedule: Chiefs-Bills, Eagles-Cowboys, Bears-Lions on the menu")
+
+
+def test_morning_review_nov24():
+    """Nov 24 morning review: "Dallas Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving" (Nov 23)
+    went out with an empty June 2020 AT&T Stadium, and the Nov 24 forecast (49 degrees, freezing that night) drew the
+    courthouse under May's green trees."""
+    from ftworthtv.images.library import drop_stadiums_off_the_field, in_season
+    assert drop_stadiums_off_the_field(["att-stadium"], "Dallas Cowboys partner with Carter BloodCare to host blood drive") == []
+    assert drop_stadiums_off_the_field(["att-stadium"], "Cowboys beat Eagles on Thanksgiving at AT&T Stadium") == ["att-stadium"]
+    assert not in_season({"season": "summer"}, 11) and in_season({"season": "summer"}, 7) and in_season({}, 11)
+    import json, pathlib
+    lib = json.loads(pathlib.Path("assets/photos/library.json").read_text())
+    marked = {e["file"] for e in lib if e.get("season") == "summer"}
+    assert any("fort-worth-courthouse" in f for f in marked) and any("arlington-june-2020" in f for f in marked)
+
+
+def test_card_wrap_no_orphan_number():
+    """Nov 24 review: the forecast card ended "... high near" / "49": a short last word never sits alone on its line."""
+    from PIL import Image, ImageDraw, ImageFont
+    from ftworthtv.images.card import wrap_text
+    draw = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    font = ImageFont.load_default()
+    text = "Fort Worth forecast: chance rain showers, high near 49"
+    width = int(draw.textlength("Fort Worth forecast: chance rain showers, high near", font=font)) + 2
+    lines = wrap_text(draw, text, font, width)
+    assert lines[-1] != "49" and lines[-1].endswith("near 49")

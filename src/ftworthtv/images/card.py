@@ -115,6 +115,11 @@ def wrap_text(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont
             current = word
     if current:
         lines.append(current)
+    # a short last word alone on its line reads as a typo: Nov 24, "... high near" / "49". Take the word before it along.
+    if len(lines) >= 2 and len(lines[-1]) <= 4 and " " not in lines[-1] and " " in lines[-2]:
+        head, moved = lines[-2].rsplit(" ", 1)
+        if draw.textlength(f"{moved} {lines[-1]}", font=font) <= max_width:
+            lines[-2], lines[-1] = head, f"{moved} {lines[-1]}"
     return lines
 
 

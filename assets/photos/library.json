@@ -81,7 +81,8 @@
   "licence_name": "CC BY-SA 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Arlington_June_2020_2_(AT%26T_Stadium).jpg",
   "width": 1280,
-  "height": 853
+  "height": 853,
+  "season": "summer"
  },
  {
   "id": "lib-arlington-june-2020-3-at-t-stadium-jpg",
@@ -93,7 +94,8 @@
   "licence_name": "CC BY-SA 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Arlington_June_2020_3_(AT%26T_Stadium).jpg",
   "width": 1280,
-  "height": 853
+  "height": 853,
+  "season": "summer"
  },
  {
   "id": "lib-arlington-june-2020-4-at-t-stadium-jpg",
@@ -105,7 +107,8 @@
   "licence_name": "CC BY-SA 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Arlington_June_2020_4_(AT%26T_Stadium).jpg",
   "width": 1280,
-  "height": 853
+  "height": 853,
+  "season": "summer"
  },
  {
   "id": "lib-at-t-stadium-inside-dec-2025-jpg",
@@ -453,7 +456,8 @@
   "licence_name": "CC BY 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_Courthouse.jpg",
   "width": 1400,
-  "height": 630
+  "height": 630,
+  "season": "summer"
  },
  {
   "id": "clouds-lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",
@@ -1031,7 +1035,8 @@
   "licence_name": "CC BY-SA 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Arlington_June_2020_5_(Globe_Life_Field).jpg",
   "width": 1280,
-  "height": 853
+  "height": 853,
+  "season": "summer"
  },
  {
   "id": "lib-globelifefield2021-jpg",
@@ -1774,7 +1779,8 @@
   "licence_name": "CC BY 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_Courthouse.jpg",
   "width": 1400,
-  "height": 630
+  "height": 630,
+  "season": "summer"
  },
  {
   "id": "lib-fort-worth-tx-skyline-from-i-35-w-img-7078-jpg",

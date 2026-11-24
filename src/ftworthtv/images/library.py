@@ -242,8 +242,32 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
     return out
 
 
+# a team's stadium stands for its games, never for a blood drive, a toy drive or a job fair held there: Nov 23, "Dallas Cowboys
+# partner with Carter BloodCare to host blood drive ahead of Thanksgiving" went out with an empty June 2020 AT&T Stadium
+STADIUM_TOPICS = {"att-stadium", "globe-life-field", "aac", "toyota-stadium", "daikin-park", "nrg-stadium", "frost-bank-center",
+                  "toyota-center", "texas-motor-speedway", "tcu-football"}
+_NOT_A_GAME_RE = re.compile(r"\b(?:blood drive|toy drive|food drive|coat drive|clothing drive|donors?|donat\w*|volunteers?|charity|"
+                            r"fundraiser|job fair|hiring event|vaccin\w*|clinic|graduation|commencement|lighting ceremony|"
+                            r"partnership|giveaway|turkey)\b", re.I)
+
+
+def drop_stadiums_off_the_field(topics: list[str], text: str) -> list[str]:
+    if not _NOT_A_GAME_RE.search(text or ""):
+        return topics
+    return [t for t in topics if t not in STADIUM_TOPICS]
+
+
+# a library photo marked with the season it shows stays out of the opposite season: Nov 24, the forecast for a 49-degree day
+# with a freeze that night drew the courthouse under May's green trees; Nov 23, a June 2020 AT&T Stadium with summer lawns
+_OFF_SEASON = {"summer": (11, 12, 1, 2), "winter": (5, 6, 7, 8, 9)}
+
+
+def in_season(entry: dict, month: int) -> bool:
+    return month not in _OFF_SEASON.get(str(entry.get("season") or ""), ())
+
+
 def pick(root: Path, topics: list[str], *, used: set[str] | None = None, recently_used=None, rng: random.Random | None = None,
-         text: str | None = None) -> LibraryPhoto | None:
+         text: str | None = None, month: int | None = None) -> LibraryPhoto | None:
     """The first topic with a photo not used in this run or recently; a random one among its files for variety.
     A photo that shows one agency or one owner (a "DFW Airport Police" SUV) carries `only_when` phrases and is used only
     when the story names one of them: a reader takes the badge on the door for the subject of the post."""
@@ -252,10 +276,13 @@ def pick(root: Path, topics: list[str], *, used: set[str] | None = None, recentl
         return None
     rng = rng or random.Random()
     used = used or set()
+    if month is None:
+        from datetime import datetime
+        month = datetime.now().month
     for topic in topics:
         low = (text or "").lower()
         have = [e for e in lib if e.get("topic") == topic and e.get("id") not in used and (root / e["file"]).exists()
-                and (not e.get("only_when") or any(p in low for p in e["only_when"]))]
+                and (not e.get("only_when") or any(p in low for p in e["only_when"])) and in_season(e, month)]
         fresh = [e for e in have if not (recently_used and recently_used(e.get("id")))]
         pool = fresh or have      # a correct photo seen a few days ago beats a wrong one
         if pool:
