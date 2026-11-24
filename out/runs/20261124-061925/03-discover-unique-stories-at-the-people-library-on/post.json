@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T13:09:25.640460+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-061925/03-discover-unique-stories-at-the-people-library-on/post.jpg",
+    "credit": "Photo: City of Arlington",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.arlingtontx.gov/News-Articles/2026/November/Discover-Unique-Stories-at-the-People-Library-on-Dec.-5-2026",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-061925/03-discover-unique-stories-at-the-people-library-on/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Discover Unique Stories at the 'People Library' on Dec. 5, 2026",
+    "caption": "“Borrow” time with community members to hear about their experiences, careers and personal journeys. Ask questions, share conversations and discover new perspectives.",
+    "first_comment": "Source: City of Arlington https://www.arlingtontx.gov/News-Articles/2026/November/Discover-Unique-Stories-at-the-People-Library-on-Dec.-5-2026\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "5f29a2aee52f0b26",
+    "source": "City of Arlington",
+    "source_kind": "rss",
+    "title": "Discover Unique Stories at the 'People Library' on Dec. 5, 2026",
+    "summary": "“Borrow” time with community members to hear about their experiences, careers and personal journeys. Ask questions, share conversations and discover new perspectives.",
+    "url": "https://www.arlingtontx.gov/News-Articles/2026/November/Discover-Unique-Stories-at-the-People-Library-on-Dec.-5-2026",
+    "published": "2026-11-24T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.arlingtontx.gov/files/assets/city/v/1/news/2026/november/articles-arlington-public-library-people-library.jpg",
+    "image_credit": "Photo: City of Arlington",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.6,
+    "extra": {
+      "listing_image": "https://www.arlingtontx.gov/files/assets/city/v/1/news/2026/november/articles-arlington-public-library-people-library.jpg",
+      "generic_image": false,
+      "article_fetched": true,
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 0,
+    "score": 0.5832
+  }
+}
