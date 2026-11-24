@@ -6,7 +6,7 @@
     "2026-11-21": 16,
     "2026-11-22": 19,
     "2026-11-23": 20,
-    "2026-11-24": 5
+    "2026-11-24": 6
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -64,6 +64,7 @@
     },
     "2026-11-24": {
       "breaking": 1,
+      "community": 1,
       "crime": 3,
       "weather": 1
     }
@@ -102,7 +103,7 @@
       "wanted": 2
     },
     "2026-11-24": {
-      "rss": 1,
+      "rss": 2,
       "video": 2,
       "wanted": 2
     }
@@ -140,7 +141,7 @@
     },
     "2026-11-24": {
       "dfw": 1,
-      "local": 4
+      "local": 5
     }
   },
   "deferred": {
@@ -471,7 +472,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-24T08:02:00-06:00",
+  "last_post_at": "2026-11-24T08:52:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -588,6 +589,19 @@
       "source": "Fort Worth Report",
       "title": "Barnes & Noble returns to central Fort Worth, opening in West 7th District",
       "url": "https://fortworthreport.org/2026/11/18/barnes-noble-returns-to-central-fort-worth-opening-in-west-7th-district/"
+    },
+    "317532eba7095650": {
+      "at": "2026-11-24T08:52:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "440265911",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3404785419413206710",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "This Arlington teen started a new homecoming tradition for classmates without mums",
+      "url": "https://fortworthreport.org/2026/11/24/this-arlington-teen-started-a-new-homecoming-tradition-for-classmates-without-mums/"
     },
     "3307c59443181c18": {
       "at": "2026-11-23T07:12:00-06:00",
@@ -1978,6 +1992,10 @@
       "at": "2026-11-23T12:46:33.250009+00:00",
       "reason": "WFAA's second forecast video of the morning, 25 minutes after its frost-and-freeze video; rule added (one forecast per outlet per 12 hours)"
     },
+    "a9cb74c033a1a073": {
+      "at": "2026-11-24T13:21:02.022970+00:00",
+      "reason": "ESPN's 'To stay alive in NFC East, Cowboys need first back-to-back wins': an analysis piece drafted as a sports text card, with a FRISCO dat"
+    },
     "aca6a69e9b423ec9": {
       "at": "2026-11-21T15:50:03.621342+00:00",
       "reason": "a Bloomberg segment on the Anthropic IPO is not Fort Worth news; a video can only be a link post"
@@ -2047,7 +2065,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 100,
+  "total_posts": 101,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
