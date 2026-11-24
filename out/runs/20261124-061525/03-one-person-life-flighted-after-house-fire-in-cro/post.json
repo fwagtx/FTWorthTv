@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=T25hPYrmuuQ",
+  "scheduled_at": "2026-11-24T13:05:25.765526+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "breaking",
+    "headline": "One person life flighted after house fire in Crowley",
+    "caption": "WATCH: One person life flighted after house fire in Crowley\n\nFirefighters rescued one woman who is in critical condition.\n\nVideo: WFAA on YouTube",
+    "first_comment": "Source: WFAA on YouTube https://www.youtube.com/watch?v=T25hPYrmuuQ\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown night",
+    "location": "Crowley, TX"
+  },
+  "story": {
+    "id": "9393ab4e851866b4",
+    "source": "WFAA",
+    "source_kind": "video",
+    "title": "One person life flighted after house fire in Crowley",
+    "summary": "Firefighters rescued one woman who is in critical condition.",
+    "url": "https://www.youtube.com/watch?v=T25hPYrmuuQ",
+    "published": "2026-11-24T05:42:48+00:00",
+    "category_hint": null,
+    "image_url": "https://i1.ytimg.com/vi/T25hPYrmuuQ/hqdefault.jpg",
+    "image_credit": "Video: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "T25hPYrmuuQ",
+      "channel": "WFAA",
+      "handle": "@WFAA8",
+      "views": 448,
+      "feed_title": "WFAA",
+      "scope": "local"
+    },
+    "category": "breaking",
+    "relevance": 2,
+    "score": 0.6245
+  }
+}
