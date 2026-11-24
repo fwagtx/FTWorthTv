@@ -1275,3 +1275,13 @@ def test_render_198_rules():
     assert not other_metro_event("Fort Worth Stock Show & Rodeo announces 2027 performers")
     lib = json.loads(pathlib.Path("assets/photos/library.json").read_text())
     assert not any("american-airlines-center-august-2015" in e["file"] for e in lib)
+
+
+def test_render_199_rules():
+    """Nov 24, render 199: CBS Texas's "AT&T Stadium lights up kettle red" (a video page, the morning after the lighting post)
+    drew a daytime aerial photo of the stadium."""
+    from ftworthtv.filters import station_video_page
+    from ftworthtv.images.subject import happened
+    assert station_video_page("https://www.cbsnews.com/texas/video/at-t-stadium-lights-up-kettle-red/")
+    assert not station_video_page("https://www.cbsnews.com/texas/news/cowboys-salvation-army-to-illuminate-at-t-stadium-red/")
+    assert happened("AT&T Stadium lights up kettle red")

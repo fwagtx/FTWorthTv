@@ -530,6 +530,8 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   # Nov 23: KVUE's "Mexico demands SpaceX clean up suspected rocket debris washing ashore near Texas" drew a
                   # SpaceX hangar at Kennedy Space Center
                   " debris", "washing ashore", "washed ashore", "washes ashore", "washing up", "washed up", "washes up",
+                  # Nov 24: "AT&T Stadium lights up kettle red" drew a daytime aerial of the stadium
+                  "lights up", "lit up", "illuminated", "illuminates",
                   "rescued", "pulled from", " dies ", " died ", "killed", " dead ", "arrested", "charged with", "indicted", "sentenced",
                   " fired", "resigns", "resigned", "steps down", "walks out", "protest", "ceremony", "ribbon", "reopens", "debut",
                   "convicted", "found guilty", "pleads guilty", "pleaded guilty", "acquitted", "verdict", "sentenced to", "raided",

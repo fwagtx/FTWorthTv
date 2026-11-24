@@ -172,6 +172,16 @@ _TEXAS_STOP_RE = re.compile(r"\b(?:texas|arlington|dallas|fort worth|houston|aus
                             r"at&t stadium|dickies arena|american airlines center|globe life|toyota music factory)\b", re.I)
 
 
+# a station's video page in its article feed is a clip the page cannot show, usually a segment of a story already covered:
+# Nov 24, CBS Texas's "AT&T Stadium lights up kettle red" (cbsnews.com/texas/video/) came the morning after the lighting post
+_VIDEO_PAGE_RE = re.compile(r"https?://(?:www\.)?(?:cbsnews\.com/[a-z-]+/video/|fox4news\.com/video/|nbcdfw\.com/(?:video|watch)/|"
+                            r"wfaa\.com/video/|kxan\.com/video/|khou\.com/video/|kvue\.com/video/|kens5\.com/video/)", re.I)
+
+
+def station_video_page(url: str) -> bool:
+    return bool(_VIDEO_PAGE_RE.search(url or ""))
+
+
 def magazine_section(url: str) -> bool:
     return bool(_MAGAZINE_SECTION_RE.search(url or ""))
 
@@ -945,6 +955,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if shopping_guide(story.title, story.url):
             dropped.append((story, "shopping guide, not news"))
+            continue
+        if story.source_kind == "rss" and station_video_page(story.url):
+            dropped.append((story, "a station's video page: a clip the page cannot show"))
             continue
         if magazine_section(story.url):
             dropped.append((story, "a magazine's culture, food or travel feature, not news"))
