@@ -194,6 +194,11 @@
       "reason": "daily cap for weather reached",
       "title": "North Texas tracks chance of snow ahead of beautiful Thanksgiving"
     },
+    "29576f12ddd75252": {
+      "at": "2026-11-24T15:17:59.897621+00:00",
+      "reason": "daily cap for community reached",
+      "title": "More than 7,000 North Texas children still need Angel Tree donors before Christmas"
+    },
     "3132b30defdc6442": {
       "at": "2026-11-22T23:13:44.569070+00:00",
       "reason": "daily cap for sports reached",
@@ -304,6 +309,11 @@
       "reason": "daily cap for sports reached",
       "title": "Dak Prescott: Postgame Week 11 #TENvsDAL"
     },
+    "9274bfa82ca3b802": {
+      "at": "2026-11-24T15:17:59.897597+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Thanksgiving travel increasing across North Texas; AAA expects 5.3 million to hit roads"
+    },
     "94b856b5fceae4b3": {
       "at": "2026-11-23T20:50:26.818147+00:00",
       "reason": "daily cap for weather reached",
@@ -389,6 +399,21 @@
       "reason": "daily cap for crime reached",
       "title": "Suspects connected in Dallas and Garland officer-involved shootings, according to police"
     },
+    "c8a8a36a5821081f": {
+      "at": "2026-11-24T15:17:59.897633+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "South Dallas 'Dead End' drug market supplier gets 25 years in federal prison"
+    },
+    "ccac6aaff4307374": {
+      "at": "2026-11-24T15:17:59.897612+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Here's what a U.S. Space Academy in Houston could look like under Texas' official proposal | See the renderings"
+    },
+    "ccefbdcd8a55c579": {
+      "at": "2026-11-24T15:17:59.897617+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "U.S. intelligence helped Mexico capture ‘Chapo Isidro,’ Sheinbaum says"
+    },
     "cd0b4c14017e96bb": {
       "at": "2026-11-23T02:43:18.447950+00:00",
       "reason": "daily cap for weather reached",
@@ -463,6 +488,11 @@
       "at": "2026-11-23T14:55:31.756025+00:00",
       "reason": "daily cap for weather reached",
       "title": "Turkey Day wind chills after chance of snow for North Texas"
+    },
+    "fe7b0e17e4aca0e4": {
+      "at": "2026-11-24T15:17:59.897654+00:00",
+      "reason": "daily cap for community reached",
+      "title": "James L. West Hosts Dementia-Friendly “Sounds of the Season” Concert"
     },
     "ffef147f17f927a7": {
       "at": "2026-11-23T23:22:06.682810+00:00",
@@ -1985,6 +2015,10 @@
       "at": "2026-11-22T18:14:13.279753+00:00",
       "reason": "a Houston college result with the Houston skyline as a stand-in (rule added)"
     },
+    "6cfbd5151cc96e88": {
+      "at": "2026-11-24T15:17:59.895558+00:00",
+      "reason": "CBS Sports' 'Why the Cowboys and Lions always play on Thanksgiving Day' explainer with the Tarrant County Courthouse; rules added"
+    },
     "6f71b25b567fa281": {
       "at": "2026-11-20T15:19:26.662256+00:00",
       "reason": "another city's government (Austin mayor pro tem)"
@@ -2117,6 +2151,10 @@
       "at": "2026-11-20T16:18:32.671884+00:00",
       "reason": "same reopening as WFAA's video already scheduled (Musume)"
     },
+    "d612e22e4b79cd07": {
+      "at": "2026-11-24T15:17:59.895529+00:00",
+      "reason": "XMX Defense press release (Mineral Wells) with a garbled caption, a cut headline and an Air Force exercise photo; rules added"
+    },
     "d6bc7d3e753cc1bd": {
       "at": "2026-11-24T14:45:45.670523+00:00",
       "reason": "Fort Worth Business Press's McAdams hiring press release with a swimming pool in McAdams Park, Wichita, Kansas; rules added"
@@ -2136,6 +2174,10 @@
     "e51f21bf25bc63e9": {
       "at": "2026-11-22T16:27:33.855979+00:00",
       "reason": "an ESPN feature on the Angels that only names the World Series; not Fort Worth news or a national moment (rule added)"
+    },
+    "e5fb3840dffa90e8": {
+      "at": "2026-11-24T15:17:59.895563+00:00",
+      "reason": "CBS Sports' Arch Manning draft-outlook analysis with a question headline; rule added"
     },
     "e6129f029c909573": {
       "at": "2026-11-22T18:44:36.022499+00:00",
