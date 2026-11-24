@@ -6,7 +6,7 @@
     "2026-11-21": 16,
     "2026-11-22": 19,
     "2026-11-23": 20,
-    "2026-11-24": 2
+    "2026-11-24": 4
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -64,7 +64,8 @@
     },
     "2026-11-24": {
       "breaking": 1,
-      "crime": 1
+      "crime": 2,
+      "weather": 1
     }
   },
   "daily_by_kind": {
@@ -101,8 +102,9 @@
       "wanted": 2
     },
     "2026-11-24": {
+      "rss": 1,
       "video": 1,
-      "wanted": 1
+      "wanted": 2
     }
   },
   "daily_by_scope": {
@@ -137,7 +139,8 @@
       "texas": 2
     },
     "2026-11-24": {
-      "local": 2
+      "dfw": 1,
+      "local": 3
     }
   },
   "deferred": {
@@ -468,7 +471,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-24T07:12:00-06:00",
+  "last_post_at": "2026-11-24T07:37:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -747,6 +750,19 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Dallas investigating potential inaccuracies in crime reports",
       "url": "https://www.fox4news.com/news/dallas-investigating-potential-inaccuracies-crime-reports"
+    },
+    "4a957d22615b7e02": {
+      "at": "2026-11-24T07:37:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "440194861",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6918064718072888417",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Arlington Police Department",
+      "title": "WANTED: Edgar CASTELLANOS",
+      "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
     },
     "4eb9755a535205c4": {
       "at": "2026-11-21T06:26:00-06:00",
@@ -1070,6 +1086,19 @@
       "source": "WFAA",
       "title": "Fort Worth Science and History Museum membership can get you savings at other museums",
       "url": "https://www.youtube.com/watch?v=ZtuZ-nKRsLg"
+    },
+    "8c2e80ebfa90ac5b": {
+      "at": "2026-11-24T06:47:00-06:00",
+      "category": "weather",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "440194749",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-205531745271855994",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Dallas Weather: First freeze warning of the season takes effect tonight across parts of North Texas",
+      "url": "https://www.fox4news.com/weather/dallas-weather-first-freeze-warning-season-takes-effect-tonight-across-parts-north-texas"
     },
     "8d0602df4a20f81c": {
       "at": "2026-11-22T07:45:00-06:00",
@@ -1824,6 +1853,10 @@
       "at": "2026-11-22T18:44:36.022478+00:00",
       "reason": "the same Cowboys-Salvation Army 30-year partnership posted at 9:25, and its caption said one thing twice (rule added for the caption)"
     },
+    "5f29a2aee52f0b26": {
+      "at": "2026-11-24T12:21:45.940128+00:00",
+      "reason": "City of Arlington's People Library (Dec. 5): captioned only with the city's promotional blurb, no time and no place, eleven days out; rule a"
+    },
     "610f84058f8bd367": {
       "at": "2026-11-22T15:49:39.045409+00:00",
       "reason": "the same game as 'Arch Manning steps up as Longhorns blow out Arkansas', posted Nov 21 at 7:35 pm (rule added)"
@@ -1997,7 +2030,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 97,
+  "total_posts": 99,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
