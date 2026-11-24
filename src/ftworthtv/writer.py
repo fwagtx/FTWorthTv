@@ -510,6 +510,21 @@ _TRAILING_PHRASE_RE = re.compile(r",\s+(?!according\b)(?:[a-z]{3,}ing|which|whil
 _REPORTING_END_RE = re.compile(r"\b(?:said|says|told|announced|reported|added|explained|wrote)(?:\s+\w+){0,2}$", re.I)
 
 
+_CONGRATS_RE = re.compile(r"^Congratulations to (?:the )?([A-Z][^,]{2,80}?),\s+(?:which|who)\s+(was|were|is|are|has|have|earned|won)\s+")
+# a company's announcement of a hire, in press-release form: Nov 24, "LEWISVILLE, TEXAS (November 23, 2026) – McAdams ...
+# announced today the appointment of Marilyn Ramirez as vice president of Energy + Power"
+_PRESS_RELEASE_RE = re.compile(r"^[A-Z][A-Z .'’-]+,\s+[A-Z][A-Za-z .]+\s*\((?:January|February|March|April|May|June|July|August|"
+                               r"September|October|November|December) \d{1,2}, \d{4}\)\s*[–—-]|\bannounced today\b|\b(?:FOR IMMEDIATE RELEASE|"
+                               r"PRNewswire|Business Wire|GLOBE NEWSWIRE)\b")
+_PERSONNEL_PR_RE = re.compile(r"\b(?:appointment of|has (?:named|appointed|hired|promoted)|announced (?:the )?(?:hiring|promotion) of|"
+                              r"joins? (?:the firm|the company|as)|welcomes .{3,60} as)\b", re.I)
+
+
+def personnel_press_release(summary: str) -> bool:
+    text = summary or ""
+    return bool(_PRESS_RELEASE_RE.search(text)) and bool(_PERSONNEL_PR_RE.search(text))
+
+
 # a sponsor credit or a superlative is the promoter's copy, not news
 _PROMO_SENTENCE_RE = re.compile(r"\b(?:presented by|sponsored by|brought to you by|the ultimate|feel-good|must-see|must see|"
                                 r"unforgettable|don't miss|don’t miss|once-in-a-lifetime|world-class experience)\b", re.I)
@@ -550,6 +565,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     # a dateline after the dek opens the article's own first sentence: FOX 4's "... Tarrant counties. DALLAS - North Texas
     # faces a gloomy, chilly Tuesday ..." (Nov 24)
     parts = [_DATELINE_RE.sub("", p) for p in parts]
+    # the city's voice, not ours: "Congratulations to Tarrant County College, which was listed among ..." (Nov 24)
+    parts = [_CONGRATS_RE.sub(lambda m: f"{m.group(1)} {m.group(2)} ", p) for p in parts]
     parts = [re.sub(r"(\w)s ' (?=\S)", r"\1s' ", p) for p in parts]          # ESPN's "the Dallas Cowboys ' 51-30 win" (Nov 24)
     parts = [p for p in parts if not _SCRIPT_RE.search(p)]          # an ad script is not a sentence
     parts = [p for p in parts if not _CLIP_LEAD_RE.match(p) and not _TEASER_RE.match(p)]
@@ -1083,6 +1100,9 @@ def write_copy(story: Story, settings: Settings, now: datetime, *, force_templat
         # "Watch Titans rookie Carnell Tate score a wild 59-yard touchdown ...": the page is a highlight clip, and a card
         # cannot play it (Nov 22, CBS Sports, render 127)
         return PostCopy(skip=True, skip_reason="a video highlight page: its point is a clip we cannot show", category=story.category or "other",
+                        headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"
+    if story.source_kind == "rss" and personnel_press_release(story.summary or ""):
+        return PostCopy(skip=True, skip_reason="a company's personnel press release", category=story.category or "other",
                         headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"
     if story.source_kind == "rss" and not story.official and stale_meeting_recap(story, now):
         return PostCopy(skip=True, skip_reason="a meeting recap more than a week old", category=story.category or "other",

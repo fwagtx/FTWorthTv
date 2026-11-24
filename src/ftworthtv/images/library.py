@@ -299,7 +299,11 @@ def pick(root: Path, topics: list[str], *, used: set[str] | None = None, recentl
 
 OTHER_PLACES = ("houston", "dallas", "austin", "san antonio", "el paso", "lubbock", "waco", "odessa", "midland", "galveston",
                 "corpus christi", "amarillo", "plano", "frisco", "mckinney", "denton", "oklahoma", "new york", "chicago",
-                "los angeles", "toronto", "london", "seattle", "atlanta", "phoenix", "denver", "miami", "boston", "kansas city")
+                "los angeles", "toronto", "london", "seattle", "atlanta", "phoenix", "denver", "miami", "boston", "kansas city",
+                # Nov 24: "McAdams" found the McAfee Swimming Pool at McAdams Park in Wichita, Kansas: another state is not here
+                "kansas", "wichita", "missouri", "louisiana", "arkansas", "colorado", "california", "florida", "tennessee", "georgia",
+                "ohio", "illinois", "michigan", "arizona", "nevada", "new mexico", "alabama", "mississippi", "kentucky", "virginia",
+                "carolina", "pennsylvania", "minnesota", "wisconsin", "iowa", "nebraska", "utah", "oregon", "washington state")
 
 
 def avoid_words_for(text: str) -> tuple[str, ...]:

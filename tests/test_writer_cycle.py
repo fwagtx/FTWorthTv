@@ -1208,3 +1208,17 @@ def test_render_194_rules():
     assert roundup_column("Perfect offense, tolerable defense give Cowboys something to build on; will they?")
     assert not roundup_column("Will it snow in Fort Worth this week?")
     assert not roundup_column("Cowboys beat Titans 51-30 as Prescott throws four touchdowns")
+
+
+def test_render_195_rules():
+    """Nov 24, render 195: the City of Arlington's TCC item opened "Congratulations to Tarrant County College, which was
+    listed ..."; Fort Worth Business Press ran McAdams's hiring press release, and "McAdams" found a pool in Wichita, Kansas."""
+    from ftworthtv.images.library import avoid_words_for
+    from ftworthtv.writer import _sentences, personnel_press_release
+    out = _sentences("Congratulations to Tarrant County College, which was listed among the top community colleges in the "
+                     "United States by TIME and data firm Statista.")
+    assert out[0].startswith("Tarrant County College was listed among the top community colleges")
+    assert personnel_press_release("LEWISVILLE, TEXAS (November 23, 2026) – McAdams, a multidisciplinary planning, design and "
+                                   "engineering firm, announced today the appointment of Marilyn Ramirez as vice president.")
+    assert not personnel_press_release("Fort Worth police announced today that the suspect was arrested.")
+    assert "kansas" in avoid_words_for("McAdams, a Lewisville engineering firm, named a new vice president.")
