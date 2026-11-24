@@ -162,6 +162,16 @@ def awards_trade(title: str) -> bool:
     return bool(_AWARDS_TRADE_RE.search(_plain(title)))
 
 
+# a statewide magazine's culture, food and travel sections are features, not news: Nov 24, Texas Monthly's "Shana Feste's Road
+# to 'Heartland' Began and Ended in Texas" (texasmonthly.com/culture/) drafted as a Texas story
+_MAGAZINE_SECTION_RE = re.compile(r"texasmonthly\.com/(?:culture|arts-entertainment|food|travel|being-texan|the-culture|"
+                                  r"style|music|books|television|movies)/", re.I)
+
+
+def magazine_section(url: str) -> bool:
+    return bool(_MAGAZINE_SECTION_RE.search(url or ""))
+
+
 def national_feature(title: str, url: str = "") -> bool:
     return bool(_FEATURE_TITLE_RE.search(title or "") or _FEATURE_URL_RE.search(url or ""))
 
@@ -916,6 +926,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if shopping_guide(story.title, story.url):
             dropped.append((story, "shopping guide, not news"))
+            continue
+        if magazine_section(story.url):
+            dropped.append((story, "a magazine's culture, food or travel feature, not news"))
             continue
         if betting_promo(story.title, story.summary or ""):
             dropped.append((story, "sports betting picks or promo, not news"))

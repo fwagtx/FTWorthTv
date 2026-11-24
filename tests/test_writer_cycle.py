@@ -1177,3 +1177,25 @@ def test_render_192_rules():
     assert other_production(wlmt)
     assert game_notes("How to watch the NFL's Thanksgiving Day games")
     assert not game_notes("Cowboys beat Eagles on Thanksgiving")
+
+
+def test_render_193_rules():
+    """Nov 24, render 193: Mamma Mia! with the Bass Hall photo was held by the subject check; its caption ended with "The
+    ultimate feel-good show ia part of ... presented by PNC Bank"; Texas Monthly's "Shana Feste's Road to 'Heartland' Began
+    and Ended in Texas" drew a Flanders art-history chart."""
+    from ftworthtv.filters import magazine_section
+    from ftworthtv.images.subject import plan_subject, provider_queries, subject_fits
+    from ftworthtv.writer import _sentences
+    body = "Performing Arts Fort Worth is presenting Mamma Mia! Dec. 1-6 at Bass Performance Hall as part of the musical's tour."
+    assert subject_fits("Mamma Mia! coming back to town", body, "events", "topic:bass-hall") == (True, "")
+    out = _sentences("Following a sold-out Fort Worth engagement in 2024, this production returns fresh off a celebratory "
+                     "anniversary Broadway run. The ultimate feel-good show ia part of the 2026-27 Broadway at the Bass Season "
+                     "presented by PNC Bank.")
+    assert len(out) == 1 and out[0].startswith("Following a sold-out")
+    assert magazine_section("https://www.texasmonthly.com/culture/netflix-heartland-shana-feste-jessica-chastain/")
+    assert not magazine_section("https://www.texasmonthly.com/news-politics/texas-legislature-session/")
+    title = "Shana Feste’s Road to ‘Heartland’ Began and Ended in Texas"
+    plan = plan_subject(title, "In the new Netflix film Heartland, Jessica Chastain plays Misty Jones.", "culture")
+    for query, label in provider_queries(plan, title, "culture", people_allowed=True):
+        if label == "entity:heartland":
+            assert any("netflix" in w for w in query[2])

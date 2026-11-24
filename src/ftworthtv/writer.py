@@ -510,6 +510,11 @@ _TRAILING_PHRASE_RE = re.compile(r",\s+(?!according\b)(?:[a-z]{3,}ing|which|whil
 _REPORTING_END_RE = re.compile(r"\b(?:said|says|told|announced|reported|added|explained|wrote)(?:\s+\w+){0,2}$", re.I)
 
 
+# a sponsor credit or a superlative is the promoter's copy, not news
+_PROMO_SENTENCE_RE = re.compile(r"\b(?:presented by|sponsored by|brought to you by|the ultimate|feel-good|must-see|must see|"
+                                r"unforgettable|don't miss|don’t miss|once-in-a-lifetime|world-class experience)\b", re.I)
+
+
 def trim_trailing_phrase(sentence: str, limit: int) -> str:
     """A sentence over the length limit keeps its main clause when the rest is a trailing phrase. Nov 23, CBS Texas: "The
     Dallas Cowboys and The Salvation Army will mark a major milestone ... at AT&T Stadium on Monday, kicking off Thanksgiving
@@ -571,6 +576,8 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
             part = trim_trailing_phrase(part, limit) or part
         if len(part) < 25 or len(part) > limit or not part.endswith((".", "!", "?", '"', "”", "’", ")")) or len(part.split()) < 6:
             continue
+        if _PROMO_SENTENCE_RE.search(part):
+            continue                                          # "The ultimate feel-good show ... presented by PNC Bank" (Nov 24)
         if any(w in part.lower() for w in BOILERPLATE) or part.endswith(("…", "...")) or looks_like_photo_caption(part):
             continue                                          # photo captions end with a date: "...at the Capitol, on November 16, 2026."
         if any(_similar(part, prev) or shared_run(prev, part) for prev in out):     # og:description often repeats the first paragraph

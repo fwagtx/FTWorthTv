@@ -416,6 +416,9 @@ def subject_fits(title: str, body: str, category: str, subject: str | None, kind
         return (value in title.lower(), f"headline no longer names {value!r}") if value else (False, "empty entity")
     if kind == "topic":
         ok = value in plan.entity_topics or value in plan.fallback_topics
+        if not ok and category in ("events", "culture"):
+            from .library import STAGE_TOPICS, topics_for
+            ok = value in STAGE_TOPICS and value in topics_for(f"{title} {body}".lower(), category, "local", title=title)
         return ok, "" if ok else f"topic {value!r} does not depict {plan.primary!r}"
     if kind == "beat":
         ok = plan.mode == "beat" or value in plan.fallback_topics
@@ -681,6 +684,10 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
             if not context:
                 continue                               # a bare acronym with nothing to check it against
             words = words + ("|".join(context),)       # Nov 23: "CMA" (the awards) found a Volvo XC40 built on Volvo's CMA platform
+        if len(name.split()) == 1 and re.search(r"[‘'\"“]" + re.escape(name) + r"[’'\"”]", title or ""):
+            # a one-word title in quotes is a work (a film, a show, an album): Nov 24, Texas Monthly's "Road to 'Heartland'"
+            # searched "Heartland" and found a Flanders art-history chart. The file must also name the medium.
+            words = words + ("film|movie|netflix|series|musical|album|premiere|cast|trailer|poster",)
         label = f"entity:{name.lower()}"
         if looks_like_person(name) and not people_allowed:
             continue                                   # a stranger with the same name is the worst mistake a page can make
