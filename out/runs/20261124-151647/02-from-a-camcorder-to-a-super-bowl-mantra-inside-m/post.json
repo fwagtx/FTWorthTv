@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T21:41:47.028686+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-151647/02-from-a-camcorder-to-a-super-bowl-mantra-inside-m/post.jpg",
+    "credit": "Photo: U.S. Customs and Border Protection via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Allegiant_Stadium_Street_View_on_Super_Bowl_LVIII.jpg",
+    "photo_id": "commons-152968571",
+    "subject": "entity:super bowl"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-151647/02-from-a-camcorder-to-a-super-bowl-mantra-inside-m/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "From a camcorder to a Super Bowl mantra, inside Mike Macdonald's love for game film",
+    "caption": "We go back to the 1980s to uncover how football bonded the 38-year-old Seahawks coach and his father. HUGH MACDONALD ARRIVED home from a business trip, went in to give his sound-asleep son, Mike, a goodnight kiss and noticed football equipment in his son's bedroom.\n\nThe equipment caught Hugh by surprise. Mike had mostly been into baseball.",
+    "first_comment": "Source: ESPN Top Headlines https://www.espn.com/nfl/story/_/id/50543051/seahawks-mike-macdonald-camcorder-super-bowl-game-film\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Christmas lights downtown",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "d14dbe224711f3a7",
+    "source": "ESPN Top Headlines",
+    "source_kind": "rss",
+    "title": "From a camcorder to a Super Bowl mantra, inside Mike Macdonald's love for game film",
+    "summary": "We go back to the 1980s to uncover how football bonded the 38-year-old Seahawks coach and his father. HUGH MACDONALD ARRIVED home from a business trip, went in to give his sound-asleep son, Mike, a goodnight kiss and noticed football equipment in his son's bedroom. The equipment caught Hugh by surprise. Mike had mostly been into baseball. \"The next morning, I asked him,\" Hugh recalled. \"He says, 'Dad, I want to go play football.' So, he was a football player.\" As Mike became a middle school football player, lining up at fullback and inside linebacker for the Junior Knights in Roswell, Georgia, Hugh assumed the role of videographer, capturing moments of the team and his son's play. More than a decade earlier -- before Mike was born on June 26, 1987, Hugh had purchased a camcorder to capture his 2- and 4-year-old daughters opening gifts on Christmas morning. Now, as Mike took the…",
+    "url": "https://www.espn.com/nfl/story/_/id/50543051/seahawks-mike-macdonald-camcorder-super-bowl-game-film",
+    "published": "2026-11-24T15:27:49+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN Top Headlines",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.39,
+    "extra": {
+      "feed_title": "www.espn.com - TOP",
+      "national": true,
+      "scope": "national",
+      "national_term": "super bowl"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.3006
+  }
+}
