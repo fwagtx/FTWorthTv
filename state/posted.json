@@ -6,7 +6,7 @@
     "2026-11-21": 16,
     "2026-11-22": 19,
     "2026-11-23": 20,
-    "2026-11-24": 14
+    "2026-11-24": 15
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -68,6 +68,7 @@
       "crime": 4,
       "events": 2,
       "other": 1,
+      "sports": 1,
       "traffic": 1,
       "weather": 2
     }
@@ -107,7 +108,7 @@
     },
     "2026-11-24": {
       "nws_forecast": 1,
-      "rss": 9,
+      "rss": 10,
       "video": 2,
       "wanted": 2
     }
@@ -144,7 +145,7 @@
       "texas": 2
     },
     "2026-11-24": {
-      "dfw": 3,
+      "dfw": 4,
       "local": 10,
       "texas": 1
     }
@@ -395,6 +396,11 @@
       "reason": "daily cap for crime reached",
       "title": "South Dallas 'Dead End' drug market supplier gets 25 years in federal prison"
     },
+    "cb6dde1b197b632f": {
+      "at": "2026-11-24T19:17:12.631633+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Fort Worth police investigate child's death at daycare"
+    },
     "ccac6aaff4307374": {
       "at": "2026-11-24T15:17:59.897612+00:00",
       "reason": "daily cap for community reached",
@@ -482,7 +488,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-24T12:54:00-06:00",
+  "last_post_at": "2026-11-24T13:21:00-06:00",
   "posted": {
     "030ed0c71b8273e3": {
       "at": "2026-11-24T10:07:00-06:00",
@@ -1754,6 +1760,19 @@
       "title": "Holiday Cooking and Potluck Food Safety Tips",
       "url": "https://www.arlingtontx.gov/News-Articles/2026/November/Holiday-Cooking-and-Potluck-Food-Safety-Tips"
     },
+    "ff58f9465c716a6a": {
+      "at": "2026-11-24T13:21:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "440772745",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1882073510731599044",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "NBC 5 DFW",
+      "title": "Mavs enter NBA Cup matchup on NBC with eye on building foundation for success",
+      "url": "https://www.nbcdfw.com/news/sports/dallas-mavericks/mavericks-enter-key-nba-cup-matchup-with-an-eye-on-building-a-foundation-for-success/4110142/"
+    },
     "forecast-2026-11-20": {
       "at": "2026-11-20T11:54:00-06:00",
       "category": "weather",
@@ -2237,7 +2256,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 109,
+  "total_posts": 110,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2260,7 +2279,8 @@
     "lib-fuel-pumps-at-a-pilot-flying-j-gas-station-in-cleveland-tenn",
     "lib-fort-worth-june-2016-55-bass-performance-hall-jpg",
     "lib-i-35w-south-exit-82-fm2449-49166504151-jpg",
-    "commons-145438696"
+    "commons-145438696",
+    "lib-nov2025-dallas-mavericks-game-panorama-jpg"
   ],
   "version": 1
 }
