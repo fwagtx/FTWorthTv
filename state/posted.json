@@ -6,7 +6,7 @@
     "2026-11-21": 16,
     "2026-11-22": 19,
     "2026-11-23": 20,
-    "2026-11-24": 9
+    "2026-11-24": 10
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -66,6 +66,7 @@
       "breaking": 1,
       "community": 2,
       "crime": 3,
+      "events": 1,
       "other": 1,
       "weather": 2
     }
@@ -105,7 +106,7 @@
     },
     "2026-11-24": {
       "nws_forecast": 1,
-      "rss": 4,
+      "rss": 5,
       "video": 2,
       "wanted": 2
     }
@@ -143,7 +144,7 @@
     },
     "2026-11-24": {
       "dfw": 2,
-      "local": 6,
+      "local": 7,
       "texas": 1
     }
   },
@@ -475,8 +476,21 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-24T09:42:00-06:00",
+  "last_post_at": "2026-11-24T10:07:00-06:00",
   "posted": {
+    "030ed0c71b8273e3": {
+      "at": "2026-11-24T10:07:00-06:00",
+      "category": "events",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "440362931",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=2662764281653051896",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Business Press",
+      "title": "Mamma Mia! coming back to town",
+      "url": "https://fortworthbusiness.com/entertainment/mamma-mia-coming-back-to-town/"
+    },
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
       "category": "crime",
@@ -2054,6 +2068,10 @@
       "at": "2026-11-23T14:22:51.705143+00:00",
       "reason": "ESPN's Houston Rockets feature with a Toyota Center stand-in and an 'Original uploader was' credit; rules added"
     },
+    "b2820d52d45c93a2": {
+      "at": "2026-11-24T14:21:45.460742+00:00",
+      "reason": "NBC 5's 'Perfect offense, tolerable defense give Cowboys something to build on; will they?': a Blue Star column ending in a rhetorical quest"
+    },
     "c0bd1402482091bb": {
       "at": "2026-11-21T13:20:14.600210+00:00",
       "reason": "a U.S. Navy PTSD Awareness Month poster is a graphic, not a picture of the subject, and the caption was the headline alone"
@@ -2119,7 +2137,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 104,
+  "total_posts": 105,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2139,7 +2157,8 @@
     "lib-aachen-forest-frosted-soil-01-jpg",
     "lib-tamu-kyle-field-2022-01-14-4-jpg",
     "clouds-lib-fort-worth-courthouse-jpg",
-    "lib-fuel-pumps-at-a-pilot-flying-j-gas-station-in-cleveland-tenn"
+    "lib-fuel-pumps-at-a-pilot-flying-j-gas-station-in-cleveland-tenn",
+    "lib-fort-worth-june-2016-55-bass-performance-hall-jpg"
   ],
   "version": 1
 }
