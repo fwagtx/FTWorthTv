@@ -5,7 +5,8 @@
     "2026-11-20": 19,
     "2026-11-21": 16,
     "2026-11-22": 19,
-    "2026-11-23": 20
+    "2026-11-23": 20,
+    "2026-11-24": 2
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -60,6 +61,10 @@
       "politics": 3,
       "sports": 5,
       "weather": 3
+    },
+    "2026-11-24": {
+      "breaking": 1,
+      "crime": 1
     }
   },
   "daily_by_kind": {
@@ -94,6 +99,10 @@
       "rss": 14,
       "video": 2,
       "wanted": 2
+    },
+    "2026-11-24": {
+      "video": 1,
+      "wanted": 1
     }
   },
   "daily_by_scope": {
@@ -126,6 +135,9 @@
       "local": 16,
       "national": 1,
       "texas": 2
+    },
+    "2026-11-24": {
+      "local": 2
     }
   },
   "deferred": {
@@ -449,11 +461,6 @@
       "reason": "daily cap for weather reached",
       "title": "Turkey Day wind chills after chance of snow for North Texas"
     },
-    "fc6d62f2c03160f2": {
-      "at": "2026-11-22T04:45:06.516446+00:00",
-      "reason": "daily cap for community reached",
-      "title": "North Texas Food Bank helps feed 1,000 families ahead of Thanksgiving"
-    },
     "ffef147f17f927a7": {
       "at": "2026-11-23T23:22:06.682810+00:00",
       "reason": "daily cap for weather reached",
@@ -461,7 +468,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-23T19:25:00-06:00",
+  "last_post_at": "2026-11-24T07:12:00-06:00",
   "posted": {
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -1112,6 +1119,19 @@
       "title": "“We need to be compensated”: Texas Tech chair pushed Fermi data center company for lucrative deals, despite university ties",
       "url": "https://feeds.texastribune.org/link/16799/17536360/texas-tech-cody-campbell-board-fermi-data-center-matador"
     },
+    "9393ab4e851866b4": {
+      "at": "2026-11-24T07:12:00-06:00",
+      "category": "breaking",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "440190667",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8390075957893969530",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA",
+      "title": "One person life flighted after house fire in Crowley",
+      "url": "https://www.youtube.com/watch?v=T25hPYrmuuQ"
+    },
     "98bb64127bc8fcfc": {
       "at": "2026-11-21T07:10:00-06:00",
       "category": "community",
@@ -1208,6 +1228,19 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Bedford police arrest suspected intoxicated driver after chase ends in crash into local business",
       "url": "https://www.fox4news.com/news/bedford-police-arrest-suspected-intoxicated-driver-after-chase-ends-crash-local-business"
+    },
+    "aed8d0a4aa2a3f16": {
+      "at": "2026-11-24T06:22:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "440190512",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2687043324992598553",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Arlington Police Department",
+      "title": "WANTED: Amy JOHNSON",
+      "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
     },
     "b437712d96d893e6": {
       "at": "2026-11-22T06:55:00-06:00",
@@ -1964,7 +1997,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 95,
+  "total_posts": 97,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
