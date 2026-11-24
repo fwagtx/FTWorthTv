@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-121303/01-thanksgiving-traffic-could-build-near-these-nort/post.jpg",
+    "credit": "Photo: formulanone from Huntsville, United States via Wikimedia Commons (CC BY-SA 2.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:I-35W_South_-_Exit_82_-_FM2449_(49166504151).jpg",
+    "photo_id": "lib-i-35w-south-exit-82-fm2449-49166504151-jpg",
+    "subject": "beat:highway"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-121303/01-thanksgiving-traffic-could-build-near-these-nort/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "traffic",
+    "headline": "Thanksgiving traffic could build near these North Texas malls and highways",
+    "caption": "Expect midday congestion near Dallas, Grand Prairie, and Fort Worth. Highways include I-30, I-20, I-35W, and US-75.\n\nAs North Texans hit the roads for Thanksgiving meals, Black Friday shopping and weekend outings. Regional traffic radar data from the North Central Texas Council of Governments identified several locations around the area with the most congestion on Thanksgiving Day and throughout the holiday weekend.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/dallas-morning-news/thanksgiving-traffic-could-build-near-these-north-texas-malls-and-highways/4110260/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth highway I-35W",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "b9fc814365bdbc61",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Thanksgiving traffic could build near these North Texas malls and highways",
+    "summary": "Expect midday congestion near Dallas, Grand Prairie, and Fort Worth. Highways include I-30, I-20, I-35W, and US-75. As North Texans hit the roads for Thanksgiving meals, Black Friday shopping and weekend outings, avoiding the region’s busiest routes may be inevitable; drivers heading out around midday may encounter the worst of the worst. Regional traffic radar data from the North Central Texas Council of Governments identified several locations around the area with the most congestion on Thanksgiving Day and throughout the holiday weekend. The following shopping centers located along major highway routes were identified by 2025 streetlight data as heavily congested centers, according to Francisco Torres, principal transportation system modeler for the council: Click here to read more on this report from our partners at The Dallas Morning News.",
+    "url": "https://www.nbcdfw.com/news/local/dallas-morning-news/thanksgiving-traffic-could-build-near-these-north-texas-malls-and-highways/4110260/",
+    "published": "2026-11-24T07:00:50+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2019/09/I20traffic_0628.jpg?quality=85&strip=all&fit=722,406",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "traffic",
+    "relevance": 3,
+    "score": 0.3467
+  }
+}
