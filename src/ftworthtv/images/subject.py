@@ -54,7 +54,9 @@ PLACES = ("fort worth", "tarrant county", "tarrant", "texas", "north texas", "df
           "dakota", "north dakota", "south dakota", "vermont", "maine", "connecticut", "delaware", "new jersey", "rhode island",
           "west virginia", "new hampshire", "mexico", "canada") + OTHER_CITIES
 # capitalised words that start headlines without naming anything
-STOP = {"no", "the", "a", "an", "in", "on", "at", "for", "with", "after", "before", "as", "and", "but", "or", "to", "from", "by",
+STOP = {"defense", "energy", "health", "education", "technology", "security", "industry", "government", "business", "economy",
+        "housing", "transportation", "infrastructure", "manufacturing", "innovation", "workforce",   # Nov 24: "national Defense industry"
+        "no", "the", "a", "an", "in", "on", "at", "for", "with", "after", "before", "as", "and", "but", "or", "to", "from", "by",
         "of", "over", "under", "near", "amid", "despite", "here", "what", "when", "how", "why", "who", "this", "these", "those",
         "it", "its", "breaking", "developing", "update", "live", "watch", "video", "photos", "new", "one", "two", "three", "four",
         "five", "six", "ten", "several", "thousands", "hundreds", "dozens", "police", "city", "county", "state", "man", "woman",

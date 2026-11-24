@@ -1222,3 +1222,23 @@ def test_render_195_rules():
                                    "engineering firm, announced today the appointment of Marilyn Ramirez as vice president.")
     assert not personnel_press_release("Fort Worth police announced today that the suspect was arrested.")
     assert "kansas" in avoid_words_for("McAdams, a Lewisville engineering firm, named a new vice president.")
+
+
+def test_render_196_rules():
+    """Nov 24, render 196: Fort Worth Business Press ran XMX Defense's release ("MINERAL WELLS, Texas Nov. 23, 2026 — ...") with
+    an Air Force exercise photo for "Defense"; CBS Sports' "Why the Cowboys and Lions always play on Thanksgiving Day" drew the
+    Tarrant County Courthouse; "Arch Manning may be ready to leave Texas. Is he ready to start in the NFL?" drafted as news."""
+    from ftworthtv.filters import national_feature, roundup_column
+    from ftworthtv.images.library import topics_for
+    from ftworthtv.images.subject import plan_subject
+    from ftworthtv.writer import press_release
+    assert press_release("Seven companies commit. MINERAL WELLS, Texas Nov. 23, 2026 — XMX Defense, an American defense firm, said ...")
+    assert not press_release("Fort Worth police said Monday that the man was arrested.")
+    assert "Defense" not in plan_subject("Texas Unmanned Systems Defense Center of Excellence gains momentum as national Defense industry leaders rally",
+                                         "", "business").search_names
+    topics = topics_for("a look at the records and traditions in the nfl on thanksgiving", "sports", "local",
+                        title="Why the Cowboys and Lions always play on Thanksgiving Day: All 32 NFL team's record on the holiday")
+    assert "courthouse" not in topics
+    assert national_feature("Why the Cowboys and Lions always play on Thanksgiving Day: All 32 NFL team's record on the holiday")
+    assert roundup_column("Arch Manning may be ready to leave Texas. Is he ready to start in the NFL?")
+    assert not roundup_column("Arch Manning declares for the NFL draft")

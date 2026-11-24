@@ -516,6 +516,17 @@ _CONGRATS_RE = re.compile(r"^Congratulations to (?:the )?([A-Z][^,]{2,80}?),\s+(
 _PRESS_RELEASE_RE = re.compile(r"^[A-Z][A-Z .'’-]+,\s+[A-Z][A-Za-z .]+\s*\((?:January|February|March|April|May|June|July|August|"
                                r"September|October|November|December) \d{1,2}, \d{4}\)\s*[–—-]|\bannounced today\b|\b(?:FOR IMMEDIATE RELEASE|"
                                r"PRNewswire|Business Wire|GLOBE NEWSWIRE)\b")
+# the dateline-with-date form without parentheses: "MINERAL WELLS, Texas Nov. 23, 2026 — XMX Defense, an American ..." (Nov 24)
+_PRESS_DATELINE_RE = re.compile(r"(?:^|\s)[A-Z][A-Z .'’-]{2,},\s+[A-Z][A-Za-z.]+\.?,?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)"
+                                r"[a-z]*\.?\s+\d{1,2},\s+\d{4}\s*[—–-]")
+
+
+def press_release(summary: str) -> bool:
+    """A company's announcement in press-release form is its advertising, not news."""
+    text = summary or ""
+    return bool(_PRESS_RELEASE_RE.search(text) or _PRESS_DATELINE_RE.search(text))
+
+
 _PERSONNEL_PR_RE = re.compile(r"\b(?:appointment of|has (?:named|appointed|hired|promoted)|announced (?:the )?(?:hiring|promotion) of|"
                               r"joins? (?:the firm|the company|as)|welcomes .{3,60} as)\b", re.I)
 
@@ -1101,8 +1112,9 @@ def write_copy(story: Story, settings: Settings, now: datetime, *, force_templat
         # cannot play it (Nov 22, CBS Sports, render 127)
         return PostCopy(skip=True, skip_reason="a video highlight page: its point is a clip we cannot show", category=story.category or "other",
                         headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"
-    if story.source_kind == "rss" and personnel_press_release(story.summary or ""):
-        return PostCopy(skip=True, skip_reason="a company's personnel press release", category=story.category or "other",
+    if story.source_kind == "rss" and not story.official and (personnel_press_release(story.summary or "") or
+                                                              press_release(story.summary or "")):
+        return PostCopy(skip=True, skip_reason="a company press release", category=story.category or "other",
                         headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"
     if story.source_kind == "rss" and not story.official and stale_meeting_recap(story, now):
         return PostCopy(skip=True, skip_reason="a meeting recap more than a week old", category=story.category or "other",

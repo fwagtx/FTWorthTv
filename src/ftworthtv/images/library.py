@@ -234,7 +234,8 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
             out.append(t)
     if category == "sports":
         # Nov 24: WFAA's "Texas high school football: Playoff matchups, schedule" drew a Dell City ISD school bus
-        out = [t for t in out if t not in ("school-bus", "schools")]
+        out = [t for t in out if t not in ("school-bus", "schools", "courthouse", "courtroom", "jail", "police")]   # Nov 24: a
+        # Thanksgiving "record" drew the Tarrant County Courthouse for CBS Sports' Cowboys-and-Lions explainer
         for i, t in enumerate(list(out)):
             variant = SPORTS_VARIANTS.get(t)
             if variant and variant not in out:
