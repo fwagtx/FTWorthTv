@@ -169,11 +169,6 @@
       "reason": "daily cap for community reached",
       "title": "Support Arlington Entrepreneurs on Small Business Saturday"
     },
-    "21f48d05ec91439a": {
-      "at": "2026-11-22T01:45:00.694426+00:00",
-      "reason": "daily cap for other reached",
-      "title": "Udoka says Rockets 'mentally fragile,' blasts defense after loss to Nuggets"
-    },
     "2561337a19306d37": {
       "at": "2026-11-23T00:13:31.415977+00:00",
       "reason": "daily cap for weather reached",
@@ -258,6 +253,11 @@
       "at": "2026-11-22T18:14:13.280657+00:00",
       "reason": "daily cap for crime reached",
       "title": "51-year-old man fatally shot in Far North Dallas; police searching for suspect"
+    },
+    "6bd93bfe3b5a053c": {
+      "at": "2026-11-24T02:13:44.148398+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Weather changes and migraines: what North Texans need to know"
     },
     "7bce8b6ecf54f8f3": {
       "at": "2026-11-23T23:50:26.017780+00:00",
@@ -388,6 +388,11 @@
       "at": "2026-11-23T03:14:00.955018+00:00",
       "reason": "daily cap for sports reached",
       "title": "Javonte Williams' Best plays from 2-TD game vs. Titans | Week 11 Highlights"
+    },
+    "dc6045e198fd19ca": {
+      "at": "2026-11-24T02:13:44.148363+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Freeze Warning in effect for Tuesday night, Wednesday morning in several North Texas counties"
     },
     "e10f1c3863a282c4": {
       "at": "2026-11-24T00:52:54.746094+00:00",
