@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T15:06:56.546505+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-081656/03-shana-feste-s-road-to-heartland-began-and-ended/post.jpg",
+    "credit": "Photo: Eastolany via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Flanders-Heartland_of_Western_Art_01.jpg",
+    "photo_id": "commons-196513146",
+    "subject": "entity:heartland"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-081656/03-shana-feste-s-road-to-heartland-began-and-ended/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Shana Feste’s Road to ‘Heartland’ Began and Ended in Texas",
+    "caption": "The massive Netflix hit is a \"full-circle\" moment, she says. In the new Netflix film Heartland, Jessica Chastain plays Misty Jones, a country music legend from Nashville who drinks too much, shoots out windows, and cuts off a man’s finger when he has it coming.\n\nApparently, the world wants a female antihero who is good at being bad: Written and directed by Austin-based filmmaker Shana Feste, Heartland opened at number one on Netflix both in the United States and internationally. Not shabby for a film that Feste was told more than once wouldn’t find a wide audience.",
+    "first_comment": "Source: Texas Monthly https://www.texasmonthly.com/culture/netflix-heartland-shana-feste-jessica-chastain/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "07c9d406c644bcc1",
+    "source": "Texas Monthly",
+    "source_kind": "rss",
+    "title": "Shana Feste’s Road to ‘Heartland’ Began and Ended in Texas",
+    "summary": "The massive Netflix hit is a \"full-circle\" moment, she says. In the new Netflix film Heartland , Jessica Chastain plays Misty Jones, a country music legend from Nashville who drinks too much, shoots out windows, and cuts off a man’s finger when he has it coming. Apparently, the world wants a female antihero who is good at being bad: Written and directed by Austin-based filmmaker Shana Feste, Heartland opened at number one on Netflix both in the United States and internationally. Not shabby for a film that Feste was told more than once wouldn’t find a wide audience. Feste comes by her outlaws honestly. She grew up in California and Texas, the daughter of a charming career criminal who was married six times. She attended the University of Texas at Austin , where she studied creative writing and screenwriting, then went on to the American Film Institute. Her directorial debut came in 2009…",
+    "url": "https://www.texasmonthly.com/culture/netflix-heartland-shana-feste-jessica-chastain/",
+    "published": "2026-11-24T12:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://img.texasmonthly.com/2026/11/shana-feste-heartland-1.jpg?auto=compress&amp;crop=faces&amp;fit=scale&amp;fm=pjpg&amp;h=640&amp;ixlib=php-3.3.1&amp;q=45&amp;w=1024&amp;wpsize=large",
+    "image_credit": "Photo: Texas Monthly",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.48999999999999994,
+    "extra": {
+      "feed_title": "Texas Monthly",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.3529
+  }
+}

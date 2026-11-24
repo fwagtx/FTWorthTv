@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T14:41:56.546505+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-081656/02-texas-first-review-of-college-dei-ban-doesn-t-an/post.jpg",
+    "credit": "Photo: Leila Saidane for The Texas Tribune",
+    "license": "republish-ok",
+    "provider": "source",
+    "source_url": "https://feeds.texastribune.org/link/16799/17539088/texas-college-dei-ban-student-impact-report",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-081656/02-texas-first-review-of-college-dei-ban-doesn-t-an/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Texas’ first review of college DEI ban doesn’t answer key questions about its impact",
+    "caption": "Texas universities cut many student supports under the DEI ban. A new report shows academic gains but cannot yet measure the law’s effect on graduation.",
+    "first_comment": "Source: The Texas Tribune @TexasTribune https://feeds.texastribune.org/link/16799/17539088/texas-college-dei-ban-student-impact-report\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "faf13dc46e3d7a55",
+    "source": "The Texas Tribune",
+    "source_kind": "rss",
+    "title": "Texas’ first review of college DEI ban doesn’t answer key questions about its impact",
+    "summary": "Texas universities cut many student supports under the DEI ban. A new report shows academic gains but cannot yet measure the law’s effect on graduation.",
+    "url": "https://feeds.texastribune.org/link/16799/17539088/texas-college-dei-ban-student-impact-report",
+    "published": "2026-11-24T11:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/11/20261001-UT-File-LS-29.jpg?fit=1024%2C683&ssl=1",
+    "image_credit": "Photo: Leila Saidane for The Texas Tribune",
+    "image_license": "republish-ok",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5599999999999999,
+    "extra": {
+      "feed_title": "The Texas Tribune",
+      "national": false,
+      "social_tag": "@TexasTribune",
+      "article_fetched": true,
+      "scope": "texas",
+      "page_caption": "The University of Texas at Austin campus on Oct. 1, 2026. Leila Saidane for The Texas Tribune",
+      "page_credit": "Leila Saidane for The Texas Tribune"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.3881
+  }
+}
