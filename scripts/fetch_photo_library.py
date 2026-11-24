@@ -94,7 +94,11 @@ TOPICS: dict[str, tuple[list[str], list[str]]] = {
     "bbq": (["Barbecue in Texas"], ["Texas barbecue brisket plate"]),
     "tacos": ([], ["tacos plate Texas"]),
     "power": ([], ["transmission lines Texas", "ERCOT"]),
-    "gas": ([], ["gas station pump Texas"]),
+    # Nov 24: the gas-prices story drew a 1970s pump from an archive account, then a Flickr pump stamped 2010: a nozzle or a
+    # modern dispenser with no price showing; recent uploads only
+    "gas": (["Fuel nozzles", "Fuel dispensers in the United States"], ["gas pump nozzle refueling car", "fuel nozzle car tank",
+                                                                       "gas station fuel pump", "refueling car gas station"]),
+    "rain": ([], ["rain umbrella street", "rainy day city street", "raindrops window"]),   # Nov 24: showers had no rain photo
     "courtroom": ([], ["courtroom gavel"]),
     "voting": ([], ["polling place Texas vote here sign"]),
     "money": ([], ["US dollars cash"]),
