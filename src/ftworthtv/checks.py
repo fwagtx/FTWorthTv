@@ -30,7 +30,10 @@ _STOP = {"the", "a", "an", "of", "in", "on", "at", "to", "for", "and", "or", "wi
          "does", "did", "do", "if", "so", "no", "yes", "per", "like", "get", "got", "goes", "going", "went", "comes",
          "came", "come", "between", "through", "during", "against", "under", "around", "across", "off", "down", "back",
          "every", "within", "without", "least", "another", "again", "far", "away", "ahead", "near", "stay", "stays"}
-_QUOTE_RE = re.compile(r'"([^"]{12,}?)"|“([^”]{12,}?)”|(?:^|(?<=[\s(]))\'([^\']{12,}?)\'(?=[\s.,;:!?)]|$)|(?:^|(?<=[\s(]))‘([^’]{12,}?)’(?=[\s.,;:!?)]|$)')
+# an opening quote mark is never followed by a space: Nov 24, CultureMap's Toys "R" Us story was dropped for the "quotation"
+# ' Us, the chain that sells toys, games, electronics...' read between the mark after "R" and a later one
+_QUOTE_RE = re.compile(r'"(?!\s)([^"]{12,}?)"|“(?!\s)([^”]{12,}?)”|(?:^|(?<=[\s(]))\'(?!\s)([^\']{12,}?)\'(?=[\s.,;:!?)]|$)|'
+                       r'(?:^|(?<=[\s(]))‘(?!\s)([^’]{12,}?)’(?=[\s.,;:!?)]|$)')
 _NUMBER_RE = re.compile(r"\$?\d[\d,]*(?:\.\d+)?%?")
 
 

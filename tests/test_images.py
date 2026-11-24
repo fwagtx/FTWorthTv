@@ -289,3 +289,13 @@ def test_find_photo_moves_to_the_next_provider_when_none_will_do(settings, monke
     got = providers.find_photo([("U2", (), ("u2",))], settings, fallback=False)
     assert got is not None and got.id == "commons-1" and calls == ["openverse", "wikimedia"]
     assert providers._search("U2", settings) == [wall]               # the first provider's results, as before
+
+
+def test_a_species_record_is_not_a_character(settings, monkeypatch):
+    """Nov 24, render 209: "Acacia cyclops 452574694.jpg" (seed pods) went on a story about the X-Men's Cyclops."""
+    from ftworthtv.images import providers
+    pods = providers.PhotoCandidate(id="commons-9", url="https://x/a.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
+                                    source_url="https://commons.wikimedia.org/wiki/File:Acacia_cyclops_452574694.jpg", title="Acacia cyclops 452574694")
+    monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[pods]]))
+    assert providers.find_photo([("Cyclops", ("statue", "inaturalist"), ("cyclops",))], settings, fallback=False) is None
+    assert providers.find_photo([("Cyclops", ("statue",), ("cyclops",))], settings, fallback=False) is pods   # a nature story keeps it

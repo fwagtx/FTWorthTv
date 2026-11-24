@@ -1337,3 +1337,18 @@ def test_a_cautionary_tale_is_an_analysis():
     from ftworthtv.filters import national_feature
     assert national_feature("One year after 11-0 start, Texas A&M enters rivalry week as a cautionary tale")
     assert not national_feature("Texas A&M hosts No. 5 Texas in rivalry game")
+
+
+def test_a_brand_name_in_quote_marks_is_not_a_quotation():
+    """Nov 24, render 209: CultureMap's Toys "R" Us story was dropped for the "quotation" ' Us, the chain that sells toys...'."""
+    from ftworthtv.checks import _QUOTE_RE
+    cap = 'Toys "R" Us, the chain that sells toys, games, electronics, and baby products, opens its only standalone store in Fort Worth.'
+    assert not list(_QUOTE_RE.finditer(cap))
+    assert [m.group(0) for m in _QUOTE_RE.finditer('The mayor said "we will rebuild this city together" on Monday.')]
+
+
+def test_an_interview_headline_is_a_feature():
+    """Nov 24, render 209: Variety's James Marsden interview about Cyclops in "Avengers: Doomsday"."""
+    from ftworthtv.filters import national_feature
+    assert national_feature("‘To Me, My X-Men’: James Marsden Says It Was ‘Important’ for Cyclops to Be a Leader in ‘Avengers: Doomsday’")
+    assert not national_feature("‘Wicked: For Good’ tops box office with $150 million opening")

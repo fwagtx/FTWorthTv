@@ -456,6 +456,10 @@ def _search_each(query: str, settings):
             yield found
 
 
+# iNaturalist imports on Commons are named "Genus species 123456789.jpg": a species record, never a person or a character
+_SPECIES_FILE_RE = re.compile(r"^(?:file:)?[a-z]+ [a-z]+(?: [a-z]+)? \(?\d{5,}\)?\.(?:jpe?g|png|webp)$")
+
+
 def find_photo(query: "str | list[str]", settings, state: State | None = None, exclude: set[str] | None = None,
                avoid_words: tuple[str, ...] = (), fallback: bool = True, taken_after: str = "") -> PhotoCandidate | None:
     """Pexels first (best quality, simplest license), Wikimedia Commons as the fallback.
@@ -484,6 +488,8 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
                 continue
             name = cand.source_url.rsplit("/", 1)[-1].lower().replace("_", " ")
             titled = name + " " + (cand.title or "").lower()
+            if "inaturalist" in avoid and _SPECIES_FILE_RE.match(name):
+                continue                  # Nov 24: "Acacia cyclops 452574694.jpg" (seed pods) for the X-Men's Cyclops
             if avoid and (any(w in titled for w in avoid) or " - " in titled):   # "Artist - Venue, 2022.jpg" is a performance photo
                 continue
             plain = " " + re.sub(r"[\s_\-,.:;()'’\"]+", " ", titled).strip() + " "    # "Ty_Myers_2025.jpg" -> " ty myers 2025 jpg "
