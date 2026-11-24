@@ -379,11 +379,6 @@
       "reason": "daily cap for weather reached",
       "title": "What is the weather forecast for Thanksgiving? Brace for chilly temperatures in North Texas"
     },
-    "b0d02a7515d38b45": {
-      "at": "2026-11-22T16:27:33.856882+00:00",
-      "reason": "daily cap for sports reached",
-      "title": "How a season without their 'admiral' showed the Rockets what they were missing"
-    },
     "b1eb18c9b208a61f": {
       "at": "2026-11-23T03:44:23.307629+00:00",
       "reason": "daily cap for community reached",
@@ -2047,6 +2042,11 @@
     "6f71b25b567fa281": {
       "at": "2026-11-20T15:19:26.662256+00:00",
       "reason": "another city's government (Austin mayor pro tem)"
+    },
+    "70dc9b0f8b8849ee": {
+      "at": "2026-11-24T16:46:53.487507+00:00",
+      "reason": "CBS Texas's 'AT&T Stadium lights up kettle red' video page: the lighting ceremony posted last night at 5:55 pm, with a daytime aerial standi",
+      "title": "AT&T Stadium lights up kettle red"
     },
     "7154d9b7e3239f3a": {
       "at": "2026-11-23T14:22:51.705165+00:00",
