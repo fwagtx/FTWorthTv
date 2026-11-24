@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-134240/01-one-year-after-11-0-start-texas-a-m-enters-rival/post.jpg",
+    "credit": "Photo: Oldag07 via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:TAMU_Kyle_Field_2022-01-14_2.jpg",
+    "photo_id": "lib-tamu-kyle-field-2022-01-14-2-jpg",
+    "subject": "topic:texas-am"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-134240/01-one-year-after-11-0-start-texas-a-m-enters-rival/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "One year after 11-0 start, Texas A&M enters rivalry week as a cautionary tale",
+    "caption": "The Aggies were an undefeated 11-0 and a shoo-in to their first College Football Playoff, marking one of the best seasons of the 21st Century. Since then, the collapse has been stunning.\n\nTexas A&M sits at 4-7 and 1-7 in SEC play, the only win coming against a hapless Arkansas team.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/college-football/news/texas-a-m-cautionary-tale-rivalry-week/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3506623a6a4fe310",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "One year after 11-0 start, Texas A&M enters rivalry week as a cautionary tale",
+    "summary": "Failed coordinator promotions, a regression under center and a non-existent pass rush turned an expensive roster into one of college football's biggest disasters One year ago, Texas A&M was riding high heading into a historic rivalry game against Texas . The Aggies were an undefeated 11-0 and a shoo-in to their first College Football Playoff, marking one of the best seasons of the 21st Century. Since then, the collapse has been stunning. Texas A&M sits at 4-7 and 1-7 in SEC play, the only win coming against a hapless Arkansas team. Dating back to the rivalry game last season, Texas A&M has lost nine of its last 11 games against Power Four competition, including six straight road games. With that backdrop, the Aggies prepare to host No. 5 Texas, but can barely even play spoiler. Texas A&M is already eliminated from bowl eligibility and has not scored more than 10 points all month. Even…",
+    "url": "https://www.cbssports.com/college-football/news/texas-a-m-cautionary-tale-rivalry-week/",
+    "published": "2026-11-24T19:14:12+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/24/e4314c6b-f327-41bd-a438-2e79aa4eea19/aggies.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.45,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5591
+  }
+}

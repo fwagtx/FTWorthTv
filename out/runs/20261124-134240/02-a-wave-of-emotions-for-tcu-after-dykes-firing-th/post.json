@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-24T20:07:40.305193+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-134240/02-a-wave-of-emotions-for-tcu-after-dykes-firing-th/post.jpg",
+    "credit": "Photo: Cubfan1109 via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Amon_G._Carter_Stadium,_2017.jpg",
+    "photo_id": "lib-amon-g-carter-stadium-2017-jpg",
+    "subject": "topic:tcu-football"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261124-134240/02-a-wave-of-emotions-for-tcu-after-dykes-firing-th/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "A wave of emotions for TCU after Dykes firing then a quick trip to No. 9 Texas Tech",
+    "caption": "TCU interim head coach Andy Avalos says the Horned Frogs are now focused on their regular-season finale after the wave of emotions following Sonny Dykes' firing.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/sports/ncaa/tcu/a-wave-of-emotions-for-tcu-after-dykes-firing-then-a-quick-trip-to-no-9-texas-tech/616-b617134a-6df3-4020-84e1-08d5452a82d3\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:Amon G. Carter Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "592cd66e8c067eff",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "A wave of emotions for TCU after Dykes firing then a quick trip to No. 9 Texas Tech",
+    "summary": "TCU interim head coach Andy Avalos says the Horned Frogs are now focused on their regular-season finale after the wave of emotions following Sonny Dykes' firing.",
+    "url": "https://www.wfaa.com/article/sports/ncaa/tcu/a-wave-of-emotions-for-tcu-after-dykes-firing-then-a-quick-trip-to-no-9-texas-tech/616-b617134a-6df3-4020-84e1-08d5452a82d3",
+    "published": "2026-11-24T12:49:31+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/AssociatedPress/images/f56f4474-efdb-4284-8c16-522a5ef2e2a0/20261123T224019/f56f4474-efdb-4284-8c16-522a5ef2e2a0_750x422.jpg",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 3,
+    "score": 0.5213
+  }
+}
