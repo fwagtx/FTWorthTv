@@ -332,3 +332,21 @@ def test_an_explainer_about_a_posted_subject_is_the_same_story():
     assert explainer_of_posted("What we know about the Weatherford Aerospace fire", "", posted)
     assert not explainer_of_posted("Weatherford Aerospace fire under control, officials say", "", posted)   # an update is news
     assert not explainer_of_posted("What is the Fort Worth Stock Show?", "", posted)
+
+
+def test_one_incident_at_one_place_is_one_story_until_something_new():
+    """Nov 25: WFAA's YouTube "A fire was reported at Weatherford Aerospace ..." two hours after the shelter-in-place post."""
+    from ftworthtv.filters import same_incident
+    posted = "Residents told to shelter in place as crews respond to a fire at Weatherford Aerospace"
+    assert same_incident("A fire was reported at Weatherford Aerospace on West 3rd Street in Weatherford, officials said.", "", posted)
+    assert not same_incident("Weatherford Aerospace to rebuild after fire, CEO says", "", posted)          # a follow-up is news
+    assert not same_incident("Shelter-in-place lifted after Weatherford Aerospace fire", "", posted)
+    assert not same_incident("Fire at Fort Worth apartment complex displaces families", "", "Fire at Arlington apartment complex injures two")
+
+
+def test_a_pundits_prediction_is_not_news():
+    """Nov 25, CBS Sports: "Cowboys vs. Eagles Thanksgiving prediction: ..." and "One bold prediction for each NFL Thanksgiving game"."""
+    from ftworthtv.filters import betting_promo
+    assert betting_promo("Cowboys vs. Eagles Thanksgiving prediction: Dallas looks for first win streak of 2026 vs. ex-QB")
+    assert betting_promo("One bold prediction for each NFL Thanksgiving game, including Cowboys' Dak Prescott to feast on Eagles")
+    assert not betting_promo("Cowboys beat Eagles 27-20 on Thanksgiving")

@@ -227,12 +227,12 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                 if cap_reached(cat):
                     report.skipped.append((story, f"daily cap for {cat} reached"))
                     continue
-        if story.source_kind == "rss" and not story.official:
-            from .filters import explainer_of_posted, same_personnel_news, same_seat_news
+        if story.source_kind in ("rss", "video") and not story.official:
+            from .filters import explainer_of_posted, same_incident, same_personnel_news, same_seat_news
 
             def _same_news(x: str, y: str) -> bool:
                 return (same_personnel_news(x, story.summary or "", y) or same_seat_news(x, story.summary or "", y)
-                        or explainer_of_posted(x, story.summary or "", y))
+                        or explainer_of_posted(x, story.summary or "", y) or same_incident(x, story.summary or "", y))
             twin = state.recent_title_like(story.title, now, hours=48, match=_same_news)
             twin = twin or next((d.story.title for d in drafts if _same_news(story.title, d.story.title)), None)
             if twin:                   # the lead the article gave names the departure already posted ("Change in Leadership");

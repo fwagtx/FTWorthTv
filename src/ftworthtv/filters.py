@@ -120,7 +120,11 @@ _BETTING_RE = re.compile(r"\b(best bets?|best picks|odds,? (?:and )?(?:picks?|pr
                          r"betting (?:odds|picks|apps?|promos?|lines?|tips|guide)|"
                          r"sportsbooks?|promo codes?|bonus codes?|bonus bets?|player props?|(?:same-game )?parlay picks|same-game parlays?|"
                          r"expert picks|computer picks|model picks|against the spread|upset alerts?|upset picks|locks? of the week|"
-                         r"(?:week \d+ )?(?:nfl|nba|mlb|nhl|college football|college basketball|cfb|bowl)(?: week \d+)? picks)\b", re.I)
+                         r"(?:week \d+ )?(?:nfl|nba|mlb|nhl|college football|college basketball|cfb|bowl)(?: week \d+)? picks|"
+                         # Nov 25, CBS Sports: "Cowboys vs. Eagles Thanksgiving prediction: ..." and "One bold prediction for each NFL
+                         # Thanksgiving game ...": a pundit's guess with a menu of food puns is not news
+                         r"bold predictions?|predictions? for (?:each|every|all)|(?:game|thanksgiving|week \d+|matchup|bowl|playoff) predictions?)\b",
+                         re.I)
 
 
 # Nov 23, Fort Worth Weekly: "Game Show Sets Have Found a Second Life on Interactive Live Streams" ("Some streams let adults
@@ -862,6 +866,31 @@ def _seat_keys(text: str) -> set[tuple[str, str]]:
 _EXPLAINER_RE = re.compile(r"^[\"'“‘]?(?:what is|what are|who is|who are|what we know|what to know|here's what|here’s what|"
                            r"everything (?:we know|to know)|what happened)\b", re.I)
 _PROPER_RUN_RE = re.compile(r"\b([A-Z][A-Za-z&'’.-]+(?:\s+[A-Z][A-Za-z&'’.-]+)+)\b")
+
+
+# Nov 25: WFAA's YouTube "A fire was reported at Weatherford Aerospace on West 3rd Street in Weatherford, officials said" came two
+# hours after "Residents told to shelter in place as crews respond to a fire at Weatherford Aerospace" went out
+_INCIDENT_RE = re.compile(r"\b(fire|fires|blaze|explosion|blast|shooting|stabbing|crash|wreck|standoff|flood|flooding|collapse|"
+                          r"chemical leak|gas leak|hazmat|evacuation|shelter in place|shelter-in-place)\b", re.I)
+
+
+_FOLLOW_UP_RE = re.compile(r"\b(cause|caused|rebuild|rebuilds|reopen|reopens|reopened|killed|dead|dies|died|death|injured|hurt|"
+                           r"arrest|arrested|charged|identified|lawsuit|sues|sued|investigation finds|fined|cited|layoffs?|"
+                           r"lifted|all clear|contained|under control|extinguished)\b", re.I)
+
+
+def same_incident(title: str, summary: str, posted_title: str) -> bool:
+    """Two headlines about one incident at one named place: they share a multi-word proper name and an incident word, and
+    the newer one reports nothing the first did not (a cause, a death, an arrest, the all-clear is news)."""
+    a, b = _INCIDENT_RE.findall(title or ""), _INCIDENT_RE.findall(posted_title or "")
+    if not a or not b:
+        return False
+    new_facts = {w.lower() for w in _FOLLOW_UP_RE.findall(title or "")} - {w.lower() for w in _FOLLOW_UP_RE.findall(posted_title or "")}
+    if new_facts:
+        return False
+    names = [n.lower() for n in _PROPER_RUN_RE.findall(title or "") if n.split()[0].lower() not in ("a", "an", "the", "what", "who")]
+    names = [n for n in names if n not in ("fort worth", "north texas", "tarrant county", "dallas county")]
+    return any(n in (posted_title or "").lower() for n in names)
 
 
 def explainer_of_posted(title: str, summary: str, posted_title: str) -> bool:
