@@ -142,3 +142,14 @@ def test_topic_words_match_whole_words():
     assert "ice" not in got and "apartments" not in got
     assert "apartments" in topics_for("Developer plans 300 apartments near the Stockyards", "business", "local",
                                       title="Developer plans 300 apartments near the Stockyards")
+
+
+def test_an_air_travel_story_never_gets_a_train():
+    """Nov 25: FOX 4's "Smooth start to Thanksgiving travel in DFW ... short airport lines" was drafted with TEXRail at the DFW
+    Airport Terminal B station: every photo filed under dfw-airport was a rail station."""
+    import json as _json
+    from pathlib import Path
+    lib = _json.loads((Path(__file__).resolve().parents[1] / "assets" / "photos" / "library.json").read_text(encoding="utf-8"))
+    items = lib if isinstance(lib, list) else lib.get("photos", [])
+    airport = [e for e in items if e.get("topic") == "dfw-airport"]
+    assert not any(w in e.get("title", "").lower() for e in airport for w in ("station", "texrail", "dart", "train"))

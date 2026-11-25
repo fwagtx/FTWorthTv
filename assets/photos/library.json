@@ -692,38 +692,41 @@
  {
   "id": "lib-dfw-airport-station-july-2015-1-jpg",
   "file": "assets/photos/dfw-airport/dfw-airport-station-july-2015-1-jpg.jpg",
-  "topic": "dfw-airport",
+  "topic": "transit",
   "title": "File:DFW Airport Station July 2015 1.jpg",
   "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
   "license": "wikimedia-cc",
   "licence_name": "CC BY-SA 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:DFW_Airport_Station_July_2015_1.jpg",
   "width": 1280,
-  "height": 853
+  "height": 853,
+  "note": "Nov 25: a rail station at the airport, moved from dfw-airport: a TEXRail train is not a picture of air travel"
  },
  {
   "id": "lib-texrail-dfw-airport-terminal-b-nov-2019-2-jpg",
   "file": "assets/photos/dfw-airport/texrail-dfw-airport-terminal-b-nov-2019-2-jpg.jpg",
-  "topic": "dfw-airport",
+  "topic": "transit",
   "title": "File:TEXRail DFW Airport Terminal B Nov 2019 2.jpg",
   "credit": "Photo: Danazar via Wikimedia Commons (CC BY-SA 4.0)",
   "license": "wikimedia-cc",
   "licence_name": "CC BY-SA 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:TEXRail_DFW_Airport_Terminal_B_Nov_2019_2.jpg",
   "width": 1280,
-  "height": 777
+  "height": 777,
+  "note": "Nov 25: a rail station at the airport, moved from dfw-airport: a TEXRail train is not a picture of air travel"
  },
  {
   "id": "lib-texrail-dfw-airport-terminal-b-nov-2019-4-jpg",
   "file": "assets/photos/dfw-airport/texrail-dfw-airport-terminal-b-nov-2019-4-jpg.jpg",
-  "topic": "dfw-airport",
+  "topic": "transit",
   "title": "File:TEXRail DFW Airport Terminal B Nov 2019 4.jpg",
   "credit": "Photo: Danazar via Wikimedia Commons (CC BY-SA 4.0)",
   "license": "wikimedia-cc",
   "licence_name": "CC BY-SA 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:TEXRail_DFW_Airport_Terminal_B_Nov_2019_4.jpg",
   "width": 1280,
-  "height": 854
+  "height": 854,
+  "note": "Nov 25: a rail station at the airport, moved from dfw-airport: a TEXRail train is not a picture of air travel"
  },
  {
   "id": "lib-fort-worth-june-2016-09-main-street-jpg",

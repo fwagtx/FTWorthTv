@@ -65,7 +65,9 @@ TOPICS: dict[str, tuple[list[str], list[str]]] = {
     "schools": (["Fort Worth Independent School District", "High schools in Fort Worth, Texas"], ["Fort Worth high school building", "Fort Worth ISD school"]),
     "hospital": (["Hospitals in Fort Worth, Texas"], ["Fort Worth hospital", "JPS Health Network"]),
     "arlington": (["Arlington, Texas", "Downtown Arlington, Texas"], ["Arlington Texas downtown", "Arlington Texas city hall"]),
-    "dfw-airport": (["Dallas/Fort Worth International Airport"], ["DFW Airport terminal"]),
+    # Nov 25: the airport's own category gave three rail-station photos (TEXRail at Terminal B), which went on an air-travel story
+    "dfw-airport": (["Terminals of Dallas/Fort Worth International Airport", "Aircraft at Dallas/Fort Worth International Airport"],
+                    ["DFW Airport terminal gate", "DFW Airport American Airlines planes"]),
     "alliance": (["Fort Worth Alliance Airport"], ["Alliance Airport Fort Worth"]),
     "convention-center": (["Fort Worth Convention Center"], ["Fort Worth Convention Center"]),
     "texas-motor-speedway": (["Texas Motor Speedway"], ["Texas Motor Speedway"]),
