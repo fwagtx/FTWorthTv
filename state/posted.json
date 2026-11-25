@@ -173,6 +173,11 @@
     }
   },
   "deferred": {
+    "01c0c24801a299e3": {
+      "at": "2026-11-25T18:17:28.520728+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Arlington police officer shoots dog while responding to commercial alarm"
+    },
     "0257d232888a034d": {
       "at": "2026-11-25T17:45:08.099989+00:00",
       "reason": "daily cap for crime reached",
@@ -382,11 +387,6 @@
       "at": "2026-11-23T18:19:35.032827+00:00",
       "reason": "daily cap for community reached",
       "title": "Make Ornaments, Holiday Stickers & More with Arlington Public Library"
-    },
-    "ab77611999c77a39": {
-      "at": "2026-11-23T17:49:45.599419+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "What is the weather forecast for Thanksgiving? Brace for chilly temperatures in North Texas"
     },
     "b01cb769e03cadde": {
       "at": "2026-11-24T18:18:42.702501+00:00",
@@ -2535,6 +2535,11 @@
     "b0d02a7515d38b45": {
       "at": "2026-11-23T14:22:51.705143+00:00",
       "reason": "ESPN's Houston Rockets feature with a Toyota Center stand-in and an 'Original uploader was' credit; rules added"
+    },
+    "b1e9e5e9954ab64e": {
+      "at": "2026-11-25T18:17:28.519455+00:00",
+      "reason": "CBS Sports' Oklahoma State coach Eric Morris contract extension: the Oklahoma State Cowboys, not Dallas; held by the photo check with a Dall",
+      "title": "Oklahoma State rewards Eric Morris with contract extension after Cowboys' dramatic turnaround"
     },
     "b2820d52d45c93a2": {
       "at": "2026-11-24T14:21:45.460742+00:00",
