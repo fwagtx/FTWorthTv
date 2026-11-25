@@ -262,7 +262,12 @@ _LOCAL_TEAMS_RE = re.compile(r"\b(?:tcu|horned frogs|frogs|cowboys|mavericks|mav
                              r"ut arlington|uta|mavericks)\b", re.I)
 
 
-_COLUMN_ROUNDUP_RE = re.compile(r"\b(?:winners and losers|takeaways|overreactions|what we learned|things we learned|observations from|"
+_COLUMN_ROUNDUP_RE = re.compile(
+                         # Nov 25: Fort Worth Weekly's "Film Shorts // November 25 – December 1, 2026" (capsule reviews of the week's
+                         # movies) drew the Stockyards' cattle pens; a weekly listings page is a column, not news
+                         r"^(?:film shorts|night & day|night and day|music listings|film listings|stage listings|art listings)\b|"
+                         r"\s//\s*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d|"
+                         r"\b(?:winners and losers|takeaways|overreactions|what we learned|things we learned|observations from|"
                          r"instant analysis|hot takes?|mailbag|studs and duds|stock up,? stock down|"
                          r"grades for (?:every|each|all) (?:team|player|game)|week \d+ grades)\b|"   # Nov 22: CBS's "NFL Week 11 grades for every team"
                          # Nov 24: NBC 5's "Perfect offense, tolerable defense give Cowboys something to build on; will they?"

@@ -350,3 +350,11 @@ def test_a_pundits_prediction_is_not_news():
     assert betting_promo("Cowboys vs. Eagles Thanksgiving prediction: Dallas looks for first win streak of 2026 vs. ex-QB")
     assert betting_promo("One bold prediction for each NFL Thanksgiving game, including Cowboys' Dak Prescott to feast on Eagles")
     assert not betting_promo("Cowboys beat Eagles 27-20 on Thanksgiving")
+
+
+def test_a_weekly_listings_page_is_a_column():
+    """Nov 25: Fort Worth Weekly's "Film Shorts // November 25 – December 1, 2026" drew the Stockyards' cattle pens."""
+    from ftworthtv.filters import roundup_column
+    assert roundup_column("Film Shorts // November 25 – December 1, 2026")
+    assert roundup_column("Night & Day // Nov 26 – Dec 2, 2026")
+    assert not roundup_column("Fort Worth film festival returns in March")
