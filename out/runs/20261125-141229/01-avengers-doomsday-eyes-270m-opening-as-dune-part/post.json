@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-141229/01-avengers-doomsday-eyes-270m-opening-as-dune-part/post.jpg",
+    "credit": "Photo: TexasMates via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth_Sunset.jpg",
+    "photo_id": "commons-133454898",
+    "subject": "beat:Fort Worth skyline day"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-141229/01-avengers-doomsday-eyes-270m-opening-as-dune-part/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "‘Avengers: Doomsday’ Eyes $270M Opening as ‘Dune: Part Three’ Also Heads for Big Start",
+    "caption": "Dunesday is living up to the expectation as the high-profile features hit tracking. Dunesday excitement is prepared to reach a fever pitch as Avengers: Doomsday and Dune: Part Three hit tracking services ahead of their shared release date.\n\nMarvel Studios ‘ Avengers: Doomsday is tracking for a massive box office opening of $270 million, marking NRG’s highest starting point ever. Disney releases directors Anthony Russo and Joe Russo’s film on Dec. 18, which is the same day that Warner Bros.’ similarly anticipated Dune: Part Three will hit theaters.",
+    "first_comment": "Source: The Hollywood Reporter https://www.hollywoodreporter.com/movies/movie-news/avengers-doomsday-box-office-tracking-dune-part-three-1236763223/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "b290aa37f0eecc3e",
+    "source": "The Hollywood Reporter",
+    "source_kind": "rss",
+    "title": "‘Avengers: Doomsday’ Eyes $270M Opening as ‘Dune: Part Three’ Also Heads for Big Start",
+    "summary": "Dunesday is living up to the expectation as the high-profile features hit tracking. Logo text Dunesday excitement is prepared to reach a fever pitch as Avengers: Doomsday and Dune: Part Three hit tracking services ahead of their shared release date. Marvel Studios ‘ Avengers: Doomsday is tracking for a massive box office opening of $270 million, marking NRG’s highest starting point ever. Disney releases directors Anthony Russo and Joe Russo’s film on Dec. 18, which is the same day that Warner Bros.’ similarly anticipated Dune: Part Three will hit theaters. As it stands, this launch would mark the strongest domestic opening for December, surpassing 2021’s $260 million start for fellow MCU title Spider-Man: No Way Home . Only this year’s Spider-Man: Brand New Day ($360 million) and 2019’s Avengers: Endgame ($357 million) had higher-grossing openings than No Way Home. blogherads.adq.push(f…",
+    "url": "https://www.hollywoodreporter.com/movies/movie-news/avengers-doomsday-box-office-tracking-dune-part-three-1236763223/",
+    "published": "2026-11-25T19:45:27+00:00",
+    "category_hint": null,
+    "image_url": null,
+    "image_credit": "Photo: The Hollywood Reporter",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "The Hollywood Reporter",
+      "national": true,
+      "scope": "national",
+      "national_term": "avengers"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.3275
+  }
+}
