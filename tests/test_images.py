@@ -360,3 +360,17 @@ def test_a_strangers_portrait_is_never_the_picture(settings, monkeypatch):
     assert providers.find_photo([("Juvenile Justice", (), ("juvenile justice",))], settings, fallback=False, story_text=story) is None
     assert not providers.unnamed_person_photo("Amon G. Carter Stadium, 2017", "TCU", "TCU hosts Baylor")
     assert not providers.unnamed_person_photo("Ken Paxton by Gage Skidmore", "Ken Paxton", "Paxton drops lawsuits")
+
+
+def test_a_community_is_never_searched_and_a_map_is_never_a_photo():
+    """Nov 25: CBS News Texas's "From hustle to heritage: North Texas entrepreneurs hope to cash in on growing wave of Hispanic
+    wealth builders" searched "Hispanic" and drew "Hispanic ancestry in Florida", a county map."""
+    from ftworthtv.images.providers import _NOT_A_PHOTO_RE
+    from ftworthtv.images.subject import plan_subject
+    t = "From hustle to heritage: North Texas entrepreneurs hope to cash in on growing wave of Hispanic wealth builders"
+    plan = plan_subject(t, "What's happening in Mesquite reflects a national trend in Hispanic wealth building.", "other")
+    assert "Hispanic" not in plan.search_names
+    assert _NOT_A_PHOTO_RE.search("Hispanic ancestry in Florida")
+    assert _NOT_A_PHOTO_RE.search("Census 2020 population by county")
+    assert not _NOT_A_PHOTO_RE.search("Amazon distribution center in Haslet")
+    assert not _NOT_A_PHOTO_RE.search("Fort Worth Stockyards cattle drive")

@@ -127,8 +127,12 @@ ADJECTIVES = {"congressional", "republican", "republicans", "democrat", "democra
               "australian", "british", "canadian", "mexican", "english", "irish", "scottish", "welsh", "french", "german", "italian",
               "spanish", "japanese", "korean", "chinese", "indian", "russian", "ukrainian", "israeli", "brazilian", "european",
               # Nov 24: "U2 Sets North American Stops" searched "North American" and found a T-6 Texan airplane
-              "north american", "south american", "latin american", "central american", "north", "south"}
-NATIONALITIES = {"australian", "british", "canadian", "mexican", "english", "irish", "scottish", "welsh", "french", "german", "italian",
+              "north american", "south american", "latin american", "central american", "north", "south",
+              # Nov 25: "... a growing wave of Hispanic wealth builders" searched "Hispanic" and found a map of Hispanic ancestry
+              # in Florida: a community is described by these words, never pictured by them
+              "hispanic", "hispanics", "latino", "latina", "latinos", "latinas", "latinx", "african american", "asian american",
+              "mexican american", "native american", "indigenous", "immigrant", "immigrants"}
+NATIONALITIES = {"hispanic", "latino", "latina", "australian", "british", "canadian", "mexican", "english", "irish", "scottish", "welsh", "french", "german", "italian",
                  "spanish", "japanese", "korean", "chinese", "indian", "russian", "ukrainian", "israeli", "brazilian", "european",
                  "american", "asian", "african", "swedish", "dutch", "greek", "polish", "cuban", "venezuelan", "colombian"}
 # an agency's field is not a picture: Nov 25, the Texas Tribune's "Lavish European travel by Texas' ex-Juvenile Justice chief ..."
