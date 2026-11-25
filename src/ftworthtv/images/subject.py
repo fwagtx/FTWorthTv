@@ -514,6 +514,7 @@ ORG_WORDS = ("isd", "inc", "llc", "corp", "company", "university", "college", "s
              "city", "council", "foundation", "church", "hospital", "bank", "airlines", "group", "association", "club", "team", "fc",
              "board", "education", "commission", "commissioners", "command", "agency", "office", "authority", "court", "committee",
              "party", "dems", "democrats", "republicans", "gop", "legislature", "senate", "coalition", "alliance", "institute",
+             "justice",
              "cowboys", "rangers", "mavericks", "stars", "frogs", "mavs", "wings", "texans", "astros", "rockets", "spurs", "tcu", "uta",
              "smu", "unt", "baylor", "tech", "aggies", "longhorns") + VENUE_WORDS
 

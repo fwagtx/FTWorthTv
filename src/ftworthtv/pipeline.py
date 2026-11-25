@@ -173,6 +173,9 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if cat == "weather" and story.source_kind in ("rss", "video") and _same_outlet_forecast(state, story, now):
             report.skipped.append((story, "this outlet's forecast already went out in the last 12 hours"))
             continue
+        if cat == "weather" and story.source_kind in ("rss", "video") and not story.is_urgent and _recent_weather_story(state, now):
+            report.skipped.append((story, "a weather story already went out in the last six hours"))
+            continue
         from .filters import same_story
         if any(same_story(story.title, d.story.title) for d in drafts):
             report.skipped.append((story, "same story as one already chosen this run"))
@@ -455,6 +458,25 @@ h1{{font-size:18px}} ul{{color:var(--muted);font-size:13px}} small{{color:var(--
     latest = settings.out_dir / "latest-preview.html"
     latest.write_text(page.replace('src="', f'src="runs/{report.run_dir.name}/'), encoding="utf-8")
     return out
+
+
+def _recent_weather_story(state, now, hours: float = 6) -> bool:
+    """Nov 25: CBS News Texas's freeze warning went out at 6:20, and CBS Texas's YouTube "Freezing temps hit parts of North
+    Texas" was drafted for 7:35: one outlet's weather story is the morning's weather story, whoever else tells it. The NWS
+    forecast and alerts are their own posts."""
+    from datetime import datetime as _dt, timezone as _tz
+    for info in (state.data.get("posted", {}) or {}).values():
+        if info.get("category") != "weather" or info.get("kind") not in ("rss", "video"):
+            continue
+        try:
+            at = _dt.fromisoformat(str(info.get("at", "")))
+        except ValueError:
+            continue
+        if at.tzinfo is None:
+            at = at.replace(tzinfo=_tz.utc)
+        if abs((now - at).total_seconds()) <= hours * 3600:
+            return True
+    return False
 
 
 def _same_outlet_forecast(state, story, now) -> bool:

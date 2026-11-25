@@ -339,3 +339,17 @@ def test_a_newsroom_photo_needs_a_named_photographer():
     st2 = Story(id="r", source="Fort Worth Report", source_kind="rss", title="x", summary="", url="https://x", published=datetime.now(timezone.utc))
     st2.extra["page_credit"] = "Maria Crane | Fort Worth Report"
     assert named_credit(st2)
+
+
+def test_a_strangers_portrait_is_never_the_picture(settings, monkeypatch):
+    """Nov 25, render 227: "Annie E. Andrews, Esquire American Lawyer and Juvenile Justice Advocate" came back for "Juvenile
+    Justice" on a story about Texas's former juvenile justice director, Shandra Carter."""
+    from ftworthtv.images import providers
+    stranger = providers.PhotoCandidate(id="commons-5", url="https://x/a.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
+                                        source_url="https://commons.wikimedia.org/wiki/File:Annie_E._Andrews.jpg",
+                                        title="Annie E. Andrews, Esquire American Lawyer and Juvenile Justice Advocate")
+    monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[stranger]]))
+    story = "Lavish European travel by Texas' ex-Juvenile Justice chief contributed to her exit. Shandra Carter led the agency."
+    assert providers.find_photo([("Juvenile Justice", (), ("juvenile justice",))], settings, fallback=False, story_text=story) is None
+    assert not providers.unnamed_person_photo("Amon G. Carter Stadium, 2017", "TCU", "TCU hosts Baylor")
+    assert not providers.unnamed_person_photo("Ken Paxton by Gage Skidmore", "Ken Paxton", "Paxton drops lawsuits")

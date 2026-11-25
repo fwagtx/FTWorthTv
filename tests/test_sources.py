@@ -255,3 +255,16 @@ def test_a_teaser_story_is_recategorized_after_its_lead_is_read(settings, now, m
     report = run(settings, now=now, stories=[story], publisher_name="dryrun")
     assert not report.drafts
     assert any(s.id == "aff1" and r == "daily cap for crime reached" for s, r in report.skipped)
+
+
+def test_one_weather_story_a_morning(settings, now, monkeypatch):
+    """Nov 25, render 227: CBS Texas's YouTube "Freezing temps hit parts of North Texas" an hour after CBS News Texas's freeze warning."""
+    from datetime import timedelta
+    from ftworthtv.pipeline import _recent_weather_story
+    from ftworthtv.state import State
+    state = State(settings.state_path)
+    state.data.setdefault("posted", {})["w1"] = {"category": "weather", "kind": "rss", "at": (now - timedelta(hours=1)).isoformat()}
+    assert _recent_weather_story(state, now)
+    assert not _recent_weather_story(state, now + timedelta(hours=7))
+    state.data["posted"]["w1"]["kind"] = "nws_forecast"
+    assert not _recent_weather_story(state, now)

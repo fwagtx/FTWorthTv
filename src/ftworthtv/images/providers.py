@@ -471,6 +471,31 @@ _PLACE_STOP = {"the", "a", "an", "of", "at", "in", "on", "and", "for", "with", "
                "day", "unveiling", "parade", "festival", "new", "store", "shop", "celebrates", "celebration", "held", "hosts"}
 
 
+# a file that opens with a person's name is a portrait of that person: Nov 25, "Annie E. Andrews, Esquire American Lawyer and
+# Juvenile Justice Advocate" (a South Carolina lawyer) came back for "Juvenile Justice" on a story about Texas's former juvenile
+# justice director, a different woman. A venue named for a person ("Amon G. Carter Stadium") is not a portrait.
+_PERSON_START_RE = re.compile(r"^(?:File:)?\s*([A-Z][a-z]+)(?: ([A-Z])\.?)? ([A-Z][a-z]+(?:-[A-Z][a-z]+)?)\b(?!['’]s)"
+                              r"(?!\s+(?:Stadium|Center|Centre|Hall|Park|Building|Museum|School|University|College|Field|Arena|"
+                              r"Library|Bridge|Street|Avenue|Boulevard|Road|Tower|House|Church|Plaza|Theater|Theatre|Airport|Lake|"
+                              r"River|County|Elementary|High|Middle|Memorial|Hospital|Courthouse|Gardens?|Zoo|Station|Square)\b)")
+_NOT_A_FIRST_NAME = {"fort", "san", "new", "las", "los", "el", "north", "south", "east", "west", "lake", "mount", "saint", "st",
+                     "downtown", "texas", "dallas", "houston", "austin", "the", "big", "old", "grand", "royal", "white", "red"}
+_NOT_A_SURNAME = {"skyline", "downtown", "street", "night", "sunset", "sunrise", "aerial", "view", "panorama", "exterior",
+                  "interior", "building", "stadium", "entrance", "sign", "logo", "map", "flag", "seal", "store", "shop", "mall"}
+
+
+def unnamed_person_photo(title: str, query: str, story_text: str) -> bool:
+    """The file is a portrait of a person whom neither the story nor the search names."""
+    m = _PERSON_START_RE.match((title or "").strip())
+    if not m or not story_text:
+        return False
+    first, last = m.group(1), m.group(3)
+    if first.lower() in _NOT_A_FIRST_NAME or last.lower() in _NOT_A_SURNAME:
+        return False
+    low = f"{story_text} {query or ''}".lower()
+    return last.lower() not in low
+
+
 def other_event_photo(titled: str, query: str, story_text: str) -> bool:
     """The file shows a named event ("grand opening") somewhere the story never mentions."""
     if not story_text or not _EVENT_PHOTO_RE.search(titled):
@@ -514,6 +539,8 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
                 continue                  # Nov 24: "Acacia cyclops 452574694.jpg" (seed pods) for the X-Men's Cyclops
             if other_event_photo(name + " " + (cand.title or ""), q, story_text):
                 continue                  # another place's grand opening is not this one
+            if unnamed_person_photo(cand.title or cand.source_url.rsplit("/", 1)[-1].replace("_", " "), q, story_text):
+                continue                  # a stranger's portrait: the worst mistake a page can make
             if avoid and (any(w in titled for w in avoid) or " - " in titled):   # "Artist - Venue, 2022.jpg" is a performance photo
                 continue
             plain = " " + re.sub(r"[\s_\-,.:;()'’\"]+", " ", titled).strip() + " "    # "Ty_Myers_2025.jpg" -> " ty myers 2025 jpg "
