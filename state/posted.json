@@ -7,7 +7,7 @@
     "2026-11-22": 19,
     "2026-11-23": 20,
     "2026-11-24": 20,
-    "2026-11-25": 4
+    "2026-11-25": 6
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -77,8 +77,8 @@
     },
     "2026-11-25": {
       "breaking": 1,
-      "crime": 2,
-      "weather": 1
+      "crime": 3,
+      "weather": 2
     }
   },
   "daily_by_kind": {
@@ -121,7 +121,8 @@
       "wanted": 2
     },
     "2026-11-25": {
-      "rss": 1,
+      "nws_forecast": 1,
+      "rss": 2,
       "video": 1,
       "wanted": 2
     }
@@ -164,7 +165,7 @@
     },
     "2026-11-25": {
       "dfw": 1,
-      "local": 3
+      "local": 5
     }
   },
   "deferred": {
@@ -500,7 +501,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-25T07:35:00-06:00",
+  "last_post_at": "2026-11-25T08:25:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1079,6 +1080,19 @@
       "source": "WFAA",
       "title": "Gas prices drop ahead of Thanksgiving, but fewer Texans are hitting the road",
       "url": "https://www.wfaa.com/article/news/local/gas-prices-drop-ahead-thanksgiving-but-fewer-texans-hitting-road/287-73e4ba73-c378-4a44-9752-a0245ca51306"
+    },
+    "77886cedb8df0cac": {
+      "at": "2026-11-25T08:25:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "441730969",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6472406567458946020",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "CBS News Texas",
+      "title": "Fort Worth recording artist acquitted of murder in 2025 shooting death of man, court records show",
+      "url": "https://www.cbsnews.com/texas/news/fort-worth-country-hip-hop-artist-cing-jerome-blanton-trial-not-guilty-verdict-cody-scott-murder/"
     },
     "7829beec819920fa": {
       "at": "2026-11-23T09:55:00-06:00",
@@ -1964,6 +1978,19 @@
       "title": "Fort Worth forecast for Tuesday, November 24",
       "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
     },
+    "forecast-2026-11-25": {
+      "at": "2026-11-25T08:00:00-06:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": "441730808",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=917194282501096428",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Wednesday, November 25",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
     "manual-anthropic-ipo-2026-11-19": {
       "at": "2026-11-19T20:00:00+00:00",
       "category": "business",
@@ -2091,6 +2118,11 @@
     "29e756adffe5cc3d": {
       "at": "2026-11-21T12:18:30.407673+00:00",
       "reason": "caption was the article's 2022 photo caption (Nissan Stadium, Nashville), and an AT&T Stadium stand-in for a game preview whose venue is not"
+    },
+    "2dc1b7c62e5636fc": {
+      "at": "2026-11-25T13:21:38.156721+00:00",
+      "reason": "WFAA YouTube 'North Texas woman will return to the Macy's Thanksgiving Day Parade' names no town in its title or description: not clearly Fo",
+      "title": "North Texas woman will return to the Macy's Thanksgiving Day Parade years after participating"
     },
     "2f3abe3a9ae80538": {
       "at": "2026-11-22T12:47:08.192076+00:00",
@@ -2435,7 +2467,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 119,
+  "total_posts": 121,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2463,7 +2495,8 @@
     "commons-145047354",
     "lib-fort-worth-june-2016-62-fort-worth-convention-center-jpg",
     "lib-2026-05-26-texas-state-capitol-01-jpg",
-    "lib-2021-12-22-annateich-01-jpg"
+    "lib-2021-12-22-annateich-01-jpg",
+    "sunshine-lib-downtown-fort-worth-skyline-jpg"
   ],
   "version": 1
 }
