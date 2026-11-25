@@ -7,7 +7,7 @@
     "2026-11-22": 19,
     "2026-11-23": 20,
     "2026-11-24": 20,
-    "2026-11-25": 10
+    "2026-11-25": 11
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -79,6 +79,7 @@
       "breaking": 2,
       "community": 1,
       "crime": 4,
+      "other": 1,
       "sports": 1,
       "weather": 2
     }
@@ -125,7 +126,7 @@
     "2026-11-25": {
       "nws_forecast": 1,
       "rss": 6,
-      "video": 1,
+      "video": 2,
       "wanted": 2
     }
   },
@@ -167,7 +168,7 @@
     },
     "2026-11-25": {
       "dfw": 2,
-      "local": 7,
+      "local": 8,
       "texas": 1
     }
   },
@@ -181,11 +182,6 @@
       "at": "2026-11-24T16:17:06.647155+00:00",
       "reason": "daily cap for community reached",
       "title": "Volunteers Needed for Annual Point-in-Time Count Jan. 28, 2027"
-    },
-    "0cacf719029c4008": {
-      "at": "2026-11-23T16:51:43.125852+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Car burglary suspect on the run after shooting at officers, says Dallas Police"
     },
     "1083ec391421435f": {
       "at": "2026-11-24T22:45:41.059257+00:00",
@@ -514,7 +510,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-25T10:05:00-06:00",
+  "last_post_at": "2026-11-25T11:19:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -541,6 +537,19 @@
       "source": "Fort Worth Business Press",
       "title": "Mamma Mia! coming back to town",
       "url": "https://fortworthbusiness.com/entertainment/mamma-mia-coming-back-to-town/"
+    },
+    "036170099c719f7a": {
+      "at": "2026-11-25T11:19:00-06:00",
+      "category": "other",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "442053596",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8006446484723186911",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "A large fire at Weatherford Aerospace is under control, now injuries have been reported.",
+      "url": "https://www.youtube.com/watch?v=AFLOcOFLxz4"
     },
     "0483ca217fa88587": {
       "at": "2026-11-19T13:10:00+00:00",
@@ -2592,7 +2601,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 125,
+  "total_posts": 126,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
