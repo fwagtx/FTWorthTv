@@ -374,3 +374,14 @@ def test_a_community_is_never_searched_and_a_map_is_never_a_photo():
     assert _NOT_A_PHOTO_RE.search("Census 2020 population by county")
     assert not _NOT_A_PHOTO_RE.search("Amazon distribution center in Haslet")
     assert not _NOT_A_PHOTO_RE.search("Fort Worth Stockyards cattle drive")
+
+
+def test_a_faith_is_never_searched_and_calligraphy_is_not_a_photo():
+    """Nov 25: FOX 4's "North Texas politician blasts Northwest ISD over Islam lesson ..." searched "Islam" and drew "Arafatul
+    Islam Ambigram", a calligraphy of a man's name."""
+    from ftworthtv.images.providers import _NOT_A_PHOTO_RE
+    from ftworthtv.images.subject import plan_subject
+    t = "North Texas politician blasts Northwest ISD over Islam lesson; district reminds him he set the curriculum"
+    plan = plan_subject(t, "State Board of Education member Brandon Hall criticized a World Geography lesson on Islam.", "community")
+    assert "Islam" not in plan.search_names
+    assert _NOT_A_PHOTO_RE.search("Arafatul Islam Ambigram")

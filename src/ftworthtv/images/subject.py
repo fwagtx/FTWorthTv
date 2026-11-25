@@ -131,7 +131,11 @@ ADJECTIVES = {"congressional", "republican", "republicans", "democrat", "democra
               # Nov 25: "... a growing wave of Hispanic wealth builders" searched "Hispanic" and found a map of Hispanic ancestry
               # in Florida: a community is described by these words, never pictured by them
               "hispanic", "hispanics", "latino", "latina", "latinos", "latinas", "latinx", "african american", "asian american",
-              "mexican american", "native american", "indigenous", "immigrant", "immigrants"}
+              "mexican american", "native american", "indigenous", "immigrant", "immigrants",
+              # Nov 25: "... blasts Northwest ISD over Islam lesson" searched "Islam" and drew a calligraphy ambigram of a man's
+              # name; a faith is never pictured by a search for its name
+              "islam", "islamic", "muslim", "muslims", "christianity", "christian", "christians", "judaism", "jewish", "jews",
+              "catholic", "catholics", "catholicism", "hindu", "hinduism", "buddhist", "buddhism", "sikh", "religion", "faith"}
 NATIONALITIES = {"hispanic", "latino", "latina", "australian", "british", "canadian", "mexican", "english", "irish", "scottish", "welsh", "french", "german", "italian",
                  "spanish", "japanese", "korean", "chinese", "indian", "russian", "ukrainian", "israeli", "brazilian", "european",
                  "american", "asian", "african", "swedish", "dutch", "greek", "polish", "cuban", "venezuelan", "colombian"}
