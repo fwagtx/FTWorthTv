@@ -77,7 +77,9 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("heat advisory", "excessive heat", "triple digit", "heat wave", "100 degrees"), "heat"),
     (("barbecue", "bbq", "brisket"), "bbq"),
     (("taco", "tacos", "taqueria"), "tacos"),
-    (("apartments", "apartment complex", "mixed-use", "development", "construction", "developer", "rezoning"), "apartments"),
+    # "development" alone is any development (Nov 25: a novel "in development as new stage musical" drew the apartments topic)
+    (("apartments", "apartment complex", "mixed-use", "housing development", "residential development", "apartment development",
+      "real estate development", "construction", "developer", "rezoning"), "apartments"),
     (("home prices", "housing", "homebuyers", "mortgage", "homeowners", "neighborhood"), "housing"),
     # a person named in the headline is searched for, never stood in for by the Capitol: Nov 24, "Paxton drops series of
     # high-profile Texas lawsuits after election loss" drew the Capitol building
@@ -246,6 +248,23 @@ _STATE_GOV_RE = re.compile(r"\b(?:legislature|texas house|texas senate|state rep
                            r"special session|comptroller|attorney general|paxton)\b")
 
 
+_PHRASE_CACHE: dict[str, "re.Pattern[str]"] = {}
+
+
+def phrase_in(phrase: str, hay: str) -> bool:
+    """A topic phrase as words, not letters inside other words: Nov 25, "snow" matched inside "Amanda Yesnowitz" and a musical
+    adaptation of a novel was drafted with a 2021 snowstorm map. A plural or -ed/-ing ending still counts."""
+    pat = _PHRASE_CACHE.get(phrase)
+    if pat is None:
+        core = phrase.strip()
+        if not core or not core[0].isalnum() or not core[-1].isalnum():
+            pat = re.compile(re.escape(phrase))                    # a phrase with its own punctuation or spaces matches as given
+        else:
+            pat = re.compile(r"(?<![a-z0-9])" + re.escape(core) + r"(?:s|es|ed|ing)?(?![a-z0-9])")
+        _PHRASE_CACHE[phrase] = pat
+    return bool(pat.search(hay))
+
+
 def topic_excluded(topic: str, text: str) -> bool:
     low = (text or "").lower()
     if topic == "capitol" and _FEDERAL_RE.search(low) and not _STATE_GOV_RE.search(low):
@@ -268,7 +287,7 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
     out: list[str] = []
     for phrases, topic in TOPIC_RULES:
         hay = head if topic in TITLE_ONLY else low
-        if (any(p in hay for p in phrases) and topic not in out and not (elsewhere and topic in FORT_WORTH_ONLY) and venue_fits(topic, whole, title)
+        if (any(phrase_in(p, hay) for p in phrases) and topic not in out and not (elsewhere and topic in FORT_WORTH_ONLY) and venue_fits(topic, whole, title)
                 and not topic_excluded(topic, whole)):
             out.append(topic)
             if len(out) >= 2:

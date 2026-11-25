@@ -129,3 +129,16 @@ def test_a_hospital_named_baylor_is_not_the_waco_campus():
     assert "baylor" not in topics_for(text, "other", "dfw", title="Medical ethicist weighs in on North Texas transplant case")
     assert "baylor" not in plan_subject("Baylor Scott & White opens new Fort Worth clinic", "", "community").entity_topics
     assert "baylor" in topics_for("Baylor beat TCU 31-24 in Waco.", "sports", "texas", title="Baylor beats TCU")
+
+
+def test_topic_words_match_whole_words():
+    """Nov 25: "snow" matched inside "Amanda Yesnowitz" and "development" inside "in development as new stage musical": a novel's
+    musical adaptation was drafted with a 2021 snowstorm map."""
+    from ftworthtv.images.library import phrase_in, topics_for
+    assert not phrase_in("snow", " amanda yesnowitz ") and phrase_in("snow", " heavy snow tonight ")
+    assert phrase_in("storm", " storms roll in ") and phrase_in("tornado", " two tornadoes touched down ")
+    t = "Sandra Brown’s novel RAINWATER in development as new stage musical"
+    got = topics_for(f"{t}. Brian Feinstein and Amanda Yesnowitz lead the musical adaptation.", "business", "local", title=t)
+    assert "ice" not in got and "apartments" not in got
+    assert "apartments" in topics_for("Developer plans 300 apartments near the Stockyards", "business", "local",
+                                      title="Developer plans 300 apartments near the Stockyards")

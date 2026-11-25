@@ -857,6 +857,21 @@ def _seat_keys(text: str) -> set[tuple[str, str]]:
     return keys
 
 
+# Nov 25: WFAA's "What is Weatherford Aerospace?" came an hour after "Residents told to shelter in place as crews respond to a fire
+# at Weatherford Aerospace" went out, and its lead only restated the fire
+_EXPLAINER_RE = re.compile(r"^[\"'“‘]?(?:what is|what are|who is|who are|what we know|what to know|here's what|here’s what|"
+                           r"everything (?:we know|to know)|what happened)\b", re.I)
+_PROPER_RUN_RE = re.compile(r"\b([A-Z][A-Za-z&'’.-]+(?:\s+[A-Z][A-Za-z&'’.-]+)+)\b")
+
+
+def explainer_of_posted(title: str, summary: str, posted_title: str) -> bool:
+    """A 'What is X?' or 'What we know about X' piece about a subject a post already covered is that story again."""
+    if not _EXPLAINER_RE.search((title or "").strip()):
+        return False
+    names = [n.lower() for n in _PROPER_RUN_RE.findall(title or "") if n.split()[0].lower() not in ("what", "who", "here's", "here’s")]
+    return any(n in (posted_title or "").lower() for n in names)
+
+
 def same_seat_news(title: str, summary: str, posted_title: str) -> bool:
     """Two headlines about the same numbered seat's contest, the newer one reporting no decision."""
     a, b = _seat_keys(title), _seat_keys(posted_title)

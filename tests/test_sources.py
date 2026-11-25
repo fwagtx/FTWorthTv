@@ -322,3 +322,13 @@ def test_the_citys_stock_notice_graphic_is_not_a_photo():
             '<p class="published-on small-text">Published on November 25, 2026</p><p>The City is inviting residents to comment.</p></a></article>')
     story = parse_listing(html, "https://www.fortworthtexas.gov/news", {"name": "City of Fort Worth"}, datetime.now(timezone.utc))[0]
     assert story.image_url is None and story.extra["generic_image"]
+
+
+def test_an_explainer_about_a_posted_subject_is_the_same_story():
+    """Nov 25: WFAA's "What is Weatherford Aerospace?" an hour after the shelter-in-place post about the fire there."""
+    from ftworthtv.filters import explainer_of_posted
+    posted = "Residents told to shelter in place as crews respond to a fire at Weatherford Aerospace"
+    assert explainer_of_posted("What is Weatherford Aerospace?", "", posted)
+    assert explainer_of_posted("What we know about the Weatherford Aerospace fire", "", posted)
+    assert not explainer_of_posted("Weatherford Aerospace fire under control, officials say", "", posted)   # an update is news
+    assert not explainer_of_posted("What is the Fort Worth Stock Show?", "", posted)
