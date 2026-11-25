@@ -114,7 +114,33 @@ def caption_problems(copy: PostCopy, story: Story, *, min_ratio: float = 0.6, wr
         if len(q.split()) >= 3 and q not in src:
             problems.append(f"quotation not in the source: {quote[:60]!r}")
     problems += weekday_mismatches(caption, story.published)
+    problems += name_spellings(caption)
     return problems
+
+
+# one person spelled two ways is a typo in the source: Nov 24, FOX 4's House District 93 caption went out with "Erick Lomick" and
+# "Erika Lomick" in one paragraph (her name is Ericka). Two first names that share their first three letters and one surname
+# are one person whose name we cannot be sure of.
+_FULL_NAME_RE = re.compile(r"(?=\b([A-Z][a-z]{2,})\s+(?:[A-Z]\.\s+)?([A-Z][a-z]{2,}(?:-[A-Z][a-z]+)?)\b)")   # overlapping:
+_NOT_FIRST = {"democrat", "democratic", "democrats", "republican", "republicans", "former", "state", "texas", "north", "south",  # "Democrat
+              "east", "west", "the", "fort", "city", "county", "mayor", "judge", "sen", "rep", "gov", "coach", "officer", "chief",  # Erika
+              "police", "sheriff", "president", "senator", "representative", "commissioner", "trustee", "dr", "superintendent"}  # Lomick"
+
+
+def name_spellings(text: str) -> list[str]:
+    seen: dict[str, set[str]] = {}
+    for m in _FULL_NAME_RE.finditer(text or ""):
+        first, last = m.group(1), m.group(2)
+        if first.lower() not in _NOT_FIRST:
+            seen.setdefault(last, set()).add(first)
+    out = []
+    for last, firsts in seen.items():
+        names = sorted(firsts)
+        for i, a in enumerate(names):
+            for b in names[i + 1:]:
+                if a[:3].lower() == b[:3].lower():
+                    out.append(f"one person spelled two ways: {a} {last} / {b} {last}")
+    return out
 
 
 _WEEKDAYS = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")

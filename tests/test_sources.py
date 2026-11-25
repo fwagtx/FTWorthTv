@@ -290,3 +290,13 @@ def test_a_campaigns_headshots_on_a_newsroom_page_are_not_the_newsrooms():
     assert _THIRD_PARTY_RE.search("Photo via Wikimedia")                          # the old patterns still hold
     assert not _THIRD_PARTY_RE.search("Maria Crane | Fort Worth Report")
     assert not _THIRD_PARTY_RE.search("Leila Saidane for The Texas Tribune")
+
+
+def test_one_person_spelled_two_ways_holds_the_caption():
+    """Nov 24: FOX 4's House District 93 caption went out with "Erick Lomick" and "Erika Lomick" (her name is Ericka)."""
+    from ftworthtv.checks import name_spellings
+    bad = ("Three weeks after the election, it's still not clear who will represent Tarrant County's Texas House District 93. "
+           "Democrat Erika Lomick narrowly beat Republican Alan Blaylock. Erick Lomick suspended her campaign in September.")
+    assert name_spellings(bad) == ["one person spelled two ways: Erick Lomick / Erika Lomick"]
+    assert name_spellings("Ericka Lomick beat Alan Blaylock in Fort Worth; Fort Worth police said nothing.") == []
+    assert name_spellings("John Smith and Jane Smith, his wife, spoke to the Fort Worth City Council.") == []
