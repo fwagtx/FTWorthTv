@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=pThuk6CqeP8",
+  "scheduled_at": "2026-11-25T13:29:28.130263+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "breaking",
+    "headline": "First look inside Fort Worth's Sandman Signature Hotel ahead of reopening after explosion | NBC DFW",
+    "caption": "WATCH: First look inside Fort Worth's Sandman Signature Hotel ahead of reopening after explosion | NBC DFW\n\nNearly three years after an explosion injured 21 people, Fort Worth’s Sandman Signature Hotel is preparing to reopen at the end of December with a renovated lobby, restaurant and guest rooms.\n\nVideo: NBC 5 DFW on YouTube",
+    "first_comment": "Source: NBC 5 DFW on YouTube https://www.youtube.com/watch?v=pThuk6CqeP8\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "0758f1c5674f6df0",
+    "source": "NBC 5 DFW",
+    "source_kind": "video",
+    "title": "First look inside Fort Worth's Sandman Signature Hotel ahead of reopening after explosion | NBC DFW",
+    "summary": "Nearly three years after an explosion injured 21 people, Fort Worth’s Sandman Signature Hotel is preparing to reopen at the end of December with a renovated lobby, restaurant and guest rooms. While some litigation remains unresolved, neighboring business owners are hoping the reopening will help bring visitors back after years of disruptions. NBC 5’s Candace Sweat has the story.",
+    "url": "https://www.youtube.com/watch?v=pThuk6CqeP8",
+    "published": "2026-11-25T00:45:02+00:00",
+    "category_hint": null,
+    "image_url": "https://i1.ytimg.com/vi/pThuk6CqeP8/hqdefault.jpg",
+    "image_credit": "Video: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "pThuk6CqeP8",
+      "channel": "NBC 5 DFW",
+      "handle": "@NBCDFW",
+      "views": 356,
+      "feed_title": "NBC 5 DFW",
+      "scope": "local"
+    },
+    "category": "breaking",
+    "relevance": 2,
+    "score": 0.4585
+  }
+}

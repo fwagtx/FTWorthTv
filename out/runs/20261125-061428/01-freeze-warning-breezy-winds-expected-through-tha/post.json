@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-061428/01-freeze-warning-breezy-winds-expected-through-tha/post.jpg",
+    "credit": "Photo: Bärbel Miemietz via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:2021-12-22_Annateich_01.JPG",
+    "photo_id": "lib-2021-12-22-annateich-01-jpg",
+    "subject": "beat:frost"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-061428/01-freeze-warning-breezy-winds-expected-through-tha/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Freeze warning, breezy winds expected through Thanksgiving morning across North Texas",
+    "caption": "A freeze warning is in effect for temperatures dipping near or below 32 degrees across North Texas through Thursday morning at 9 a.m. It's cold! In fact, Tuesday was the coldest afternoon high in North Texas since Jan. 17, with a high of 47° at DFW Airport.\n\nA First Alert Weather Day is in place Wednesday morning and Thursday morning due to the first freeze of the season for many in North Texas, indicating the end of the growing season.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/freeze-warning-thanksgiving-weather-dallas-fort-worth-forecast-temperatures-nov-24/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "DFW Airport terminal",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "bcdc590a3bc37079",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Freeze warning, breezy winds expected through Thanksgiving morning across North Texas",
+    "summary": "A freeze warning is in effect for temperatures dipping near or below 32 degrees across North Texas through Thursday morning at 9 a.m. November 25, 2026 / 5:49 AM CST / CBS Texas It's cold! In fact, Tuesday was the coldest afternoon high in North Texas since Jan. 17, with a high of 47° at DFW Airport. A First Alert Weather Day is in place Wednesday morning and Thursday morning due to the first freeze of the season for many in North Texas, indicating the end of the growing season. A freeze warning is in effect for temperatures dipping near or below 32 degrees across North Texas through Thursday morning at 9 a.m. Please take precautions and protect pets, plants, pipes and fellow people. Temperatures Wednesday will climb into the low to mid-50s, with an abundance of sunshine. Wind will be from the north, gusting up to 20 mph at times. The wind may make it feel even cooler out; grab a…",
+    "url": "https://www.cbsnews.com/texas/news/freeze-warning-thanksgiving-weather-dallas-fort-worth-forecast-temperatures-nov-24/",
+    "published": "2026-11-25T11:49:16+00:00",
+    "category_hint": null,
+    "image_url": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/11/25/7820699b-0d64-47fd-8ede-2026d1a3853c/thumbnail/1024x576/9877fa2a212af600e0897a7f8c419a5f/weather-1.png",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 1.1053
+  }
+}
