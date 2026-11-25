@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-161303/01-hold-your-turkeys-macy-s-100th-thanksgiving-day/post.jpg",
+    "credit": "Photo: Kidfly182 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Macy%27s_Herald_Square_September_2026_02.jpg",
+    "photo_id": "commons-201519190",
+    "subject": "entity:macy"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-161303/01-hold-your-turkeys-macy-s-100th-thanksgiving-day/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "events",
+    "headline": "Hold Your Turkeys! Macy’s 100th Thanksgiving Day Parade Has Been Postponed: Here’s the New Date",
+    "caption": "The Macy's 100th Thanksgiving Day Parade 2026 has officially been canceled.",
+    "first_comment": "Source: Billboard https://www.billboard.com/music/music-news/macys-thanksgiving-day-parade-2026-canceled-delay-new-date-1236389923/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "holiday parade downtown night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "9989b546ad6f0340",
+    "source": "Billboard",
+    "source_kind": "rss",
+    "title": "Hold Your Turkeys! Macy’s 100th Thanksgiving Day Parade Has Been Postponed: Here’s the New Date",
+    "summary": "The Macy's 100th Thanksgiving Day Parade 2026 has officially been canceled. Read more for the new, rescheduled date. After waiting 100 years for the parade’s centennial edition, what’s a few more days? Macy’s 100th Thanksgiving Day parade will be postponed to Saturday, Nov. 28, because of severe weather. “The safety of our participants and spectators is our top priority, and after close consultation with our City and agency partners, we have made the decision to move this year’s celebration,” Macy’s representatives said Wednesday. Even though organizers had already begun inflating the parade’s iconic balloons, the department store, alongside city officials and the New York Police Department, confirmed the Thanksgiving celebration will commence n Saturday at 8:30 a.m. ET instead. The parade’s delay comes amid a particularly grim forecast for the East Coast. The National Weather Service…",
+    "url": "https://www.billboard.com/music/music-news/macys-thanksgiving-day-parade-2026-canceled-delay-new-date-1236389923/",
+    "published": "2026-11-25T22:05:34+00:00",
+    "category_hint": null,
+    "image_url": null,
+    "image_credit": "Photo: Billboard",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "Billboard",
+      "national": true,
+      "scope": "national",
+      "national_term": "thanksgiving day parade"
+    },
+    "category": "events",
+    "relevance": 2,
+    "score": 0.4676
+  }
+}
