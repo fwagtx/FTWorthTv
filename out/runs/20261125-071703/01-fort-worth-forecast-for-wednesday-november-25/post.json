@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-071703/01-fort-worth-forecast-for-wednesday-november-25/post.jpg",
+    "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth_Skyline.jpg",
+    "photo_id": "sunshine-lib-downtown-fort-worth-skyline-jpg",
+    "subject": "beat:sunshine"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-071703/01-fort-worth-forecast-for-wednesday-november-25/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Fort Worth forecast: sunny, high near 54",
+    "caption": "Sunny and a high of 54 in Fort Worth today. Clear, low near 33° tonight.",
+    "first_comment": "Source: National Weather Service https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline sunrise",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "forecast-2026-11-25",
+    "source": "National Weather Service Fort Worth",
+    "source_kind": "nws_forecast",
+    "title": "Fort Worth forecast for Wednesday, November 25",
+    "summary": "Today: Sunny, high near 54°F. Wind 5 to 10 mph NNW. Tonight: Clear, low near 33°. Sunny. High near 54, with temperatures falling to around 52 in the afternoon. North northwest wind 5 to 10 mph, with gusts as high as 20 mph.",
+    "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308",
+    "published": "2026-11-25T13:16:45.629297+00:00",
+    "category_hint": "weather",
+    "image_url": null,
+    "image_credit": null,
+    "image_license": "public-domain",
+    "image_policy": "none",
+    "official": true,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "high": 54,
+      "short": "Sunny",
+      "icon": "https://api.weather.gov/icons/land/day/skc?size=medium",
+      "low": 33,
+      "pop": 0,
+      "wind": "5 to 10 mph",
+      "scope": "local"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 1.95
+  }
+}

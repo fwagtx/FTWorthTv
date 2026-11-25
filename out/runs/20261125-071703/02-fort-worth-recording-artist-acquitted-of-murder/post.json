@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-25T13:42:03.875510+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-071703/02-fort-worth-recording-artist-acquitted-of-murder/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-071703/02-fort-worth-recording-artist-acquitted-of-murder/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Fort Worth recording artist acquitted of murder in 2025 shooting death of man, court records show",
+    "caption": "On Friday, Nov. 20, a Tarrant County Jury found Christopher Jerome Blanton Jr., 30, who performs under the name C'ing Jerome, not guilty of murder. A country hip-hop artist has been acquitted of murder in the shooting death of a man during a 2025 traffic encounter in Fort Worth, according to court documents.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/fort-worth-country-hip-hop-artist-cing-jerome-blanton-trial-not-guilty-verdict-cody-scott-murder/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "77886cedb8df0cac",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Fort Worth recording artist acquitted of murder in 2025 shooting death of man, court records show",
+    "summary": "On Friday, Nov. 20, a Tarrant County Jury found Christopher Jerome Blanton Jr., 30, who performs under the name C'ing Jerome, not guilty of murder. November 25, 2026 / 6:43 AM CST / CBS Texas A country hip-hop artist has been acquitted of murder in the shooting death of a man during a 2025 traffic encounter in Fort Worth, according to court documents. On Friday, Nov. 20, a Tarrant County Jury found Christopher Jerome Blanton Jr., 30, who performs under the name C'ing Jerome, not guilty of murder and not guilty of two counts of aggravated assault in the killing of 32-year-old Cody Scott. The incident happened near East Berry Street and South Edgewood Terrace in Fort Worth in August 2025. Blanton told police that he believed he was being followed and felt threatened. According to the arrest affidavit, Blanton's friend, who was in the passenger seat, said Blanton told him to lean back…",
+    "url": "https://www.cbsnews.com/texas/news/fort-worth-country-hip-hop-artist-cing-jerome-blanton-trial-not-guilty-verdict-cody-scott-murder/",
+    "published": "2026-11-25T12:43:55+00:00",
+    "category_hint": null,
+    "image_url": "https://assets1.cbsnewsstatic.com/hub/i/r/2026/09/30/7cbb1851-4733-4a46-bace-275f8b292110/thumbnail/1024x576/2bd3a58eb88fb9b450574d8abe0f1748/charges-slider.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.944
+  }
+}
