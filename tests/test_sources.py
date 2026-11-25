@@ -358,3 +358,17 @@ def test_a_weekly_listings_page_is_a_column():
     assert roundup_column("Film Shorts // November 25 – December 1, 2026")
     assert roundup_column("Night & Day // Nov 26 – Dec 2, 2026")
     assert not roundup_column("Fort Worth film festival returns in March")
+
+
+def test_another_team_with_our_teams_nickname_is_not_ours():
+    """Nov 25: CBS Sports' "Oklahoma State rewards Eric Morris with contract extension after Cowboys' dramatic turnaround"
+    counted as local news and drew a Dallas Cowboys photo."""
+    from ftworthtv.filters import other_teams_nickname
+    from ftworthtv.images.subject import plan_subject, provider_queries
+    t = "Oklahoma State rewards Eric Morris with contract extension after Cowboys' dramatic turnaround"
+    assert other_teams_nickname(f"{t}. Morris has led the Cowboys to a 7-4 record in Stillwater.") == "oklahoma state"
+    assert other_teams_nickname("Rangers beat Islanders at Madison Square Garden") == "madison square garden"
+    assert other_teams_nickname("Cowboys beat Eagles 27-20 on Thanksgiving at AT&T Stadium") == ""
+    assert other_teams_nickname("Dallas Cowboys face former Oklahoma State star in Week 13") == ""
+    pairs = provider_queries(plan_subject(t, "", "sports"), t, "sports")
+    assert not any("dallas cowboys" in lab for _, lab in pairs)

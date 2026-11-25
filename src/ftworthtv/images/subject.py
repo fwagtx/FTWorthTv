@@ -790,6 +790,9 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
     out: list[tuple[tuple, str]] = []
     for name in plan.search_names[:3]:
         if category == "sports" and len(name.split()) <= 2 and name.lower() in TEAM_FULL_NAMES:
+            from ..filters import other_teams_nickname
+            if other_teams_nickname(title or ""):
+                continue                               # "Oklahoma State ... Cowboys'": not the Dallas Cowboys (Nov 25)
             name = TEAM_FULL_NAMES[name.lower()]        # "Mavericks" -> "Dallas Mavericks", never OS X Mavericks
         elif category == "sports" and len(name.split()) == 1 and not name.isupper():
             continue                                   # "Clippers", "Timbers": a bare nickname finds hair clippers and lumber

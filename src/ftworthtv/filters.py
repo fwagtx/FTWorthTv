@@ -214,6 +214,28 @@ def national_feature(title: str, url: str = "") -> bool:
     return bool(_FEATURE_TITLE_RE.search(title or "") or _FEATURE_URL_RE.search(url or ""))
 
 
+# teams that share our teams' nicknames: Nov 25, CBS Sports' "Oklahoma State rewards Eric Morris with contract extension after
+# Cowboys' dramatic turnaround" counted as local news (and drew a Dallas Cowboys photo)
+_OTHER_NICKNAME_TEAMS = {"cowboys": ("oklahoma state", "okla. state", "stillwater", "pokes", "wyoming cowboys", "mcneese"),
+                         "rangers": ("new york rangers", "ny rangers", "madison square garden", "glasgow rangers", "rangers fc"),
+                         "mavericks": ("omaha mavericks", "minnesota state", "colorado mesa")}
+_OUR_TEAM_MARKERS = {"cowboys": ("dallas cowboys", "dallas", "at&t stadium", "arlington", "frisco", "jerry jones", "prescott"),
+                     "rangers": ("texas rangers", "globe life", "arlington"),
+                     "mavericks": ("dallas mavericks", "dallas", "american airlines center", "uta", "arlington")}
+
+
+def other_teams_nickname(text: str) -> str:
+    """Another team named like one of ours, with nothing in the story about ours: the other team's marker, or ''."""
+    low = f" {(text or '').lower()} "
+    for nick, others in _OTHER_NICKNAME_TEAMS.items():
+        if not re.search(rf"\b{nick}\b", low):
+            continue
+        hit = next((o for o in others if o in low), "")
+        if hit and not any(re.search(rf"\b{re.escape(m)}\b", low) for m in _OUR_TEAM_MARKERS[nick]):
+            return hit
+    return ""
+
+
 def betting_promo(title: str, summary: str = "") -> bool:
     """'Cowboys vs. Eagles odds, picks, best bets', 'Get almost $4,000 in bonuses from betting apps': a sportsbook pitch
     carries a team name, so the DFW tier would keep it; it is an ad, not news."""
@@ -1114,6 +1136,10 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if betting_promo(story.title, story.summary or ""):
             dropped.append((story, "sports betting picks or promo, not news"))
+            continue
+        twin_team = other_teams_nickname(story.text())
+        if twin_team:
+            dropped.append((story, f"another team with our team's nickname ({twin_team})"))   # the Oklahoma State Cowboys
             continue
         if not story.official and gambling_advertorial(story.title, story.summary or ""):
             dropped.append((story, "a gambling pitch that names no Texas place, not news"))
