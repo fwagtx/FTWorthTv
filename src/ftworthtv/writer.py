@@ -310,6 +310,29 @@ def _join(first: str, second: str) -> str:
     return f"{first}{sep}{second}"
 
 
+# words a feed's ALL-CAPS title glues to its neighbour: Nov 25, the Fort Worth Business Press's "SANDRA BROWN’S NOVEL RAINWATERIN
+# DEVELOPMENT AS NEW STAGEMUSICAL"
+_GLUE_WORDS = {"in", "as", "of", "to", "at", "on", "for", "and", "the", "by", "with", "from", "into", "new", "stage", "show",
+               "film", "book", "novel", "play", "musical", "city", "art", "arts", "home", "music"}
+
+
+def _unglue(text: str, ref_words: set[str]) -> str:
+    """'RAINWATERIN' -> 'RAINWATER IN', 'STAGEMUSICAL' -> 'STAGE MUSICAL': a long word the article never uses that splits into
+    two words it does use (or common short words) lost a space."""
+    out = []
+    for w in text.split():
+        core = re.sub(r"[^A-Za-z]", "", w)
+        low = core.lower()
+        if len(low) >= 7 and low not in ref_words and core.isupper():
+            known = ref_words | _GLUE_WORDS
+            split = next((k for k in range(2, len(low) - 1) if low[:k] in known and low[k:] in known), None)
+            if split:
+                at = w.find(core) + split
+                w = f"{w[:at]} {w[at:]}"
+        out.append(w)
+    return " ".join(out)
+
+
 def _tidy(sentence: str, reference: str = "") -> str:
     """An ALL-CAPS press-release title becomes a sentence: 'HILLWOOD EXPANDS ALLIANCETEXAS ... WITH TWO NEW BUILDINGS' ->
     'Hillwood expands AllianceTexas ... with two new buildings', with every name's casing taken from the article text
@@ -323,11 +346,16 @@ def _tidy(sentence: str, reference: str = "") -> str:
                 tok = tok.rstrip(".'’-&")
                 if tok and any(c.isupper() for c in tok) and tok.lower() not in cased:
                     cased[tok.lower()] = tok
+            ref_words = {w.lower() for w in re.findall(r"[A-Za-z]+", reference)}
+            plain = {w for w in re.findall(r"\b[a-z][a-z]+\b", reference)}     # "a new musical": "new" stays lower case mid-title
             words = []
-            for i, w in enumerate(text.split()):
+            for i, w in enumerate(_unglue(text, ref_words).split()):
                 core = w.strip(",.;:!?\"'()")
                 tail = w[len(core):] if core else ""
-                if core.lower() in cased:
+                poss = re.search(r"['’][sS]$", core)
+                if poss and core[:poss.start()].lower() in cased:   # "BROWN’S" -> "Brown’s" (Nov 25: "Sandra brown’s novel")
+                    words.append(cased[core[:poss.start()].lower()] + core[poss.start():].lower() + tail)
+                elif core.lower() in cased and not (i > 0 and core.lower() in plain):
                     words.append(cased[core.lower()] + tail)
                 elif i == 0:
                     words.append(core.capitalize() + tail)
@@ -837,7 +865,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
                    "events": "concert crowd lights", "food": "Texas barbecue plate", "sports": "football stadium Texas",
                    "culture": "Fort Worth Stockyards", "community": "Fort Worth downtown street", "business": "Fort Worth skyline day",
                    "breaking": "Fort Worth downtown night"}.get(category, "Fort Worth skyline")
-    headline = _tidy(smart_headline(story.title, 110), story.summary or "")
+    headline = team_headline(_tidy(smart_headline(story.title, 110), story.summary or ""), story)
 
     if kind == "nws_alert":
         until = alert_when(story.summary or "", story.extra.get("ends"), now, settings.tz)
@@ -991,6 +1019,22 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
 _SECTION_LABEL_RE = re.compile(r"^(?:(?:Dallas|DFW|Dallas-Fort Worth|North Texas|Fort Worth|Texas|FOX 4|NBC 5|NBC DFW|WFAA|CBS Texas|"
                                r"CBS News Texas|KERA|KXAN|KHOU|KVUE|KENS)\s+)?(?:Weather|Traffic|First Alert|Weather Alert|Weather Live|"
                                r"Weather Update)\s*(?:Live|Update|Alert)?\s*:\s+(?=[A-Z0-9\"“‘'])")
+
+
+# a team's own site writes for its fans: Nov 25, TCU Athletics' "Preview: Fort Myers Tip-Off" named neither TCU nor the sport
+_TEAM_SITE_RE = re.compile(r"^TCU Athletics(?: \(([^)]+)\))?$")
+_TEAM_LABEL_RE = re.compile(r"^(Preview|Recap|Notebook|Notes|Postgame|Pregame|Gameday|Game Day|Quotes|Highlights)\s*[:|–-]\s*", re.I)
+
+
+def team_headline(headline: str, story: Story) -> str:
+    m = _TEAM_SITE_RE.match(story.source or "")
+    if not m or re.search(r"\b(?:tcu|frogs)\b", headline or "", re.I):
+        return headline
+    lead = f"TCU {m.group(1) or ''}".strip()
+    label = _TEAM_LABEL_RE.match(headline)
+    if label:
+        return truncate(f"{lead} {label.group(1).lower()}: {headline[label.end():]}", 110, "")
+    return truncate(f"{lead}: {headline}", 110, "")
 
 
 def strip_section_label(headline: str) -> str:

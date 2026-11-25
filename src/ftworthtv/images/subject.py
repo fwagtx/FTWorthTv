@@ -332,7 +332,8 @@ def entities(title: str, body: str = "") -> list[str]:
         phrase = " ".join(words)
         low = phrase.lower()
         possessive = any(w.endswith(("'s", "’s")) for w in run)
-        acronym = len(words) == 1 and words[0].isupper() and len(words[0]) >= 2 and low not in ACRONYM_STOP
+        # an acronym is short (TCU, NASA, ERCOT): Nov 25, "RAINWATER" (a novel's title in capitals) was searched and would find rain
+        acronym = len(words) == 1 and words[0].isupper() and 2 <= len(words[0]) <= 5 and low not in ACRONYM_STOP
         if re.match(r"^(prop|proposition|measure|amendment|item|district|precinct|zone|lot|phase|section)\b\.? ?[a-z0-9]{0,4}$", low):
             i = max(j, i + 1)                              # "Prop J", "District 61", "Phase 2": a label, never a picture subject
             continue
@@ -345,6 +346,9 @@ def entities(title: str, body: str = "") -> list[str]:
         if seg_start and len(words) == 2 and words[1].lower() in NATIONALITIES:
             i = max(j, i + 1)                              # "Lavish European travel by ...": capitalized for the sentence, then
             continue                                       # a nationality describing the travel; neither names anything
+        if len(words) == 1 and words[0].isupper() and len(words[0]) > 5:
+            i = max(j, i + 1)                              # "RAINWATER": a work's title in capitals, never a picture search
+            continue
         if low in BROADCASTERS and i > 0 and tokens[i - 1].lower() in ("on", "via"):
             i = max(j, i + 1)                              # "Mavs enter NBA Cup matchup on NBC": where it airs, never the picture
             continue
@@ -438,7 +442,13 @@ def full_name(name: str, body: str) -> str:
     firsts = [f for f in found if f.lower() not in STOP and f.lower() not in ADJECTIVES and not _TITLED_RE.match(f"{f} {name}")
               and f.lower() not in ("attorney", "general", "gov", "governor", "sen", "senator", "rep", "mayor", "president", "judge",
                                     "coach", "chief", "commissioner", "sheriff", "officer", "deputy", "lt", "former", "acting")]
-    return f"{max(set(firsts), key=firsts.count)} {name}" if firsts else name
+    if firsts:
+        return f"{max(set(firsts), key=firsts.count)} {name}"
+    # a bare first name takes the surname the story gives: Nov 25, "Sandra brown’s novel ..." searched "Sandra" and found two
+    # strangers at Wikimania; the story says "author Sandra Brown"
+    lasts = [l for l in re.findall(r"\b" + re.escape(name) + r" ([A-Z][a-z]+(?:-[A-Z][a-z]+)?)\b", body or "")
+             if looks_like_person(f"{name} {l}") and not _is_place(f"{name} {l}")]
+    return f"{name} {max(set(lasts), key=lasts.count)}" if lasts and not _is_place(name) else name
 
 
 def _plan_subject(title: str, body: str, category: str) -> SubjectPlan:

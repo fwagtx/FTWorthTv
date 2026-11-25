@@ -239,8 +239,17 @@ _HOLIDAY_SUBJECT_RE = re.compile(r"\b(?:turkey|turkeys|dinner|feast|meal|meals|p
 SUBJECT_ONLY = {"gas", "lottery", "stock-market", "power", "smartphone", "streaming", "gaming", "space", "eclipse"}
 
 
+# Nov 25: KENS 5's "Proposed federal fee could drive up registration costs for Texas electric vehicle owners" (a fee Congress
+# is considering) was drafted with the Texas Capitol's rotunda
+_FEDERAL_RE = re.compile(r"\b(?:congress|congressional|federal|u\.s\. house|u\.s\. senate|white house|washington)\b")
+_STATE_GOV_RE = re.compile(r"\b(?:legislature|texas house|texas senate|state rep|state sen|governor|abbott|state lawmakers|"
+                           r"special session|comptroller|attorney general|paxton)\b")
+
+
 def topic_excluded(topic: str, text: str) -> bool:
     low = (text or "").lower()
+    if topic == "capitol" and _FEDERAL_RE.search(low) and not _STATE_GOV_RE.search(low):
+        return True                  # Congress is not the Texas Capitol
     if topic in ("thanksgiving", "christmas") and _HOLIDAY_AS_TIME_RE.search(low) and not _HOLIDAY_SUBJECT_RE.search(low):
         return True                  # "Gas prices drop ahead of Thanksgiving": the holiday is when, not what (Nov 22)
     return any(p in low for p in TOPIC_EXCLUDE.get(topic, ()))
@@ -267,7 +276,7 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
     if out and out[0] in SUBJECT_ONLY:
         return out[:1]               # a gas-price story gets a gas pump or nothing, never the skyline or the Capitol
     for t in CATEGORY_DEFAULTS.get(category, []) + SCOPE_DEFAULTS.get(scope, SCOPE_DEFAULTS["local"]):
-        if t == "capitol" and category != "politics":
+        if t == "capitol" and (category != "politics" or topic_excluded(t, whole)):
             continue                                   # the Capitol stands for state government, not for "Texas" (a recall, a feature)
         if t not in out and not (elsewhere and t in FORT_WORTH_ONLY) and venue_fits(t, whole, title):
             out.append(t)

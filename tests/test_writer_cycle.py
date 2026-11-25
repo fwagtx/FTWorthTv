@@ -1431,3 +1431,36 @@ def test_a_teaser_that_opens_a_longer_sentence_further_down_is_dropped():
     sents = _sentences(short)
     assert sents[0].startswith("Jane Roe, a Fort Worth teacher")
     assert sents[1].startswith("A jury found Jane Roe not guilty of manslaughter on Friday")   # the full one fits: it is kept
+
+
+def test_an_all_caps_title_with_lost_spaces_and_a_possessive_reads_right():
+    """Nov 25, Fort Worth Business Press: "SANDRA BROWN’S NOVEL RAINWATERIN DEVELOPMENT AS NEW STAGEMUSICAL" became "Sandra
+    brown’s novel rainwaterin development as New stagemusical", and "Sandra" alone was searched (two strangers at Wikimania)."""
+    from ftworthtv.writer import _tidy
+    from ftworthtv.images.subject import plan_subject
+    ref = ("RAINWATER, the historical novel by 77-time New York Times bestselling author Sandra Brown, is being adapted into a new "
+           "musical aimed at Broadway.")
+    head = _tidy("SANDRA BROWN’S NOVEL RAINWATERIN DEVELOPMENT AS NEW STAGEMUSICAL", ref)
+    assert head == "Sandra Brown’s novel RAINWATER in development as new stage musical"
+    assert _tidy("HILLWOOD EXPANDS ALLIANCETEXAS WITH TWO NEW BUILDINGS", "Hillwood is expanding AllianceTexas with two new buildings.") \
+        == "Hillwood expands AllianceTexas with two new buildings"
+    assert plan_subject(head, ref, "culture").search_names == ["Sandra Brown"]          # never "Sandra", never "RAINWATER"
+    assert plan_subject("Sandra brown’s novel rainwaterin development", ref, "culture").search_names[0] == "Sandra Brown"
+
+
+def test_a_team_sites_headline_names_the_team():
+    """Nov 25: TCU Athletics' "Preview: Fort Myers Tip-Off" named neither TCU nor the sport."""
+    from ftworthtv.models import Story
+    from ftworthtv.writer import team_headline
+    st = Story(id="x", source="TCU Athletics (women's basketball)", source_kind="rss", title="Preview: Fort Myers Tip-Off", summary="", url="u")
+    assert team_headline("Preview: Fort Myers Tip-Off", st) == "TCU women's basketball preview: Fort Myers Tip-Off"
+    assert team_headline("Horned Frogs top Baylor 70-62", st) == "Horned Frogs top Baylor 70-62"
+
+
+def test_congress_is_not_the_texas_capitol():
+    """Nov 25: KENS 5's federal EV fee story was drafted with the Texas Capitol's rotunda."""
+    from ftworthtv.images.library import topics_for
+    t = "Proposed federal fee could drive up registration costs for Texas electric vehicle owners"
+    assert "capitol" not in topics_for(f"{t}. Congress is considering a $130 annual fee for fully electric vehicles.", "politics", "texas", title=t)
+    assert "capitol" in topics_for("Texas lawmakers file bill to cut property taxes", "politics", "texas",
+                                   title="Texas lawmakers file bill to cut property taxes")
