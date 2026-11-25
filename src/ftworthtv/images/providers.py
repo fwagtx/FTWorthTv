@@ -468,7 +468,10 @@ _EVENT_PHOTO_RE = re.compile(r"\b(?:grand opening|ribbon[- ]cutting|groundbreaki
                              r"unveiling|parade|festival)\b", re.I)
 _PLACE_STOP = {"the", "a", "an", "of", "at", "in", "on", "and", "for", "with", "by", "to", "from", "jpg", "jpeg", "png", "file",
                "photo", "grand", "opening", "ribbon", "cutting", "groundbreaking", "ground", "breaking", "ceremony", "dedication",
-               "day", "unveiling", "parade", "festival", "new", "store", "shop", "celebrates", "celebration", "held", "hosts"}
+               "day", "unveiling", "parade", "festival", "new", "store", "shop", "celebrates", "celebration", "held", "hosts",
+               # what a picture of a store shows, not where it is: "Toys R Us storefront" names no other place
+               "storefront", "exterior", "interior", "entrance", "front", "facade", "sign", "signage", "building", "inside",
+               "outside", "aisle", "aisles", "display", "displays", "shelves", "department", "location", "outlet"}
 
 
 # a file that opens with a person's name is a portrait of that person: Nov 25, "Annie E. Andrews, Esquire American Lawyer and
@@ -496,9 +499,20 @@ def unnamed_person_photo(title: str, query: str, story_text: str) -> bool:
     return last.lower() not in low
 
 
+# an opening is one place: Nov 24, "Toys R Us department in Macy's Center City Philadelphia" went out for the Toys "R" Us pop-up
+# that opened at Tanger Outlets Fort Worth. For a story about a store, restaurant or branch opening, a file titled with somewhere
+# the story never names is another location of the brand.
+_OPENING_STORY_RE = re.compile(r"\b(?:opens?|opened|opening|debuts?|debuted|reopens?|reopened|unveils?|unveiled|launch(?:es|ed)?)\b"
+                               r"[^.]{0,60}?\b(?:store|shop|pop-?up|location|restaurant|branch|outlet|bar|cafe|café|eatery|taproom|"
+                               r"brewery|gym|clinic|dealership|showroom|market|grocery|supermarket|boutique|bakery|diner|salon|"
+                               r"headquarters|hq|office|campus|warehouse|plant|factory|center)\b|\bpop-?up (?:store|shop)\b|"
+                               r"\bnew location\b|\bnow open\b", re.I)
+
+
 def other_event_photo(titled: str, query: str, story_text: str) -> bool:
-    """The file shows a named event ("grand opening") somewhere the story never mentions."""
-    if not story_text or not _EVENT_PHOTO_RE.search(titled):
+    """The file shows a named event ("grand opening") somewhere the story never mentions, or, for a story about something
+    opening, another location of the same brand."""
+    if not story_text or not (_EVENT_PHOTO_RE.search(titled) or _OPENING_STORY_RE.search(story_text[:300])):
         return False
     subject = set(re.findall(r"[a-z0-9]+", (query or "").lower()))
     words = {w for w in re.findall(r"[a-z]{3,}", titled.lower()) if w not in _PLACE_STOP and w not in subject}

@@ -248,6 +248,13 @@ DEMONYM_RE = re.compile(r"^(?:(?:north|south|east|west|central|north central|nor
                         r"fort worthians|dallasites|tarrant countians|arlingtonians|texas residents|north texas residents)$")
 
 
+# a network a game or show airs on is not what the story is about (Nov 24: "Mavs enter NBA Cup matchup on NBC ..." searched "NBC")
+BROADCASTERS = {"nbc", "espn", "espn2", "abc", "cbs", "fox", "fs1", "tnt", "tbs", "prime video", "amazon prime", "prime", "peacock",
+                "netflix", "max", "hbo max", "bally sports", "nbc 5", "fox 4", "cbs 11", "cbs news texas", "wfaa", "kera", "nfl network",
+                "nba tv", "mlb network", "big ten network", "sec network", "acc network", "youtube", "youtube tv", "apple tv",
+                "paramount+", "the cw", "cw", "telemundo", "univision", "kxas", "kdfw", "ktvt", "nbcsn", "truTV".lower()}
+
+
 def entities(title: str, body: str = "") -> list[str]:
     """Named subjects in a headline: runs of capitalised words, kept when they are more than one word, possessive, an
     acronym, or appear capitalised again mid-sentence in the body (so 'Largest enrollment drop' names nothing, while
@@ -307,6 +314,9 @@ def entities(title: str, body: str = "") -> list[str]:
         if any(h in low for h in HONORS):
             i = max(j, i + 1)                              # "Hall of Fame broadcaster Tom Jackson": an honor, not a subject (Nov 22:
             continue                                       # "Hall of Fame" found another man at a hall of fame induction)
+        if low in BROADCASTERS and i > 0 and tokens[i - 1].lower() in ("on", "via"):
+            i = max(j, i + 1)                              # "Mavs enter NBA Cup matchup on NBC": where it airs, never the picture
+            continue
         keep = bool(words) and low not in STOP and low not in ACRONYM_STOP and low not in COMMON_NOUNS and low not in ADJECTIVES and not DEMONYM_RE.match(low) and (
             len(words) > 1 or possessive or acronym or low in body_mid or _known_subject(low) or not seg_start and low not in STOP)
         # a lone capitalised word that opens a segment ("Made in Tarrant: Gobble up barbecue ...") is capitalised for the

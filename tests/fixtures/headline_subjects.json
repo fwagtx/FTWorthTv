@@ -36,13 +36,13 @@
  },
  {
   "title": "Cooper Flagg scores 33 as Mavs keep Warriors winless since Curry's injury",
-  "body": "",
+  "body": "The Mavericks hosted the Warriors at American Airlines Center.",
   "category": "sports",
   "mode": "entity",
   "topics": [
    "aac"
   ],
-  "lesson": "the team's arena stands in for a player"
+  "lesson": "the team's arena stands in for a player; Nov 25 review: only at a home game, which the text has to say (the Mavs' NBA Cup game in Denver went out with the American Airlines Center)"
  },
  {
   "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
@@ -201,7 +201,7 @@
  },
  {
   "title": "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100",
-  "body": "Kyrie Irving scored 25 points and Cooper Flagg had 22 points.",
+  "body": "Kyrie Irving scored 25 points and Cooper Flagg had 22 points as the Mavericks hosted the Clippers.",
   "category": "sports",
   "mode": "entity",
   "topics": [
@@ -360,5 +360,32 @@
    "att-stadium"
   ],
   "lesson": "Nov 23 (review Nov 24): a team's stadium is not a picture of a blood drive held there"
+ },
+ {
+  "title": "Mavs enter NBA Cup matchup on NBC with eye on building foundation for success",
+  "body": "Dallas is in position to qualify for the knockout rounds of the midseason tournament with a game against Denver looming. Dallas (10-7) sits atop the West Group A standings with a 2-0 record entering Tuesday's nationally televised matchup against the Denver Nuggets (10-5), who are also undefeated in group play at 2-0.",
+  "category": "sports",
+  "mode": "search",
+  "not_topics": [
+   "aac"
+  ],
+  "not_fallback": [
+   "aac"
+  ],
+  "not_search": [
+   "NBC"
+  ],
+  "lesson": "Nov 24 (review Nov 25): the game was in Denver and the post went out with the American Airlines Center; a game story gets the home venue only when the text says it is played there (names it, the team hosts, 'X visits/at <team>', a home-city wire dateline), and 'on NBC' is where it airs, never a search"
+ },
+ {
+  "title": "Iconic toy retailer Toys 'R' Us opens holiday pop-up store in Fort Worth",
+  "body": "Beloved toy store Toys \"R\" Us has debuted a pop-up shop in Fort Worth for the 2026 holiday season. According to a release, a Toys \"R\" Us store has opened at Tanger Outlets Fort Worth, 15853 N Fwy., Ste. 1140, in far north Fort Worth.",
+  "category": "business",
+  "mode": "search",
+  "rejected_photos": [
+   "Toys R Us department in Macy's Center City Philadelphia",
+   "NEX Atsugi Toys R Us Grand Opening"
+  ],
+  "lesson": "Nov 24 (review Nov 25): an opening is one place; another location of the brand (a Toys R Us department in a Philadelphia Macy's) is not the store that opened at Tanger Outlets Fort Worth"
  }
 ]

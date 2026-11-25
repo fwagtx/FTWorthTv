@@ -75,8 +75,21 @@ def test_a_venue_is_a_picture_for_a_game_never_for_a_coaching_story():
     coaching = topics_for("Parker disappointed Cowboys pulled play-calling duties, but keeps focus on team. Christian Parker lost the duties Friday.",
                           "sports", "local", title="Parker disappointed Cowboys pulled play-calling duties, but keeps focus on team")
     assert "att-stadium" not in coaching
-    game = topics_for("Cowboys beat the Eagles 24-17 on Sunday.", "sports", "local", title="Cowboys beat the Eagles 24-17")
+    game = topics_for("Cowboys beat the Eagles 24-17 on Sunday at AT&T Stadium.", "sports", "local", title="Cowboys beat the Eagles 24-17")
     assert "att-stadium" in game
+    # Nov 24: NBC 5's Mavs NBA Cup preview went out with the American Airlines Center; the game was in Denver. A story that does
+    # not say where the game is played gets no home venue.
+    unknown = topics_for("Cowboys beat the Eagles 24-17 on Sunday.", "sports", "local", title="Cowboys beat the Eagles 24-17")
+    assert "att-stadium" not in unknown
+    t = "Mavs enter NBA Cup matchup on NBC with eye on building foundation for success"
+    mavs = topics_for(f"{t}. Dallas sits atop the West Group A standings entering Tuesday's nationally televised matchup against "
+                      "the Denver Nuggets.", "sports", "dfw", title=t)
+    assert "aac" not in mavs
+    hosts = topics_for("Mavericks host the Nuggets on Tuesday in the NBA Cup.", "sports", "dfw", title="Mavericks host the Nuggets in NBA Cup")
+    assert "aac" in hosts
+    wire = topics_for("Mavericks beat Nuggets 120-110. DENVER (AP) — Dallas won its third straight.", "sports", "dfw",
+                      title="Mavericks beat Nuggets 120-110")
+    assert "aac" not in wire
     itself = topics_for("Dickies Arena adds a second entrance ahead of the stock show.", "community", "local", title="Dickies Arena adds a second entrance")
     assert itself[0] == "dickies-arena"
 

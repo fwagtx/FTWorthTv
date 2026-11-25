@@ -157,6 +157,15 @@ VENUE_NAMES = {"att-stadium": ("at&t stadium",), "globe-life-field": ("globe lif
                "texas-am": ("kyle field",)}
 _VENUE_RE = re.compile(r"\b((?:[A-Z][\w&.'’-]*\s+){1,3}(?:Stadium|Arena|Field|Ballpark|Coliseum|Speedway))\b")
 _AWAY_RE = re.compile(r"\b(?:visit|visits|visiting|travel to|travels to|traveling to|head to|heads to|road game|road trip|on the road|away game)\b", re.I)
+# what says a game is at the team's own venue: a story that only names the opponent says nothing about where it is played (Nov 24,
+# NBC 5's "Mavs enter NBA Cup matchup on NBC ..." went out with the American Airlines Center; the game was in Denver)
+_HOME_RE = re.compile(r"\b(?:host|hosts|hosted|hosting|home game|home games|home opener|home finale|at home|return home|returns home|"
+                      r"back home|home crowd|home fans|home stand|homestand|senior night|senior day)\b", re.I)
+# a wire recap's dateline is where the game was: "DENVER (AP) — ..."
+_DATELINE_CITY_RE = re.compile(r"\b([A-Z][A-Z .'’-]{2,30}?)\s*\((?:AP|AFP|Reuters)\)\s*[—–-]")
+HOME_CITIES = {"att-stadium": ("arlington",), "globe-life-field": ("arlington",), "aac": ("dallas",), "tcu-football": ("fort worth",),
+               "texas-am": ("college station",), "toyota-stadium": ("frisco",), "nrg-stadium": ("houston",),
+               "dickies-arena": ("fort worth",), "texas-motor-speedway": ("fort worth",)}
 
 
 def clean_credit(credit: str) -> str:
@@ -174,7 +183,8 @@ _GAME_RE = re.compile(r"\b(?:vs\.?|versus|beat|beats|defeat|defeats|win|wins|won
 def venue_fits(topic: str, text: str, title: str | None = None) -> bool:
     """A team name brings its home venue only for a game there: never for a coaching, roster or contract story ("Parker
     disappointed Cowboys pulled play-calling duties"), never when the text names another stadium or says the team is on
-    the road. The venue named in the headline is always its own picture."""
+    the road, and only when the text says the game is at home (it names the venue, the team hosts, "X visits/at <team>",
+    or a wire dateline from the home city). The venue named in the headline is always its own picture."""
     names = VENUE_NAMES.get(topic)
     if not names:
         return True
@@ -187,10 +197,21 @@ def venue_fits(topic: str, text: str, title: str | None = None) -> bool:
     if any(n in low for n in names):
         return True
     others = [v for v in _VENUE_RE.findall(text or "") if not any(n in v.lower() for n in names)]
-    away = _AWAY_RE.search(text or "")
-    if away and any(w in low[away.end():away.end() + 40] for w in HOME_TEAMS.get(topic, ())):
-        away = None                                              # "Utah visits TCU": the visitor is the other team
-    return not others and not away
+    away = bool(_AWAY_RE.search(text or ""))
+    home = bool(_HOME_RE.search(text or ""))
+    teams = HOME_TEAMS.get(topic, ())
+    for m in _AWAY_RE.finditer(text or ""):
+        if any(w in low[m.end():m.end() + 40] for w in teams):
+            away, home = False, True                             # "Utah visits TCU": the visitor is the other team
+    if any(re.search(r"\bat (?:the )?" + re.escape(w) + r"\b", low) for w in teams):
+        home = True                                              # "Nuggets at Mavericks"
+    dateline = _DATELINE_CITY_RE.search(text or "")
+    if dateline:
+        if dateline.group(1).strip().lower() in HOME_CITIES.get(topic, ()):
+            home = True
+        else:
+            away = True                                          # "DENVER (AP) —": the game was there
+    return not others and not away and home
 
 
 # the team that plays at each venue topic, so "Utah visits TCU" reads as a home game

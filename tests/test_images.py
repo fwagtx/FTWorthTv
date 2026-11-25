@@ -322,6 +322,13 @@ def test_another_places_grand_opening_is_not_this_one(settings, monkeypatch):
     story = "Iconic toy retailer Toys 'R' Us opens only standalone store in Fort Worth, at Tanger Outlets Fort Worth."
     assert providers.find_photo([("Toys R Us", (), ("toys r us",))], settings, fallback=False, story_text=story) is store
     assert providers.find_photo([("Toys R Us", (), ("toys r us",))], settings, fallback=False) is navy   # no story text: unchanged
+    # Nov 24 (review Nov 25): the next file, "Toys R Us department in Macy's Center City Philadelphia", went out; an opening is
+    # one place, and another location of the brand is not it
+    macys = providers.PhotoCandidate(id="commons-9", url="https://x/c.jpg", credit="c", license="wikimedia-cc", provider="wikimedia",
+                                     source_url="https://commons.wikimedia.org/wiki/File:Toys_R_Us_department_in_Macy%27s_Center_City_Philadelphia.jpg",
+                                     title="Toys R Us department in Macy's Center City Philadelphia")
+    monkeypatch.setattr(providers, "_search_each", lambda q, s: iter([[navy, macys, store]]))
+    assert providers.find_photo([("Toys R Us", (), ("toys r us",))], settings, fallback=False, story_text=story) is store
 
 
 def test_a_newsroom_photo_needs_a_named_photographer():

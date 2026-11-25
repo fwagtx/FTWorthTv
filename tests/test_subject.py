@@ -81,6 +81,12 @@ def test_headline_lessons_fixture():
             assert name in plan.search_names, (row["title"], plan.search_names)
         for name in row.get("not_search", []):
             assert name not in plan.search_names, (row["title"], plan.search_names, row["lesson"])
+        for photo_title in row.get("rejected_photos", []):   # a found file the photo filters must refuse for this story
+            from ftworthtv.images.providers import other_event_photo, unnamed_person_photo
+            q = (plan.search_names or [""])[0]
+            story_text = f"{row['title']} {row.get('body', '')}"
+            assert other_event_photo(photo_title, q, story_text) or unnamed_person_photo(photo_title, q, story_text), \
+                (row["title"], photo_title, row["lesson"])
         if "happened" in row:                      # an event: no library stand-in, a picture of it or a text card
             from ftworthtv.images.subject import happened
             assert happened(row["title"]) == row["happened"], (row["title"], row["lesson"])

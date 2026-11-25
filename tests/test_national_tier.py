@@ -89,7 +89,7 @@ def test_photo_topic_from_body_mentions_is_title_only():
     from ftworthtv.images.library import topics_for
     text = "These are the 14 best things to do in Fort Worth this weekend. The weekend before Thanksgiving brings holiday events."
     assert topics_for(text, "community", "local", title="These are the 14 best things to do in Fort Worth this weekend")[0] != "thanksgiving"
-    assert topics_for("Cooper Flagg scores 33 as Mavs keep Warriors winless. A lawsuit was mentioned somewhere.", "sports", "dfw",
+    assert topics_for("Cooper Flagg scores 33 as Mavs keep Warriors winless. The Mavericks hosted the Warriors. A lawsuit was mentioned somewhere.", "sports", "dfw",
                       title="Cooper Flagg scores 33 as Mavs keep Warriors winless")[0] == "aac"
 
 
