@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-164306/01-hexed-cause-it-s-witchcraft/post.jpg",
+    "credit": "Photo: Michael Barera via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth_Stockyards_June_2016_04_(The_Cantina_Cadillac).jpg",
+    "photo_id": "commons-49487556",
+    "subject": "beat:Fort Worth Stockyards"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-164306/01-hexed-cause-it-s-witchcraft/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "Hexed: ’Cause It’s Witchcraft",
+    "caption": "From Snow White and the Seven Dwarves all the way to Tangled, it’s a whole bunch of evil older women using the dark arts to wreak havoc on innocent young heroines.",
+    "first_comment": "Source: Fort Worth Weekly https://www.fwweekly.com/2026/11/25/hexed-cause-its-witchcraft/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "404eb7dd9708b41e",
+    "source": "Fort Worth Weekly",
+    "source_kind": "rss",
+    "title": "Hexed: ’Cause It’s Witchcraft",
+    "summary": "You could argue that Disney has done more than any established religion to demonize witches during the past 100 years. From Snow White and the Seven Dwarves all the way to Tangled, it’s a whole bunch of evil older women using the dark arts to wreak havoc on innocent young heroines. But the Mouse House…",
+    "url": "https://www.fwweekly.com/2026/11/25/hexed-cause-its-witchcraft/",
+    "published": "2026-11-25T21:46:28+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: Fort Worth Weekly",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Fort Worth Weekly",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "culture",
+    "relevance": 0,
+    "score": 0.6277
+  }
+}
