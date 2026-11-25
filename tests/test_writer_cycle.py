@@ -1409,3 +1409,25 @@ def test_a_lead_that_adds_more_than_it_shares_is_not_a_restatement():
     lead = ("Nearly three years after an explosion injured 21 people, Fort Worth’s Sandman Signature Hotel is preparing to reopen "
             "at the end of December with a renovated lobby, restaurant and guest rooms.")
     assert not _similar(t, lead)
+
+
+def test_a_teaser_that_opens_a_longer_sentence_further_down_is_dropped():
+    """Nov 25, CBS News Texas: the feed's teaser ("On Friday, Nov. 20, a Tarrant County Jury found ... not guilty of murder.")
+    came first, then the article's lead, then the teaser's sentence in full; the caption said the verdict twice."""
+    text = ("On Friday, Nov. 20, a Tarrant County Jury found Christopher Jerome Blanton Jr., 30, who performs under the name C'ing Jerome, "
+            "not guilty of murder. November 25, 2026 / 6:43 AM CST / CBS Texas A country hip-hop artist has been acquitted of murder in the "
+            "shooting death of a man during a 2025 traffic encounter in Fort Worth, according to court documents. On Friday, Nov. 20, a Tarrant "
+            "County Jury found Christopher Jerome Blanton Jr., 30, who performs under the name C'ing Jerome, not guilty of murder and not guilty "
+            "of two counts of aggravated assault in the killing of 32-year-old Cody Scott. The incident happened near East Berry Street and "
+            "South Edgewood Terrace in Fort Worth in August 2025.")
+    sents = _sentences(text)
+    assert sents[0].startswith("A country hip-hop artist has been acquitted")
+    # the full verdict sentence is too long to post, so the teaser (the editor's own short form) stands in for it, in its place
+    assert sents[1] == ("On Friday, Nov. 20, a Tarrant County Jury found Christopher Jerome Blanton Jr., 30, who performs under the name "
+                        "C'ing Jerome, not guilty of murder.")
+    assert sum("not guilty of murder" in s for s in sents) == 1
+    short = ("A jury found Jane Roe not guilty. Jane Roe, a Fort Worth teacher, was charged after the 2024 crash on Interstate 30. "
+             "A jury found Jane Roe not guilty of manslaughter on Friday after two hours of deliberation. Her lawyer thanked the jurors.")
+    sents = _sentences(short)
+    assert sents[0].startswith("Jane Roe, a Fort Worth teacher")
+    assert sents[1].startswith("A jury found Jane Roe not guilty of manslaughter on Friday")   # the full one fits: it is kept

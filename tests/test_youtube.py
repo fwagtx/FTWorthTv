@@ -112,3 +112,17 @@ def test_a_channels_boilerplate_is_cut_from_the_description_and_a_conviction_is_
     stories = parse_feed({"name": "FOX 4 Dallas-Fort Worth", "always_relevant": True}, atom, now_utc + timedelta(hours=1), {"max_age_hours": 12})
     assert len(stories) == 1 and "weather" not in stories[0].summary
     assert infer_category(stories[0]) == "crime"
+
+
+def test_a_north_texas_person_is_ours_only_when_the_description_names_our_side():
+    """Nov 25: WFAA's "North Texas woman will return to the Macy's Thanksgiving Day Parade years after participating" named no
+    town; a person from North Texas is from anywhere in the region."""
+    from ftworthtv.sources.youtube import wanted_title
+    station = {"name": "WFAA", "title_must_name_place": True}
+    title = "North Texas woman will return to the Macy's Thanksgiving Day Parade years after participating"
+    assert not wanted_title(station, title, {}, "A North Texas woman will return to the Macy's Thanksgiving Day Parade years after "
+                                                "participating as a high schooler.")
+    assert wanted_title(station, title, {}, "The Keller woman marched with her high school band in 1998.")
+    assert not wanted_title(station, "North Texas high school student wins national science prize", {}, "")
+    assert wanted_title(station, "North Texas braces for first hard freeze of the season", {}, "")     # the region itself still counts
+    assert wanted_title(station, "DFW gas prices drop ahead of Thanksgiving travel | FOX 4", {}, "")

@@ -48,30 +48,44 @@ def place_text(title: str) -> str:
 
 
 REGIONAL_WORDS = ("dfw", "dallas-fort worth", "dallas/fort worth", "north texas", "metroplex")
+# a person "from North Texas" is from anywhere in a 13-county region: Nov 25, WFAA's "North Texas woman will return to the Macy's
+# Thanksgiving Day Parade years after participating" named no town in its title or description. The region's name as where a
+# person is from does not make a station's video Fort Worth news; the description has to name our side.
+_REGIONAL_PERSON_RE = re.compile(
+    r"\b(?:north texas|dfw|metroplex|dallas-fort worth|dallas/fort worth)(?:-area| area)?\s+(?:[a-z0-9'-]+\s+){0,2}?"
+    r"(?:wom[ae]n|m[ae]n|teens?|teenagers?|girls?|boys?|famil(?:y|ies)|couples?|students?|moms?|mothers?|dads?|fathers?|veterans?|"
+    r"natives?|grand(?:mother|ma|father|pa|parents?)s?|child(?:ren)?|kids?|toddlers?|bab(?:y|ies)|nurses?|teachers?|doctors?|"
+    r"artists?|athletes?|chefs?|residents?|singers?|musicians?|dancers?|players?|coach(?:es)?|bands?|choirs?|pastors?|officers?|"
+    r"firefighters?|owners?|entrepreneurs?|siblings|brothers?|sisters?|twins|high schoolers?|retirees?|volunteers?|survivors?|"
+    r"patients?|graduates?|grads?|sons?|daughters?|husbands?|wi(?:fe|ves)|neighbors?|friends?)\b", re.I)
 
 
-def names_our_place(title: str) -> bool:
+def names_our_place(title: str, desc: str = "") -> bool:
     """A Tarrant-side place, or the region as a whole; but a title whose subject is Dallas ("The Dallas Foundation awards
-    ... to North Texas nonprofits") does not become ours because it also says North Texas."""
+    ... to North Texas nonprofits") does not become ours because it also says North Texas, and "a North Texas woman" is
+    ours only when the description says she is from our side."""
     text = place_text(title).lower()
     if any(p in text for p in PLACE_WORDS if p not in REGIONAL_WORDS):
         return True
     if not any(p in text for p in REGIONAL_WORDS):
         return False
+    if _REGIONAL_PERSON_RE.search(text):
+        low_desc = (desc or "").lower()
+        return any(p in low_desc for p in PLACE_WORDS if p not in REGIONAL_WORDS)
     stripped = text
     for p in REGIONAL_WORDS:
         stripped = stripped.replace(p, " ")
     return re.search(r"\bdallas\b", stripped) is None
 
 
-def wanted_title(cfg: dict, title: str, global_cfg: dict | None = None) -> bool:
+def wanted_title(cfg: dict, title: str, global_cfg: dict | None = None, desc: str = "") -> bool:
     """The per-channel caution: a station's video must name the place in its own title; a team's video must be a result,
     highlights or a move; hours-long recordings and filler never qualify."""
     low = title.lower()
     skip = list((global_cfg or {}).get("skip_in_title", []) or []) + list(cfg.get("skip_in_title", []) or [])
     if any(s in low for s in SKIP_TITLE) or any(str(s).lower() in low for s in skip):
         return False
-    if cfg.get("title_must_name_place") and not names_our_place(low):
+    if cfg.get("title_must_name_place") and not names_our_place(low, desc):
         return False
     need = cfg.get("require_any_in_title")
     if need and not any(str(w).lower() in low for w in need):
@@ -102,10 +116,10 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime, global_cfg: dict 
     for entry in root.findall("a:entry", NS):
         vid = (entry.findtext("yt:videoId", default="", namespaces=NS) or "").strip()
         title = collapse_ws(entry.findtext("a:title", default="", namespaces=NS) or "")
-        if not vid or not title or not wanted_title(cfg, title, global_cfg):
-            continue
         group = entry.find("media:group", NS)
         desc = description_lead(group.findtext("media:description", default="", namespaces=NS) or "") if group is not None else ""
+        if not vid or not title or not wanted_title(cfg, title, global_cfg, desc):
+            continue
         thumb = None
         if group is not None:
             t = group.find("media:thumbnail", NS)
