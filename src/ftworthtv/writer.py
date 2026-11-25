@@ -512,7 +512,10 @@ def _story_start(text: str) -> str:
 
 
 # a long sentence's trailing participle phrase is detail: ", kicking off Thanksgiving week and celebrating the annual ..."
-_TRAILING_PHRASE_RE = re.compile(r",\s+(?!according\b)(?:[a-z]{3,}ing|which|while|as well as|along with)\b")
+_TRAILING_PHRASE_RE = re.compile(r",\s+(?!according\b)(?:[a-z]{3,}ing|which|while|as well as|along with|tucked|located|nestled|"
+                                  r"housed|situated|perched|known for|famous for)\b")
+# Nov 25, Texas Tribune: "... stayed at an ABBA-themed luxury boutique hotel in Stockholm, tucked inside the same building as a
+# museum dedicated to the Swedish pop band." ran five characters over the limit and the lede was dropped
 _REPORTING_END_RE = re.compile(r"\b(?:said|says|told|announced|reported|added|explained|wrote)(?:\s+\w+){0,2}$", re.I)
 # Nov 24, NBC 5: "As North Texans hit the roads for Thanksgiving meals, Black Friday shopping and weekend outings, avoiding the
 # region's busiest routes may be inevitable; ..." was cut to its "As ..." clause. A head that opens with a subordinating word
@@ -701,6 +704,9 @@ def _similar(a: str, b: str) -> bool:
     if not sa or not sb:
         return False
     shared = len(sa & sb)
+    if len(sb - sa) >= max(5, len(sa)):
+        return False      # Nov 25: "Nearly three years after an explosion injured 21 people, ... preparing to reopen at the end of
+                          # December with a renovated lobby" under "First look inside ... Sandman Signature Hotel": it adds, not restates
     return shared >= max(3, 0.6 * min(len(sa), len(sb)))
 
 
@@ -723,8 +729,9 @@ def dallas_caption(story: Story, settings: Settings, now: datetime, category: st
     if kind == "video":                      # a YouTube link post: WATCH line, the channel's own first sentence, the credit
         channel = x.get("channel") or story.source
         lead = _first_sentence(story.summary or "", 200)
-        parts = [f"WATCH: {truncate(story.title, 140, '')}"]
-        if lead and not _similar(story.title, lead):
+        title = video_title(story.title)
+        parts = [f"WATCH: {truncate(title, 140, '')}"]
+        if lead and not _similar(title, lead):
             parts.append(lead)
         parts.append(f"Video: {channel} on YouTube")
         return parts
@@ -892,8 +899,9 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
     elif kind == "video":
         channel = story.extra.get("channel") or story.source
         lead = _first_sentence(story.summary or "", 200)
-        lines = [f"WATCH: {truncate(story.title, 140, '')}"] + ([lead] if lead and not _similar(story.title, lead) else []) + [f"Video: {channel} on YouTube"]
-        headline = truncate(story.title, 110, "")
+        title = video_title(story.title)
+        lines = [f"WATCH: {truncate(title, 140, '')}"] + ([lead] if lead and not _similar(title, lead) else []) + [f"Video: {channel} on YouTube"]
+        headline = truncate(title, 110, "")
         first_comment = f"Source: {channel} on YouTube {story.url}"
     elif kind == "reddit":
         lines = ["Trending on r/FortWorth 👀", truncate(story.title, 140), f"📍 {location}", cta]
@@ -1140,6 +1148,13 @@ def passed_window(caption: str, now_local: datetime) -> str:
         if now_local > now_local.replace(hour=hour, minute=int(m.group(4) or 0), second=0, microsecond=0):
             return m.group(0)
     return ""
+
+
+def video_title(title: str) -> str:
+    """A station's video title ends with its channel tag or show name: Nov 25, "First look inside Fort Worth's Sandman
+    Signature Hotel ahead of reopening after explosion | NBC DFW". The caption names the channel on its own line."""
+    head, sep, tail = (title or "").rpartition(" | ")
+    return head.strip() if sep and head.strip() and len(tail.split()) <= 4 else (title or "")
 
 
 def only_tail_places(head: str, tail: str) -> bool:

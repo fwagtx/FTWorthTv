@@ -322,3 +322,20 @@ def test_another_places_grand_opening_is_not_this_one(settings, monkeypatch):
     story = "Iconic toy retailer Toys 'R' Us opens only standalone store in Fort Worth, at Tanger Outlets Fort Worth."
     assert providers.find_photo([("Toys R Us", (), ("toys r us",))], settings, fallback=False, story_text=story) is store
     assert providers.find_photo([("Toys R Us", (), ("toys r us",))], settings, fallback=False) is navy   # no story text: unchanged
+
+
+def test_a_newsroom_photo_needs_a_named_photographer():
+    """Nov 25, render 226: a former agency head's headshot in a Texas Tribune graphic came with no credit line."""
+    from datetime import datetime, timezone
+    from ftworthtv.models import Story
+    from ftworthtv.images import named_credit
+    st = Story(id="t", source="The Texas Tribune", source_kind="rss", title="x", summary="", url="https://x", published=datetime.now(timezone.utc))
+    st.extra["page_credit"] = ""
+    assert not named_credit(st)
+    st.extra["page_credit"] = "The Texas Tribune"
+    assert not named_credit(st)
+    st.extra["page_credit"] = "Michael Cavazos for The Texas Tribune"
+    assert named_credit(st)
+    st2 = Story(id="r", source="Fort Worth Report", source_kind="rss", title="x", summary="", url="https://x", published=datetime.now(timezone.utc))
+    st2.extra["page_credit"] = "Maria Crane | Fort Worth Report"
+    assert named_credit(st2)

@@ -1374,3 +1374,38 @@ def test_a_pages_photo_caption_is_not_part_of_the_story():
                              "general election held on Nov. 3."]
     keep = "Mayor Mattie Parker (center) cut the ribbon on Tuesday at the new library branch in east Fort Worth, city officials said."
     assert _sentences(keep) == [keep]
+
+
+def test_a_video_titles_channel_tag_is_dropped():
+    """Nov 25, render 226: "... ahead of reopening after explosion | NBC DFW" in the WATCH line."""
+    from ftworthtv.writer import video_title
+    assert video_title("First look inside Fort Worth's Sandman Signature Hotel ahead of reopening after explosion | NBC DFW") == \
+        "First look inside Fort Worth's Sandman Signature Hotel ahead of reopening after explosion"
+    assert video_title("Rangers | Astros | Mariners: the AL West in 2027 and beyond, a long title") .endswith("beyond, a long title")
+
+
+def test_a_tucked_phrase_is_a_trailing_phrase():
+    """Nov 25, render 226: the Texas Tribune's lede about an ABBA-themed hotel ran five characters over and was dropped."""
+    s = ("For three nights in June, Texas Juvenile Justice Department’s former executive director stayed at an ABBA-themed luxury "
+         "boutique hotel in Stockholm, tucked inside the same building as a museum dedicated to the Swedish pop band.")
+    assert _sentences(s) == ["For three nights in June, Texas Juvenile Justice Department’s former executive director stayed at an "
+                             "ABBA-themed luxury boutique hotel in Stockholm."]
+
+
+def test_a_video_posts_watch_line_has_no_channel_tag(settings):
+    from datetime import datetime, timezone
+    from ftworthtv.writer import write_copy
+    st = Story(id="v1", source="NBC 5 DFW", source_kind="video", url="https://www.youtube.com/watch?v=x", published=datetime.now(timezone.utc),
+               title="First look inside Fort Worth's Sandman Signature Hotel ahead of reopening after explosion | NBC DFW",
+               summary="Nearly three years after an explosion injured 21 people, Fort Worth’s Sandman Signature Hotel is preparing to reopen.")
+    st.category = "breaking"
+    copy, _ = write_copy(st, settings, datetime.now(timezone.utc), force_template=True)
+    assert copy.caption.startswith("WATCH: First look inside Fort Worth's Sandman Signature Hotel ahead of reopening after explosion\n")
+
+
+def test_a_lead_that_adds_more_than_it_shares_is_not_a_restatement():
+    from ftworthtv.writer import _similar
+    t = "First look inside Fort Worth's Sandman Signature Hotel ahead of reopening after explosion"
+    lead = ("Nearly three years after an explosion injured 21 people, Fort Worth’s Sandman Signature Hotel is preparing to reopen "
+            "at the end of December with a renovated lobby, restaurant and guest rooms.")
+    assert not _similar(t, lead)

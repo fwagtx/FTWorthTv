@@ -116,6 +116,16 @@ _THIRD_PARTY_RE = re.compile(r"\b(courtesy|rendering|renderings|getty|ap photo|a
 _WIRE_TAG_RE = re.compile(r"\b(?:AP|AFP|UPI|EPA)\b")          # case-sensitive: "(Damian Dovarganes | AP archives)" is a wire photo
 
 
+def named_credit(story: Story) -> bool:
+    """A newsroom's photo credit names the photographer ("Maria Crane | Fort Worth Report", "Michael Cavazos for The Texas
+    Tribune"). Nov 25: a former agency head's official headshot in a Texas Tribune graphic came with no credit line at all,
+    and the Tribune's terms cover only its own staff's photos."""
+    credit = (story.extra.get("page_credit") or "").strip()
+    rest = re.sub(re.escape(story.source), " ", credit, flags=re.I)
+    rest = re.sub(r"\b(?:photo|photos|by|for|the|staff|credit|via)\b|[|/,:()\-–—]", " ", rest, flags=re.I)
+    return bool(re.search(r"\b[A-Z][a-z]+\b", rest))
+
+
 def third_party_photo(story: Story) -> bool:
     """An outlet's CC terms cover its own photographs: a courtesy rendering, a handout or a wire photo on its page is not ours
     to take. The page's first figure caption and credit are read once and kept on the story."""
@@ -181,6 +191,9 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         elif not story.official and third_party_photo(story):
             background = None                      # a courtesy rendering or a wire photo on the outlet's page is not covered by its CC terms
             log.info("source photo is not the outlet's own (%s): no picture", (story.extra.get("page_caption") or "")[:80])
+        elif not story.official and not named_credit(story):
+            background = None                      # the outlet's terms cover its staff's photos, credited by name; no name, no proof
+            log.info("source photo has no photographer's credit (%s): no picture", story.title[:60])
         else:
             background = _download(story.image_url, workdir / "source")
         if background:
