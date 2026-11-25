@@ -7,7 +7,7 @@
     "2026-11-22": 19,
     "2026-11-23": 20,
     "2026-11-24": 20,
-    "2026-11-25": 11
+    "2026-11-25": 13
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -77,10 +77,10 @@
     },
     "2026-11-25": {
       "breaking": 2,
-      "community": 1,
+      "community": 2,
       "crime": 4,
       "other": 1,
-      "sports": 1,
+      "sports": 2,
       "weather": 2
     }
   },
@@ -125,7 +125,7 @@
     },
     "2026-11-25": {
       "nws_forecast": 1,
-      "rss": 6,
+      "rss": 8,
       "video": 2,
       "wanted": 2
     }
@@ -167,12 +167,17 @@
       "texas": 2
     },
     "2026-11-25": {
-      "dfw": 2,
+      "dfw": 4,
       "local": 8,
       "texas": 1
     }
   },
   "deferred": {
+    "0257d232888a034d": {
+      "at": "2026-11-25T17:45:08.099989+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Dallas police seek another suspect in Deep Ellum Halloween night shootings on South Crowdus Street"
+    },
     "02e4a72c439fc905": {
       "at": "2026-11-25T00:13:20.261362+00:00",
       "reason": "daily cap for community reached",
@@ -307,6 +312,11 @@
       "at": "2026-11-23T18:19:35.032829+00:00",
       "reason": "daily cap for community reached",
       "title": "Discover Unique Stories at the 'People Library' on Dec. 5, 2026"
+    },
+    "66e9cb3ce6a700f8": {
+      "at": "2026-11-25T17:45:08.099985+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "2 dead after early morning shooting at Arlington apartment complex, police say"
     },
     "6bd93bfe3b5a053c": {
       "at": "2026-11-24T02:13:44.148398+00:00",
@@ -510,7 +520,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-25T11:19:00-06:00",
+  "last_post_at": "2026-11-25T12:14:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -564,6 +574,19 @@
       "source": "Fort Worth Police Department",
       "title": "WANTED: Joshua Rodriguez",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "04ac85a86dc027fa": {
+      "at": "2026-11-25T12:14:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "442093133",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=6575951913461105931",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "NBC 5 DFW",
+      "title": "Flagg has 24 points, 12 assists as Mavericks beat Nuggets in NBA Cup contest",
+      "url": "https://www.nbcdfw.com/news/sports/dallas-mavericks/cooper-flagg-has-24-points-and-12-assists-as-mavericks-beat-nuggets-in-nba-cup-contest/4110620/"
     },
     "072491db8a48d6bb": {
       "at": "2026-11-24T16:44:00-06:00",
@@ -1645,6 +1668,19 @@
       "title": "Texas House District 61 race margin is just seven votes; recount filed with state",
       "url": "https://www.wfaa.com/article/news/politics/elections/texas-house-district-61-race-margin-is-just-seven-votes-recount-filed-with-state/287-ccfc44c6-f7b2-4854-894c-8d12ea8b0a3e"
     },
+    "c56c5548b6d63e59": {
+      "at": "2026-11-25T11:49:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "442092989",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-8500603761341348729",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Smooth start to Thanksgiving travel in DFW as gas prices continue to fall, short airport lines",
+      "url": "https://www.fox4news.com/news/smooth-start-thanksgiving-travel-dfw-gas-prices-continue-fall-short-airport-lines"
+    },
     "c72b466f5037ee45": {
       "at": "2026-11-23T17:25:00-06:00",
       "category": "politics",
@@ -2419,6 +2455,11 @@
       "reason": "CBS Texas's YouTube 'Freezing temps hit parts of North Texas' with no description, an hour after CBS News Texas's freeze warning went out; r",
       "title": "Freezing temps hit parts of North Texas"
     },
+    "928e22dc4395fa86": {
+      "at": "2026-11-25T17:45:08.099046+00:00",
+      "reason": "Fort Worth Weekly's 'Film Shorts // November 25 – December 1, 2026': a weekly listings column of movie capsules, drafted with the Stockyards",
+      "title": "Film Shorts // November 25 – December 1, 2026"
+    },
     "9428392a765ff728": {
       "at": "2026-11-20T15:19:26.662237+00:00",
       "reason": "a Dallas park amenity is not Fort Worth news"
@@ -2601,7 +2642,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 126,
+  "total_posts": 128,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2630,7 +2671,8 @@
     "lib-fort-worth-june-2016-62-fort-worth-convention-center-jpg",
     "lib-2026-05-26-texas-state-capitol-01-jpg",
     "lib-2021-12-22-annateich-01-jpg",
-    "sunshine-lib-downtown-fort-worth-skyline-jpg"
+    "sunshine-lib-downtown-fort-worth-skyline-jpg",
+    "lib-gas-pump-fueling-toyota-4runner-53999956018-jpg"
   ],
   "version": 1
 }
