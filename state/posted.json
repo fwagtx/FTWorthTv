@@ -7,7 +7,7 @@
     "2026-11-22": 19,
     "2026-11-23": 20,
     "2026-11-24": 20,
-    "2026-11-25": 13
+    "2026-11-25": 14
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -79,6 +79,7 @@
       "breaking": 2,
       "community": 2,
       "crime": 4,
+      "culture": 1,
       "other": 1,
       "sports": 2,
       "weather": 2
@@ -125,7 +126,7 @@
     },
     "2026-11-25": {
       "nws_forecast": 1,
-      "rss": 8,
+      "rss": 9,
       "video": 2,
       "wanted": 2
     }
@@ -168,7 +169,7 @@
     },
     "2026-11-25": {
       "dfw": 4,
-      "local": 8,
+      "local": 9,
       "texas": 1
     }
   },
@@ -388,6 +389,11 @@
       "reason": "daily cap for weather reached",
       "title": "Snow falls in Texas as freeze warning looms for parts of North Texas"
     },
+    "b70251a31f42895e": {
+      "at": "2026-11-25T19:49:58.142974+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Investigation underway after 3 injured in Fort Worth shooting"
+    },
     "b7cbb0ebb73bb8a6": {
       "at": "2026-11-24T23:12:53.165858+00:00",
       "reason": "daily cap for crime reached",
@@ -505,7 +511,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-25T12:14:00-06:00",
+  "last_post_at": "2026-11-25T13:55:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -598,6 +604,19 @@
       "source": "NBC 5 DFW",
       "title": "First look inside Fort Worth's Sandman Signature Hotel ahead of reopening after explosion | NBC DFW",
       "url": "https://www.youtube.com/watch?v=pThuk6CqeP8"
+    },
+    "15be76b7ed9e72bc": {
+      "at": "2026-11-25T13:55:00-06:00",
+      "category": "culture",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "442241125",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5121544604743125620",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "Arlington 150: Step into the city’s past with stories of its legacy",
+      "url": "https://fortworthreport.org/2026/11/25/arlington-150-step-into-the-citys-past-with-stories-of-its-legacy/"
     },
     "15d87ae9fe2062fa": {
       "at": "2026-11-22T07:20:00-06:00",
@@ -2657,7 +2676,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 128,
+  "total_posts": 129,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
