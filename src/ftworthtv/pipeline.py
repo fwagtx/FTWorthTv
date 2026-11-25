@@ -228,9 +228,12 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                     report.skipped.append((story, f"daily cap for {cat} reached"))
                     continue
         if story.source_kind == "rss" and not story.official:
-            from .filters import same_personnel_news
-            twin = state.recent_title_like(story.title, now, hours=48, match=lambda x, y: same_personnel_news(x, story.summary or "", y))
-            twin = twin or next((d.story.title for d in drafts if same_personnel_news(story.title, story.summary or "", d.story.title)), None)
+            from .filters import same_personnel_news, same_seat_news
+
+            def _same_news(x: str, y: str) -> bool:
+                return same_personnel_news(x, story.summary or "", y) or same_seat_news(x, story.summary or "", y)
+            twin = state.recent_title_like(story.title, now, hours=48, match=_same_news)
+            twin = twin or next((d.story.title for d in drafts if _same_news(story.title, d.story.title)), None)
             if twin:                   # the lead the article gave names the departure already posted ("Change in Leadership");
                 report.skipped.append((story, f"same news already posted: {twin[:60]}"))   # Nov 24: a 160-character teaser
                 continue               # skipped the check, so WFAA's copy of a story NBC 5's was skipped for went through

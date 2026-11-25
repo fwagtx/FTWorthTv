@@ -112,7 +112,9 @@ def _download(url: str, dest: Path, headers: dict | None = None) -> Path | None:
 
 
 _THIRD_PARTY_RE = re.compile(r"\b(courtesy|rendering|renderings|getty|ap photo|associated press|reuters|afp|handout|screenshot|screen grab|file photo|"
-                             r"via [A-Z])", re.I)
+                             r"via [A-Z]|(?:campaigns?|provided|submitted|contributed|used with permission|special to|family photo)\b)", re.I)
+# Nov 25: the Fort Worth Report's House 93 story carried the candidates' own headshots, credited "Ericka Lomick and Alan Blaylock
+# campaigns": a campaign's, a family's or a company's photo on a newsroom's page is theirs, not the newsroom's to license
 _WIRE_TAG_RE = re.compile(r"\b(?:AP|AFP|UPI|EPA)\b")          # case-sensitive: "(Damian Dovarganes | AP archives)" is a wire photo
 
 

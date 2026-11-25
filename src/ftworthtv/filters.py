@@ -815,6 +815,37 @@ def same_personnel_news(title: str, summary: str, posted_title: str) -> bool:
     return any(n in text for n in names)
 
 
+# a numbered seat is one race: Nov 25, the Fort Worth Report's "Texas Supreme Court mulls candidate's eligibility in House 93 race"
+# came the morning after FOX 4's "Texas House District 93 winner remains unknown amid eligibility dispute" went out. Until there
+# is a decision (a ruling, a winner certified or sworn in, a concession), it is the same news.
+_SEAT_RE = re.compile(r"\b(?:(?:texas\s+)?(?:house|senate)\s+(?:district\s+)?|(?:hd|sd)\s*-?\s*|district\s+|precinct\s+|place\s+|"
+                      r"ward\s+|seat\s+)(\d{1,3})\b", re.I)
+_CONTEST_RE = re.compile(r"\b(?:eligib\w*|recount|runoff|race|election|results?|winner|dispute|challenged?|challenges|contest(?:ed|s)?|"
+                         r"ballots?|votes?|candidates?)\b", re.I)
+_DECISION_RE = re.compile(r"\b(?:rules?|ruled|ruling|decides?|decided|decision|orders?|ordered|declares?|declared|certif\w*|sworn|"
+                          r"swears|concedes?|conceded|wins|won|dismiss\w*|rejects?|rejected|upholds?|upheld|overturns?|overturned|"
+                          r"disqualif\w*|ineligible|eligible to serve)\b", re.I)
+
+
+def _seat_keys(text: str) -> set[tuple[str, str]]:
+    keys = set()
+    for m in _SEAT_RE.finditer(text or ""):
+        word = m.group(0).lower()
+        kind = "senate" if ("senate" in word or word.startswith("sd")) else "house" if ("house" in word or word.startswith("hd")) else "seat"
+        keys.add((kind, m.group(1)))
+    return keys
+
+
+def same_seat_news(title: str, summary: str, posted_title: str) -> bool:
+    """Two headlines about the same numbered seat's contest, the newer one reporting no decision."""
+    a, b = _seat_keys(title), _seat_keys(posted_title)
+    if not any(x[1] == y[1] and (x[0] == y[0] or "seat" in (x[0], y[0])) for x in a for y in b):
+        return False
+    if not (_CONTEST_RE.search(title or "") and _CONTEST_RE.search(posted_title or "")):
+        return False
+    return not _DECISION_RE.search(title or "")
+
+
 _WORDS = {"1": "one", "2": "two", "3": "three", "4": "four", "5": "five", "6": "six", "7": "seven", "8": "eight", "9": "nine", "10": "ten"}
 
 

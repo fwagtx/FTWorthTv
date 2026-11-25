@@ -268,3 +268,25 @@ def test_one_weather_story_a_morning(settings, now, monkeypatch):
     assert not _recent_weather_story(state, now + timedelta(hours=7))
     state.data["posted"]["w1"]["kind"] = "nws_forecast"
     assert not _recent_weather_story(state, now)
+
+
+def test_a_numbered_seats_race_is_the_same_news_until_a_decision():
+    """Nov 25: the Fort Worth Report's "Texas Supreme Court mulls candidate's eligibility in House 93 race" was drafted the
+    morning after FOX 4's "Texas House District 93 winner remains unknown amid eligibility dispute" went out."""
+    from ftworthtv.filters import same_seat_news
+    posted = "Texas House District 93 winner remains unknown amid eligibility dispute"
+    assert same_seat_news("Texas Supreme Court mulls candidate’s eligibility in House 93 race", "", posted)
+    assert not same_seat_news("Texas Supreme Court rules Lomick ineligible in House 93 race", "", posted)       # a decision is news
+    assert not same_seat_news("Lomick sworn in as House District 93 representative", "", posted)
+    assert not same_seat_news("Texas Senate District 9 race heads to runoff", "", posted)                     # another seat
+
+
+def test_a_campaigns_headshots_on_a_newsroom_page_are_not_the_newsrooms():
+    """Nov 25: the Fort Worth Report's House 93 story carried the candidates' headshots credited "Ericka Lomick and Alan
+    Blaylock campaigns"; the Report's licence covers its own photographers' work."""
+    from ftworthtv.images import _THIRD_PARTY_RE
+    assert _THIRD_PARTY_RE.search("Ericka Lomick and Alan Blaylock campaigns")
+    assert _THIRD_PARTY_RE.search("Photo provided by the family")
+    assert _THIRD_PARTY_RE.search("Photo via Wikimedia")                          # the old patterns still hold
+    assert not _THIRD_PARTY_RE.search("Maria Crane | Fort Worth Report")
+    assert not _THIRD_PARTY_RE.search("Leila Saidane for The Texas Tribune")

@@ -128,6 +128,30 @@ ADJECTIVES = {"congressional", "republican", "republicans", "democrat", "democra
               "spanish", "japanese", "korean", "chinese", "indian", "russian", "ukrainian", "israeli", "brazilian", "european",
               # Nov 24: "U2 Sets North American Stops" searched "North American" and found a T-6 Texan airplane
               "north american", "south american", "latin american", "central american", "north", "south"}
+NATIONALITIES = {"australian", "british", "canadian", "mexican", "english", "irish", "scottish", "welsh", "french", "german", "italian",
+                 "spanish", "japanese", "korean", "chinese", "indian", "russian", "ukrainian", "israeli", "brazilian", "european",
+                 "american", "asian", "african", "swedish", "dutch", "greek", "polish", "cuban", "venezuelan", "colombian"}
+# an agency's field is not a picture: Nov 25, the Texas Tribune's "Lavish European travel by Texas' ex-Juvenile Justice chief ..."
+# searched "Juvenile Justice" (the Texas Juvenile Justice Department, shortened) and found a South Carolina lawyer's portrait, then
+# a Chicago youth meeting on Flickr. A name made only of such words is a department's field, and a search finds strangers.
+AGENCY_FIELD_WORDS = {"juvenile", "justice", "criminal", "public", "safety", "health", "human", "services", "mental", "family",
+                      "families", "protective", "child", "children", "education", "transportation", "motor", "vehicles", "parks",
+                      "wildlife", "emergency", "management", "housing", "workforce", "insurance", "agriculture", "environmental",
+                      "quality", "water", "development", "licensing", "regulation", "corrections", "veterans", "affairs", "aging",
+                      "disability", "youth", "labor", "commerce", "energy", "resources", "natural", "land", "homeland", "security",
+                      "revenue", "finance", "works", "planning", "code", "compliance", "animal", "care", "control", "solid", "waste",
+                      "neighborhood", "economic", "community", "information", "technology", "communications", "budget", "audit",
+                      "ethics", "consumer", "protection", "behavioral", "welfare", "adult", "probation", "parole", "pardons",
+                      "student", "special", "early", "childhood", "foster", "elder", "victim", "victims", "civil", "rights"}
+
+
+def agency_field(name: str) -> bool:
+    """'Juvenile Justice', 'Public Safety', 'Health and Human Services': a department's field, never a picture subject."""
+    words = re.findall(r"[a-z]+", (name or "").lower())
+    content = [w for w in words if w not in ("and", "of", "the")]
+    return bool(content) and all(w in AGENCY_FIELD_WORDS for w in content)
+
+
 COMMON_NOUNS = {"theater", "theatre", "theaters", "performances", "performance", "market", "markets", "festival", "festivals", "concert",
                 "concerts", "weekend", "holiday", "holidays", "parade", "show", "shows", "game", "games", "lights", "music", "food", "restaurant",
                 "restaurants", "school", "schools", "police", "fire", "weather", "storm", "storms", "traffic", "shooting", "crash", "council",
@@ -314,6 +338,9 @@ def entities(title: str, body: str = "") -> list[str]:
         if any(h in low for h in HONORS):
             i = max(j, i + 1)                              # "Hall of Fame broadcaster Tom Jackson": an honor, not a subject (Nov 22:
             continue                                       # "Hall of Fame" found another man at a hall of fame induction)
+        if seg_start and len(words) == 2 and words[1].lower() in NATIONALITIES:
+            i = max(j, i + 1)                              # "Lavish European travel by ...": capitalized for the sentence, then
+            continue                                       # a nationality describing the travel; neither names anything
         if low in BROADCASTERS and i > 0 and tokens[i - 1].lower() in ("on", "via"):
             i = max(j, i + 1)                              # "Mavs enter NBA Cup matchup on NBC": where it airs, never the picture
             continue
@@ -808,6 +835,11 @@ def plan_subject(title: str, body: str = "", category: str = "") -> "SubjectPlan
     """The subject plan, without a team's stadium for a story that is not a game (a blood drive, a toy drive, a job fair held
     there): Nov 23, the Cowboys and Carter BloodCare blood drive went out with an empty June 2020 AT&T Stadium."""
     plan = _plan_subject(title, body, category)
+    fields = [e for e in plan.entities if agency_field(e)]
+    if fields:                                         # "Juvenile Justice": a department's field finds strangers, never the story
+        plan.entities = [e for e in plan.entities if e not in fields]
+        if plan.mode == "search" and not plan.search_names:
+            plan.mode = "beat"
     from .library import drop_stadiums_off_the_field
     text = f"{title} {body}"
     plan.entity_topics = drop_stadiums_off_the_field(list(plan.entity_topics), text)

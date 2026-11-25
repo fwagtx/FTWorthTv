@@ -14,7 +14,12 @@ def test_feed_noise_is_removed():
 def test_library_topics_put_the_subject_first():
     assert topics_for("Trinity Metro approved cuts to its On-Demand service", "traffic", "local")[0] == "transit"
     assert topics_for("Largest enrollment drop in Texas history, Morath says", "community", "texas")[:2] == ["school-bus", "schools"]
-    assert topics_for("A Kendall County jury found the man guilty", "crime", "texas")[0] == "courthouse"
+    # Nov 25: a statewide story that never names Fort Worth or Tarrant County gets no Fort Worth landmark: the Tarrant County
+    # Courthouse is not a Kendall County courtroom (KHOU's Tomball pharmacy recall was drafted with the downtown skyline)
+    assert "courthouse" not in topics_for("A Kendall County jury found the man guilty", "crime", "texas")
+    assert topics_for("A Tarrant County jury found the man guilty", "crime", "texas")[0] == "courthouse"
+    recall = "Texas pharmacy recalls medications nationwide. Tomball-based Greenwich Rx is recalling certain medications."
+    assert not {"skyline", "downtown", "capitol"} & set(topics_for(recall, "other", "texas", title="Texas pharmacy recalls medications nationwide"))
     # a Houston story never gets the Fort Worth skyline by default
     assert "houston-skyline" in topics_for("Houston council votes on new budget", "politics", "texas")[:3]
     assert topics_for("Something happened", "other", "local")[0] == "skyline"

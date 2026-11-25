@@ -251,7 +251,10 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
     A story set in another city never gets a Fort Worth landmark (its own city's skyline, a generic subject, or nothing)."""
     low = " " + (text or "").lower() + " "
     head = " " + (title if title is not None else text or "").lower() + " "
-    elsewhere = "fort worth" not in low and "tarrant" not in low and any(c in low for c in OTHER_CITIES)
+    # Nov 25: KHOU's "Texas pharmacy recalls medications nationwide" (a Tomball pharmacy) was drafted with the downtown Fort Worth
+    # skyline. A statewide or national story that never names Fort Worth or Tarrant County gets no Fort Worth landmark either.
+    ours = "fort worth" in low or "tarrant" in low
+    elsewhere = not ours and (any(c in low for c in OTHER_CITIES) or scope in ("texas", "national"))
     whole = f"{title or ''} {text or ''}"                      # original case: another venue's name is read from capitals
     out: list[str] = []
     for phrases, topic in TOPIC_RULES:
@@ -264,6 +267,8 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
     if out and out[0] in SUBJECT_ONLY:
         return out[:1]               # a gas-price story gets a gas pump or nothing, never the skyline or the Capitol
     for t in CATEGORY_DEFAULTS.get(category, []) + SCOPE_DEFAULTS.get(scope, SCOPE_DEFAULTS["local"]):
+        if t == "capitol" and category != "politics":
+            continue                                   # the Capitol stands for state government, not for "Texas" (a recall, a feature)
         if t not in out and not (elsewhere and t in FORT_WORTH_ONLY) and venue_fits(t, whole, title):
             out.append(t)
     if category == "sports":
