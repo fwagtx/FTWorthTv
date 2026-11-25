@@ -7,7 +7,7 @@
     "2026-11-22": 19,
     "2026-11-23": 20,
     "2026-11-24": 20,
-    "2026-11-25": 7
+    "2026-11-25": 9
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -76,9 +76,9 @@
       "weather": 2
     },
     "2026-11-25": {
-      "breaking": 1,
+      "breaking": 2,
       "community": 1,
-      "crime": 3,
+      "crime": 4,
       "weather": 2
     }
   },
@@ -123,7 +123,7 @@
     },
     "2026-11-25": {
       "nws_forecast": 1,
-      "rss": 3,
+      "rss": 5,
       "video": 1,
       "wanted": 2
     }
@@ -165,8 +165,8 @@
       "texas": 2
     },
     "2026-11-25": {
-      "dfw": 1,
-      "local": 5,
+      "dfw": 2,
+      "local": 6,
       "texas": 1
     }
   },
@@ -245,6 +245,11 @@
       "at": "2026-11-24T16:17:06.647166+00:00",
       "reason": "daily cap for community reached",
       "title": "Dallas nonprofit collects Christmas gifts for families at risk of homelessness"
+    },
+    "362bdcb94cbada36": {
+      "at": "2026-11-25T14:45:13.572783+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "How to keep plants, pipes and home safe as freeze warning remains in place for North Texas"
     },
     "39e11db7251ace11": {
       "at": "2026-11-23T19:55:45.917511+00:00",
@@ -466,11 +471,6 @@
       "reason": "daily cap for crime reached",
       "title": "Wanted sex offender arrested in Dallas at homeless encampment"
     },
-    "f4baef3c6d9ae61a": {
-      "at": "2026-11-23T14:22:51.706640+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "Chilly mornings in store as temperatures top out in the 50s this week for North Texas"
-    },
     "f978100a95e058ee": {
       "at": "2026-11-23T20:28:52.393032+00:00",
       "reason": "daily cap for weather reached",
@@ -503,7 +503,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-25T08:50:00-06:00",
+  "last_post_at": "2026-11-25T09:40:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -923,6 +923,19 @@
       "source": "WFAA Sports",
       "title": "Arch Manning steps up as Longhorns blow out Arkansas",
       "url": "https://www.wfaa.com/article/sports/football/arch-manning-steps-up-as-longhorns-blow-out-arkansas/287-19be6b38-aab2-4370-8fe1-54b94142b9b7"
+    },
+    "555140b73ec11085": {
+      "at": "2026-11-25T09:15:00-06:00",
+      "category": "breaking",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "441840335",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-5266074525175561050",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA",
+      "title": "Residents told to shelter in place as crews respond to a fire at Weatherford Aerospace",
+      "url": "https://www.wfaa.com/article/news/local/weatherford-explosion-fire-weatherford-aerospace-texas/287-38028d8f-74ae-4628-a211-61a152b39b2b"
     },
     "5575a51e4dbb955d": {
       "at": "2026-11-22T06:30:00-06:00",
@@ -1880,6 +1893,19 @@
       "title": "Texas’ first review of college DEI ban doesn’t answer key questions about its impact",
       "url": "https://feeds.texastribune.org/link/16799/17539088/texas-college-dei-ban-student-impact-report"
     },
+    "fc62da39f45d0a39": {
+      "at": "2026-11-25T09:40:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "441840512",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=7139022284404770044",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "WFAA",
+      "title": "North Texas mother charged with leaving four young children alone by roadway, sheriff's office says",
+      "url": "https://www.wfaa.com/article/news/crime/north-texas-mother-charged-leaving-four-young-children-alone-by-roadway-sheriffs-office/287-9046c5f2-e964-48c1-a1e4-322d5e01073c"
+    },
     "fce28073d4f440ec": {
       "at": "2026-11-21T08:50:00-06:00",
       "category": "weather",
@@ -2072,6 +2098,11 @@
       "at": "2026-11-25T14:17:32.331261+00:00",
       "reason": "City of Fort Worth's CAPER public-comment notice: the picture is the City's stock 'Request for Public Comment' graphic, and the caption says",
       "title": "City seeks input on 2025-26 federal housing funds"
+    },
+    "076b963f4e28c763": {
+      "at": "2026-11-25T14:45:13.571750+00:00",
+      "reason": "CBS News Texas's Hispanic entrepreneurs story (Mesquite) drew 'Hispanic ancestry in Florida', a county map, and its one-line caption refers ",
+      "title": "From hustle to heritage: North Texas entrepreneurs hope to cash in on growing wave of Hispanic wealth builders"
     },
     "07c9d406c644bcc1": {
       "at": "2026-11-24T14:19:38.948091+00:00",
@@ -2507,7 +2538,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 122,
+  "total_posts": 124,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
