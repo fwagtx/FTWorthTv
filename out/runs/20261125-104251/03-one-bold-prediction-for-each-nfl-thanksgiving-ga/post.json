@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-25T17:32:51.187240+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-104251/03-one-bold-prediction-for-each-nfl-thanksgiving-ga/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-104251/03-one-bold-prediction-for-each-nfl-thanksgiving-ga/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "One bold prediction for each NFL Thanksgiving game, including Cowboys' Dak Prescott to feast on Eagles",
+    "caption": "Thursday's course will be the first Thanksgiving game in league history between two teams on winning streaks of five or more games when the NFC North rival Chicago Bears (8-2) and the Detroit Lions (8-2) square off. The league's midday entree will feature two of the biggest brands in football -- the Philadelphia and the Dallas Cowboys.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/nfl/news/one-bold-prediction-each-nfl-thanksgiving-game-cowboys-dak-prescott-feast-eagles/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "781479b304f46b98",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "One bold prediction for each NFL Thanksgiving game, including Cowboys' Dak Prescott to feast on Eagles",
+    "summary": "One bold prediction for each of the NFL rivalry showcases on Thanksgiving The most American way to celebrate Thanksgiving is spending time with family, going back and forth from the table or couch with multiple plates of food and watching all three games of NFL football. Thursday's course will be the first Thanksgiving game in league history between two teams on winning streaks of five or more games when the NFC North rival Chicago Bears (8-2) and the Detroit Lions (8-2) square off. The league's midday entree will feature two of the biggest brands in football -- the Philadelphia and the Dallas Cowboys . A fun day of football will then be wrapped up with an AFC rivalry showdown between Patrick Mahomes ' Kansas City Chiefs and Josh Allen's Buffalo Bills . What stunning events could occur in each of the three games? Here's one bold prediction for all three courses on the Thanksgiving…",
+    "url": "https://www.cbssports.com/nfl/news/one-bold-prediction-each-nfl-thanksgiving-game-cowboys-dak-prescott-feast-eagles/",
+    "published": "2026-11-25T14:37:55+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/23/fdd9d522-d001-4819-88f0-3c9ad295f785/dak-prescott-dallas-cowboys-imagn-images.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5159
+  }
+}

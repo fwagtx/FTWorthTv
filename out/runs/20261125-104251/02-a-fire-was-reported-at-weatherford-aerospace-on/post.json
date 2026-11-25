@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=n3RCjNflyQ8",
+  "scheduled_at": "2026-11-25T17:07:51.187240+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "A fire was reported at Weatherford Aerospace on West 3rd Street in Weatherford, officials said",
+    "caption": "WATCH: A fire was reported at Weatherford Aerospace on West 3rd Street in Weatherford, officials said.\n\nVideo: WFAA on YouTube",
+    "first_comment": "Source: WFAA on YouTube https://www.youtube.com/watch?v=n3RCjNflyQ8\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Weatherford, TX"
+  },
+  "story": {
+    "id": "a2ded9077cc4652a",
+    "source": "WFAA",
+    "source_kind": "video",
+    "title": "A fire was reported at Weatherford Aerospace on West 3rd Street in Weatherford, officials said.",
+    "summary": "A fire was reported at Weatherford Aerospace on West 3rd Street in Weatherford, officials said.",
+    "url": "https://www.youtube.com/watch?v=n3RCjNflyQ8",
+    "published": "2026-11-25T16:23:39+00:00",
+    "category_hint": null,
+    "image_url": "https://i3.ytimg.com/vi/n3RCjNflyQ8/hqdefault.jpg",
+    "image_credit": "Video: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "n3RCjNflyQ8",
+      "channel": "WFAA",
+      "handle": "@WFAA8",
+      "views": 8,
+      "feed_title": "WFAA",
+      "scope": "local"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.6008
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-104251/01-cowboys-vs-eagles-thanksgiving-prediction-dallas/post.jpg",
+    "credit": "Photo: JaoTorey Johnson via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_Cowboys_Players_and_Cheerleaders_Visit_Fort_Sill.jpg",
+    "photo_id": "commons-201360937",
+    "subject": "entity:dallas cowboys"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-104251/01-cowboys-vs-eagles-thanksgiving-prediction-dallas/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Cowboys vs. Eagles Thanksgiving prediction: Dallas looks for first win streak of 2026 vs. ex-QB",
+    "caption": "The only time the Cowboys have won back-to-back games under head coach Brian Schottenheimer came back in his first season in 2025 following their Week 10 bye. That was a stretch of three victories in a row against Las Vegas Raiders (33-16), the Eagles (24-21) and the Kansas City Chiefs (31-28) on Thanksgiving Day.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/nfl/news/cowboys-vs-eagles-thanksgiving-how-to-watch-odds-preview-prediction/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "65578296630cfcbd",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "Cowboys vs. Eagles Thanksgiving prediction: Dallas looks for first win streak of 2026 vs. ex-QB",
+    "summary": "How to watch, what to know and a prediction for the Thanksgiving clash between NFC East rivals FRISCO, Texas -- The Dallas Cowboys (5-6) have the chance to do something they haven't done yet in the 2026 season against the Philadelphia Eagles (3-7) on Thanksgiving Day: win consecutive games. The only time the Cowboys have won back-to-back games under head coach Brian Schottenheimer came back in his first season in 2025 following their Week 10 bye. That was a stretch of three victories in a row against Las Vegas Raiders (33-16), the Eagles (24-21) and the Kansas City Chiefs (31-28) on Thanksgiving Day. After Dallas' 51-30 victory over the Tennessee Titans (1-9) on Sunday, Cowboys owner and general manager Jerry Jones has some hope that his squad can make a postseason push down the stretch. That's just days after Jones called his Cowboys \"a bad team\" in the wake of their 46-40 home loss…",
+    "url": "https://www.cbssports.com/nfl/news/cowboys-vs-eagles-thanksgiving-how-to-watch-odds-preview-prediction/",
+    "published": "2026-11-25T15:31:29+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/24/50165966-6d9a-4ea6-87dd-39abcd79f18d/gettyimages-2301729026.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.6578
+  }
+}
