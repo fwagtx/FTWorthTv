@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-25T22:07:38.837813+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-154238/02-gta-vi-just-might-turn-carly-rae-jepsen-into-a-l/post.jpg",
+    "credit": "Photo: InclusiveGameLab via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:InclusiveGameLab_PS5-Controller_CC-BY-SA_02.jpg",
+    "photo_id": "lib-inclusivegamelab-ps5-controller-cc-by-sa-02-jpg",
+    "subject": "beat:gaming"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-154238/02-gta-vi-just-might-turn-carly-rae-jepsen-into-a-l/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "‘GTA VI’ Just Might Turn Carly Rae Jepsen Into A “Late in Life Gamer”",
+    "caption": "The singer's 2015 pop song \"Run Away With Me\" is experiencing a second life thanks to its inclusion in one of the game's scenes: \"I have no idea if this is just a quick moment, but I'm really enjoying it.\"",
+    "first_comment": "Source: The Hollywood Reporter https://www.hollywoodreporter.com/music/music-features/gta-vi-carly-rae-jepsen-runaway-with-me-interview-1236763127/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "9bb6a809cdb1052a",
+    "source": "The Hollywood Reporter",
+    "source_kind": "rss",
+    "title": "‘GTA VI’ Just Might Turn Carly Rae Jepsen Into A “Late in Life Gamer”",
+    "summary": "The singer's 2015 pop song \"Run Away With Me\" is experiencing a second life thanks to its inclusion in one of the game's scenes: \"I have no idea if this is just a quick moment, but I'm really enjoying it.\"",
+    "url": "https://www.hollywoodreporter.com/music/music-features/gta-vi-carly-rae-jepsen-runaway-with-me-interview-1236763127/",
+    "published": "2026-11-25T20:25:48+00:00",
+    "category_hint": null,
+    "image_url": null,
+    "image_credit": "Photo: The Hollywood Reporter",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "The Hollywood Reporter",
+      "national": true,
+      "scope": "national",
+      "national_term": "gta vi"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.3234
+  }
+}

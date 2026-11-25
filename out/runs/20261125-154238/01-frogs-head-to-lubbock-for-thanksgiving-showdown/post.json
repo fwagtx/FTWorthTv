@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-154238/01-frogs-head-to-lubbock-for-thanksgiving-showdown/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-154238/01-frogs-head-to-lubbock-for-thanksgiving-showdown/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Frogs Head to Lubbock for Thanksgiving Showdown",
+    "caption": "TCU Athletics Frogs Head to Lubbock for Thanksgiving Showdown TCU heads to Lubbock for a Thanksgiving night showdown vs. Texas Tech. The Battle for the Saddle will air nationally on ESPN.\n\nIt will be the 68th all-time meeting between the two schools in a series that dates back to 1926.",
+    "first_comment": "Source: TCU Athletics https://gofrogs.com/news/2026/11/25/football-frogs-head-to-lubbock-for-thanksgiving-showdown\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:Amon G. Carter Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "ebe736265c801fdf",
+    "source": "TCU Athletics",
+    "source_kind": "rss",
+    "title": "Frogs Head to Lubbock for Thanksgiving Showdown",
+    "summary": "TCU Athletics Frogs Head to Lubbock for Thanksgiving Showdown TCU heads to Lubbock for a Thanksgiving night showdown vs. #11 Texas Tech. The Battle for the Saddle will air nationally on ESPN. It will be the 68th all-time meeting between the two schools in a series that dates back to 1926. TCU (5-6, 3-5 Big 12) vs. No. 11 Texas Tech (10-1, 7-1 Big 12) Thursday, Nov. 26 - 7:00 p.m. Galaxy Stadium - Lubbock, Texas Tracking the Game: Television » ESPN (Matt Barrie, Chase Daniel, Carcaterra) Radio Tuning » KZPS 92.5 FM and Sirius XM 83 / Spanish KAMV-FM 107.1-2 and KLNO-FM 94.1-2 Radio Streaming » The Varsity Network App Live Stats » StatBroadcast Weekly Press Conference » Watch 2026 Media Guide » Read Weekly Game Notes » Read NOTING THE GAME TCU enters the final game of the 2026 regular season with an interim head coach in defensive coordinator Andy Avalos. Avalos replaces Sonny Dykes who…",
+    "url": "https://gofrogs.com/news/2026/11/25/football-frogs-head-to-lubbock-for-thanksgiving-showdown",
+    "published": "2026-11-25T21:18:00+00:00",
+    "category_hint": "sports",
+    "image_url": "https://gofrogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/22/261121_GAME11_INGAME_MG-9435.jpg",
+    "image_credit": "Photo: TCU Athletics",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.6,
+    "extra": {
+      "feed_title": "",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 0,
+    "score": 0.6008
+  }
+}
