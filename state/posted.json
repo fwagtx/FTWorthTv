@@ -7,7 +7,7 @@
     "2026-11-22": 19,
     "2026-11-23": 20,
     "2026-11-24": 20,
-    "2026-11-25": 15
+    "2026-11-25": 16
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -81,7 +81,7 @@
       "crime": 4,
       "culture": 1,
       "other": 1,
-      "sports": 2,
+      "sports": 3,
       "weather": 2
     }
   },
@@ -126,7 +126,7 @@
     },
     "2026-11-25": {
       "nws_forecast": 1,
-      "rss": 10,
+      "rss": 11,
       "video": 2,
       "wanted": 2
     }
@@ -169,7 +169,7 @@
     },
     "2026-11-25": {
       "dfw": 4,
-      "local": 10,
+      "local": 11,
       "texas": 1
     }
   },
@@ -188,6 +188,11 @@
       "at": "2026-11-25T00:13:20.261362+00:00",
       "reason": "daily cap for community reached",
       "title": "Texas Sports Academy, tied to AI-driven Alpha School, is Texas’ biggest voucher recipient so far"
+    },
+    "056d924aecac5a82": {
+      "at": "2026-11-25T21:45:16.028596+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Six Flags Over Texas Ofrece Entrada Gratis a Personas de 65 Años o Más"
     },
     "0656f21ae4a32165": {
       "at": "2026-11-24T16:17:06.647155+00:00",
@@ -208,6 +213,11 @@
       "at": "2026-11-24T22:45:41.059257+00:00",
       "reason": "daily cap for community reached",
       "title": "Bomb threats prompt security precautions at hospitals in The Woodlands, Texas Medical Center"
+    },
+    "11e78101fcc76a16": {
+      "at": "2026-11-25T21:45:16.028577+00:00",
+      "reason": "daily cap for community reached",
+      "title": "North Texas leads state in severe holiday crashes on major interstates"
     },
     "14b714ad8f41c2dc": {
       "at": "2026-11-25T19:14:49.573827+00:00",
@@ -313,11 +323,6 @@
       "at": "2026-11-24T03:42:58.782529+00:00",
       "reason": "daily cap for weather reached",
       "title": "Texas flood survivors had to wait more than 100 days to apply for FEMA aid. Now they want change."
-    },
-    "51bf70359facc230": {
-      "at": "2026-11-23T21:22:10.424929+00:00",
-      "reason": "daily cap for community reached",
-      "title": "‘People who care for people’: Mission Arlington marks 40th year distributing Thanksgiving meals"
     },
     "5afb9f61b4e4b8e9": {
       "at": "2026-11-24T20:47:43.407466+00:00",
@@ -529,6 +534,11 @@
       "reason": "daily cap for crime reached",
       "title": "Wanted sex offender arrested in Dallas at homeless encampment"
     },
+    "f4932e42a0fa7b5d": {
+      "at": "2026-11-25T21:45:16.028547+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Small business Saturday kicks off end-of-year earnings season"
+    },
     "fc5e45beda0efd1b": {
       "at": "2026-11-24T21:15:57.720015+00:00",
       "reason": "daily cap for community reached",
@@ -551,7 +561,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-25T14:50:00-06:00",
+  "last_post_at": "2026-11-25T15:50:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1926,6 +1936,19 @@
       "title": "Texas power grid CEO secures multimillion-dollar contract extension, angering Dan Patrick",
       "url": "https://feeds.texastribune.org/link/16799/17536469/ercot-texas-electric-grid-ceo-contract"
     },
+    "ebe736265c801fdf": {
+      "at": "2026-11-25T15:50:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "442364703",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1276333147951612789",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "TCU Athletics",
+      "title": "Frogs Head to Lubbock for Thanksgiving Showdown",
+      "url": "https://gofrogs.com/news/2026/11/25/football-frogs-head-to-lubbock-for-thanksgiving-showdown"
+    },
     "ec89fa8f7a7b73d1": {
       "at": "2026-11-24T08:02:00-06:00",
       "category": "crime",
@@ -2553,6 +2576,11 @@
       "at": "2026-11-22T14:23:34.180849+00:00",
       "reason": "an ethicist's commentary on a Dallas hospital lawsuit, not news; the photo was Baylor's McLane Stadium in Waco (rule added)"
     },
+    "9bb6a809cdb1052a": {
+      "at": "2026-11-25T21:45:16.027034+00:00",
+      "reason": "The Hollywood Reporter's Carly Rae Jepsen 'GTA VI' interview: a music feature, not a national moment, drafted with a PS5 controller; rule ad",
+      "title": "‘GTA VI’ Just Might Turn Carly Rae Jepsen Into A “Late in Life Gamer”"
+    },
     "9eeb905d6b413c90": {
       "at": "2026-11-22T14:47:12.892548+00:00",
       "reason": "an expert commentary piece, the second outlet's version of the one skipped at 8:12 (rule added)"
@@ -2744,7 +2772,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 130,
+  "total_posts": 131,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
