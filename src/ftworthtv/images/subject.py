@@ -347,6 +347,11 @@ def entities(title: str, body: str = "") -> list[str]:
         if any(h in low for h in HONORS):
             i = max(j, i + 1)                              # "Hall of Fame broadcaster Tom Jackson": an honor, not a subject (Nov 22:
             continue                                       # "Hall of Fame" found another man at a hall of fame induction)
+        if ("|" not in tokens[:i] and len(words) == 1 and not acronym and j < len(tokens) and tokens[j] == "|"
+                and ":" in (headline or "") and phrase.lower() in (headline or "").split(":", 1)[0].lower()
+                and len((headline or "").split(":", 1)[0].split()) <= 3):
+            i = max(j, i + 1)                              # "The Dish: Acquolina brings ...": a column's name before the colon
+            continue                                       # (Nov 25: "Dish" found a British Museum enamel dish)
         if seg_start and len(words) == 2 and words[1].lower() in NATIONALITIES:
             i = max(j, i + 1)                              # "Lavish European travel by ...": capitalized for the sentence, then
             continue                                       # a nationality describing the travel; neither names anything

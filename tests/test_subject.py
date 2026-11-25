@@ -464,3 +464,13 @@ def test_quote_marks_do_not_hide_a_named_subject():
     from ftworthtv.images.subject import subject_fits
     assert subject_fits("Iconic toy retailer Toys 'R' Us opens only standalone store in Fort Worth", "", "business", "entity:toys r us")[0]
     assert not subject_fits("Iconic toy retailer opens only standalone store in Fort Worth", "", "business", "entity:toys r us")[0]
+
+
+def test_a_columns_name_before_the_colon_is_not_a_subject():
+    """Nov 25: the Fort Worth Report's "The Dish: Acquolina brings Italian fare to the slopes of Camp Bowie District" searched
+    "Dish" and drew a 16th-century enamel dish in the British Museum."""
+    from ftworthtv.images.subject import plan_subject
+    plan = plan_subject("The Dish: Acquolina brings Italian fare to the slopes of Camp Bowie District",
+                        "Next winter, thanks to Acquolina bringing its wood-fired pizzas to Fort Worth.", "business")
+    assert "Dish" not in plan.search_names and "Acquolina" in plan.search_names
+    assert "TCU" in plan_subject("TCU: Frogs fall to Baylor 70-62", "TCU lost to Baylor.", "sports").search_names
