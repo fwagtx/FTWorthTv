@@ -223,16 +223,6 @@
       "reason": "daily cap for community reached",
       "title": "How Society of St. Vincent de Paul helps NorthTexans in need"
     },
-    "1b61e429f5d7fc6e": {
-      "at": "2026-11-23T18:19:35.032798+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Sugar Plum Brunch tops 6 best food & drink events in Fort Worth this week"
-    },
-    "1e9e28d1a3e749a9": {
-      "at": "2026-11-23T18:19:35.032825+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Support Arlington Entrepreneurs on Small Business Saturday"
-    },
     "1f85511983a4c451": {
       "at": "2026-11-25T03:12:43.174953+00:00",
       "reason": "daily cap for crime reached",
@@ -273,10 +263,10 @@
       "reason": "daily cap for community reached",
       "title": "North Texas school district cancels games after student killed in 'tragic accident'"
     },
-    "43cabe48009af1a9": {
-      "at": "2026-11-23T18:31:18.601261+00:00",
+    "4315a7cb1ad557b4": {
+      "at": "2026-11-25T18:45:33.178090+00:00",
       "reason": "daily cap for community reached",
-      "title": "TIME names TCC one of America’s Best Community Colleges for 2027"
+      "title": "‘I Think I Would Have Listened’: Jermaine Hicks on Being the Gang Prevention Advocate He Never Had"
     },
     "44a8b220557ec510": {
       "at": "2026-11-25T15:18:04.726968+00:00",
@@ -312,11 +302,6 @@
       "at": "2026-11-23T23:22:06.682849+00:00",
       "reason": "daily cap for politics reached",
       "title": "Tarrant County College trustees approve $57M software overhaul after cost debate"
-    },
-    "5f29a2aee52f0b26": {
-      "at": "2026-11-23T18:19:35.032829+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Discover Unique Stories at the 'People Library' on Dec. 5, 2026"
     },
     "66e9cb3ce6a700f8": {
       "at": "2026-11-25T17:45:08.099985+00:00",
@@ -382,11 +367,6 @@
       "at": "2026-11-23T23:22:06.682844+00:00",
       "reason": "daily cap for community reached",
       "title": "Proteja a Mascotas, Plantas y Tuberías Durante las Bajas Temperaturas"
-    },
-    "a581887e44d9f1ed": {
-      "at": "2026-11-23T18:19:35.032827+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Make Ornaments, Holiday Stickers & More with Arlington Public Library"
     },
     "b01cb769e03cadde": {
       "at": "2026-11-24T18:18:42.702501+00:00",
@@ -2532,6 +2512,11 @@
       "at": "2026-11-21T15:50:03.621342+00:00",
       "reason": "a Bloomberg segment on the Anthropic IPO is not Fort Worth news; a video can only be a link post"
     },
+    "adbb645449e86450": {
+      "at": "2026-11-25T18:45:33.177112+00:00",
+      "reason": "Fort Worth Weekly's Sundance Square tree lighting announcement: the picture is Bass Hall's angels on a rainy day (a Flickr file labelled Sun",
+      "title": "Winter Wonderland Begins Tuesday"
+    },
     "b0d02a7515d38b45": {
       "at": "2026-11-23T14:22:51.705143+00:00",
       "reason": "ESPN's Houston Rockets feature with a Toyota Center stand-in and an 'Original uploader was' credit; rules added"
@@ -2545,10 +2530,20 @@
       "at": "2026-11-24T14:21:45.460742+00:00",
       "reason": "NBC 5's 'Perfect offense, tolerable defense give Cowboys something to build on; will they?': a Blue Star column ending in a rhetorical quest"
     },
+    "bc6e7f526c311e43": {
+      "at": "2026-11-25T18:45:33.177143+00:00",
+      "reason": "NBC 5's Cowboys Thanksgiving game menu: a concessionaire's menu preview with no picture of the food, drafted as a sports text card; rule add",
+      "title": "Annual Dallas Cowboys Thanksgiving Day game menu revealed"
+    },
     "bcad66bd0b5153a1": {
       "at": "2026-11-24T21:15:57.719011+00:00",
       "reason": "Variety's James Marsden interview about Cyclops in 'Avengers: Doomsday': an entertainment interview, not a national moment, with 'Acacia cyc",
       "title": "‘To Me, My X-Men’: James Marsden Says It Was ‘Important’ for Cyclops to Be a Leader in ‘Avengers: Doomsday’ After Taking a ‘Back Seat to Wolverine’"
+    },
+    "bf0e9623457323e5": {
+      "at": "2026-11-25T18:45:33.177140+00:00",
+      "reason": "Fort Worth Weekly's 'Ate Days of Thanksgiving Leftovers': a salsa brand's leftovers recipes that read like its ad; rule added",
+      "title": "Ate Days of Thanksgiving Leftovers"
     },
     "c0bd1402482091bb": {
       "at": "2026-11-21T13:20:14.600210+00:00",
