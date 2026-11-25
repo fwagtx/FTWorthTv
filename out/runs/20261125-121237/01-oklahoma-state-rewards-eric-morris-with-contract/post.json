@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-121237/01-oklahoma-state-rewards-eric-morris-with-contract/post.jpg",
+    "credit": "Photo: JaoTorey Johnson via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_Cowboys_Players_and_Cheerleaders_Visit_Fort_Sill.jpg",
+    "photo_id": "commons-201360937",
+    "subject": "entity:dallas cowboys"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-121237/01-oklahoma-state-rewards-eric-morris-with-contract/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Oklahoma State rewards Eric Morris with contract extension after Cowboys' dramatic turnaround",
+    "caption": "As a reward for that swift turnaround, the Pokes are giving Morris a fresh six-year deal, according to multiple reports. It includes a pay raise and extends his contract for two additional years through 2032, per ESPN.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/college-football/news/eric-morris-oklahoma-state-contract-extension/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "b1e9e5e9954ab64e",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "Oklahoma State rewards Eric Morris with contract extension after Cowboys' dramatic turnaround",
+    "summary": "Morris will get a fresh six-year deal that adds two more years and a big raise amid a successful first year in Stillwater Oklahoma State has undergone one of the biggest turnarounds in college football this season, as Eric Morris has led the Cowboys to a 7-4 record entering the final week, already a six-win improvement over last year's 1-11 disaster in Stillwater. As a reward for that swift turnaround, the Pokes are giving Morris a fresh six-year deal, according to multiple reports. It includes a pay raise and extends his contract for two additional years through 2032, per ESPN . Morris signed a 5-year, $20 million deal last year, and his new contract is reportedly worth more than $31.5 million over the next six years. Morris arrived in Stillwater from North Texas and brought in several players from that 2025 Mean Green squad to help Oklahoma State's turnaround, most notably star…",
+    "url": "https://www.cbssports.com/college-football/news/eric-morris-oklahoma-state-contract-extension/",
+    "published": "2026-11-25T17:38:52+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/25/a33a9837-1782-4195-9020-040f437b8413/eric-morris.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.6149
+  }
+}
