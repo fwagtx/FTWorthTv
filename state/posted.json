@@ -6,7 +6,8 @@
     "2026-11-21": 16,
     "2026-11-22": 19,
     "2026-11-23": 20,
-    "2026-11-24": 20
+    "2026-11-24": 20,
+    "2026-11-25": 3
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -73,6 +74,11 @@
       "sports": 1,
       "traffic": 2,
       "weather": 2
+    },
+    "2026-11-25": {
+      "breaking": 1,
+      "crime": 1,
+      "weather": 1
     }
   },
   "daily_by_kind": {
@@ -113,6 +119,11 @@
       "rss": 15,
       "video": 2,
       "wanted": 2
+    },
+    "2026-11-25": {
+      "rss": 1,
+      "video": 1,
+      "wanted": 1
     }
   },
   "daily_by_scope": {
@@ -150,6 +161,10 @@
       "dfw": 4,
       "local": 14,
       "texas": 2
+    },
+    "2026-11-25": {
+      "dfw": 1,
+      "local": 2
     }
   },
   "deferred": {
@@ -333,11 +348,6 @@
       "reason": "daily cap for weather reached",
       "title": "City prepared to provide emergency overflow shelter in cold weather"
     },
-    "987b2c11b57eac58": {
-      "at": "2026-11-23T04:43:22.003454+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "DFW Weather: When to expect the first freeze this season; 7 day forecast"
-    },
     "98f6fa4a5454d59b": {
       "at": "2026-11-23T23:22:06.682844+00:00",
       "reason": "daily cap for community reached",
@@ -490,7 +500,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-24T17:59:00-06:00",
+  "last_post_at": "2026-11-25T07:10:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -544,6 +554,19 @@
       "source": "WFAA",
       "title": "Arlington two-vehicle crash claims the life of 77-year-old woman",
       "url": "https://www.wfaa.com/article/news/local/arlington-two-vehicle-crash-claims-the-life-of-77-year-old-woman-fatal/287-fa48b334-1ad2-4d30-b354-2415de658cd9"
+    },
+    "0758f1c5674f6df0": {
+      "at": "2026-11-25T07:10:00-06:00",
+      "category": "breaking",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "441654846",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-5315224757688774740",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "NBC 5 DFW",
+      "title": "First look inside Fort Worth's Sandman Signature Hotel ahead of reopening after explosion | NBC DFW",
+      "url": "https://www.youtube.com/watch?v=pThuk6CqeP8"
     },
     "15d87ae9fe2062fa": {
       "at": "2026-11-22T07:20:00-06:00",
@@ -1109,6 +1132,19 @@
       "title": "Dallas Cowboys partner with Carter BloodCare to host blood drive ahead of Thanksgiving",
       "url": "https://www.cbsnews.com/texas/news/dallas-cowboys-carter-bloodcare-blood-drive-thanksgiving-game-tickets-philadelphia-eagles/"
     },
+    "7dbe58076fb675c9": {
+      "at": "2026-11-25T06:45:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "441651892",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=6075734224242757604",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Arlington Police Department",
+      "title": "WANTED: Daryine JONES",
+      "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
+    },
     "7f74b6e8b27a39fa": {
       "at": "2026-11-23T11:50:00-06:00",
       "category": "culture",
@@ -1456,6 +1492,19 @@
       "source": "CultureMap Fort Worth",
       "title": "U2 will bring 'Greatest Show' to Arlington on 2027 world tour",
       "url": "https://fortworth.culturemap.com/news/entertainment/u2-2027-world-tour-arlington/"
+    },
+    "bcdc590a3bc37079": {
+      "at": "2026-11-25T06:20:00-06:00",
+      "category": "weather",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "441651740",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3072676532099003651",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "CBS News Texas",
+      "title": "Freeze warning, breezy winds expected through Thanksgiving morning across North Texas",
+      "url": "https://www.cbsnews.com/texas/news/freeze-warning-thanksgiving-weather-dallas-fort-worth-forecast-temperatures-nov-24/"
     },
     "be179f7aa07eb5f5": {
       "at": "2026-11-23T16:23:00-06:00",
@@ -2368,7 +2417,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 115,
+  "total_posts": 118,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2395,7 +2444,8 @@
     "lib-nov2025-dallas-mavericks-game-panorama-jpg",
     "commons-145047354",
     "lib-fort-worth-june-2016-62-fort-worth-convention-center-jpg",
-    "lib-2026-05-26-texas-state-capitol-01-jpg"
+    "lib-2026-05-26-texas-state-capitol-01-jpg",
+    "lib-2021-12-22-annateich-01-jpg"
   ],
   "version": 1
 }
