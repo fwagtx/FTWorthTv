@@ -279,11 +279,6 @@
       "reason": "daily cap for weather reached",
       "title": "NBC Tracking Storm Due To Hit 100th Annual Macy’s Thanksgiving Day Parade: Will Balloons Be Grounded?"
     },
-    "5bccd0dafd702046": {
-      "at": "2026-11-23T13:46:46.663754+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "Chilly days ahead for North Texas as temperatures top out in the 50s this week"
-    },
     "5be15822744bdb32": {
       "at": "2026-11-24T23:12:53.165852+00:00",
       "reason": "daily cap for community reached",
@@ -348,6 +343,11 @@
       "at": "2026-11-23T20:50:26.818147+00:00",
       "reason": "daily cap for weather reached",
       "title": "City prepared to provide emergency overflow shelter in cold weather"
+    },
+    "95ab6e72af284b9c": {
+      "at": "2026-11-25T13:49:47.644414+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Texas' first Democratic agriculture commissioner since 1991 outlines plans for the agency"
     },
     "98f6fa4a5454d59b": {
       "at": "2026-11-23T23:22:06.682844+00:00",
@@ -2145,6 +2145,11 @@
       "at": "2026-11-20T21:18:54.918609+00:00",
       "reason": "a conviction with no picture of the defendant or the courtroom; the render offered AT&T Stadium"
     },
+    "3a9c8d1f429d7910": {
+      "at": "2026-11-25T13:49:47.643053+00:00",
+      "reason": "KHOU's Tomball pharmacy recall drafted with the downtown Fort Worth skyline, and its one-line caption cannot say which medications or how to",
+      "title": "Texas pharmacy recalls medications nationwide. Here's how to check yours"
+    },
     "3d1f98e2f4a22827": {
       "at": "2026-11-23T23:22:06.681940+00:00",
       "reason": "IGN's GTA 6 train piece: one outlet's fan-reaction story about a watchlist subject, not a national moment, with a stock PS5-controller photo"
@@ -2241,6 +2246,11 @@
       "at": "2026-11-24T15:17:59.895558+00:00",
       "reason": "CBS Sports' 'Why the Cowboys and Lions always play on Thanksgiving Day' explainer with the Tarrant County Courthouse; rules added"
     },
+    "6eb029454e7318a7": {
+      "at": "2026-11-25T13:49:47.643058+00:00",
+      "reason": "Fort Worth Report's House 93 Supreme Court story: the same news as FOX 4's House District 93 post last night at 5:59 pm, with the campaigns'",
+      "title": "Texas Supreme Court mulls candidate’s eligibility in House 93 race"
+    },
     "6f71b25b567fa281": {
       "at": "2026-11-20T15:19:26.662256+00:00",
       "reason": "another city's government (Austin mayor pro tem)"
@@ -2319,6 +2329,11 @@
     "9eeb905d6b413c90": {
       "at": "2026-11-22T14:47:12.892548+00:00",
       "reason": "an expert commentary piece, the second outlet's version of the one skipped at 8:12 (rule added)"
+    },
+    "a035095a69473ccc": {
+      "at": "2026-11-25T13:49:47.643027+00:00",
+      "reason": "Texas Tribune TJJD travel story: no picture we may use (the Tribune's is an uncredited TJJD website headshot; searches for 'Juvenile Justice",
+      "title": "Lavish European travel by Texas’ ex-Juvenile Justice chief contributed to her exit, records show"
     },
     "a06f352204bb29bb": {
       "at": "2026-11-23T17:24:33.134159+00:00",
