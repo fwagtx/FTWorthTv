@@ -335,8 +335,26 @@ STAGE_TOPICS = {"bass-hall", "will-rogers", "convention-center", "kimbell", "mod
 _OFF_SEASON = {"summer": (11, 12, 1, 2), "winter": (5, 6, 7, 8, 9)}
 
 
+# an untagged file whose title names a summer or winter month shows that season: Nov 25, "Fort Worth June 2016 09 (Main Street)"
+# (green trees, summer banners) went on a holiday pop-up bars story
+_SUMMER_TITLE_RE = re.compile(r"\b(?:june|july|august|summer)\b", re.I)
+_WINTER_TITLE_RE = re.compile(r"\b(?:december|january|february|winter|snow|snowstorm|ice storm)\b", re.I)
+
+
+def season_of(entry: dict) -> str:
+    tagged = str(entry.get("season") or "")
+    if tagged:
+        return tagged
+    title = str(entry.get("title") or "")
+    if _SUMMER_TITLE_RE.search(title):
+        return "summer"
+    if _WINTER_TITLE_RE.search(title):
+        return "winter"
+    return ""
+
+
 def in_season(entry: dict, month: int) -> bool:
-    return month not in _OFF_SEASON.get(str(entry.get("season") or ""), ())
+    return month not in _OFF_SEASON.get(season_of(entry), ())
 
 
 def pick(root: Path, topics: list[str], *, used: set[str] | None = None, recently_used=None, rng: random.Random | None = None,

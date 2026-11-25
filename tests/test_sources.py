@@ -392,3 +392,22 @@ def test_a_beat_is_searched_on_commons_only(monkeypatch, settings):
     from ftworthtv import images
     src = inspect.getsource(images.plan_image)
     assert 'queries, labels = [f"commons:{copy.image_query}"]' in src
+
+
+def test_a_bar_guide_a_training_grant_and_a_june_street_in_november():
+    """Nov 25: CultureMap's "Get holly jolly at these 2026 holiday pop-up bars around Fort Worth" (a guide's list, with a June
+    2016 Main Street photo) and KVUE's "Texas State's ALERRT Center receives $10M to expand active shooter response training"
+    (filed as breaking news, drafted as a text card)."""
+    from ftworthtv.filters import infer_category, roundup_column
+    from ftworthtv.images.library import in_season
+    from ftworthtv.models import Story
+    assert roundup_column("Get holly jolly at these 2026 holiday pop-up bars around Fort Worth")
+    assert not roundup_column("Fort Worth bar owner charged after fight")
+    grant = Story(id="a", source="KVUE Austin", source_kind="rss", title="Texas State's ALERRT Center receives $10M to expand active "
+                  "shooter response training", summary="The money will fund the Preparing for Active Shooter Situations program.", url="u")
+    assert infer_category(grant) != "breaking"
+    real = Story(id="b", source="WFAA", source_kind="rss", title="Active shooter reported at Fort Worth mall, police say",
+                 summary="Police responded to reports of an active shooter.", url="u")
+    assert infer_category(real) in ("breaking", "crime")
+    assert not in_season({"title": "File:Fort Worth June 2016 09 (Main Street).jpg"}, 11)
+    assert in_season({"title": "File:Fort Worth skyline.jpg"}, 11)

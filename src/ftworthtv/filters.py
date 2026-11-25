@@ -290,6 +290,9 @@ _LOCAL_TEAMS_RE = re.compile(r"\b(?:tcu|horned frogs|frogs|cowboys|mavericks|mav
 
 
 _COLUMN_ROUNDUP_RE = re.compile(
+                         # Nov 25: CultureMap's "Get holly jolly at these 2026 holiday pop-up bars around Fort Worth": a guide's list
+                         r"\b(?:at|to|try|visit|check out|hit|from) these\b(?:\s+[\w'’-]+){0,5}?\s+(?:bars|restaurants|spots|places|patios|"
+                         r"brunches|shops|cafes|breweries|displays|markets|events)\b|"
                          # Nov 25: Fort Worth Weekly's "Film Shorts // November 25 – December 1, 2026" (capsule reviews of the week's
                          # movies) drew the Stockyards' cattle pens; a weekly listings page is a column, not news
                          r"^(?:film shorts|night & day|night and day|music listings|film listings|stage listings|art listings)\b|"
@@ -1026,6 +1029,10 @@ _TITLE_CRIME_RE = re.compile(r"\b(?:convicted|sentenced|arrested|(?<!cardiac )ar
 # Nov 24: "Georgia prison inmates charged in $1 million jury duty scam targeting North Texans" was filed as "other"
 
 
+_NOT_BREAKING_RE = re.compile(r"\b(?:active shooter|evacuation|lockdown|shelter in place|hazmat|explosion)\b(?=[^.]{0,40}\b(?:training|"
+                              r"drills?|exercises?|course|program|preparedness|simulation|grant|funding)\b)|"
+                              r"\b(?:training|drills?|exercises?|course|program|preparedness|simulation|grant|funding)\b[^.]{0,40}"
+                              r"\b(?:active shooter|evacuation|lockdown|shelter in place|hazmat|explosion)\b", re.I)
 _NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b"
                            r"|\b(?:texas |state )?bar (?:foundation|association|exam|of texas)\b|\bstate bar\b"
                            r"|\bgrand theft auto\b", re.I)
@@ -1053,6 +1060,9 @@ def infer_category(story: Story) -> str:
                                             # sports: a menu takes a picture of the food, never a text card
     text = _NOT_CRIME_RE.sub(" ", story.text())          # "Runner in cardiac arrest saved by nurses" is not a crime story
     title = _NOT_CRIME_RE.sub(" ", story.title.lower())
+    # training for an emergency is not the emergency: Nov 25, KVUE's "Texas State's ALERRT Center receives $10M to expand active
+    # shooter response training" was filed as breaking news and drafted as a text card
+    text, title = _NOT_BREAKING_RE.sub(" ", text), _NOT_BREAKING_RE.sub(" ", title)
     # another region's story is breaking news only when its headline says so: Nov 23, KVUE's "Mexico demands SpaceX clean up
     # suspected rocket debris washing ashore near Texas" was filed as breaking for "explosion" in its lead, a background fact
     title_only_breaking = (story.extra or {}).get("scope") in ("texas", "national") or bool((story.extra or {}).get("national"))
