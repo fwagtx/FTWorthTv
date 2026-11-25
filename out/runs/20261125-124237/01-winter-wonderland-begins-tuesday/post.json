@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-124237/01-winter-wonderland-begins-tuesday/post.jpg",
+    "credit": "Photo: JoshBerglund19 (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/79877212@N00/181154399",
+    "photo_id": "openverse-edddff20-eb45-4c6b-bdad-69b52b1a0717",
+    "subject": "beat:Sundance Square Fort Worth"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-124237/01-winter-wonderland-begins-tuesday/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "Winter Wonderland Begins Tuesday",
+    "caption": "On Tue, Dec 1, watch the tallest live Christmas tree in Texas light up alongside a 6:15 pm holiday concert with Texas music legend Michael Martin Murphey at the 80th annual tree-lighting ceremony in Sundance Square. Leading the 6:55 pm Lighting Countdown will be Texas Gov-Elect Gina Hinojosa.",
+    "first_comment": "Source: Fort Worth Weekly https://www.fwweekly.com/2026/11/25/winter-wonderland-begins-tuesday/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Sundance Square Fort Worth",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "adbb645449e86450",
+    "source": "Fort Worth Weekly",
+    "source_kind": "rss",
+    "title": "Winter Wonderland Begins Tuesday",
+    "summary": "On Tue, Dec 1, watch the tallest live Christmas tree in Texas light up alongside a 6:15 pm holiday concert with Texas music legend Michael Martin Murphey at the 80th annual tree-lighting ceremony in Sundance Square. Leading the 6:55 pm Lighting Countdown will be Texas Gov-Elect Gina Hinojosa. This year's Norway Spruce Tree traveled…",
+    "url": "https://www.fwweekly.com/2026/11/25/winter-wonderland-begins-tuesday/",
+    "published": "2026-11-25T17:59:59+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: Fort Worth Weekly",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Fort Worth Weekly",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "culture",
+    "relevance": 0,
+    "score": 0.7415
+  }
+}

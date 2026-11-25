@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-25T19:07:37.767907+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-124237/02-ate-days-of-thanksgiving-leftovers/post.jpg",
+    "credit": "Photo: slgckgc via Wikimedia Commons (CC BY 2.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Thanksgiving_Turkey_on_platter.jpg",
+    "photo_id": "lib-thanksgiving-turkey-on-platter-jpg",
+    "subject": "beat:thanksgiving"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-124237/02-ate-days-of-thanksgiving-leftovers/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Ate Days of Thanksgiving Leftovers",
+    "caption": "Mrs. Renfro’s, the worldwide salsa sensation with local ties, says it takes only a few minutes to turn the leftovers into something equally spectacular.",
+    "first_comment": "Source: Fort Worth Weekly https://www.fwweekly.com/2026/11/25/ate-days-of-thanksgiving-leftovers/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "roast turkey Thanksgiving food",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "bf0e9623457323e5",
+    "source": "Fort Worth Weekly",
+    "source_kind": "rss",
+    "title": "Ate Days of Thanksgiving Leftovers",
+    "summary": "Who has the energy to cook after the most epic meal of the year? Mrs. Renfro’s, the worldwide salsa sensation with local ties, says it takes only a few minutes to turn the leftovers into something equally spectacular. Black Friday Monte Cristo You don’t even need a recipe for this one. Stack turkey, ham,…",
+    "url": "https://www.fwweekly.com/2026/11/25/ate-days-of-thanksgiving-leftovers/",
+    "published": "2026-11-25T17:54:30+00:00",
+    "category_hint": "culture",
+    "image_url": null,
+    "image_credit": "Photo: Fort Worth Weekly",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Fort Worth Weekly",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "community",
+    "relevance": 0,
+    "score": 0.5742
+  }
+}

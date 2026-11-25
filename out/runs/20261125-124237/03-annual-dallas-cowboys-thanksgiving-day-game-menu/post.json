@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-25T19:32:37.767907+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-124237/03-annual-dallas-cowboys-thanksgiving-day-game-menu/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-124237/03-annual-dallas-cowboys-thanksgiving-day-game-menu/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Annual Dallas Cowboys Thanksgiving Day game menu revealed",
+    "caption": "Fans will once again be able to enjoy all their favorite Thanksgiving holiday menu classics on Thursday, Nov. 26, when the Dallas Cowboys face off against the Philadelphia Eagles at AT&T Stadium in Arlington. The Legends Global team previewed the menu Tuesday, which includes the Thanksgiving Roll, Thanksgiving Bowl and Thanksgiving Hand Pie, all dishes that have the traditional flavors of a Thanksgiving meal.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/blue-star/annual-dallas-cowboys-thanksgiving-day-game-menu-revealed/4110436/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "bc6e7f526c311e43",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Annual Dallas Cowboys Thanksgiving Day game menu revealed",
+    "summary": "Thanksgiving Roll, Bowl or Hand Pie? See what’s on the Dallas Cowboys Thanksgiving Day menu and where to find it inside AT&T Stadium. Fans will once again be able to enjoy all their favorite Thanksgiving holiday menu classics on Thursday, Nov. 26, when the Dallas Cowboys face off against the Philadelphia Eagles at AT&T Stadium in Arlington. The Legends Global team previewed the menu Tuesday, which includes the Thanksgiving Roll, Thanksgiving Bowl and Thanksgiving Hand Pie, all dishes that have the traditional flavors of a Thanksgiving meal. The Thanksgiving Roll includes savory herb dressing, green beans, sweet potatoes, cranberry sauce and house pecan-and-hickory smoked turkey bundled and fried in a crispy egg roll wrap. Served with turkey gravy for dipping. The Thanksgiving Bowl includes house pecan-and-hickory smoked turkey breast piled high with savory herb dressing, famous Cowboys…",
+    "url": "https://www.nbcdfw.com/news/sports/blue-star/annual-dallas-cowboys-thanksgiving-day-game-menu-revealed/4110436/",
+    "published": "2026-11-25T12:35:17+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/IMG_4552-1.jpg?quality=85&strip=all&fit=4032,3024",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5176
+  }
+}
