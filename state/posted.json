@@ -193,6 +193,11 @@
       "reason": "daily cap for community reached",
       "title": "Volunteers Needed for Annual Point-in-Time Count Jan. 28, 2027"
     },
+    "0863136e2ebd3949": {
+      "at": "2026-11-25T19:14:49.573824+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Famous See's Candies unwraps holiday pop-up shop in north Fort Worth"
+    },
     "1083ec391421435f": {
       "at": "2026-11-24T22:45:41.059257+00:00",
       "reason": "daily cap for community reached",
@@ -202,6 +207,11 @@
       "at": "2026-11-23T19:55:45.917506+00:00",
       "reason": "daily cap for weather reached",
       "title": "Protect Your Pets, Plants and Pipes During Freezing Temperatures"
+    },
+    "14b714ad8f41c2dc": {
+      "at": "2026-11-25T19:14:49.573827+00:00",
+      "reason": "daily cap for community reached",
+      "title": "OurCalling to serve Thanksgiving meals to more than 500 unhoused neighbors in Dallas"
     },
     "14f1dd301b2e0bc9": {
       "at": "2026-11-23T23:50:26.017781+00:00",
@@ -222,6 +232,11 @@
       "at": "2026-11-23T23:22:06.682836+00:00",
       "reason": "daily cap for community reached",
       "title": "How Society of St. Vincent de Paul helps NorthTexans in need"
+    },
+    "1c65cd0502c1ccf0": {
+      "at": "2026-11-25T19:14:49.573803+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Dog shot by Arlington Police officer responding to alarm"
     },
     "1f85511983a4c451": {
       "at": "2026-11-25T03:12:43.174953+00:00",
@@ -383,11 +398,6 @@
       "reason": "daily cap for weather reached",
       "title": "Chilly days ahead for North Texas with freezing temperatures mid-week"
     },
-    "bd175546ae59b1fc": {
-      "at": "2026-11-23T18:47:29.567687+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Dallas mom of 4 killed by relatives after asking for a divorce, report says"
-    },
     "bfc33158c44e768d": {
       "at": "2026-11-23T23:22:06.682820+00:00",
       "reason": "daily cap for community reached",
@@ -397,11 +407,6 @@
       "at": "2026-11-24T21:15:57.720033+00:00",
       "reason": "daily cap for community reached",
       "title": "“Arlington Archives” Explores the History of Newspapers in Arlington"
-    },
-    "c5815dc5ac446806": {
-      "at": "2026-11-23T18:47:29.567693+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "18-year-old linked to two separate shootings involving Dallas and Garland Police"
     },
     "c5b3ba6d9fcbccbf": {
       "at": "2026-11-24T00:15:25.491085+00:00",
@@ -2268,6 +2273,11 @@
       "at": "2026-11-23T19:55:45.916407+00:00",
       "reason": "MLB.com's Astros pitching coach story: Houston's team news (filed as 'other', so the other-metro rule never ran), with the Astros' ballpark "
     },
+    "3fbb4fb362d620c1": {
+      "at": "2026-11-25T19:14:49.572864+00:00",
+      "reason": "KVUE's ALERRT Center $10M training grant (Texas State, San Marcos): filed as breaking news for 'active shooter' and drafted as a text card; ",
+      "title": "Texas State's ALERRT Center receives $10M to expand active shooter response training"
+    },
     "40929dc118a94fb9": {
       "at": "2026-11-23T20:28:52.392211+00:00",
       "reason": "NBC 5's Texas Tech win at Baylor: Saturday's result drafted on Monday, with Jones AT&T Stadium (2013) standing in for a game played at Baylo"
@@ -2298,6 +2308,11 @@
     "461ecbd45f87c35c": {
       "at": "2026-11-22T00:47:03.700665+00:00",
       "reason": "a recap of the Nov. 4 Colleyville council meeting published Nov. 21: more than two weeks old"
+    },
+    "47ba9c450bf36544": {
+      "at": "2026-11-25T19:14:49.572846+00:00",
+      "reason": "CultureMap's holiday pop-up bars guide: a list that reads like promotion ('Even the grouchiest grinch will find Christmas cheer'), drafted w",
+      "title": "Get holly jolly at these 2026 holiday pop-up bars around Fort Worth"
     },
     "4fc66aa39c20fbc7": {
       "at": "2026-11-23T13:23:30.240555+00:00",
