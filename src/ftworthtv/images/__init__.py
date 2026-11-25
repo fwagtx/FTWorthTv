@@ -307,6 +307,13 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                 # Nov 25: an Openverse/Flickr result for "Sundance Square Fort Worth" was Bass Hall's angels on a rainy day, for the
                 # Sundance Square tree lighting; a beat is looked for on Wikimedia Commons only, where file titles describe the file
                 queries, labels = [f"commons:{copy.image_query}"], [f"beat:{copy.image_query}"]
+                scope = str(story.extra.get("scope", "local"))
+                low_text = f"{story.title} {story.summary or ''}".lower()
+                if (scope in ("texas", "national") and "fort worth" in (copy.image_query or "").lower()
+                        and "fort worth" not in low_text and "tarrant" not in low_text):
+                    # Nov 25: The Hollywood Reporter's Avengers/Dune box office story was drafted with the downtown Fort Worth
+                    # skyline (the business beat's default query); a story that never names Fort Worth gets no Fort Worth picture
+                    queries, labels = [], []
                 venue = story.extra.get("venue")
                 if story.source_kind in ("event", "event_roundup") and venue:
                     # generic genre photo first; a venue photo only when the file is clearly of the building, never another artist's show

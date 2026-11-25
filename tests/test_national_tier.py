@@ -238,3 +238,14 @@ def test_broadway_grosses_are_trade_news():
     from ftworthtv.filters import industry_trade
     assert industry_trade("‘Inter Alia’ Starring Rosamund Pike Sells Out; ‘Hamilton’ With Christopher Jackson Tops $3M – Broadway Box Office")
     assert not industry_trade("‘Wicked: For Good’ tops box office with $150 million opening")
+
+
+def test_box_office_tracking_is_trade_news_and_a_national_story_gets_no_fort_worth_picture():
+    """Nov 25: The Hollywood Reporter's "'Avengers: Doomsday' Eyes $270M Opening as 'Dune: Part Three' Also Heads for Big Start"
+    was drafted with the downtown Fort Worth skyline, the business beat's default query."""
+    import inspect
+    from ftworthtv import images
+    from ftworthtv.filters import industry_trade
+    assert industry_trade("‘Avengers: Doomsday’ Eyes $270M Opening as ‘Dune: Part Three’ Also Heads for Big Start")
+    assert not industry_trade("Avengers: Doomsday breaks box office record with $300M opening")      # the result is the moment
+    assert 'scope in ("texas", "national") and "fort worth" in (copy.image_query or "").lower()' in inspect.getsource(images.plan_image)

@@ -178,12 +178,16 @@ _INDUSTRY_TRADE_RE = re.compile(r"\b(?:closes?|completes?|finalizes?|seals?)\b.{
                                 r"\bstudio (?:center|lot|campus|complex)\b|\bsoundstages?\b|\b(?:first-look|overall|production|"
                                 r"distribution|licensing|rights|output|carriage) (?:deal|pact|agreement)\b|\bbox office (?:preview|tracking)\b|"
                                 # Nov 24, Deadline: "'Inter Alia' Starring Rosamund Pike Sells Out; ... – Broadway Box Office"
-                                r"\bbroadway (?:box office|grosses)\b",
+                                r"\bbroadway (?:box office|grosses)\b|"
+                                # Nov 25, The Hollywood Reporter: "'Avengers: Doomsday' Eyes $270M Opening as 'Dune: Part Three' Also
+                                # Heads for Big Start" (tracking services' projections, a month before release)
+                                r"\beyes \$[\d.]+\s?[mb](?:illion)?\b.{0,25}\bopening\b|\btracking (?:for|services?|ahead)\b|"
+                                r"\bopening(?:-| )weekend (?:projections?|tracking|forecasts?)\b|box-office-tracking",
                                 re.I)
 
 
-def industry_trade(title: str) -> bool:
-    return bool(_INDUSTRY_TRADE_RE.search(title or ""))
+def industry_trade(title: str, url: str = "") -> bool:
+    return bool(_INDUSTRY_TRADE_RE.search(title or "") or _INDUSTRY_TRADE_RE.search(url or ""))
 
 
 # a statewide magazine's culture, food and travel sections are features, not news: Nov 24, Texas Monthly's "Shana Feste's Road
@@ -1299,7 +1303,7 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 if seen and awards_trade(story.title):
                     dropped.append((story, f"awards-season trade news about {seen}, not the moment itself"))
                     continue
-                if seen and industry_trade(story.title):
+                if seen and industry_trade(story.title, story.url):
                     dropped.append((story, f"industry trade news about {seen}, not the moment itself"))
                     continue
                 if seen and any(watch_term(seen) in watch_title(t) for t in recent_titles):
