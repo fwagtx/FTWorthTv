@@ -26,7 +26,10 @@ TITLE_RE = re.compile(r'<h2 class="list-item-title">\s*(.*?)\s*</h2>', re.S | re
 IMG_RE = re.compile(r'<img[^>]+src="([^"]+)"', re.I)
 DATE_RE = re.compile(r'Published on\s+([A-Za-z]+\s+\d{1,2},\s+\d{4})', re.I)
 SUMMARY_RE = re.compile(r'<p>\s*([^<].*?)</p>', re.S)
-GENERIC_IMAGE_WORDS = ("news-release", "sized-for-x", "placeholder", "default", "logo")
+# the City's stock notice graphics are not pictures of the story: Nov 25, "City seeks input on 2025-26 federal housing funds" came
+# with city-news-request-for-public-comment.jpg (a megaphone and "Notice of Request for Public Comment")
+GENERIC_IMAGE_WORDS = ("news-release", "sized-for-x", "placeholder", "default", "logo", "city-news-", "public-comment",
+                       "public-hearing", "public-notice", "request-for", "notice-of")
 
 
 def full_size(url: str) -> str:

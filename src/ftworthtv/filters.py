@@ -547,6 +547,27 @@ _BLOTTER_RE = re.compile(r"\b(?:stable condition|no injuries|minor injuries|non-
                          r"one person (?:shot|injured|hurt)|1 (?:shot|injured|hurt)|burglar|car break-ins?|shoplift)\b", re.I)
 
 
+# Nov 25 (a Wednesday): WFAA's "North Texas man dead following shooting Sunday, Garland police say": another DFW city's shooting
+# from three days back is that city's news, not this page's
+_DAY_IN_TITLE_RE = re.compile(r"\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b", re.I)
+
+
+def another_citys_old_crime(title: str, now_local) -> str:
+    """The weekday another DFW city's crime happened on, when that was two or more days ago ('' otherwise)."""
+    low = (title or "").lower()
+    if any(w in low for w in TARRANT_SIDE_WORDS):
+        return ""
+    m = _DAY_IN_TITLE_RE.search(title or "")
+    if m and (now_local.weekday() - _WEEKDAYS.index(m.group(1).lower())) % 7 >= 2:
+        return m.group(1).capitalize()
+    return ""
+
+
+TARRANT_SIDE_WORDS = ("fort worth", "tarrant", "arlington", "keller", "southlake", "mansfield", "haltom", "hurst", "euless", "bedford",
+                      "grapevine", "north richland", "benbrook", "burleson", "crowley", "white settlement", "saginaw", "watauga",
+                      "azle", "weatherford")
+
+
 def another_citys_blotter(title: str) -> bool:
     """'Juvenile shot in vehicle in stable condition, Dallas police say no arrests made yet': a single shooting with no death
     and no arrest in another DFW city is that city's police blotter, not Fort Worth news."""
@@ -1218,6 +1239,11 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             if tier[0] == "dfw" and cat == "crime" and another_citys_blotter(story.title):
                 dropped.append((story, "another city's police blotter"))     # a Dallas shooting with no death and no arrest is Dallas's blotter
                 continue
+            if tier[0] == "dfw" and cat == "crime":
+                day = another_citys_old_crime(story.title, now.astimezone(settings.tz))
+                if day:
+                    dropped.append((story, f"another city's crime from {day}, days ago"))   # a Garland shooting on Sunday, read on Wednesday
+                    continue
             if tier[0] == "dfw" and cat == "traffic" and another_citys_traffic(story.title):
                 dropped.append((story, "another city's traffic"))            # a Dallas North Tollway closure is Dallas's traffic
                 continue

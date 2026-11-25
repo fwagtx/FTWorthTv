@@ -300,3 +300,25 @@ def test_one_person_spelled_two_ways_holds_the_caption():
     assert name_spellings(bad) == ["one person spelled two ways: Erick Lomick / Erika Lomick"]
     assert name_spellings("Ericka Lomick beat Alan Blaylock in Fort Worth; Fort Worth police said nothing.") == []
     assert name_spellings("John Smith and Jane Smith, his wife, spoke to the Fort Worth City Council.") == []
+
+
+def test_another_dfw_citys_crime_from_days_ago_is_not_ours():
+    """Nov 25 (a Wednesday): WFAA's "North Texas man dead following shooting Sunday, Garland police say"."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from ftworthtv.filters import another_citys_old_crime
+    wed = datetime(2026, 11, 25, 8, 30, tzinfo=ZoneInfo("America/Chicago"))
+    assert another_citys_old_crime("North Texas man dead following shooting Sunday, Garland police say", wed) == "Sunday"
+    assert another_citys_old_crime("Man killed in Dallas shooting Tuesday night, police say", wed) == ""      # yesterday
+    assert another_citys_old_crime("Fort Worth man killed in shooting Sunday", wed) == ""                     # ours stays
+
+
+def test_the_citys_stock_notice_graphic_is_not_a_photo():
+    """Nov 25: "City seeks input on 2025-26 federal housing funds" came with city-news-request-for-public-comment.jpg."""
+    from datetime import datetime, timezone
+    from ftworthtv.sources.opencities import parse_listing
+    html = ('<article><a href="/news/2026/11/caper"><h2 class="list-item-title">City seeks input on 2025-26 federal housing funds</h2>'
+            '<img src="/files/assets/public/v/1/news/images/city-news-request-for-public-comment.jpg?w=300">'
+            '<p class="published-on small-text">Published on November 25, 2026</p><p>The City is inviting residents to comment.</p></a></article>')
+    story = parse_listing(html, "https://www.fortworthtexas.gov/news", {"name": "City of Fort Worth"}, datetime.now(timezone.utc))[0]
+    assert story.image_url is None and story.extra["generic_image"]
