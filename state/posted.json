@@ -7,7 +7,7 @@
     "2026-11-22": 19,
     "2026-11-23": 20,
     "2026-11-24": 20,
-    "2026-11-25": 9
+    "2026-11-25": 10
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -79,6 +79,7 @@
       "breaking": 2,
       "community": 1,
       "crime": 4,
+      "sports": 1,
       "weather": 2
     }
   },
@@ -123,7 +124,7 @@
     },
     "2026-11-25": {
       "nws_forecast": 1,
-      "rss": 5,
+      "rss": 6,
       "video": 1,
       "wanted": 2
     }
@@ -166,7 +167,7 @@
     },
     "2026-11-25": {
       "dfw": 2,
-      "local": 6,
+      "local": 7,
       "texas": 1
     }
   },
@@ -205,6 +206,11 @@
       "at": "2026-11-24T15:45:40.459439+00:00",
       "reason": "daily cap for community reached",
       "title": "D Magazine Names The Lights at Interlochen Best Holiday Lights Display"
+    },
+    "174549a94769336c": {
+      "at": "2026-11-25T15:47:08.311046+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Work session, special called meeting scheduled Dec. 1"
     },
     "1ab71d52f1a1af3a": {
       "at": "2026-11-23T23:22:06.682836+00:00",
@@ -508,7 +514,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-25T09:40:00-06:00",
+  "last_post_at": "2026-11-25T10:05:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -611,6 +617,19 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "DFW Airport prepares for 3.1 million travelers during Thanksgiving rush",
       "url": "https://www.fox4news.com/news/dfw-airport-prepares-3-1-million-travelers-during-thanksgiving-rush"
+    },
+    "193aefe01d5c03f4": {
+      "at": "2026-11-25T10:05:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "441928382",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2889347629996947080",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "TCU Athletics (women's basketball)",
+      "title": "Preview: Fort Myers Tip-Off",
+      "url": "https://gofrogs.com/news/2026/11/25/womens-basketball-preview-fort-myers-tip-off"
     },
     "1e9622bb525e0df0": {
       "at": "2026-11-22T12:19:00-06:00",
@@ -2198,6 +2217,11 @@
       "reason": "CBS Sports' Texas A&M season analysis ('a cautionary tale', 'the collapse has been stunning', 'hapless Arkansas'), with Kyle Field standing ",
       "title": "One year after 11-0 start, Texas A&M enters rivalry week as a cautionary tale"
     },
+    "37039524c2bb0116": {
+      "at": "2026-11-25T15:47:08.310204+00:00",
+      "reason": "Business Press's Sandra Brown musical story: no picture of the author or the production (the search for her found none; the library offered ",
+      "title": "SANDRA BROWN’S NOVEL RAINWATERIN DEVELOPMENT AS NEW STAGEMUSICAL"
+    },
     "3761357513ce7271": {
       "at": "2026-11-23T15:28:46.350691+00:00",
       "reason": "Fort Worth Weekly's 'Game Show Sets Have Found a Second Life on Interactive Live Streams': a gambling-stream advertorial with no Fort Worth "
@@ -2380,6 +2404,11 @@
       "at": "2026-11-20T15:19:26.662237+00:00",
       "reason": "a Dallas park amenity is not Fort Worth news"
     },
+    "95311e60509e6a2a": {
+      "at": "2026-11-25T15:47:08.310183+00:00",
+      "reason": "WFAA's 'What is Weatherford Aerospace?': its lead only restates the fire posted at 9:15, and the question headline goes unanswered; rule add",
+      "title": "What is Weatherford Aerospace?"
+    },
     "96b1b1546b7d83d3": {
       "at": "2026-11-24T12:45:17.421653+00:00",
       "reason": "CBS Texas freeze conditions: held by the pipeline (the frost photo did not show the story) and a repeat of the 6:47 freeze warning post"
@@ -2548,7 +2577,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 124,
+  "total_posts": 125,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
