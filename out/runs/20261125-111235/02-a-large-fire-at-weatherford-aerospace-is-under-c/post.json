@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=AFLOcOFLxz4",
+  "scheduled_at": "2026-11-25T17:37:35.512508+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "A large fire at Weatherford Aerospace is under control, now injuries have been reported",
+    "caption": "WATCH: A large fire at Weatherford Aerospace is under control, now injuries have been reported.\n\nVideo: FOX 4 Dallas-Fort Worth on YouTube",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth on YouTube https://www.youtube.com/watch?v=AFLOcOFLxz4\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Weatherford, TX"
+  },
+  "story": {
+    "id": "036170099c719f7a",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "video",
+    "title": "A large fire at Weatherford Aerospace is under control, now injuries have been reported.",
+    "summary": "",
+    "url": "https://www.youtube.com/watch?v=AFLOcOFLxz4",
+    "published": "2026-11-25T16:53:57+00:00",
+    "category_hint": null,
+    "image_url": "https://i2.ytimg.com/vi/AFLOcOFLxz4/hqdefault.jpg",
+    "image_credit": "Video: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "AFLOcOFLxz4",
+      "channel": "FOX 4 Dallas-Fort Worth",
+      "handle": "@fox4news",
+      "views": 117,
+      "feed_title": "FOX 4 Dallas-Fort Worth",
+      "scope": "local"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.6917
+  }
+}
