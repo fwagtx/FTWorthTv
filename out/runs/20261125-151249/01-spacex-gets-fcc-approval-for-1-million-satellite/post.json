@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-151249/01-spacex-gets-fcc-approval-for-1-million-satellite/post.jpg",
+    "credit": "Photo: Olga Ernst via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:SpaceX_hangar_at_LC39A,_Kennedy_Space_Center.jpg",
+    "photo_id": "commons-183934457",
+    "subject": "entity:spacex"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-151249/01-spacex-gets-fcc-approval-for-1-million-satellite/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "SpaceX gets FCC approval for 1 million satellites to build data centers in space, Brendan Carr says",
+    "caption": "The Federal Communications Commission on Wednesday greenlit SpaceX's request to put 1 million satellites in space that will create orbital data centers. Musk responded by saying, \"Much appreciated. This will be a great asset to America and the world.\"",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/spacex-fcc-approval-data-centers-space/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "105f02d270fcd412",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "SpaceX gets FCC approval for 1 million satellites to build data centers in space, Brendan Carr says",
+    "summary": "November 25, 2026 / 3:05 PM CST / CBS News The Federal Communications Commission on Wednesday greenlit SpaceX's request to put 1 million satellites in space that will create orbital data centers, bringing CEO Elon Musk closer to his goal of harnessing the sun to generate computing power. \"Today, in a historic first, the FCC approved SpaceX's request for 1 million satellites (orbital compute modules) to create data centers in space,\" FCC Chairman Brendan Carr said in a post on X . Musk responded by saying, \"Much appreciated. This will be a great asset to America and the world.\" SpaceX's satellites will conduct telemetry, tracking and command operations, and will connect with other satellites, including those in SpaceX's Starlink system, the FCC said in a February filing. SpaceX filed a request with the FCC to put data centers in space in January. In its application, it said that…",
+    "url": "https://www.cbsnews.com/texas/news/spacex-fcc-approval-data-centers-space/",
+    "published": "2026-11-25T21:05:17+00:00",
+    "category_hint": null,
+    "image_url": "https://assets1.cbsnewsstatic.com/hub/i/r/2026/11/25/ecc09846-0cfc-435c-a3fc-3add4d35e1a3/thumbnail/1024x576/7a3e1e27ef1da9d2450a714ab075fa66/gettyimages-2297782735.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.48999999999999994,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.4528
+  }
+}
