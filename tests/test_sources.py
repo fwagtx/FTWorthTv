@@ -423,3 +423,20 @@ def test_a_postponed_parade_is_not_canceled_and_is_searched_as_the_parade():
     assert not status_clash("Parade canceled due to storms", "The parade was canceled.")
     names = plan_subject(t, "Macy’s 100th Thanksgiving Day parade will be postponed to Saturday.", "events").search_names
     assert "Macy" not in names and any(n.startswith("Macy") and "Thanksgiving" in n for n in names)
+
+
+def test_a_weeklys_review_and_listing_sections_are_skipped():
+    """Nov 25: Fort Worth Weekly's film review ("Hexed: 'Cause It's Witchcraft", Film Reviews) was drafted with the Stockyards'
+    Cantina Cadillac, the culture beat's default search."""
+    import inspect
+    from datetime import datetime, timezone
+    from ftworthtv import images
+    from ftworthtv.sources.rss import parse_feed
+    feed = ("<rss><channel><title>FW Weekly</title>"
+            "<item><title>Hexed: 'Cause It's Witchcraft</title><link>https://x/hexed</link><category><![CDATA[Film Reviews]]></category>"
+            "<description>A review of the Disney film.</description></item>"
+            "<item><title>City council approves budget</title><link>https://x/budget</link><category><![CDATA[News]]></category>"
+            "<description>The Fort Worth City Council approved the budget Tuesday.</description></item></channel></rss>")
+    got = parse_feed({"name": "Fort Worth Weekly", "skip_sections": ["Film Reviews"]}, feed, datetime.now(timezone.utc))
+    assert [s.title for s in got] == ["City council approves budget"]
+    assert "DEFAULT_IMAGE_QUERIES.get(copy.category)" in inspect.getsource(images.plan_image)

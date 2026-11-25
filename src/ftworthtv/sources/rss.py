@@ -82,6 +82,12 @@ def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
         title = strip_html(entry.get("title") or "")
         if not link or not title:
             continue
+        # a weekly's reviews, listings and advertorials are not news: Nov 25, Fort Worth Weekly's "Hexed: 'Cause It's Witchcraft"
+        # (Film Reviews), "Film Shorts // ..." (Film Shorts), "Ate Days of Thanksgiving Leftovers" and a sweepstakes-casino
+        # pitch (Living Local); the feed names each item's section first
+        section = str(((entry.get("tags") or [{}])[0] or {}).get("term") or "").strip().lower()
+        if section and section in {str(x).lower() for x in (cfg.get("skip_sections") or [])}:
+            continue
         summary = clean_feed_text(strip_html(entry.get("summary") or ""))
         if not summary and entry.get("content"):
             summary = clean_feed_text(strip_html(entry["content"][0].get("value", "")))

@@ -309,6 +309,12 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                 queries, labels = [f"commons:{copy.image_query}"], [f"beat:{copy.image_query}"]
                 scope = str(story.extra.get("scope", "local"))
                 low_text = f"{story.title} {story.summary or ''}".lower()
+                from ..writer import DEFAULT_IMAGE_QUERIES
+                if copy.category in ("culture", "community", "business", "events", "other") and \
+                        copy.image_query == DEFAULT_IMAGE_QUERIES.get(copy.category):
+                    # Nov 25: the culture default ("Fort Worth Stockyards") went on a Disney film review and a weekly film
+                    # listings page; a story with no subject of its own gets no landmark standing in for it
+                    queries, labels = [], []
                 if (scope in ("texas", "national") and "fort worth" in (copy.image_query or "").lower()
                         and "fort worth" not in low_text and "tarrant" not in low_text):
                     # Nov 25: The Hollywood Reporter's Avengers/Dune box office story was drafted with the downtown Fort Worth

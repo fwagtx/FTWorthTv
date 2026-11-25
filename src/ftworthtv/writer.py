@@ -861,10 +861,7 @@ def template_copy(story: Story, settings: Settings, now: datetime) -> PostCopy:
     location = guess_location(story, settings)
     kind = story.source_kind
     first_comment = f"Source: {story.source} {story.url}\n{{photo_credit}}\nDM us your videos & photos 📲"
-    image_query = {"weather": "Fort Worth skyline storm clouds", "traffic": "Texas highway traffic night", "crime": "police lights street night",
-                   "events": "concert crowd lights", "food": "Texas barbecue plate", "sports": "football stadium Texas",
-                   "culture": "Fort Worth Stockyards", "community": "Fort Worth downtown street", "business": "Fort Worth skyline day",
-                   "breaking": "Fort Worth downtown night"}.get(category, "Fort Worth skyline")
+    image_query = DEFAULT_IMAGE_QUERIES.get(category, "Fort Worth skyline")
     headline = team_headline(_tidy(smart_headline(story.title, 110), story.summary or ""), story)
 
     if kind == "nws_alert":
@@ -1219,6 +1216,14 @@ def promo_blurb(caption: str) -> bool:
     sentences = [x.strip() for x in _split_sentences(collapse_ws(caption or "")) if x.strip()]
     return (bool(sentences) and all(_IMPERATIVE_START_RE.match(x) for x in sentences)
             and not _WHEN_RE.search(caption or "") and not _WHERE_RE.search(caption or ""))
+
+
+# the template's beat search per category; plan_image never runs the culture/community/business/events/other ones, which name a
+# Fort Worth landmark rather than the story's subject
+DEFAULT_IMAGE_QUERIES = {"weather": "Fort Worth skyline storm clouds", "traffic": "Texas highway traffic night",
+                         "crime": "police lights street night", "events": "concert crowd lights", "food": "Texas barbecue plate",
+                         "sports": "football stadium Texas", "culture": "Fort Worth Stockyards", "community": "Fort Worth downtown street",
+                         "business": "Fort Worth skyline day", "breaking": "Fort Worth downtown night", "other": "Fort Worth skyline"}
 
 
 def strip_page_header(text: str, title: str) -> str:

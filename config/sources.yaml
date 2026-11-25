@@ -196,6 +196,10 @@ rss:
     url: https://www.fwweekly.com/feed/
     weight: 0.7
     always_relevant: true
+    # reviews, listings, columns and advertorial sections (Nov 25: a film review, a listings page, a salsa brand's recipes and a
+    # sweepstakes-casino pitch were all drafted from these)
+    skip_sections: ["Film Reviews", "Film Shorts", "Night & Day", "Ate Day8 a Week", "Living Local", "Big Ticket", "Noteworthy",
+                    "Feature", "Static", "Stage", "Art", "Eats & Drinks", "Letters"]
     category_hint: culture
     image_policy: none
     verify: true
