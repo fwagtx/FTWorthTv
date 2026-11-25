@@ -7,7 +7,7 @@
     "2026-11-22": 19,
     "2026-11-23": 20,
     "2026-11-24": 20,
-    "2026-11-25": 14
+    "2026-11-25": 15
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -77,7 +77,7 @@
     },
     "2026-11-25": {
       "breaking": 2,
-      "community": 2,
+      "community": 3,
       "crime": 4,
       "culture": 1,
       "other": 1,
@@ -126,7 +126,7 @@
     },
     "2026-11-25": {
       "nws_forecast": 1,
-      "rss": 9,
+      "rss": 10,
       "video": 2,
       "wanted": 2
     }
@@ -169,7 +169,7 @@
     },
     "2026-11-25": {
       "dfw": 4,
-      "local": 9,
+      "local": 10,
       "texas": 1
     }
   },
@@ -264,6 +264,11 @@
       "reason": "daily cap for weather reached",
       "title": "How to keep plants, pipes and home safe as freeze warning remains in place for North Texas"
     },
+    "3d9b59a8b272ed77": {
+      "at": "2026-11-25T20:46:14.168015+00:00",
+      "reason": "daily cap for community reached",
+      "title": "North Texas politician blasts Northwest ISD over Islam lesson; district reminds him he set the curriculum"
+    },
     "3e75417a739bf43b": {
       "at": "2026-11-24T15:45:40.459449+00:00",
       "reason": "daily cap for community reached",
@@ -314,10 +319,20 @@
       "reason": "daily cap for crime reached",
       "title": "2 dead after early morning shooting at Arlington apartment complex, police say"
     },
+    "688705ac4f1c1a7e": {
+      "at": "2026-11-25T20:46:14.167981+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Fort Worth shooting leaves three men hospitalized after fight"
+    },
     "6bd93bfe3b5a053c": {
       "at": "2026-11-24T02:13:44.148398+00:00",
       "reason": "daily cap for weather reached",
       "title": "Weather changes and migraines: what North Texans need to know"
+    },
+    "6ef38a89f8d1ea6f": {
+      "at": "2026-11-25T20:46:14.168013+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Six Flags Over Texas Offers Free Admission to Guests 65 and Older"
     },
     "6f79f24ac5290f83": {
       "at": "2026-11-24T04:42:51.727172+00:00",
@@ -474,11 +489,6 @@
       "reason": "daily cap for crime reached",
       "title": "Wanted sex offender arrested in Dallas at homeless encampment"
     },
-    "f978100a95e058ee": {
-      "at": "2026-11-23T20:28:52.393032+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "NBC 5 Forecast: A reinforcing cold front is on the way; A Freeze Warning is in effect for western North Texas"
-    },
     "fc5e45beda0efd1b": {
       "at": "2026-11-24T21:15:57.720015+00:00",
       "reason": "daily cap for community reached",
@@ -501,7 +511,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-25T13:55:00-06:00",
+  "last_post_at": "2026-11-25T14:50:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1249,6 +1259,19 @@
       "source": "The Hollywood Reporter",
       "title": "Justin Timberlake Documentary Trailer: “He’s Not Who I Thought He Was”",
       "url": "https://www.hollywoodreporter.com/tv/tv-news/justin-timberlake-documentary-trailer-apple-1236761080/"
+    },
+    "82127a0d0bf57d4c": {
+      "at": "2026-11-25T14:50:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "442303782",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4701813312552089889",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "These Fort Worth volunteers deliver food to students they’ll never meet",
+      "url": "https://fortworthreport.org/2026/11/25/these-fort-worth-volunteers-deliver-food-to-students-theyll-never-meet/"
     },
     "83ad354dab700578": {
       "at": "2026-11-21T07:35:00-06:00",
@@ -2541,6 +2564,11 @@
       "reason": "Fort Worth Weekly's Sundance Square tree lighting announcement: the picture is Bass Hall's angels on a rainy day (a Flickr file labelled Sun",
       "title": "Winter Wonderland Begins Tuesday"
     },
+    "aecd0e07be5ec0cd": {
+      "at": "2026-11-25T20:46:14.167062+00:00",
+      "reason": "Fort Worth Report's 'The Dish: Acquolina ...': drafted with a British Museum enamel dish for the column name 'Dish'; the page's own photo is",
+      "title": "The Dish: Acquolina brings Italian fare to the slopes of Camp Bowie District"
+    },
     "b0d02a7515d38b45": {
       "at": "2026-11-23T14:22:51.705143+00:00",
       "reason": "ESPN's Houston Rockets feature with a Toyota Center stand-in and an 'Original uploader was' credit; rules added"
@@ -2671,7 +2699,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 129,
+  "total_posts": 130,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
