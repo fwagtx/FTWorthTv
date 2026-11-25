@@ -115,7 +115,25 @@ def caption_problems(copy: PostCopy, story: Story, *, min_ratio: float = 0.6, wr
             problems.append(f"quotation not in the source: {quote[:60]!r}")
     problems += weekday_mismatches(caption, story.published)
     problems += name_spellings(caption)
+    clash = status_clash(story.title or "", caption)
+    if clash:
+        problems.append(clash)
     return problems
+
+
+# Nov 25: Billboard's "Macy's 100th Thanksgiving Day Parade Has Been Postponed: Here's the New Date" came with the dek "The
+# Macy's 100th Thanksgiving Day Parade 2026 has officially been canceled.", which the caption kept
+_POSTPONED_RE = re.compile(r"\b(?:postponed|postpones|delayed|delays|rescheduled|reschedules|moved to|pushed back)\b", re.I)
+_CANCELED_RE = re.compile(r"\b(?<!not )(?:canceled|cancelled|cancels|scrapped|called off)\b", re.I)
+
+
+def status_clash(headline: str, caption: str) -> str:
+    """The caption says an event was canceled where the headline says postponed, or the other way round."""
+    if _POSTPONED_RE.search(headline) and _CANCELED_RE.search(caption) and not _CANCELED_RE.search(headline):
+        return "caption says canceled where the headline says postponed"
+    if _CANCELED_RE.search(headline) and _POSTPONED_RE.search(caption) and not _POSTPONED_RE.search(headline):
+        return "caption says postponed where the headline says canceled"
+    return ""
 
 
 # one person spelled two ways is a typo in the source: Nov 24, FOX 4's House District 93 caption went out with "Erick Lomick" and

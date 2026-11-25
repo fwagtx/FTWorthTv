@@ -411,3 +411,15 @@ def test_a_bar_guide_a_training_grant_and_a_june_street_in_november():
     assert infer_category(real) in ("breaking", "crime")
     assert not in_season({"title": "File:Fort Worth June 2016 09 (Main Street).jpg"}, 11)
     assert in_season({"title": "File:Fort Worth skyline.jpg"}, 11)
+
+
+def test_a_postponed_parade_is_not_canceled_and_is_searched_as_the_parade():
+    """Nov 25: Billboard's "Hold Your Turkeys! Macy's 100th Thanksgiving Day Parade Has Been Postponed" came with the dek "...
+    has officially been canceled", which the caption kept, and searched "Macy" (the Herald Square store)."""
+    from ftworthtv.checks import status_clash
+    from ftworthtv.images.subject import plan_subject
+    t = "Hold Your Turkeys! Macy’s 100th Thanksgiving Day Parade Has Been Postponed: Here’s the New Date"
+    assert status_clash(t, "The Macy's 100th Thanksgiving Day Parade 2026 has officially been canceled.")
+    assert not status_clash("Parade canceled due to storms", "The parade was canceled.")
+    names = plan_subject(t, "Macy’s 100th Thanksgiving Day parade will be postponed to Saturday.", "events").search_names
+    assert "Macy" not in names and any(n.startswith("Macy") and "Thanksgiving" in n for n in names)

@@ -287,6 +287,11 @@ BROADCASTERS = {"nbc", "espn", "espn2", "abc", "cbs", "fox", "fs1", "tnt", "tbs"
                 "paramount+", "the cw", "cw", "telemundo", "univision", "kxas", "kdfw", "ktvt", "nbcsn", "truTV".lower()}
 
 
+# an ordinal inside a name ("Macy's 100th Thanksgiving Day Parade", "the 80th annual ...") keeps the run going: Nov 25, Billboard's
+# parade postponement searched "Macy" and found the Herald Square store
+_ORDINAL_RE = re.compile(r"^(?:\d{1,4}(?:st|nd|rd|th)|st|nd|rd|th)$")      # the tokenizer keeps only "th" of "100th"
+
+
 def entities(title: str, body: str = "") -> list[str]:
     """Named subjects in a headline: runs of capitalised words, kept when they are more than one word, possessive, an
     acronym, or appear capitalised again mid-sentence in the body (so 'Largest enrollment drop' names nothing, while
@@ -315,7 +320,8 @@ def entities(title: str, body: str = "") -> list[str]:
             continue
         run = [tok]
         j = i + 1
-        while j < len(tokens) and tokens[j] != "|" and (_capitalised(tokens[j]) or tokens[j].lower() in ("of", "&", "and") and j + 1 < len(tokens) and _capitalised(tokens[j + 1])):
+        while j < len(tokens) and tokens[j] != "|" and (_capitalised(tokens[j]) or (tokens[j].lower() in ("of", "&", "and") or _ORDINAL_RE.match(tokens[j]))
+                                                         and j + 1 < len(tokens) and _capitalised(tokens[j + 1])):
             run.append(tokens[j])
             j += 1
         while run and run[-1].lower() in ("of", "&", "and"):
@@ -333,6 +339,7 @@ def entities(title: str, body: str = "") -> list[str]:
         if (words and words[0].lower() in STOP and len(words) > 1 and not " ".join(words).lower().startswith(NUMBER_NAMES)
                 and (seg_start or words[0].lower() not in NAME_LEADERS)):
             words = words[1:]                              # "Big crash on I-35W" -> no "Big"; "at Big Bear's Smokehouse" keeps it
+        words = [w for w in words if not _ORDINAL_RE.match(w)]    # "Macy's 100th Thanksgiving Day Parade" -> the parade, not "Macy"
         phrase = " ".join(words)
         low = phrase.lower()
         possessive = any(w.endswith(("'s", "’s")) for w in run)
