@@ -266,6 +266,11 @@
       "reason": "daily cap for community reached",
       "title": "TIME names TCC one of America’s Best Community Colleges for 2027"
     },
+    "44a8b220557ec510": {
+      "at": "2026-11-25T15:18:04.726968+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Arlington Police investigating early morning homicide at apartment complex"
+    },
     "46afc276c8ccbb6d": {
       "at": "2026-11-23T23:22:06.682850+00:00",
       "reason": "daily cap for politics reached",
@@ -431,6 +436,11 @@
       "reason": "daily cap for crime reached",
       "title": "U.S. intelligence helped Mexico capture ‘Chapo Isidro,’ Sheinbaum says"
     },
+    "cd0687c909fd6316": {
+      "at": "2026-11-25T15:18:04.726985+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Fort Worth prepared to provide emergency overflow shelter as cold settles in"
+    },
     "dc6045e198fd19ca": {
       "at": "2026-11-24T02:13:44.148363+00:00",
       "reason": "daily cap for weather reached",
@@ -475,11 +485,6 @@
       "at": "2026-11-23T20:28:52.393032+00:00",
       "reason": "daily cap for weather reached",
       "title": "NBC 5 Forecast: A reinforcing cold front is on the way; A Freeze Warning is in effect for western North Texas"
-    },
-    "fa2017e04848900e": {
-      "at": "2026-11-23T14:55:31.756025+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "Turkey Day wind chills after chance of snow for North Texas"
     },
     "fc5e45beda0efd1b": {
       "at": "2026-11-24T21:15:57.720015+00:00",
@@ -2227,6 +2232,11 @@
       "at": "2026-11-24T17:18:18.966624+00:00",
       "reason": "ESPN's Cardinals DC firing: Arizona NFL news counted as Texas for a coach named Austin, with a Fort Worth Fire truck for 'fire'; rules added",
       "title": "Cardinals fire DC Rallis; Austin takes over on interim basis"
+    },
+    "4436bed80b15a040": {
+      "at": "2026-11-25T15:18:04.726065+00:00",
+      "reason": "KENS 5's federal EV registration fee (a proposal in Congress) drafted with the Texas Capitol's rotunda; the library has no electric-vehicle ",
+      "title": "Proposed federal fee could drive up registration costs for Texas electric vehicle owners"
     },
     "4483cc540033149a": {
       "at": "2026-11-23T16:17:22.718712+00:00",
