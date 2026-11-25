@@ -512,6 +512,21 @@ _OPENING_STORY_RE = re.compile(r"\b(?:opens?|opened|opening|debuts?|debuted|reop
                                r"\bnew location\b|\bnow open\b", re.I)
 
 
+# a company's building is not its news: Nov 25, "SpaceX hangar at LC39A, Kennedy Space Center" (Florida) for CBS News Texas's
+# "SpaceX gets FCC approval for 1 million satellites to build data centers in space" (and on Nov 24 for SpaceX debris in Mexico)
+_FACILITY_RE = re.compile(r"\b(?:hangar|hangars|headquarters|hq|office building|offices|facility|facilities|plant|warehouse|factory|"
+                          r"campus|distribution center|fulfillment center|corporate office)\b", re.I)
+
+
+def facility_for_other_news(title: str, story_text: str) -> bool:
+    """The file is a company's building, and the story's headline is not about a building."""
+    if not story_text or not _FACILITY_RE.search(title or ""):
+        return False
+    head = story_text[:200]
+    return not _FACILITY_RE.search(head) and not re.search(r"\b(?:building|site|location|opens?|opening|expan\w+|construction|"
+                                                           r"moves?|relocat\w+|closes?|closing)\b", head, re.I)
+
+
 def other_event_photo(titled: str, query: str, story_text: str) -> bool:
     """The file shows a named event ("grand opening") somewhere the story never mentions, or, for a story about something
     opening, another location of the same brand."""
@@ -558,6 +573,8 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
                 continue                  # another place's grand opening is not this one
             if unnamed_person_photo(cand.title or cand.source_url.rsplit("/", 1)[-1].replace("_", " "), q, story_text):
                 continue                  # a stranger's portrait: the worst mistake a page can make
+            if facility_for_other_news(cand.title or cand.source_url.rsplit("/", 1)[-1].replace("_", " "), story_text):
+                continue                  # a company's hangar is not its satellite approval
             if avoid and (any(w in titled for w in avoid) or " - " in titled):   # "Artist - Venue, 2022.jpg" is a performance photo
                 continue
             plain = " " + re.sub(r"[\s_\-,.:;()'’\"]+", " ", titled).strip() + " "    # "Ty_Myers_2025.jpg" -> " ty myers 2025 jpg "

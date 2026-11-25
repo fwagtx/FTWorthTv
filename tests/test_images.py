@@ -385,3 +385,16 @@ def test_a_faith_is_never_searched_and_calligraphy_is_not_a_photo():
     plan = plan_subject(t, "State Board of Education member Brandon Hall criticized a World Geography lesson on Islam.", "community")
     assert "Islam" not in plan.search_names
     assert _NOT_A_PHOTO_RE.search("Arafatul Islam Ambigram")
+
+
+def test_a_companys_building_is_not_its_news_and_a_bare_surname_gets_its_name():
+    """Nov 25: CBS News Texas's "SpaceX gets FCC approval for 1 million satellites to build data centers in space" drew "SpaceX
+    hangar at LC39A, Kennedy Space Center", and its caption kept "Musk responded by saying ..." without the first reference."""
+    from ftworthtv.images.providers import facility_for_other_news
+    from ftworthtv.writer import introduce_speakers
+    story = "SpaceX gets FCC approval for 1 million satellites to build data centers in space, Brendan Carr says. The FCC ..."
+    assert facility_for_other_news("SpaceX hangar at LC39A, Kennedy Space Center", story)
+    assert not facility_for_other_news("Lockheed Martin Fort Worth plant", "Lockheed Martin to expand Fort Worth plant, adding 500 jobs")
+    cap = "The FCC greenlit SpaceX's request to put 1 million satellites in space. Musk responded by saying, \"Much appreciated.\""
+    text = "The FCC greenlit SpaceX's request, bringing CEO Elon Musk closer to his goal. Musk responded by saying, \"Much appreciated.\""
+    assert "Elon Musk responded" in introduce_speakers(cap, text)

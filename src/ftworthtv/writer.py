@@ -1139,7 +1139,9 @@ def restate_relative_day(caption: str, text: str, now: datetime, tz) -> str:
 
 
 # a quote's attribution: the closing quote, then a bare capitalized surname and the verb ('...that work," Wilson said.')
-_BARE_SAID_RE = re.compile(r"[,.!?…]\s?[\"”’]\s+([A-Z][a-z]+(?:-[A-Z][a-z]+)?) (?:said|says|told|added|noted|explained)\b")
+_BARE_SAID_RE = re.compile(r"(?:[,.!?…]\s?[\"”’]\s+|(?:^|[.!?]\s+))([A-Z][a-z]+(?:-[A-Z][a-z]+)?) (?:said|says|told|added|noted|"
+                           r"explained|responded|replied|wrote|posted)\b")
+# Nov 25: CBS News Texas's SpaceX caption kept "Musk responded by saying, ..." after the sentence naming "CEO Elon Musk" was cut
 _ROLE_TITLE = r"(?:Superintendent|Mayor|Police Chief|Fire Chief|Chief|Coach|Trustee|Commissioner|Councilmember|Council member|" \
               r"President|Sen\.|Senator|Rep\.|Representative|Gov\.|Governor|Judge|Sheriff|Officer|Sgt\.|Lt\.|Dr\.|Pastor|Principal)"
 # capitalized words that sit before a name-like word without being a first name ("Fort Worth Police said")
