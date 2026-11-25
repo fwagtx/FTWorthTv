@@ -440,3 +440,10 @@ def test_a_weeklys_review_and_listing_sections_are_skipped():
     got = parse_feed({"name": "Fort Worth Weekly", "skip_sections": ["Film Reviews"]}, feed, datetime.now(timezone.utc))
     assert [s.title for s in got] == ["City council approves budget"]
     assert "DEFAULT_IMAGE_QUERIES.get(copy.category)" in inspect.getsource(images.plan_image)
+
+
+def test_a_leagues_uniform_roundup_is_a_column():
+    """Nov 25: ESPN's "Rams and Cowboys top Week 12 uniforms" ("what each NFL team is wearing in Week 12")."""
+    from ftworthtv.filters import roundup_column
+    assert roundup_column("Rams and Cowboys top Week 12 uniforms")
+    assert not roundup_column("Cowboys unveil throwback uniforms for Thanksgiving game")
