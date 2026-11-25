@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-134815/01-arlington-150-step-into-the-city-s-past-with-sto/post.jpg",
+    "credit": "Photo: Mica Magday | Arlington Report / Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/25/arlington-150-step-into-the-citys-past-with-stories-of-its-legacy/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-134815/01-arlington-150-step-into-the-city-s-past-with-sto/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "Arlington 150: Step into the city’s past with stories of its legacy",
+    "caption": "The Arlington Museum of Art’s special exhibit honors the history of the city through local voices and historical objects.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/25/arlington-150-step-into-the-citys-past-with-stories-of-its-legacy/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "hockey arena ice",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "15be76b7ed9e72bc",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Arlington 150: Step into the city’s past with stories of its legacy",
+    "summary": "The Arlington Museum of Art’s special exhibit honors the history of the city through local voices and historical objects. Residents can step into their city’s past at the Arlington Museum of Art, where a special exhibit delves into everything from fossils dating 95 million years ago to poker chips used in an illegal underground speakeasy and casino, nicknamed Vegas before Vegas. The Arlington Museum of Art is showcasing “Arlington 150: Stories of a Legacy,” an exploration of the rich history of the city through local voices and historical objects. The story begins with the early settlers in the 1830s, including many of the names the city knows well — from settler James Daniel Cooper to pioneer farmer and businessman Rice Woods Collins. The exhibit also dives into the city’s restaurants, sports and pop culture stars. What: “Arlington 150: Stories of a Legacy” exhibit When: Tuesday…",
+    "url": "https://fortworthreport.org/2026/11/25/arlington-150-step-into-the-citys-past-with-stories-of-its-legacy/",
+    "published": "2026-11-25T19:28:13+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/DSC04540-2-300x200.jpg",
+    "image_credit": "Photo: Mica Magday | Arlington Report / Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "A special Arlington 150 quilt is displayed in the Arlington Museum of Art on Nov. 18, 2026. (Mica Magday | Arlington Report)",
+      "page_credit": "Mica Magday | Arlington Report"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 1.2989
+  }
+}
