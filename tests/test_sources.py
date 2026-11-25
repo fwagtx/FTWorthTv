@@ -372,3 +372,23 @@ def test_another_team_with_our_teams_nickname_is_not_ours():
     assert other_teams_nickname("Dallas Cowboys face former Oklahoma State star in Week 13") == ""
     pairs = provider_queries(plan_subject(t, "", "sports"), t, "sports")
     assert not any("dallas cowboys" in lab for _, lab in pairs)
+
+
+def test_a_recipe_feature_and_a_menu_reveal_are_not_text_card_news(settings, now):
+    """Nov 25: Fort Worth Weekly's "Ate Days of Thanksgiving Leftovers" (a salsa brand's recipes) and NBC 5's "Annual Dallas
+    Cowboys Thanksgiving Day game menu revealed" (a concessionaire's menu, drafted as a sports text card)."""
+    from ftworthtv.filters import _RECIPE_RE, infer_category
+    from ftworthtv.models import Story
+    assert _RECIPE_RE.search("Ate Days of Thanksgiving Leftovers")
+    menu = Story(id="m", source="NBC 5 DFW", source_kind="rss", title="Annual Dallas Cowboys Thanksgiving Day game menu revealed",
+                 summary="Fans will once again be able to enjoy all their favorite Thanksgiving holiday menu classics.", url="u",
+                 category_hint="sports")
+    assert infer_category(menu) == "food"
+
+
+def test_a_beat_is_searched_on_commons_only(monkeypatch, settings):
+    """Nov 25: Openverse's Flickr result for "Sundance Square Fort Worth" was Bass Hall on a rainy day, for a tree lighting."""
+    import inspect
+    from ftworthtv import images
+    src = inspect.getsource(images.plan_image)
+    assert 'queries, labels = [f"commons:{copy.image_query}"]' in src

@@ -304,7 +304,9 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
             elif sp.mode == "institution":
                 queries, labels = [], []
             else:
-                queries, labels = [copy.image_query], [f"beat:{copy.image_query}"]
+                # Nov 25: an Openverse/Flickr result for "Sundance Square Fort Worth" was Bass Hall's angels on a rainy day, for the
+                # Sundance Square tree lighting; a beat is looked for on Wikimedia Commons only, where file titles describe the file
+                queries, labels = [f"commons:{copy.image_query}"], [f"beat:{copy.image_query}"]
                 venue = story.extra.get("venue")
                 if story.source_kind in ("event", "event_roundup") and venue:
                     # generic genre photo first; a venue photo only when the file is clearly of the building, never another artist's show

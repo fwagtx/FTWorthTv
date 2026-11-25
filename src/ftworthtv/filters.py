@@ -224,6 +224,11 @@ _OUR_TEAM_MARKERS = {"cowboys": ("dallas cowboys", "dallas", "at&t stadium", "ar
                      "mavericks": ("dallas mavericks", "dallas", "american airlines center", "uta", "arlington")}
 
 
+# Nov 25: Fort Worth Weekly's "Ate Days of Thanksgiving Leftovers" was a salsa brand's recipes ("Mrs. Renfro's, the worldwide salsa
+# sensation with local ties, says ...")
+_RECIPE_RE = re.compile(r"\b(?:recipes?|leftovers|how to make|make-ahead|meal prep)\b", re.I)
+
+
 def other_teams_nickname(text: str) -> str:
     """Another team named like one of ours, with nothing in the story about ours: the other team's marker, or ''."""
     low = f" {(text or '').lower()} "
@@ -1043,6 +1048,9 @@ def active_scene(title: str) -> bool:
 def infer_category(story: Story) -> str:
     if _TITLE_CRIME_RE.search(story.title or "") and story.category_hint != "sports":
         return "crime"                      # "Arlington pastor convicted for Ponzi scheme" is crime, whatever a channel's boilerplate says
+    if re.search(r"\bmenus?\b", story.title or "", re.I):
+        return "food"                       # Nov 25: NBC 5's "Annual Dallas Cowboys Thanksgiving Day game menu revealed" is food, not
+                                            # sports: a menu takes a picture of the food, never a text card
     text = _NOT_CRIME_RE.sub(" ", story.text())          # "Runner in cardiac arrest saved by nurses" is not a crime story
     title = _NOT_CRIME_RE.sub(" ", story.title.lower())
     # another region's story is breaking news only when its headline says so: Nov 23, KVUE's "Mexico demands SpaceX clean up
@@ -1136,6 +1144,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if betting_promo(story.title, story.summary or ""):
             dropped.append((story, "sports betting picks or promo, not news"))
+            continue
+        if not story.official and _RECIPE_RE.search(story.title or ""):
+            dropped.append((story, "a recipe feature, not news"))          # Fort Worth Weekly's salsa brand's leftovers recipes
             continue
         twin_team = other_teams_nickname(story.text())
         if twin_team:
