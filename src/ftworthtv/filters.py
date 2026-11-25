@@ -156,7 +156,9 @@ _FEATURE_TITLE_RE = re.compile(r"(?:^|[:—–]\s*|,\s+)(?:how(?! to\b)|why|insi
                                r"(?:upset|angry|furious|livid|mad|divided|split|losing it|freaking out|obsessed|baffled|confused|"
                                r"think|thought|discover(?:ed)?|found|notice[ds]?|spot(?:ted)?|realize[ds]?|convinced|debating|"
                                r"can't stop|cannot stop|have (?:found|discovered|noticed|spotted))\b", re.I)
-_FEATURE_URL_RE = re.compile(r"/(?:features?|lists?|galler(?:y|ies)|longform|long-reads?|interviews?|cover-stor(?:y|ies)|in-depth)/|-cover-\d", re.I)
+_FEATURE_URL_RE = re.compile(r"/(?:features?|lists?|galler(?:y|ies)|longform|long-reads?|interviews?|cover-stor(?:y|ies)|in-depth)/|-cover-\d|"
+                             # Nov 25, The Hollywood Reporter: /music/music-features/gta-vi-carly-rae-jepsen-...-interview-1236763127/
+                             r"/[a-z]+-features?/|-interview-\d", re.I)
 
 
 # an awards campaign is the trade press's beat, not a moment (Nov 23: Variety's "Marvel's 'Avengers: Doomsday' Won't Screen for

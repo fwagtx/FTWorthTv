@@ -1464,3 +1464,17 @@ def test_congress_is_not_the_texas_capitol():
     assert "capitol" not in topics_for(f"{t}. Congress is considering a $130 annual fee for fully electric vehicles.", "politics", "texas", title=t)
     assert "capitol" in topics_for("Texas lawmakers file bill to cut property taxes", "politics", "texas",
                                    title="Texas lawmakers file bill to cut property taxes")
+
+
+def test_a_scraped_page_header_and_a_ranking_survive_correctly():
+    """Nov 25: TCU Athletics' page text opened "TCU Athletics Frogs Head to Lubbock for Thanksgiving Showdown TCU heads to
+    Lubbock ...", and the hashtag filter took "#11" from "#11 Texas Tech"."""
+    from ftworthtv.filters import national_feature
+    from ftworthtv.writer import HASHTAG_RE, strip_page_header
+    t = "Frogs Head to Lubbock for Thanksgiving Showdown"
+    x = ("TCU Athletics Frogs Head to Lubbock for Thanksgiving Showdown TCU heads to Lubbock for a Thanksgiving night showdown "
+         "vs. #11 Texas Tech. The Battle for the Saddle will air nationally on ESPN.")
+    assert strip_page_header(x, t).startswith("TCU heads to Lubbock")
+    assert HASHTAG_RE.sub("", "vs. #11 Texas Tech #GoFrogs").strip() == "vs. #11 Texas Tech"
+    assert national_feature("‘GTA VI’ Just Might Turn Carly Rae Jepsen Into A “Late in Life Gamer”",
+                            "https://www.hollywoodreporter.com/music/music-features/gta-vi-carly-rae-jepsen-runaway-with-me-interview-1236763127/")

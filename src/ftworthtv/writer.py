@@ -27,7 +27,7 @@ TOPIC_HASHTAGS = {
 }
 EMOJI_RE = re.compile(r"[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\uFE0F]")
 URL_RE = re.compile(r"https?://\S+")
-HASHTAG_RE = re.compile(r"(?<!\w)#\w+")
+HASHTAG_RE = re.compile(r"(?<!\w)#(?!\d{1,2}\b)\w+")   # "#11 Texas Tech" is a ranking, not a hashtag (Nov 25)
 
 
 # --------------------------------------------------------------------------- prompt
@@ -1221,7 +1221,21 @@ def promo_blurb(caption: str) -> bool:
             and not _WHEN_RE.search(caption or "") and not _WHERE_RE.search(caption or ""))
 
 
+def strip_page_header(text: str, title: str) -> str:
+    """A scraped page that opens with its site name and headline before the story: Nov 25, TCU Athletics' "TCU Athletics Frogs
+    Head to Lubbock for Thanksgiving Showdown TCU heads to Lubbock for a Thanksgiving night showdown ..." went into the caption
+    as one run-on sentence."""
+    if not text or not title:
+        return text
+    at = text.lower().find(title.lower().strip(" ."), 0, len(title) + 60)
+    if at < 0 or at > 50:
+        return text
+    rest = text[at + len(title.strip(" .")):].lstrip(" :|-–—.")
+    return rest if len(rest) > 40 else text
+
+
 def write_copy(story: Story, settings: Settings, now: datetime, *, force_template: bool = False) -> tuple[PostCopy, str]:
+    story.summary = strip_page_header(story.summary or "", story.title or "")
     if (story.source_kind == "rss" and not story.official and (story.category or "") == "sports"
             and not _sentences(story.summary or "") and cut_off(story.summary or "")):
         lead = salvage_lead(story.summary or "")
