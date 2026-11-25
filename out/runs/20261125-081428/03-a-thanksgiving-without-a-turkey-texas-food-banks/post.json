@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-25T15:04:28.651447+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-081428/03-a-thanksgiving-without-a-turkey-texas-food-banks/post.jpg",
+    "credit": "Photo: Annie Mulligan for The Texas Tribune",
+    "license": "republish-ok",
+    "provider": "source",
+    "source_url": "https://feeds.texastribune.org/link/16799/17540209/texas-food-banks-turkeys-holidays",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-081428/03-a-thanksgiving-without-a-turkey-texas-food-banks/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "A Thanksgiving without a turkey: Texas food banks struggle to meet demand ahead of the holidays",
+    "caption": "Federal cuts and high food prices, particularly with poultry and other proteins, strain local pantries as demand from families in need surges.",
+    "first_comment": "Source: The Texas Tribune @TexasTribune https://feeds.texastribune.org/link/16799/17540209/texas-food-banks-turkeys-holidays\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "roast turkey Thanksgiving food",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "47c63b20d6cb48ed",
+    "source": "The Texas Tribune",
+    "source_kind": "rss",
+    "title": "A Thanksgiving without a turkey: Texas food banks struggle to meet demand ahead of the holidays",
+    "summary": "Federal cuts and high food prices, particularly with poultry and other proteins, strain local pantries as demand from families in need surges. Subscribe to The Y’all — a weekly dispatch about the people, places and policies defining Texas, produced by Texas Tribune journalists living in communities across the state. Turkey, ham, cranberry sauce and dressing are all staples for the dinner table during the holidays, but this year, millions of Texas families who rely on food banks will find their tables empty of traditional festive foods. Texas food banks face the highest demand they’ve seen since the 2020 pandemic, but high food prices, a dearth of federal funding and fewer donations have crippled their ability to provide much-needed nourishment to struggling families. “This is the first year we bought zero turkeys. They’re just too expensive,” said Brian Greene, president and CEO of the…",
+    "url": "https://feeds.texastribune.org/link/16799/17540209/texas-food-banks-turkeys-holidays",
+    "published": "2026-11-25T11:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://i0.wp.com/www.texastribune.org/wp-content/uploads/2026/11/20261124-Houston-Food-Bank-Thanksgiving-AM-02.jpg?fit=1024%2C683&ssl=1",
+    "image_credit": "Photo: Annie Mulligan for The Texas Tribune",
+    "image_license": "republish-ok",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5599999999999999,
+    "extra": {
+      "feed_title": "The Texas Tribune",
+      "national": false,
+      "social_tag": "@TexasTribune",
+      "article_fetched": true,
+      "scope": "texas",
+      "page_caption": "Volunteer Isaias Maza, center, helps a client with a cart full of groceries at the Wesley Community Center food pantry on Nov. 24, 2026, in Houston. Annie Mulligan for The Texas Tribune",
+      "page_credit": "Annie Mulligan for The Texas Tribune"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.4679
+  }
+}

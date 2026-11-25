@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-081428/01-city-seeks-input-on-2025-26-federal-housing-fund/post.jpg",
+    "credit": "Photo: City of Fort Worth",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.fortworthtexas.gov/news/2026/11/southeast-downtown-action-plan",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-081428/01-city-seeks-input-on-2025-26-federal-housing-fund/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "City seeks input on 2025-26 federal housing funds",
+    "caption": "The City of Fort Worth is inviting residents to review and provide comments on its 2025-26 Consolidated Annual Performance and Evaluation Report (CAPER). Each year, the City receives federal grant funds from the U.S. Department of Housing and Urban Development (HUD) to support housing and community development initiatives.",
+    "first_comment": "Source: City of Fort Worth https://www.fortworthtexas.gov/news/2026/11/southeast-downtown-action-plan\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "04ea0aeb2d38ff96",
+    "source": "City of Fort Worth",
+    "source_kind": "rss",
+    "title": "City seeks input on 2025-26 federal housing funds",
+    "summary": "The City of Fort Worth is inviting residents to review and provide comments on its 2025-26 Consolidated Annual Performance and Evaluation Report (CAPER), which details how federal funding is being used to support affordable housing, improve living conditions and expand economic opportunities for residents with low and moderate incomes. Each year, the City receives federal grant funds from the U.S. Department of Housing and Urban Development (HUD) to support housing and community development initiatives. Through the annual CAPER, the City reports to residents and HUD on how and where these funds are spent, who administers the programs and how the funding benefits the community. The 2025-26 CAPER covers investments and expenditures from four federal funding programs: Community Development Block Grant (CDBG), HOME Investment Partnerships (HOME), Emergency Solutions Grant (ESG) and Housing…",
+    "url": "https://www.fortworthtexas.gov/news/2026/11/southeast-downtown-action-plan",
+    "published": "2026-11-25T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.fortworthtexas.gov/files/assets/public/v/1/news/images/city-news-request-for-public-comment.jpg",
+    "image_credit": "Photo: City of Fort Worth",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.8,
+    "extra": {
+      "listing_image": "https://www.fortworthtexas.gov/files/assets/public/v/1/news/images/city-news-request-for-public-comment.jpg",
+      "generic_image": false,
+      "article_fetched": true,
+      "scope": "local"
+    },
+    "category": "business",
+    "relevance": 1,
+    "score": 0.7776
+  }
+}
