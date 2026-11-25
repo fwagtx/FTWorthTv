@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-25T14:08:11.227118+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-074311/02-texas-pharmacy-recalls-medications-nationwide-he/post.jpg",
+    "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth_Skyline.jpg",
+    "photo_id": "lib-downtown-fort-worth-skyline-jpg",
+    "subject": "beat:skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-074311/02-texas-pharmacy-recalls-medications-nationwide-he/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Texas pharmacy recalls medications nationwide. Here's how to check yours",
+    "caption": "Tomball-based Greenwich Rx is recalling certain medications nationwide over sterility concerns that could put patients at risk of serious infections.",
+    "first_comment": "Source: KHOU 11 Houston https://www.khou.com/article/news/health/tomball-texas-greenwich-rx-clove-rx-nationwide-medication-recall/285-fb60ffac-0a7a-4387-9678-31543e99bb20\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3a9c8d1f429d7910",
+    "source": "KHOU 11 Houston",
+    "source_kind": "rss",
+    "title": "Texas pharmacy recalls medications nationwide. Here's how to check yours",
+    "summary": "Tomball-based Greenwich Rx is recalling certain medications nationwide over sterility concerns that could put patients at risk of serious infections.",
+    "url": "https://www.khou.com/article/news/health/tomball-texas-greenwich-rx-clove-rx-nationwide-medication-recall/285-fb60ffac-0a7a-4387-9678-31543e99bb20",
+    "published": "2026-11-25T13:15:09+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/CCT/images/c3bc31ad-97c4-413d-a8bb-1af6522dd583/c3bc31ad-97c4-413d-a8bb-1af6522dd583_750x422.jpg",
+    "image_credit": "Photo: KHOU 11 Houston",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "KHOU RSS Feed: local",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.429
+  }
+}
