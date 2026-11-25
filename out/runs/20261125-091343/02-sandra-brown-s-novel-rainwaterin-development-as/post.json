@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-25T15:38:43.919286+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-091343/02-sandra-brown-s-novel-rainwaterin-development-as/post.jpg",
+    "credit": "Photo: Sandra Aceng via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Sandra_and_Thomas_at_Wikimania_2026_in_Paris_02.jpg",
+    "photo_id": "commons-197516169",
+    "subject": "entity:sandra"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-091343/02-sandra-brown-s-novel-rainwaterin-development-as/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Sandra brown’s novel rainwaterin development as New stagemusical",
+    "caption": "The production is being developed by Pocket Watch Theatrical with music by Brian Feinstein and lyrics by Amanda Yesnowitz.",
+    "first_comment": "Source: Fort Worth Business Press https://fortworthbusiness.com/culture/sandra-browns-novel-rainwaterin-development-as-new-stagemusical/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "37039524c2bb0116",
+    "source": "Fort Worth Business Press",
+    "source_kind": "rss",
+    "title": "SANDRA BROWN’S NOVEL RAINWATERIN DEVELOPMENT AS NEW STAGEMUSICAL",
+    "summary": "Award-winning writers Brian Feinstein and Amanda Yesnowitz lead the musical adaptation of the bestselling author's Depression-era novel FORT WORTH, TEXAS — Award-winning writers Brian Feinstein and Amanda Yesnowitz lead the musical adaptation of the bestselling author’s Depression-era novel FORT WORTH, TEXAS — RAINWATER, the historical novel by 77-time New York Times bestselling author Sandra Brown, is being adapted into a new musical aimed at Broadway. The production is being developed by Pocket Watch Theatrical with music by Brian Feinstein and lyrics by Amanda Yesnowitz. Broadway veteran Andrew Samonsky and internationally renowned vocalist Christina Maxwell will perform the leading roles in the initial concert presentation. Set against the backdrop of the Great Depression and Dust Bowl in 1930s Texas, RAINWATER follows Ella Barron (Maxwell), a fiercely independent boarding house…",
+    "url": "https://fortworthbusiness.com/culture/sandra-browns-novel-rainwaterin-development-as-new-stagemusical/",
+    "published": "2026-11-25T13:18:06+00:00",
+    "category_hint": "business",
+    "image_url": null,
+    "image_credit": "Photo: Fort Worth Business Press",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "The Business Press",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "business",
+    "relevance": 1,
+    "score": 0.4142
+  }
+}

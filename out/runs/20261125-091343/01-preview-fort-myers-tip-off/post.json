@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-091343/01-preview-fort-myers-tip-off/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-091343/01-preview-fort-myers-tip-off/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Preview: Fort Myers Tip-Off",
+    "caption": "Feast Week sends No. 15 TCU to the Florida gulf coast, as the Horned Frogs will play two games in the Elevance Health Fort Myers Tip-Off.",
+    "first_comment": "Source: TCU Athletics (women's basketball) https://gofrogs.com/news/2026/11/25/womens-basketball-preview-fort-myers-tip-off\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:Amon G. Carter Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "193aefe01d5c03f4",
+    "source": "TCU Athletics (women's basketball)",
+    "source_kind": "rss",
+    "title": "Preview: Fort Myers Tip-Off",
+    "summary": "FORT WORTH – Feast Week sends No. 15 TCU to the Florida gulf coast, as the Horned Frogs will play two games in the Elevance Health Fort Myers Tip-Off.",
+    "url": "https://gofrogs.com/news/2026/11/25/womens-basketball-preview-fort-myers-tip-off",
+    "published": "2026-11-25T14:55:00+00:00",
+    "category_hint": "sports",
+    "image_url": "https://gofrogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/25/bella.png",
+    "image_credit": "Photo: TCU Athletics (women's basketball)",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 3,
+    "score": 0.6963
+  }
+}
