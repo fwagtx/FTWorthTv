@@ -430,3 +430,22 @@ def test_the_wfaa_sports_feed_is_a_sports_feed():
     feeds = [f for group in cfg.values() if isinstance(group, list) for f in group if isinstance(f, dict)]
     wfaa = [f for f in feeds if f.get("name") == "WFAA Sports"]
     assert wfaa and wfaa[0].get("category_hint") == "sports"
+
+
+def test_the_holiday_is_when_not_what_a_story_is():
+    """Nov 26, render 281: on Thanksgiving a Fort Worth house fire with a rescue (WFAA) and a holiday-crash study (CultureMap) were
+    filed as community for "Thanksgiving" and "holiday" (title words count double) and held by the community cap."""
+    from ftworthtv.filters import fire_incident, infer_category
+    from ftworthtv.models import Story
+
+    def cat(title, summary="", source="WFAA"):
+        return infer_category(Story(id="x", title=title, url="u", source=source, source_kind="rss", summary=summary))
+
+    fire = "Neighbors kick in door to rescue elderly couple as Thanksgiving fire burns North Texas homes"
+    assert fire_incident(fire) and cat(fire) == "breaking"
+    assert cat("North Texas leads state in severe holiday crashes on major interstates",
+               "Texas interstates saw the most severe crashes over the holidays.", source="CultureMap Fort Worth") == "traffic"
+    assert cat("Happy Thanksgiving Fort Worth") == "community"
+    assert cat("Thanksgiving dinner served to 500 at Fort Worth shelter by volunteers") == "community"
+    assert cat("Christmas in the Garden returns to Fort Worth Botanic Garden") == "culture"
+    assert not fire_incident("Thanksgiving fire safety tips from Fort Worth firefighters")

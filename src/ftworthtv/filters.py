@@ -20,7 +20,8 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
                 # Nov 26: CBS News Texas's "North Texas faces freezing Thanksgiving morning before weekend warmup" was filed as
                 # community (its "Thanksgiving" outscored a forecast that named no listed weather word) and drew a smoked turkey
                 "freezing", "warmup", "warm-up", "warming trend", "cool-down", "gusty winds"],
-    "traffic": ["crash", "wreck", "i-35w", "35w", "i-30", "i-20", "loop 820", "highway", "lanes closed", "road closure",
+    "traffic": ["crash", "crashes", "wreck", "wrecks", "i-35w", "35w", "i-30", "i-20", "loop 820", "highway", "interstate", "interstates",
+                "lanes closed", "road closure",
                 "traffic", "pileup", "18-wheeler", "trinity metro", "texrail", "dfw airport delays"],
     "crime": ["police", "shooting", "shot", "arrested", "arrest", "stabbing", "robbery", "homicide", "murder", "suspect", "steal", "stole",
               "stolen", "theft", "thieves", "bandit", "burglar", "carjack", "wanted", "sentenced", "indicted",
@@ -45,7 +46,7 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
     "politics": ["city council", "council vote", "mayor", "election", "ballot", "campaign", "legislature", "governor", "senate",
                  "congress", "republican", "democrat", "isd board", "school board", "trustees", "bond election", "ordinance"],
     "community": ["volunteer", "nonprofit", "fundraiser", "community", "neighborhood", "school", "schools", "students", "library", "park",
-                  "church", "celebration", "holiday", "christmas", "thanksgiving", "enrollment", "isd", "superintendent", "teachers",
+                  "church", "celebration", "enrollment", "isd", "superintendent", "teachers",
                   "teacher", "classroom", "campus", "families", "foster", "adoption"],
     "breaking": ["breaking:", "breaking news", "developing:", "developing story", "evacuat", "explosion", "massive fire", "amber alert",
                  "active shooter", "lockdown", "shelter in place",   # "breaking records" is not breaking news
@@ -1151,6 +1152,12 @@ def blocked(story: Story, blocklist: list[str]) -> str | None:
 _WORD_RE: dict[str, "re.Pattern[str]"] = {}
 
 
+# Nov 26, render 281: "holiday", "christmas" and "thanksgiving" were community words, and a title hit counts double, so on
+# Thanksgiving a Fort Worth house fire with a rescue, a holiday-crash study and a restaurant story were all filed as community
+# and held by its daily cap: the occasion says when, not what the story is; it decides only when nothing else does
+OCCASION_WORDS = ("holiday", "holidays", "christmas", "thanksgiving")
+
+
 def _has_word(word: str, text: str) -> bool:
     """Whole-word match so 'rain' does not fire on 'drainage' or 'art' on 'party'."""
     pat = _WORD_RE.get(word)
@@ -1207,9 +1214,9 @@ def meeting_notice(title: str | None) -> bool:
 _FIRE_TITLE_RE = re.compile(
     r"(?<!\bon )\b(?:house|home|apartment|duplex|condo|workshop|garage|warehouse|business|building|plant|vehicle|car|truck|grass|brush|"
     r"structure|commercial|church|school|restaurant|early[- ]morning|overnight|deadly|fatal|massive|major|large|\d-alarm|two-alarm|"
-    r"three-alarm|four-alarm)\s+fires?\b"
+    r"three-alarm|four-alarm|thanksgiving|christmas|holiday)\s+fires?\b"
     r"|(?<!\bon )\bfires?\s+(?:destroys?|destroyed|damages?|damaged|displaces?|displaced|guts?|gutted|engulfs?|engulfed|kills?|killed|"
-    r"injures?|injured|breaks? out|broke out|spreads?|rips? through|tears? through)\b"
+    r"injures?|injured|breaks? out|broke out|spreads?|rips? through|tears? through|burns?|burned|burning|scorches?|scorched)\b"
     r"|\b(?:sparks?|sparked|ignites?|ignited|battle|battles|battling|respond(?:s|ed|ing)? to|extinguish(?:es|ed)?|put out|douse[sd]?)\b"
     r"(?:\s+[\w'-]+){0,3}?\s+fires?\b", re.I)
 _FIRE_NOT_INCIDENT_RE = re.compile(r"\b(?:training|drills?|exercises?|prevention|safety tips?|awareness|grants?|academy|recruits?)\b", re.I)
@@ -1268,6 +1275,8 @@ def infer_category(story: Story) -> str:
             best, best_hits = cat, hits
     if story.category_hint and (best_hits == 0 or story.category_hint in ("weather", "events", "sports", "crime")):
         return story.category_hint if story.category_hint in CATEGORIES else (best or "other")
+    if not best and any(_has_word(w, title) for w in OCCASION_WORDS):
+        return "community"                  # "Happy Thanksgiving, Fort Worth": the holiday itself
     return best or story.category_hint or "other"
 
 
