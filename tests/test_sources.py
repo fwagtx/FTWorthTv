@@ -760,3 +760,15 @@ def test_another_citys_skyline_is_not_a_features_picture():
     title = "Private social clubs: Dallas' new ‘third place for the wealthy'"
     assert "dallas-skyline" not in topics_for(f"{title} Members-only spaces in Highland Park Village.", "community", "dfw", title=title)
     assert "dallas-skyline" in topics_for("Dallas City Council approves new budget", "politics", "dfw", title="Dallas City Council approves new budget")
+
+
+def test_a_writers_own_voice_is_a_column():
+    """Nov 26, render 271: the Fort Worth Report's "Weekend Worthy" column captioned "Nothing like the delicious smell of turkey
+    roasting in the oven to remind me: Happy Thanksgiving!"."""
+    from ftworthtv.checks import first_person_voice
+    from ftworthtv.filters import roundup_column
+    assert first_person_voice("Nothing like the delicious smell of turkey roasting in the oven to remind me: Happy Thanksgiving!") == "me"
+    assert first_person_voice("My favorite holiday market opens Friday.") == "My"
+    assert first_person_voice("“Because it’s fun and it tastes good,” Max said. “I love it,” he added.") == ""
+    assert first_person_voice("A crash closed I-35W northbound near Meacham Boulevard.") == ""
+    assert roundup_column("Weekend Worthy: Cliburn piano concert sets Christmas scene at Stockyards")

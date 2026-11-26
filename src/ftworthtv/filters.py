@@ -307,7 +307,7 @@ _COLUMN_ROUNDUP_RE = re.compile(
                          r"\bweek \d+ uniforms\b|\buniforms? (?:tracker|roundup|rankings?|power rankings)\b|"
                          r"\bwhat each (?:nfl |nba |college )?team is wearing\b|"
                          # Nov 26, render 264: the Arlington Report's weekly "Out and About in Arlington: ..." events column
-                         r"^out and about\b|"
+                         r"^out and about\b|^weekend worthy\b|"
                          # Nov 26, render 268: ESPN's "With World Cup qualification at stake, the USWNT has no excuses"
                          r"\b(?:has|have) no excuses?\b|\bno more excuses\b|"
                          # Nov 25, render 257: CBS Sports' "NFL on Thanksgiving halftime shows: Ranking the 10 most memorable

@@ -85,6 +85,18 @@ def _digits(text: str) -> set[str]:
     return {d.lstrip("0") or "0" for d in re.findall(r"\d[\d,]*(?:\.\d+)?", text.replace(",", ""))}
 
 
+# Nov 26, render 271: the Fort Worth Report's "Weekend Worthy" column was captioned "Nothing like the delicious smell of turkey
+# roasting in the oven to remind me: Happy Thanksgiving!": a writer's own voice outside quotation marks is a column's, not ours
+_QUOTED_SPAN_RE = re.compile(r"“[^”]*”|\"[^\"]*\"")
+_FIRST_PERSON_RE = re.compile(r"(?<![\w’'-])(?:I|[Mm]e|[Mm]y|[Mm]ine|I’m|I'm|I’ve|I've)(?![\w’'-])")
+
+
+def first_person_voice(caption: str) -> str:
+    """The first-person word a caption uses outside quotation marks ('' when none)."""
+    m = _FIRST_PERSON_RE.search(_QUOTED_SPAN_RE.sub(" ", caption or ""))
+    return m.group(0) if m else ""
+
+
 def caption_problems(copy: PostCopy, story: Story, *, min_ratio: float = 0.6, writer: str | None = None) -> list[str]:
     """Why a caption cannot go out: a sentence, number or quotation the source does not contain.
     Template captions for structured sources (alerts, forecasts, events, wanted bulletins) are built from the fields
@@ -94,6 +106,9 @@ def caption_problems(copy: PostCopy, story: Story, *, min_ratio: float = 0.6, wr
     src_digits = _digits(src)
     problems: list[str] = []
     caption = copy.caption or ""
+    voice = first_person_voice(caption) if story.source_kind in ("rss", "video") else ""
+    if voice:
+        problems.append(f"the caption speaks in a writer's own voice ({voice!r}): a column, not our news")
     check_sentences = not (writer == "template" and story.source_kind in STRUCTURED_KINDS)
     for sent in _sentences(caption) if check_sentences else []:
         low = _norm(sent)
