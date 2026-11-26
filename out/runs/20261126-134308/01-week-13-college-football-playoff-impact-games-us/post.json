@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-134308/01-week-13-college-football-playoff-impact-games-us/post.jpg",
+    "credit": "Photo: Thomson200 via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:WZDX_interview_at_College_Football_Playoff_National_Championship_media_day,_Jan_2018.jpg",
+    "photo_id": "commons-65338660",
+    "subject": "entity:college football playoff"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-134308/01-week-13-college-football-playoff-impact-games-us/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Week 13 College Football Playoff impact games: USC-UCLA, Alabama-Auburn hold major implications",
+    "caption": "Almost no one is safe heading into the final week of the season, and the bubble is still wide open. Specifically, the Big 12 and Big Ten are jockeying for position in the final weeks.\n\nThe Big 12 projects to have three teams in the field if they can take care of business. The Big Ten has the first four teams out of the field.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/college-football/news/college-football-playoff-impact-games-week-13-2026/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "f74614b5cb16472b",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "Week 13 College Football Playoff impact games: USC-UCLA, Alabama-Auburn hold major implications",
+    "summary": "UCLA, Alabama and Texas Tech face high-stakes tests as the Big Ten and Big 12 battle for postseason positioning in the final week of the regular season The College Football Playoff Selection Committee put the sport on notice with the release of its rankings on Tuesday evening. Almost no one is safe heading into the final week of the season, and the bubble is still wide open. Specifically, the Big 12 and Big Ten are jockeying for position in the final weeks. The Big 12 projects to have three teams in the field if they can take care of business. The Big Ten has the first four teams out of the field. Resumes are still being built and can quickly crumble under stress. With that in mind, here are five games that could have a major impact on the College Football Playoff race in the final days of the regular season. The Bruins are perhaps the most precarious team in the entire College…",
+    "url": "https://www.cbssports.com/college-football/news/college-football-playoff-impact-games-week-13-2026/",
+    "published": "2026-11-26T19:18:23+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/25/5b75b395-2c55-46a2-ae2e-11d93345c49d/bruins.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.39,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "national",
+      "national_term": "college football playoff"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5613
+  }
+}
