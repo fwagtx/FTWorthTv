@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-111211/01-cowboys-vs-eagles-thanksgiving-game-info-halftim/post.jpg",
+    "credit": "Photo: JaoTorey Johnson via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_Cowboys_Players_and_Cheerleaders_Visit_Fort_Sill.jpg",
+    "photo_id": "commons-201360937",
+    "subject": "entity:dallas cowboys"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-111211/01-cowboys-vs-eagles-thanksgiving-game-info-halftim/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Cowboys vs. Eagles: Thanksgiving game info, halftime show and national anthem singers",
+    "caption": "The NFL's Thanksgiving Day tradition features the Dallas Cowboys against NFC East rival Philadelphia Eagles.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/sports/nfl/cowboys/dallas-cowboys-game-today-thanksgiving-eagles-watch-stream-live-halftime-show-national-anthem-singer/287-3c692e3e-4f46-4b2a-8e23-f32418737b9b\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "f115bb094bd0a7e9",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "Cowboys vs. Eagles: Thanksgiving game info, halftime show and national anthem singers",
+    "summary": "The NFL's Thanksgiving Day tradition features the Dallas Cowboys against NFC East rival Philadelphia Eagles.",
+    "url": "https://www.wfaa.com/article/sports/nfl/cowboys/dallas-cowboys-game-today-thanksgiving-eagles-watch-stream-live-halftime-show-national-anthem-singer/287-3c692e3e-4f46-4b2a-8e23-f32418737b9b",
+    "published": "2026-11-26T17:00:23+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/CCT/images/b83dcbd1-41c0-4ff6-ba7f-52623da932bc/20261119T172140/b83dcbd1-41c0-4ff6-ba7f-52623da932bc_750x422.jpg",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 1.0264
+  }
+}

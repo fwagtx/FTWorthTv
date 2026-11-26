@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-26T17:37:11.773864+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-111211/02-nfl-dfs-thanksgiving-day-top-daily-fantasy-picks/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-111211/02-nfl-dfs-thanksgiving-day-top-daily-fantasy-picks/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "NFL DFS, Thanksgiving Day: Top daily Fantasy picks, lineups for Bears-Lions, Cowboys-Eagles, Chiefs-Bills",
+    "caption": "The likes of Jahmyr Gibbs, Amon-Ra St. Brown, Dak Prescott and CeeDee Lamb have been fixtures within Thanksgiving NFL DFS lineups for years. Meanwhile, others like Patrick Mahomes, Caleb Williams, James Cook and Saquon Barkley are making their first or second appearances on this holiday stage and may look to put on a show.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/betting/news/nfl-dfs-thanksgiving-day-daily-fantasy-picks-lineups-bears-lions-cowboys-eagles-chiefs-bills/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "2257e3147fe93ba6",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "NFL DFS, Thanksgiving Day: Top daily Fantasy picks, lineups for Bears-Lions, Cowboys-Eagles, Chiefs-Bills",
+    "summary": "Daily Fantasy multimillionaire Mike McClure reveals NFL DFS picks for Bears-Lions, Cowboys-Eagles and Chiefs-Bills on Thanksgiving Day The 2026 Thanksgiving Day NFL DFS slate is loaded with players well versed with performing on Turkey Day. The likes of Jahmyr Gibbs, Amon-Ra St. Brown, Dak Prescott and CeeDee Lamb have been fixtures within Thanksgiving NFL DFS lineups for years. Meanwhile, others like Patrick Mahomes, Caleb Williams, James Cook and Saquon Barkley are making their first or second appearances on this holiday stage and may look to put on a show. The three NFL on Thanksgiving Day games which make up the daily Fantasy player pool are Lions vs. Bears (1 p.m. ET), Eagles vs. Cowboys (4:30 p.m. ET) and Bills vs. Chiefs (8:20 p.m. ET). The Bears vs. Lions matchup has the highest total (55.5) of all of Week 12, so that contest could be the focus of your Thanksgiving NFL DFS…",
+    "url": "https://www.cbssports.com/betting/news/nfl-dfs-thanksgiving-day-daily-fantasy-picks-lineups-bears-lions-cowboys-eagles-chiefs-bills/",
+    "published": "2026-11-26T14:11:12+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/09/22/b4ca4b83-0e52-42d4-9df3-1664238d37fa/imagn-colston-loveland-bears.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.4631
+  }
+}
