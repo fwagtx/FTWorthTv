@@ -8,7 +8,7 @@
     "2026-11-23": 20,
     "2026-11-24": 20,
     "2026-11-25": 19,
-    "2026-11-26": 8
+    "2026-11-26": 10
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -88,9 +88,10 @@
       "weather": 2
     },
     "2026-11-26": {
-      "community": 2,
+      "community": 3,
       "crime": 4,
       "other": 1,
+      "sports": 1,
       "weather": 1
     }
   },
@@ -141,7 +142,7 @@
     },
     "2026-11-26": {
       "culture": 1,
-      "rss": 3,
+      "rss": 5,
       "video": 2,
       "wanted": 2
     }
@@ -189,7 +190,7 @@
     },
     "2026-11-26": {
       "dfw": 1,
-      "local": 7
+      "local": 9
     }
   },
   "deferred": {
@@ -555,7 +556,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-26T10:20:00-06:00",
+  "last_post_at": "2026-11-26T12:45:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1921,6 +1922,19 @@
       "title": "Happy Thanksgiving Fort Worth 🦃",
       "url": ""
     },
+    "d0b011e58bd1b908": {
+      "at": "2026-11-26T12:20:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "443481359",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7561489378195192295",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA Sports",
+      "title": "16K pounds of Cowboys' famous mac 'n' cheese? Thanksgiving game by the numbers",
+      "url": "https://www.wfaa.com/article/sports/nfl/cowboys/dallas-cowboys-thanksgiving-food-menu/287-d4fe63d4-ba8a-4a6e-b350-4f4561498661"
+    },
     "d19e6bea6dbf9024": {
       "at": "2026-11-24T09:17:00-06:00",
       "category": "community",
@@ -2047,6 +2061,19 @@
       "source": "WFAA",
       "title": "1 man sentenced after feds arrest 8 'known gang members' in Dallas, seizing guns, drugs and a live alligator",
       "url": "https://www.wfaa.com/article/news/crime/dallas-texas-operation-blue-laces-dead-end-fed-takedown-alligator/287-c92f1745-50db-435e-9cac-1d25ca19b401"
+    },
+    "eb72e1365c1ecbe6": {
+      "at": "2026-11-26T12:45:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "443481461",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=9192182822839664916",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "Turkey? No thanks. HEB ISD students dish out Thanksgiving favorites, family traditions",
+      "url": "https://fortworthreport.org/2026/11/25/turkey-no-thanks-heb-isd-students-dish-out-thanksgiving-favorites-family-traditions/"
     },
     "eb7d9121d20c9020": {
       "at": "2026-11-20T15:56:00-06:00",
@@ -2805,6 +2832,11 @@
       "reason": "WFAA's YouTube video of the Weatherford Aerospace fire: the same incident posted at 9:15, with nothing new; rule added",
       "title": "A fire was reported at Weatherford Aerospace on West 3rd Street in Weatherford, officials said."
     },
+    "a2df0a50632cb1a3": {
+      "at": "2026-11-26T18:14:49.897682+00:00",
+      "reason": "a weekly picks column (Weekend Worthy) captioned in its writer's own voice ('to remind me: Happy Thanksgiving!')",
+      "title": "Weekend Worthy: Cliburn piano concert sets Christmas scene at Stockyards"
+    },
     "a312360889849a91": {
       "at": "2026-11-22T04:58:17.921718+00:00",
       "reason": "a cold front due Saturday night is stale by Sunday morning, and the morning forecast post covers the cooler weather"
@@ -3019,7 +3051,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 142,
+  "total_posts": 144,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
