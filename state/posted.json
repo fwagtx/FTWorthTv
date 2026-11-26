@@ -335,6 +335,11 @@
       "reason": "daily cap for crime reached",
       "title": "Arlington Police investigating early morning homicide at apartment complex"
     },
+    "4a26b3b0d504932c": {
+      "at": "2026-11-26T20:13:23.964842+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Reata opened its kitchen to a new crew for a Sunday night service"
+    },
     "4af31a38cd792aa8": {
       "at": "2026-11-25T21:15:15.510987+00:00",
       "reason": "daily cap for community reached",
@@ -399,11 +404,6 @@
       "at": "2026-11-26T00:43:29.783146+00:00",
       "reason": "daily cap for community reached",
       "title": "Pearl Harbor sailor to be laid to rest in Denton 85 years after his death"
-    },
-    "77e7f91210bf50b6": {
-      "at": "2026-11-24T19:47:10.059348+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "‘Clashing Through The Snow’ Director Carlson Young Breaks Down Buc-ee’s Knockoff, Ryan’s Counsel From Chat GPT & Her Way Into The “Holiday H"
     },
     "781a2a11fa89e7b5": {
       "at": "2026-11-24T22:45:41.059260+00:00",
@@ -509,11 +509,6 @@
       "at": "2026-11-26T18:43:09.651453+00:00",
       "reason": "daily cap for community reached",
       "title": "Sixth grader in Texas foster care says art and humor help him cope while waiting for a family"
-    },
-    "e9226c2aa5ed98df": {
-      "at": "2026-11-24T19:47:10.059331+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "Take these precautions with water pipes in freezing temperatures"
     },
     "e9ca00f88dc8a9fc": {
       "at": "2026-11-25T00:43:24.223172+00:00",
