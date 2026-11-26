@@ -481,3 +481,19 @@ def test_a_columns_name_before_the_colon_is_not_a_subject():
                         "Next winter, thanks to Acquolina bringing its wood-fired pizzas to Fort Worth.", "business")
     assert "Dish" not in plan.search_names and "Acquolina" in plan.search_names
     assert "TCU" in plan_subject("TCU: Frogs fall to Baylor 70-62", "TCU lost to Baylor.", "sports").search_names
+
+
+def test_a_teams_short_name_names_it_and_its_visits_are_not_its_games():
+    """Nov 26, renders 266 and 269: "Cowboys vs. Eagles: Thanksgiving game info ..." was held ("headline no longer names
+    'dallas cowboys'") and its picture was "Dallas Cowboys Players and Cheerleaders Visit Fort Sill"."""
+    from ftworthtv.images.subject import plan_subject, provider_queries, subject_fits
+    title = "Cowboys vs. Eagles: Thanksgiving game info, halftime show and national anthem singers"
+    body = "The Dallas Cowboys host the Philadelphia Eagles on Thanksgiving."
+    assert subject_fits(title, body, "sports", "entity:dallas cowboys")[0] is True
+    assert subject_fits("Utah visits TCU, close to Big 12 title game", "", "sports", "entity:dallas cowboys")[0] is False
+    pairs = provider_queries(plan_subject(title, body, "sports"), title, "sports")
+    team = [q for q, lab in pairs if lab == "entity:dallas cowboys"]
+    assert team and all("visit" in q[1] for q in team)
+    visit = "Cowboys players visit Cook Children's patients on Thanksgiving week"
+    pairs = provider_queries(plan_subject(visit, "The Dallas Cowboys visited patients.", "sports"), visit, "sports")
+    assert all("visit" not in q[1] for q, lab in pairs if lab == "entity:dallas cowboys")

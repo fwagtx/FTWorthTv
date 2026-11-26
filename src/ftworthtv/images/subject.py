@@ -518,7 +518,13 @@ def subject_fits(title: str, body: str, category: str, subject: str | None, kind
     if kind == "entity":
         def bare(text: str) -> str:              # Nov 24: "toys r us" against "Toys 'R' Us" held the post
             return re.sub(r"\s+", " ", re.sub(r"[\"'‘’“”]", "", text.lower())).strip()
-        return (bare(value) in bare(title), f"headline no longer names {value!r}") if value else (False, "empty entity")
+        if not value:
+            return False, "empty entity"
+        # Nov 26: "Cowboys vs. Eagles: Thanksgiving game info ..." was held because the search had named the team in full
+        # ("Dallas Cowboys"); the team's short name in the headline names the same team
+        shorts = [k for k, full in TEAM_FULL_NAMES.items() if full.lower() == value]
+        named = bare(value) in bare(title) or any(re.search(r"\b" + re.escape(k) + r"\b", bare(title)) for k in shorts)
+        return named, f"headline no longer names {value!r}"
     if kind == "topic":
         ok = value in plan.entity_topics or value in plan.fallback_topics
         if not ok and category in ("events", "culture"):
@@ -854,6 +860,10 @@ def provider_queries(plan: SubjectPlan, title: str, category: str, *, people_all
                 avoid = avoid + ("inaturalist",)      # a species record: a "Texas Two-step Flasher" firefly for a lottery game (Nov 23)
             if category == "sports" and name not in TEAM_FULL_NAMES.values():
                 words = words + (SPORT_CONTEXT,)          # "Notre Dame football", never Notre-Dame de Paris
+            if category == "sports" and not re.search(r"\bvisit", low_title):
+                # Nov 26: "Dallas Cowboys Players and Cheerleaders Visit Fort Sill" (a base visit) was drawn twice for Thanksgiving
+                # game stories: a team's visit somewhere is another event, never the game
+                avoid = avoid + ("visit", "visits", "visiting", "visited")
             out += [((f"fresh:{name}", avoid, words), label), ((name, avoid, words), label)]
     return out
 
