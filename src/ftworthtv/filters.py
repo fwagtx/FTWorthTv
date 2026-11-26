@@ -113,10 +113,20 @@ _SALES_RE = re.compile(r"\b(black friday|cyber monday|prime day)\b", re.I)
 _DEALS_RE = re.compile(r"\bdeals\b.*\b(guide|best|shop|save|prices?|plans?)\b|\b(guide|best)\b.*\bdeals\b", re.I)   # "A Guide to the Best ... Deals"
 
 
+# Nov 26, render 277: Billboard's "Goo Goo Dolls' Halftime Show at the Chiefs vs. Bills Thanksgiving Game: Watch Online for Free"
+# (a /product-recommendations/ page) is a streaming-trial pitch, not news: it reads like an ad
+_AFFILIATE_RE = re.compile(r"\bwatch (?:[\w'’.-]+ ){0,4}(?:online |live )?(?:for )?free\b|\bstream (?:[\w'’.-]+ ){0,4}(?:online |live )?for free\b|"
+                           r"\bwithout cable\b|\bfree (?:live ?)?stream(?:ing)?\b|\bfree trial\b", re.I)
+_AFFILIATE_PATHS = ("/gift-guide", "/style/", "/product-recommendations/", "/shopping/", "/deals/", "/commerce/")
+
+
 def shopping_guide(title: str, url: str = "") -> bool:
-    """'The Top Texas Gifts of 2026', 'A Guide to the Best Black Friday Streaming Deals': a shopping guide, not news."""
+    """'The Top Texas Gifts of 2026', 'A Guide to the Best Black Friday Streaming Deals', '... Watch Online for Free':
+    a shopping guide or an affiliate pitch, not news."""
     t = title or ""
-    return bool(_SHOPPING_RE.search(t) or _SALES_RE.search(t) or _DEALS_RE.search(t)) or "/gift-guide" in (url or "") or "/style/" in (url or "")
+    if _SHOPPING_RE.search(t) or _SALES_RE.search(t) or _DEALS_RE.search(t) or _AFFILIATE_RE.search(t):
+        return True
+    return any(seg in (url or "").lower() for seg in _AFFILIATE_PATHS)
 
 
 _BETTING_RE = re.compile(r"\b(best bets?|best picks|odds,? (?:and )?(?:picks?|predictions?|lines?|spreads?)|(?:picks?|predictions?),? (?:picks?,? )?(?:and )?odds|"

@@ -528,6 +528,11 @@ def test_a_gas_price_story_gets_a_gas_photo_or_none_and_thanksgiving_as_a_date_i
     assert "thanksgiving" not in topics_for("thanksgiving dinner served to 500 at fort worth shelter", "community", "local",
                                             title="Thanksgiving dinner served to 500 at Fort Worth shelter")
     assert "thanksgiving" in topics_for("happy thanksgiving fort worth", "community", "local", title="Happy Thanksgiving Fort Worth")
+    # Nov 26, render 277: a game, a halftime show or a concert on the holiday is a happening; the turkey plate never stands in
+    h = "Goo Goo Dolls' Halftime Show at the Chiefs vs. Bills Thanksgiving Game"
+    assert topic_excluded("thanksgiving", h)
+    assert "thanksgiving" not in topics_for(h.lower(), "sports", "national", title=h)
+    assert "christmas" not in topics_for("christmas concert at bass hall", "culture", "local", title="Christmas concert at Bass Hall")
 
 
 def test_a_gas_price_story_searches_for_a_gas_station_not_a_dinner_table():

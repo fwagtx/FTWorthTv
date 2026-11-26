@@ -291,6 +291,19 @@ def test_a_sale_guide_is_a_shopping_guide_not_news():
     assert not shopping_guide("Rangers deal pitcher to the Yankees for two prospects")
 
 
+def test_a_watch_it_free_pitch_is_an_ad_not_news():
+    """Nov 26, render 277: Billboard's halftime-show 'Watch Online for Free' piece from its product-recommendations section."""
+    from ftworthtv.filters import shopping_guide
+    t = "Goo Goo Dolls’ Halftime Show at the Chiefs vs. Bills Thanksgiving Game: Watch Online for Free"
+    assert shopping_guide(t)
+    assert shopping_guide("Goo Goo Dolls halftime show", "https://www.billboard.com/culture/product-recommendations/goo-goo-dolls-1236389230/")
+    assert shopping_guide("How to watch the Cowboys game without cable")
+    assert shopping_guide("Stream the Macy's parade for free: every option")
+    assert not shopping_guide("Fort Worth library offers free movie screenings this weekend")
+    assert not shopping_guide("Watch: Fort Worth firefighters free a dog trapped in a storm drain")
+    assert not shopping_guide("Fort Worth police release video of the chase", "https://www.nbcdfw.com/news/local/fort-worth-chase/3912345/")
+
+
 def test_another_metros_local_story_is_that_metros_news_whatever_the_beat(settings, now):
     from ftworthtv.filters import other_metro_title
     assert other_metro_title("HPD: Teens find man's body in elevator shaft of abandoned downtown Houston building")

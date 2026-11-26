@@ -274,9 +274,14 @@ _HOLIDAY_DEED_RE = re.compile(r"\b(?:volunteers?|meals?|dinners?|serve[sd]?|serv
                               r"parade|shelters?|toy drive|coat drive)\b", re.I)
 
 
+# Nov 26, render 277: "Goo Goo Dolls' Halftime Show at the Chiefs vs. Bills Thanksgiving Game" drew a plate of turkey and
+# stuffing: a game, a halftime show or a concert on the holiday is a happening with its own picture, never the holiday table
+_HOLIDAY_SHOW_RE = re.compile(r"\b(?:halftime|kickoff|game|games|matchup|showdown|concerts?|perform(?:s|ed|ing|ance|ances)?|vs|v)\b", re.I)
+
+
 def topic_excluded(topic: str, text: str) -> bool:
     low = (text or "").lower()
-    if topic in ("thanksgiving", "christmas") and _HOLIDAY_DEED_RE.search(low):
+    if topic in ("thanksgiving", "christmas") and (_HOLIDAY_DEED_RE.search(low) or _HOLIDAY_SHOW_RE.search(low)):
         return True
     if topic == "capitol" and _FEDERAL_RE.search(low) and not _STATE_GOV_RE.search(low):
         return True                  # Congress is not the Texas Capitol
