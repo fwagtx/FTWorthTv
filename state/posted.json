@@ -281,6 +281,11 @@
       "reason": "daily cap for weather reached",
       "title": "North Texas residents, businesses prepare for freezing temperatures before Thanksgiving"
     },
+    "271ce4e9c6a18873": {
+      "at": "2026-11-26T04:43:21.017069+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "North Texas teen faces federal charges after police find weapon with 'machine-gun conversion device'"
+    },
     "29576f12ddd75252": {
       "at": "2026-11-24T15:17:59.897621+00:00",
       "reason": "daily cap for community reached",
@@ -376,11 +381,6 @@
       "reason": "daily cap for community reached",
       "title": "Six Flags Over Texas Offers Free Admission to Guests 65 and Older"
     },
-    "6f79f24ac5290f83": {
-      "at": "2026-11-24T04:42:51.727172+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "Freeze warning in North Texas Tuesday night"
-    },
     "7178796b22dcd127": {
       "at": "2026-11-26T00:15:31.930847+00:00",
       "reason": "daily cap for community reached",
@@ -415,6 +415,11 @@
       "at": "2026-11-25T22:16:10.050074+00:00",
       "reason": "daily cap for crime reached",
       "title": "Three men in stable condition following Fort Worth shooting"
+    },
+    "7cde9022743df70d": {
+      "at": "2026-11-26T04:43:21.017076+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Dallas food pantry sees increased need ahead of Thanksgiving"
     },
     "80ce7503942fb880": {
       "at": "2026-11-25T22:45:44.871499+00:00",
@@ -500,6 +505,11 @@
       "at": "2026-11-25T15:18:04.726985+00:00",
       "reason": "daily cap for weather reached",
       "title": "Fort Worth prepared to provide emergency overflow shelter as cold settles in"
+    },
+    "cdb121ed072afaa0": {
+      "at": "2026-11-26T04:43:21.017048+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Dallas Police seek public's help identifying suspects in deadly October shooting"
     },
     "d02f669997bb0c8d": {
       "at": "2026-11-25T21:15:15.510979+00:00",
