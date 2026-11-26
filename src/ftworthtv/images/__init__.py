@@ -333,13 +333,17 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                 recent_after, recent_flags = "", [False] * len(queries)
             from datetime import datetime as _dt2, timezone as _tz2
             from .subject import photo_age_bar
+            # the city skyline stands in only for a story about the city: Nov 25, render 257, CBS Sports' national halftime-shows
+            # list found no AT&T Stadium file and fell back to a 2007 downtown Fort Worth skyline (an Arlington story would too)
+            home_words = (str(settings.brand.get("city", "Fort Worth")).lower(), "tarrant")
+            skyline_ok = sp.mode == "beat" and any(w in f"{story.title} {story.summary or ''}".lower() for w in home_words)
             stamp_all = story.published or _dt2.now(_tz2.utc)
             for query, lab, recent in zip(queries, labels, recent_flags):
                 if visual_event and not recent:
                     continue                                  # only a picture taken at the event will do
                 bar = max(recent_after if recent else "", photo_age_bar(lab, stamp_all))   # a 2012 team photo is not the 2026 team
                 place_check = place_words(lab, stamp_all, avoid)
-                cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=place_check, fallback=sp.mode == "beat",
+                cand = find_photo([query], settings, state, exclude=exclude_photos, avoid_words=place_check, fallback=skyline_ok,
                                   story_text=f"{story.title} {story.summary or ''}",
                                   taken_after=bar)
                 if not cand:

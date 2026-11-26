@@ -476,3 +476,45 @@ def test_the_page_image_passes_the_same_stock_graphic_check_as_the_listing(monke
     monkeypatch.setattr(article, "fetch_article", lambda url: {"image": notice, "summary": "", "description": "", "credit": ""})
     article.enrich(caper)
     assert caper.image_url is None
+
+
+def test_a_ranking_listicle_is_a_column():
+    """Nov 25, render 257: CBS Sports' "NFL on Thanksgiving halftime shows: Ranking the 10 most memorable performances"."""
+    from ftworthtv.filters import roundup_column
+    assert roundup_column("NFL on Thanksgiving halftime shows: Ranking the 10 most memorable performances")
+    assert roundup_column("Ranking every Cowboys Thanksgiving uniform")
+    assert roundup_column("The 25 greatest Horned Frogs of all time")
+    assert not roundup_column("TCU ranked No. 12 in the latest College Football Playoff rankings")
+    assert not roundup_column("Fort Worth ranks among the best cities for first-time homebuyers")
+    assert not roundup_column("Ranking member Veasey tours Fort Worth flood project")
+
+
+def _beat_fallbacks(settings, tmp_path, monkeypatch, title, summary, scope):
+    from ftworthtv import images
+    from ftworthtv.models import PostCopy, PostDraft, Story
+    from ftworthtv.state import State
+    calls = []
+
+    def fake_find_photo(queries, *args, **kwargs):
+        calls.append(kwargs.get("fallback"))
+        return None
+    monkeypatch.setattr(images, "find_photo", fake_find_photo)
+    monkeypatch.setattr("ftworthtv.images.library.pick", lambda *a, **k: None)     # nothing in the library: the search runs
+    settings.offline = False
+    story = Story(id="h", source="CBS Sports", source_kind="rss", title=title, summary=summary, url="https://x/h",
+                  category="sports", extra={"scope": scope})
+    copy = PostCopy(category="sports", headline=title, caption=summary, image_query="category:AT&T Stadium")
+    images.plan_image(PostDraft(story=story, copy=copy, writer="template"), settings, State(tmp_path / "s.json"), tmp_path / "w")
+    return calls
+
+
+def test_the_city_skyline_stands_in_only_for_a_story_about_the_city(settings, tmp_path, monkeypatch):
+    """Nov 25, render 257: the halftime-shows list found no AT&T Stadium file and fell back to a 2007 downtown Fort Worth
+    skyline, for a national story that never names Fort Worth."""
+    national = _beat_fallbacks(settings, tmp_path, monkeypatch, "NFL on Thanksgiving halftime shows through the years",
+                               "Thanksgiving has featured big performances from top artists since 1997. Miranda Lambert performs in Texas.",
+                               "national")
+    assert national and not any(national)
+    local = _beat_fallbacks(settings, tmp_path, monkeypatch, "Fort Worth budget hearing set for Tuesday",
+                            "The Fort Worth City Council will hear residents on the budget Tuesday.", "local")
+    assert local and all(local)

@@ -299,6 +299,10 @@ _COLUMN_ROUNDUP_RE = re.compile(
                          # Nov 25, ESPN: "Rams and Cowboys top Week 12 uniforms" ("what each NFL team is wearing"), a league roundup
                          r"\bweek \d+ uniforms\b|\buniforms? (?:tracker|roundup|rankings?|power rankings)\b|"
                          r"\bwhat each (?:nfl |nba |college )?team is wearing\b|"
+                         # Nov 25, render 257: CBS Sports' "NFL on Thanksgiving halftime shows: Ranking the 10 most memorable
+                         # performances", a writer's list of past shows (drafted with the downtown skyline)
+                         r"(?:^|[:;—–]\s*)ranking (?:the|every|all|each)\b|"
+                         r"\b\d+\s+(?:most\s+)?(?:memorable|iconic|greatest|unforgettable|legendary|underrated|overrated)\b|"
                          # Nov 25: CultureMap's "Get holly jolly at these 2026 holiday pop-up bars around Fort Worth": a guide's list
                          r"\b(?:at|to|try|visit|check out|hit|from) these\b(?:\s+[\w'’-]+){0,5}?\s+(?:bars|restaurants|spots|places|patios|"
                          r"brunches|shops|cafes|breweries|displays|markets|events)\b|"
