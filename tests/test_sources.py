@@ -556,3 +556,38 @@ def test_a_fire_headline_is_breaking_news_whatever_day_it_fell_on():
     assert not fire_incident("TCU stays on fire at home with win over Baylor")
     assert not fire_incident("Fort Worth fire chief to retire after 30 years")
     assert not fire_incident("Fire department recruits battle live fire in academy drill")
+
+
+def test_to_hail_someone_is_not_a_hailstorm():
+    """Nov 26, render 261: the Fort Worth Report's state-bird story ("Others hail the mockingbird") drew a supercell."""
+    from ftworthtv.filters import infer_category
+    from ftworthtv.images.library import topics_for
+    from ftworthtv.models import Story
+    title = "Two state legislators want to change the state bird. Tarrant County birders weigh in"
+    text = (f"{title} Some Texans support elevating the golden-cheeked warbler. Others hail the mockingbird, nearly 100 years into "
+            "holding the honorary title.")
+    assert "storm" not in topics_for(text, "community", "local", title=title)
+    assert "storm" not in topics_for("Fort Worth native hailed as a hero after rescue", "community", "local")
+    assert "storm" in topics_for("Large hail pounds Fort Worth as storms roll through", "weather", "local")
+    story = Story(id="b", source="Fort Worth Report", source_kind="rss", title=title, summary=text, url="u")
+    assert infer_category(story) != "weather"
+
+
+def test_the_nws_forecast_stands_down_after_a_stations_forecast_that_morning(settings, now):
+    """Nov 26, render 261: FOX 4's "festive chill" forecast (sunny, high of 53) went out at 6:43 and the NWS "Fort Worth
+    forecast: sunny, high near 53" was drafted for 7:58."""
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    from ftworthtv.pipeline import run
+    from ftworthtv.state import State
+    state = State(settings.state_path)
+    state.data.setdefault("posted", {})["fox"] = {"category": "weather", "kind": "rss", "source": "FOX 4 Dallas-Fort Worth",
+                                                   "title": "Breezy, near-freezing festive chill grips North Texas",
+                                                   "at": (now - timedelta(hours=3)).isoformat()}
+    state.save()
+    forecast = Story(id="forecast-x", source="National Weather Service Fort Worth", source_kind="nws_forecast",
+                     title="Fort Worth forecast for Thursday, November 19", summary="Sunny, with a high near 53.",
+                     url="https://forecast.weather.gov/x", published=now - timedelta(hours=1), category_hint="weather",
+                     official=True, always_relevant=True)
+    report = run(settings, now=now, stories=[forecast], publisher_name="dryrun")
+    assert any(s.id == "forecast-x" and r == "a station's forecast already went out this morning" for s, r in report.skipped)

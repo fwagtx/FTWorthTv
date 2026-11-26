@@ -277,8 +277,9 @@ def topic_excluded(topic: str, text: str) -> bool:
 def topics_for(text: str, category: str, scope: str, title: str | None = None) -> list[str]:
     """Ordered library topics worth trying for a story: specific subject first, then category and scope defaults.
     A story set in another city never gets a Fort Worth landmark (its own city's skyline, a generic subject, or nothing)."""
-    low = " " + (text or "").lower() + " "
-    head = " " + (title if title is not None else text or "").lower() + " "
+    from ..filters import _NOT_WEATHER_RE        # "Others hail the mockingbird" is no hailstorm, a flood-control grant no flood
+    low = " " + _NOT_WEATHER_RE.sub(" ", (text or "").lower()) + " "
+    head = " " + _NOT_WEATHER_RE.sub(" ", (title if title is not None else text or "").lower()) + " "
     # Nov 25: KHOU's "Texas pharmacy recalls medications nationwide" (a Tomball pharmacy) was drafted with the downtown Fort Worth
     # skyline. A statewide or national story that never names Fort Worth or Tarrant County gets no Fort Worth landmark either.
     ours = "fort worth" in low or "tarrant" in low

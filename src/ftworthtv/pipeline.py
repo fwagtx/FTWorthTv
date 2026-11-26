@@ -176,6 +176,14 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if cat == "weather" and story.source_kind in ("rss", "video") and not story.is_urgent and _recent_weather_story(state, now):
             report.skipped.append((story, "a weather story already went out in the last six hours"))
             continue
+        if story.source_kind == "nws_forecast" and not story.is_urgent:
+            # Nov 26, render 261: FOX 4's "festive chill" forecast (sunny, high of 53) went out at 6:43 and the NWS "Fort Worth
+            # forecast: sunny, high near 53" was drafted for 7:58. A station's forecast that morning is the day's forecast.
+            local = now.astimezone(settings.tz)
+            since_midnight = (local - local.replace(hour=0, minute=0, second=0, microsecond=0)).total_seconds() / 3600
+            if _recent_weather_story(state, now, hours=since_midnight):
+                report.skipped.append((story, "a station's forecast already went out this morning"))
+                continue
         from .filters import same_story
         if any(same_story(story.title, d.story.title) for d in drafts):
             report.skipped.append((story, "same story as one already chosen this run"))

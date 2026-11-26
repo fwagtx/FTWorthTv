@@ -1049,7 +1049,10 @@ _NOT_BREAKING_RE = re.compile(r"\b(?:active shooter|evacuation|lockdown|shelter 
 # a flood-control project is public works, not weather: Nov 25, the City of Fort Worth's "Work session, special called meeting
 # scheduled Dec. 1" (a Texas Water Development Board grant for "Lebow Flood Mitigation") was filed as weather and held by its cap
 _NOT_WEATHER_RE = re.compile(r"\bflood(?:plain|way)s?\b|\bflood (?:mitigation|control|insurance|plains?|prevention|protection|"
-                             r"risk reduction|infrastructure|bonds?|stud(?:y|ies)|maps?|projects?|channels?)\b", re.I)
+                             r"risk reduction|infrastructure|bonds?|stud(?:y|ies)|maps?|projects?|channels?)\b"
+                             # Nov 26, render 261: the Fort Worth Report's state-bird story ("Others hail the mockingbird") was
+                             # drafted with a supercell: to hail someone, or to hail from somewhere, is not weather
+                             r"|\ball hail\b|\bhail(?:s|ed|ing)? (?:the|as|from|a|an|it|its|their|his|her|our|this|that|him|them)\b", re.I)
 # a council's meeting notice is local government, whatever its agenda lists (cold-weather preparations, a flood grant, a museum)
 _MEETING_TITLE_RE = re.compile(r"\b(?:work sessions?|council meetings?|special[- ]called meetings?|city council|commissioners(?:'|’)? court)\b",
                                re.I)
