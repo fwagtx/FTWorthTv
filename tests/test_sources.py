@@ -692,3 +692,39 @@ def test_a_stores_promotion_and_one_shooting_told_twice():
     assert same_count_incident("Fort Worth shooting leaves three men hospitalized after fight", "", posted)
     assert not same_count_incident("2 killed in Fort Worth crash on I-35W", "", posted)
     assert not same_count_incident("Three hurt in Dallas shooting", "", posted)
+
+
+def test_the_holiday_table_is_only_the_greetings_picture():
+    """Nov 26, render 267: NBC 5's "North Texas volunteers prepare 7,000 Thanksgiving meals for neighbors in need" drew a family
+    carving a turkey at home."""
+    from ftworthtv.images.library import topics_for
+    title = "North Texas volunteers prepare 7,000 Thanksgiving meals for neighbors in need"
+    assert "thanksgiving" not in topics_for(f"{title} Operation Turkey is delivering meals.", "community", "dfw", title=title)
+    assert "thanksgiving" in topics_for("Happy Thanksgiving Fort Worth", "community", "local", title="Happy Thanksgiving Fort Worth")
+
+
+def test_the_writers_category_is_the_one_the_days_rules_count(settings, now, monkeypatch):
+    """Nov 26, render 267: NBC 5's "Fort Worth prepared to provide emergency overflow shelter as cold settles in" passed the
+    weather checks under another category and came out of the writer as weather, hours after the day's forecast went out."""
+    from datetime import timedelta
+    from ftworthtv import pipeline
+    from ftworthtv.models import Story
+    from ftworthtv.state import State
+    state = State(settings.state_path)
+    state.data.setdefault("posted", {})["fox"] = {"category": "weather", "kind": "rss", "source": "FOX 4 Dallas-Fort Worth",
+                                                   "title": "Breezy, near-freezing festive chill grips North Texas",
+                                                   "at": (now - timedelta(hours=3)).isoformat()}
+    state.save()
+    real = pipeline.write_copy
+
+    def as_weather(story, *a, **k):
+        copy, writer = real(story, *a, **k)
+        return copy.model_copy(update={"category": "weather"}), writer
+    monkeypatch.setattr(pipeline, "write_copy", as_weather)
+    story = Story(id="shelter", source="NBC 5 DFW", source_kind="rss", url="https://www.nbcdfw.com/news/local/x/1/",
+                  title="Fort Worth opens emergency overflow shelter for people experiencing homelessness",
+                  summary="The city of Fort Worth is reminding residents of resources available to people experiencing homelessness "
+                          "and outlining when the emergency overflow shelter will open this week.",
+                  published=now - timedelta(hours=1))
+    report = pipeline.run(settings, now=now, stories=[story], publisher_name="dryrun")
+    assert any(s.id == "shelter" and r == "a weather story already went out in the last six hours" for s, r in report.skipped)

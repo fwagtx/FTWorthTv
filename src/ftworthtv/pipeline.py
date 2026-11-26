@@ -251,6 +251,21 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if copy.skip:
             report.skipped.append((story, copy.skip_reason or "writer skipped"))
             continue
+        final_cat = copy.category or "other"
+        if final_cat != cat:
+            # Nov 26, render 267: NBC 5's "Fort Worth prepared to provide emergency overflow shelter as cold settles in" passed
+            # the weather checks under its feed category and came out of the writer as weather, three and a half hours after
+            # FOX 4's forecast: the category the post goes out under is the one the day's rules count
+            if cap_reached(final_cat):
+                report.skipped.append((story, f"daily cap for {final_cat} reached"))
+                continue
+            if final_cat == "weather" and story.source_kind in ("rss", "video") and not story.is_urgent:
+                if _same_outlet_forecast(state, story, now):
+                    report.skipped.append((story, "this outlet's forecast already went out in the last 12 hours"))
+                    continue
+                if _recent_weather_story(state, now):
+                    report.skipped.append((story, "a weather story already went out in the last six hours"))
+                    continue
         if story.source_kind == "rss" and _stale_relative_time(state, story, copy.caption or "", now):
             report.skipped.append((story, "its caption says 'overnight' or 'this morning', but the event was first reported over 14 hours ago"))
             continue

@@ -267,8 +267,17 @@ def phrase_in(phrase: str, hay: str) -> bool:
     return bool(pat.search(hay))
 
 
+# Nov 26, render 267: NBC 5's "North Texas volunteers prepare 7,000 Thanksgiving meals for neighbors in need" drew a family
+# carving a turkey at home: the holiday table is the greeting's picture, never a stand-in for people doing something that day
+_HOLIDAY_DEED_RE = re.compile(r"\b(?:volunteers?|meals?|dinners?|serve[sd]?|serving|deliver\w*|donat\w*|giveaways?|food drives?|"
+                              r"food banks?|food pantr(?:y|ies)|hands? out|handed out|handing out|feed(?:s|ing)?|turkey trot|race|runners|"
+                              r"parade|shelters?|toy drive|coat drive)\b", re.I)
+
+
 def topic_excluded(topic: str, text: str) -> bool:
     low = (text or "").lower()
+    if topic in ("thanksgiving", "christmas") and _HOLIDAY_DEED_RE.search(low):
+        return True
     if topic == "capitol" and _FEDERAL_RE.search(low) and not _STATE_GOV_RE.search(low):
         return True                  # Congress is not the Texas Capitol
     if topic in ("thanksgiving", "christmas") and _HOLIDAY_AS_TIME_RE.search(low) and not _HOLIDAY_SUBJECT_RE.search(low):

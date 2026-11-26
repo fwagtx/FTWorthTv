@@ -523,9 +523,11 @@ def test_a_gas_price_story_gets_a_gas_photo_or_none_and_thanksgiving_as_a_date_i
     t = "Gas prices drop ahead of Thanksgiving, but fewer Texans are hitting the road"
     assert topics_for(t.lower(), "business", "texas", title=t) == ["gas"]
     assert topic_excluded("thanksgiving", t)
-    assert not topic_excluded("thanksgiving", "Food bank hands out turkey dinners ahead of Thanksgiving")
-    assert "thanksgiving" in topics_for("thanksgiving dinner served to 500 at fort worth shelter", "community", "local",
-                                        title="Thanksgiving dinner served to 500 at Fort Worth shelter")
+    # Nov 26: a meal served, a giveaway or a drive on the holiday is a happening; the holiday table is the greeting's picture only
+    assert topic_excluded("thanksgiving", "Food bank hands out turkey dinners ahead of Thanksgiving")
+    assert "thanksgiving" not in topics_for("thanksgiving dinner served to 500 at fort worth shelter", "community", "local",
+                                            title="Thanksgiving dinner served to 500 at Fort Worth shelter")
+    assert "thanksgiving" in topics_for("happy thanksgiving fort worth", "community", "local", title="Happy Thanksgiving Fort Worth")
 
 
 def test_a_gas_price_story_searches_for_a_gas_station_not_a_dinner_table():
@@ -538,7 +540,7 @@ def test_a_gas_price_story_searches_for_a_gas_station_not_a_dinner_table():
     assert topic_image_query(st, "Fort Worth skyline") == "gasoline pump nozzle fueling car"
     st2 = Story(id="h", title="Food bank hands out 2,000 Thanksgiving turkeys in east Fort Worth", url="u", source="FWR",
                 source_kind="rss", summary="Volunteers handed out turkeys and sides ahead of Thanksgiving.")
-    assert "turkey" in topic_image_query(st2, "Fort Worth skyline")
+    assert "turkey" not in topic_image_query(st2, "Fort Worth skyline")    # Nov 26: the giveaway is the picture, or none
 
 
 def test_team_highlight_reels_are_not_news():
