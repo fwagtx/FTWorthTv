@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-26T16:37:19.733078+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-101219/02-north-texas-volunteers-prepare-7-000-thanksgivin/post.jpg",
+    "credit": "Photo: Pink Sherbet Photography from USA via Wikimedia Commons (CC BY 2.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Casual_Family_Dinner_Carving_Thanksgiving_Turkey_free_creative_commons_(4139402140).jpg",
+    "photo_id": "lib-casual-family-dinner-carving-thanksgiving-turkey-free-creati",
+    "subject": "beat:thanksgiving"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-101219/02-north-texas-volunteers-prepare-7-000-thanksgivin/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "North Texas volunteers prepare 7,000 Thanksgiving meals for neighbors in need",
+    "caption": "Volunteers start early to prep and deliver thousands of Thanksgiving meals, each with a handwritten message for neighbors across North Texas. More than 1,000 volunteers are coming together across North Texas to make sure neighbors in need have a warm meal this Thanksgiving.\n\nThe nonprofit Operation Turkey is preparing to deliver more than 7,000 Thanksgiving meals across the Dallas-Fort Worth area, with volunteers spending Wednesday cooking, prepping and packaging food ahead of the holiday.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/north-texas-volunteers-prepare-7000-thanksgiving-meals-for-neighbors-in-need/4110975/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "roast turkey Thanksgiving food",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "820b38f60f704328",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "North Texas volunteers prepare 7,000 Thanksgiving meals for neighbors in need",
+    "summary": "Volunteers start early to prep and deliver thousands of Thanksgiving meals, each with a handwritten message for neighbors across North Texas. More than 1,000 volunteers are coming together across North Texas to make sure neighbors in need have a warm meal this Thanksgiving. The nonprofit Operation Turkey is preparing to deliver more than 7,000 Thanksgiving meals across the Dallas-Fort Worth area, with volunteers spending Wednesday cooking, prepping and packaging food ahead of the holiday. At the Hilton Garden Inn in Irving, volunteers gathered for what organizers call the \"Turkey tailgate\" — a day dedicated to getting everything ready for Thanksgiving deliveries. \"Today we do what we call the Turkey tailgate so it’s the prep work,\" said Ashley Williams, co-lead of Operation Turkey's Dallas group. From shredding turkey and making mashed potatoes and stuffing to opening hundreds of cans…",
+    "url": "https://www.nbcdfw.com/news/local/north-texas-volunteers-prepare-7000-thanksgiving-meals-for-neighbors-in-need/4110975/",
+    "published": "2026-11-26T08:49:22+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/Operation-Turkey.png?fit=569,320&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.326
+  }
+}

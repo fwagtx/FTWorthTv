@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-26T17:02:19.733078+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-101219/03-fort-worth-prepared-to-provide-emergency-overflo/post.jpg",
+    "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth.jpg",
+    "photo_id": "lib-downtown-fort-worth-jpg",
+    "subject": "beat:skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-101219/03-fort-worth-prepared-to-provide-emergency-overflo/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Fort Worth prepared to provide emergency overflow shelter as cold settles in",
+    "caption": "Temperatures dropped into the 30s Wednesday morning, with temperatures expected to fall to and below freezing across much of North Texas Thursday morning.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/weather/fort-worth-prepared-to-provide-emergency-overflow-shelter-as-cold-weather-settles-into-north-texas/4110711/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "roast turkey Thanksgiving food",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "cd0687c909fd6316",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Fort Worth prepared to provide emergency overflow shelter as cold settles in",
+    "summary": "Temperatures will dip below freezing across much of North Texas on Thanksgiving morning As a powerful cold front brings much colder temperatures to North Texas, the city of Fort Worth is reminding residents of resources available to people experiencing homelessness and outlining when emergency overflow shelter will open. Temperatures dropped into the 30s Wednesday morning, with temperatures expected to fall to and below freezing across much of North Texas Thursday morning. Fort Worth operates an emergency overnight overflow sheltering program for individual men and women experiencing homelessness during the cold weather season, which runs annually from Oct. 15 through March 31. The program is coordinated among multiple city departments, regular emergency shelter operators, public safety and emergency management officials, overflow shelter operator WhenWeLove, and Trinity Metro. The…",
+    "url": "https://www.nbcdfw.com/weather/fort-worth-prepared-to-provide-emergency-overflow-shelter-as-cold-weather-settles-into-north-texas/4110711/",
+    "published": "2026-11-26T08:49:22+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/cold-wx.png?fit=1265,711&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 0.3196
+  }
+}

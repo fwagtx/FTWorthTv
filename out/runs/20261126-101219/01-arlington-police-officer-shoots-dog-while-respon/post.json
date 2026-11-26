@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-101219/01-arlington-police-officer-shoots-dog-while-respon/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-101219/01-arlington-police-officer-shoots-dog-while-respon/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Arlington police officer shoots dog while responding to commercial alarm",
+    "caption": "An Arlington police officer is on administrative leave after shooting a dog that charged at him during an alarm call. Arlington police officers responded to a commercial alarm at a business along West Pioneer Parkway on Tuesday.\n\nWhile officers checked the outside of the business, a dog came out from behind the building and charged toward one of the officers, according to police. The officer did not suffer any injuries.",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth https://www.fox4news.com/news/arlington-police-officer-shoots-dog-while-responding-commercial-alarm\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "01c0c24801a299e3",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "rss",
+    "title": "Arlington police officer shoots dog while responding to commercial alarm",
+    "summary": "An Arlington police officer is on administrative leave after shooting a dog that charged at him during an alarm call. ARLINGTON, Texas - An Arlington police officer is on administrative leave after shooting a dog that charged at him during an alarm call. Arlington police officers responded to a commercial alarm at a business along West Pioneer Parkway on Tuesday. While officers checked the outside of the business, a dog came out from behind the building and charged toward one of the officers, according to police. The officer did not suffer any injuries. The dog was taken to a veterinarian for treatment, police say. Arlington police have not shared the dog's current condition or the identity of the officer involved. APD's Internal Affairs Unit is conducting an administrative investigation to determine if the officer followed department policies and procedures. Police say the unit…",
+    "url": "https://www.fox4news.com/news/arlington-police-officer-shoots-dog-while-responding-commercial-alarm",
+    "published": "2026-11-25T17:49:06+00:00",
+    "category_hint": null,
+    "image_url": "https://static.fox4news.com/www.fox4news.com/content/uploads/2022/04/jason-calvi-5pm-pkg-socialist-politicians-040722_W_00.00.36.42.jpg",
+    "image_credit": "Photo: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "Latest News | FOX 4 News",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.0753
+  }
+}
