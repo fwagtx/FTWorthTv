@@ -987,6 +987,38 @@ def same_incident(title: str, summary: str, posted_title: str) -> bool:
     return any(n in (posted_title or "").lower() for n in names)
 
 
+# Nov 26, render 265: FOX 4's "Fort Worth country singer found not guilty after murder trial" a day after CBS's "Fort Worth
+# recording artist acquitted of murder in 2025 shooting death of man": one verdict, told twice
+_VERDICT_CLASSES = (("acquittal", re.compile(r"\b(?:acquitted|acquittal|found not guilty|not guilty)\b", re.I)),
+                    ("conviction", re.compile(r"\b(?:convicted|found guilty|guilty verdict|pleads? guilty|pleaded guilty)\b", re.I)),
+                    ("sentence", re.compile(r"\bsentenced\b", re.I)),
+                    ("mistrial", re.compile(r"\bmistrial\b", re.I)))
+_VERDICT_CRIME_RE = re.compile(r"\b(?:capital murder|murder|manslaughter|assault|robbery|shooting|killing|death|sexual assault|kidnapping)\b", re.I)
+_VERDICT_PLACES = ("fort worth", "arlington", "tarrant", "keller", "mansfield", "grapevine", "dallas", "denton", "plano", "parker county",
+                   "johnson county", "weatherford", "burleson")
+_VERDICT_PEOPLE = (("singer", "artist", "rapper", "musician"), ("officer", "deputy", "cop", "trooper"), ("teacher", "coach", "principal"),
+                   ("pastor", "priest", "minister"), ("doctor", "nurse"), ("mayor", "councilman", "councilwoman", "council member"))
+
+
+def same_verdict(title: str, summary: str, posted_title: str) -> bool:
+    """Two headlines about one verdict: the same outcome for the same crime in the same place, about the same kind of person
+    (or an acquittal or mistrial, which are rare enough that two in two days are one)."""
+    def classes(t: str) -> set[str]:
+        return {name for name, rx in _VERDICT_CLASSES if rx.search(t or "")}
+    a, b = classes(title), classes(posted_title)
+    shared = a & b
+    if not shared:
+        return False
+    la, lb = (title or "").lower(), (posted_title or "").lower()
+    if not {m.lower() for m in _VERDICT_CRIME_RE.findall(la)} & {m.lower() for m in _VERDICT_CRIME_RE.findall(lb)}:
+        return False
+    if not {p for p in _VERDICT_PLACES if p in la} & {p for p in _VERDICT_PLACES if p in lb}:
+        return False
+    if shared & {"acquittal", "mistrial"}:
+        return True
+    return any(any(w in la for w in group) and any(w in lb for w in group) for group in _VERDICT_PEOPLE)
+
+
 def explainer_of_posted(title: str, summary: str, posted_title: str) -> bool:
     """A 'What is X?' or 'What we know about X' piece about a subject a post already covered is that story again."""
     if not _EXPLAINER_RE.search((title or "").strip()):
@@ -1473,8 +1505,21 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
 _DATED_TITLE = re.compile(r"\b(?:for|on)\s+(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday),?\s+(january|february|march|april|may|june|july|august|september|october|november|december)\s+(\d{1,2})\b", re.I)
 
 
+_AHEAD_OF_HOLIDAY_RE = re.compile(r"\b(?:ahead of|before|leading up to|in the lead-up to|days before)\s+(?:the\s+)?(thanksgiving|christmas|new year'?s)\b",
+                                  re.I)
+
+
 def stale_dated_title(title: str, now_local) -> bool:
-    """'Fort Worth forecast for Tuesday, November 17' on a Thursday is not news; a title dated before today is dropped."""
+    """'Fort Worth forecast for Tuesday, November 17' on a Thursday is not news; a title dated before today is dropped.
+    So is a headline set "ahead of" a holiday that has come: Nov 26, render 265, "Dallas food pantry sees increased need ahead
+    of Thanksgiving" was drafted for Thanksgiving morning."""
+    h = _AHEAD_OF_HOLIDAY_RE.search(title or "")
+    if h:
+        name, today = h.group(1).lower(), now_local.date()
+        # the shared holiday table puts New Year's in the coming January; in January itself the holiday has just come
+        when = today.replace(month=1, day=1) if name.startswith("new year") and today.month == 1 else _holiday_date(name, today.year)
+        if when is not None and today >= (when.date() if hasattr(when, "date") and callable(when.date) else when):
+            return True
     m = _DATED_TITLE.search(title or "")
     if not m:
         return False

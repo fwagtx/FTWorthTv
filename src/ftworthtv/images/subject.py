@@ -657,6 +657,9 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   # Nov 24: "AT&T Stadium lights up kettle red" drew a daytime aerial of the stadium
                   "lights up", "lit up", "illuminated", "illuminates",
                   "rescued", "pulled from", " dies ", " died ", "killed", " dead ", "arrested", "charged with", "indicted", "sentenced",
+                  # Nov 26, render 265: "Fort Worth country singer found not guilty after murder trial" drew the Tarrant County
+                  # Courthouse: a verdict is a happening, and the courthouse is the building, never the picture of it
+                  "acquitted", "not guilty", "found guilty", "convicted", "verdict", "mistrial", "pleads guilty", "pleaded guilty",
                   # Nov 24: "Affidavit: Dallas mother ambushed on her birthday by brother-in-law, nephew" drew the Dallas skyline
                   " ambushed", " ambush ", "gunned down",
                   " fired", "resigns", "resigned", "steps down", "walks out", "protest", "ceremony", "ribbon", "reopens", "debut",

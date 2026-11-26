@@ -59,7 +59,9 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("whataburger",), "whataburger"),
     (("ercot", "power grid", "power outage", "outages", "blackout"), "power"),
     (("gas prices", "gasoline", "price of gas", "pump prices"), "gas"),
-    (("snap benefits", "snap ", "food bank", "food stamps", "grocery", "groceries"), "grocery"),
+    # Nov 26, render 265: "Dallas food pantry sees increased need" drew a supermarket aisle: a food bank or pantry is a charity's
+    # line, never a grocery store's shelves
+    (("snap benefits", "snap ", "food stamps", "grocery", "groceries"), "grocery"),
     (("property tax", "tax rate", "budget", "salary", "salaries", "wages", "raise", "cost of living", "paycheck"), "money"),
     (("election", "ballot", "early voting", "polls open", "runoff", "voters"), "voting"),
     (("keller isd", "keller high", "fossil ridge", "timber creek", "keller central"), "keller-isd"),

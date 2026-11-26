@@ -652,3 +652,28 @@ def test_a_weekly_events_column_and_another_dfw_citys_officials_are_not_this_pag
     assert another_dfw_citys_government("Plano ISD board votes to close two schools")
     assert not another_dfw_citys_government("Dallas police: man killed in overnight shooting")       # a crime is still a crime story
     assert not another_dfw_citys_government("Fort Worth police chief named")
+
+
+def test_one_verdict_told_twice_a_verdicts_picture_and_a_holiday_that_has_come():
+    """Nov 26, render 265: FOX 4's "Fort Worth country singer found not guilty after murder trial" (the Tarrant County
+    Courthouse for its picture) a day after CBS's "Fort Worth recording artist acquitted of murder ...", and CBS's "Dallas food
+    pantry sees increased need ahead of Thanksgiving" (a supermarket aisle) on Thanksgiving morning."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from ftworthtv.filters import same_verdict, stale_dated_title
+    from ftworthtv.images.library import topics_for
+    from ftworthtv.images.subject import happened
+    posted = "Fort Worth recording artist acquitted of murder in 2025 shooting death of man, court records show"
+    assert same_verdict("Fort Worth country singer found not guilty after murder trial", "", posted)
+    assert not same_verdict("Fort Worth man sentenced to life for 2023 murder", "", "Fort Worth woman sentenced for murder of toddler")
+    assert not same_verdict("Arlington man found guilty of robbery", "", posted)
+    assert happened("Fort Worth country singer found not guilty after murder trial")
+    tz = ZoneInfo("America/Chicago")
+    title = "Dallas food pantry sees increased need ahead of Thanksgiving"
+    assert stale_dated_title(title, datetime(2026, 11, 26, 9, tzinfo=tz))
+    assert not stale_dated_title(title, datetime(2026, 11, 24, 9, tzinfo=tz))
+    assert stale_dated_title("Toy drive collects gifts ahead of Christmas", datetime(2026, 12, 26, 9, tzinfo=tz))
+    assert stale_dated_title("Fireworks rules ahead of New Year's", datetime(2027, 1, 1, 9, tzinfo=tz))
+    assert not stale_dated_title("Fireworks rules ahead of New Year's", datetime(2026, 12, 30, 9, tzinfo=tz))
+    assert "grocery" not in topics_for(f"{title} The Stewpot food bank serves 300 a day.", "community", "dfw", title=title)
+    assert "grocery" in topics_for("SNAP benefits delay hits grocery budgets", "community", "local")
