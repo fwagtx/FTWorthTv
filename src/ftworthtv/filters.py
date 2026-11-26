@@ -302,6 +302,8 @@ _COLUMN_ROUNDUP_RE = re.compile(
                          # Nov 25, ESPN: "Rams and Cowboys top Week 12 uniforms" ("what each NFL team is wearing"), a league roundup
                          r"\bweek \d+ uniforms\b|\buniforms? (?:tracker|roundup|rankings?|power rankings)\b|"
                          r"\bwhat each (?:nfl |nba |college )?team is wearing\b|"
+                         # Nov 26, render 264: the Arlington Report's weekly "Out and About in Arlington: ..." events column
+                         r"^out and about\b|"
                          # Nov 25, render 257: CBS Sports' "NFL on Thanksgiving halftime shows: Ranking the 10 most memorable
                          # performances", a writer's list of past shows (drafted with the downtown skyline)
                          r"(?:^|[:;—–]\s*)ranking (?:the|every|all|each)\b|"
@@ -589,6 +591,22 @@ def other_metro_forecast(source: str, title: str, url: str) -> bool:
     t = (title or "").lower().strip()
     u = (url or "").lower()
     return t.startswith("forecast") or "/forecast" in u or "-forecast" in u or "/weather/" in u
+
+
+# Nov 26, render 264: FOX 4's "Top Dallas Police spokesperson reinstated after public integrity investigation" (a crime text
+# card): another DFW city's officials, hires, leaves and votes are that city's news. A crime there is still a crime story.
+_DFW_CIVIC_RE = re.compile(r"\b(?:mayor|mayor pro tem|city council|council ?(?:member|man|woman)|city manager|police chief|fire chief|"
+                           r"spokes(?:person|man|woman)|public integrity|reinstated|placed on (?:administrative )?leave|isd board|"
+                           r"school board|trustees|county judge|commissioners court|city hall|zoning|city budget|tax rate|bond election)\b",
+                           re.I)
+
+
+def another_dfw_citys_government(title: str) -> bool:
+    low = (title or "").lower()
+    if any(w in low for w in ("fort worth", "tarrant", "dfw", "north texas", "arlington", "keller", "southlake", "mansfield")):
+        return False
+    places = set(OTHER_METROS) | set(_NON_TARRANT_PLACES)
+    return bool(_DFW_CIVIC_RE.search(low)) and any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in places)
 
 
 def other_metro_local(title: str) -> bool:
@@ -1411,6 +1429,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 continue
             if tier[0] == "texas" and other_metro_local(story.title) and not any(w in story.text() for w in STATEWIDE_WORDS):
                 dropped.append((story, "another city's government"))             # Austin's mayor pro tem is Austin's news
+                continue
+            if tier[0] == "dfw" and another_dfw_citys_government(story.title):
+                dropped.append((story, "another city's government"))             # a Dallas spokesperson's leave is Dallas's news
                 continue
             if tier[0] == "dfw" and cat == "crime" and another_citys_blotter(story.title):
                 dropped.append((story, "another city's police blotter"))     # a Dallas shooting with no death and no arrest is Dallas's blotter

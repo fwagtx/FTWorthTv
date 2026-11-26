@@ -640,3 +640,15 @@ def test_a_freezing_forecast_on_thanksgiving_is_weather():
                   title="North Texas faces freezing Thanksgiving morning before weekend warmup",
                   summary="Sunny skies, warmer temperatures and gusty winds are ahead. Expect a seasonably cool but sunny Thanksgiving.")
     assert infer_category(story) == "weather"
+
+
+def test_a_weekly_events_column_and_another_dfw_citys_officials_are_not_this_pages_news():
+    """Nov 26, render 264: the Arlington Report's "Out and About in Arlington: ..." column (with "Alice out and about in
+    Nairobi" for its picture) and FOX 4's "Top Dallas Police spokesperson reinstated after public integrity investigation"."""
+    from ftworthtv.filters import another_dfw_citys_government, roundup_column
+    assert roundup_column("Out and About in Arlington: Christmas spirit gobbles up Thanksgiving festivities")
+    assert another_dfw_citys_government("Top Dallas Police spokesperson reinstated after public integrity investigation")
+    assert another_dfw_citys_government("Dallas police chief's publishing company, book signing events raise ethics questions")
+    assert another_dfw_citys_government("Plano ISD board votes to close two schools")
+    assert not another_dfw_citys_government("Dallas police: man killed in overnight shooting")       # a crime is still a crime story
+    assert not another_dfw_citys_government("Fort Worth police chief named")

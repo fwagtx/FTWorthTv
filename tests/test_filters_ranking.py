@@ -35,11 +35,11 @@ def test_filter_pipeline_on_examples(settings, now, tmp_path):
     # the study: state/local politics is the reference page's best topic, so it stays (capped per day in brand.yaml)
     assert "Fort Worth City Council approves budget after marathon meeting" in titles
     assert by_title["Fort Worth City Council approves budget after marathon meeting"].category == "politics"
-    # DFW-wide and Texas-wide stories are kept at a lower weight with a non-local scope, instead of being dropped
-    dallas = by_title.get("Dallas ISD trustees debate new school start times")
+    # Texas-wide stories are kept at a lower weight with a non-local scope, instead of being dropped
     texas = by_title.get("Texas Legislature weighs statewide property tax changes")
-    assert dallas is not None and dallas.extra.get("scope") == "dfw" and dallas.weight < 1.0
-    assert texas is not None and texas.extra.get("scope") == "texas" and texas.weight < dallas.weight
+    assert texas is not None and texas.extra.get("scope") == "texas" and texas.weight < 1.0
+    # ... but another DFW city's school board is that city's government (Nov 26: the owner skips another city's government)
+    assert reasons.get("Dallas ISD trustees debate new school start times") == "another city's government"
     assert "Arlington police arrest suspect after chase ends near AT&T Stadium" in titles   # Arlington counts as local
     assert by_title["Arlington police arrest suspect after chase ends near AT&T Stadium"].extra.get("scope") == "local"
     assert all(s.category for s in kept)
