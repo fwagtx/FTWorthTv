@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-194309/01-work-session-special-called-meeting-scheduled-de/post.jpg",
+    "credit": "Photo: City of Fort Worth",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.fortworthtexas.gov/news/2026/11/Work-session-special-called-meeting-scheduled-Dec-1",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-194309/01-work-session-special-called-meeting-scheduled-de/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "politics",
+    "headline": "Work session, special called meeting scheduled Dec. 1",
+    "caption": "The Fort Worth City Council will hold a work session at 2 p.m. Tuesday, Dec. 1. The meeting will be held at City Hall, 100 Fort Worth Trail.\n\nCity Council will hold a special called meeting at noon Tuesday in the Council Chamber at City Hall to discuss Lebow Flood Mitigation Texas Water Development Board grant acceptance.",
+    "first_comment": "Source: City of Fort Worth https://www.fortworthtexas.gov/news/2026/11/Work-session-special-called-meeting-scheduled-Dec-1\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "174549a94769336c",
+    "source": "City of Fort Worth",
+    "source_kind": "rss",
+    "title": "Work session, special called meeting scheduled Dec. 1",
+    "summary": "The Fort Worth City Council will hold a work session at 2 p.m. Tuesday, Dec. 1. The meeting will be held at City Hall, 100 Fort Worth Trail. City Council will hold a special called meeting at noon Tuesday in the Council Chamber at City Hall to discuss Lebow Flood Mitigation Texas Water Development Board grant acceptance.",
+    "url": "https://www.fortworthtexas.gov/news/2026/11/Work-session-special-called-meeting-scheduled-Dec-1",
+    "published": "2026-11-25T12:00:00-06:00",
+    "category_hint": "community",
+    "image_url": "https://www.fortworthtexas.gov/files/assets/public/v/1/news/images/city-news-work-session-room_1.jpg?w=1200",
+    "image_credit": "Photo: City of Fort Worth",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.8,
+    "extra": {
+      "listing_image": "https://www.fortworthtexas.gov/files/assets/public/v/1/news/images/city-news-work-session-room_1.jpg",
+      "generic_image": true,
+      "article_fetched": true,
+      "scope": "local"
+    },
+    "category": "politics",
+    "relevance": 1,
+    "score": 0.4383
+  }
+}
