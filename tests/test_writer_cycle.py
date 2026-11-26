@@ -1478,3 +1478,16 @@ def test_a_scraped_page_header_and_a_ranking_survive_correctly():
     assert HASHTAG_RE.sub("", "vs. #11 Texas Tech #GoFrogs").strip() == "vs. #11 Texas Tech"
     assert national_feature("‘GTA VI’ Just Might Turn Carly Rae Jepsen Into A “Late in Life Gamer”",
                             "https://www.hollywoodreporter.com/music/music-features/gta-vi-carly-rae-jepsen-runaway-with-me-interview-1236763127/")
+
+
+def test_a_dek_the_article_repeats_in_fuller_words_goes():
+    """Nov 25, Texas Tribune: the dek "Atmos Energy accrued seven violations during a routine inspection ..." ahead of the
+    article's "... accrued seven alleged violations during a routine inspection, triggering a monthslong probe ..."."""
+    text = ("Atmos Energy accrued seven violations during a routine inspection, prompting action by the state agency that oversees "
+            "the oil and gas industry. A Dallas pipeline company that ships natural gas is under investigation by state oil and gas "
+            "regulators for a series of deficiencies that may violate state law, possibly exposing it to up to $2 million in fines. "
+            "Atmos Energy, which serves more than 2 million customers in Texas, accrued seven alleged violations during a routine "
+            "inspection, triggering a monthslong probe by the Texas Railroad Commission.")
+    sents = _sentences(text)
+    assert sents[0].startswith("A Dallas pipeline company") and any("alleged violations" in s for s in sents)
+    assert not any(s.startswith("Atmos Energy accrued seven violations") for s in sents)

@@ -621,6 +621,7 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     page can belong to another item, so only the first `lead` characters are considered)."""
     out: list[str] = []
     text = _DATELINE_RE.sub("", _UPDATED_RE.sub("", collapse_ws(text or "")))   # datelines and "Updated on: ..." stamps are not sentences
+    raw_first = re.sub(r"\W+", " ", (_split_sentences(text) or [""])[0]).strip().lower()    # the feed's dek, when it has one
     text = _story_start(_SCRIPT_CUT_RE.sub(" ", text), limit)
     text = _POSITION_CAPTION_RE.sub("", text)
     cut_short = len(text) > lead
@@ -687,6 +688,13 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
         last_kept = k
         if len(out) >= max_n:
             break
+    # a dek that a later sentence says again in fuller words goes: Nov 25, the Texas Tribune's "Atmos Energy accrued seven
+    # violations during a routine inspection ..." ahead of "Atmos Energy ... accrued seven alleged violations during a routine
+    # inspection, triggering a monthslong probe ..." (the dek also dropped "alleged")
+    if (len(out) >= 3 and re.sub(r"\W+", " ", out[0]).strip().lower() == raw_first
+            and any(shared_run(out[0], s, n=5) for s in out[1:])):
+        out.pop(0)
+
     def _backref(s: str) -> bool:
         return bool(_DEFINITE_OPENER_RE.match(s) or _BACKREF_OPENER_RE.match(s) or _ITEMS_OPENER_RE.match(s) or _DANGLING_RE.search(s))
     if len(out) > 1 and _backref(out[0]) and not out[0].endswith("?"):
