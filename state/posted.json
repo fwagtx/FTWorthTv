@@ -7,7 +7,7 @@
     "2026-11-22": 19,
     "2026-11-23": 20,
     "2026-11-24": 20,
-    "2026-11-25": 17
+    "2026-11-25": 18
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -77,6 +77,7 @@
     },
     "2026-11-25": {
       "breaking": 3,
+      "business": 1,
       "community": 3,
       "crime": 4,
       "culture": 1,
@@ -126,7 +127,7 @@
     },
     "2026-11-25": {
       "nws_forecast": 1,
-      "rss": 12,
+      "rss": 13,
       "video": 2,
       "wanted": 2
     }
@@ -168,7 +169,7 @@
       "texas": 2
     },
     "2026-11-25": {
-      "dfw": 4,
+      "dfw": 5,
       "local": 12,
       "texas": 1
     }
@@ -209,6 +210,11 @@
       "reason": "daily cap for community reached",
       "title": "RAZ Imports Returns to Balcom Agency as Agency of Record"
     },
+    "0d2375f9243ca9af": {
+      "at": "2026-11-26T00:15:31.930844+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Trackdown: Help find Dallas rapper BFG Baandz’s killer"
+    },
     "1083ec391421435f": {
       "at": "2026-11-24T22:45:41.059257+00:00",
       "reason": "daily cap for community reached",
@@ -223,11 +229,6 @@
       "at": "2026-11-25T19:14:49.573827+00:00",
       "reason": "daily cap for community reached",
       "title": "OurCalling to serve Thanksgiving meals to more than 500 unhoused neighbors in Dallas"
-    },
-    "14f1dd301b2e0bc9": {
-      "at": "2026-11-23T23:50:26.017781+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Thanksgiving grocery costs rise as more North Texas families turn to food banks"
     },
     "16beb2d47e464f10": {
       "at": "2026-11-24T15:45:40.459439+00:00",
@@ -304,6 +305,11 @@
       "reason": "daily cap for community reached",
       "title": "North Texas school district cancels games after student killed in 'tragic accident'"
     },
+    "3eba59e59ea55eb2": {
+      "at": "2026-11-26T00:15:31.930811+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Out and About in Arlington: Christmas spirit gobbles up Thanksgiving festivities"
+    },
     "4315a7cb1ad557b4": {
       "at": "2026-11-25T18:45:33.178090+00:00",
       "reason": "daily cap for community reached",
@@ -364,6 +370,11 @@
       "reason": "daily cap for weather reached",
       "title": "Freeze warning in North Texas Tuesday night"
     },
+    "7178796b22dcd127": {
+      "at": "2026-11-26T00:15:31.930847+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Thanksgiving travel runs smoothly at DFW Airport as millions hit the road"
+    },
     "719b3bd20ea41323": {
       "at": "2026-11-25T21:15:15.510984+00:00",
       "reason": "daily cap for community reached",
@@ -388,11 +399,6 @@
       "at": "2026-11-25T22:16:10.050074+00:00",
       "reason": "daily cap for crime reached",
       "title": "Three men in stable condition following Fort Worth shooting"
-    },
-    "7bce8b6ecf54f8f3": {
-      "at": "2026-11-23T23:50:26.017780+00:00",
-      "reason": "daily cap for politics reached",
-      "title": "Clayton Tucker names former state Rep. Tracy King as deputy agriculture commissioner"
     },
     "80ce7503942fb880": {
       "at": "2026-11-25T22:45:44.871499+00:00",
@@ -449,11 +455,6 @@
       "reason": "daily cap for community reached",
       "title": "“Arlington Archives” Explores the History of Newspapers in Arlington"
     },
-    "c5b3ba6d9fcbccbf": {
-      "at": "2026-11-24T00:15:25.491085+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Suspects connected in Dallas and Garland officer-involved shootings, according to police"
-    },
     "c8a8a36a5821081f": {
       "at": "2026-11-24T15:17:59.897633+00:00",
       "reason": "daily cap for crime reached",
@@ -493,6 +494,11 @@
       "at": "2026-11-25T22:45:44.871508+00:00",
       "reason": "daily cap for community reached",
       "title": "Check your pockets! $850,000 winning Texas lottery ticket expires day after Christmas"
+    },
+    "d74ddfe27da243e9": {
+      "at": "2026-11-26T00:15:31.930856+00:00",
+      "reason": "daily cap for community reached",
+      "title": "New $29.8 million sea turtle hospital coming to Galveston’s Texas A&M campus"
     },
     "dc6045e198fd19ca": {
       "at": "2026-11-24T02:13:44.148363+00:00",
@@ -546,7 +552,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-25T17:20:00-06:00",
+  "last_post_at": "2026-11-25T18:22:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -981,6 +987,19 @@
       "source": "Arlington Police Department",
       "title": "WANTED: Edgar CASTELLANOS",
       "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
+    },
+    "4c17b5362f6110f7": {
+      "at": "2026-11-25T18:22:00-06:00",
+      "category": "business",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "442494689",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=9223231859027757703",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "The Texas Tribune",
+      "title": "Railroad Commission investigating Dallas gas utility over alleged safety violations",
+      "url": "https://feeds.texastribune.org/link/16799/17540997/texas-railroad-commission-investigates-atmos-energy"
     },
     "4eb9755a535205c4": {
       "at": "2026-11-21T06:26:00-06:00",
@@ -2785,7 +2804,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 132,
+  "total_posts": 133,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2815,7 +2834,8 @@
     "lib-2026-05-26-texas-state-capitol-01-jpg",
     "lib-2021-12-22-annateich-01-jpg",
     "sunshine-lib-downtown-fort-worth-skyline-jpg",
-    "lib-gas-pump-fueling-toyota-4runner-53999956018-jpg"
+    "lib-gas-pump-fueling-toyota-4runner-53999956018-jpg",
+    "openverse-245d4b45-1d0e-43a5-b771-9272ab306893"
   ],
   "version": 1
 }
