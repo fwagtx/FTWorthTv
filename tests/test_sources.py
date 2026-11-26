@@ -752,3 +752,11 @@ def test_daily_fantasy_advice_is_a_betting_column():
     assert _BETTING_RE.search("Start 'em, sit 'em: Week 13")
     assert not _BETTING_RE.search("Cowboys beat Eagles 31-24 on Thanksgiving")
     assert not _BETTING_RE.search("Fantasy football star CeeDee Lamb leads Cowboys past Eagles")
+
+
+def test_another_citys_skyline_is_not_a_features_picture():
+    """Nov 26, render 270: NBC 5's "Private social clubs: Dallas' new 'third place for the wealthy'" drew the Dallas skyline."""
+    from ftworthtv.images.library import topics_for
+    title = "Private social clubs: Dallas' new ‘third place for the wealthy'"
+    assert "dallas-skyline" not in topics_for(f"{title} Members-only spaces in Highland Park Village.", "community", "dfw", title=title)
+    assert "dallas-skyline" in topics_for("Dallas City Council approves new budget", "politics", "dfw", title="Dallas City Council approves new budget")
