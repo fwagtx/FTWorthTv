@@ -793,3 +793,42 @@ def test_a_national_slate_of_impact_games_is_a_list():
     assert rankings_list("Week 13 College Football Playoff impact games: USC-UCLA, Alabama-Auburn hold major implications")
     assert rankings_list("College football Week 14 games to watch")
     assert not rankings_list("TCU's playoff impact games: what the Horned Frogs need this weekend")
+
+
+def test_a_later_story_about_the_mornings_fire_is_the_same_fire():
+    """Nov 26, render 282: WFAA's 5 p.m. rescue angle on the fire the 7:33 a.m. post covered."""
+    from ftworthtv.filters import same_fire
+    posted = "Home workshop sparks early morning fire on Thanksgiving in Fort Worth"
+    title = "Neighbors kick in door to rescue elderly couple as Thanksgiving fire burns North Texas homes"
+    summary = ("A fire that started at a home business in the back of a house spread to a neighboring home early Thanksgiving "
+               "morning in Fort Worth, officials said.")
+    assert same_fire(title, summary, posted)
+    # the afternoon's other fires are other fires
+    assert not same_fire("2 pets die, 1 rescued as Fort Worth firefighters respond to multiple fires amid cold weather",
+                         "Fort Worth firefighters responded to several fires Thursday as temperatures dropped.", posted)
+    assert not same_fire("Early morning apartment fire in north Fort Worth displaces 12",
+                         "An apartment fire early Thursday displaced 12 residents in north Fort Worth.",
+                         "Early morning house fire in east Fort Worth")
+    # a death or a cause is news
+    assert not same_fire("Fire marshal: home workshop fire on Thanksgiving in Fort Worth caused by space heater",
+                         "The early morning fire was caused by a space heater.", posted)
+    # another city's fire is another fire
+    assert not same_fire("Thanksgiving fire burns two homes in Arlington",
+                         "A home business fire spread to a neighboring home early Thanksgiving morning in Arlington.", posted)
+
+
+def test_the_venue_and_the_team_are_not_the_subject_of_a_story_about_people_working_there():
+    """Nov 26, render 282: "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities" drew the
+    stands at a Wisconsin bowl game."""
+    from ftworthtv.images.library import drop_stadiums_off_the_field, venue_or_team
+    from ftworthtv.images.subject import plan_subject
+    title = "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities"
+    body = ("More than 50 people work at the stadium's condiment stations through a program that began in 2009. "
+            "Clarinda Maria Otto has been part of it for 15 years.")
+    plan = plan_subject(title, body, "sports")
+    assert plan.search_names == [] and "att-stadium" not in plan.entity_topics
+    assert drop_stadiums_off_the_field(["att-stadium"], f"{title} {body}") == []
+    assert venue_or_team("AT&T Stadium") and venue_or_team("Cowboys") and not venue_or_team("Clarinda Maria Otto")
+    # a game keeps its team and its venue
+    game = plan_subject("Cowboys beat Eagles 31-24 on Thanksgiving at AT&T Stadium", "Dak Prescott threw for 300 yards.", "sports")
+    assert game.search_names or game.entity_topics

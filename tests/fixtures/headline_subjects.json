@@ -424,5 +424,18 @@
    "Out and About"
   ],
   "lesson": "Nov 26: the Arlington Report's weekly column name was searched and found 'Alice out and about in Nairobi'"
+ },
+ {
+  "title": "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities",
+  "body": "More than 50 people work at the stadium's condiment stations through a program that began in 2009. Clarinda Maria Otto has been part of it for 15 years.",
+  "category": "sports",
+  "mode": "entity",
+  "not_topics": [
+   "att-stadium"
+  ],
+  "not_fallback": [
+   "att-stadium"
+  ],
+  "lesson": "Nov 26 (render 282): the people working at a stadium are the story; the stands at a Wisconsin bowl game are not, and neither is a search for the venue or the team"
  }
 ]

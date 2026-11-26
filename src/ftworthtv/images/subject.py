@@ -888,8 +888,12 @@ def plan_subject(title: str, body: str = "", category: str = "") -> "SubjectPlan
         plan.entities = [e for e in plan.entities if e not in fields]
         if plan.mode == "search" and not plan.search_names:
             plan.mode = "beat"
-    from .library import drop_stadiums_off_the_field
+    from .library import drop_stadiums_off_the_field, off_the_field_title, venue_or_team
     text = f"{title} {body}"
     plan.entity_topics = drop_stadiums_off_the_field(list(plan.entity_topics), text)
     plan.fallback_topics = drop_stadiums_off_the_field(list(plan.fallback_topics), text)
+    if off_the_field_title(title):
+        # Nov 26, render 282: "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities": a search
+        # for "AT&T Stadium" or "Cowboys" finds the field and the players, never the 50 people at the condiment stations
+        plan.entities = [e for e in plan.entities if not venue_or_team(e)]   # the people named are left, or nothing: no photo
     return plan

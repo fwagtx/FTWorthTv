@@ -335,9 +335,31 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
 # partner with Carter BloodCare to host blood drive ahead of Thanksgiving" went out with an empty June 2020 AT&T Stadium
 STADIUM_TOPICS = {"att-stadium", "globe-life-field", "aac", "toyota-stadium", "daikin-park", "nrg-stadium", "frost-bank-center",
                   "toyota-center", "texas-motor-speedway", "tcu-football"}
+# Nov 26, render 282: WFAA's "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities" (50 people
+# at the condiment stations) drew the stands at a Wisconsin bowl game: the people at work there are the story, not the field
 _NOT_A_GAME_RE = re.compile(r"\b(?:blood drive|toy drive|food drive|coat drive|clothing drive|donors?|donat\w*|volunteers?|charity|"
                             r"fundraiser|job fair|hiring event|vaccin\w*|clinic|graduation|commencement|lighting ceremony|"
-                            r"partnership|giveaway|turkey)\b", re.I)
+                            r"partnership|giveaway|turkey|jobs?|employ\w*|workers?|staffers?|disabilit\w*|condiments?|"
+                            r"concessions?|vendors?)\b", re.I)
+
+
+# the headline itself says the story is people off the field (a drive, a job, workers), so the venue and the team are where
+# it happens, not whom it is about; "turkey", "partnership" and "giveaway" stay out: a Thanksgiving game recap may use them
+_OFF_FIELD_TITLE_RE = re.compile(r"\b(?:blood drive|toy drive|food drive|coat drive|clothing drive|donors?|volunteers?|charity|"
+                                 r"fundraiser|job fair|hiring event|jobs?|employ\w*|workers?|staffers?|disabilit\w*|condiments?|"
+                                 r"concessions?|vendors?)\b", re.I)
+
+
+def off_the_field_title(title: str) -> bool:
+    return bool(_OFF_FIELD_TITLE_RE.search(title or ""))
+
+
+def venue_or_team(name: str) -> bool:
+    """'AT&T Stadium', 'Cowboys', 'Texas Rangers': a home venue or a home team, not a person or a group of people."""
+    low = (name or "").lower()
+    if any(v in low for names in VENUE_NAMES.values() for v in names):
+        return True
+    return any(re.search(r"(?<![\w&])" + re.escape(t) + r"(?![\w&])", low) for teams in HOME_TEAMS.values() for t in teams)
 
 
 def drop_stadiums_off_the_field(topics: list[str], text: str) -> list[str]:

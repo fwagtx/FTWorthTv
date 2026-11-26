@@ -1074,6 +1074,41 @@ def same_count_incident(title: str, summary: str, posted_title: str) -> bool:
     return bool(ca & cb and ka & kb and pa & pb)
 
 
+# Nov 26, render 282: WFAA's 5 p.m. "Neighbors kick in door to rescue elderly couple as Thanksgiving fire burns North Texas homes"
+# ("A fire that started at a home business in the back of a house spread to a neighboring home early Thanksgiving morning in
+# Fort Worth") was the 7:33 a.m. post's "Home workshop sparks early morning fire on Thanksgiving in Fort Worth" told again
+_FIRE_GENERIC = {"fire", "fires", "blaze", "spark", "sparks", "sparked", "crew", "crews", "firefighter", "firefighters", "respond",
+                 "responds", "responded", "responding", "department", "officials", "said", "says", "after", "amid", "with", "from",
+                 "into", "near", "their", "this", "that", "fort", "worth", "north", "texas", "county", "tarrant"}
+_FIRE_PLACES = ("fort worth", "arlington", "north richland hills", "richland hills", "haltom city", "hurst", "euless", "bedford",
+                "keller", "southlake", "grapevine", "mansfield", "burleson", "crowley", "benbrook", "white settlement", "saginaw",
+                "lake worth", "azle", "watauga", "colleyville", "grand prairie", "weatherford", "cleburne", "denton", "dallas")
+
+
+def same_fire(title: str, summary: str, posted_title: str) -> bool:
+    """A later story about the fire a post already covered: both are fires in the same city, and most of the posted headline's
+    own words (the home, the workshop, the hour) are in the new story. A death, a cause or an arrest is news (_FOLLOW_UP_RE)."""
+    if not fire_incident(posted_title) or not (fire_incident(title) or re.search(r"\bfires?\b", title or "", re.I)):
+        return False
+    if _FIRE_NOT_INCIDENT_RE.search(title or ""):
+        return False
+    new_facts = {w.lower() for w in _FOLLOW_UP_RE.findall(title or "")} - {w.lower() for w in _FOLLOW_UP_RE.findall(posted_title or "")}
+    if new_facts:
+        return False
+    text = f"{title or ''} {summary or ''}".lower()
+    posted = (posted_title or "").lower()
+    places = [c for c in _FIRE_PLACES if re.search(r"\b" + re.escape(c) + r"\b", posted)]
+    if not places or not any(re.search(r"\b" + re.escape(c) + r"\b", text) for c in places):
+        return False
+    words = {w for w in re.findall(r"[a-z]{4,}", posted) if w not in _FIRE_GENERIC}
+    for c in places:
+        words -= set(c.split())
+    if len(words) < 3:
+        return False
+    shared = {w for w in words if re.search(r"\b" + re.escape(w) + r"(?:s|es)?\b", text)}
+    return len(shared) >= 3 and len(shared) >= 0.75 * len(words)
+
+
 def explainer_of_posted(title: str, summary: str, posted_title: str) -> bool:
     """A 'What is X?' or 'What we know about X' piece about a subject a post already covered is that story again."""
     if not _EXPLAINER_RE.search((title or "").strip()):
