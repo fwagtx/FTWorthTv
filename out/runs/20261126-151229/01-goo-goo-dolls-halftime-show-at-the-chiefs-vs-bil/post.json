@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-151229/01-goo-goo-dolls-halftime-show-at-the-chiefs-vs-bil/post.jpg",
+    "credit": "Photo: Mark Miller via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Turkey_dinner.jpg",
+    "photo_id": "lib-turkey-dinner-jpg",
+    "subject": "beat:thanksgiving"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-151229/01-goo-goo-dolls-halftime-show-at-the-chiefs-vs-bil/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Goo Goo Dolls’ Halftime Show at the Chiefs vs. Bills Thanksgiving Game: Watch Online for Free",
+    "caption": "The game will take place on Thanksgiving Night (Nov. 26), with the rock band taking the stage at halftime. Fans can also tune in for a potential Taylor Swift and Hailee Steinfeld spotting.",
+    "first_comment": "Source: Billboard https://www.billboard.com/culture/product-recommendations/goo-goo-dolls-halftime-chiefs-bills-thanksgiving-watch-free-1236389230/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "roast turkey Thanksgiving food",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "a12feafea9d57ad0",
+    "source": "Billboard",
+    "source_kind": "rss",
+    "title": "Goo Goo Dolls’ Halftime Show at the Chiefs vs. Bills Thanksgiving Game: Watch Online for Free",
+    "summary": "The game will take place on Thanksgiving Night (Nov. 26), with the rock band taking the stage at halftime. Fans can also tune in for a potential Taylor Swift and Hailee Steinfeld spotting.",
+    "url": "https://www.billboard.com/culture/product-recommendations/goo-goo-dolls-halftime-chiefs-bills-thanksgiving-watch-free-1236389230/",
+    "published": "2026-11-26T21:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://www.billboard.com/wp-content/uploads/2026/11/Get-Amazon-Prime-Video-1.png?w=447&amp;h=447&amp;crop=1",
+    "image_credit": "Photo: Billboard",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.39,
+    "extra": {
+      "feed_title": "Billboard",
+      "national": true,
+      "scope": "national",
+      "national_term": "halftime show"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5747
+  }
+}
