@@ -101,15 +101,31 @@ def parse_dps(html: str, base_url: str, now: datetime, local_only: bool = True) 
 
 PARSERS = {"fwpd": parse_fwpd, "arlington": parse_arlington, "dps": parse_dps}
 
+_SUFFIXES = {"II", "III", "IV", "V"}
+
+
+def proper_name(name: str) -> str:
+    """'Ezequiel MONTEMAYOR' -> 'Ezequiel Montemayor': Arlington's list writes surnames in capitals, and the card and caption
+    printed them that way (Nov 23-26). A word already in mixed case stays as written (DeShawn, McKinney); 'MCDONALD' ->
+    'McDonald', "O'NEAL" -> "O'Neal", 'SMITH-JONES' -> 'Smith-Jones', and a generational suffix (III) keeps its capitals."""
+    def fix(word: str) -> str:
+        if not word.isupper() or len(word.strip(".")) < 2 or word in _SUFFIXES:
+            return word
+        out = "-".join(part.capitalize() for part in word.split("-"))
+        out = re.sub(r"(?<=\bO['’])([a-z])", lambda m: m.group(1).upper(), out)
+        return re.sub(r"\bMc([a-z])", lambda m: "Mc" + m.group(1).upper(), out)
+    return " ".join(fix(w) for w in (name or "").split())
+
 
 def person_story(p: dict, agency: dict, page_url: str, now: datetime, city: str) -> Story | None:
     if p.get("age") is not None and p["age"] < 18:
         return None  # never a juvenile
-    name, charge, reward = p["name"], p["charge"], p["reward"]
+    raw_name, charge, reward = p["name"], p["charge"], p["reward"]
+    name = proper_name(raw_name)
     summary = (f"{name} is wanted by the {agency['name']} for {charge}. Crime Stoppers will pay up to {reward} for information "
                f"leading to an arrest. Call {TIP_PHONE} or submit a tip at {p.get('tip_url') or TIP_URL}. Tipsters stay anonymous.")
     return Story(
-        id=stable_id("wanted", agency["name"], name, charge),
+        id=stable_id("wanted", agency["name"], raw_name, charge),     # the agency's spelling: bulletins already posted keep their id
         source=agency["name"],
         source_kind="wanted",
         title=f"WANTED: {name}",

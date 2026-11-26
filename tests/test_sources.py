@@ -518,3 +518,24 @@ def test_the_city_skyline_stands_in_only_for_a_story_about_the_city(settings, tm
     local = _beat_fallbacks(settings, tmp_path, monkeypatch, "Fort Worth budget hearing set for Tuesday",
                             "The Fort Worth City Council will hear residents on the budget Tuesday.", "local")
     assert local and all(local)
+
+
+def test_a_wanted_name_in_capitals_is_printed_in_proper_case_and_keeps_its_id():
+    """Nov 26, render 259: Arlington's "Ezequiel MONTEMAYOR" was drafted as "Arlington police searching for Ezequiel
+    MONTEMAYOR, wanted for theft" (and Nov 23-25 bulletins went out the same way). The card and caption print the name in
+    proper case; the story id stays on the agency's spelling so a bulletin already posted is never posted again."""
+    from datetime import datetime, timezone
+    from ftworthtv.sources.wanted import person_story, proper_name
+    from ftworthtv.textutil import stable_id
+    assert proper_name("Ezequiel MONTEMAYOR") == "Ezequiel Montemayor"
+    assert proper_name("Lou Ann MIDDLETON") == "Lou Ann Middleton"
+    assert proper_name("Sean MCDONALD") == "Sean McDonald"
+    assert proper_name("Shaquille O'NEAL") == "Shaquille O'Neal"
+    assert proper_name("Ana SMITH-JONES") == "Ana Smith-Jones"
+    assert proper_name("Robert GRIFFIN III") == "Robert Griffin III"
+    assert proper_name("DeShawn McKinney") == "DeShawn McKinney"           # mixed case stays as written
+    agency = {"name": "Arlington Police Department", "city": "Arlington"}
+    p = {"name": "Ezequiel MONTEMAYOR", "charge": "Theft", "reward": "$2,000", "image": "https://x/m.jpg", "age": None}
+    story = person_story(p, agency, "https://x", datetime.now(timezone.utc), "Fort Worth")
+    assert story.title == "WANTED: Ezequiel Montemayor" and story.extra["name"] == "Ezequiel Montemayor"
+    assert story.id == stable_id("wanted", "Arlington Police Department", "Ezequiel MONTEMAYOR", "Theft")
