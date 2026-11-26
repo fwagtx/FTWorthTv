@@ -772,3 +772,15 @@ def test_a_writers_own_voice_is_a_column():
     assert first_person_voice("“Because it’s fun and it tastes good,” Max said. “I love it,” he added.") == ""
     assert first_person_voice("A crash closed I-35W northbound near Meacham Boulevard.") == ""
     assert roundup_column("Weekend Worthy: Cliburn piano concert sets Christmas scene at Stockyards")
+
+
+def test_an_alert_until_a_time_this_morning_is_over_by_afternoon():
+    """Nov 26, render 273: CBS's "A First Alert Weather Day is in effect this morning until 9 a.m." drafted for 1:35 p.m."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from ftworthtv.writer import passed_window
+    tz = ZoneInfo("America/Chicago")
+    caption = "Thanksgiving is off to a cold start. A First Alert Weather Day is in effect this morning until 9 a.m. due to the first freeze."
+    assert passed_window(caption, datetime(2026, 11, 26, 13, 12, tzinfo=tz)) == "until 9 a.m."
+    assert passed_window(caption, datetime(2026, 11, 26, 7, 30, tzinfo=tz)) == ""
+    assert passed_window("The westbound lanes will stay closed until 5 p.m. Friday.", datetime(2026, 11, 26, 18, 0, tzinfo=tz)) == ""

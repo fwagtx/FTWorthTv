@@ -1204,6 +1204,9 @@ _WINDOW_RE = re.compile(r"\bbetween (\d{1,2})(?::(\d{2}))?\s*(?:(?:a\.?m\.?|p\.?
                         r"(?:\s+(today|monday|tuesday|wednesday|thursday|friday|saturday|sunday))?", re.I)
 
 
+_UNTIL_RE = re.compile(r"\b(?:until|till|through)\s+(\d{1,2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?)", re.I)
+
+
 def passed_window(caption: str, now_local: datetime) -> str:
     """A time window the caption announces in the future tense that has already closed today: "will escort the remains ...
     between 6 and 7 a.m. Tuesday" drafted Tuesday afternoon. Returns the window, or "" when none has passed."""
@@ -1217,6 +1220,15 @@ def passed_window(caption: str, now_local: datetime) -> str:
             continue                              # no day, or another day: not today's window
         hour = int(m.group(3)) % 12 + (12 if m.group(5).lower().startswith("p") else 0)
         if now_local > now_local.replace(hour=hour, minute=int(m.group(4) or 0), second=0, microsecond=0):
+            return m.group(0)
+    # Nov 26, render 273: CBS's "A First Alert Weather Day is in effect this morning until 9 a.m." drafted for 1:35 p.m.: an
+    # alert or closure "until" a time today is over once that time has passed
+    for m in _UNTIL_RE.finditer(text):
+        around = f"{text[max(0, m.start() - 80):m.start()]} {text[m.end():m.end() + 24]}".lower()
+        if not re.search(r"\b(?:this morning|today|this afternoon|this evening|tonight|" + weekday + r")\b", around):
+            continue
+        hour = int(m.group(1)) % 12 + (12 if m.group(3).lower().startswith("p") else 0)
+        if now_local > now_local.replace(hour=hour, minute=int(m.group(2) or 0), second=0, microsecond=0):
             return m.group(0)
     return ""
 
