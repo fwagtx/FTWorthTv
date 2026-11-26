@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-26T13:39:04.532318+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-071404/02-two-state-legislators-want-to-change-the-state-b/post.jpg",
+    "credit": "Photo: Rollingskyphoto via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Supercell_with_bell-bottom_updraft.jpg",
+    "photo_id": "lib-supercell-with-bell-bottom-updraft-jpg",
+    "subject": "beat:storm"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-071404/02-two-state-legislators-want-to-change-the-state-b/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Two state legislators want to change the state bird. Tarrant County birders weigh in",
+    "caption": "Some Texans support elevating the golden-cheeked warbler. Others hail the mockingbird, nearly 100 years into holding the honorary title.\n\nOf the bills on the docket for the upcoming Texas legislative session, there are two that could ruffle the feathers of the birding community. Shelley Luther of Grayson County and Eddie Morales of South Texas, the bills want to change Texas’ official state bird from the northern mockingbird to the golden-cheeked warbler.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/26/two-state-legislators-want-to-change-the-state-bird-tarrant-county-birders-weigh-in/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "d85129b66c999686",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Two state legislators want to change the state bird. Tarrant County birders weigh in",
+    "summary": "Some Texans support elevating the golden-cheeked warbler. Others hail the mockingbird, nearly 100 years into holding the honorary title. Of the bills on the docket for the upcoming Texas legislative session, there are two that could ruffle the feathers of the birding community. Authored respectively by state Reps. Shelley Luther of Grayson County and Eddie Morales of South Texas, the bills want to change Texas’ official state bird from the northern mockingbird to the golden-cheeked warbler. Amy Stewart — a North Texas native and author of various nature books — says Texans should be excited about the possible change for several reasons. “Literally every golden-cheeked warbler in the world is a native Texan,” Stewart said. “We Texans, we think that we are the biggest and best at everything and that we are unique. So why do we have a bird that four other states have, and that is kind of…",
+    "url": "https://fortworthreport.org/2026/11/26/two-state-legislators-want-to-change-the-state-bird-tarrant-county-birders-weigh-in/",
+    "published": "2026-11-26T13:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/PdernalesFalls_Warbler_IMG_4360-300x200.jpg",
+    "image_credit": "Photo: Pat Sullivan | AP archives / Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "A golden-cheeked warbler is pictured at the Pedernales Falls State Park in Central Texas. (Courtesy | Texas Parks and Wildlife Department)",
+      "page_credit": "Pat Sullivan | AP archives"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 1.1825
+  }
+}
