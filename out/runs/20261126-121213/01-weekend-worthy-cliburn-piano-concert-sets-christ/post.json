@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-121213/01-weekend-worthy-cliburn-piano-concert-sets-christ/post.jpg",
+    "credit": "Photo: Cristian ArguetaSoto | Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/26/weekend-worthy-cliburn-piano-concert-sets-christmas-scene-at-stockyards/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-121213/01-weekend-worthy-cliburn-piano-concert-sets-christ/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "events",
+    "headline": "Weekend Worthy: Cliburn piano concert sets Christmas scene at Stockyards",
+    "caption": "Nothing like the delicious smell of turkey roasting in the oven to remind me: Happy Thanksgiving! Although Thanksgiving isn’t over, some Fort Worth businesses are already jingling bells to welcome Christmas.\n\nGet into the holiday spirit early this weekend with festivities that range from piano concerts to carved ice displays inspired by the wizarding world of Harry Potter. Also, this week’s coverage of the arts was defined by one word: lights.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/26/weekend-worthy-cliburn-piano-concert-sets-christmas-scene-at-stockyards/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Parade of Lights",
+    "location": "Grapevine, TX"
+  },
+  "story": {
+    "id": "a2df0a50632cb1a3",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Weekend Worthy: Cliburn piano concert sets Christmas scene at Stockyards",
+    "summary": "Looking for something to do? Get a curated list of activities sent to your inbox by signing up for our Weekend Worthy newsletter. Nothing like the delicious smell of turkey roasting in the oven to remind me: Happy Thanksgiving! I hope you’re enjoying the day with family, friends and loved ones. Although Thanksgiving isn’t over, some Fort Worth businesses are already jingling bells to welcome Christmas. Get into the holiday spirit early this weekend with festivities that range from piano concerts to carved ice displays inspired by the wizarding world of Harry Potter. Also, this week’s coverage of the arts was defined by one word: lights. I attended Fort Worth’s Parade of Lights and Grapevine’s Carol of Lights , where I got to speak with many families about why the annual celebrations are so important to them. Stories like these remind me why it’s so important to be immersed in the…",
+    "url": "https://fortworthreport.org/2026/11/26/weekend-worthy-cliburn-piano-concert-sets-christmas-scene-at-stockyards/",
+    "published": "2026-11-26T18:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2021/11/CAS_tree_light-7-300x200.jpg",
+    "image_credit": "Photo: Cristian ArguetaSoto | Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "Guests watch as the Fort Worth Stockyards Christmas tree is lit on Nov. 26, 2021. (Cristian ArguetaSoto | Fort Worth Report)",
+      "page_credit": "Cristian ArguetaSoto | Fort Worth Report"
+    },
+    "category": "events",
+    "relevance": 2,
+    "score": 1.4504
+  }
+}
