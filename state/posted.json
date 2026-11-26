@@ -8,7 +8,7 @@
     "2026-11-23": 20,
     "2026-11-24": 20,
     "2026-11-25": 19,
-    "2026-11-26": 7
+    "2026-11-26": 8
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -89,7 +89,7 @@
     },
     "2026-11-26": {
       "community": 2,
-      "crime": 3,
+      "crime": 4,
       "other": 1,
       "weather": 1
     }
@@ -141,7 +141,7 @@
     },
     "2026-11-26": {
       "culture": 1,
-      "rss": 2,
+      "rss": 3,
       "video": 2,
       "wanted": 2
     }
@@ -189,7 +189,7 @@
     },
     "2026-11-26": {
       "dfw": 1,
-      "local": 6
+      "local": 7
     }
   },
   "deferred": {
@@ -212,11 +212,6 @@
       "at": "2026-11-25T21:45:16.028596+00:00",
       "reason": "daily cap for community reached",
       "title": "Six Flags Over Texas Ofrece Entrada Gratis a Personas de 65 Años o Más"
-    },
-    "0656f21ae4a32165": {
-      "at": "2026-11-24T16:17:06.647155+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Volunteers Needed for Annual Point-in-Time Count Jan. 28, 2027"
     },
     "0863136e2ebd3949": {
       "at": "2026-11-25T19:14:49.573824+00:00",
@@ -247,11 +242,6 @@
       "at": "2026-11-25T19:14:49.573827+00:00",
       "reason": "daily cap for community reached",
       "title": "OurCalling to serve Thanksgiving meals to more than 500 unhoused neighbors in Dallas"
-    },
-    "16beb2d47e464f10": {
-      "at": "2026-11-24T15:45:40.459439+00:00",
-      "reason": "daily cap for community reached",
-      "title": "D Magazine Names The Lights at Interlochen Best Holiday Lights Display"
     },
     "1741be6b0c3659eb": {
       "at": "2026-11-26T03:12:50.377030+00:00",
@@ -313,11 +303,6 @@
       "reason": "daily cap for crime reached",
       "title": "Top Dallas Police spokesperson reinstated after public integrity investigation"
     },
-    "353b7e193ef52f16": {
-      "at": "2026-11-24T16:17:06.647166+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Dallas nonprofit collects Christmas gifts for families at risk of homelessness"
-    },
     "362bdcb94cbada36": {
       "at": "2026-11-25T14:45:13.572783+00:00",
       "reason": "daily cap for weather reached",
@@ -327,11 +312,6 @@
       "at": "2026-11-25T20:46:14.168015+00:00",
       "reason": "daily cap for community reached",
       "title": "North Texas politician blasts Northwest ISD over Islam lesson; district reminds him he set the curriculum"
-    },
-    "3e75417a739bf43b": {
-      "at": "2026-11-24T15:45:40.459449+00:00",
-      "reason": "daily cap for community reached",
-      "title": "North Texas school district cancels games after student killed in 'tragic accident'"
     },
     "3eba59e59ea55eb2": {
       "at": "2026-11-26T00:15:31.930811+00:00",
@@ -565,7 +545,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-26T08:48:00-06:00",
+  "last_post_at": "2026-11-26T10:20:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -579,6 +559,19 @@
       "source": "Fort Worth Report",
       "title": "Judge rejects lawsuit to stop deal extending Dallas Cowboys lease of AT&T Stadium without election",
       "url": "https://fortworthreport.org/2026/11/24/judge-rejects-lawsuit-to-stop-deal-extending-dallas-cowboys-lease-of-att-stadium-without-election/"
+    },
+    "01c0c24801a299e3": {
+      "at": "2026-11-26T10:20:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "443348510",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4202632711793718022",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Arlington police officer shoots dog while responding to commercial alarm",
+      "url": "https://www.fox4news.com/news/arlington-police-officer-shoots-dog-while-responding-commercial-alarm"
     },
     "030ed0c71b8273e3": {
       "at": "2026-11-24T10:07:00-06:00",
@@ -2712,6 +2705,11 @@
       "at": "2026-11-20T15:47:44.701022+00:00",
       "reason": "another city's ballot fight (Austin Prop J)"
     },
+    "820b38f60f704328": {
+      "at": "2026-11-26T16:17:20.565654+00:00",
+      "reason": "volunteers preparing meals (a happening) with a stock family carving a turkey at home; a community post takes a picture of it or none",
+      "title": "North Texas volunteers prepare 7,000 Thanksgiving meals for neighbors in need"
+    },
     "8cfab2ab8d999e9a": {
       "at": "2026-11-23T15:28:46.350712+00:00",
       "reason": "Billboard's GTA VI soundtrack cover feature: a magazine feature, not a national moment, under a PlayStation controller stand-in; rule added"
@@ -2890,6 +2888,11 @@
       "at": "2026-11-22T15:20:35.831806+00:00",
       "reason": "a stats explainer, not news (rule added)"
     },
+    "cd0687c909fd6316": {
+      "at": "2026-11-26T16:17:20.565672+00:00",
+      "reason": "a second weather story within four hours of FOX 4's forecast, with the downtown skyline standing in for an overflow shelter",
+      "title": "Fort Worth prepared to provide emergency overflow shelter as cold settles in"
+    },
     "cf227c7f4f2ef4b7": {
       "at": "2026-11-20T20:15:20.921311+00:00",
       "reason": "a nonprofit's hire announcement, not news"
@@ -2986,7 +2989,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 141,
+  "total_posts": 142,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
