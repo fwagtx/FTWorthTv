@@ -444,6 +444,18 @@ _PRESS_RELEASE_RE = re.compile(r"\b(?:is|are|was|were) (?:pleased|proud|thrilled
                                r"(?:announce|share|welcome|introduce|unveil)\b", re.I)
 
 
+# Nov 26, render 266: KENS 5's "Here, everything's better: H-E-B offers holiday savings to help fill the family table" (H-E-B's
+# own slogan over its coupons and a $35 feast) was drafted as community news: a store's promotion reads like an ad
+_RETAIL_PROMO_RE = re.compile(r"\bhere,? everything[’']?s better\b|"
+                              r"\b(?:h-e-b|heb|walmart|target|kroger|costco|tom thumb|albertsons|aldi|sprouts|whataburger|buc-ee[’']?s|"
+                              r"amazon|best buy|home depot|lowe[’']?s)\b[^.]{0,40}\b(?:offers?|announces?|rolls? out|launches?|unveils?)\b"
+                              r"[^.]{0,30}\b(?:savings|deals|discounts?|coupons?|sales?|freebies|bundles?|meal deals?)\b", re.I)
+
+
+def retail_promotion(title: str) -> bool:
+    return bool(_RETAIL_PROMO_RE.search(title or ""))
+
+
 def press_release(title: str, summary: str = "") -> bool:
     """'The Tarrant County Young Lawyers Association (TCYLA) is pleased to announce that it has been awarded a grant ...':
     an organization's own announcement, reprinted by a business paper, speaks in its voice ('our community') and reads
@@ -1019,6 +1031,29 @@ def same_verdict(title: str, summary: str, posted_title: str) -> bool:
     return any(any(w in la for w in group) and any(w in lb for w in group) for group in _VERDICT_PEOPLE)
 
 
+# Nov 26, render 266: FOX 4's "Fort Worth shooting leaves three men hospitalized after fight" after NBC 5's "Investigation
+# underway after 3 injured in Fort Worth shooting" went out: one shooting, the same three victims, told twice
+_COUNT_WORDS = {"two": "2", "three": "3", "four": "4", "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9", "ten": "10"}
+_VICTIM_COUNT_RE = re.compile(r"\b(\d{1,2}|two|three|four|five|six|seven|eight|nine|ten)\s+(?:people\s+|men\s+|women\s+|teens?\s+|"
+                              r"children\s+|kids\s+|victims\s+|adults\s+)?(?:injured|hurt|dead|killed|wounded|hospitalized|shot|stabbed|"
+                              r"people|men|women|teens|victims)\b", re.I)
+_COUNT_INCIDENT_RE = re.compile(r"\b(shooting|shot|stabbing|stabbed|crash|wreck|collision|fire)\b", re.I)
+_COUNT_CITIES = ("fort worth", "arlington", "keller", "mansfield", "grapevine", "euless", "bedford", "hurst", "haltom city", "north richland hills",
+                 "burleson", "weatherford", "dallas", "denton", "irving", "garland", "plano")
+
+
+def same_count_incident(title: str, summary: str, posted_title: str) -> bool:
+    def facts(t: str):
+        low = (t or "").lower()
+        counts = {_COUNT_WORDS.get(m.lower(), m) for m in _VICTIM_COUNT_RE.findall(low)}
+        kinds = {"shooting" if k in ("shot", "shooting") else "stabbing" if k.startswith("stab") else "crash" if k in ("crash", "wreck", "collision")
+                 else k for k in (m.lower() for m in _COUNT_INCIDENT_RE.findall(low))}
+        return counts, kinds, {c for c in _COUNT_CITIES if c in low}
+    ca, ka, pa = facts(title)
+    cb, kb, pb = facts(posted_title)
+    return bool(ca & cb and ka & kb and pa & pb)
+
+
 def explainer_of_posted(title: str, summary: str, posted_title: str) -> bool:
     """A 'What is X?' or 'What we know about X' piece about a subject a post already covered is that story again."""
     if not _EXPLAINER_RE.search((title or "").strip()):
@@ -1294,6 +1329,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if game_notes(story.title):
             dropped.append((story, "a team's game notes or quotes sheet, not a story"))
+            continue
+        if story.source_kind in ("rss", "video") and retail_promotion(story.title):
+            dropped.append((story, "a store's promotion (reads like an ad)"))
             continue
         if story.source_kind == "rss" and not story.official and press_release(story.title, story.summary or ""):
             dropped.append((story, "an organization's press release, not news"))

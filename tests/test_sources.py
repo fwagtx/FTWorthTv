@@ -677,3 +677,18 @@ def test_one_verdict_told_twice_a_verdicts_picture_and_a_holiday_that_has_come()
     assert not stale_dated_title("Fireworks rules ahead of New Year's", datetime(2026, 12, 30, 9, tzinfo=tz))
     assert "grocery" not in topics_for(f"{title} The Stewpot food bank serves 300 a day.", "community", "dfw", title=title)
     assert "grocery" in topics_for("SNAP benefits delay hits grocery budgets", "community", "local")
+
+
+def test_a_stores_promotion_and_one_shooting_told_twice():
+    """Nov 26, render 266: KENS 5's "Here, everything's better: H-E-B offers holiday savings to help fill the family table" and
+    FOX 4's "Fort Worth shooting leaves three men hospitalized after fight" after NBC 5's "Investigation underway after 3
+    injured in Fort Worth shooting" went out."""
+    from ftworthtv.filters import retail_promotion, same_count_incident
+    assert retail_promotion("Here, everything’s better: H-E-B offers holiday savings to help fill the family table")
+    assert retail_promotion("Walmart rolls out Black Friday deals early")
+    assert not retail_promotion("H-E-B to open new store in Fort Worth's Alliance area")
+    assert not retail_promotion("City offers savings on water bills for seniors")
+    posted = "Investigation underway after 3 injured in Fort Worth shooting"
+    assert same_count_incident("Fort Worth shooting leaves three men hospitalized after fight", "", posted)
+    assert not same_count_incident("2 killed in Fort Worth crash on I-35W", "", posted)
+    assert not same_count_incident("Three hurt in Dallas shooting", "", posted)
