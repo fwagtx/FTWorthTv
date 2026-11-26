@@ -1049,6 +1049,10 @@ _NOT_WEATHER_RE = re.compile(r"\bflood(?:plain|way)s?\b|\bflood (?:mitigation|co
 # a council's meeting notice is local government, whatever its agenda lists (cold-weather preparations, a flood grant, a museum)
 _MEETING_TITLE_RE = re.compile(r"\b(?:work sessions?|council meetings?|special[- ]called meetings?|city council|commissioners(?:'|’)? court)\b",
                                re.I)
+
+
+def meeting_notice(title: str | None) -> bool:
+    return bool(_MEETING_TITLE_RE.search(title or ""))
 _NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b"
                            r"|\b(?:texas |state )?bar (?:foundation|association|exam|of texas)\b|\bstate bar\b"
                            r"|\bgrand theft auto\b", re.I)
@@ -1074,7 +1078,7 @@ def infer_category(story: Story) -> str:
     if re.search(r"\bmenus?\b", story.title or "", re.I):
         return "food"                       # Nov 25: NBC 5's "Annual Dallas Cowboys Thanksgiving Day game menu revealed" is food, not
                                             # sports: a menu takes a picture of the food, never a text card
-    if _MEETING_TITLE_RE.search(story.title or "") and story.category_hint != "sports":
+    if meeting_notice(story.title) and story.category_hint != "sports":
         return "politics"                   # "Work session, special called meeting scheduled Dec. 1" is the council's business
     text = _NOT_WEATHER_RE.sub(" ", _NOT_CRIME_RE.sub(" ", story.text()))   # "Runner in cardiac arrest saved by nurses" is not a crime story
     title = _NOT_WEATHER_RE.sub(" ", _NOT_CRIME_RE.sub(" ", story.title.lower()))

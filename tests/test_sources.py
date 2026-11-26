@@ -447,3 +447,32 @@ def test_a_leagues_uniform_roundup_is_a_column():
     from ftworthtv.filters import roundup_column
     assert roundup_column("Rams and Cowboys top Week 12 uniforms")
     assert not roundup_column("Cowboys unveil throwback uniforms for Thanksgiving game")
+
+
+def test_the_page_image_passes_the_same_stock_graphic_check_as_the_listing(monkeypatch):
+    """Nov 25, render 252: the listing rejected city-news-work-session-room_1.jpg as a stock graphic and enrich() put it straight
+    back as the page's og:image. The page's image now passes the same check; the City's photo of the room a noticed meeting is
+    held in is that meeting's place, and a real photo under /sites/default/files/ is no stock graphic."""
+    from datetime import datetime, timezone
+    from ftworthtv.models import Story
+    from ftworthtv.sources import article
+    from ftworthtv.sources.opencities import generic_image, parse_listing
+
+    room = "https://www.fortworthtexas.gov/files/assets/public/v/1/news/images/city-news-work-session-room_1.jpg?w=1200"
+    notice = "https://www.fortworthtexas.gov/files/assets/public/v/1/news/images/city-news-request-for-public-comment.jpg?w=1200"
+    assert not generic_image(room, "Work session, special called meeting scheduled Dec. 1")
+    assert generic_image(room, "City seeks input on 2025-26 federal housing funds")      # the room is not that story's picture
+    assert generic_image(notice, "City seeks input on 2025-26 federal housing funds")
+    assert not generic_image("https://example.org/sites/default/files/2026-11/parade.jpg", "Parade of Lights")
+
+    html = ('<article><a href="/news/2026/11/ws"><h2 class="list-item-title">Work session, special called meeting scheduled Dec. 1</h2>'
+            '<img src="/files/assets/public/v/1/news/images/city-news-work-session-room_1.jpg?dimension=smallthumbnail&w=300">'
+            '<p class="published-on small-text">Published on November 25, 2026</p><p>Both meetings will be held at City Hall.</p></a></article>')
+    story = parse_listing(html, "https://www.fortworthtexas.gov/news", {"name": "City of Fort Worth"}, datetime.now(timezone.utc))[0]
+    assert story.image_url and not story.extra["generic_image"]
+
+    caper = Story(id="c", source="City of Fort Worth", source_kind="rss", title="City seeks input on 2025-26 federal housing funds",
+                  summary="The City is inviting residents to comment on the plan before it goes to the council in December.", url="u")
+    monkeypatch.setattr(article, "fetch_article", lambda url: {"image": notice, "summary": "", "description": "", "credit": ""})
+    article.enrich(caper)
+    assert caper.image_url is None

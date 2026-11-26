@@ -132,7 +132,10 @@ def enrich(story: Story) -> Story:
     except Exception as exc:
         log.info("article fetch failed for %s: %s", story.url, exc)
         return story
-    if not story.image_url and info.get("image"):
+    from .opencities import generic_image
+    # the page's image passes the same check as the listing's: Nov 25, render 252, the listing's rejected city-news-… image
+    # came straight back as the page's og:image
+    if not story.image_url and info.get("image") and not generic_image(info["image"], story.title):
         story.image_url = info["image"]
     if info.get("credit") and not story.extra.get("credit_fixed"):
         story.image_credit = f"Photo: {info['credit']}"

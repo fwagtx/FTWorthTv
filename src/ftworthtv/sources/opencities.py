@@ -30,6 +30,19 @@ SUMMARY_RE = re.compile(r'<p>\s*([^<].*?)</p>', re.S)
 # with city-news-request-for-public-comment.jpg (a megaphone and "Notice of Request for Public Comment")
 GENERIC_IMAGE_WORDS = ("news-release", "sized-for-x", "placeholder", "default", "logo", "city-news-", "public-comment",
                        "public-hearing", "public-notice", "request-for", "notice-of")
+# ... but the City's stock photo of the room a noticed meeting is held in shows that meeting's place: Nov 25, render 252,
+# "Work session, special called meeting scheduled Dec. 1" came with city-news-work-session-room_1.jpg (the room itself)
+_MEETING_ROOM_IMAGE_RE = re.compile(r"work-session-room|council-chamber", re.I)
+
+
+def generic_image(url: str | None, title: str = "") -> bool:
+    """Is this a stock notice graphic or a default image rather than a picture of the story? Only the file name counts: a
+    real photo can live under /sites/default/files/."""
+    name = (url or "").split("?", 1)[0].rstrip("/").rsplit("/", 1)[-1].lower()
+    if not name or not any(w in name for w in GENERIC_IMAGE_WORDS):
+        return False
+    from ..filters import meeting_notice
+    return not (_MEETING_ROOM_IMAGE_RE.search(name) and meeting_notice(title))
 
 
 def full_size(url: str) -> str:
@@ -55,7 +68,7 @@ def parse_listing(html: str, base_url: str, cfg: dict, now: datetime, tz: ZoneIn
                 published = None
         img_m = IMG_RE.search(block)
         image = urljoin(base_url, full_size(img_m.group(1))) if img_m else None
-        generic = bool(image and any(w in image.lower() for w in GENERIC_IMAGE_WORDS))
+        generic = generic_image(image, title)
         summary = ""
         for para in SUMMARY_RE.findall(block):
             text = strip_html(para)
