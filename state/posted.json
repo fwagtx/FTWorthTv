@@ -303,11 +303,6 @@
       "reason": "daily cap for crime reached",
       "title": "North Texas teen faces federal charges after police find weapon with 'machine-gun conversion device'"
     },
-    "29576f12ddd75252": {
-      "at": "2026-11-24T15:17:59.897621+00:00",
-      "reason": "daily cap for community reached",
-      "title": "More than 7,000 North Texas children still need Angel Tree donors before Christmas"
-    },
     "29bdd0972e2bf895": {
       "at": "2026-11-25T22:16:10.050071+00:00",
       "reason": "daily cap for community reached",
@@ -458,11 +453,6 @@
       "reason": "daily cap for community reached",
       "title": "Give Back This Holiday Season: Donate or Volunteer in Arlington"
     },
-    "9274bfa82ca3b802": {
-      "at": "2026-11-24T15:17:59.897597+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Thanksgiving travel increasing across North Texas; AAA expects 5.3 million to hit roads"
-    },
     "95ab6e72af284b9c": {
       "at": "2026-11-25T13:49:47.644414+00:00",
       "reason": "daily cap for weather reached",
@@ -498,11 +488,6 @@
       "reason": "daily cap for community reached",
       "title": "“Arlington Archives” Explores the History of Newspapers in Arlington"
     },
-    "c8a8a36a5821081f": {
-      "at": "2026-11-24T15:17:59.897633+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "South Dallas 'Dead End' drug market supplier gets 25 years in federal prison"
-    },
     "cae41b02e68d7cf2": {
       "at": "2026-11-25T21:15:15.510946+00:00",
       "reason": "daily cap for crime reached",
@@ -512,16 +497,6 @@
       "at": "2026-11-24T19:17:12.631633+00:00",
       "reason": "daily cap for crime reached",
       "title": "Fort Worth police investigate child's death at daycare"
-    },
-    "ccac6aaff4307374": {
-      "at": "2026-11-24T15:17:59.897612+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Here's what a U.S. Space Academy in Houston could look like under Texas' official proposal | See the renderings"
-    },
-    "ccefbdcd8a55c579": {
-      "at": "2026-11-24T15:17:59.897617+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "U.S. intelligence helped Mexico capture ‘Chapo Isidro,’ Sheinbaum says"
     },
     "cd0687c909fd6316": {
       "at": "2026-11-25T15:18:04.726985+00:00",
@@ -587,11 +562,6 @@
       "at": "2026-11-25T02:13:14.905637+00:00",
       "reason": "daily cap for crime reached",
       "title": "North Texas mother charged with leaving four young children alone by roadway, sheriff's office says"
-    },
-    "fe7b0e17e4aca0e4": {
-      "at": "2026-11-24T15:17:59.897654+00:00",
-      "reason": "daily cap for community reached",
-      "title": "James L. West Hosts Dementia-Friendly “Sounds of the Season” Concert"
     }
   },
   "flags": {},
@@ -2668,6 +2638,11 @@
       "reason": "a national ranking listicle (a column, not news), drafted with a 2007 downtown Fort Worth skyline that the photo search fell back to when no",
       "title": "NFL on Thanksgiving halftime shows: Ranking the 10 most memorable performances"
     },
+    "688705ac4f1c1a7e": {
+      "at": "2026-11-26T15:44:10.661604+00:00",
+      "reason": "the Avenue J shooting (three men hospitalized) already went out at 8:48 from NBC 5",
+      "title": "Fort Worth shooting leaves three men hospitalized after fight"
+    },
     "6b5a2f0b7960a22a": {
       "at": "2026-11-23T19:21:26.509535+00:00",
       "reason": "FOX 4's Dallas North Tollway overnight closure at Northwest Highway: Dallas's own road, not Fort Worth traffic; rule added"
@@ -2884,9 +2859,19 @@
       "reason": "Fort Worth Weekly's 'Ate Days of Thanksgiving Leftovers': a salsa brand's leftovers recipes that read like its ad; rule added",
       "title": "Ate Days of Thanksgiving Leftovers"
     },
+    "bf577588bb5e8c52": {
+      "at": "2026-11-26T15:44:10.661580+00:00",
+      "reason": "a store's promotion under its own slogan (H-E-B holiday savings and coupons, a San Antonio station's piece): reads like an ad",
+      "title": "Here, everything’s better: H-E-B offers holiday savings to help fill the family table"
+    },
     "c0bd1402482091bb": {
       "at": "2026-11-21T13:20:14.600210+00:00",
       "reason": "a U.S. Navy PTSD Awareness Month poster is a graphic, not a picture of the subject, and the caption was the headline alone"
+    },
+    "c1b8b90f8f7ed988": {
+      "at": "2026-11-26T15:44:10.661610+00:00",
+      "reason": "held: the photo does not show the subject (a Cowboys players' visit to Fort Sill for a Paul Quinn College farm story)",
+      "title": "From farm to football: How Paul Quinn College helps feed 90,000 Cowboys fans"
     },
     "c832f03c76bc50fc": {
       "at": "2026-11-24T13:24:16.478705+00:00",
