@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-131218/01-thanksgiving-off-to-a-chilly-start-in-north-texa/post.jpg",
+    "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth.jpg",
+    "photo_id": "lib-downtown-fort-worth-jpg",
+    "subject": "beat:skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-131218/01-thanksgiving-off-to-a-chilly-start-in-north-texa/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Thanksgiving off to a chilly start in North Texas",
+    "caption": "High temps will climb into the low- to mid-50s with abundant sunshine. Thanksgiving in North Texas is off to a cold start.\n\nIn fact, Thursday is one of the coldest mornings that North Texas has seen since March. A First Alert Weather Day is in effect this morning until 9 a.m. due to the first freeze of the season for many in North Texas, indicating the end of the growing season.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/dfw-north-texas-thanksgiving-forecast-11-26-2026/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline storm clouds",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "4e86eb6e02556dab",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Thanksgiving off to a chilly start in North Texas",
+    "summary": "High temps will climb into the low- to mid-50s with abundant sunshine. Updated on: November 26, 2026 / 7:23 AM CST / CBS Texas Thanksgiving in North Texas is off to a cold start. In fact, Thursday is one of the coldest mornings that North Texas has seen since March. A First Alert Weather Day is in effect this morning until 9 a.m. due to the first freeze of the season for many in North Texas, indicating the end of the growing season. If you're planning on running the Turkey Trot, dress warmly. Temperatures are dipping near or below 32 degrees across North Texas. Highs today will climb into the low to mid-50s with abundant sunshine. Winds will be from the north, gusting up to 20mph at times, which may make it feel even cooler out; grab a jacket. Friday morning will stay chilly, with lows in the 30s, but temperatures will climb back into the 60s in the afternoons. Expect sunshine and…",
+    "url": "https://www.cbsnews.com/texas/news/dfw-north-texas-thanksgiving-forecast-11-26-2026/",
+    "published": "2026-11-26T13:23:57+00:00",
+    "category_hint": null,
+    "image_url": "https://assets2.cbsnewsstatic.com/hub/i/r/2026/11/26/74268bfa-f274-453f-a4e1-2c7ec78e996d/thumbnail/1024x576/805d3d84a10390b4486e5736e1fda904/current-feel-like-combo.png",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 0.4564
+  }
+}
