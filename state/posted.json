@@ -8,7 +8,7 @@
     "2026-11-23": 20,
     "2026-11-24": 20,
     "2026-11-25": 19,
-    "2026-11-26": 2
+    "2026-11-26": 4
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -88,7 +88,8 @@
       "weather": 2
     },
     "2026-11-26": {
-      "community": 1,
+      "community": 2,
+      "crime": 1,
       "weather": 1
     }
   },
@@ -139,7 +140,9 @@
     },
     "2026-11-26": {
       "culture": 1,
-      "rss": 1
+      "rss": 1,
+      "video": 1,
+      "wanted": 1
     }
   },
   "daily_by_scope": {
@@ -185,7 +188,7 @@
     },
     "2026-11-26": {
       "dfw": 1,
-      "local": 1
+      "local": 3
     }
   },
   "deferred": {
@@ -586,7 +589,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-26T06:43:00-06:00",
+  "last_post_at": "2026-11-26T07:33:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -754,6 +757,19 @@
       "source": "TCU Athletics (women's basketball)",
       "title": "Preview: Fort Myers Tip-Off",
       "url": "https://gofrogs.com/news/2026/11/25/womens-basketball-preview-fort-myers-tip-off"
+    },
+    "1a000b66c35b7c29": {
+      "at": "2026-11-26T07:33:00-06:00",
+      "category": "community",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "443067524",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5624396320256443948",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA",
+      "title": "Home workshop sparks early morning fire on Thanksgiving in Fort Worth",
+      "url": "https://www.youtube.com/watch?v=8coUQks3Jjc"
     },
     "1e9622bb525e0df0": {
       "at": "2026-11-22T12:19:00-06:00",
@@ -1021,6 +1037,19 @@
       "source": "The Texas Tribune",
       "title": "A Thanksgiving without a turkey: Texas food banks struggle to meet demand ahead of the holidays",
       "url": "https://feeds.texastribune.org/link/16799/17540209/texas-food-banks-turkeys-holidays"
+    },
+    "480d1f633e1d5614": {
+      "at": "2026-11-26T07:08:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "443067460",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6703417487241820938",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Arlington Police Department",
+      "title": "WANTED: Ezequiel Montemayor",
+      "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
     },
     "4a957d22615b7e02": {
       "at": "2026-11-24T07:37:00-06:00",
@@ -2882,7 +2911,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 136,
+  "total_posts": 138,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
