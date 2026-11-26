@@ -2449,6 +2449,11 @@
       "at": "2026-11-22T18:14:13.279733+00:00",
       "reason": "a Houston coach quoting his team after a loss in Denver: not Fort Worth news, and the photo was Toyota Center (rule added)"
     },
+    "2257e3147fe93ba6": {
+      "at": "2026-11-26T17:16:20.566093+00:00",
+      "reason": "daily-fantasy picks and lineups: a betting column, not news",
+      "title": "NFL DFS, Thanksgiving Day: Top daily Fantasy picks, lineups for Bears-Lions, Cowboys-Eagles, Chiefs-Bills"
+    },
     "2739ccb60dc3cd5c": {
       "at": "2026-11-22T05:02:52.173729+00:00",
       "reason": "an opposing player hurt mid-game in South Bend is not Fort Worth news and is stale by morning; the photo was Notre-Dame de Paris (rule added"
@@ -2975,6 +2980,11 @@
     "f0b6727d6150d591": {
       "at": "2026-11-21T18:26:45.160854+00:00",
       "reason": "a resident's first-person Where I Live essay is a column, not news to caption"
+    },
+    "f115bb094bd0a7e9": {
+      "at": "2026-11-26T17:16:20.566073+00:00",
+      "reason": "held: the photo (Cowboys players and cheerleaders visiting Fort Sill) does not show the game",
+      "title": "Cowboys vs. Eagles: Thanksgiving game info, halftime show and national anthem singers"
     },
     "fb03df9f8419331f": {
       "at": "2026-11-23T15:47:12.031256+00:00",
