@@ -1169,9 +1169,17 @@ _TITLE_CRIME_RE = re.compile(r"\b(?:convicted|sentenced|arrested|(?<!cardiac )ar
                              r"charged in(?=.{0,60}\b(?:scam|fraud|scheme|murder|killing|death|shooting|stabbing|robbery|attack|case|theft|"
                              r"heist|assault|kidnapping|crash)\b)|"
                              r"wanted|murder|homicide|shooting|stabbing|robbery|burglar\w*|ponzi|fraud|assault|kidnapp\w*|manhunt|suspect|"
-                             r"solicit\w* (?:a |an )?(?:minor|child|teen|\d{1,2}-year-old|sex|prostitution)|solicitation of a minor)\b", re.I)
+                             r"solicit\w* (?:a |an )?(?:minor|child|teen|\d{1,2}-year-old|sex|prostitution)|solicitation of a minor|"
+                             r"set(?:s|ting)? (?:a )?fires? (?:to|at|in|inside)|arson\w*)\b", re.I)
 # Nov 22: "North Texas traffic stop leads to arrest of armed man accused of soliciting 15-year-old on Snapchat" was filed as traffic
 # Nov 24: "Georgia prison inmates charged in $1 million jury duty scam targeting North Texans" was filed as "other"
+# Nov 26, render 278: "Man attempts to set fire to Dallas Family Dollar, DFR says" was filed as "other": someone setting a fire is crime
+# a final score with its result is a game: "Mavrik Bourque ... scores his first goal for Nashville in 3-1 win" read as "other"
+_GAME_RESULT_RE = re.compile(r"\b\d{1,3}-\d{1,3} (?:win|wins|loss|losses|victory|defeat|rout|shutout|comeback|upset)\b|"
+                             r"\b(?:beat|beats|edges?|routs?|blanks?|downs|tops|outlast|outlasts|stun|stuns)\s+(?:the\s+)?(?-i:[A-Z])[\w.'’-]*"
+                             r".{0,30}?\b\d{1,3}-\d{1,3}\b(?!\s*%)|"
+                             r"\bscores? (?:his|her|their|a|the) (?:first |second |third |\d+(?:st|nd|rd|th) |game-winning |go-ahead |overtime )?"
+                             r"(?:goal|touchdown|hat trick|run)\b|\bhat trick\b", re.I)
 
 
 _NOT_BREAKING_RE = re.compile(r"\b(?:active shooter|evacuation|lockdown|shelter in place|hazmat|explosion)\b(?=[^.]{0,40}\b(?:training|"
@@ -1237,6 +1245,8 @@ def infer_category(story: Story) -> str:
                                             # sports: a menu takes a picture of the food, never a text card
     if fire_incident(story.title) and story.category_hint != "sports":
         return "breaking"                   # "Home workshop sparks early morning fire on Thanksgiving in Fort Worth"
+    if _GAME_RESULT_RE.search(story.title or ""):
+        return "sports"                     # a final score is a game, whichever sport the keywords miss
     if meeting_notice(story.title) and story.category_hint != "sports":
         return "politics"                   # "Work session, special called meeting scheduled Dec. 1" is the council's business
     text = _NOT_WEATHER_RE.sub(" ", _NOT_CRIME_RE.sub(" ", story.text()))   # "Runner in cardiac arrest saved by nurses" is not a crime story

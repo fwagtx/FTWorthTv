@@ -106,6 +106,7 @@ rss:
     image_policy: none
     verify: true
   - name: WFAA Sports
+    category_hint: sports    # Nov 26, render 278: "Mavrik Bourque returns to Dallas and scores his first goal" read as "other"
     url: https://www.wfaa.com/feeds/syndication/rss/sports
     weight: 0.8
     image_policy: none

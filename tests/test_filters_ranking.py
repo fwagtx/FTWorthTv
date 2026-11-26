@@ -400,3 +400,33 @@ def test_a_feature_naming_a_big_event_is_not_the_event_and_a_second_recap_is_the
     assert _HYPOTHETICAL_RE.search("From 100 losses to ... building a World Series contender? Why Mike Trout has new hope for Angels")
     assert not _HYPOTHETICAL_RE.search("Rangers win the World Series in Game 5")
     assert same_game("Lone unbeaten Utah seals spot in Big 12 title game win win over TCU", "TCU Falls to Utah in Home Finale")
+
+
+def test_a_final_score_is_sports_and_setting_a_fire_is_crime():
+    """Nov 26, render 278: WFAA Sports' Bourque goal story and WFAA's Family Dollar arson attempt were both filed as "other",
+    so the hockey story could not take a sports text card and the arson attempt slipped past the crime cap."""
+    from ftworthtv.filters import infer_category
+    from ftworthtv.models import Story
+
+    def cat(title, source="WFAA", hint=None):
+        st = Story(id="x", title=title, url="u", source=source, source_kind="rss", summary="")
+        st.category_hint = hint
+        return infer_category(st)
+
+    assert cat("Mavrik Bourque returns to Dallas and scores his first goal for Nashville in 3-1 win") == "sports"
+    assert cat("Stars beat the Blues 4-2 behind Robertson's hat trick") == "sports"
+    assert cat("Man attempts to set fire to Dallas Family Dollar, DFR says") == "crime"
+    assert cat("Arson investigators look into east Fort Worth church fire") == "crime"
+    assert cat("Fort Worth council approves budget in 7-2 vote") != "sports"
+    assert cat("Tarrant County home prices down 5-10% from last year") != "sports"
+    assert cat("Rangers beat Astros 5-4 in 10 innings") == "sports"
+    assert cat("Home workshop sparks early morning fire on Thanksgiving in Fort Worth") == "breaking"
+
+
+def test_the_wfaa_sports_feed_is_a_sports_feed():
+    import yaml
+    from pathlib import Path
+    cfg = yaml.safe_load((Path(__file__).resolve().parents[1] / "config" / "sources.yaml").read_text())
+    feeds = [f for group in cfg.values() if isinstance(group, list) for f in group if isinstance(f, dict)]
+    wfaa = [f for f in feeds if f.get("name") == "WFAA Sports"]
+    assert wfaa and wfaa[0].get("category_hint") == "sports"
