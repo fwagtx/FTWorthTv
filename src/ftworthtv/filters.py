@@ -1057,6 +1057,24 @@ _MEETING_TITLE_RE = re.compile(r"\b(?:work sessions?|council meetings?|special[-
 
 def meeting_notice(title: str | None) -> bool:
     return bool(_MEETING_TITLE_RE.search(title or ""))
+
+
+# a headline about a fire that happened is a fire story, whatever day it fell on: Nov 26, render 260, WFAA's "Home workshop
+# sparks early morning fire on Thanksgiving in Fort Worth" was filed as community (its "Thanksgiving" outscored the fire)
+_FIRE_TITLE_RE = re.compile(
+    r"(?<!\bon )\b(?:house|home|apartment|duplex|condo|workshop|garage|warehouse|business|building|plant|vehicle|car|truck|grass|brush|"
+    r"structure|commercial|church|school|restaurant|early[- ]morning|overnight|deadly|fatal|massive|major|large|\d-alarm|two-alarm|"
+    r"three-alarm|four-alarm)\s+fires?\b"
+    r"|(?<!\bon )\bfires?\s+(?:destroys?|destroyed|damages?|damaged|displaces?|displaced|guts?|gutted|engulfs?|engulfed|kills?|killed|"
+    r"injures?|injured|breaks? out|broke out|spreads?|rips? through|tears? through)\b"
+    r"|\b(?:sparks?|sparked|ignites?|ignited|battle|battles|battling|respond(?:s|ed|ing)? to|extinguish(?:es|ed)?|put out|douse[sd]?)\b"
+    r"(?:\s+[\w'-]+){0,3}?\s+fires?\b", re.I)
+_FIRE_NOT_INCIDENT_RE = re.compile(r"\b(?:training|drills?|exercises?|prevention|safety tips?|awareness|grants?|academy|recruits?)\b", re.I)
+
+
+def fire_incident(title: str | None) -> bool:
+    t = title or ""
+    return bool(_FIRE_TITLE_RE.search(t)) and not _FIRE_NOT_INCIDENT_RE.search(t)
 _NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b"
                            r"|\b(?:texas |state )?bar (?:foundation|association|exam|of texas)\b|\bstate bar\b"
                            r"|\bgrand theft auto\b", re.I)
@@ -1082,6 +1100,8 @@ def infer_category(story: Story) -> str:
     if re.search(r"\bmenus?\b", story.title or "", re.I):
         return "food"                       # Nov 25: NBC 5's "Annual Dallas Cowboys Thanksgiving Day game menu revealed" is food, not
                                             # sports: a menu takes a picture of the food, never a text card
+    if fire_incident(story.title) and story.category_hint != "sports":
+        return "breaking"                   # "Home workshop sparks early morning fire on Thanksgiving in Fort Worth"
     if meeting_notice(story.title) and story.category_hint != "sports":
         return "politics"                   # "Work session, special called meeting scheduled Dec. 1" is the council's business
     text = _NOT_WEATHER_RE.sub(" ", _NOT_CRIME_RE.sub(" ", story.text()))   # "Runner in cardiac arrest saved by nurses" is not a crime story

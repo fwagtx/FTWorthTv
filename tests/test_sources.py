@@ -539,3 +539,20 @@ def test_a_wanted_name_in_capitals_is_printed_in_proper_case_and_keeps_its_id():
     story = person_story(p, agency, "https://x", datetime.now(timezone.utc), "Fort Worth")
     assert story.title == "WANTED: Ezequiel Montemayor" and story.extra["name"] == "Ezequiel Montemayor"
     assert story.id == stable_id("wanted", "Arlington Police Department", "Ezequiel MONTEMAYOR", "Theft")
+
+
+def test_a_fire_headline_is_breaking_news_whatever_day_it_fell_on():
+    """Nov 26, render 260: WFAA's "Home workshop sparks early morning fire on Thanksgiving in Fort Worth" was filed as
+    community, its "Thanksgiving" outscoring the fire."""
+    from ftworthtv.filters import fire_incident, infer_category
+    from ftworthtv.models import Story
+    story = Story(id="f", source="WFAA", source_kind="video", title="Home workshop sparks early morning fire on Thanksgiving in Fort Worth",
+                  summary="A home business sparked an early morning fire in Fort Worth on Thanksgiving. The American Red Cross is "
+                          "assisting the several people that were displaced.", url="https://www.youtube.com/watch?v=x")
+    assert infer_category(story) == "breaking"
+    assert fire_incident("Fire damages Weatherford Aerospace plant building")
+    assert fire_incident("Crews battle two-alarm apartment fire in east Fort Worth")
+    assert not fire_incident("Cowboys fire offensive coordinator after loss")
+    assert not fire_incident("TCU stays on fire at home with win over Baylor")
+    assert not fire_incident("Fort Worth fire chief to retire after 30 years")
+    assert not fire_incident("Fire department recruits battle live fire in academy drill")
