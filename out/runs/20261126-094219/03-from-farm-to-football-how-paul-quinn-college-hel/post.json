@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-26T16:32:19.506410+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-094219/03-from-farm-to-football-how-paul-quinn-college-hel/post.jpg",
+    "credit": "Photo: JaoTorey Johnson via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_Cowboys_Players_and_Cheerleaders_Visit_Fort_Sill.jpg",
+    "photo_id": "commons-201360937",
+    "subject": "entity:dallas cowboys"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-094219/03-from-farm-to-football-how-paul-quinn-college-hel/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "From farm to football: How Paul Quinn College helps feed 90,000 Cowboys fans",
+    "caption": "Romaine, cilantro, sage and more go from Paul Quinn College’s farm to AT&T Stadium as part of the Cowboys’ Thanksgiving feast. When 90,000 Dallas Cowboys fans gather at AT&T Stadium for the team's Thanksgiving Day game, part of their holiday meal will come from an unlikely place — a former football field at Paul Quinn College.\n\nFor years, the Dallas college's \"We Over Me\" Farm has partnered with the Cowboys to provide locally grown produce for the team's annual Thanksgiving feast. This year, the farm is supplying about 200 pounds of fresh produce, including romaine lettuce, cilantro, onion greens, sage and rosemary.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/from-farm-to-football-how-paul-quinn-college-helps-feed-90000-cowboys-fans/4110995/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c1b8b90f8f7ed988",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "From farm to football: How Paul Quinn College helps feed 90,000 Cowboys fans",
+    "summary": "Romaine, cilantro, sage and more go from Paul Quinn College’s farm to AT&T Stadium as part of the Cowboys’ Thanksgiving feast. When 90,000 Dallas Cowboys fans gather at AT&T Stadium for the team's Thanksgiving Day game, part of their holiday meal will come from an unlikely place — a former football field at Paul Quinn College. For years, the Dallas college's \"We Over Me\" Farm has partnered with the Cowboys to provide locally grown produce for the team's annual Thanksgiving feast. This year, the farm is supplying about 200 pounds of fresh produce, including romaine lettuce, cilantro, onion greens, sage and rosemary. Much of it is grown using the farm's hydroponic system, with preparations for one of its largest orders of the year beginning months before kickoff. \"So, when it comes to the big game, they'll order a sizable amount that keeps us busy,\" said Isiah Mataruka, Paul Quinn…",
+    "url": "https://www.nbcdfw.com/news/local/from-farm-to-football-how-paul-quinn-college-helps-feed-90000-cowboys-fans/4110995/",
+    "published": "2026-11-26T08:49:22+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/Paul-Quinn.png?fit=869,489&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.4741
+  }
+}
