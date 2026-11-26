@@ -315,6 +315,10 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
                     # Nov 25: the culture default ("Fort Worth Stockyards") went on a Disney film review and a weekly film
                     # listings page; a story with no subject of its own gets no landmark standing in for it
                     queries, labels = [], []
+                if story.source_kind in ("nws_forecast", "nws_alert") or copy.category == "weather":
+                    # Nov 25: the NWS "sunny, high near 54" went out with a summer skyline; a weather picture comes from the
+                    # library's weather topics, checked for the season, or the post is a text card (never a web search)
+                    queries, labels = [], []
                 if (scope in ("texas", "national") and "fort worth" in (copy.image_query or "").lower()
                         and "fort worth" not in low_text and "tarrant" not in low_text):
                     # Nov 25: The Hollywood Reporter's Avengers/Dune box office story was drafted with the downtown Fort Worth

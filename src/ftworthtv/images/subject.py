@@ -543,7 +543,8 @@ WEATHER_TOPICS = (
     (("rain", "showers", "drizzle", "wet"), ["rain", "clouds", "skyline"]),
     (("partly cloudy", "partly sunny", "mostly sunny"), ["sunshine", "skyline"]),
     # Nov 22: "mostly cloudy, high near 61" drew a blue-sky skyline; the gray courthouse photo was filed under sunshine
-    (("fog", "cloudy", "overcast", "gray", "clouds"), ["clouds", "skyline"]),
+    # Nov 26: the library's skylines are blue-sky pictures, so a gray day out of the clouds photos' season gets a text card
+    (("fog", "cloudy", "overcast", "gray", "clouds"), ["clouds"]),
     (("sunny", "clear", "pleasant", "mild", "warm", "nice"), ["sunshine", "skyline", "sundance-square", "downtown"]),
 )
 

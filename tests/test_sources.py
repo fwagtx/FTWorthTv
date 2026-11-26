@@ -591,3 +591,22 @@ def test_the_nws_forecast_stands_down_after_a_stations_forecast_that_morning(set
                      official=True, always_relevant=True)
     report = run(settings, now=now, stories=[forecast], publisher_name="dryrun")
     assert any(s.id == "forecast-x" and r == "a station's forecast already went out this morning" for s, r in report.skipped)
+
+
+def test_a_forecast_takes_a_picture_in_season_or_a_text_card(settings, tmp_path, monkeypatch):
+    """Nov 25: the NWS "Fort Worth forecast: sunny, high near 54" went out with a summer skyline (green lawns, full trees).
+    The library's skylines carry their season, and a weather story never searches the web for a stand-in."""
+    from ftworthtv import images
+    from ftworthtv.models import PostCopy, PostDraft, Story
+    from ftworthtv.state import State
+    calls = []
+    monkeypatch.setattr(images, "find_photo", lambda *a, **k: calls.append(a) or None)
+    monkeypatch.setattr("ftworthtv.images.library.pick", lambda *a, **k: None)      # nothing in season for this sky
+    settings.offline = False
+    story = Story(id="fc", source="National Weather Service Fort Worth", source_kind="nws_forecast",
+                  title="Fort Worth forecast for Thursday, November 26", summary="Mostly cloudy, with a high near 48.",
+                  url="https://forecast.weather.gov/x", category="weather", official=True, extra={"short": "Mostly Cloudy"})
+    copy = PostCopy(category="weather", headline="Fort Worth forecast: mostly cloudy, high near 48", caption="Mostly cloudy.",
+                    image_query="Fort Worth skyline")
+    images.plan_image(PostDraft(story=story, copy=copy, writer="template"), settings, State(tmp_path / "s.json"), tmp_path / "w")
+    assert calls == []

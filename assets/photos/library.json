@@ -457,7 +457,8 @@
   "licence_name": "CC BY-SA 3.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth,_TX,_skyline_from_I-35_W_IMG_7078.JPG",
   "width": 1280,
-  "height": 960
+  "height": 960,
+  "season": "summer"
  },
  {
   "id": "lib-2014227165004-2014-08-15-rock-n-heim-sven-1d-x-118-dv3p8741-",
@@ -1746,7 +1747,8 @@
   "licence_name": "CC BY 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth.jpg",
   "width": 1400,
-  "height": 630
+  "height": 630,
+  "season": "winter"
  },
  {
   "id": "lib-downtown-fort-worth-skyline-jpg",
@@ -1758,7 +1760,8 @@
   "licence_name": "CC BY 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth_Skyline.jpg",
   "width": 1400,
-  "height": 593
+  "height": 593,
+  "season": "summer"
  },
  {
   "id": "lib-fort-worth-courthouse-jpg",
@@ -1783,7 +1786,8 @@
   "licence_name": "CC BY-SA 3.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Fort_Worth,_TX,_skyline_from_I-35_W_IMG_7078.JPG",
   "width": 1280,
-  "height": 960
+  "height": 960,
+  "season": "summer"
  },
  {
   "id": "lib-downtown-fort-worth-night-jpg",
@@ -2191,7 +2195,8 @@
   "licence_name": "CC BY 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth.jpg",
   "width": 1400,
-  "height": 630
+  "height": 630,
+  "season": "winter"
  },
  {
   "id": "sunshine-lib-downtown-fort-worth-skyline-jpg",
@@ -2203,7 +2208,8 @@
   "licence_name": "CC BY 4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth_Skyline.jpg",
   "width": 1400,
-  "height": 593
+  "height": 593,
+  "season": "summer"
  },
  {
   "id": "lib-texas-christian-university-june-2017-01-winthrop-rockefeller",

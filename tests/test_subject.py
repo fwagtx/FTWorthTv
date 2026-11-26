@@ -90,6 +90,13 @@ def test_headline_lessons_fixture():
         if "happened" in row:                      # an event: no library stand-in, a picture of it or a text card
             from ftworthtv.images.subject import happened
             assert happened(row["title"]) == row["happened"], (row["title"], row["lesson"])
+        if row.get("not_photos"):                  # a library file that must never stand for this story in that month
+            import random
+            from ftworthtv.images.library import pick
+            root = Path(__file__).resolve().parents[1]
+            for seed in range(30):
+                got = pick(root, row["library_topics"], month=row["month"], rng=random.Random(seed))
+                assert got is None or str(got.path.relative_to(root)) not in row["not_photos"], (row["title"], got.path, row["lesson"])
 
 
 def test_a_venue_is_searched_as_a_building_not_as_someone_elses_show():
