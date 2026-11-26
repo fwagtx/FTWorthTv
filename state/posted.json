@@ -480,11 +480,6 @@
       "reason": "daily cap for crime reached",
       "title": "Fort Worth country singer found not guilty after murder trial"
     },
-    "cb6dde1b197b632f": {
-      "at": "2026-11-24T19:17:12.631633+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Fort Worth police investigate child's death at daycare"
-    },
     "cd0687c909fd6316": {
       "at": "2026-11-25T15:18:04.726985+00:00",
       "reason": "daily cap for weather reached",
@@ -3051,6 +3046,11 @@
       "at": "2026-11-26T17:16:20.566073+00:00",
       "reason": "held: the photo (Cowboys players and cheerleaders visiting Fort Sill) does not show the game",
       "title": "Cowboys vs. Eagles: Thanksgiving game info, halftime show and national anthem singers"
+    },
+    "f74614b5cb16472b": {
+      "at": "2026-11-26T19:44:53.059765+00:00",
+      "reason": "a national slate of other teams' playoff games (no local team) with a 2018 media-day photo",
+      "title": "Week 13 College Football Playoff impact games: USC-UCLA, Alabama-Auburn hold major implications"
     },
     "fb03df9f8419331f": {
       "at": "2026-11-23T15:47:12.031256+00:00",
