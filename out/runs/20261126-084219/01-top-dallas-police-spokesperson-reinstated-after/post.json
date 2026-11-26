@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-084219/01-top-dallas-police-spokesperson-reinstated-after/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-084219/01-top-dallas-police-spokesperson-reinstated-after/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Top Dallas Police spokesperson reinstated after public integrity investigation",
+    "caption": "The Dallas Police Department's top spokesperson has returned to work after a public integrity investigation into her alleged use of a department vehicle. The Dallas Police Department confirmed that Allison Hudson, the department's Assistant Director of Media Relations, has been reinstated following a public integrity investigation.\n\nHudson was placed on leave in October.",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth https://www.fox4news.com/news/top-dallas-police-spokesperson-reinstated-after-public-integrity-investigation\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "2cdc89699285df95",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "rss",
+    "title": "Top Dallas Police spokesperson reinstated after public integrity investigation",
+    "summary": "The Dallas Police Department's top spokesperson has returned to work after a public integrity investigation into her alleged use of a department vehicle. View this post on Instagram A post shared by Lori Brown (@loribrown316) DALLAS - The Dallas Police Department's top spokesperson has returned to work after a public integrity investigation into her alleged use of a department vehicle. The Dallas Police Department confirmed that Allison Hudson, the department's Assistant Director of Media Relations, has been reinstated following a public integrity investigation. Hudson was placed on leave in October. DPD called the move \"consistent with Department policy and prior actions taken by Chief Comeaux.\" The details of the investigation were not made public. A source tells FOX 4 the investigation found no wrongdoing by Hudson. Sources told FOX 4 the investigation was related to an August…",
+    "url": "https://www.fox4news.com/news/top-dallas-police-spokesperson-reinstated-after-public-integrity-investigation",
+    "published": "2026-11-25T23:10:26+00:00",
+    "category_hint": null,
+    "image_url": "https://static.fox4news.com/www.fox4news.com/content/uploads/2026/10/screenshot-2026-10-16-at-5.54.38-pm.png",
+    "image_credit": "Photo: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "Latest News | FOX 4 News",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.1413
+  }
+}

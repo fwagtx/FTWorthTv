@@ -1,0 +1,56 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-26T15:07:19.778705+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-084219/02-out-and-about-in-arlington-christmas-spirit-gobb/post.jpg",
+    "credit": "Photo: Aliceinthealice via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Alice_out_and_about_in_Nairobi.jpg",
+    "photo_id": "commons-172340176",
+    "subject": "entity:out and about"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-084219/02-out-and-about-in-arlington-christmas-spirit-gobb/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Out and About in Arlington: Christmas spirit gobbles up Thanksgiving festivities",
+    "caption": "Visit the Howell Family Farms holiday festival or browse the Texas Christkindl Market. Thanksgiving is officially behind us, which means Christmas is in full force across the city with events like the Frostival at Howell Family Farms.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/25/out-and-about-in-arlington-christmas-spirit-gobbles-up-thanksgiving-festivities/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:Globe Life Field",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "3eba59e59ea55eb2",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Out and About in Arlington: Christmas spirit gobbles up Thanksgiving festivities",
+    "summary": "Visit the Howell Family Farms holiday festival or browse the Texas Christkindl Market. Happy Thanksgiving weekend! Hopefully you are gobblin’ and stuffin’ yourself full of turkey — or if you’re Filipino like me, full of lechon. If you’re still looking for a way to spend time with family and friends around Arlington for the weekend, then look no further. Thanksgiving is officially behind us, which means Christmas is in full force across the city with events like the Frostival at Howell Family Farms. The walk-through experience includes a trail of lights, real reindeer, tubing slides, visits with Santa, s’mores and other forms of family-friendly festive entertainment. If you’re looking for a unique place for Christmas shopping, head to the annual Texas Christkindl Market. This German-inspired market returns to Globe Life Field daily until Dec. 23. You’ll find all kinds of festive…",
+    "url": "https://fortworthreport.org/2026/11/25/out-and-about-in-arlington-christmas-spirit-gobbles-up-thanksgiving-festivities/",
+    "published": "2026-11-26T00:03:12+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/0311-ArlingtonFile-MC-12-300x200.jpg",
+    "image_credit": "Photo: Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "scope": "local",
+      "page_caption": "A city of Arlington flag flies outside of the Arlington Esports Stadium on March 11, 2026. (Maria Crane | Fort Worth Report/CatchLight Local/Report for America) Credit: (Maria Crane | Fort Worth Report/CatchLight Local/Report for America)",
+      "page_credit": ""
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.2236
+  }
+}
