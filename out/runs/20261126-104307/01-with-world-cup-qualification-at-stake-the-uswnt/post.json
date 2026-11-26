@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-104307/01-with-world-cup-qualification-at-stake-the-uswnt/post.jpg",
+    "credit": "Photo: Kaisersauce1 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Levi%27s_Stadium_2026_FIFA_World_Cup_Australia_v._Paraguay.jpg",
+    "photo_id": "commons-196082594",
+    "subject": "entity:world cup"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-104307/01-with-world-cup-qualification-at-stake-the-uswnt/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "With World Cup qualification at stake, the USWNT has no excuses",
+    "caption": "The task for the U.S. women's national team is simple: one win and they're in for the 2027 Women's World Cup. Naturally, USWNT head coach Emma Hayes is not taking the bait.",
+    "first_comment": "Source: ESPN Top Headlines https://www.espn.com/soccer/story/_/id/50598543/uswnt-womens-world-cup-qualifiers-concacaf\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Mansfield, TX"
+  },
+  "story": {
+    "id": "a48bf1a5624fa573",
+    "source": "ESPN Top Headlines",
+    "source_kind": "rss",
+    "title": "With World Cup qualification at stake, the USWNT has no excuses",
+    "summary": "If the USWNT win, they are in for the 2027 Women's World Cup, but is an upset plausible during Concacaf qualifiers? The task for the U.S. women's national team is simple: one win and they're in for the 2027 Women's World Cup. On paper, Concacaf's revamped qualification format looks even easier for the USWNT: As the region's top team and the FIFA No. 2-ranked team in the world, the USWNT faces El Salvador , the team ranked No. 78 in the world, in the tournament quarterfinal on Friday in Mansfield, Texas. Naturally, USWNT head coach Emma Hayes is not taking the bait. \"For us as a whole, Concacaf is a very different competition,\" Hayes told reporters on Saturday in Washington, D.C. \"... These are the games where you say to yourself, 'Oh, you know, this is an easier opponent.' Let me be clear about this: This will be a very, very tough game. You have to prepare in the right way possible…",
+    "url": "https://www.espn.com/soccer/story/_/id/50598543/uswnt-womens-world-cup-qualifiers-concacaf",
+    "published": "2026-11-26T14:20:29+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN Top Headlines",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.39,
+    "extra": {
+      "feed_title": "www.espn.com - TOP",
+      "national": true,
+      "scope": "national",
+      "national_term": "world cup"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.3889
+  }
+}
