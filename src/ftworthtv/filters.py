@@ -16,7 +16,10 @@ log = logging.getLogger(__name__)
 CATEGORY_KEYWORDS: dict[str, list[str]] = {
     "weather": ["storm", "tornado", "thunder", "hail", "flood", "freeze", "ice storm", "icy", "sleet", "freezing rain", "snow", "heat advisory", "weather",
                 "forecast", "rain", "wind advisory", "cold front", "cold fronts", "warning for", "temps", "temperatures", "wind chill",
-                "wind chills", "frost", "first freeze", "chilly", "highs in", "lows in", "drizzle", "showers"],
+                "wind chills", "frost", "first freeze", "chilly", "highs in", "lows in", "drizzle", "showers",
+                # Nov 26: CBS News Texas's "North Texas faces freezing Thanksgiving morning before weekend warmup" was filed as
+                # community (its "Thanksgiving" outscored a forecast that named no listed weather word) and drew a smoked turkey
+                "freezing", "warmup", "warm-up", "warming trend", "cool-down", "gusty winds"],
     "traffic": ["crash", "wreck", "i-35w", "35w", "i-30", "i-20", "loop 820", "highway", "lanes closed", "road closure",
                 "traffic", "pileup", "18-wheeler", "trinity metro", "texrail", "dfw airport delays"],
     "crime": ["police", "shooting", "shot", "arrested", "arrest", "stabbing", "robbery", "homicide", "murder", "suspect", "steal", "stole",
@@ -417,6 +420,16 @@ def roundup_column(title: str) -> bool:
     return bool(_COLUMN_ROUNDUP_RE.search(title or ""))
 
 
+# Nov 26, render 263: CBS News Texas's "Why do the Detroit Lions and Dallas Cowboys play every year on Thanksgiving? The history"
+# (CBS Detroit's 1934 Portsmouth Spartans story) as a sports text card: the history of a tradition is a feature, not news
+_EVERGREEN_RE = re.compile(r"[?:.]\s*(?:the|its|a brief|a short) history\b|^(?:the )?history of\b|"
+                           r"\bwhy do(?:es)?\b[^?]{3,80}\bevery (?:year|thanksgiving|christmas|holiday|season)\b", re.I)
+
+
+def evergreen_explainer(title: str) -> bool:
+    return bool(_EVERGREEN_RE.search(title or ""))
+
+
 def rankings_list(title: str) -> bool:
     """'Coaches Poll top 25: Texas, Tennessee climb; UCLA, Indiana tumble': a national ranking is a list, and two sentences
     from the middle of it ('Previously slotted at No. 13, Iowa remained there...') are not a post (Nov 22, render 123).
@@ -604,14 +617,29 @@ _BLOTTER_RE = re.compile(r"\b(?:stable condition|no injuries|minor injuries|non-
 _DAY_IN_TITLE_RE = re.compile(r"\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b", re.I)
 
 
-def another_citys_old_crime(title: str, now_local) -> str:
-    """The weekday another DFW city's crime happened on, when that was two or more days ago ('' otherwise)."""
+# Nov 26, render 263: FOX 4's "Trackdown: Help find Dallas rapper BFG Baandz's killer" (a shooting "earlier this year") was
+# drafted for a Fort Worth page; a cold case in another DFW city is that city's appeal, not this page's news
+_OLD_CRIME_RE = re.compile(r"\b(?:earlier this year|last year|last month|months ago|years ago|cold case|unsolved)\b|^trackdown\b", re.I)
+_MONTHS = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december")
+_IN_MONTH_RE = re.compile(r"\bin (" + "|".join(_MONTHS) + r")\b", re.I)
+
+
+def another_citys_old_crime(title: str, now_local, summary: str = "") -> str:
+    """When another DFW city's crime happened, if that was two or more days ago: the weekday in the headline, or the time the
+    story gives ("earlier this year", "in June", a Trackdown cold case). '' otherwise."""
     low = (title or "").lower()
     if any(w in low for w in TARRANT_SIDE_WORDS):
         return ""
     m = _DAY_IN_TITLE_RE.search(title or "")
     if m and (now_local.weekday() - _WEEKDAYS.index(m.group(1).lower())) % 7 >= 2:
         return m.group(1).capitalize()
+    text = f"{title or ''} {summary or ''}"
+    old = _OLD_CRIME_RE.search(text)
+    if old:
+        return "a Trackdown cold case" if old.group(0).lower() == "trackdown" else old.group(0).lower()
+    month = _IN_MONTH_RE.search(text)
+    if month and _MONTHS.index(month.group(1).lower()) + 1 != now_local.month:
+        return f"in {month.group(1).capitalize()}"
     return ""
 
 
@@ -1246,6 +1274,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if story.source_kind == "rss" and roundup_column(story.title):
             dropped.append((story, "a roundup column (winners and losers, takeaways), not news"))
             continue
+        if story.source_kind in ("rss", "video") and evergreen_explainer(story.title):
+            dropped.append((story, "an evergreen explainer (the history of a tradition), not news"))
+            continue
         if story.source_kind == "rss" and rankings_list(story.title):
             dropped.append((story, "a national rankings list with no local team in it"))
             continue
@@ -1385,9 +1416,10 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 dropped.append((story, "another city's police blotter"))     # a Dallas shooting with no death and no arrest is Dallas's blotter
                 continue
             if tier[0] == "dfw" and cat == "crime":
-                day = another_citys_old_crime(story.title, now.astimezone(settings.tz))
+                day = another_citys_old_crime(story.title, now.astimezone(settings.tz), story.summary or "")
                 if day:
-                    dropped.append((story, f"another city's crime from {day}, days ago"))   # a Garland shooting on Sunday, read on Wednesday
+                    when = f"{day}, days ago" if day in ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday") else day
+                    dropped.append((story, f"another city's crime from {when}"))   # a Garland shooting on Sunday, read on Wednesday
                     continue
             if tier[0] == "dfw" and cat == "traffic" and another_citys_traffic(story.title):
                 dropped.append((story, "another city's traffic"))            # a Dallas North Tollway closure is Dallas's traffic

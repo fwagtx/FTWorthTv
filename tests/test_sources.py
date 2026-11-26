@@ -610,3 +610,33 @@ def test_a_forecast_takes_a_picture_in_season_or_a_text_card(settings, tmp_path,
                     image_query="Fort Worth skyline")
     images.plan_image(PostDraft(story=story, copy=copy, writer="template"), settings, State(tmp_path / "s.json"), tmp_path / "w")
     assert calls == []
+
+
+def test_another_dfw_citys_cold_case_and_a_traditions_history_are_not_this_pages_news():
+    """Nov 26, render 263: FOX 4's "Trackdown: Help find Dallas rapper BFG Baandz's killer" (a shooting "earlier this year")
+    and CBS News Texas's "Why do the Detroit Lions and Dallas Cowboys play every year on Thanksgiving? The history"."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from ftworthtv.filters import another_citys_old_crime, evergreen_explainer
+    thu = datetime(2026, 11, 26, 8, 15, tzinfo=ZoneInfo("America/Chicago"))
+    assert another_citys_old_crime("Trackdown: Help find Dallas rapper BFG Baandz’s killer", thu,
+                                   "Dallas police are searching for two suspects in the fatal shooting of a rap artist earlier this year.")
+    assert another_citys_old_crime("Dallas police release video of suspects in shooting", thu,
+                                   "The shooting happened in June outside a club.") == "in June"
+    assert another_citys_old_crime("Dallas police investigating overnight shooting", thu, "Police said the shooting happened just after midnight.") == ""
+    assert another_citys_old_crime("Trackdown: Help find Fort Worth man's killer", thu, "The shooting happened earlier this year.") == ""
+    assert evergreen_explainer("Why do the Detroit Lions and Dallas Cowboys play every year on Thanksgiving? The history")
+    assert evergreen_explainer("The history of the Fort Worth Stock Show parade")
+    assert not evergreen_explainer("Cowboys beat Eagles on Thanksgiving behind Prescott's three touchdowns")
+    assert not evergreen_explainer("Why gas prices are falling ahead of Thanksgiving travel")
+
+
+def test_a_freezing_forecast_on_thanksgiving_is_weather():
+    """Nov 26, render 263: CBS News Texas's "North Texas faces freezing Thanksgiving morning before weekend warmup" was filed as
+    community and drew a smoked turkey."""
+    from ftworthtv.filters import infer_category
+    from ftworthtv.models import Story
+    story = Story(id="w", source="CBS News Texas", source_kind="rss", url="u",
+                  title="North Texas faces freezing Thanksgiving morning before weekend warmup",
+                  summary="Sunny skies, warmer temperatures and gusty winds are ahead. Expect a seasonably cool but sunny Thanksgiving.")
+    assert infer_category(story) == "weather"
