@@ -23,7 +23,13 @@ _IMG_RE = re.compile(r"<img[^>]+src=[\"']([^\"']+)[\"'][^>]*>", re.I)
 _P_RE = re.compile(r"<p[^>]*>(.*?)</p>", re.I | re.S)
 _SKIP_IMG = ("logo", "icon", "sprite", "badge", "seal", ".svg", "pixel", "spacer", "avatar", "facebook", "twitter", "instagram", "youtube")
 _FIGCAPTION_RE = re.compile(r"<figcaption[^>]*>(.*?)</figcaption>", re.I | re.S)
-_NOT_STORY_RE = re.compile(r"<(figure|figcaption|aside)[^>]*>.*?</\1>", re.I | re.S)   # a photo caption or a sidebar is not a paragraph of the story
+_NOT_STORY_RE = re.compile(r"<(figure|figcaption|aside|style|script|noscript)[^>]*>.*?</\1>", re.I | re.S)   # a photo caption or a sidebar is not a paragraph of the story
+# a site's own notices are not the story: Nov 25, the City of Fort Worth's "Work session ..." page closed with its newsletter
+# sign-up, its accessibility notice and the sign-up box's CSS, and the template caption ended "Accommodations are available
+# for residents who have accessibility requirements."
+_SITE_NOTICE_RE = re.compile(r"\b(?:get articles like this|subscribe to city news|accommodations are available|accessibility (?:requirements|"
+                             r"accommodations)|request accommodations|solicitud de acomodaci|get email updates|get connected\. stay informed|"
+                             r"mailing/physical address)|\{[^{}]*:[^{}]*;", re.I)
 _CAPTION_BLOCK_RE = re.compile(r"<(div|span|p)[^>]*class=\"[^\"]*(?:caption|credit|photo-info|image-info)[^\"]*\"[^>]*>.*?</\1>", re.I | re.S)
 _BYLINE_TAIL_RE = re.compile(r"([A-Z][\w.'’-]+(?: [A-Z][\w.'’-]+){1,3}) (?:for|/|\|) ((?:The )?[A-Z][\w&.'’ -]{3,40}?)\s*\.?\)?$")   # "Michael Cavazos for The Texas Tribune", "(Cristian ArguetaSoto | Fort Worth Report)"
 _BYLINE_TAIL2_RE = re.compile(r"([A-Z][\w.'’-]+ [A-Z][\w.'’-]+) (?:for|/|\|) ((?:The )?[A-Z][\w&.'’ -]{3,40}?)\s*\.?\)?$")
@@ -94,7 +100,7 @@ def parse_article(html: str, base_url: str) -> dict:
     if image:
         image = urljoin(base_url, image)
     paragraphs = [strip_html(p) for p in _P_RE.findall(_CAPTION_BLOCK_RE.sub(" ", _NOT_STORY_RE.sub(" ", body)))]
-    paragraphs = [p for p in paragraphs if len(p) > 40]
+    paragraphs = [p for p in paragraphs if len(p) > 40 and not _SITE_NOTICE_RE.search(p)]
     published = None
     for key in ("article:published_time", "og:updated_time", "date", "dc.date", "pubdate"):
         if meta.get(key):

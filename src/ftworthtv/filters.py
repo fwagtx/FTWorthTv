@@ -1042,6 +1042,13 @@ _NOT_BREAKING_RE = re.compile(r"\b(?:active shooter|evacuation|lockdown|shelter 
                               r"drills?|exercises?|course|program|preparedness|simulation|grant|funding)\b)|"
                               r"\b(?:training|drills?|exercises?|course|program|preparedness|simulation|grant|funding)\b[^.]{0,40}"
                               r"\b(?:active shooter|evacuation|lockdown|shelter in place|hazmat|explosion)\b", re.I)
+# a flood-control project is public works, not weather: Nov 25, the City of Fort Worth's "Work session, special called meeting
+# scheduled Dec. 1" (a Texas Water Development Board grant for "Lebow Flood Mitigation") was filed as weather and held by its cap
+_NOT_WEATHER_RE = re.compile(r"\bflood(?:plain|way)s?\b|\bflood (?:mitigation|control|insurance|plains?|prevention|protection|"
+                             r"risk reduction|infrastructure|bonds?|stud(?:y|ies)|maps?|projects?|channels?)\b", re.I)
+# a council's meeting notice is local government, whatever its agenda lists (cold-weather preparations, a flood grant, a museum)
+_MEETING_TITLE_RE = re.compile(r"\b(?:work sessions?|council meetings?|special[- ]called meetings?|city council|commissioners(?:'|’)? court)\b",
+                               re.I)
 _NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b"
                            r"|\b(?:texas |state )?bar (?:foundation|association|exam|of texas)\b|\bstate bar\b"
                            r"|\bgrand theft auto\b", re.I)
@@ -1067,8 +1074,10 @@ def infer_category(story: Story) -> str:
     if re.search(r"\bmenus?\b", story.title or "", re.I):
         return "food"                       # Nov 25: NBC 5's "Annual Dallas Cowboys Thanksgiving Day game menu revealed" is food, not
                                             # sports: a menu takes a picture of the food, never a text card
-    text = _NOT_CRIME_RE.sub(" ", story.text())          # "Runner in cardiac arrest saved by nurses" is not a crime story
-    title = _NOT_CRIME_RE.sub(" ", story.title.lower())
+    if _MEETING_TITLE_RE.search(story.title or "") and story.category_hint != "sports":
+        return "politics"                   # "Work session, special called meeting scheduled Dec. 1" is the council's business
+    text = _NOT_WEATHER_RE.sub(" ", _NOT_CRIME_RE.sub(" ", story.text()))   # "Runner in cardiac arrest saved by nurses" is not a crime story
+    title = _NOT_WEATHER_RE.sub(" ", _NOT_CRIME_RE.sub(" ", story.title.lower()))
     # training for an emergency is not the emergency: Nov 25, KVUE's "Texas State's ALERRT Center receives $10M to expand active
     # shooter response training" was filed as breaking news and drafted as a text card
     text, title = _NOT_BREAKING_RE.sub(" ", text), _NOT_BREAKING_RE.sub(" ", title)

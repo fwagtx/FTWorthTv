@@ -407,7 +407,8 @@ BOILERPLATE = ("newsletter", "subscribe", "sign up", "inbox", "click here", "rea
                "contact her", "contributed to this report", "in the video", "player above", "video above", "watch above", "download the",
                "our app", "tap here", "this story will be updated", "check back for updates",
                "help us pursue the truth", "every gift makes a difference", "officials accountable is just beginning",
-               "the election is over, but the work", "your donation", "donate today", "become a member")
+               "the election is over, but the work", "your donation", "donate today", "become a member",
+               "accommodations are available", "accessibility requirements", "accessibility accommodations", "request accommodations")
 
 
 def _first_sentence(text: str, limit: int = 170) -> str:
@@ -691,8 +692,11 @@ def _sentences(text: str, max_n: int = 4, limit: int = 220, lead: int = 650) -> 
     # a dek that a later sentence says again in fuller words goes: Nov 25, the Texas Tribune's "Atmos Energy accrued seven
     # violations during a routine inspection ..." ahead of "Atmos Energy ... accrued seven alleged violations during a routine
     # inspection, triggering a monthslong probe ..." (the dek also dropped "alleged")
+    # ... but only when that sentence holds the dek's whole first clause: Nov 25, the City of Fort Worth's lead "The Fort Worth
+    # City Council will hold a work session at 2 p.m. Tuesday, Dec. 1." shares "City Council will hold a" with the next
+    # meeting's sentence, and the caption opened "The meeting will be held at City Hall" with no meeting named
     if (len(out) >= 3 and re.sub(r"\W+", " ", out[0]).strip().lower() == raw_first
-            and any(shared_run(out[0], s, n=5) for s in out[1:])):
+            and any(shared_run(out[0], s, n=5) and _restates_clause(out[0], s) for s in out[1:])):
         out.pop(0)
 
     def _backref(s: str) -> bool:
@@ -721,6 +725,15 @@ def _content_stems(text: str) -> set[str]:
                 break
         out.add(w)
     return out
+
+
+def _restates_clause(dek: str, s: str, share: float = 0.8) -> bool:
+    """Does s carry (nearly) every word of the dek's first clause? "Atmos Energy accrued seven violations during a routine
+    inspection" is all in "Atmos Energy, which serves ..., accrued seven alleged violations during a routine inspection"."""
+    clause = re.split(r"[,;:—–]|\s-\s", dek or "", maxsplit=1)[0]
+    wa = re.findall(r"[a-z0-9']+", clause.lower())
+    wb = set(re.findall(r"[a-z0-9']+", (s or "").lower()))
+    return len(wa) >= 4 and sum(1 for w in wa if w in wb) >= share * len(wa)
 
 
 def shared_run(a: str, b: str, n: int = 7) -> bool:

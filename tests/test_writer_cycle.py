@@ -1491,3 +1491,48 @@ def test_a_dek_the_article_repeats_in_fuller_words_goes():
     sents = _sentences(text)
     assert sents[0].startswith("A Dallas pipeline company") and any("alleged violations" in s for s in sents)
     assert not any(s.startswith("Atmos Energy accrued seven violations") for s in sents)
+
+
+_WORK_SESSION_PAGE = """<html><head><meta property="og:title" content="Work session, special called meeting scheduled Dec. 1">
+<meta property="og:description" content="Both meetings will be held at Fort Worth City Hall."></head><body><main>
+<p>Published on November 25, 2026</p>
+<p>The Fort Worth City Council will hold a work session at 2 p.m. Tuesday, Dec. 1. The meeting will be held at City Hall, 100 Fort Worth Trail.</p>
+<ul><li>Preparations for cold weather emergency response</li><li>General municipal election polling locations</li></ul>
+<p>City Council will hold a special called meeting at noon Tuesday in the Council Chamber at City Hall to discuss Lebow Flood Mitigation Texas Water Development Board grant acceptance.</p>
+<p>Get articles like this in your inbox. Subscribe to City News.</p>
+<p>Accommodations are available for residents who have accessibility requirements. To learn more about accessibility accommodations available from the City of Fort Worth, visit the Accessibility page.</p>
+<p><style>.connected { text-align: center; background-color: #3B5675; padding: 25px; } .connected h2 { color: #fff; }</style>Get Connected. Stay Informed. Get email updates from the City of Fort Worth on the topics you want.</p>
+</main></body></html>"""
+
+
+def test_a_council_meeting_notice_is_politics_and_its_page_notices_stay_out():
+    """Nov 25, render 251: the City of Fort Worth's "Work session, special called meeting scheduled Dec. 1" was filed as weather
+    (its "Lebow Flood Mitigation" grant), and the template caption opened "The meeting will be held at City Hall" (the lead went
+    as a "dek") and closed with the site's "Accommodations are available for residents who have accessibility requirements." """
+    from ftworthtv.filters import infer_category
+    from ftworthtv.sources.article import parse_article
+    info = parse_article(_WORK_SESSION_PAGE, "https://www.fortworthtexas.gov/news/2026/11/Work-session-special-called-meeting-scheduled-Dec-1")
+    summary = info["summary"]
+    assert summary.startswith("The Fort Worth City Council will hold a work session")
+    for junk in ("inbox", "Accommodations", "text-align", "Get email updates", "Stay Informed"):
+        assert junk not in summary
+    story = Story(id="ws", source="City of Fort Worth", source_kind="rss", title="Work session, special called meeting scheduled Dec. 1",
+                  summary=summary, url="https://www.fortworthtexas.gov/news/x", category_hint="community", official=True)
+    assert infer_category(story) == "politics"
+    sents = _sentences(summary)
+    assert sents[0].startswith("The Fort Worth City Council will hold a work session at 2 p.m. Tuesday, Dec. 1")
+    # the writer's own list catches the notice when a feed hands it over directly
+    assert not any("accessibility" in s.lower() for s in _sentences(
+        "The council meets Tuesday at City Hall to discuss a grant for the Lebow Channel. "
+        "Accommodations are available for residents who have accessibility requirements."))
+
+
+def test_a_flood_control_project_is_not_weather_but_a_flood_is():
+    from ftworthtv.filters import infer_category
+    grant = Story(id="g", source="City of Fort Worth", source_kind="rss", title="City accepts state grant for Lebow Channel project",
+                  summary="The Texas Water Development Board grant pays for flood mitigation along Lebow Channel and a floodplain study.",
+                  url="u", category_hint="community", official=True)
+    assert infer_category(grant) != "weather"
+    flood = Story(id="f", source="WFAA", source_kind="rss", title="Flash flooding closes roads in east Fort Worth",
+                  summary="Heavy rain flooded several streets and a flood warning remains in effect until 9 p.m.", url="u")
+    assert infer_category(flood) == "weather"
