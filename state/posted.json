@@ -8,7 +8,7 @@
     "2026-11-23": 20,
     "2026-11-24": 20,
     "2026-11-25": 19,
-    "2026-11-26": 11
+    "2026-11-26": 12
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -92,7 +92,7 @@
       "community": 3,
       "crime": 4,
       "other": 1,
-      "sports": 1,
+      "sports": 2,
       "weather": 1
     }
   },
@@ -143,7 +143,7 @@
     },
     "2026-11-26": {
       "culture": 1,
-      "rss": 6,
+      "rss": 7,
       "video": 2,
       "wanted": 2
     }
@@ -190,7 +190,7 @@
       "texas": 1
     },
     "2026-11-26": {
-      "dfw": 1,
+      "dfw": 2,
       "local": 10
     }
   },
@@ -280,11 +280,6 @@
       "reason": "daily cap for crime reached",
       "title": "North Texas man dead following shooting Sunday, Garland police say"
     },
-    "1f8f9d6c5904a4fc": {
-      "at": "2026-11-24T22:14:28.342739+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Two Tarrant school districts risk losing state funds because of TAD appraisal freeze"
-    },
     "23e898a6ce4a4adf": {
       "at": "2026-11-25T02:13:14.905609+00:00",
       "reason": "daily cap for weather reached",
@@ -309,6 +304,11 @@
       "at": "2026-11-25T14:45:13.572783+00:00",
       "reason": "daily cap for weather reached",
       "title": "How to keep plants, pipes and home safe as freeze warning remains in place for North Texas"
+    },
+    "36c6eefc62dd3ee5": {
+      "at": "2026-11-26T22:15:46.110029+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Man attempts to set fire to Dallas Family Dollar, DFR says"
     },
     "3d9b59a8b272ed77": {
       "at": "2026-11-25T20:46:14.168015+00:00",
@@ -522,7 +522,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-26T13:10:00-06:00",
+  "last_post_at": "2026-11-26T16:25:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1183,6 +1183,19 @@
       "source": "NBC 5 DFW",
       "title": "Fort Worth Parade of Lights returns for 44th year to kick off holiday season",
       "url": "https://www.youtube.com/watch?v=uKWXagyqkFI"
+    },
+    "64970f8a8e5702c3": {
+      "at": "2026-11-26T16:25:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "443704813",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5235321566515578776",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "WFAA Sports",
+      "title": "Mavrik Bourque returns to Dallas and scores his first goal for Nashville in 3-1 win",
+      "url": "https://www.wfaa.com/article/sports/nhl/stars/mavrik-bourque-returns-to-dallas-and-scores-his-first-goal-for-nashville-in-3-1-win/616-e7fb566f-7ca2-4594-8ade-9becf74ca0a8"
     },
     "65d47cc8eb75ba30": {
       "at": "2026-11-22T16:55:00-06:00",
@@ -3045,7 +3058,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 145,
+  "total_posts": 146,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",

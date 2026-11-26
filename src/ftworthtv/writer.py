@@ -1,6 +1,7 @@
 """Caption writer: Claude (structured output, Dallas-Texas-TV voice) with a deterministic template fallback."""
 from __future__ import annotations
 
+import difflib
 import json
 import logging
 import re
@@ -1073,6 +1074,9 @@ def salvage_lead(text: str, min_words: int = 8) -> str:
     a news lead cut at a comma can drop the part that matters ('The fire was contained, but two firefighters ...')."""
     t = re.sub(r"\s*(\.\.\.|…|\[…\])\s*$", "", collapse_ws(text or ""))
     t = _DATELINE_RE.sub("", t)
+    whole = salvage_day_cut(t, min_words)
+    if whole:
+        return whole
     cut = t.rfind(", ")
     while cut > 0:
         head = t[:cut].rstrip(" ,;:")
@@ -1081,6 +1085,55 @@ def salvage_lead(text: str, min_words: int = 8) -> str:
             return head + "."
         cut = t.rfind(", ", 0, cut)
     return ""
+
+
+# Nov 26, render 279: AP's "... as the Predators beat Dallas 3-1 on..." lost only the day: the sentence before " on" is whole
+_DAY_CUT_RE = re.compile(r"(?<=\d)\s+on\s*$|\s+on\s+(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday)"
+                         r"(?:\s+(?:night|afternoon|morning|evening))?\s*$", re.I)
+
+
+def salvage_day_cut(text: str, min_words: int = 8) -> str:
+    """A wire recap sentence the feed cut right after its score ('... beat Dallas 3-1 on...'), ended where the day would start."""
+    t = re.sub(r"\s*(\.\.\.|…|\[…\])\s*$", "", collapse_ws(text or ""))
+    day = _DAY_CUT_RE.search(t)
+    if not day:
+        return ""
+    head = t[:day.start()].rstrip(" ,;:")
+    if (len(head.split()) >= min_words and head.count('"') % 2 == 0 and head.count("“") == head.count("”")
+            and _GAME_VERB_RE.search(head)):
+        return head + "."
+    return ""
+
+
+# Nov 26, render 279: AP's lead spelled "Mavrick Bourque" under WFAA's headline "Mavrik Bourque", and the caption took the
+# lead's spelling: a person the headline names keeps the headline's spelling
+_NAME_PAIR_RE = re.compile(r"\b([A-Z][a-z]{3,}(?:[-'’][A-Z]?[a-z]+)?)\s+([A-Z][a-z]+(?:[-'’][A-Z]?[a-z]+)?)\b")
+_NOT_FIRST_NAMES = {"north", "south", "east", "west", "fort", "lake", "grand", "saint", "port", "new", "upper", "lower", "great",
+                    "texas", "dallas", "tarrant", "county", "city", "state", "police", "fire", "the", "this", "that", "with", "from"}
+
+
+def _near_spelling(a: str, b: str) -> bool:
+    if a == b or a[0].lower() != b[0].lower() or abs(len(a) - len(b)) > 2 or min(len(a), len(b)) < 4:
+        return False
+    return difflib.SequenceMatcher(None, a.lower(), b.lower()).ratio() >= 0.8
+
+
+def headline_spelling(text: str, title: str) -> str:
+    """'Mavrick Bourque scored his first goal' under 'Mavrik Bourque returns to Dallas ...' -> 'Mavrik Bourque scored ...':
+    a first name spelled a near way next to the headline's surname takes the headline's spelling."""
+    if not text or not title:
+        return text
+    for first, last in _NAME_PAIR_RE.findall(title):
+        if first.lower() in _NOT_FIRST_NAMES:
+            continue
+
+        def fix(m: re.Match, first: str = first, last: str = last) -> str:
+            seen = m.group(1)
+            if seen != first and seen not in title and _near_spelling(seen, first):
+                return f"{first} {last}"
+            return m.group(0)
+        text = re.sub(r"\b([A-Z][a-z]+)\s+" + re.escape(last) + r"\b", fix, text)
+    return text
 
 
 # "Dak Prescott, who threw for 300 yards" is a subject without its verb; a recap's first clause always has a game verb
@@ -1274,6 +1327,15 @@ def strip_page_header(text: str, title: str) -> str:
 
 def write_copy(story: Story, settings: Settings, now: datetime, *, force_template: bool = False) -> tuple[PostCopy, str]:
     story.summary = strip_page_header(story.summary or "", story.title or "")
+    story.summary = headline_spelling(story.summary or "", story.title or "")
+    if (story.source_kind == "rss" and not story.official and (story.category or "") == "sports"
+            and _sentences(story.summary or "") and cut_off(story.summary or "")):
+        whole = collapse_ws(story.summary or "")
+        ends = list(re.finditer(r"[.!?][\"”’]?\s+(?=[A-Z“\"])", whole))
+        if ends:
+            tail = salvage_day_cut(whole[ends[-1].end():])
+            if tail:
+                story.summary = whole[:ends[-1].end()] + tail     # Nov 26: "... as the Predators beat Dallas 3-1 on..."
     if (story.source_kind == "rss" and not story.official and (story.category or "") == "sports"
             and not _sentences(story.summary or "") and cut_off(story.summary or "")):
         lead = salvage_lead(story.summary or "")
@@ -1306,6 +1368,7 @@ def write_copy(story: Story, settings: Settings, now: datetime, *, force_templat
     if copy.skip:
         return copy, writer
     out = finalize(copy, story, settings)
+    out.caption = headline_spelling(out.caption, story.title or "")
     out.caption = restate_relative_day(out.caption, story.summary or "", now, settings.tz)
     out.caption = introduce_speakers(out.caption, story.summary or "")
     if story.source_kind == "rss" and promo_blurb(out.caption):

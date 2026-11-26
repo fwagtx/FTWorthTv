@@ -182,7 +182,10 @@ def test_a_cut_off_wire_recap_keeps_its_first_complete_clause(settings, now):
                         "goal and FC Dallas beat the Portland Timbers 3-0 in Game 1...") == \
         "Joaquín Valiente scored two second-half goals in a 2-minute span."
     # a cut inside an appositive leaves a subject without its verb: nothing to salvage
-    assert salvage_lead("Dak Prescott, who threw for 300 yards and three touchdowns, led the Cowboys past the Eagles 31-24 on...") == ""
+    assert salvage_lead("Dak Prescott, who threw for 300 yards and three touchdowns, led the Cowboys past the...") == ""
+    # a cut right after the score loses only the day (Nov 26, render 279)
+    assert salvage_lead("Dak Prescott, who threw for 300 yards and three touchdowns, led the Cowboys past the Eagles 31-24 on...") == \
+        "Dak Prescott, who threw for 300 yards and three touchdowns, led the Cowboys past the Eagles 31-24."
     story = Story(id="mavs", source="WFAA Sports", source_kind="rss", category="sports", url="https://www.wfaa.com/article/syndication/x",
                   title="Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100", summary=lead, published=now)
     copy, _ = write_copy(story, settings, now, force_template=True)
@@ -1543,3 +1546,27 @@ def test_a_flood_control_project_is_not_weather_but_a_flood_is():
     flood = Story(id="f", source="WFAA", source_kind="rss", title="Flash flooding closes roads in east Fort Worth",
                   summary="Heavy rain flooded several streets and a flood warning remains in effect until 9 p.m.", url="u")
     assert infer_category(flood) == "weather"
+
+
+def test_a_recap_keeps_the_headlines_spelling_and_the_sentence_cut_before_its_day(settings, now):
+    """Nov 26, render 279: WFAA Sports' AP recap led "Mavrick Bourque scored his first goal for Nashville." under the headline
+    "Mavrik Bourque returns to Dallas ...", and its second sentence ("... as the Predators beat Dallas 3-1 on...") was dropped
+    as cut off, so the caption was one sentence with the player's name misspelled."""
+    from ftworthtv.models import Story
+    from ftworthtv.writer import headline_spelling, salvage_day_cut, write_copy
+    title = "Mavrik Bourque returns to Dallas and scores his first goal for Nashville in 3-1 win"
+    summary = ("Mavrick Bourque scored his first goal for Nashville. He got it against the team that traded him nearly five months "
+               "ago as the Predators beat Dallas 3-1 on...")
+    assert headline_spelling("Mavrick Bourque scored.", title) == "Mavrik Bourque scored."
+    assert headline_spelling("North Texans gathered.", "North Texas braces for a freeze") == "North Texans gathered."
+    assert headline_spelling("Brandon Smith and Jason Smith scored.", "Brandon Smith leads TCU") == "Brandon Smith and Jason Smith scored."
+    assert salvage_day_cut("the Predators beat Dallas 3-1 on Wednesday night...") == ""          # under eight words
+    assert salvage_day_cut("He got it as the Predators beat Dallas 3-1 on Wednesday night...") == \
+        "He got it as the Predators beat Dallas 3-1."
+    assert salvage_day_cut("Police said the driver was taken to a hospital and held on...") == ""   # no score before " on"
+    story = Story(id="bourque", source="WFAA Sports", source_kind="rss", category="sports",
+                  url="https://www.wfaa.com/article/sports/nhl/stars/x", title=title, summary=summary, published=now)
+    copy, _ = write_copy(story, settings, now, force_template=True)
+    assert not copy.skip
+    assert "Mavrick" not in copy.caption and "Mavrik Bourque scored his first goal for Nashville." in copy.caption
+    assert "as the Predators beat Dallas 3-1." in copy.caption
