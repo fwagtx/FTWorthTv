@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-26T14:38:22.567640+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-081322/02-why-do-the-detroit-lions-and-dallas-cowboys-play/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-081322/02-why-do-the-detroit-lions-and-dallas-cowboys-play/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Why do the Detroit Lions and Dallas Cowboys play every year on Thanksgiving? The history",
+    "caption": "The Detroit Lions and Dallas Cowboys are Thanksgiving staples. In 1934, Detroit radio executive George A. Richards bought the Portsmouth Spartans, relocated the organization to Detroit and renamed the team the Lions.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/detroit-lions-dallas-cowboys-thanksgiving-tradition/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "d2d3034b39c761e2",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Why do the Detroit Lions and Dallas Cowboys play every year on Thanksgiving? The history of the traditional game.",
+    "summary": "The Detroit Lions and Dallas Cowboys are Thanksgiving staples. Here's the full history of why the teams play each Thanksgiving Day. November 26, 2026 / 5:00 AM CST / CBS Detroit The Detroit Lions and the Dallas Cowboys are about as synonymous with Thanksgiving as turkey and pumpkin pie. Here's why the Lions and Cowboys play each Thanksgiving and how the two teams have historically fared on Turkey Day. In 1934, Detroit radio executive George A. Richards bought the Portsmouth Spartans, relocated the organization to Detroit and renamed the team the Lions. In an effort to attract fans during the club's first campaign in Detroit, Richards scheduled a Thanksgiving game against the Chicago Bears. Richards, who owned WJR, partnered with NBC Radio, which at the time had 94 stations in the U.S., to broadcast the game. The University of Detroit Stadium hosted the inaugural game on Nov. 29, 1934…",
+    "url": "https://www.cbsnews.com/texas/news/detroit-lions-dallas-cowboys-thanksgiving-tradition/",
+    "published": "2026-11-26T11:00:20+00:00",
+    "category_hint": null,
+    "image_url": "https://assets3.cbsnewsstatic.com/hub/i/r/2025/11/23/7771ba79-b1be-4646-b02e-67fb6a94391d/thumbnail/1024x576/0f305c7431ce7801475750b755b62179/gettyimages-2187355171.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.6335
+  }
+}

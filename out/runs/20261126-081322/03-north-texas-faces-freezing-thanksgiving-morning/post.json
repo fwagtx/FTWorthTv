@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-26T15:03:22.567640+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-081322/03-north-texas-faces-freezing-thanksgiving-morning/post.jpg",
+    "credit": "Photo: Gatorfan252525 via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:A_whole_smoked_turkey_cooked_for_Thanksgiving_dinner.jpg",
+    "photo_id": "lib-a-whole-smoked-turkey-cooked-for-thanksgiving-dinner-jpg",
+    "subject": "beat:thanksgiving"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-081322/03-north-texas-faces-freezing-thanksgiving-morning/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "North Texas faces freezing Thanksgiving morning before weekend warmup",
+    "caption": "Sunny skies, warmer temperatures and gusty winds are ahead. Expect a seasonably cool but sunny Thanksgiving.\n\nTemps warm into the start of the weekend, but a dry cold front brings strong winds and a quick cool-down late in the weekend. While we did not get right to the freezing mark at DFW Tuesday morning, many of the more suburban areas in North Texas did reach freezing, marking the end of the growing season.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/north-texas-thanksgiving-weather-forecast-weekend-cold-front-november-2026/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "roast turkey Thanksgiving food",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "17d95716459e3730",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "North Texas faces freezing Thanksgiving morning before weekend warmup",
+    "summary": "Sunny skies, warmer temperatures and gusty winds are ahead. Updated on: November 25, 2026 / 10:33 PM CST / CBS Texas Expect a seasonably cool but sunny Thanksgiving. Temps warm into the start of the weekend, but a dry cold front brings strong winds and a quick cool-down late in the weekend. While we did not get right to the freezing mark at DFW Tuesday morning, many of the more suburban areas in North Texas did reach freezing, marking the end of the growing season. Thanksgiving morning will be another bitterly cold start, with lows right near or below freezing across much of North Texas. As we head into the afternoon, we will hang onto seasonably cool afternoon temperatures, topping out in the low to mid 50s, with a steady northwesterly breeze. Friday morning will also start near or below freezing, but Friday afternoon will be warmer, with highs in the mid-60s, thanks to the return of…",
+    "url": "https://www.cbsnews.com/texas/news/north-texas-thanksgiving-weather-forecast-weekend-cold-front-november-2026/",
+    "published": "2026-11-26T04:33:32+00:00",
+    "category_hint": null,
+    "image_url": "https://assets1.cbsnewsstatic.com/hub/i/r/2026/11/26/7cb564ac-2c9d-4dd0-addf-efd213d732ef/thumbnail/1024x576/3418753a4bee45838cee349255042dc2/dma-lows-sky-tonight.png",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.2521
+  }
+}
