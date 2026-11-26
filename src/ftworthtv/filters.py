@@ -297,7 +297,10 @@ _ARCHIVE_RE = re.compile(r"^(?:watch|replay|rewind)\b[^.]{0,160}?\b(?:as it happ
 
 
 _RANKINGS_RE = re.compile(r"\b(?:top 25|top-25|power rankings?|coaches poll|ap poll|cfp rankings?|playoff rankings?|"
-                          r"college (?:football|basketball) rankings?|bracketology)\b", re.I)
+                          r"college (?:football|basketball) rankings?|bracketology|"
+                          # Nov 26, render 274: CBS Sports' "Week 13 College Football Playoff impact games: USC-UCLA, Alabama-Auburn
+                          # hold major implications", a national slate with a 2018 media-day photo
+                          r"(?:playoff )?impact games|games to watch|must-watch games|games with (?:playoff |major |bowl )?implications)\b", re.I)
 _LOCAL_TEAMS_RE = re.compile(r"\b(?:tcu|horned frogs|frogs|cowboys|mavericks|mavs|rangers|stars|fc dallas|wings|smu|mean green|unt|"
                              r"ut arlington|uta|mavericks)\b", re.I)
 

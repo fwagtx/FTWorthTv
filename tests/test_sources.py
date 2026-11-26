@@ -784,3 +784,12 @@ def test_an_alert_until_a_time_this_morning_is_over_by_afternoon():
     assert passed_window(caption, datetime(2026, 11, 26, 13, 12, tzinfo=tz)) == "until 9 a.m."
     assert passed_window(caption, datetime(2026, 11, 26, 7, 30, tzinfo=tz)) == ""
     assert passed_window("The westbound lanes will stay closed until 5 p.m. Friday.", datetime(2026, 11, 26, 18, 0, tzinfo=tz)) == ""
+
+
+def test_a_national_slate_of_impact_games_is_a_list():
+    """Nov 26, render 274: CBS Sports' "Week 13 College Football Playoff impact games: USC-UCLA, Alabama-Auburn hold major
+    implications" (no local team)."""
+    from ftworthtv.filters import rankings_list
+    assert rankings_list("Week 13 College Football Playoff impact games: USC-UCLA, Alabama-Auburn hold major implications")
+    assert rankings_list("College football Week 14 games to watch")
+    assert not rankings_list("TCU's playoff impact games: what the Horned Frogs need this weekend")
