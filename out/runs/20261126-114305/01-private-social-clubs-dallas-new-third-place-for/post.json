@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-114305/01-private-social-clubs-dallas-new-third-place-for/post.jpg",
+    "credit": "Photo: IcedCowboyCoffee via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_Texas_skyline_from_Reunion_Tower_September_2025.png",
+    "photo_id": "lib-dallas-texas-skyline-from-reunion-tower-september-2025-png",
+    "subject": "beat:dallas-skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-114305/01-private-social-clubs-dallas-new-third-place-for/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Private social clubs: Dallas' new ‘third place for the wealthy'",
+    "caption": "An influx of affluent newcomers and shifting demands from residents are fueling demand for members-only spaces where dining, socializing, and business mix. Gold-coated elevators bring clubgoers up to Park House in Highland Park Village, where concierges stand on checker-like flooring underneath a massive pink light fixture to check members and guests in.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/dallas-morning-news/private-social-clubs-dallas-new-third-place-for-the-wealthy/4110667/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "7c13c0bbcea25cc0",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Private social clubs: Dallas' new ‘third place for the wealthy'",
+    "summary": "An influx of affluent newcomers and shifting demands from residents are fueling demand for members-only spaces where dining, socializing, and business mix. Gold-coated elevators bring clubgoers up to Park House in Highland Park Village, where concierges stand on checker-like flooring underneath a massive pink light fixture to check members and guests in. Not far away in Preston Hollow, 55 Seventy members talk business over lunch in a dimly lit dining room with brown and blue hues, their wine stored in lockers that line a 6,000-square-foot wine cellar set at 55 degrees and 70% humidity. For a growing swath who can afford it, Dallas-area private social clubs — Park House and 55 Seventy being the most popular — are where parties are thrown, business gets done, and dinners are enjoyed. As Park House co-founder Deborah Scott described it, they’re “like someone’s intimate, luxury living…",
+    "url": "https://www.nbcdfw.com/news/local/dallas-morning-news/private-social-clubs-dallas-new-third-place-for-the-wealthy/4110667/",
+    "published": "2026-11-26T11:28:48+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2019/09/Highland-Park-Village1.jpg?quality=85&strip=all&fit=400,300",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.3566
+  }
+}
