@@ -728,3 +728,16 @@ def test_the_writers_category_is_the_one_the_days_rules_count(settings, now, mon
                   published=now - timedelta(hours=1))
     report = pipeline.run(settings, now=now, stories=[story], publisher_name="dryrun")
     assert any(s.id == "shelter" and r == "a weather story already went out in the last six hours" for s, r in report.skipped)
+
+
+def test_a_verdict_on_a_team_is_a_column_and_another_match_is_not_its_picture():
+    """Nov 26, render 268: ESPN's "With World Cup qualification at stake, the USWNT has no excuses" with "Levi's Stadium 2026
+    FIFA World Cup Australia v. Paraguay" (the USWNT plays El Salvador in Mansfield)."""
+    from ftworthtv.filters import roundup_column
+    from ftworthtv.images.providers import other_event_photo
+    assert roundup_column("With World Cup qualification at stake, the USWNT has no excuses")
+    story = ("The USWNT faces El Salvador in the Concacaf quarterfinal on Friday in Mansfield, Texas, one win from the 2027 "
+             "Women's World Cup.")
+    assert other_event_photo("Levi's Stadium 2026 FIFA World Cup Australia v. Paraguay", "World Cup", story)
+    assert not other_event_photo("USWNT vs El Salvador 2024 friendly", "USWNT", story)
+    assert not other_event_photo("TCU vs. Baylor 2024", "TCU", "TCU hosts Baylor on Saturday at Amon G. Carter Stadium.")

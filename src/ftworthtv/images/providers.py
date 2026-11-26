@@ -527,9 +527,19 @@ def facility_for_other_news(title: str, story_text: str) -> bool:
                                                            r"moves?|relocat\w+|closes?|closing)\b", head, re.I)
 
 
+# a file titled "X v. Y" shows that match: Nov 26, render 268, "Levi's Stadium 2026 FIFA World Cup Australia v. Paraguay" for
+# ESPN's USWNT qualifier story (the USWNT plays El Salvador in Mansfield)
+_MATCH_TITLE_RE = re.compile(r"\b([A-Za-z][\w.'’-]+) (?:v|vs)\.? ([A-Z][\w.'’-]+)")
+
+
 def other_event_photo(titled: str, query: str, story_text: str) -> bool:
     """The file shows a named event ("grand opening") somewhere the story never mentions, or, for a story about something
-    opening, another location of the same brand."""
+    opening, another location of the same brand, or a match between two teams the story never names."""
+    m = _MATCH_TITLE_RE.search(titled or "")
+    if m and story_text:
+        low = story_text.lower()
+        if not any(team.lower().strip(".") in low for team in (m.group(1), m.group(2))):
+            return True
     if not story_text or not (_EVENT_PHOTO_RE.search(titled) or _OPENING_STORY_RE.search(story_text[:300])):
         return False
     subject = set(re.findall(r"[a-z0-9]+", (query or "").lower()))
