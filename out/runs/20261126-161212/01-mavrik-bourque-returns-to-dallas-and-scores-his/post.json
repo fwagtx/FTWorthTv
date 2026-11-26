@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-161212/01-mavrik-bourque-returns-to-dallas-and-scores-his/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-161212/01-mavrik-bourque-returns-to-dallas-and-scores-his/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Mavrik Bourque returns to Dallas and scores his first goal for Nashville in 3-1 win",
+    "caption": "Mavrick Bourque scored his first goal for Nashville.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/sports/nhl/stars/mavrik-bourque-returns-to-dallas-and-scores-his-first-goal-for-nashville-in-3-1-win/616-e7fb566f-7ca2-4594-8ade-9becf74ca0a8\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "64970f8a8e5702c3",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "Mavrik Bourque returns to Dallas and scores his first goal for Nashville in 3-1 win",
+    "summary": "Mavrick Bourque scored his first goal for Nashville. He got it against the team that traded him nearly five months ago as the Predators beat Dallas 3-1 on...",
+    "url": "https://www.wfaa.com/article/sports/nhl/stars/mavrik-bourque-returns-to-dallas-and-scores-his-first-goal-for-nashville-in-3-1-win/616-e7fb566f-7ca2-4594-8ade-9becf74ca0a8",
+    "published": "2026-11-26T16:13:55+00:00",
+    "category_hint": "sports",
+    "image_url": "https://media.tegna-media.com/assets/AssociatedPress/images/eb162e4c-389c-4553-b291-fc3d040e3a41/20261126T034524/eb162e4c-389c-4553-b291-fc3d040e3a41_750x422.jpg",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7200000000000001,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5452
+  }
+}
