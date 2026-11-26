@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-221306/01-nfl-on-thanksgiving-halftime-shows-ranking-the-1/post.jpg",
+    "credit": "Photo: JoshBerglund19 (CC BY 2.0) via Flickr",
+    "license": "openverse-cc",
+    "provider": "openverse",
+    "source_url": "https://www.flickr.com/photos/79877212@N00/348693151",
+    "photo_id": "openverse-bbf39cca-7bc5-4c08-b727-068267cf2714",
+    "subject": "beat:category:AT&T Stadium"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261125-221306/01-nfl-on-thanksgiving-halftime-shows-ranking-the-1/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "NFL on Thanksgiving halftime shows: Ranking the 10 most memorable performances",
+    "caption": "A look at some of the most iconic performances from Turkey Days of the past NFL halftime shows have evolved since the beginning of the league. What began as marching bands and local high school bands has now turned into full productions.\n\nThanksgiving has featured big performances from top artists since 1997, when Reba McEntire performed at the first Salvation Army Red Kettle Kickoff halftime show. This year, three games will be played on Thanksgiving Day.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/nfl/news/nfl-thanksgiving-2026-ranking-most-memorable-halftime-shows/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "662f7da24c8d4203",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "NFL on Thanksgiving halftime shows: Ranking the 10 most memorable performances",
+    "summary": "A look at some of the most iconic performances from Turkey Days of the past NFL halftime shows have evolved since the beginning of the league. What began as marching bands and local high school bands has now turned into full productions. Thanksgiving has featured big performances from top artists since 1997, when Reba McEntire performed at the first Salvation Army Red Kettle Kickoff halftime show, which kicks off the Salvation Army's annual Red Kettle Campaign and encourages fans to give back to those in need. This year, three games will be played on Thanksgiving Day. Bears vs. Lions will be played at 1 p.m. ET on CBS and stream on Paramount+ , Eagles vs. Cowboys will take place at 4:30 p.m. ET on FOX, and the Chiefs and Bills face off at 8:20 p.m. on NBC. Wu-Tang Clan will perform in Detroit, Miranda Lambert in Texas, and the Goo Goo Dolls in New York. This doesn't include the…",
+    "url": "https://www.cbssports.com/nfl/news/nfl-thanksgiving-2026-ranking-most-memorable-halftime-shows/",
+    "published": "2026-11-26T03:04:30+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/25/169e8487-51eb-4364-aacb-5d3a4a9fe0b8/thanksgiving-halftime.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.39,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "national",
+      "national_term": "halftime"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.4485
+  }
+}
