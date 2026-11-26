@@ -7,7 +7,8 @@
     "2026-11-22": 19,
     "2026-11-23": 20,
     "2026-11-24": 20,
-    "2026-11-25": 19
+    "2026-11-25": 19,
+    "2026-11-26": 2
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -85,6 +86,10 @@
       "politics": 1,
       "sports": 3,
       "weather": 2
+    },
+    "2026-11-26": {
+      "community": 1,
+      "weather": 1
     }
   },
   "daily_by_kind": {
@@ -131,6 +136,10 @@
       "rss": 14,
       "video": 2,
       "wanted": 2
+    },
+    "2026-11-26": {
+      "culture": 1,
+      "rss": 1
     }
   },
   "daily_by_scope": {
@@ -173,6 +182,10 @@
       "dfw": 5,
       "local": 13,
       "texas": 1
+    },
+    "2026-11-26": {
+      "dfw": 1,
+      "local": 1
     }
   },
   "deferred": {
@@ -573,7 +586,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-25T19:49:00-06:00",
+  "last_post_at": "2026-11-26T06:43:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1257,6 +1270,19 @@
       "title": "Gas prices drop ahead of Thanksgiving, but fewer Texans are hitting the road",
       "url": "https://www.wfaa.com/article/news/local/gas-prices-drop-ahead-thanksgiving-but-fewer-texans-hitting-road/287-73e4ba73-c378-4a44-9752-a0245ca51306"
     },
+    "73da3c13ef537eaf": {
+      "at": "2026-11-26T06:43:00-06:00",
+      "category": "weather",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "443032517",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5630819024311897902",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Dallas Weather: Breezy, near-freezing ‘festive chill’ grips North Texas for Thanksgiving",
+      "url": "https://www.fox4news.com/weather/dallas-weather-breezy-near-freezing-festive-chill-grips-north-texas-thanksgiving"
+    },
     "77886cedb8df0cac": {
       "at": "2026-11-25T08:25:00-06:00",
       "category": "crime",
@@ -1834,6 +1860,19 @@
       "source": "Fort Worth Texas TV",
       "title": "Parade of Lights rolls through downtown Fort Worth this Sunday 🎄",
       "url": "https://www.fortworthparadeoflights.org/"
+    },
+    "culture-thanksgiving-2026-0": {
+      "at": "2026-11-26T06:18:00-06:00",
+      "category": "community",
+      "kind": "culture",
+      "mode": "photo",
+      "post_id": "443032382",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=840206910884433794",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Texas TV",
+      "title": "Happy Thanksgiving Fort Worth 🦃",
+      "url": ""
     },
     "d19e6bea6dbf9024": {
       "at": "2026-11-24T09:17:00-06:00",
@@ -2843,7 +2882,7 @@
       "reason": "the photo was another man (Mark Wilson at a hall of fame induction) on a death notice for Tom Jackson; a Denver story, not Fort Worth news ("
     }
   },
-  "total_posts": 134,
+  "total_posts": 136,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
@@ -2874,7 +2913,8 @@
     "lib-2021-12-22-annateich-01-jpg",
     "sunshine-lib-downtown-fort-worth-skyline-jpg",
     "lib-gas-pump-fueling-toyota-4runner-53999956018-jpg",
-    "openverse-245d4b45-1d0e-43a5-b771-9272ab306893"
+    "openverse-245d4b45-1d0e-43a5-b771-9272ab306893",
+    "lib-thanksgiving-turkey-on-platter-jpg"
   ],
   "version": 1
 }
