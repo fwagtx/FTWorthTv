@@ -8,7 +8,7 @@
     "2026-11-23": 20,
     "2026-11-24": 20,
     "2026-11-25": 19,
-    "2026-11-26": 10
+    "2026-11-26": 11
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -88,6 +88,7 @@
       "weather": 2
     },
     "2026-11-26": {
+      "breaking": 1,
       "community": 3,
       "crime": 4,
       "other": 1,
@@ -142,7 +143,7 @@
     },
     "2026-11-26": {
       "culture": 1,
-      "rss": 5,
+      "rss": 6,
       "video": 2,
       "wanted": 2
     }
@@ -190,7 +191,7 @@
     },
     "2026-11-26": {
       "dfw": 1,
-      "local": 9
+      "local": 10
     }
   },
   "deferred": {
@@ -459,11 +460,6 @@
       "reason": "daily cap for culture reached",
       "title": "Historic Fort Worth hotel lauded for one of America’s best afternoon teas"
     },
-    "b01cb769e03cadde": {
-      "at": "2026-11-24T18:18:42.702501+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "Snow falls in Texas as freeze warning looms for parts of North Texas"
-    },
     "b70251a31f42895e": {
       "at": "2026-11-25T19:49:58.142974+00:00",
       "reason": "daily cap for crime reached",
@@ -514,6 +510,11 @@
       "reason": "daily cap for community reached",
       "title": "New $29.8 million sea turtle hospital coming to Galveston’s Texas A&M campus"
     },
+    "e17411701c2e9a19": {
+      "at": "2026-11-26T18:43:09.651453+00:00",
+      "reason": "daily cap for community reached",
+      "title": "Sixth grader in Texas foster care says art and humor help him cope while waiting for a family"
+    },
     "e9226c2aa5ed98df": {
       "at": "2026-11-24T19:47:10.059331+00:00",
       "reason": "daily cap for weather reached",
@@ -556,7 +557,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-26T12:45:00-06:00",
+  "last_post_at": "2026-11-26T13:10:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -776,6 +777,19 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Tarrant Area Food Bank hosts Thanksgiving mega food distribution at AT&T Stadium",
       "url": "https://www.fox4news.com/good-day/tarrant-area-food-bank-hosts-thanksgiving-mega-food-distribution-att-stadium"
+    },
+    "240e4247317b6fae": {
+      "at": "2026-11-26T13:10:00-06:00",
+      "category": "breaking",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "443509210",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=7830703959260548437",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "2 pets die, 1 rescued as Fort Worth firefighters respond to multiple fires amid cold weather",
+      "url": "https://www.fox4news.com/news/2-pets-die-1-rescued-fort-worth-firefighters-respond-multiple-fires-amid-cold-weather"
     },
     "24b87d7eea5e8a9f": {
       "at": "2026-11-19T22:00:00+00:00",
@@ -3051,7 +3065,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 144,
+  "total_posts": 145,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
