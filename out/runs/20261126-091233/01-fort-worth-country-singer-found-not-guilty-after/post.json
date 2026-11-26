@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-091233/01-fort-worth-country-singer-found-not-guilty-after/post.jpg",
+    "credit": "Photo: Jruizalvarez via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tarrant_County_Courthouse,_Fort_Worth,_TX.jpg",
+    "photo_id": "lib-tarrant-county-courthouse-fort-worth-tx-jpg",
+    "subject": "beat:courthouse"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-091233/01-fort-worth-country-singer-found-not-guilty-after/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Fort Worth country singer found not guilty after murder trial",
+    "caption": "Tarrant County jurors found a local country music artist not guilty following a week-long murder trial. Christopher Blanton Jr., who also goes by the name C’ing Jerome, was acquitted on Friday on charges of murder and aggravated assault with a deadly weapon.\n\nDuring the trial, Blanton’s defense attorneys successfully argued that the 2025 shooting death of 32-year-old Cody Davontae Scott was in self-defense. They told jurors Blanton believed Scott had pointed a gun at him.",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth https://www.fox4news.com/news/fort-worth-country-singer-found-not-guilty-after-murder-trial\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police lights street night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "cae41b02e68d7cf2",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "rss",
+    "title": "Fort Worth country singer found not guilty after murder trial",
+    "summary": "Tarrant County jurors found a local country music artist not guilty following a week-long murder trial. FORT WORTH, Texas - Tarrant County jurors found a local country music artist not guilty following a week-long murder trial. Christopher Blanton Jr., who also goes by the name C’ing Jerome, was acquitted on Friday on charges of murder and aggravated assault with a deadly weapon. During the trial, Blanton’s defense attorneys successfully argued that the 2025 shooting death of 32-year-old Cody Davontae Scott was in self-defense. They told jurors Blanton believed Scott had pointed a gun at him. Prosecutors contended that Scott was unarmed, that it would have been difficult for Blanton to see a weapon if Scott had one, and that the two men had a history of past violent interactions. In a statement provided to FOX 4, Blanton said he has always maintained that he acted in self-defense.…",
+    "url": "https://www.fox4news.com/news/fort-worth-country-singer-found-not-guilty-after-murder-trial",
+    "published": "2026-11-25T20:26:20+00:00",
+    "category_hint": null,
+    "image_url": "https://static.fox4news.com/www.fox4news.com/content/uploads/2026/11/v-fw-berry-st-shooting-trial-530p_00.00.19.44.jpg",
+    "image_credit": "Photo: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "Latest News | FOX 4 News",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 3,
+    "score": 0.1258
+  }
+}

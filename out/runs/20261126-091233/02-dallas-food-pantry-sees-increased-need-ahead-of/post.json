@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-26T15:37:33.031493+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-091233/02-dallas-food-pantry-sees-increased-need-ahead-of/post.jpg",
+    "credit": "Photo: Tessa Bury via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Grocery_Store_Aisle,_vermont.jpg",
+    "photo_id": "lib-grocery-store-aisle-vermont-jpg",
+    "subject": "beat:grocery"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-091233/02-dallas-food-pantry-sees-increased-need-ahead-of/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Dallas food pantry sees increased need ahead of Thanksgiving",
+    "caption": "The Stewpot is serving about 300 visitors a day. As North Texans prepare for Thanksgiving, local food pantries say they're seeing the impact of rising food prices.\n\nThe Stewpot in Dallas says many families are still struggling to put food on the table. They're working to meet the need.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/dallas-food-pantry-sees-increased-need-ahead-of-thanksgiving/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "7cde9022743df70d",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Dallas food pantry sees increased need ahead of Thanksgiving",
+    "summary": "The Stewpot is serving about 300 visitors a day. November 25, 2026 / 10:30 PM CST / CBS Texas As North Texans prepare for Thanksgiving, local food pantries say they're seeing the impact of rising food prices. The Stewpot in Dallas says many families are still struggling to put food on the table. They're working to meet the need. Manager of Volunteer and Food Services Adrienne Nicholson says in the days leading up to the holiday, they've been averaging around 300 visitors a day. \"There's no income restriction; anyone can come into a judgment-free zone and have a grocery shopping experience,\" she said. \"That financial relief is huge.\" Lisa is stopping by for the second time in two weeks. She says on her first trip, she ended up giving all of her groceries to her Lyft driver, who she felt needed them more than she did. \"She goes, 'Are you serious?' And I said yes, and she's like, 'Thank…",
+    "url": "https://www.cbsnews.com/texas/news/dallas-food-pantry-sees-increased-need-ahead-of-thanksgiving/",
+    "published": "2026-11-26T04:30:48+00:00",
+    "category_hint": null,
+    "image_url": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/11/26/a7a397d7-8454-4c14-8357-df44a198e3a3/thumbnail/1024x576/4c89fd0e2401c9f2bff2a7e1b8ef2a36/erin.png",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.1946
+  }
+}
