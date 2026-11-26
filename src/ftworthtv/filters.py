@@ -126,7 +126,11 @@ _BETTING_RE = re.compile(r"\b(best bets?|best picks|odds,? (?:and )?(?:picks?|pr
                          r"(?:week \d+ )?(?:nfl|nba|mlb|nhl|college football|college basketball|cfb|bowl)(?: week \d+)? picks|"
                          # Nov 25, CBS Sports: "Cowboys vs. Eagles Thanksgiving prediction: ..." and "One bold prediction for each NFL
                          # Thanksgiving game ...": a pundit's guess with a menu of food puns is not news
-                         r"bold predictions?|predictions? for (?:each|every|all)|(?:game|thanksgiving|week \d+|matchup|bowl|playoff) predictions?)\b",
+                         r"bold predictions?|predictions? for (?:each|every|all)|(?:game|thanksgiving|week \d+|matchup|bowl|playoff) predictions?|"
+                         # Nov 26, render 269: CBS Sports' "NFL DFS, Thanksgiving Day: Top daily Fantasy picks, lineups for ..." as a
+                         # sports text card: daily-fantasy advice is a betting column
+                         r"dfs|daily fantasy|fantasy (?:picks|lineups?|rankings|sleepers|start|advice)|start[,']?\s*(?:'em|em),? sit|"
+                         r"waiver wire)\b",
                          re.I)
 
 

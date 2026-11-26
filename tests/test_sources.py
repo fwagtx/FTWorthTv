@@ -741,3 +741,14 @@ def test_a_verdict_on_a_team_is_a_column_and_another_match_is_not_its_picture():
     assert other_event_photo("Levi's Stadium 2026 FIFA World Cup Australia v. Paraguay", "World Cup", story)
     assert not other_event_photo("USWNT vs El Salvador 2024 friendly", "USWNT", story)
     assert not other_event_photo("TCU vs. Baylor 2024", "TCU", "TCU hosts Baylor on Saturday at Amon G. Carter Stadium.")
+
+
+def test_daily_fantasy_advice_is_a_betting_column():
+    """Nov 26, render 269: CBS Sports' "NFL DFS, Thanksgiving Day: Top daily Fantasy picks, lineups for Bears-Lions, Cowboys-Eagles,
+    Chiefs-Bills" as a sports text card."""
+    from ftworthtv.filters import _BETTING_RE
+    assert _BETTING_RE.search("NFL DFS, Thanksgiving Day: Top daily Fantasy picks, lineups for Bears-Lions, Cowboys-Eagles, Chiefs-Bills")
+    assert _BETTING_RE.search("Week 13 fantasy rankings: CeeDee Lamb a top-five receiver")
+    assert _BETTING_RE.search("Start 'em, sit 'em: Week 13")
+    assert not _BETTING_RE.search("Cowboys beat Eagles 31-24 on Thanksgiving")
+    assert not _BETTING_RE.search("Fantasy football star CeeDee Lamb leads Cowboys past Eagles")
