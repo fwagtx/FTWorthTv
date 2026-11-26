@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=3FQ7W_7bIOk",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "What to know about the Fort Worth YMCA Turkey Trot this year",
+    "caption": "WATCH: What to know about the Fort Worth YMCA Turkey Trot this year\n\nTrevor Sochocki learns more from Jacklinn Sotello about this year's race!\n\nVideo: CBS Texas on YouTube",
+    "first_comment": "Source: CBS Texas on YouTube https://www.youtube.com/watch?v=3FQ7W_7bIOk\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "6843261487741799",
+    "source": "CBS Texas",
+    "source_kind": "video",
+    "title": "What to know about the Fort Worth YMCA Turkey Trot this year",
+    "summary": "Trevor Sochocki learns more from Jacklinn Sotello about this year's race!",
+    "url": "https://www.youtube.com/watch?v=3FQ7W_7bIOk",
+    "published": "2026-11-26T13:02:32+00:00",
+    "category_hint": null,
+    "image_url": "https://i4.ytimg.com/vi/3FQ7W_7bIOk/hqdefault.jpg",
+    "image_credit": "Video: CBS Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "3FQ7W_7bIOk",
+      "channel": "CBS Texas",
+      "handle": "@CBSTexas",
+      "views": 32,
+      "feed_title": "CBS Texas",
+      "scope": "local"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.5761
+  }
+}
