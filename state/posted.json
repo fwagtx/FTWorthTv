@@ -9,7 +9,7 @@
     "2026-11-24": 20,
     "2026-11-25": 19,
     "2026-11-26": 15,
-    "2026-11-27": 10
+    "2026-11-27": 12
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -98,9 +98,10 @@
       "weather": 1
     },
     "2026-11-27": {
+      "community": 1,
       "crime": 2,
       "culture": 1,
-      "sports": 5,
+      "sports": 6,
       "traffic": 1,
       "weather": 1
     }
@@ -157,7 +158,7 @@
       "wanted": 2
     },
     "2026-11-27": {
-      "rss": 6,
+      "rss": 8,
       "video": 2,
       "wanted": 2
     }
@@ -208,8 +209,8 @@
       "local": 13
     },
     "2026-11-27": {
-      "dfw": 2,
-      "local": 8
+      "dfw": 3,
+      "local": 9
     }
   },
   "deferred": {
@@ -313,11 +314,6 @@
       "reason": "daily cap for community reached",
       "title": "Dallas food pantry sees increased need ahead of Thanksgiving"
     },
-    "80ce7503942fb880": {
-      "at": "2026-11-25T22:45:44.871499+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Dallas police chief's publishing company, book signing events raise ethics questions"
-    },
     "98e319a85ca8e297": {
       "at": "2026-11-27T03:13:39.720509+00:00",
       "reason": "daily cap for crime reached",
@@ -328,20 +324,10 @@
       "reason": "daily cap for community reached",
       "title": "New cypress trees grow in Kerr County, bringing hope and healing after floods"
     },
-    "afaec903acfe3c79": {
-      "at": "2026-11-25T22:45:44.871550+00:00",
-      "reason": "daily cap for culture reached",
-      "title": "Historic Fort Worth hotel lauded for one of America’s best afternoon teas"
-    },
     "cdb121ed072afaa0": {
       "at": "2026-11-26T04:43:21.017048+00:00",
       "reason": "daily cap for crime reached",
       "title": "Dallas Police seek public's help identifying suspects in deadly October shooting"
-    },
-    "d2ee925c83bbabf6": {
-      "at": "2026-11-25T22:45:44.871508+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Check your pockets! $850,000 winning Texas lottery ticket expires day after Christmas"
     },
     "d6021fb5cfcf6a03": {
       "at": "2026-11-26T23:15:28.515150+00:00",
@@ -368,11 +354,6 @@
       "reason": "daily cap for community reached",
       "title": "Dallas family escapes devastating Thanksgiving Day fire"
     },
-    "eb72e1365c1ecbe6": {
-      "at": "2026-11-25T23:14:08.251088+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Turkey? No thanks. HEB ISD students dish out Thanksgiving favorites, family traditions"
-    },
     "f135d3a75d5532ba": {
       "at": "2026-11-27T04:14:03.691773+00:00",
       "reason": "daily cap for crime reached",
@@ -385,7 +366,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-27T17:08:00-06:00",
+  "last_post_at": "2026-11-27T17:58:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1530,6 +1511,19 @@
       "title": "“We need to be compensated”: Texas Tech chair pushed Fermi data center company for lucrative deals, despite university ties",
       "url": "https://feeds.texastribune.org/link/16799/17536360/texas-tech-cody-campbell-board-fermi-data-center-matador"
     },
+    "905ee047451c5f9e": {
+      "at": "2026-11-27T17:58:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "444971481",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8192047703583769617",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "WFAA Sports",
+      "title": "Kaskimaki's go-ahead goal helps Blues to 5-3 win over Stars",
+      "url": "https://www.wfaa.com/article/sports/nhl/stars/kaskimakis-go-ahead-goal-helps-blues-to-5-3-win-over-stars/616-60db1822-4e26-41f2-beb8-5f783707d887"
+    },
     "917ebb94f9f4a2f2": {
       "at": "2026-11-24T17:34:00-06:00",
       "category": "business",
@@ -1616,6 +1610,19 @@
       "source": "ESPN Top Headlines",
       "title": "Cowboys' Jones backing Schottenheimer despite 'damning setbacks'",
       "url": "https://www.espn.com/nfl/story/_/id/50608969/cowboys-jerry-jones-backs-coach-damning-setbacks"
+    },
+    "a1c1e6ecf6627f70": {
+      "at": "2026-11-27T17:33:00-06:00",
+      "category": "community",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "444971415",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1362784088406902402",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Fort Worth Report",
+      "title": "A fond farewell: East Fort Worth community print shop closes after 45 years",
+      "url": "https://fortworthreport.org/2026/11/27/a-fond-farewell-east-fort-worth-community-print-shop-closes-after-50-years/"
     },
     "a2a9d1282220d047": {
       "at": "2026-11-22T21:19:00-06:00",
@@ -3235,7 +3242,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 159,
+  "total_posts": 161,
   "tried": {
     "1ab95098ab98f469": {
       "at": "2026-11-27T20:16:18.005986+00:00",
@@ -3268,7 +3275,7 @@
       "title": "Horned Frogs Fall to Blue Jays, 95-87"
     },
     "4a26b3b0d504932c": {
-      "at": "2026-11-27T20:45:09.137107+00:00",
+      "at": "2026-11-27T23:14:12.618170+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Reata opened its kitchen to a new crew for a Sunday night service"
     },
@@ -3318,7 +3325,7 @@
       "title": "Affluent DFW city unwraps 5th biggest holiday budget in the U.S."
     },
     "e17411701c2e9a19": {
-      "at": "2026-11-27T20:45:09.137130+00:00",
+      "at": "2026-11-27T23:14:12.618191+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "Sixth grader in Texas foster care says art and humor help him cope while waiting for a family"
     },
