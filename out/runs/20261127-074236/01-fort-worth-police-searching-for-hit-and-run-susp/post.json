@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=IzE_Dit21bQ",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Fort Worth police searching for hit-and-run suspect",
+    "caption": "WATCH: Fort Worth police searching for hit-and-run suspect\n\nVideo: FOX 4 Dallas-Fort Worth on YouTube",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth on YouTube https://www.youtube.com/watch?v=IzE_Dit21bQ\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "police lights street night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "7c8acf01f43ef052",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "video",
+    "title": "Fort Worth police searching for hit-and-run suspect",
+    "summary": "Fort Worth police are asking for the public's help identifying a driver after a hit and run. FOX 4's Amelia Jones has more.",
+    "url": "https://www.youtube.com/watch?v=IzE_Dit21bQ",
+    "published": "2026-11-27T13:34:59+00:00",
+    "category_hint": null,
+    "image_url": "https://i2.ytimg.com/vi/IzE_Dit21bQ/hqdefault.jpg",
+    "image_credit": "Video: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "video_id": "IzE_Dit21bQ",
+      "channel": "FOX 4 Dallas-Fort Worth",
+      "handle": "@fox4news",
+      "views": 0,
+      "feed_title": "FOX 4 Dallas-Fort Worth",
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.8191
+  }
+}
