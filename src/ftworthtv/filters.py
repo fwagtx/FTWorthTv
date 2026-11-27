@@ -735,11 +735,22 @@ def other_metro_url(url: str) -> bool:
     return any(f"/local/{m.replace(' ', '-')}/" in low for m in OTHER_METROS)
 
 
+# Nov 26, render 283: KXAN's "Rabid dog found in San Marcos as Texas rabies cases top 2025 totals" passed for "Texas" in its
+# second clause: the headline's own story (its first clause) is set in another metro, and the state's count is the context
+_CLAUSE_SPLIT_RE = re.compile(r"\s+(?:as|while|amid|after|but|with)\s+|[;:—–]\s*|,\s+")
+_OUR_TITLE_PLACES = ("fort worth", "tarrant", "dfw", "north texas", "arlington", "keller", "southlake", "mansfield")
+
+
 def other_metro_title(title: str) -> bool:
     """'HPD: Teens find man\'s body in elevator shaft of abandoned downtown Houston building': a headline set in another metro,
     with none of our places in it, is that metro's local story whatever its beat."""
     low = (title or "").lower()
-    if any(w in low for w in ("fort worth", "tarrant", "dfw", "north texas", "arlington", "keller", "southlake", "mansfield", "texas")):
+    first = _CLAUSE_SPLIT_RE.split(low, maxsplit=1)[0]
+    if (not any(w in first for w in _OUR_TITLE_PLACES + ("texas",))
+            and re.search(r"\bin (?:downtown |north |south |east |west |northwest |northeast |southwest |southeast )?(?:"
+                          + "|".join(re.escape(m) for m in OTHER_METROS) + r")\b", first)):
+        return True                         # "Rabid dog found in San Marcos as Texas rabies cases top 2025 totals"
+    if any(w in low for w in _OUR_TITLE_PLACES + ("texas",)):
         return False
     return any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in OTHER_METROS + OTHER_METRO_AGENCIES)
 

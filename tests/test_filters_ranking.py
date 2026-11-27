@@ -449,3 +449,18 @@ def test_the_holiday_is_when_not_what_a_story_is():
     assert cat("Thanksgiving dinner served to 500 at Fort Worth shelter by volunteers") == "community"
     assert cat("Christmas in the Garden returns to Fort Worth Botanic Garden") == "culture"
     assert not fire_incident("Thanksgiving fire safety tips from Fort Worth firefighters")
+
+
+def test_a_headline_set_in_another_metro_is_its_news_even_with_texas_in_a_later_clause():
+    """Nov 26, render 283: KXAN's "Rabid dog found in San Marcos as Texas rabies cases top 2025 totals" was drafted with a
+    photo of a Plaza San Marcos shopping centre's signs."""
+    from ftworthtv.filters import other_metro_title
+    from ftworthtv.images.subject import plan_subject
+    title = "Rabid dog found in San Marcos as Texas rabies cases top 2025 totals"
+    assert other_metro_title(title)
+    assert other_metro_title("Shooting in downtown Houston leaves 3 hurt, police say")
+    assert not other_metro_title("Texas Senate passes property tax bill in Austin")
+    assert not other_metro_title("Austin-based Dell to cut 1,000 Texas jobs")
+    assert not other_metro_title("Fort Worth man arrested in Houston after chase")
+    plan = plan_subject(title, "A dog in San Marcos tested positive for rabies as Texas surpassed last year's total.", "other")
+    assert "San Marcos" not in plan.search_names

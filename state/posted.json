@@ -8,7 +8,7 @@
     "2026-11-23": 20,
     "2026-11-24": 20,
     "2026-11-25": 19,
-    "2026-11-26": 12
+    "2026-11-26": 13
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -92,7 +92,7 @@
       "community": 3,
       "crime": 4,
       "other": 1,
-      "sports": 2,
+      "sports": 3,
       "weather": 1
     }
   },
@@ -143,7 +143,7 @@
     },
     "2026-11-26": {
       "culture": 1,
-      "rss": 7,
+      "rss": 8,
       "video": 2,
       "wanted": 2
     }
@@ -191,7 +191,7 @@
     },
     "2026-11-26": {
       "dfw": 2,
-      "local": 10
+      "local": 11
     }
   },
   "deferred": {
@@ -204,11 +204,6 @@
       "at": "2026-11-25T17:45:08.099989+00:00",
       "reason": "daily cap for crime reached",
       "title": "Dallas police seek another suspect in Deep Ellum Halloween night shootings on South Crowdus Street"
-    },
-    "02e4a72c439fc905": {
-      "at": "2026-11-25T00:13:20.261362+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Texas Sports Academy, tied to AI-driven Alpha School, is Texas’ biggest voucher recipient so far"
     },
     "056d924aecac5a82": {
       "at": "2026-11-25T21:45:16.028596+00:00",
@@ -517,7 +512,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-26T16:25:00-06:00",
+  "last_post_at": "2026-11-26T18:22:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1667,6 +1662,19 @@
       "source": "Arlington Police Department",
       "title": "WANTED: Amy JOHNSON",
       "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
+    },
+    "af62396ce8d06942": {
+      "at": "2026-11-26T18:22:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "443788519",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=3210971601057431843",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA Sports",
+      "title": "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities",
+      "url": "https://www.wfaa.com/article/news/community/at-att-stadium-a-cowboys-game-day-job-can-open-doors-for-people-with-disabilities/287-575c6735-9bec-45f3-bf40-6d495db0469c"
     },
     "b437712d96d893e6": {
       "at": "2026-11-22T06:55:00-06:00",
@@ -2930,6 +2938,11 @@
       "reason": "held: the photo does not show the subject (a Cowboys players' visit to Fort Sill for a Paul Quinn College farm story)",
       "title": "From farm to football: How Paul Quinn College helps feed 90,000 Cowboys fans"
     },
+    "c41ab69d1ed1b0f4": {
+      "at": "2026-11-27T00:15:26.052461+00:00",
+      "reason": "a San Marcos (Central Texas) incident, not Fort Worth or regional news; its photo was a Plaza San Marcos shopping centre sign, not the dog",
+      "title": "Rabid dog found in San Marcos as Texas rabies cases top 2025 totals"
+    },
     "c832f03c76bc50fc": {
       "at": "2026-11-24T13:24:16.478705+00:00",
       "reason": "WFAA's 'Texas high school football: Playoff matchups, schedule': a statewide listing with a one-line caption, and a Dell City ISD school bus"
@@ -3058,7 +3071,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 146,
+  "total_posts": 147,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",

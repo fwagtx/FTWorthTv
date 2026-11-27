@@ -151,7 +151,13 @@ FORT_WORTH_ONLY = {"skyline", "skyline-night", "downtown", "sundance-square", "c
                    "trinity-river", "highway", "police", "fire", "hospital", "water-gardens", "convention-center", "kimbell", "modern",
                    "bass-hall", "zoo", "botanic-garden", "will-rogers", "dickies-arena"}
 OTHER_CITIES = ("dallas", "houston", "austin", "san antonio", "arlington", "denton", "plano", "frisco", "carrollton", "irving",
-                "garland", "mckinney", "el paso", "lubbock", "waco", "galveston", "corpus christi", "college station", "amarillo")
+                "garland", "mckinney", "el paso", "lubbock", "waco", "galveston", "corpus christi", "college station", "amarillo",
+                # Nov 26, render 283: "Rabid dog found in San Marcos ..." searched "San Marcos" as its subject and found the
+                # Plaza San Marcos shopping centre's signs: a city is where a story happens, never the photo's subject
+                "san marcos", "new braunfels", "round rock", "the woodlands", "killeen", "laredo", "midland", "odessa", "abilene",
+                "beaumont", "kerrville", "georgetown", "pflugerville", "cedar park", "san angelo", "wichita falls", "brownsville",
+                "mcallen", "harlingen", "nacogdoches", "lufkin", "texarkana", "longview", "conroe", "sugar land", "pearland",
+                "league city", "baytown", "seguin", "boerne", "san marcos, texas")
 
 
 VENUE_NAMES = {"att-stadium": ("at&t stadium",), "globe-life-field": ("globe life",), "aac": ("american airlines center",),
