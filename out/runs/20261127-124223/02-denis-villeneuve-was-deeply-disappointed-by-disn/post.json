@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T19:07:23.928007+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-124223/02-denis-villeneuve-was-deeply-disappointed-by-disn/post.jpg",
+    "credit": "Photo: SkywalkerEccleston via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Denis_Villeneuve_March_2026_Dune_Trailer_Launch_3.jpg",
+    "photo_id": "commons-186473975",
+    "subject": "entity:denis villeneuve"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-124223/02-denis-villeneuve-was-deeply-disappointed-by-disn/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Denis Villeneuve Was 'Deeply Disappointed' by Disney's Decision to Release Avengers",
+    "caption": "Denis Villeneuve has revealed his disappointment at Disney's decision to release Avengers: Doomsday in theaters on the same day as Dune: Part Three. Doomsday was initially due out on May 1 this year, but was delayed to December 18 — a date Dune 3 had already claimed.\n\nBecause of the clash, Avengers: Doomsday misses out on an Imax release, with Villeneuve’s trilogy-ender having already snapped up exclusivity for the big screens.",
+    "first_comment": "Source: IGN https://www.ign.com/articles/denis-villeneuve-was-deeply-disappointed-by-disneys-decision-to-release-avengers-doomsday-on-the-same-day-as-dune-part-three\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "50576c84b3a10c91",
+    "source": "IGN",
+    "source_kind": "rss",
+    "title": "Denis Villeneuve Was 'Deeply Disappointed' by Disney's Decision to Release Avengers: Doomsday on the Same Day as Dune: Part Three",
+    "summary": "Denis Villeneuve has revealed his disappointment at Disney's decision to release Avengers: Doomsday in theaters on the same day as Dune: Part Three. Denis Villeneuve has revealed his disappointment at Disney's decision to release Avengers: Doomsday in theaters on the same day as Dune: Part Three . Doomsday was initially due out on May 1 this year, but was delayed to December 18 — a date Dune 3 had already claimed. Because of the clash, Avengers: Doomsday misses out on an Imax release, with Villeneuve’s trilogy-ender having already snapped up exclusivity for the big screens. In a new interview with Time , Villeneuve ran through the various release challenges the Dune movies have endured, and said he thought that with Part Three, he’d finally have a clear run of it. “Listen, I will be honest,” he began. “The first Dune came out at the end of the pandemic. We made a great box office in a…",
+    "url": "https://www.ign.com/articles/denis-villeneuve-was-deeply-disappointed-by-disneys-decision-to-release-avengers-doomsday-on-the-same-day-as-dune-part-three",
+    "published": "2026-11-27T16:48:59+00:00",
+    "category_hint": null,
+    "image_url": "https://assets-prd.ignimgs.com/2026/11/27/dune-1795797982723.jpg",
+    "image_credit": "Photo: IGN",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "IGN All",
+      "national": true,
+      "scope": "national",
+      "national_term": "avengers"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.2261
+  }
+}

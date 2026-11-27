@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=4nO16Yy7pxY",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "weather",
+    "headline": "Forecast video shows warmer temps and strong winds in North Texas",
+    "caption": "WATCH: Forecast video shows warmer temps and strong winds in North Texas\n\nVideo: NBC 5 DFW on YouTube",
+    "first_comment": "Source: NBC 5 DFW on YouTube https://www.youtube.com/watch?v=4nO16Yy7pxY\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline storm clouds",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c1bfc94378301757",
+    "source": "NBC 5 DFW",
+    "source_kind": "video",
+    "title": "Forecast video shows warmer temps and strong winds in North Texas | NBCDFW",
+    "summary": "",
+    "url": "https://www.youtube.com/watch?v=4nO16Yy7pxY",
+    "published": "2026-11-27T13:29:45+00:00",
+    "category_hint": null,
+    "image_url": "https://i1.ytimg.com/vi/4nO16Yy7pxY/hqdefault.jpg",
+    "image_credit": "Video: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "4nO16Yy7pxY",
+      "channel": "NBC 5 DFW",
+      "handle": "@NBCDFW",
+      "views": 78,
+      "feed_title": "NBC 5 DFW",
+      "scope": "dfw"
+    },
+    "category": "weather",
+    "relevance": 2,
+    "score": 0.5341
+  }
+}
