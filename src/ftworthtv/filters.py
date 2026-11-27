@@ -1142,6 +1142,24 @@ def same_fire(title: str, summary: str, posted_title: str) -> bool:
     return len(shared) >= 3 and len(shared) >= 0.75 * len(words)
 
 
+# Nov 27, render 296: FOX 4's 7:34 a.m. video "Fort Worth police searching for hit-and-run suspect" ("asking for the public's
+# help identifying a driver") was its 9:22 p.m. story the page had posted ("Fort Worth motorcyclist recovering after
+# hit-and-run", police footage of the driver) told again
+_HIT_AND_RUN_RE = re.compile(r"\bhit[- ]and[- ]run\b", re.I)
+
+
+def same_hit_and_run(title: str, summary: str, posted_title: str) -> bool:
+    """Two hit-and-run headlines in the same city within the duplicate window are one incident, unless the new one reports
+    what the first did not: an arrest, a charge, an identification, a death."""
+    if not (_HIT_AND_RUN_RE.search(title or "") and _HIT_AND_RUN_RE.search(posted_title or "")):
+        return False
+    new_facts = {w.lower() for w in _FOLLOW_UP_RE.findall(title or "")} - {w.lower() for w in _FOLLOW_UP_RE.findall(posted_title or "")}
+    if new_facts:
+        return False
+    low, posted = (title or "").lower(), (posted_title or "").lower()
+    return any(re.search(r"\b" + re.escape(c) + r"\b", low) and re.search(r"\b" + re.escape(c) + r"\b", posted) for c in _FIRE_PLACES)
+
+
 def explainer_of_posted(title: str, summary: str, posted_title: str) -> bool:
     """A 'What is X?' or 'What we know about X' piece about a subject a post already covered is that story again."""
     if not _EXPLAINER_RE.search((title or "").strip()):

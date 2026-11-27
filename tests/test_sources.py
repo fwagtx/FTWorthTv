@@ -866,3 +866,14 @@ def test_two_roundups_of_a_citys_fires_are_one_story():
     assert same_fire(title, summary, posted)
     assert not same_fire(title, summary, "Home workshop sparks early morning fire on Thanksgiving in Fort Worth")
     assert not same_fire("Arlington firefighters battle 12 fires overnight", "Arlington firefighters battled 12 fires.", posted)
+
+
+def test_one_hit_and_run_told_twice_is_one_story():
+    """Nov 27, render 296: FOX 4's morning video on the hit-and-run the page posted from FOX 4's story the night before."""
+    from ftworthtv.filters import same_hit_and_run
+    posted = "Fort Worth motorcyclist recovering after hit-and-run"
+    assert same_hit_and_run("Fort Worth police searching for hit-and-run suspect",
+                            "Fort Worth police are asking for the public's help identifying a driver after a hit and run.", posted)
+    assert not same_hit_and_run("Driver arrested in Fort Worth hit-and-run that injured motorcyclist", "", posted)   # news
+    assert not same_hit_and_run("Arlington police searching for hit-and-run suspect", "", posted)                     # another city
+    assert not same_hit_and_run("Fort Worth police searching for robbery suspect", "", posted)
