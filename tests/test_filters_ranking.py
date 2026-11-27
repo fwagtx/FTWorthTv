@@ -542,3 +542,33 @@ def test_a_tiered_ranking_is_a_column_and_another_metros_things_to_do_is_its_eve
     assert other_metro_url("https://www.kxan.com/things-to-do/state-theatre-to-host-free-texas-vs-texas-am-rivalry-watch-party/")
     assert not other_metro_url("https://www.wfaa.com/things-to-do/fort-worth-stock-show/")
     assert drop_stadiums_off_the_field(["texas-am"], "State Theatre to host free Texas vs. Texas A&M rivalry watch party") == []
+
+
+def test_an_agencys_name_does_not_make_another_metros_crime_statewide(settings, now):
+    """Nov 27, render 305: KENS 5's "Suspect arrested after alleged shooting, pursuit involving DPS trooper in downtown San
+    Antonio" passed as statewide news for "A Texas DPS trooper" in its summary. DPS works every city; the story is San Antonio's."""
+    from ftworthtv.filters import set_in_other_metro, statewide
+    t = "Suspect arrested after alleged shooting, pursuit involving DPS trooper in downtown San Antonio"
+    summ = ("A Texas DPS trooper discharged a weapon while pursuing a suspect who allegedly fired at a victim in downtown "
+            "San Antonio early Friday, police said.")
+    kens = Story(id="k", source="KENS 5 San Antonio", source_kind="rss", title=t, summary=summ,
+                 url="https://www.kens5.com/article/news/local/shooting-at-alamo-plaza-downtown-san-antonio/273-b2ff13d7",
+                 published=now, extra={"scope": "texas"})
+    assert set_in_other_metro(t, summ)
+    assert not statewide(kens)
+    kept, dropped = filter_stories([kens], settings, State(settings.state_path), now)
+    assert not kept and dropped[0][1] in ("other-metro crime, not statewide", "another metro's local story",
+                                          "not local enough (relevance 0 < 2)")
+    # the headline alone need not name the city: the summary's first sentence sets it there
+    assert set_in_other_metro("Suspect arrested after pursuit involving DPS trooper", summ)
+    # a word about the story's reach still carries it, wherever it started
+    amber = Story(id="a", source="KENS 5 San Antonio", source_kind="rss", title="Amber Alert issued for 4-year-old taken in San Antonio",
+                  summary="Texas DPS issued an Amber Alert early Friday.", url="https://x/a", published=now)
+    assert statewide(amber)
+    # an agency story no other metro claims stays statewide
+    dps = Story(id="d", source="KXAN Austin", source_kind="rss", title="Texas DPS warns of new driver license text scam",
+                summary="The Texas DPS says the texts ask drivers to pay a fake renewal fee.", url="https://x/d", published=now)
+    assert statewide(dps)
+    # our own city named: not another metro's story
+    assert not set_in_other_metro("DPS trooper hurt in crash on I-35W in Fort Worth",
+                                  "The trooper was taken to a hospital in Fort Worth after the crash near San Antonio's convoy.")

@@ -834,6 +834,32 @@ def other_metro_roundup(title: str) -> bool:
 STATEWIDE_WORDS = ("amber alert", "manhunt", "statewide", "across texas", "texas dps", "border patrol", "cartel", "human smuggling",
                    "ercot", "texas rangers investigat")      # a highway's name alone is not statewide news: a crash on San Antonio's I-35 is San Antonio's
 
+# Nov 27, render 305: KENS 5's "Suspect arrested after alleged shooting, pursuit involving DPS trooper in downtown San Antonio"
+# passed as statewide news for "A Texas DPS trooper" in its summary. An agency's name says who answered the call, not how far
+# the news reaches: DPS troopers, Border Patrol agents and the Texas Rangers work every city in the state, so a story its
+# headline or first line sets in another metro stays that metro's news. Only a word about the story's reach carries it.
+_STATEWIDE_REACH = ("amber alert", "manhunt", "statewide", "across texas", "ercot")
+_IN_OTHER_METRO_RE = re.compile(r"\bin (?:downtown |north |south |east |west |northwest |northeast |southwest |southeast )?(?:"
+                                + "|".join(re.escape(m) for m in OTHER_METROS) + r")\b")
+
+
+def set_in_other_metro(title: str, summary: str = "") -> bool:
+    """The headline, or the summary's first sentence, puts the story in another Texas metro and never in ours."""
+    lead = re.split(r"(?<=[.!?])\s+", (summary or "").strip(), maxsplit=1)[0]
+    text = f"{title or ''} {lead}".lower()
+    if any(w in text for w in _OUR_TITLE_PLACES):
+        return False
+    return other_metro_title(title) or bool(_IN_OTHER_METRO_RE.search(text))
+
+
+def statewide(story) -> bool:
+    """News the whole state follows: an Amber Alert, a manhunt, the grid. An agency's name counts only for a story no other
+    metro claims."""
+    text = story.text()
+    if any(w in text for w in _STATEWIDE_REACH):
+        return True
+    return any(w in text for w in STATEWIDE_WORDS) and not set_in_other_metro(story.title, story.summary or "")
+
 
 _STOP = {"the", "a", "an", "of", "in", "on", "at", "to", "for", "and", "or", "with", "after", "as", "by", "is", "are", "was", "be",
          "from", "its", "it", "this", "that", "new", "fort", "worth", "texas", "tx", "says", "say", "said", "will", "over", "into", "up"}
@@ -1692,20 +1718,20 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 dropped.append((story, why))
                 continue
             cat = infer_category(story)
-            if tier[0] == "texas" and cat in ("crime", "traffic", "food", "events") and not any(w in story.text() for w in STATEWIDE_WORDS):
+            if tier[0] == "texas" and cat in ("crime", "traffic", "food", "events") and not statewide(story):
                 dropped.append((story, f"other-metro {cat}, not statewide"))   # a San Antonio DWI verdict or food truck is not Fort Worth news
                 continue
-            if tier[0] == "texas" and other_metro_url(story.url) and not any(w in story.text() for w in STATEWIDE_WORDS):
+            if tier[0] == "texas" and other_metro_url(story.url) and not statewide(story):
                 dropped.append((story, "another metro's local story"))         # the outlet filed it under its own city
                 continue
             if tier[0] == "texas" and cat not in ("sports", "politics", "business") and other_metro_title(story.title) \
-                    and not any(w in story.text() for w in STATEWIDE_WORDS):
+                    and not statewide(story):
                 dropped.append((story, "another metro's local story"))         # a body found in a downtown Houston elevator shaft is Houston's news
                 continue
-            if tier[0] == "texas" and other_region(story.title) and not any(w in story.text() for w in STATEWIDE_WORDS):
+            if tier[0] == "texas" and other_region(story.title) and not statewide(story):
                 dropped.append((story, "another region's story"))              # fall foliage in South Central Texas is KENS 5's weather blog
                 continue
-            if tier[0] == "texas" and other_metro_local(story.title) and not any(w in story.text() for w in STATEWIDE_WORDS):
+            if tier[0] == "texas" and other_metro_local(story.title) and not statewide(story):
                 dropped.append((story, "another city's government"))             # Austin's mayor pro tem is Austin's news
                 continue
             if tier[0] == "dfw" and another_dfw_citys_government(story.title):
