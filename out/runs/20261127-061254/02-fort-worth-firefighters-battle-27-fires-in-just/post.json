@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T12:37:54.078991+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-061254/02-fort-worth-firefighters-battle-27-fires-in-just/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-061254/02-fort-worth-firefighters-battle-27-fires-in-just/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "breaking",
+    "headline": "Fort Worth firefighters battle 27 fires in just over 24 hours",
+    "caption": "No one was killed or injured in the fires, Fort Worth Fire Deputy Chief Ralph Diamond said. However, some families suffered significant losses, including one that lost two pets.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/fort-worth-firefighters-battle-27-fires-in-just-over-24-hours/4111126/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "9ebb038b9933b565",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Fort Worth firefighters battle 27 fires in just over 24 hours",
+    "summary": "Firefighters responded to 27 fires in just over 24 hours as families prepare to cook, gather and heat their homes for Thanksgiving Fort Worth firefighters battled 27 fires across the city in just over 24 hours this week, an unusually busy stretch that displaced eight people and prompted the department to remind families about fire safety as they gather for Thanksgiving. No one was killed or injured in the fires, Fort Worth Fire Deputy Chief Ralph Diamond said. However, some families suffered significant losses, including one that lost two pets. “Now twenty-seven fires in twenty-four hours, that's significant even for the holidays,” Diamond said. Investigators are still determining the causes of the fires. Diamond said firefighters typically expect calls to increase as colder weather arrives and the holidays begin, but the recent surge stood out. “We did have a family that lost a pet, a…",
+    "url": "https://www.nbcdfw.com/news/local/fort-worth-firefighters-battle-27-fires-in-just-over-24-hours/4111126/",
+    "published": "2026-11-27T05:54:43+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/fw-fires-ctsy-glen-ellman-fwfd.png?fit=1619,1163&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "breaking",
+    "relevance": 2,
+    "score": 0.7725
+  }
+}
