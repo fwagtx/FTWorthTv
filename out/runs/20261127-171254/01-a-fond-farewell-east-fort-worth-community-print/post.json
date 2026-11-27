@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-171254/01-a-fond-farewell-east-fort-worth-community-print/post.jpg",
+    "credit": "Photo: Eric E. Garcia | Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/27/a-fond-farewell-east-fort-worth-community-print-shop-closes-after-50-years/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-171254/01-a-fond-farewell-east-fort-worth-community-print/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "A fond farewell: East Fort Worth community print shop closes after 45 years",
+    "caption": "Kwik Kopy Printing on Handley Drive was a community staple for decades, offering friendly service and fair prices. The final day of a popular east Fort Worth print shop wasn’t marked with a cake or a party, but there were plenty of hugs and tears.\n\nLongtime customers said their goodbyes to the staff at Kwik Kopy Printing, 1850 Handley Drive, on Oct. 16. The business served east side residents for more than 45 years, evolving into a neighborhood print shop where community flyers, church programs and other materials were made.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/27/a-fond-farewell-east-fort-worth-community-print-shop-closes-after-50-years/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "a1c1e6ecf6627f70",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "A fond farewell: East Fort Worth community print shop closes after 45 years",
+    "summary": "Kwik Kopy Printing on Handley Drive was a community staple for decades, offering friendly service and fair prices. The final day of a popular east Fort Worth print shop wasn’t marked with a cake or a party, but there were plenty of hugs and tears. Longtime customers said their goodbyes to the staff at Kwik Kopy Printing, 1850 Handley Drive, on Oct. 16. The business served east side residents for more than 45 years, evolving into a neighborhood print shop where community flyers, church programs and other materials were made. The store was also a gathering place where neighbors often greeted one another and chatted with the workers they’ve known for years, sometimes decades. Donald Boren, the 79-year-old shop owner, said he felt it was time to shutter the business after a franchise lease agreement expired in September. He said he plans to retire and spend more time with his wife, Wanda.…",
+    "url": "https://fortworthreport.org/2026/11/27/a-fond-farewell-east-fort-worth-community-print-shop-closes-after-50-years/",
+    "published": "2026-11-27T23:00:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2026/11/55293-300x225.jpeg",
+    "image_credit": "Photo: Eric E. Garcia | Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "Kwik Kopy owner Donald Boren says goodbye to longtime customer Dolores Conner on Oct. 16, 2026, the business’s final day. (Eric E. Garcia | Fort Worth Report)",
+      "page_credit": "Eric E. Garcia | Fort Worth Report"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 1.5407
+  }
+}
