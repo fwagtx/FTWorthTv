@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-194234/01-texas-football-grateful-ahead-of-texas-a-m-game/post.jpg",
+    "credit": "Photo: Margo Martin via Wikimedia Commons (Public domain)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Texas_A%26M_Women%E2%80%99s_Volleyball_at_White_House_2026.jpg",
+    "photo_id": "commons-190056547",
+    "subject": "entity:texas a&m"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-194234/01-texas-football-grateful-ahead-of-texas-a-m-game/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Texas football grateful ahead of Texas A&M game",
+    "caption": "As Texas football gears up for the regular season finale against rival Texas A&M, they do so feeling grateful during the Thanksgiving holiday.",
+    "first_comment": "Source: KXAN Austin https://www.kxan.com/sports-general/texas-football-grateful-ahead-of-texas-am-game/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "fbc6d55080e92f5d",
+    "source": "KXAN Austin",
+    "source_kind": "rss",
+    "title": "Texas football grateful ahead of Texas A&M game",
+    "summary": "As Texas football gears up for the regular season finale against rival Texas A&M, they do so feeling grateful during the Thanksgiving holiday.",
+    "url": "https://www.kxan.com/sports-general/texas-football-grateful-ahead-of-texas-am-game/",
+    "published": "2026-11-27T01:40:23+00:00",
+    "category_hint": null,
+    "image_url": "https://www.kxan.com/wp-content/uploads/sites/40/2026/11/AP26319178623107.jpg?w=900",
+    "image_credit": "Photo: KXAN Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.54,
+    "extra": {
+      "feed_title": "KXAN Austin",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.7058
+  }
+}
