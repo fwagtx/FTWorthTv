@@ -250,3 +250,18 @@ def test_box_office_tracking_is_trade_news_and_a_national_story_gets_no_fort_wor
     assert industry_trade("‘Avengers: Doomsday’ Eyes $270M Opening as ‘Dune: Part Three’ Also Heads for Big Start")
     assert not industry_trade("Avengers: Doomsday breaks box office record with $300M opening")      # the result is the moment
     assert 'scope in ("texas", "national") and "fort worth" in (copy.image_query or "").lower()' in inspect.getsource(images.plan_image)
+
+
+def test_someones_feelings_about_a_decision_are_an_interviews_color(settings, now):
+    """Nov 27, render 306: IGN's "Denis Villeneuve Was 'Deeply Disappointed' by Disney's Decision to Release Avengers:
+    Doomsday on the Same Day as Dune: Part Three" (from a Time interview) took the national slot on "avengers"."""
+    from ftworthtv.filters import national_feature
+    t = ("Denis Villeneuve Was 'Deeply Disappointed' by Disney's Decision to Release Avengers: Doomsday on the Same Day as "
+         "Dune: Part Three")
+    assert national_feature(t)
+    assert national_feature("Taylor Swift says she was 'heartbroken' by the cancellation of her Vienna shows")
+    assert national_feature("Mahomes was frustrated with the officiating, he said after the loss")
+    # the decision itself is still the moment
+    assert not national_feature("Disney moves Avengers: Doomsday to Dec. 18, the same day as Dune: Part Three")
+    assert not national_feature("‘Avengers: Doomsday’ Delayed to May 2027, Marvel Reshuffles Release Calendar")
+    assert not national_feature("Chiefs win Super Bowl LXI over the Eagles")

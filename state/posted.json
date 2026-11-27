@@ -211,11 +211,6 @@
     }
   },
   "deferred": {
-    "01c0c24801a299e3": {
-      "at": "2026-11-25T18:17:28.520728+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Arlington police officer shoots dog while responding to commercial alarm"
-    },
     "050179e7ae78cfb7": {
       "at": "2026-11-27T03:44:49.300907+00:00",
       "reason": "daily cap for sports reached",
@@ -320,11 +315,6 @@
       "at": "2026-11-26T00:15:31.930811+00:00",
       "reason": "daily cap for community reached",
       "title": "Out and About in Arlington: Christmas spirit gobbles up Thanksgiving festivities"
-    },
-    "4315a7cb1ad557b4": {
-      "at": "2026-11-25T18:45:33.178090+00:00",
-      "reason": "daily cap for community reached",
-      "title": "‘I Think I Would Have Listened’: Jermaine Hicks on Being the Gang Prevention Advocate He Never Had"
     },
     "445c3859648d5cf7": {
       "at": "2026-11-26T04:16:21.863671+00:00",
@@ -2742,6 +2732,11 @@
       "at": "2026-11-23T13:23:30.240555+00:00",
       "reason": "a Dallas street dedication at Fair Park (another city's civic item), with a 2009 Fair Park building and a 'Photo: Photo:' credit; rules adde"
     },
+    "50576c84b3a10c91": {
+      "at": "2026-11-27T18:46:06.922035+00:00",
+      "reason": "a director's interview reaction to a release date (IGN from Time), not a national moment or Fort Worth news",
+      "title": "Denis Villeneuve Was 'Deeply Disappointed' by Disney's Decision to Release Avengers: Doomsday on the Same Day as Dune: Part Three"
+    },
     "5141dc7617cadc0a": {
       "at": "2026-11-21T17:50:45.925537+00:00",
       "reason": "a crash on San Antonio's I-35 is San Antonio's news, not ours; the I-35 statewide exemption is gone"
@@ -3102,6 +3097,11 @@
       "at": "2026-11-26T15:44:10.661610+00:00",
       "reason": "held: the photo does not show the subject (a Cowboys players' visit to Fort Sill for a Paul Quinn College farm story)",
       "title": "From farm to football: How Paul Quinn College helps feed 90,000 Cowboys fans"
+    },
+    "c1bfc94378301757": {
+      "at": "2026-11-27T18:46:06.922018+00:00",
+      "reason": "the same weekend forecast (warmer, then windy) WFAA's video gave at 6:22; NBC 5's video was made at 7:29 and would be a second weather link ",
+      "title": "Forecast video shows warmer temps and strong winds in North Texas | NBCDFW"
     },
     "c3beae202dad4ef9": {
       "at": "2026-11-27T17:14:08.047387+00:00",

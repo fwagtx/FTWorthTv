@@ -175,7 +175,14 @@ _FEATURE_TITLE_RE = re.compile(r"(?:^|[:—–]\s*|,\s+)(?:how(?! to\b)|why|insi
                                r"\b(?:players|fans|gamers|viewers|users|subscribers|swifties)\s+(?:are|were|seem|get|got)?\s*"
                                r"(?:upset|angry|furious|livid|mad|divided|split|losing it|freaking out|obsessed|baffled|confused|"
                                r"think|thought|discover(?:ed)?|found|notice[ds]?|spot(?:ted)?|realize[ds]?|convinced|debating|"
-                               r"can't stop|cannot stop|have (?:found|discovered|noticed|spotted))\b", re.I)
+                               r"can't stop|cannot stop|have (?:found|discovered|noticed|spotted))\b|"
+                               # Nov 27, render 306: IGN's "Denis Villeneuve Was 'Deeply Disappointed' by Disney's Decision to
+                               # Release Avengers: Doomsday on the Same Day as Dune: Part Three" (from a Time interview): someone's
+                               # feelings about a decision are an interview's color, not the moment
+                               r"\b(?:was|is|were|are|felt|feels|got|admits(?: being)?|says (?:he|she|they) (?:was|is|were))\s+"
+                               r"[‘'\"“]?(?:deeply |very |really |so |extremely |a bit |a little |left )?(?:disappointed|upset|"
+                               r"frustrated|angry|furious|hurt|heartbroken|devastated|annoyed|irritated|livid|baffled|gutted)"
+                               r"[’'\"”]?\s+(?:by|at|with|over|about|that)\b", re.I)
 _FEATURE_URL_RE = re.compile(r"/(?:features?|lists?|galler(?:y|ies)|longform|long-reads?|interviews?|cover-stor(?:y|ies)|in-depth)/|-cover-\d|"
                              # Nov 25, The Hollywood Reporter: /music/music-features/gta-vi-carly-rae-jepsen-...-interview-1236763127/
                              r"/[a-z]+-features?/|-interview-\d", re.I)

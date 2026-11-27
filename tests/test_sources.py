@@ -918,3 +918,28 @@ def test_a_nickname_portrait_is_a_strangers_photo_and_a_teaser_is_promotion():
     assert not unnamed_person_photo('John "Doomsday" Howard in 2025', "John Howard", "John Howard wins his fight in Fort Worth")
     assert _TEASER_RE.search(story)
     assert not _TEASER_RE.search("Marvel's Avengers: Doomsday tops the box office with $200 million")
+
+
+def test_a_late_copy_of_the_morning_forecast_is_the_same_forecast(settings, now):
+    """Nov 27, render 306: WFAA's weekend forecast went out at 6:22, and NBC 5's YouTube "Forecast video shows warmer temps
+    and strong winds in North Texas", published at 7:29, was drafted for 12:49 once the six-hour hold had passed."""
+    from datetime import timedelta
+    from ftworthtv.models import Story
+    from ftworthtv.pipeline import _same_forecast_cycle
+    from ftworthtv.state import State
+    state = State(settings.state_path)
+    posted_at = now - timedelta(hours=6, minutes=27)
+    state.data.setdefault("posted", {})["w1"] = {
+        "category": "weather", "kind": "video", "at": posted_at.isoformat(),
+        "title": "DFW Weather: Sunny and warmer to start the weekend, but a cold front brings cooler, windy Sunday"}
+    late = Story(id="nbc", source="NBC 5 DFW", source_kind="video",
+                 title="Forecast video shows warmer temps and strong winds in North Texas | NBCDFW", summary="",
+                 url="https://www.youtube.com/watch?v=4nO16Yy7pxY", published=posted_at + timedelta(hours=1, minutes=7))
+    assert _same_forecast_cycle(state, late).startswith("DFW Weather: Sunny and warmer")
+    # a forecast made at noon, six and a half hours after the morning one, is the next forecast
+    fresh = Story(id="noon", source="NBC 5 DFW", source_kind="video", title="Noon forecast: wind advisory possible Sunday",
+                  summary="", url="https://x/noon", published=posted_at + timedelta(hours=6, minutes=30))
+    assert not _same_forecast_cycle(state, fresh)
+    # a story with no time is left to the other holds
+    undated = Story(id="u", source="NBC 5 DFW", source_kind="video", title="Forecast", summary="", url="https://x/u")
+    assert not _same_forecast_cycle(state, undated)

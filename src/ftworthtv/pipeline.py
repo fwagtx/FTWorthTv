@@ -176,6 +176,11 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
         if cat == "weather" and story.source_kind in ("rss", "video") and not story.is_urgent and _recent_weather_story(state, now):
             report.skipped.append((story, "a weather story already went out in the last six hours"))
             continue
+        if cat == "weather" and story.source_kind in ("rss", "video") and not story.is_urgent:
+            cycle_twin = _same_forecast_cycle(state, story)
+            if cycle_twin:
+                report.skipped.append((story, f"a forecast made within six hours of the one posted: {cycle_twin[:60]}"))
+                continue
         if story.source_kind == "nws_forecast" and not story.is_urgent:
             # Nov 26, render 261: FOX 4's "festive chill" forecast (sunny, high of 53) went out at 6:43 and the NWS "Fort Worth
             # forecast: sunny, high near 53" was drafted for 7:58. A station's forecast that morning is the day's forecast.
@@ -266,6 +271,10 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                     continue
                 if _recent_weather_story(state, now):
                     report.skipped.append((story, "a weather story already went out in the last six hours"))
+                    continue
+                cycle_twin = _same_forecast_cycle(state, story)
+                if cycle_twin:
+                    report.skipped.append((story, f"a forecast made within six hours of the one posted: {cycle_twin[:60]}"))
                     continue
         if story.source_kind == "rss" and _stale_relative_time(state, story, copy.caption or "", now):
             report.skipped.append((story, "its caption says 'overnight' or 'this morning', but the event was first reported over 14 hours ago"))
@@ -506,6 +515,30 @@ def _recent_weather_story(state, now, hours: float = 6) -> bool:
         if abs((now - at).total_seconds()) <= hours * 3600:
             return True
     return False
+
+
+def _same_forecast_cycle(state, story, hours: float = 6) -> str:
+    """Nov 27, render 306: WFAA's "Sunny and warmer to start the weekend, but a cold front brings cooler, windy Sunday" went
+    out at 6:22, and NBC 5's YouTube "Forecast video shows warmer temps and strong winds in North Texas", published at 7:29,
+    was drafted for 12:49 once the six-hour hold had passed. A forecast made within six hours of the one posted is the same
+    forecast however late it reaches us: what counts is when the forecast was made, not when the feed brought it. Returns the
+    posted forecast's title."""
+    from datetime import datetime as _dt, timezone as _tz
+    if not story.published:
+        return ""
+    pub = story.published if story.published.tzinfo else story.published.replace(tzinfo=_tz.utc)
+    for info in (state.data.get("posted", {}) or {}).values():
+        if info.get("category") != "weather" or info.get("kind") not in ("rss", "video"):
+            continue
+        try:
+            at = _dt.fromisoformat(str(info.get("at", "")))
+        except ValueError:
+            continue
+        if at.tzinfo is None:
+            at = at.replace(tzinfo=_tz.utc)
+        if abs((pub - at).total_seconds()) <= hours * 3600:
+            return str(info.get("title") or "a forecast")
+    return ""
 
 
 def _same_outlet_forecast(state, story, now) -> bool:
