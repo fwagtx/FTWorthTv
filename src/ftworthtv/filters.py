@@ -681,6 +681,17 @@ def another_dfw_citys_government(title: str) -> bool:
     return bool(_DFW_CIVIC_RE.search(low)) and any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in places)
 
 
+def another_citys_community_feature(title: str) -> bool:
+    """Nov 27, render 309: WFAA's "Forced to flee their countries, Dallas gave them a place at the table this Thanksgiving" (a
+    Dallas couple's ministry dinner, from the station's life/heartwarming section) was drafted as regional news with a stock
+    Thanksgiving plate. Another DFW city's community feature (its nonprofit's dinner, its shelter's feast, its neighbor's good
+    deed) is that city's story; a story the whole region shares names the region or one of our cities."""
+    low = (title or "").lower()
+    if any(w in low for w in _OUR_TITLE_PLACES) or any(re.search(r"\b" + re.escape(w) + r"\b", low) for w in _TARRANT_PLACES):
+        return False
+    return any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in _NON_TARRANT_PLACES)
+
+
 def other_metro_local(title: str) -> bool:
     """'Austin Mayor Pro Tem announces resignation, run for Texas Senate': another city's government is that city's news."""
     low = (title or "").lower()
@@ -1071,6 +1082,29 @@ def same_personnel_news(title: str, summary: str, posted_title: str) -> bool:
     from .images.subject import _is_place, looks_like_person
     names = [n for n in _FULL_NAME_RE.findall(posted) if looks_like_person(n) and not _is_place(n)]
     return any(n in text for n in names)
+
+
+# Nov 27, render 309: WFAA's "Jerry Jones says he still believes in Brian Schottenheimer despite mounting meltdowns by Cowboys"
+# was drafted six hours after ESPN's "Cowboys' Jones backing Schottenheimer despite 'damning setbacks'" went out: an owner's vote
+# of confidence in his coach is one piece of news, whoever reports it and however they word the backing
+_CONFIDENCE_RE = re.compile(r"\b(?:backs|backing|backed|believes? in|still believes|supports?|supporting|stands? by|standing by|"
+                            r"sticks? with|sticking with|confidence in|vote of confidence|committed to|commits to|"
+                            r"not (?:firing|going to fire|making a change)|job (?:is )?safe|right (?:coach|man|guy|person) for)\b", re.I)
+_CAP_WORD_RE = re.compile(r"\b([A-Z][a-z]+(?:[-'][A-Z]?[a-z]+)?)\b")
+_NOT_SURNAMES = {"cowboys", "rangers", "mavericks", "mavs", "stars", "texans", "frogs", "horned", "longhorns", "aggies", "texas",
+                 "dallas", "fort", "worth", "arlington", "says", "said", "still", "despite", "after", "amid", "with", "backing",
+                 "backs", "believes", "supports", "stands", "sticks", "coach", "owner", "head", "general", "manager", "jerry's"}
+
+
+def same_vote_of_confidence(title: str, summary: str, posted_title: str) -> bool:
+    """A post in the last two days said someone backs someone (an owner his coach); a story that says the same about the
+    same two people is the same news."""
+    if not _CONFIDENCE_RE.search(posted_title or "") or not _CONFIDENCE_RE.search(f"{title or ''} {(summary or '')[:300]}"):
+        return False
+
+    def names(text: str) -> set[str]:
+        return {w.lower().removesuffix("'s") for w in _CAP_WORD_RE.findall(text or "") if len(w) >= 4} - _NOT_SURNAMES
+    return len(names(title) & names(posted_title)) >= 2
 
 
 # a numbered seat is one race: Nov 25, the Fort Worth Report's "Texas Supreme Court mulls candidate's eligibility in House 93 race"
@@ -1749,6 +1783,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 continue
             if tier[0] == "dfw" and another_dfw_citys_government(story.title):
                 dropped.append((story, "another city's government"))             # a Dallas spokesperson's leave is Dallas's news
+                continue
+            if tier[0] == "dfw" and cat in ("community", "other") and another_citys_community_feature(story.title):
+                dropped.append((story, "another city's community feature"))   # a Dallas ministry's Thanksgiving dinner is Dallas's
                 continue
             if tier[0] == "dfw" and another_citys_house_fire(story.title):
                 dropped.append((story, "another city's house fire"))         # a Dallas family's house fire, everyone out, is Dallas news

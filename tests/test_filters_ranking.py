@@ -572,3 +572,29 @@ def test_an_agencys_name_does_not_make_another_metros_crime_statewide(settings, 
     # our own city named: not another metro's story
     assert not set_in_other_metro("DPS trooper hurt in crash on I-35W in Fort Worth",
                                   "The trooper was taken to a hospital in Fort Worth after the crash near San Antonio's convoy.")
+
+
+def test_another_citys_community_feature_and_the_same_vote_of_confidence(settings, now):
+    """Nov 27, render 309: WFAA's Dallas ministry Thanksgiving dinner was drafted as regional news with a stock turkey plate,
+    and WFAA's "Jerry Jones says he still believes in Brian Schottenheimer ..." six hours after ESPN's "Cowboys' Jones backing
+    Schottenheimer despite 'damning setbacks'" went out."""
+    from ftworthtv.filters import another_citys_community_feature, same_vote_of_confidence
+    from ftworthtv.images.subject import happened
+    dallas = "Forced to flee their countries, Dallas gave them a place at the table this Thanksgiving"
+    assert another_citys_community_feature(dallas)
+    assert another_citys_community_feature("'A little bit of joy': Dallas Animal Shelter dogs get a Thanksgiving feast")
+    assert not another_citys_community_feature("North Texas community rallies to keep local students in Macy's Thanksgiving Day Parade")
+    assert not another_citys_community_feature("Fort Worth and Dallas churches team up for toy drive")
+    assert not another_citys_community_feature("Grapevine family's lights display draws crowds")
+    story = Story(id="wfaa", source="WFAA", source_kind="rss", title=dallas,
+                  summary="For 16 years, a Dallas couple and their ministry have welcomed hundreds of refugees to the Thanksgiving table.",
+                  url="https://www.wfaa.com/article/life/heartwarming/forced-to-flee/287-943ef796", published=now)
+    kept, dropped = filter_stories([story], settings, State(settings.state_path), now)
+    assert not kept and dropped[0][1] == "another city's community feature"
+    assert happened(dallas)                          # a dinner that took place is a happening: no stock plate
+    assert not happened("Where to find Thanksgiving dinner in Fort Worth")
+    posted = "Cowboys' Jones backing Schottenheimer despite 'damning setbacks'"
+    assert same_vote_of_confidence("Jerry Jones says he still believes in Brian Schottenheimer despite mounting meltdowns by Cowboys",
+                                   "Jerry Jones says he still believes Brian Schottenheimer is the right coach for the Dallas Cowboys.", posted)
+    assert not same_vote_of_confidence("Jerry Jones says Cowboys will sign Micah Parsons to an extension", "", posted)
+    assert not same_vote_of_confidence("Rangers back Bochy for 2027 season", "", posted)

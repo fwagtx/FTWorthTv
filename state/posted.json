@@ -9,7 +9,7 @@
     "2026-11-24": 20,
     "2026-11-25": 19,
     "2026-11-26": 15,
-    "2026-11-27": 6
+    "2026-11-27": 7
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -99,6 +99,7 @@
     },
     "2026-11-27": {
       "crime": 2,
+      "culture": 1,
       "sports": 3,
       "weather": 1
     }
@@ -156,7 +157,7 @@
     },
     "2026-11-27": {
       "rss": 3,
-      "video": 1,
+      "video": 2,
       "wanted": 2
     }
   },
@@ -207,7 +208,7 @@
     },
     "2026-11-27": {
       "dfw": 2,
-      "local": 4
+      "local": 5
     }
   },
   "deferred": {
@@ -401,11 +402,6 @@
       "reason": "daily cap for culture reached",
       "title": "Historic Fort Worth hotel lauded for one of America’s best afternoon teas"
     },
-    "b70251a31f42895e": {
-      "at": "2026-11-25T19:49:58.142974+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Investigation underway after 3 injured in Fort Worth shooting"
-    },
     "cae41b02e68d7cf2": {
       "at": "2026-11-25T21:15:15.510946+00:00",
       "reason": "daily cap for crime reached",
@@ -473,7 +469,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-27T11:52:00-06:00",
+  "last_post_at": "2026-11-27T14:20:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1037,6 +1033,19 @@
       "source": "Fort Worth Police Department",
       "title": "WANTED: Daniel Muniz",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "4f6a9082412b190b": {
+      "at": "2026-11-27T14:20:00-06:00",
+      "category": "culture",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "444820928",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7775663146927110425",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA",
+      "title": "Cowboy Santa arrives to the Fort Worth Stockyards",
+      "url": "https://www.youtube.com/watch?v=Vu5KLVttBdM"
     },
     "50a342b4894079ab": {
       "at": "2026-11-26T07:58:00-06:00",
@@ -2788,6 +2797,11 @@
       "reason": "the Avenue J shooting (three men hospitalized) already went out at 8:48 from NBC 5",
       "title": "Fort Worth shooting leaves three men hospitalized after fight"
     },
+    "68bacadfa0c697b5": {
+      "at": "2026-11-27T20:16:18.004207+00:00",
+      "reason": "the same news as ESPN's 8:52 post (Jones backing Schottenheimer despite 'damning setbacks'), in WFAA's words",
+      "title": "Jerry Jones says he still believes in Brian Schottenheimer despite mounting meltdowns by Cowboys"
+    },
     "6b5a2f0b7960a22a": {
       "at": "2026-11-23T19:21:26.509535+00:00",
       "reason": "FOX 4's Dallas North Tollway overnight closure at Northwest Highway: Dallas's own road, not Fort Worth traffic; rule added"
@@ -3148,6 +3162,11 @@
       "at": "2026-11-20T16:18:32.671884+00:00",
       "reason": "same reopening as WFAA's video already scheduled (Musume)"
     },
+    "d6021fb5cfcf6a03": {
+      "at": "2026-11-27T20:16:18.004233+00:00",
+      "reason": "a Dallas ministry's Thanksgiving dinner (another city's community feature), with a stock turkey plate standing in for the dinner",
+      "title": "Forced to flee their countries, Dallas gave them a place at the table this Thanksgiving"
+    },
     "d612e22e4b79cd07": {
       "at": "2026-11-24T15:17:59.895529+00:00",
       "reason": "XMX Defense press release (Mineral Wells) with a garbled caption, a cut headline and an Air Force exercise photo; rules added"
@@ -3246,8 +3265,18 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 155,
+  "total_posts": 156,
   "tried": {
+    "1ab95098ab98f469": {
+      "at": "2026-11-27T20:16:18.005986+00:00",
+      "reason": "no picture of the subject that we may use",
+      "title": "Refugees from around the world gather in Dallas for Thanksgiving feast"
+    },
+    "1f02639686f33481": {
+      "at": "2026-11-27T20:16:18.005984+00:00",
+      "reason": "no picture of the subject that we may use",
+      "title": "Goo Goo Dolls Fans Slam NBC Over Thanksgiving Halftime Show Snub: ‘Badly Handled’"
+    },
     "273c4bbe9b854a9e": {
       "at": "2026-11-27T19:46:19.983432+00:00",
       "reason": "no picture of the subject that we may use",
@@ -3262,6 +3291,11 @@
       "at": "2026-11-27T19:46:19.983467+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "Rosenthal prepares to join Railroad Commission after election win"
+    },
+    "38f4207b91d83e26": {
+      "at": "2026-11-27T20:16:18.005987+00:00",
+      "reason": "no summary to post: the feed gave only a headline",
+      "title": "Horned Frogs Fall to Blue Jays, 95-87"
     },
     "5d19d9cbe443ccb6": {
       "at": "2026-11-27T19:46:19.983468+00:00",
@@ -3283,6 +3317,11 @@
       "reason": "no summary to post: the feed gave only a headline",
       "title": "Jerry Jones says he still believes in Brian Schottenheimer despite mounting meltdowns by Cowboys"
     },
+    "aabf526393ef08f8": {
+      "at": "2026-11-27T20:16:18.005981+00:00",
+      "reason": "no summary to post: the feed gave only a headline",
+      "title": "Sarkisian proud of offensive line ahead of tough challenge against Texas A&M defense"
+    },
     "bcdfe07cddb76e0e": {
       "at": "2026-11-27T19:46:19.983470+00:00",
       "reason": "no picture of the subject that we may use",
@@ -3297,6 +3336,11 @@
       "at": "2026-11-27T19:46:19.983462+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Affluent DFW city unwraps 5th biggest holiday budget in the U.S."
+    },
+    "f250641d8151a2db": {
+      "at": "2026-11-27T20:16:18.005967+00:00",
+      "reason": "no summary to post: the feed gave only a headline",
+      "title": "No. 9 Texas Tech beats TCU 48-27 to secure spot against No. 2 Utah in Big 12 title game"
     },
     "f557e273ec5c23dc": {
       "at": "2026-11-27T19:46:19.983459+00:00",

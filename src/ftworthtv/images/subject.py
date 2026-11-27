@@ -662,6 +662,10 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   " debris", "washing ashore", "washed ashore", "washes ashore", "washing up", "washed up", "washes up",
                   # Nov 24: "AT&T Stadium lights up kettle red" drew a daytime aerial of the stadium
                   "lights up", "lit up", "illuminated", "illuminates",
+                  # Nov 27, render 309: WFAA's "Forced to flee their countries, Dallas gave them a place at the table this
+                  # Thanksgiving" drew a stock turkey drumstick on a paper plate: a dinner that took place is a happening
+                  "place at the table", " gather in ", " gather for ", " gathered ", "served thanksgiving", "served hundreds",
+                  "served thousands", "fed hundreds", "fed thousands", "welcomed hundreds", "welcomed thousands",
                   "rescued", "pulled from", " dies ", " died ", "killed", " dead ", "arrested", "charged with", "indicted", "sentenced",
                   # Nov 26, render 288: FOX 4's "Fort Worth motorcyclist recovering after hit-and-run" drew the downtown skyline
                   "hit-and-run", "hit and run", "struck by", "run over", "rear-ended", "t-boned", "rollover",

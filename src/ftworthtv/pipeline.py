@@ -242,13 +242,15 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                     report.skipped.append((story, f"daily cap for {cat} reached"))
                     continue
         if story.source_kind in ("rss", "video") and not story.official:
-            from .filters import explainer_of_posted, same_count_incident, same_fire, same_hit_and_run, same_incident, same_personnel_news, same_seat_news, same_verdict
+            from .filters import (explainer_of_posted, same_count_incident, same_fire, same_hit_and_run, same_incident,
+                                  same_personnel_news, same_seat_news, same_verdict, same_vote_of_confidence)
 
             def _same_news(x: str, y: str) -> bool:
                 return (same_personnel_news(x, story.summary or "", y) or same_seat_news(x, story.summary or "", y)
                         or explainer_of_posted(x, story.summary or "", y) or same_incident(x, story.summary or "", y)
                         or same_verdict(x, story.summary or "", y) or same_count_incident(x, story.summary or "", y)
-                        or same_fire(x, story.summary or "", y) or same_hit_and_run(x, story.summary or "", y))
+                        or same_fire(x, story.summary or "", y) or same_hit_and_run(x, story.summary or "", y)
+                        or same_vote_of_confidence(x, story.summary or "", y))
             twin = state.recent_title_like(story.title, now, hours=48, match=_same_news)
             twin = twin or next((d.story.title for d in drafts if _same_news(story.title, d.story.title)), None)
             if twin:                   # the lead the article gave names the departure already posted ("Change in Leadership");
