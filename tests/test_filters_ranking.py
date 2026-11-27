@@ -518,3 +518,15 @@ def test_another_citys_arson_attempt_is_its_blotter_and_its_skyline_is_no_sports
     assert not another_citys_blotter("Arson suspect sought after fire kills 2 in Dallas")
     t = "A groundbreaking new chapter for girls' flag football arrives in Frisco"
     assert "dallas-skyline" not in topics_for(t.lower(), "sports", "dfw", title=t)
+
+
+def test_the_winning_sides_recap_is_the_same_game_and_predictions_are_not_news():
+    """Nov 27, render 298: ESPN's Eagles-side recap and the Cowboys channel's schedule predictions the morning after the
+    page posted the 39-38 result; Jerry Jones backing his coach is news."""
+    from ftworthtv.filters import hypothetical_sports, same_game
+    posted = "Cowboys blow 21-point lead in 39-38 Thanksgiving loss to Eagles"
+    assert same_game("Joe Milton has huge game as Eagles shock Cowboys on Thanksgiving", posted)
+    assert not same_game("Cowboys' Jones backing Schottenheimer despite 'damning setbacks'", posted)
+    assert not same_game("Eagles beat Commanders 24-20", posted)
+    assert hypothetical_sports("Predicting the Cowboys' Tough Final Stretch | Special Edition")
+    assert not hypothetical_sports("Cowboys' Jones backing Schottenheimer despite 'damning setbacks'")

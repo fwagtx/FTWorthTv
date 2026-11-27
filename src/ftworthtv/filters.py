@@ -422,7 +422,9 @@ _SCENARIO_RE = re.compile(r"\b(?:scenarios?|what needs to happen|how [\w .'&-]{1
                           r"playoff picture|bowl projections?|projected|projections?|bracketology|mock draft)\b|"
                           # Nov 24, ESPN: "To stay alive in NFC East, Cowboys need first back-to-back wins in a year"
                           r"^to (?:stay alive|stay in|keep pace|keep up|make the playoffs|reach the playoffs|win the|clinch|catch)\b|"
-                          r"\bneeds? (?:first|to win|to beat|to string|a win|wins|help|a run|a miracle)\b", re.I)
+                          r"\bneeds? (?:first|to win|to beat|to string|a win|wins|help|a run|a miracle)\b|"
+                          # Nov 27, render 298: the Cowboys channel's "Predicting the Cowboys' Tough Final Stretch | Special Edition"
+                          r"\bpredict(?:ing|ions?)\b|\bremaining schedule\b|\bschedule breakdown\b", re.I)
 
 
 _OTHER_METRO_TEAM_RE = re.compile(r"\b(?:rockets|spurs|astros|texans|dynamo|houston dash|austin fc|san antonio fc)\b", re.I)
@@ -817,7 +819,10 @@ _SCORE_RE = re.compile(r"\b\d{1,3}-\d{1,3}\b")
 _RESULT_RE = re.compile(r"\b(?:falls? to|fell to|tops?|topped|beats?|edges?|edged|routs?|routed|blows? out|blew out|wins? over|"
                         r"loss to|loses to|lost to|comes? up short|came up short|seals?|sealed|holds? on|held on|knocks? off|"
                         r"outduels?|takes? down|dominates?|dominated|crush(?:es|ed)?|cruises? past|rolls? past|rall(?:y|ies|ied) past|"
-                        r"stuns?|stunned|upsets?|shuts? out|blanks?|outlasts?|ends? in|ended in|scorigami|final score)\b", re.I)
+                        r"stuns?|stunned|upsets?|shuts? out|blanks?|outlasts?|ends? in|ended in|scorigami|final score|"
+                        # Nov 27, render 298: ESPN's "Joe Milton has huge game as Eagles shock Cowboys on Thanksgiving"
+                        r"shocks?|shocked|stuns?|rallies past|rally past|comes? back to beat|came back to beat|survives?|survived|"
+                        r"escapes?|escaped|outlasts?|outscores?|outscored|downs|downed)\b", re.I)
 
 
 def _sports_result(title: str) -> bool:
@@ -1507,8 +1512,8 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                                                                              infer_category(story) == "sports"):
             dropped.append((story, "another metro's team feature"))
             continue
-        if story.source_kind == "rss" and hypothetical_sports(story.title) and (story.category_hint == "sports" or
-                                                                                 infer_category(story) == "sports"):
+        if story.source_kind in ("rss", "video") and hypothetical_sports(story.title) and (story.category_hint == "sports" or
+                                                                                            infer_category(story) == "sports"):
             dropped.append((story, "a what-if sports piece (scenarios, projections), not news"))
             continue
         if story.source_kind == "rss" and roundup_column(story.title):

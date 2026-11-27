@@ -9,7 +9,7 @@
     "2026-11-24": 20,
     "2026-11-25": 19,
     "2026-11-26": 15,
-    "2026-11-27": 4
+    "2026-11-27": 5
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -99,7 +99,7 @@
     },
     "2026-11-27": {
       "crime": 2,
-      "sports": 1,
+      "sports": 2,
       "weather": 1
     }
   },
@@ -155,7 +155,7 @@
       "wanted": 2
     },
     "2026-11-27": {
-      "rss": 1,
+      "rss": 2,
       "video": 1,
       "wanted": 2
     }
@@ -207,7 +207,7 @@
     },
     "2026-11-27": {
       "dfw": 1,
-      "local": 3
+      "local": 4
     }
   },
   "deferred": {
@@ -310,11 +310,6 @@
       "at": "2026-11-25T23:44:18.816052+00:00",
       "reason": "daily cap for crime reached",
       "title": "Top Dallas Police spokesperson reinstated after public integrity investigation"
-    },
-    "362bdcb94cbada36": {
-      "at": "2026-11-25T14:45:13.572783+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "How to keep plants, pipes and home safe as freeze warning remains in place for North Texas"
     },
     "36c6eefc62dd3ee5": {
       "at": "2026-11-26T22:15:46.110029+00:00",
@@ -528,7 +523,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-27T07:37:00-06:00",
+  "last_post_at": "2026-11-27T08:52:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1695,6 +1690,19 @@
       "title": "TCU fires Sonny Dykes four years after making CFP championship game",
       "url": "https://www.cbsnews.com/texas/news/tcu-fires-sonny-dykes-four-years-after-making-cfp-championship-game/"
     },
+    "a0f7194422675349": {
+      "at": "2026-11-27T08:52:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "444468420",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4526718880840136131",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "ESPN Top Headlines",
+      "title": "Cowboys' Jones backing Schottenheimer despite 'damning setbacks'",
+      "url": "https://www.espn.com/nfl/story/_/id/50608969/cowboys-jerry-jones-backs-coach-damning-setbacks"
+    },
     "a2a9d1282220d047": {
       "at": "2026-11-22T21:19:00-06:00",
       "category": "traffic",
@@ -2501,6 +2509,11 @@
       "reason": "City of Fort Worth's CAPER public-comment notice: the picture is the City's stock 'Request for Public Comment' graphic, and the caption says",
       "title": "City seeks input on 2025-26 federal housing funds"
     },
+    "050179e7ae78cfb7": {
+      "at": "2026-11-27T14:46:06.856033+00:00",
+      "reason": "the Eagles' side of the 39-38 game already posted at 8:22 p.m.",
+      "title": "Joe Milton has huge game as Eagles shock Cowboys on Thanksgiving"
+    },
     "076b963f4e28c763": {
       "at": "2026-11-25T14:45:13.571750+00:00",
       "reason": "CBS News Texas's Hispanic entrepreneurs story (Mesquite) drew 'Hispanic ancestry in Florida', a county map, and its one-line caption refers ",
@@ -2721,6 +2734,11 @@
       "at": "2026-11-25T19:14:49.572846+00:00",
       "reason": "CultureMap's holiday pop-up bars guide: a list that reads like promotion ('Even the grouchiest grinch will find Christmas cheer'), drafted w",
       "title": "Get holly jolly at these 2026 holiday pop-up bars around Fort Worth"
+    },
+    "48a7ad10f92a74f3": {
+      "at": "2026-11-27T14:46:06.856016+00:00",
+      "reason": "a predictions show (the Cowboys' remaining schedule), not news, and a link post",
+      "title": "Predicting the Cowboys' Tough Final Stretch | Special Edition"
     },
     "4e86eb6e02556dab": {
       "at": "2026-11-26T19:13:49.684641+00:00",
@@ -3210,7 +3228,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 153,
+  "total_posts": 154,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
