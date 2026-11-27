@@ -464,3 +464,14 @@ def test_a_headline_set_in_another_metro_is_its_news_even_with_texas_in_a_later_
     assert not other_metro_title("Fort Worth man arrested in Houston after chase")
     plan = plan_subject(title, "A dog in San Marcos tested positive for rabies as Texas surpassed last year's total.", "other")
     assert "San Marcos" not in plan.search_names
+
+
+def test_a_critics_review_of_a_named_work_is_a_column():
+    """Nov 26, render 284: the Fort Worth Report's film review reached the photo step."""
+    from ftworthtv.filters import column_label
+    assert column_label("‘Club Kid’ Review: From dance beats to heartbeats, Jordan Firstman’s vibrant and touching debut feature")
+    assert column_label("Movie review: 'Wicked: For Good' sticks the landing")
+    assert column_label("Restaurant Review: A new Tex-Mex spot on Magnolia Avenue")
+    assert not column_label("Review of the year: the biggest Fort Worth stories")
+    assert not column_label("Fort Worth council to review zoning plan for Stockyards")
+    assert not column_label("'Wicked: For Good' tops the Thanksgiving box office")

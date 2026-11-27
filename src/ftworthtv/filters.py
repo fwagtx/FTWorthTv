@@ -603,10 +603,17 @@ def expert_commentary(title: str) -> bool:
     return bool(_EXPERT_RE.search(title or ""))
 
 
+# Nov 26, render 284: the Fort Worth Report's "'Club Kid' Review: From dance beats to heartbeats, Jordan Firstman's vibrant and
+# touching debut feature" reached the photo step: a critic's review of a named work is the critic's opinion, not news
+_WORK_REVIEW_RE = re.compile(r"^(?:[‘'\"“][^’'\"”]{1,80}[’'\"”]\s+|(?:Movie|Film|Album|Book|Theater|Theatre|Concert|Restaurant|TV|"
+                             r"Show|Stage|Music|Dining)\s+)[Rr]eview\s*[:|—–-]\s")
+
+
 def column_label(title: str) -> bool:
     """"Bob on Business: Biz in the front, party in the back ...", "Opinion: ...": a column speaks in its writer's voice, which is
-    not a caption we can post as news."""
-    return bool(_COLUMN_RE.match((title or "").strip()))
+    not a caption we can post as news. So does a critic's review of a film, a show or a restaurant."""
+    t = (title or "").strip()
+    return bool(_COLUMN_RE.match(t) or _WORK_REVIEW_RE.match(t))
 
 
 OTHER_METRO_STATIONS = ("kvue", "kxan", "keye", "khou", "ktrk", "kprc", "kens", "ksat", "woai", "kiii", "kris", "kcen", "kwtx", "kxxv",
