@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T20:37:35.591425+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-141235/02-jerry-jones-says-he-still-believes-in-brian-scho/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-141235/02-jerry-jones-says-he-still-believes-in-brian-scho/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Jerry Jones says he still believes in Brian Schottenheimer despite mounting meltdowns by Cowboys",
+    "caption": "Jerry Jones says he still believes Brian Schottenheimer is the right coach for the Dallas Cowboys.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/sports/nfl/cowboys/jerry-jones-says-he-still-believes-in-brian-schottenheimer-despite-mounting-meltdowns-by-cowboys/616-4bc2b56a-1669-49a4-a4f1-7387d2e1e724\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "68bacadfa0c697b5",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "Jerry Jones says he still believes in Brian Schottenheimer despite mounting meltdowns by Cowboys",
+    "summary": "Jerry Jones says he still believes Brian Schottenheimer is the right coach for the Dallas Cowboys. The owner and general manager acknowledges there are “damning...",
+    "url": "https://www.wfaa.com/article/sports/nfl/cowboys/jerry-jones-says-he-still-believes-in-brian-schottenheimer-despite-mounting-meltdowns-by-cowboys/616-4bc2b56a-1669-49a4-a4f1-7387d2e1e724",
+    "published": "2026-11-27T20:03:25+00:00",
+    "category_hint": "sports",
+    "image_url": "https://media.tegna-media.com/assets/AssociatedPress/images/b75d4aef-d2e3-40fa-ad8e-02d1ca07b299/20261127T163011/b75d4aef-d2e3-40fa-ad8e-02d1ca07b299_750x422.jpg",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 1.0316
+  }
+}

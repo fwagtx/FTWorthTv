@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T21:02:35.591425+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-141235/03-forced-to-flee-their-countries-dallas-gave-them/post.jpg",
+    "credit": "Photo: Pink Sherbet Photography from USA via Wikimedia Commons (CC BY 2.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Thanksgiving_Dinner_Turkey_Drumstick_Leg_On_Paper_Plate_free_creative_commons_(4139402158).jpg",
+    "photo_id": "lib-thanksgiving-dinner-turkey-drumstick-leg-on-paper-plate-free",
+    "subject": "beat:thanksgiving"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-141235/03-forced-to-flee-their-countries-dallas-gave-them/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Forced to flee their countries, Dallas gave them a place at the table this Thanksgiving",
+    "caption": "For 16 years, a Dallas couple and their ministry have welcomed hundreds of refugees from around the world to the Thanksgiving table.",
+    "first_comment": "Source: WFAA https://www.wfaa.com/article/life/heartwarming/forced-to-flee-their-countries-dallas-gave-them-a-place-at-the-table-this-thanksgiving/287-943ef796-4aed-46a9-91bf-0c731bc4ba18\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "roast turkey Thanksgiving food",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "d6021fb5cfcf6a03",
+    "source": "WFAA",
+    "source_kind": "rss",
+    "title": "Forced to flee their countries, Dallas gave them a place at the table this Thanksgiving",
+    "summary": "For 16 years, a Dallas couple and their ministry have welcomed hundreds of refugees from around the world to the Thanksgiving table.",
+    "url": "https://www.wfaa.com/article/life/heartwarming/forced-to-flee-their-countries-dallas-gave-them-a-place-at-the-table-this-thanksgiving/287-943ef796-4aed-46a9-91bf-0c731bc4ba18",
+    "published": "2026-11-27T00:23:42+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/b42c5eaa-d53b-4713-bde1-85fa50547045/20261126T223400/b42c5eaa-d53b-4713-bde1-85fa50547045_750x422.jpg",
+    "image_credit": "Photo: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: local",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.0775
+  }
+}
