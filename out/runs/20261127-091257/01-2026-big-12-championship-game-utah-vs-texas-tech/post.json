@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-091257/01-2026-big-12-championship-game-utah-vs-texas-tech/post.jpg",
+    "credit": "Photo: Falcon8765 via Wikimedia Commons (CC BY-SA 3.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Jones_Stadium_North_End_Zone_and_video_board.JPG",
+    "photo_id": "lib-jones-stadium-north-end-zone-and-video-board-jpg",
+    "subject": "topic:texas-tech"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-091257/01-2026-big-12-championship-game-utah-vs-texas-tech/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "2026 Big 12 Championship Game: Utah vs. Texas Tech set as final league title matchup carries heavy CFP stakes",
+    "caption": "The undefeated Utes can secure a CFP bye and push Devon Dampier into the Heisman spotlight. However, major playoff implications are on the line when No. 2 Utah and No. 11 Texas Tech battle at AT&T Stadium in Arlington, Texas.\n\nUtah ranks as the only undefeated team remaining in college football, marching out to an 11-0 record entering the season finale against West Virginia on Friday night.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/college-football/news/utah-texas-tech-big-12-championship-game-2026-preview-prediction/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "97fdf3135cfeec3b",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "2026 Big 12 Championship Game: Utah vs. Texas Tech set as final league title matchup carries heavy CFP stakes",
+    "summary": "The undefeated Utes can secure a CFP bye and push Devon Dampier into the Heisman spotlight, while the defending champion Red Raiders chase their second straight conference crown The 2026 Big 12 Championship Game marks the final edition before the 24-team College Football Playoff arrives next season and eliminates conference title games. However, major playoff implications are on the line when No. 2 Utah and No. 11 Texas Tech battle at AT&T Stadium in Arlington, Texas . Utah ranks as the only undefeated team remaining in college football, marching out to an 11-0 record entering the season finale against West Virginia on Friday night. The Utes have won seven games by multiple touchdowns and beat No. 10 BYU , No. 16 Arizona and No. 18 Houston along the way. After a slow start, Texas Tech dominated rival TCU to finish a second consecutive 11-1 season. The Red Raiders won their first…",
+    "url": "https://www.cbssports.com/college-football/news/utah-texas-tech-big-12-championship-game-2026-preview-prediction/",
+    "published": "2026-11-27T14:07:47+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/27/fdc2174a-9657-40af-bd27-082e84fa1b92/texas-tech-utah.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.45,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5991
+  }
+}

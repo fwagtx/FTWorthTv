@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T15:37:57.262871+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-091257/02-dallas-mavericks-visit-phoenix-suns-friday-in-nb/post.jpg",
+    "credit": "Photo: Troutfarm27 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Lakers_NBA_Cup_court_2024.jpg",
+    "photo_id": "commons-155994834",
+    "subject": "entity:nba cup"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-091257/02-dallas-mavericks-visit-phoenix-suns-friday-in-nb/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Dallas Mavericks visit Phoenix Suns Friday in NBA Cup group stage",
+    "caption": "The Mavericks have already clinched a spot in the knockout rounds. The Suns are 7-8 against Western Conference opponents.\n\nPhoenix has a 1-1 record in games decided by less than 4 points. Dallas is 5-4 against opponents with a winning record.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/dallas-mavericks/dallas-mavericks-visit-phoenix-suns-friday-in-nba-cup-group-stage/4111296/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:American Airlines Center",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "192a9bda8b43374c",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Dallas Mavericks visit Phoenix Suns Friday in NBA Cup group stage",
+    "summary": "The Mavericks have already clinched a spot in the knockout rounds. Dallas Mavericks (11-7, eighth in the Western Conference) vs. Phoenix Suns (9-8, 10th in the Western Conference), Phoenix; Friday, 8 p.m. CST BOTTOM LINE: The Dallas Mavericks travel to play the Dallas Mavericks in an NBA Cup in-season tournament group play matchup. The Suns are 7-8 against Western Conference opponents. Phoenix has a 1-1 record in games decided by less than 4 points. The Mavericks have gone 7-5 against Western Conference opponents. Dallas is 5-4 against opponents with a winning record. The Suns are shooting 47.1% from the field this season, 0.9 percentage points higher than the 46.2% the Mavericks allow to opponents. The Mavericks are shooting 46.3% from the field, 0.2% lower than the 46.5% the Suns’ opponents have shot this season. TOP PERFORMERS: Devin Booker is averaging 24.5 points and 5.4 assists…",
+    "url": "https://www.nbcdfw.com/news/sports/dallas-mavericks/dallas-mavericks-visit-phoenix-suns-friday-in-nba-cup-group-stage/4111296/",
+    "published": "2026-11-27T09:07:28+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/2026-04-09T044330Z_623578186_MT1USATODAY28688746_RTRMADP_3_NBA-DALLAS-MAVERICKS-AT-PHOENIX-SUNS.jpg?quality=85&strip=all&fit=3221,2197",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7200000000000001,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.4675
+  }
+}
