@@ -9,7 +9,7 @@
     "2026-11-24": 20,
     "2026-11-25": 19,
     "2026-11-26": 15,
-    "2026-11-27": 7
+    "2026-11-27": 9
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -100,7 +100,8 @@
     "2026-11-27": {
       "crime": 2,
       "culture": 1,
-      "sports": 3,
+      "sports": 4,
+      "traffic": 1,
       "weather": 1
     }
   },
@@ -156,7 +157,7 @@
       "wanted": 2
     },
     "2026-11-27": {
-      "rss": 3,
+      "rss": 5,
       "video": 2,
       "wanted": 2
     }
@@ -208,7 +209,7 @@
     },
     "2026-11-27": {
       "dfw": 2,
-      "local": 5
+      "local": 7
     }
   },
   "deferred": {
@@ -216,11 +217,6 @@
       "at": "2026-11-27T03:44:49.300907+00:00",
       "reason": "daily cap for sports reached",
       "title": "Joe Milton has huge game as Eagles shock Cowboys on Thanksgiving"
-    },
-    "056d924aecac5a82": {
-      "at": "2026-11-25T21:45:16.028596+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Six Flags Over Texas Ofrece Entrada Gratis a Personas de 65 Años o Más"
     },
     "0d2375f9243ca9af": {
       "at": "2026-11-26T00:15:31.930844+00:00",
@@ -231,11 +227,6 @@
       "at": "2026-11-26T22:42:46.609569+00:00",
       "reason": "daily cap for community reached",
       "title": "Silver Alert discontinued for 82-year-old man last seen in San Antonio on Thanksgiving"
-    },
-    "11e78101fcc76a16": {
-      "at": "2026-11-25T21:45:16.028577+00:00",
-      "reason": "daily cap for community reached",
-      "title": "North Texas leads state in severe holiday crashes on major interstates"
     },
     "1741be6b0c3659eb": {
       "at": "2026-11-26T03:12:50.377030+00:00",
@@ -397,11 +388,6 @@
       "reason": "daily cap for crime reached",
       "title": "Suspected screws cause trouble on I-35E in Denton, police say"
     },
-    "f4932e42a0fa7b5d": {
-      "at": "2026-11-25T21:45:16.028547+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Small business Saturday kicks off end-of-year earnings season"
-    },
     "f54cea9077e747c0": {
       "at": "2026-11-26T00:43:29.783110+00:00",
       "reason": "daily cap for community reached",
@@ -409,7 +395,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-27T14:20:00-06:00",
+  "last_post_at": "2026-11-27T16:43:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -590,6 +576,19 @@
       "source": "TCU Athletics (women's basketball)",
       "title": "Preview: Fort Myers Tip-Off",
       "url": "https://gofrogs.com/news/2026/11/25/womens-basketball-preview-fort-myers-tip-off"
+    },
+    "1954b5608727cefe": {
+      "at": "2026-11-27T16:43:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "444924492",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7530295333140019858",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA Sports",
+      "title": "USWNT plays El Salvador in Texas Health Mansfield Stadium",
+      "url": "https://www.wfaa.com/article/sports/soccer/uswnt-el-salvador-texas-health-mansfield-stadium/287-27ea6dc8-7a9b-45dd-9a6d-c023a3b3aa85"
     },
     "1a000b66c35b7c29": {
       "at": "2026-11-26T07:33:00-06:00",
@@ -1855,6 +1854,19 @@
       "source": "WFAA",
       "title": "Texas House District 61 race margin is just seven votes; recount filed with state",
       "url": "https://www.wfaa.com/article/news/politics/elections/texas-house-district-61-race-margin-is-just-seven-votes-recount-filed-with-state/287-ccfc44c6-f7b2-4854-894c-8d12ea8b0a3e"
+    },
+    "c31bcfdeab34a65a": {
+      "at": "2026-11-27T16:18:00-06:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "444924432",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2018153022085182989",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Burleson police investigate possible road rage in deadly Thanksgiving crash",
+      "url": "https://www.fox4news.com/news/burleson-police-investigate-possible-road-rage-deadly-thanksgiving-crash"
     },
     "c56c5548b6d63e59": {
       "at": "2026-11-25T11:49:00-06:00",
@@ -3220,7 +3232,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 156,
+  "total_posts": 158,
   "tried": {
     "1ab95098ab98f469": {
       "at": "2026-11-27T20:16:18.005986+00:00",
@@ -3233,17 +3245,17 @@
       "title": "Goo Goo Dolls Fans Slam NBC Over Thanksgiving Halftime Show Snub: ‘Badly Handled’"
     },
     "273c4bbe9b854a9e": {
-      "at": "2026-11-27T19:46:19.983432+00:00",
+      "at": "2026-11-27T22:13:45.620937+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Early voting opens Nov. 30 for Tarrant Appraisal District runoff election"
     },
     "32650cf1316d4e8d": {
-      "at": "2026-11-27T19:46:19.983457+00:00",
+      "at": "2026-11-27T22:13:45.620963+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "One person dead after single-vehicle accident in North Dallas, police say"
     },
     "32bd9658720e7a73": {
-      "at": "2026-11-27T19:46:19.983467+00:00",
+      "at": "2026-11-27T22:13:45.620974+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "Rosenthal prepares to join Railroad Commission after election win"
     },
@@ -3263,12 +3275,12 @@
       "title": "Nonprofit Thanksgiving in Dallas helps newly arrived families find sense of belonging"
     },
     "94c05cad8e1d1e5a": {
-      "at": "2026-11-27T19:46:19.983461+00:00",
+      "at": "2026-11-27T22:13:45.620967+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "North Texas dance teams face unexpected costs after Macy’s Thanksgiving Day Parade postponement"
     },
     "97dcdc91f6f6001d": {
-      "at": "2026-11-27T19:46:19.983452+00:00",
+      "at": "2026-11-27T22:13:45.620958+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Smash Mob Burgers in Arlington aims to keep it simple and good"
     },
@@ -3283,7 +3295,7 @@
       "title": "Sarkisian proud of offensive line ahead of tough challenge against Texas A&M defense"
     },
     "bcdfe07cddb76e0e": {
-      "at": "2026-11-27T19:46:19.983470+00:00",
+      "at": "2026-11-27T22:13:45.620965+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "North Texas community rallies to keep local students in Macy's Thanksgiving Day Parade"
     },
@@ -3293,12 +3305,12 @@
       "title": "Rihanna atop the charts, Von Miller's breakout and more trends from Texas A&M's last Lone Star Showdown win"
     },
     "de5b38997515bc21": {
-      "at": "2026-11-27T19:46:19.983464+00:00",
+      "at": "2026-11-27T22:13:45.620971+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Musume restaurant reopens nearly 3 years after downtown Fort Worth explosion"
     },
     "deed6afe163d9362": {
-      "at": "2026-11-27T19:46:19.983462+00:00",
+      "at": "2026-11-27T22:13:45.620969+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Affluent DFW city unwraps 5th biggest holiday budget in the U.S."
     },
@@ -3313,12 +3325,12 @@
       "title": "No. 9 Texas Tech beats TCU 48-27 to secure spot against No. 2 Utah in Big 12 title game"
     },
     "f557e273ec5c23dc": {
-      "at": "2026-11-27T19:46:19.983459+00:00",
+      "at": "2026-11-27T22:13:45.620976+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Texas State University students protest, demand stronger free speech protections"
     },
     "fe658b08aaf2903f": {
-      "at": "2026-11-27T19:46:19.983465+00:00",
+      "at": "2026-11-27T22:13:45.620973+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "St. Louis Blues take on Dallas Stars, looking to extend home win streak"
     }
