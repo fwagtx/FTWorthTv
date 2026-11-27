@@ -57,7 +57,11 @@ _REGIONAL_PERSON_RE = re.compile(
     r"natives?|grand(?:mother|ma|father|pa|parents?)s?|child(?:ren)?|kids?|toddlers?|bab(?:y|ies)|nurses?|teachers?|doctors?|"
     r"artists?|athletes?|chefs?|residents?|singers?|musicians?|dancers?|players?|coach(?:es)?|bands?|choirs?|pastors?|officers?|"
     r"firefighters?|owners?|entrepreneurs?|siblings|brothers?|sisters?|twins|high schoolers?|retirees?|volunteers?|survivors?|"
-    r"patients?|graduates?|grads?|sons?|daughters?|husbands?|wi(?:fe|ves)|neighbors?|friends?)\b", re.I)
+    r"patients?|graduates?|grads?|sons?|daughters?|husbands?|wi(?:fe|ves)|neighbors?|friends?|"
+    # Nov 27, render 294: WFAA's "Macy's parade delay leaves North Texas performers scrambling to stay" (dance teams stuck
+    # in New York, no town named) was drafted as a link post
+    r"performers?|dance teams?|teams?|fans?|travel(?:l)?ers?|shoppers?|workers?|employees?|drivers?|riders?|customers?|"
+    r"commuters?|homeowners?|renters?|voters?|taxpayers?|parents?|workers?)\b", re.I)
 
 
 def names_our_place(title: str, desc: str = "") -> bool:

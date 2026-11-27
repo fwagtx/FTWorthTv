@@ -126,3 +126,12 @@ def test_a_north_texas_person_is_ours_only_when_the_description_names_our_side()
     assert not wanted_title(station, "North Texas high school student wins national science prize", {}, "")
     assert wanted_title(station, "North Texas braces for first hard freeze of the season", {}, "")     # the region itself still counts
     assert wanted_title(station, "DFW gas prices drop ahead of Thanksgiving travel | FOX 4", {}, "")
+
+
+def test_north_texas_performers_need_our_side_named():
+    """Nov 27, render 294: WFAA's video on North Texas dance teams stuck in New York named no town of ours."""
+    from ftworthtv.sources.youtube import names_our_place
+    title = "Macy's parade delay leaves North Texas performers scrambling to stay"
+    assert not names_our_place(title, "Hundreds of North Texas dancers face extra hotel and flight costs after Macy's moved its parade.")
+    assert names_our_place(title, "Dance teams from Keller and Mansfield face extra hotel costs after Macy's moved its parade.")
+    assert names_our_place("North Texas storms knock out power overnight | NBC DFW")
