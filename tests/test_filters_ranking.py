@@ -476,3 +476,16 @@ def test_a_critics_review_of_a_named_work_is_a_column():
     assert not column_label("Review of the year: the biggest Fort Worth stories")
     assert not column_label("Fort Worth council to review zoning plan for Stockyards")
     assert not column_label("'Wicked: For Good' tops the Thanksgiving box office")
+
+
+def test_a_reactions_roundup_is_not_news_and_an_injury_exit_is_a_happening():
+    """Nov 26, render 290: Jason Kelce's reactions to the Eagles' win and Cooper DeJean's concussion, both from the game the
+    page had already posted, drafted with a text card and the AT&T Stadium stands."""
+    from ftworthtv.filters import roundup_column
+    from ftworthtv.images.subject import happened
+    assert roundup_column("'Happy Thanksgiving America': Jason Kelce leads reactions to Eagles' win over Cowboys")
+    assert roundup_column("Fans react to Cowboys' collapse against the Eagles")
+    assert roundup_column("NFL world reacts to Cowboys' fourth-down call")
+    assert not roundup_column("Fort Worth residents react to council's budget vote")
+    assert happened("Eagles DB DeJean (concussion) exits win early at Cowboys", "rss")
+    assert not happened("Walgreens exits two Fort Worth locations next month", "rss")

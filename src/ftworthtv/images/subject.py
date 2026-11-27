@@ -665,6 +665,9 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   "rescued", "pulled from", " dies ", " died ", "killed", " dead ", "arrested", "charged with", "indicted", "sentenced",
                   # Nov 26, render 288: FOX 4's "Fort Worth motorcyclist recovering after hit-and-run" drew the downtown skyline
                   "hit-and-run", "hit and run", "struck by", "run over", "rear-ended", "t-boned", "rollover",
+                  # Nov 26, render 290: "Eagles DB DeJean (concussion) exits win early at Cowboys" drew the stands at a 2017 bowl game
+                  "concussion", "exits early", "exits game", "exits win", "exits loss", "leaves game", "left the game",
+                  "won't return", "will not return", "did not return",
                   # Nov 26, render 265: "Fort Worth country singer found not guilty after murder trial" drew the Tarrant County
                   # Courthouse: a verdict is a happening, and the courthouse is the building, never the picture of it
                   "acquitted", "not guilty", "found guilty", "convicted", "verdict", "mistrial", "pleads guilty", "pleaded guilty",

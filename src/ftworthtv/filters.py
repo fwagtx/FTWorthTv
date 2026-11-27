@@ -335,6 +335,10 @@ _COLUMN_ROUNDUP_RE = re.compile(
                          # movies) drew the Stockyards' cattle pens; a weekly listings page is a column, not news
                          r"^(?:film shorts|night & day|night and day|music listings|film listings|stage listings|art listings)\b|"
                          r"\s//\s*(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d|"
+                         # Nov 26, render 290: "'Happy Thanksgiving America': Jason Kelce leads reactions to Eagles' win over
+                         # Cowboys": other people's posts about a game the page already reported
+                         r"\b(?:leads?|tops) reactions\b|\b(?:social media|twitter|the internet|nfl world|fans|x) reacts?\b|"
+                         r"\breactions? to (?:the )?[\w'’ .-]{0,40}?(?:win|loss|victory|defeat|collapse|comeback|meltdown|upset)\b|"
                          r"\b(?:winners and losers|takeaways|overreactions|what we learned|things we learned|observations from|"
                          r"instant analysis|hot takes?|mailbag|studs and duds|stock up,? stock down|"
                          r"grades for (?:every|each|all) (?:team|player|game)|week \d+ grades)\b|"   # Nov 22: CBS's "NFL Week 11 grades for every team"
