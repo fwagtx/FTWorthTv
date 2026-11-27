@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-144250/01-houston-s-all-black-threads-top-best-uniforms-of/post.jpg",
+    "credit": "Photo: Ilikecheese via Wikimedia Commons (CC BY 3.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Houston_Skyline_8-10-2010.JPG",
+    "photo_id": "lib-houston-skyline-8-10-2010-jpg",
+    "subject": "beat:houston-skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-144250/01-houston-s-all-black-threads-top-best-uniforms-of/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Houston's all-black threads top best uniforms of college football Week 13",
+    "caption": "Just because it's rivalry week doesn't mean teams still can't put their best foot forward with uniform swag. Rivalry week is as good of a time as any to bring out a strong uniform, and plenty of college football teams are proving that this weekend.\n\nHouston is one of those squads. The Cougars boast a simple but effective color scheme with their black, white and red palette, and their look for their Week 13 clash against Baylor plays into that sleek ethos.",
+    "first_comment": "Source: ESPN College Football https://www.espn.com/college-football/story/_/id/50598211/college-football-uniforms-week-13-houston\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "bd2f3773593c41a9",
+    "source": "ESPN College Football",
+    "source_kind": "rss",
+    "title": "Houston's all-black threads top best uniforms of college football Week 13",
+    "summary": "Just because it's rivalry week doesn't mean teams still can't put their best foot forward with uniform swag. Rivalry week is as good of a time as any to bring out a strong uniform, and plenty of college football teams are proving that this weekend. Houston is one of those squads. The Cougars boast a simple but effective color scheme with their black, white and red palette, and their look for their Week 13 clash against Baylor plays into that sleek ethos. Playing on Saturday night, Houston's threads will blend into the Texas sky -- an all-black pants and jersey combination, contrasted by a white helmet with a \"HOUSTON\" script wordmark. An electric red outlines the white numbers and logos throughout the look. 𝐓𝐇𝐈𝐒 𝐒𝐀𝐓𝐔𝐑𝐃𝐀𝐘⚫️⚫️⚫️ 🎟️: https://t.co/pBIGXDVwTD https://t.co/wVSTNf1PaJ The Cougars aren't the only squad warming up the November air with their uniform heat. Here are the top…",
+    "url": "https://www.espn.com/college-football/story/_/id/50598211/college-football-uniforms-week-13-houston",
+    "published": "2026-11-27T15:59:52+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN College Football",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.63,
+    "extra": {
+      "feed_title": "www.espn.com - NCF",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5515
+  }
+}
