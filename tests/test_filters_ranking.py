@@ -489,3 +489,20 @@ def test_a_reactions_roundup_is_not_news_and_an_injury_exit_is_a_happening():
     assert not roundup_column("Fort Worth residents react to council's budget vote")
     assert happened("Eagles DB DeJean (concussion) exits win early at Cowboys", "rss")
     assert not happened("Walgreens exits two Fort Worth locations next month", "rss")
+
+
+def test_a_road_closed_last_night_has_reopened_by_morning():
+    """Nov 27, render 295: WFAA's 8:55 p.m. Denton I-35 closure (crews cleaning the roadway) was drafted for 8:02 a.m. as crime."""
+    from datetime import datetime, timezone
+    from ftworthtv.filters import infer_category, stale_closure
+    from ftworthtv.models import Story
+    now = datetime(2026, 11, 27, 13, 14, tzinfo=timezone.utc)
+    st = Story(id="x", title="Northbound I-35 closed in Denton due to 'hazard' damaging tires, police say", url="u", source="WFAA",
+               source_kind="rss", summary="Denton Police say drivers will have to exit at Fort Worth Drive as crews clean the roadway.",
+               published=datetime(2026, 11, 27, 2, 55, tzinfo=timezone.utc))
+    assert stale_closure(st, now) and infer_category(st) == "traffic"
+    assert not stale_closure(st, datetime(2026, 11, 27, 4, 0, tzinfo=timezone.utc))          # an hour later it was news
+    planned = Story(id="y", title="I-30 lanes closed this weekend for bridge work in west Fort Worth", url="u", source="WFAA",
+                    source_kind="rss", summary="TxDOT says the lanes will be closed through Monday.",
+                    published=datetime(2026, 11, 26, 20, 0, tzinfo=timezone.utc))
+    assert not stale_closure(planned, now)

@@ -22,6 +22,8 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
                 "freezing", "warmup", "warm-up", "warming trend", "cool-down", "gusty winds"],
     "traffic": ["crash", "crashes", "wreck", "wrecks", "i-35w", "35w", "i-30", "i-20", "loop 820", "highway", "interstate", "interstates",
                 "lanes closed", "road closure",
+                # Nov 27, render 295: "Northbound I-35 closed in Denton due to 'hazard' damaging tires, police say" was crime
+                "i-35", "i-35e", "i-45", "i-820", "northbound", "southbound", "eastbound", "westbound", "tollway", "frontage road",
                 "traffic", "pileup", "18-wheeler", "trinity metro", "texrail", "dfw airport delays"],
     "crime": ["police", "shooting", "shot", "arrested", "arrest", "stabbing", "robbery", "homicide", "murder", "suspect", "steal", "stole",
               "stolen", "theft", "thieves", "bandit", "burglar", "carjack", "wanted", "sentenced", "indicted",
@@ -1353,6 +1355,24 @@ def infer_category(story: Story) -> str:
 
 DEFERRED_MAX_AGE_HOURS = 36.0    # a story a daily cap held back may still run the next day while it is this fresh
 
+# Nov 27, render 295: WFAA's 8:55 p.m. "Northbound I-35 closed in Denton due to 'hazard' damaging tires" ("drivers will have to
+# exit at Fort Worth Drive as crews clean the roadway") was drafted for 8:02 the next morning: a road closed right now is news
+# for a few hours; by the next post slot it has reopened, and a planned closure says when ("this weekend", "until Monday")
+CLOSURE_MAX_AGE_HOURS = 4.0
+_LIVE_CLOSURE_RE = re.compile(r"\b(?:closed|shut down|blocked|backed up|lanes? (?:closed|blocked)|traffic (?:stopped|backed up))\b", re.I)
+_PLANNED_CLOSURE_RE = re.compile(r"\b(?:will (?:be )?clos\w*|to close|closing|for (?:days|weeks|months)|through (?:the weekend|\w+day)|"
+                                 r"until (?:further notice|\w+day)|this weekend|next week|construction|long-term|indefinitely|"
+                                 r"overnight closures?|nightly)\b", re.I)
+
+
+def stale_closure(story: Story, now: datetime) -> bool:
+    """A road reported closed or blocked hours ago, with no planned duration: by the time the post goes out it has reopened."""
+    if story.source_kind not in ("rss", "video") or story.published is None:
+        return False
+    if not _LIVE_CLOSURE_RE.search(story.title or "") or _PLANNED_CLOSURE_RE.search(story.text()):
+        return False
+    return story.age_hours(now) > CLOSURE_MAX_AGE_HOURS
+
 
 def is_fresh(story: Story, now: datetime, max_age_hours: float) -> bool:
     if story.source_kind in ("nws_alert", "nws_forecast", "event", "event_roundup", "wanted", "arrest_log", "culture", "submission"):
@@ -1511,6 +1531,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if not is_fresh(story, now, max_age) and not (state.deferred(story.id) and is_fresh(story, now, DEFERRED_MAX_AGE_HOURS)):
             dropped.append((story, f"older than {max_age:.0f}h"))      # a cap-held story gets a second day (State.defer)
+            continue
+        if stale_closure(story, now):
+            dropped.append((story, f"a road closure reported over {CLOSURE_MAX_AGE_HOURS:.0f} hours ago: the road has likely reopened"))
             continue
         term = blocked(story, blocklist)
         if term:
