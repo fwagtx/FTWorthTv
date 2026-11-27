@@ -356,14 +356,14 @@ STADIUM_TOPICS = {"att-stadium", "globe-life-field", "aac", "toyota-stadium", "d
 _NOT_A_GAME_RE = re.compile(r"\b(?:blood drive|toy drive|food drive|coat drive|clothing drive|donors?|donat\w*|volunteers?|charity|"
                             r"fundraiser|job fair|hiring event|vaccin\w*|clinic|graduation|commencement|lighting ceremony|"
                             r"partnership|giveaway|turkey|jobs?|employ\w*|workers?|staffers?|disabilit\w*|condiments?|"
-                            r"concessions?|vendors?)\b", re.I)
+                            r"concessions?|vendors?|watch (?:party|parties)|viewing (?:party|parties))\b", re.I)
 
 
 # the headline itself says the story is people off the field (a drive, a job, workers), so the venue and the team are where
 # it happens, not whom it is about; "turkey", "partnership" and "giveaway" stay out: a Thanksgiving game recap may use them
 _OFF_FIELD_TITLE_RE = re.compile(r"\b(?:blood drive|toy drive|food drive|coat drive|clothing drive|donors?|volunteers?|charity|"
                                  r"fundraiser|job fair|hiring event|jobs?|employ\w*|workers?|staffers?|disabilit\w*|condiments?|"
-                                 r"concessions?|vendors?)\b", re.I)
+                                 r"concessions?|vendors?|watch (?:party|parties)|viewing (?:party|parties))\b", re.I)
 
 
 def off_the_field_title(title: str) -> bool:

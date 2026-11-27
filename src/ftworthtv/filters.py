@@ -332,6 +332,9 @@ _COLUMN_ROUNDUP_RE = re.compile(
                          # Nov 25, render 257: CBS Sports' "NFL on Thanksgiving halftime shows: Ranking the 10 most memorable
                          # performances", a writer's list of past shows (drafted with the downtown skyline)
                          r"(?:^|[:;—–]\s*)ranking (?:the|every|all|each)\b|"
+                         # Nov 27, render 304: CBS Sports' "A premature, unauthorized, tiered ranking of every possible Dallas
+                         # Cowboys coach -- should Jerry Jones need it"
+                         r"\branking of (?:every|all|each|the)\b|\btiered ranking\b|\btier list\b|\bshould [\w .'’-]{2,30} need it\b|"
                          r"\b\d+\s+(?:most\s+)?(?:memorable|iconic|greatest|unforgettable|legendary|underrated|overrated)\b|"
                          # Nov 25: CultureMap's "Get holly jolly at these 2026 holiday pop-up bars around Fort Worth": a guide's list
                          r"\b(?:at|to|try|visit|check out|hit|from) these\b(?:\s+[\w'’-]+){0,5}?\s+(?:bars|restaurants|spots|places|patios|"
@@ -784,7 +787,11 @@ def other_metro_url(url: str) -> bool:
     Nov 24, KXAN's "Save Muny deal sparks concerns about future of Austin research lab" (a golf course deal) passed as Texas
     sports, the one beat the other-metro headline check leaves alone."""
     low = (url or "").lower()
-    return any(f"/local/{m.replace(' ', '-')}/" in low for m in OTHER_METROS)
+    if any(f"/local/{m.replace(' ', '-')}/" in low for m in OTHER_METROS):
+        return True
+    # Nov 27, render 304: KXAN's "State Theatre to host free Texas vs. Texas A&M rivalry watch party" (kxan.com/things-to-do/):
+    # another metro station's things-to-do section lists that city's events
+    return any(st in low for st in OTHER_METRO_STATIONS) and bool(re.search(r"/(?:things-to-do|events|entertainment/events)/", low))
 
 
 # Nov 26, render 283: KXAN's "Rabid dog found in San Marcos as Texas rabies cases top 2025 totals" passed for "Texas" in its

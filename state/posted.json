@@ -9,7 +9,7 @@
     "2026-11-24": 20,
     "2026-11-25": 19,
     "2026-11-26": 15,
-    "2026-11-27": 5
+    "2026-11-27": 6
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -99,7 +99,7 @@
     },
     "2026-11-27": {
       "crime": 2,
-      "sports": 2,
+      "sports": 3,
       "weather": 1
     }
   },
@@ -155,7 +155,7 @@
       "wanted": 2
     },
     "2026-11-27": {
-      "rss": 2,
+      "rss": 3,
       "video": 1,
       "wanted": 2
     }
@@ -206,7 +206,7 @@
       "local": 13
     },
     "2026-11-27": {
-      "dfw": 1,
+      "dfw": 2,
       "local": 4
     }
   },
@@ -215,11 +215,6 @@
       "at": "2026-11-25T18:17:28.520728+00:00",
       "reason": "daily cap for crime reached",
       "title": "Arlington police officer shoots dog while responding to commercial alarm"
-    },
-    "0257d232888a034d": {
-      "at": "2026-11-25T17:45:08.099989+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Dallas police seek another suspect in Deep Ellum Halloween night shootings on South Crowdus Street"
     },
     "050179e7ae78cfb7": {
       "at": "2026-11-27T03:44:49.300907+00:00",
@@ -360,11 +355,6 @@
       "at": "2026-11-25T21:15:15.510978+00:00",
       "reason": "daily cap for weather reached",
       "title": "Macy’s Thanksgiving Day Parade Postponed to Saturday Due to Storm"
-    },
-    "66e9cb3ce6a700f8": {
-      "at": "2026-11-25T17:45:08.099985+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "2 dead after early morning shooting at Arlington apartment complex, police say"
     },
     "688705ac4f1c1a7e": {
       "at": "2026-11-25T20:46:14.167981+00:00",
@@ -508,7 +498,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-27T08:52:00-06:00",
+  "last_post_at": "2026-11-27T11:52:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -921,6 +911,19 @@
       "source": "WFAA Sports",
       "title": "Joaquín Valiente scores 2 goals, Dallas beats Timbers 3-0 in Game 1 of best-of-3 series",
       "url": "https://www.wfaa.com/article/syndication/associatedpress/joaqun-valiente-scores-2-goals-dallas-beats-timbers-3-0-in-game-1-of-best-of-3-series/616-31a19ba9-89b8-4fb0-bee2-2e15e2b2942d"
+    },
+    "3a6af786d82c0422": {
+      "at": "2026-11-27T11:52:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "444675928",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1292509226812852042",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "Texas Rangers (MLB.com)",
+      "title": "RHP Jiménez continues comeback story, agrees to Minors deal with Rangers (source)",
+      "url": "https://www.mlb.com/rangers/news/joe-jimenez-minor-league-contract-with-rangers"
     },
     "3b0f1374a667b201": {
       "at": "2026-11-19T13:45:00+00:00",
@@ -3061,6 +3064,11 @@
       "reason": "The Hollywood Reporter's Avengers/Dune box office tracking: trade projections a month before release, with hype in its caption ('Dunesday ..",
       "title": "‘Avengers: Doomsday’ Eyes $270M Opening as ‘Dune: Part Three’ Also Heads for Big Start"
     },
+    "b325502e2ace087a": {
+      "at": "2026-11-27T17:46:38.011876+00:00",
+      "reason": "a speculative ranking column (CBS Sports' coach-candidate tiers), not news",
+      "title": "A premature, unauthorized, tiered ranking of every possible Dallas Cowboys coach -- should Jerry Jones need it"
+    },
     "bc6e7f526c311e43": {
       "at": "2026-11-25T18:45:33.177143+00:00",
       "reason": "NBC 5's Cowboys Thanksgiving game menu: a concessionaire's menu preview with no picture of the food, drafted as a sports text card; rule add",
@@ -3166,6 +3174,11 @@
       "at": "2026-11-23T20:50:26.817368+00:00",
       "reason": "IGN's Fortnite streamer going viral with GTA 6: not a national moment, and the photo was a Monster Jam x Fortnite truck; rule added"
     },
+    "e2bcaf203ae204a8": {
+      "at": "2026-11-27T17:46:38.011901+00:00",
+      "reason": "an Austin watch party (KXAN things-to-do), with Kyle Field standing in for a theater event",
+      "title": "State Theatre to host free Texas vs. Texas A&M rivalry watch party"
+    },
     "e3ad3592f0a2f098": {
       "at": "2026-11-27T16:14:36.901588+00:00",
       "reason": "a Dallas family's house fire (everyone out): another city's news, with a courthouse photo standing in for the fire",
@@ -3238,7 +3251,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 154,
+  "total_posts": 155,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",

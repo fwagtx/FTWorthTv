@@ -531,3 +531,14 @@ def test_the_winning_sides_recap_is_the_same_game_and_predictions_are_not_news()
     assert hypothetical_sports("Predicting the Cowboys' Tough Final Stretch | Special Edition")
     assert hypothetical_sports("2027 NFL Draft: Remaining games that will determine the draft order, including No. 1 overall")
     assert not hypothetical_sports("Cowboys' Jones backing Schottenheimer despite 'damning setbacks'")
+
+
+def test_a_tiered_ranking_is_a_column_and_another_metros_things_to_do_is_its_event():
+    """Nov 27, render 304: CBS Sports' tiered ranking of Cowboys coach candidates, and KXAN's Austin watch party with Kyle Field."""
+    from ftworthtv.filters import other_metro_url, roundup_column
+    from ftworthtv.images.library import drop_stadiums_off_the_field
+    assert roundup_column("A premature, unauthorized, tiered ranking of every possible Dallas Cowboys coach -- should Jerry Jones need it")
+    assert not roundup_column("Cowboys' Jones backing Schottenheimer despite 'damning setbacks'")
+    assert other_metro_url("https://www.kxan.com/things-to-do/state-theatre-to-host-free-texas-vs-texas-am-rivalry-watch-party/")
+    assert not other_metro_url("https://www.wfaa.com/things-to-do/fort-worth-stock-show/")
+    assert drop_stadiums_off_the_field(["texas-am"], "State Theatre to host free Texas vs. Texas A&M rivalry watch party") == []
