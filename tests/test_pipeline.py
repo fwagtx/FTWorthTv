@@ -237,7 +237,8 @@ def test_hard_news_without_a_picture_goes_out_as_a_text_card_and_soft_news_waits
     settings.brand.setdefault("card", {})["placeholder_when_no_photo"] = False      # the live setting: no fake skyline
     settings.max_posts = 2
     death = Story(id="c", source="WFAA", source_kind="rss", title="Dallas Cowboys fan dies after altercation during 49ers game, Arlington police say",
-                  summary="A man died after an altercation in the stands during Sunday's game at AT&T Stadium, Arlington police said Monday.", url="https://x/c",
+                  # the clock is a Thursday: the game was the night before (a death four days gone would be stale_happening)
+                  summary="A man died after an altercation in the stands during Wednesday's game at AT&T Stadium, Arlington police said Thursday.", url="https://x/c",
                   published=now - timedelta(hours=1), always_relevant=True, category_hint="crime")
     cafe = Story(id="f", source="CultureMap Fort Worth", source_kind="rss", title="A new coffee shop opens on Magnolia Avenue this weekend",
                  summary="The shop opens Saturday with pastries from a local bakery, the owners said.", url="https://x/f",

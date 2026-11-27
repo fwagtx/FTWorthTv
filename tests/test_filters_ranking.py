@@ -616,3 +616,27 @@ def test_a_uniforms_listicle_is_a_column_and_no_other_citys_skyline_stands_in():
     for cat in ("sports", "community", "crime"):
         topics = topics_for(f"{t} {body}".lower(), cat, "texas", title=t)
         assert not any(x in topics for x in ("houston-skyline", "dallas-skyline", "austin-skyline", "san-antonio-skyline")), (cat, topics)
+
+
+def test_a_fire_two_days_gone_is_not_breaking_and_another_states_story_is_its_own():
+    """Nov 27, render 311: NBC 5's Weatherford aerospace-plant fire (the lead: the city "lifted a shelter-in-place order on
+    Wednesday morning after a two alarm fire") came through the feed on Friday as breaking news, and CBS Texas's "Pregnant
+    prisoner escapes ... after officers stop at Whataburger in New Mexico" passed as Texas news on "Whataburger"."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from ftworthtv.filters import another_states_story, stale_happening
+    friday = datetime(2026, 11, 27, 15, 15, tzinfo=ZoneInfo("America/Chicago"))
+    t = "‘Everything is under control' after fire at Aerospace facility: Weatherford fire chief"
+    lead = ("The city of Weatherford lifted a shelter-in-place order on Wednesday morning after a two alarm fire at Weatherford "
+            "Aerospace. No one was hurt and the cause of the fire is under investigation.")
+    assert stale_happening(t, lead, friday) == "Wednesday"
+    assert stale_happening("Two hurt in Tuesday night shooting in Fort Worth", "Two people were shot Tuesday night.", friday) == "Tuesday"
+    assert not stale_happening("Crews battle house fire in east Fort Worth", "Firefighters battled a house fire Friday morning.", friday)
+    assert not stale_happening("Crash closes I-35W lanes", "A crash on Thursday night closed lanes.", friday)        # yesterday
+    assert not stale_happening("Police identify man killed in Wednesday crash", "Police identified the man killed Wednesday.", friday)
+    assert not stale_happening("Trial set in shooting case", "The trial will begin Monday in the shooting case.", friday)
+    assert another_states_story("Pregnant prisoner escapes in corrections vehicle after officers stop at Whataburger in New Mexico")
+    assert not another_states_story("Chiefs fans celebrate in Kansas City")
+    assert not another_states_story("Fort Worth man arrested in Oklahoma")
+    assert not another_states_story("Texas family missing in Mexico")
+    assert infer_category(_story("Pregnant prisoner escapes in corrections vehicle")) == "crime"

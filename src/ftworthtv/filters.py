@@ -27,7 +27,9 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
                 "traffic", "pileup", "18-wheeler", "trinity metro", "texrail", "dfw airport delays"],
     "crime": ["police", "shooting", "shot", "arrested", "arrest", "stabbing", "robbery", "homicide", "murder", "suspect", "steal", "stole",
               "stolen", "theft", "thieves", "bandit", "burglar", "carjack", "wanted", "sentenced", "indicted",
-              "fwpd", "deputies", "sheriff", "charged with", "manhunt", "burglary", "carjack"],
+              "fwpd", "deputies", "sheriff", "charged with", "manhunt", "burglary", "carjack",
+              # Nov 27, render 311: CBS Texas's "Pregnant prisoner escapes in corrections vehicle ..." was filed as "other"
+              "inmate", "inmates", "prisoner", "escaped prisoner", "escapee", "jailbreak", "on the run"],
     "sports": ["tcu", "horned frogs", "frogs", "cowboys", "rangers", "mavericks", "stars", "fc dallas", "texas motor speedway",
                "longhorns", "aggies", "razorbacks", "sooners", "senior day", "sec championship", "big 12 championship", "touchdown",
                "quarterback", "halftime", "kickoff", "playoff", "head coach",
@@ -749,6 +751,57 @@ def another_citys_old_crime(title: str, now_local, summary: str = "") -> str:
     if month and _MONTHS.index(month.group(1).lower()) + 1 != now_local.month:
         return f"in {month.group(1).capitalize()}"
     return ""
+
+
+# Nov 27, render 311: NBC 5's "'Everything is under control' after fire at Aerospace facility: Weatherford fire chief" came
+# through the feed on Friday; its lead said the city "lifted a shelter-in-place order on Wednesday morning after a two alarm
+# fire". A fire, a crash or a shooting two days gone is not breaking news; a follow-up (a name, a charge, a cause) is new news.
+_HAPPEN_WORD = (r"(?:fires?|blaze|alarm|explosion|crash(?:ed)?|wreck|collision|shooting|shot|stabbing|stabbed|killed|died|dead|"
+                r"arrested|escaped|evacuat\w*|shelter-in-place|lifted|broke out|burned|collapsed|flooded|rescued)")
+_HAPPEN_DAY_RE = re.compile(rf"\b{_HAPPEN_WORD}\b[^.!?]{{0,80}}?\b(?:on |last |early |late )?({'|'.join(_WEEKDAYS)})\b|"
+                            rf"\b({'|'.join(_WEEKDAYS)})(?: morning| night| afternoon| evening)?(?:'s|’s)?\s+[^.!?]{{0,40}}?\b{_HAPPEN_WORD}\b",
+                            re.I)
+_FUTURE_RE = re.compile(r"\b(?:will|set to|scheduled|slated|planned|plans? to|expected to|upcoming|next)\b", re.I)
+_HAPPEN_FOLLOW_UP_RE = re.compile(r"\b(?:identif\w+|names?|named|charged?|charges|arrests?|arrested|sentenced|indicted|cause|update[sd]?|"
+                           r"new details|lawsuit|sues|investigation (?:finds|reveals)|memorial|vigil|funeral|reopens?|reopened)\b", re.I)
+
+
+def stale_happening(title: str, summary: str, now_local) -> str:
+    """The weekday a fire, crash or shooting happened, when the headline and the lead put it two or more days back and the
+    headline reports no follow-up. '' otherwise."""
+    if _HAPPEN_FOLLOW_UP_RE.search(title or ""):
+        return ""
+    lead = " ".join(re.split(r"(?<=[.!?])\s+", (summary or "").strip())[:2])
+    for sentence in re.split(r"(?<=[.!?])\s+", f"{title or ''}. {lead}"):
+        if _FUTURE_RE.search(sentence):
+            continue
+        for m in _HAPPEN_DAY_RE.finditer(sentence):
+            day = (m.group(1) or m.group(2)).lower()
+            if (now_local.weekday() - _WEEKDAYS.index(day)) % 7 >= 2:
+                return day.capitalize()
+    return ""
+
+
+# Nov 27, render 311: CBS Texas's "Pregnant prisoner escapes in corrections vehicle after officers stop at Whataburger in New
+# Mexico" passed as Texas news on "Whataburger": a story the headline sets in another state is that state's news
+OTHER_STATES = ("new mexico", "oklahoma", "louisiana", "arkansas", "arizona", "colorado", "kansas", "missouri", "nebraska", "nevada",
+                "utah", "california", "florida", "georgia", "tennessee", "alabama", "mississippi", "kentucky", "ohio", "michigan",
+                "illinois", "indiana", "wisconsin", "minnesota", "iowa", "new york", "new jersey", "pennsylvania", "virginia",
+                "north carolina", "south carolina", "oregon", "idaho", "montana", "wyoming", "south dakota", "north dakota", "maryland",
+                "massachusetts", "connecticut", "maine", "vermont", "new hampshire", "rhode island", "delaware", "west virginia",
+                "alaska", "hawaii", "mexico")
+_IN_OTHER_STATE_RE = re.compile(r"\b(?:in|near|outside|across) (?:the state of |rural |southern |northern |eastern |western |central )?"
+                                r"(?:" + "|".join(re.escape(st) for st in OTHER_STATES) + r")\b(?! city)", re.I)
+
+
+_TEXAS_BRANDS = ("h-e-b", "buc-ee", "whataburger")      # a Texas brand's store in another state is still that state's story
+
+
+def another_states_story(title: str) -> bool:
+    low = (title or "").lower()
+    if any(re.search(r"\b" + re.escape(w) + r"\b", low) for w in PLACE_WORDS if w not in _TEXAS_BRANDS):
+        return False
+    return bool(_IN_OTHER_STATE_RE.search(low))
 
 
 TARRANT_SIDE_WORDS = ("fort worth", "tarrant", "arlington", "keller", "southlake", "mansfield", "haltom", "hurst", "euless", "bedford",
@@ -1778,6 +1831,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                     and not statewide(story):
                 dropped.append((story, "another metro's local story"))         # a body found in a downtown Houston elevator shaft is Houston's news
                 continue
+            if tier[0] in ("texas", "dfw") and another_states_story(story.title):
+                dropped.append((story, "another state's story"))                # a New Mexico prison escape is New Mexico's news
+                continue
             if tier[0] == "texas" and other_region(story.title) and not statewide(story):
                 dropped.append((story, "another region's story"))              # fall foliage in South Central Texas is KENS 5's weather blog
                 continue
@@ -1823,6 +1879,11 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 stale_result(story.title, story.summary or "", now.astimezone(settings.tz)):
             dropped.append((story, "a game result two or more days old"))
             continue
+        if story.category in ("breaking", "crime", "traffic") and story.source_kind == "rss":
+            gone = stale_happening(story.title, story.summary or "", now.astimezone(settings.tz))
+            if gone:
+                dropped.append((story, f"a {story.category} story from {gone}, days ago"))   # a Wednesday fire read on Friday
+                continue
         if story.category in excluded:
             dropped.append((story, f"excluded category: {story.category}"))
             continue
