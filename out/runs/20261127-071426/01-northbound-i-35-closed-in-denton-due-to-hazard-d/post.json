@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-071426/01-northbound-i-35-closed-in-denton-due-to-hazard-d/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-071426/01-northbound-i-35-closed-in-denton-due-to-hazard-d/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Northbound I-35 closed in Denton due to 'hazard' damaging tires, police say",
+    "caption": "Denton Police say drivers will have to exit at Fort Worth Drive as crews clean the roadway.",
+    "first_comment": "Source: WFAA https://www.wfaa.com/article/traffic/northbound-i-35-closed-in-denton-due-to-hazard-damaging-tires-police-say/287-6570655d-ea63-41b0-8acd-c1033ac71bd0\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "98e319a85ca8e297",
+    "source": "WFAA",
+    "source_kind": "rss",
+    "title": "Northbound I-35 closed in Denton due to 'hazard' damaging tires, police say",
+    "summary": "Denton Police say drivers will have to exit at Fort Worth Drive as crews clean the roadway.",
+    "url": "https://www.wfaa.com/article/traffic/northbound-i-35-closed-in-denton-due-to-hazard-damaging-tires-police-say/287-6570655d-ea63-41b0-8acd-c1033ac71bd0",
+    "published": "2026-11-27T02:55:12+00:00",
+    "category_hint": null,
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/d359531d-29b5-4aa3-bd0f-79bde856b2be/20261127T024549/d359531d-29b5-4aa3-bd0f-79bde856b2be_750x422.jpg",
+    "image_credit": "Photo: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: local",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.258
+  }
+}
