@@ -56,15 +56,26 @@ def clean_feed_text(text: str) -> str:
     return collapse_ws(text)
 
 
+# a headline's abbreviations, spelled out the way a description says them
+_TITLE_ALIASES = {"uswnt": "united states women's national soccer team", "usmnt": "united states men's national soccer team",
+                  "dfw": "dallas fort worth", "fwpd": "fort worth police", "dps": "department public safety troopers",
+                  "isd": "school district", "tcu": "horned frogs", "uta": "arlington mavericks", "unt": "north mean green"}
+
+
 def about_headline(title: str, text: str) -> bool:
     """Does a feed's description talk about its own headline? NBC 5's feed (Nov 23) carried one Sunday Night Football article
-    under every item, so "Christmas in the Garden returns to Fort Worth Botanic Garden" was filed as sports news."""
+    under every item, so "Christmas in the Garden returns to Fort Worth Botanic Garden" was filed as sports news.
+    Nov 27, render 312: WFAA's "USWNT plays El Salvador in Texas Health Mansfield Stadium" lost its description ("The United
+    States women's soccer team takes on El Salvador in North Texas on Friday night.") for sharing one word with a six-word
+    headline: abbreviations are spelled out, and a short headline needs one shared word (a description repeated under several
+    headlines, the broken feed's mark, is caught separately)."""
     from .article import _words
     t = _words(title)
     if not text or not t:
         return True
-    shared = len(t & _words(text[:700]))
-    return shared >= (1 if len(t) <= 3 else 2)
+    spelled = t | _words(" ".join(_TITLE_ALIASES[w] for w in t if w in _TITLE_ALIASES))
+    shared = len(spelled & _words(text[:700]))
+    return shared >= (1 if len(t) <= 6 else 2)
 
 
 def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:

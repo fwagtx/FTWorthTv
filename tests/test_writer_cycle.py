@@ -1596,3 +1596,20 @@ def test_a_sourcing_tag_and_a_scouts_abbreviation_are_not_headline_words():
     assert clean_headline_tags("Cowboys sign kicker (report)") == "Cowboys sign kicker"
     assert clean_headline_tags("TCU (6-6) accepts bowl bid") == "TCU (6-6) accepts bowl bid"
     assert clean_headline_tags("RHPs to watch in the Rangers' system") == "RHPs to watch in the Rangers' system"
+
+
+def test_a_description_that_spells_out_the_headline_is_about_it():
+    """Nov 27, render 312: WFAA's "USWNT plays El Salvador in Texas Health Mansfield Stadium" lost its description ("The United
+    States women's soccer team takes on El Salvador in North Texas on Friday night.") and was dropped as headline-only."""
+    from datetime import datetime, timezone
+    from ftworthtv.sources.rss import about_headline, parse_feed
+    t = "USWNT plays El Salvador in Texas Health Mansfield Stadium"
+    d = "The United States women's soccer team takes on El Salvador in North Texas on Friday night."
+    assert about_headline(t, d)
+    assert not about_headline("Christmas in the Garden returns to Fort Worth Botanic Garden",
+                              "Sunday Night Football is heading to Cleveland as the Browns host the Raiders in primetime.")
+    feed = f"""<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>WFAA</title>
+<item><title>{t}</title><link>https://www.wfaa.com/article/sports/soccer/uswnt/287-1</link><description>{d}</description></item>
+</channel></rss>"""
+    [story] = parse_feed({"name": "WFAA Sports", "category_hint": "sports"}, feed, datetime.now(timezone.utc))
+    assert story.summary == d
