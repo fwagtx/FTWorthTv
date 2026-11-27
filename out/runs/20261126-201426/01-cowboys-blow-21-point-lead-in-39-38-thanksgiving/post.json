@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-201426/01-cowboys-blow-21-point-lead-in-39-38-thanksgiving/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-201426/01-cowboys-blow-21-point-lead-in-39-38-thanksgiving/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Cowboys blow 21-point lead in 39-38 Thanksgiving loss to Eagles",
+    "caption": "Dallas led by 14 in the fourth quarter. Jake Elliott kicked a 59-yard field goal with 2 seconds remaining, and the Philadelphia Eagles stunned the Dallas Cowboys by rallying for a 39-38 Thanksgiving victory on Thursday.\n\nThe Eagles (4-7) got a chance for the win when Cowboys coach Brian Schottenheimer decided to go for it with a two-point lead on fourth-and-1 from the Philadelphia 39-yard line with 55 seconds remaining. Dak Prescott was sacked, and the Eagles eventually reached the Dallas 41 with 7 seconds to go.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/cowboys-blow-21-point-lead-eagles-thanksgiving-november-2026/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "34bef9bebbbec8e0",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Cowboys blow 21-point lead in 39-38 Thanksgiving loss to Eagles",
+    "summary": "Dallas led by 14 in the fourth quarter. November 26, 2026 / 8:07 PM CST / CBS Texas Jake Elliott kicked a 59-yard field goal with 2 seconds remaining, and the Philadelphia Eagles stunned the Dallas Cowboys by rallying for a 39-38 Thanksgiving victory on Thursday. The Eagles (4-7) got a chance for the win when Cowboys coach Brian Schottenheimer decided to go for it with a two-point lead on fourth-and-1 from the Philadelphia 39-yard line with 55 seconds remaining. Dak Prescott was sacked, and the Eagles eventually reached the Dallas 41 with 7 seconds to go. The shocking loss is sure to put the pressure on Schottenheimer after the Cowboys (5-7) again failed to win consecutive games, making any path to the playoffs difficult at best. The Cowboys led by 21 points in the third quarter and were still up 14 in the fourth before the Eagles started their improbable comeback by blocking a punt…",
+    "url": "https://www.cbsnews.com/texas/news/cowboys-blow-21-point-lead-eagles-thanksgiving-november-2026/",
+    "published": "2026-11-27T02:07:45+00:00",
+    "category_hint": null,
+    "image_url": "https://assets2.cbsnewsstatic.com/hub/i/r/2026/11/27/6c9f4f9a-3c60-447f-94c6-36dd072e9f6e/thumbnail/1024x576/50dbcd373587aaddcfeee89d5164d0e8/gettyimages-2307059998.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 1.043
+  }
+}
