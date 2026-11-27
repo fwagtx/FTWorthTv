@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T14:38:58.448642+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-081358/02-a-groundbreaking-new-chapter-for-girls-flag-foot/post.jpg",
+    "credit": "Photo: Matthew T Rader via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dallas_Skyline_at_Dusk.jpg",
+    "photo_id": "lib-dallas-skyline-at-dusk-jpg",
+    "subject": "beat:dallas-skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-081358/02-a-groundbreaking-new-chapter-for-girls-flag-foot/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "A groundbreaking new chapter for girls' flag football arrives in Frisco",
+    "caption": "Texas Sports Academy opens the first girls-only flag football school in the country. Texas high school football playoffs move into the regional round this weekend.\n\nSome two dozen teams from North Texas are still in the hunt for gridiron glory. And in two years, girls could get their chance under the Friday night lights.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/a-groundbreaking-new-chapter-for-girls-flag-football-arrives-in-frisco/4111241/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "2b61139a7f00116e",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "A groundbreaking new chapter for girls' flag football arrives in Frisco",
+    "summary": "Texas Sports Academy opens the first girls-only flag football school in the country. Texas high school football playoffs move into the regional round this weekend. Some two dozen teams from North Texas are still in the hunt for gridiron glory. And in two years, girls could get their chance under the Friday night lights. In October, the University Interscholastic League approved girls' flag football as a pilot program starting in 2028-29. And right now in Frisco, players are getting ready at the nation's first girls-only flag football school in the country. “That's so big to us just because we're the first to ever do it. So, it's like, we're either gonna do it right, or it's not gonna be done again. And that's how we see it,” said Gianna Veimau-Cicala, one of the athletes now training at Texas Sports Academy. It opened in the fall with one mission: empower young women through elite…",
+    "url": "https://www.nbcdfw.com/news/sports/a-groundbreaking-new-chapter-for-girls-flag-football-arrives-in-frisco/4111241/",
+    "published": "2026-11-27T07:54:20+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/poster-frame-1795776955265.png?fit=1920,1080&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7200000000000001,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5232
+  }
+}
