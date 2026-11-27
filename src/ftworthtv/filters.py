@@ -331,6 +331,9 @@ _LOCAL_TEAMS_RE = re.compile(r"\b(?:tcu|horned frogs|frogs|cowboys|mavericks|mav
 _COLUMN_ROUNDUP_RE = re.compile(
                          # Nov 25, ESPN: "Rams and Cowboys top Week 12 uniforms" ("what each NFL team is wearing"), a league roundup
                          r"\bweek \d+ uniforms\b|\buniforms? (?:tracker|roundup|rankings?|power rankings)\b|"
+                         # Nov 27, render 310: ESPN's "Houston's all-black threads top best uniforms of college football Week 13"
+                         r"\b(?:best|worst|coolest|ugliest|sharpest|favorite)\s+(?:[\w'-]+\s+){0,2}uniforms\b|\btop\s+(?:\d+\s+)?uniforms\b|"
+                         r"\buniforms of (?:college football |the nfl |the nba |the )?week\b|"
                          r"\bwhat each (?:nfl |nba |college )?team is wearing\b|"
                          # Nov 26, render 264: the Arlington Report's weekly "Out and About in Arlington: ..." events column
                          r"^out and about\b|^weekend worthy\b|"

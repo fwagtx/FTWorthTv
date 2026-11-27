@@ -112,6 +112,7 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("austin",), "austin-skyline"),
     (("dallas",), "dallas-skyline"),
 ]
+OTHER_CITY_SKYLINES = {"dallas-skyline", "houston-skyline", "austin-skyline", "san-antonio-skyline"}
 # when nothing above matches: by category, then by scope
 CATEGORY_DEFAULTS = {"traffic": ["highway"], "crime": ["police"], "politics": ["city-hall"], "weather": ["storm", "skyline"],
                      "business": ["downtown", "skyline"], "community": ["downtown", "sundance-square", "skyline"],
@@ -351,7 +352,9 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
         # from Reunion Tower: another city's skyline is not a picture of a feature about a club, a shop or a trend there
         # Nov 27, render 297: NBC 5's "A groundbreaking new chapter for girls' flag football arrives in Frisco" drew it too:
         # a game, a team, a crime or a fire is never a skyline
-        out = [t for t in out if t != "dallas-skyline"]
+        # Nov 27, render 310: ESPN's "Houston's all-black threads top best uniforms of college football Week 13" drew the
+        # Houston skyline: any other city's skyline, not only Dallas's
+        out = [t for t in out if t not in OTHER_CITY_SKYLINES]
     if category == "sports":
         # Nov 24: WFAA's "Texas high school football: Playoff matchups, schedule" drew a Dell City ISD school bus
         out = [t for t in out if t not in ("school-bus", "schools", "courthouse", "courtroom", "jail", "police")]   # Nov 24: a

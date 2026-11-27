@@ -598,3 +598,21 @@ def test_another_citys_community_feature_and_the_same_vote_of_confidence(setting
                                    "Jerry Jones says he still believes Brian Schottenheimer is the right coach for the Dallas Cowboys.", posted)
     assert not same_vote_of_confidence("Jerry Jones says Cowboys will sign Micah Parsons to an extension", "", posted)
     assert not same_vote_of_confidence("Rangers back Bochy for 2027 season", "", posted)
+
+
+def test_a_uniforms_listicle_is_a_column_and_no_other_citys_skyline_stands_in():
+    """Nov 27, render 310: ESPN's "Houston's all-black threads top best uniforms of college football Week 13" drafted as Texas
+    sports with the Houston skyline."""
+    from ftworthtv.filters import roundup_column
+    from ftworthtv.images.library import topics_for
+    t = "Houston's all-black threads top best uniforms of college football Week 13"
+    assert roundup_column(t)
+    assert roundup_column("Rams and Cowboys top Week 12 uniforms")
+    assert not roundup_column("TCU unveils new uniforms for rivalry game")
+    assert not roundup_column("Cowboys top Chiefs 31-28 in throwback uniforms")
+    assert not roundup_column("Cowboys top Lions in uniforms")
+    assert roundup_column("The top 10 uniforms of rivalry week")
+    body = "Houston's threads will blend into the Texas sky for its Week 13 clash against Baylor."
+    for cat in ("sports", "community", "crime"):
+        topics = topics_for(f"{t} {body}".lower(), cat, "texas", title=t)
+        assert not any(x in topics for x in ("houston-skyline", "dallas-skyline", "austin-skyline", "san-antonio-skyline")), (cat, topics)
