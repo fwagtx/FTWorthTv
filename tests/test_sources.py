@@ -832,3 +832,25 @@ def test_the_venue_and_the_team_are_not_the_subject_of_a_story_about_people_work
     # a game keeps its team and its venue
     game = plan_subject("Cowboys beat Eagles 31-24 on Thanksgiving at AT&T Stadium", "Dak Prescott threw for 300 yards.", "sports")
     assert game.search_names or game.entity_topics
+
+
+def test_a_photo_of_another_sport_or_a_white_house_visit_is_not_the_story():
+    """Nov 26, render 286: "Texas football grateful ahead of Texas A&M game" drew the Texas A&M women's volleyball team at the
+    White House."""
+    from ftworthtv.images.providers import other_sport_photo
+    story = ("Texas football grateful ahead of Texas A&M game. As Texas football gears up for the regular season finale against "
+             "rival Texas A&M, they do so feeling grateful during the Thanksgiving holiday.")
+    assert other_sport_photo("texas a&m women’s volleyball at white house 2026.jpg Texas A&M Women's Volleyball at White House 2026", story)
+    assert other_sport_photo("Kyle Field Texas A&M softball 2024.jpg", story)
+    assert not other_sport_photo("Texas Longhorns football at Darrell K Royal stadium 2025.jpg", story)
+    assert not other_sport_photo("TCU volleyball 2026.jpg", "TCU volleyball sweeps Baylor in Big 12 opener")
+    assert not other_sport_photo("LSU national champions at White House.jpg", "LSU football team visits the White House")
+
+
+def test_the_opponent_in_a_sports_headline_is_never_the_photo_subject():
+    """Nov 26, render 286: the planner searched "Texas A&M" for "Texas football grateful ahead of Texas A&M game"."""
+    from ftworthtv.images.subject import plan_subject
+    assert "Texas A&M" not in plan_subject("Texas football grateful ahead of Texas A&M game", "", "sports").search_names
+    assert plan_subject("Cowboys vs. Eagles: Thanksgiving game info", "", "sports").search_names == ["Cowboys"]
+    # a venue after "at" is where the game is, not the other side
+    assert "Dickies Arena" in plan_subject("Women's Funkytown Showdown at Dickies Arena, Sun, Nov 22 12:00 PM", "", "sports").search_names

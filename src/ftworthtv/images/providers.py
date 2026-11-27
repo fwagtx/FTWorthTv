@@ -548,6 +548,25 @@ def other_event_photo(titled: str, query: str, story_text: str) -> bool:
     return bool(words) and not (words & story)
 
 
+# Nov 26, render 286: KXAN's "Texas football grateful ahead of Texas A&M game" drew "Texas A&M Women's Volleyball at White House
+# 2026": another sport, the opponent, and a visit to the White House the story never mentions
+_SPORT_NAMES = ("football", "basketball", "baseball", "softball", "volleyball", "soccer", "hockey", "golf", "tennis", "swimming",
+                "wrestling", "gymnastics", "lacrosse", "rowing", "rodeo", "track and field", "cross country")
+
+
+def other_sport_photo(titled: str, story_text: str) -> bool:
+    """The file shows a sport the story is not about (volleyball for a football story), or a team's White House visit that the
+    story never mentions."""
+    t, s = (titled or "").lower(), (story_text or "").lower()
+    if not s:
+        return False
+    in_file = {x for x in _SPORT_NAMES if re.search(r"\b" + re.escape(x) + r"\b", t)}
+    in_story = {x for x in _SPORT_NAMES if re.search(r"\b" + re.escape(x) + r"\b", s)}
+    if in_file and in_story and not (in_file & in_story):
+        return True
+    return bool(re.search(r"\bwhite house\b", t)) and "white house" not in s
+
+
 def find_photo(query: "str | list[str]", settings, state: State | None = None, exclude: set[str] | None = None,
                avoid_words: tuple[str, ...] = (), fallback: bool = True, taken_after: str = "",
                story_text: str = "") -> PhotoCandidate | None:
@@ -581,6 +600,8 @@ def find_photo(query: "str | list[str]", settings, state: State | None = None, e
                 continue                  # Nov 24: "Acacia cyclops 452574694.jpg" (seed pods) for the X-Men's Cyclops
             if other_event_photo(name + " " + (cand.title or ""), q, story_text):
                 continue                  # another place's grand opening is not this one
+            if other_sport_photo(name + " " + (cand.title or ""), story_text):
+                continue                  # a volleyball team at the White House is not a football story
             if unnamed_person_photo(cand.title or cand.source_url.rsplit("/", 1)[-1].replace("_", " "), q, story_text):
                 continue                  # a stranger's portrait: the worst mistake a page can make
             if facility_for_other_news(cand.title or cand.source_url.rsplit("/", 1)[-1].replace("_", " "), story_text):

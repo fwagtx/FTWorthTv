@@ -879,6 +879,12 @@ def wants_recent_picture(title: str, category: str, kind: str = "") -> bool:
     return kind in ("event", "event_roundup", "nws_alert") or category in ("events", "sports", "breaking") or any(w in low for w in EVENT_WORDS)
 
 
+_VENUE_NAME_RE = re.compile(r"\b(?:arena|stadium|field|center|centre|park|coliseum|hall|speedway|ballpark|dome|gardens?|club|"
+                            r"bowl|course|pavilion|amphitheater|amphitheatre|theater|theatre)\b", re.I)
+_OPPONENT_RE = re.compile(r"\b(?:ahead of|before|against|vs\.?|versus|facing|to face|at)\s+(?:the\s+)?(?:No\.\s*\d+\s+)?"
+                          r"([A-Z][\w&.'’-]*(?:\s+[A-Z][\w&.'’-]*){0,3})")
+
+
 def plan_subject(title: str, body: str = "", category: str = "") -> "SubjectPlan":
     """The subject plan, without a team's stadium for a story that is not a game (a blood drive, a toy drive, a job fair held
     there): Nov 23, the Cowboys and Carter BloodCare blood drive went out with an empty June 2020 AT&T Stadium."""
@@ -892,6 +898,14 @@ def plan_subject(title: str, body: str = "", category: str = "") -> "SubjectPlan
     text = f"{title} {body}"
     plan.entity_topics = drop_stadiums_off_the_field(list(plan.entity_topics), text)
     plan.fallback_topics = drop_stadiums_off_the_field(list(plan.fallback_topics), text)
+    if category == "sports":
+        # Nov 26, render 286: "Texas football grateful ahead of Texas A&M game" searched the opponent and found the A&M
+        # volleyball team: a team named after "ahead of", "vs.", "against", "facing" or "at" is the other side, never the picture
+        opponents = {m.group(1).strip().lower() for m in _OPPONENT_RE.finditer(title or "")}
+        opponents = {o for o in opponents if not _VENUE_NAME_RE.search(o) and o not in PLACES}   # "at Dickies Arena" is where
+        if opponents:
+            head = (title or "").strip().lower()
+            plan.entities = [e for e in plan.entities if e.lower() not in opponents or head.startswith(e.lower())]
     if off_the_field_title(title):
         # Nov 26, render 282: "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities": a search
         # for "AT&T Stadium" or "Cowboys" finds the field and the players, never the 50 people at the condiment stations
