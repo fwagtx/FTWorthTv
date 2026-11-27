@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-151236/01-everything-is-under-control-after-fire-at-aerosp/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-151236/01-everything-is-under-control-after-fire-at-aerosp/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "breaking",
+    "headline": "‘Everything is under control' after fire at Aerospace facility: Weatherford fire chief",
+    "caption": "The city of Weatherford lifted a shelter-in-place order on Wednesday morning after a two alarm fire at Weatherford Aerospace. No one was hurt and the cause of the fire is under investigation.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/first-responders-working-major-fire-at-aerospace-manufacturing-plant-in-weatherford/4110694/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown night",
+    "location": "Weatherford, TX"
+  },
+  "story": {
+    "id": "3216145b5eaade25",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "‘Everything is under control' after fire at Aerospace facility: Weatherford fire chief",
+    "summary": "The city of Weatherford lifted a shelter-in-place order on Wednesday morning after a two alarm fire at Weatherford Aerospace. No one was hurt and the cause of the fire is under investigation.",
+    "url": "https://www.nbcdfw.com/news/local/first-responders-working-major-fire-at-aerospace-manufacturing-plant-in-weatherford/4110694/",
+    "published": "2026-11-27T10:02:42+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/poster-frame-1795618458040.png?fit=1920,1080&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "breaking",
+    "relevance": 2,
+    "score": 0.4405
+  }
+}

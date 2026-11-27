@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T21:37:36.061666+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-151236/02-pregnant-prisoner-escapes-in-corrections-vehicle/post.jpg",
+    "credit": "Photo: Kurt Kaiser via Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Whataburger_2.jpg",
+    "photo_id": "lib-whataburger-2-jpg",
+    "subject": "topic:whataburger"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-151236/02-pregnant-prisoner-escapes-in-corrections-vehicle/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Pregnant prisoner escapes in corrections vehicle after officers stop at Whataburger in New Mexico",
+    "caption": "Rebecca Taylor, who was not restrained because of her pregnancy, slid into the front seat of the transport vehicle and drove away. A pregnant prisoner is on the run in New Mexico after escaping in a corrections department SUV following a prenatal doctor appointment on Wednesday.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/pregnant-prisoner-escapes-corrections-vehicle-new-mexico/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "dfdb9bca48bb6d01",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Pregnant prisoner escapes in corrections vehicle after officers stop at Whataburger in New Mexico",
+    "summary": "Rebecca Taylor, who was not restrained because of her pregnancy, slid into the front seat of the transport vehicle and drove away. Updated on: November 27, 2026 / 1:13 PM CST / CBS News A pregnant prisoner is on the run in New Mexico after escaping in a corrections department SUV following a prenatal doctor appointment on Wednesday. Rebecca Taylor, 26, who was not restrained at the time because of her pregnancy, managed to slide into the front seat of the Dodge Journey transport vehicle and drive away as she was returning to Western New Mexico Correctional Facility in Grants from the appointment in Albuquerque, according to the corrections department. Taylor escaped while the correctional officers accompanying her had stopped at a Whataburger, according to The Associated Press. The Dodge Journey was later located via GPS, but Taylor was no longer in the vehicle, corrections officials…",
+    "url": "https://www.cbsnews.com/texas/news/pregnant-prisoner-escapes-corrections-vehicle-new-mexico/",
+    "published": "2026-11-27T19:13:23+00:00",
+    "category_hint": null,
+    "image_url": "https://assets2.cbsnewsstatic.com/hub/i/r/2026/11/27/9422cf5e-e885-456e-93db-6628def3a5ed/thumbnail/1024x576/d7c972d6376fbaddd9b316ec4fc177e2/rebecca-taylor-escape.jpg",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.48999999999999994,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.4199
+  }
+}
