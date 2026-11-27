@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T18:08:44.704583+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-114344/02-a-premature-unauthorized-tiered-ranking-of-every/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-114344/02-a-premature-unauthorized-tiered-ranking-of-every/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "A premature, unauthorized, tiered ranking of every possible Dallas Cowboys coach -- should Jerry Jones need it",
+    "caption": "After their latest calamitous loss, the Cowboys are 5-7 and their playoff \"hopes\" barely exist anymore. They have suffered several embarrassing defeats this season, including two in which they blew multi-score fourth-quarter leads at home and two in which they lost to backup quarterbacks — again at home.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/nfl/news/dallas-cowboys-coach-candidates-if-jerry-jones-fires-brian-schottenheimer/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "b325502e2ace087a",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "A premature, unauthorized, tiered ranking of every possible Dallas Cowboys coach -- should Jerry Jones need it",
+    "summary": "With Brian Schottenheimer on the hot seat after a disastrous 5-7 start, here is a look at who Jerry Jones could target, from big names like Bill Belichick to proven winners like Mike Tomlin The Dallas Cowboys are a disaster. After their latest calamitous loss, the Cowboys are 5-7 and their playoff \"hopes\" barely exist anymore. They have suffered several embarrassing defeats this season, including two in which they blew multi-score fourth-quarter leads at home and two in which they lost to backup quarterbacks — again at home. The Thanksgiving loss to the division rival Philadelphia Eagles , of course, qualifies for both of those lists and is presumably the nail in the coffin for their season. It should also probably be the nail in the coffin for head coach Brian Schottenheimer, who is clearly in over his head and who even Jerry Jones has admitted is learning on the job as a head coach…",
+    "url": "https://www.cbssports.com/nfl/news/dallas-cowboys-coach-candidates-if-jerry-jones-fires-brian-schottenheimer/",
+    "published": "2026-11-27T17:08:36+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/27/3c7ad5cc-06ae-436d-841d-3ee1e8e553c1/jason-witten-sooners.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.6133
+  }
+}

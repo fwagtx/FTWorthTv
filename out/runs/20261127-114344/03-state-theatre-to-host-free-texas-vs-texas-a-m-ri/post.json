@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T18:33:44.704583+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-114344/03-state-theatre-to-host-free-texas-vs-texas-a-m-ri/post.jpg",
+    "credit": "Photo: Oldag07 via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:TAMU_Kyle_Field_2022-01-14_2.jpg",
+    "photo_id": "lib-tamu-kyle-field-2022-01-14-2-jpg",
+    "subject": "topic:texas-am"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-114344/03-state-theatre-to-host-free-texas-vs-texas-a-m-ri/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "State Theatre to host free Texas vs. Texas A&M rivalry watch party",
+    "caption": "The State Theatre in Austin is set to host a free Texas vs. Texas A&M rivalry watch party on Black Friday. Doors will open at 5:30 p.m. ahead of the 6:30 p.m. kickoff, according to event organizers.",
+    "first_comment": "Source: KXAN Austin https://www.kxan.com/things-to-do/state-theatre-to-host-free-texas-vs-texas-am-rivalry-watch-party/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "e2bcaf203ae204a8",
+    "source": "KXAN Austin",
+    "source_kind": "rss",
+    "title": "State Theatre to host free Texas vs. Texas A&M rivalry watch party",
+    "summary": "The State Theatre in Austin is set to host a free Texas vs. Texas A&M rivalry watch party on Black Friday. Doors will open at 5:30 p.m. ahead of the 6:30 p.m. kickoff, according to event organizers.",
+    "url": "https://www.kxan.com/things-to-do/state-theatre-to-host-free-texas-vs-texas-am-rivalry-watch-party/",
+    "published": "2026-11-27T16:47:01+00:00",
+    "category_hint": null,
+    "image_url": "https://www.kxan.com/wp-content/uploads/sites/40/2026/11/AP26325777607848.jpg?w=900",
+    "image_credit": "Photo: KXAN Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.42,
+    "extra": {
+      "feed_title": "KXAN Austin",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "culture",
+    "relevance": 2,
+    "score": 0.5413
+  }
+}

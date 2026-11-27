@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-114344/01-rhp-jim-nez-continues-comeback-story-agrees-to-m/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-114344/01-rhp-jim-nez-continues-comeback-story-agrees-to-m/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Right-hander Jiménez continues comeback story, agrees to Minors deal with Rangers",
+    "caption": "Former All-Star right-hander Joe Jiménez agreed with the Rangers on a Minor League contract, a source told MLB.com's Mark Feinsand on Friday. The team has not confirmed the deal, which constitutes the conclusion of quite a journey for the veteran reliever, who missed the entirety of the 2025-26 seasons.",
+    "first_comment": "Source: Texas Rangers (MLB.com) https://www.mlb.com/rangers/news/joe-jimenez-minor-league-contract-with-rangers\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:Globe Life Field",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "3a6af786d82c0422",
+    "source": "Texas Rangers (MLB.com)",
+    "source_kind": "rss",
+    "title": "RHP Jiménez continues comeback story, agrees to Minors deal with Rangers (source)",
+    "summary": "Former All-Star right-hander Joe Jiménez agreed with the Rangers on a Minor League contract, a source told MLB.com's Mark Feinsand on Friday. The team has not confirmed the deal, which constitutes the conclusion of quite a journey for the veteran reliever, who missed the entirety of the 2025-26 seasons. Former All-Star right-hander Joe Jiménez agreed with the Rangers on a Minor League contract, a source told MLB.com's Mark Feinsand on Friday. The team has not confirmed the deal, which constitutes the conclusion of quite a journey for the veteran reliever, who missed the entirety of the 2025-26 seasons. Signings & Trades • Latest free-agent and trade rumors • Top 30 free agents | Every free agent, by position • Tracking every team's offseason moves • Offseason dates, rules & terms explained • Qualifying offers: Bednar, Jeffers accept; 6 decline Jiménez, then with the Braves, pitched in…",
+    "url": "https://www.mlb.com/rangers/news/joe-jimenez-minor-league-contract-with-rangers",
+    "published": "2026-11-27T16:47:10+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: Texas Rangers (MLB.com)",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7200000000000001,
+    "extra": {
+      "feed_title": "Rangers News",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.8475
+  }
+}
