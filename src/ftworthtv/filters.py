@@ -424,7 +424,9 @@ _SCENARIO_RE = re.compile(r"\b(?:scenarios?|what needs to happen|how [\w .'&-]{1
                           r"^to (?:stay alive|stay in|keep pace|keep up|make the playoffs|reach the playoffs|win the|clinch|catch)\b|"
                           r"\bneeds? (?:first|to win|to beat|to string|a win|wins|help|a run|a miracle)\b|"
                           # Nov 27, render 298: the Cowboys channel's "Predicting the Cowboys' Tough Final Stretch | Special Edition"
-                          r"\bpredict(?:ing|ions?)\b|\bremaining schedule\b|\bschedule breakdown\b", re.I)
+                          r"\bpredict(?:ing|ions?)\b|\bremaining schedule\b|\bschedule breakdown\b|"
+                          # Nov 27, render 300: CBS Sports' "2027 NFL Draft: Remaining games that will determine the draft order"
+                          r"\bremaining games\b|\bdraft order\b|\bdraft position\b", re.I)
 
 
 _OTHER_METRO_TEAM_RE = re.compile(r"\b(?:rockets|spurs|astros|texans|dynamo|houston dash|austin fc|san antonio fc)\b", re.I)
