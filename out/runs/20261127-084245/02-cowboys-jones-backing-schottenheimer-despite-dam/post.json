@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T15:07:45.655469+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-084245/02-cowboys-jones-backing-schottenheimer-despite-dam/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-084245/02-cowboys-jones-backing-schottenheimer-despite-dam/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Cowboys' Jones backing Schottenheimer despite 'damning setbacks'",
+    "caption": "Jerry Jones said he did not anticipate making immediate changes but still labeled the Cowboys' latest fourth-quarter collapse as a \"damning\" setback. Dallas Cowboys owner and general manager Jerry Jones searched for the right description of the 39-38 loss to the Philadelphia Eagles on Thanksgiving Day.\n\nA collapse like Thursday's can alter careers of players and coaches, but Jones did not go there outside the locker room.",
+    "first_comment": "Source: ESPN Top Headlines https://www.espn.com/nfl/story/_/id/50608969/cowboys-jerry-jones-backs-coach-damning-setbacks\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "a0f7194422675349",
+    "source": "ESPN Top Headlines",
+    "source_kind": "rss",
+    "title": "Cowboys' Jones backing Schottenheimer despite 'damning setbacks'",
+    "summary": "Jerry Jones said he did not anticipate making immediate changes but still labeled the Cowboys' latest fourth-quarter collapse as a \"damning\" setback. ARLINGTON, Texas -- Dallas Cowboys owner and general manager Jerry Jones searched for the right description of the 39-38 loss to the Philadelphia Eagles on Thanksgiving Day. Frustrating was not strong enough. Neither was disappointment. A collapse like Thursday's can alter careers of players and coaches, but Jones did not go there outside the locker room. With 11 days before the Cowboys play again on Dec. 7 at the defending Super Bowl champion Seattle Seahawks , Jones said he would not anticipate coaching changes of any kind. He believes the best chance to win with five games to go is with the staff remaining intact. But head coach Brian Schottenheimer did not escape criticism. \"These are setbacks and they're damning setbacks, there's no…",
+    "url": "https://www.espn.com/nfl/story/_/id/50608969/cowboys-jerry-jones-backs-coach-damning-setbacks",
+    "published": "2026-11-27T14:38:00+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN Top Headlines",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.5,
+    "extra": {
+      "feed_title": "www.espn.com - TOP",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.6503
+  }
+}
