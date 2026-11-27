@@ -164,7 +164,11 @@ VENUE_NAMES = {"att-stadium": ("at&t stadium",), "globe-life-field": ("globe lif
                "toyota-stadium": ("toyota stadium",), "dickies-arena": ("dickies arena",), "nrg-stadium": ("nrg stadium",),
                "texas-motor-speedway": ("texas motor speedway",), "tcu-football": ("amon g. carter", "amon carter stadium"),
                # the "texas-am" photos are all Kyle Field: Nov 24, an A&M season analysis went out with the stadium at dusk
-               "texas-am": ("kyle field",)}
+               "texas-am": ("kyle field",),
+               # Nov 27, render 299: the "texas-tech" photos are all Jones AT&T Stadium in Lubbock, and CBS's Big 12 title game
+               # preview (at AT&T Stadium in Arlington) drew its north end zone; Baylor's are McLane Stadium, SMU's Ford Stadium
+               "texas-tech": ("jones at&t stadium", "jones stadium"), "baylor": ("mclane stadium",),
+               "smu": ("gerald j. ford stadium", "ford stadium")}
 _VENUE_RE = re.compile(r"\b((?:[A-Z][\w&.'’-]*\s+){1,3}(?:Stadium|Arena|Field|Ballpark|Coliseum|Speedway))\b")
 _AWAY_RE = re.compile(r"\b(?:visit|visits|visiting|travel to|travels to|traveling to|head to|heads to|road game|road trip|on the road|away game)\b", re.I)
 # what says a game is at the team's own venue: a story that only names the opponent says nothing about where it is played (Nov 24,
@@ -175,7 +179,8 @@ _HOME_RE = re.compile(r"\b(?:host|hosts|hosted|hosting|home game|home games|home
 _DATELINE_CITY_RE = re.compile(r"\b([A-Z][A-Z .'’-]{2,30}?)\s*\((?:AP|AFP|Reuters)\)\s*[—–-]")
 HOME_CITIES = {"att-stadium": ("arlington",), "globe-life-field": ("arlington",), "aac": ("dallas",), "tcu-football": ("fort worth",),
                "texas-am": ("college station",), "toyota-stadium": ("frisco",), "nrg-stadium": ("houston",),
-               "dickies-arena": ("fort worth",), "texas-motor-speedway": ("fort worth",)}
+               "dickies-arena": ("fort worth",), "texas-motor-speedway": ("fort worth",), "texas-tech": ("lubbock",),
+               "baylor": ("waco",), "smu": ("dallas", "university park")}
 
 
 def clean_credit(credit: str) -> str:
@@ -221,11 +226,14 @@ def venue_fits(topic: str, text: str, title: str | None = None) -> bool:
             home = True
         else:
             away = True                                          # "DENVER (AP) —": the game was there
+    if any(re.search(r"\bin " + re.escape(c) + r"\b", low) for c in HOME_CITIES.get(topic, ())):
+        home = True                                              # "Baylor beat TCU 31-24 in Waco"
     return not others and not away and home
 
 
 # the team that plays at each venue topic, so "Utah visits TCU" reads as a home game
 HOME_TEAMS = {"tcu-football": ("tcu", "horned frogs"), "texas-am": ("texas a&m", "aggies"), "att-stadium": ("cowboys",),
+              "texas-tech": ("texas tech", "red raiders"), "baylor": ("baylor", "bears"), "smu": ("smu", "mustangs"),
               "globe-life-field": ("rangers",), "aac": ("mavericks", "mavs", "stars"), "toyota-stadium": ("fc dallas",),
               "nrg-stadium": ("texans",)}
 
@@ -342,7 +350,7 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
 # a team's stadium stands for its games, never for a blood drive, a toy drive or a job fair held there: Nov 23, "Dallas Cowboys
 # partner with Carter BloodCare to host blood drive ahead of Thanksgiving" went out with an empty June 2020 AT&T Stadium
 STADIUM_TOPICS = {"att-stadium", "globe-life-field", "aac", "toyota-stadium", "daikin-park", "nrg-stadium", "frost-bank-center",
-                  "toyota-center", "texas-motor-speedway", "tcu-football"}
+                  "toyota-center", "texas-motor-speedway", "tcu-football", "texas-am", "texas-tech", "baylor", "smu"}
 # Nov 26, render 282: WFAA's "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities" (50 people
 # at the condiment stations) drew the stands at a Wisconsin bowl game: the people at work there are the story, not the field
 _NOT_A_GAME_RE = re.compile(r"\b(?:blood drive|toy drive|food drive|coat drive|clothing drive|donors?|donat\w*|volunteers?|charity|"

@@ -473,5 +473,34 @@
   "mode": "beat",
   "happened": true,
   "lesson": "Nov 26 (render 288, review Nov 27): a hit-and-run is a happening; the downtown skyline stood in"
+ },
+ {
+  "title": "2026 Big 12 Championship Game: Utah vs. Texas Tech set as final league title matchup carries heavy CFP stakes",
+  "body": "No. 2 Utah and No. 11 Texas Tech battle at AT&T Stadium in Arlington, Texas.",
+  "category": "sports",
+  "mode": "search",
+  "not_topics": [
+   "texas-tech"
+  ],
+  "not_search": [
+   "Championship Game",
+   "CFP"
+  ],
+  "lesson": "Nov 27 (render 299): a title game at AT&T Stadium drew Jones Stadium in Lubbock; a competition's name is never a photo subject"
+ },
+ {
+  "title": "Dallas Mavericks visit Phoenix Suns Friday in NBA Cup group stage",
+  "body": "",
+  "category": "sports",
+  "mode": "search",
+  "search": [
+   "Dallas Mavericks"
+  ],
+  "not_search": [
+   "NBA Cup",
+   "Phoenix Suns Friday",
+   "Phoenix Suns"
+  ],
+  "lesson": "Nov 27 (render 299): 'NBA Cup' found the Lakers' court in Los Angeles; the team ours visits is the other side; a weekday is not part of a name"
  }
 ]

@@ -884,6 +884,13 @@ def wants_recent_picture(title: str, category: str, kind: str = "") -> bool:
     return kind in ("event", "event_roundup", "nws_alert") or category in ("events", "sports", "breaking") or any(w in low for w in EVENT_WORDS)
 
 
+_WEEKDAY_TAIL_RE = re.compile(r"(?:\s+(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|Tonight|Today))+$")
+_COMPETITION_RE = re.compile(r"\b(?:cup|championship(?: game)?|tournament|playoffs?|cfp|college football playoff|final four|"
+                             r"group stage|knockout|title game|conference title|bowl game)\b", re.I)
+_LOCAL_LEAD_RE = re.compile(r"(?:the\s+)?(?:dallas\s+|texas\s+|fort worth\s+)?(?:cowboys|mavericks|mavs|stars|rangers|wings|fc dallas|"
+                            r"tcu|horned frogs|frogs)\b", re.I)
+_VISIT_RE = re.compile(r"\b(?:visit|visits|visiting|travel to|travels to|head to|heads to)\s+(?:the\s+)?"
+                       r"([A-Z][\w&.'’-]*(?:\s+[A-Z][\w&.'’-]*){0,3})")
 _VENUE_NAME_RE = re.compile(r"\b(?:arena|stadium|field|center|centre|park|coliseum|hall|speedway|ballpark|dome|gardens?|club|"
                             r"bowl|course|pavilion|amphitheater|amphitheatre|theater|theatre)\b", re.I)
 _OPPONENT_RE = re.compile(r"\b(?:ahead of|before|against|vs\.?|versus|facing|to face|at)\s+(?:the\s+)?(?:No\.\s*\d+\s+)?"
@@ -904,9 +911,17 @@ def plan_subject(title: str, body: str = "", category: str = "") -> "SubjectPlan
     plan.entity_topics = drop_stadiums_off_the_field(list(plan.entity_topics), text)
     plan.fallback_topics = drop_stadiums_off_the_field(list(plan.fallback_topics), text)
     if category == "sports":
+        # Nov 27, render 299: "... in NBA Cup group stage" searched "NBA Cup" and found the Lakers' court in Los Angeles, and
+        # "Big 12 Championship Game ... CFP" searched "Championship Game" and "CFP": a competition's photos show whoever
+        # played in it; "Phoenix Suns Friday" carried the day into the name
+        plan.entities = [_WEEKDAY_TAIL_RE.sub("", e).strip() for e in plan.entities]
+        plan.entities = [e for e in plan.entities if e and not _COMPETITION_RE.search(e)]
         # Nov 26, render 286: "Texas football grateful ahead of Texas A&M game" searched the opponent and found the A&M
         # volleyball team: a team named after "ahead of", "vs.", "against", "facing" or "at" is the other side, never the picture
         opponents = {m.group(1).strip().lower() for m in _OPPONENT_RE.finditer(title or "")}
+        if _LOCAL_LEAD_RE.match((title or "").strip()):
+            # "Dallas Mavericks visit Phoenix Suns": the team our team visits is the other side too
+            opponents |= {_WEEKDAY_TAIL_RE.sub("", m.group(1)).strip().lower() for m in _VISIT_RE.finditer(title or "")}
         opponents = {o for o in opponents if not _VENUE_NAME_RE.search(o) and o not in PLACES}   # "at Dickies Arena" is where
         if opponents:
             head = (title or "").strip().lower()

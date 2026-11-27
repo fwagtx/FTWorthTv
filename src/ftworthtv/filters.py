@@ -438,6 +438,15 @@ def other_metro_team(title: str) -> bool:
     return bool(_OTHER_METRO_TEAM_RE.search(title or "")) and not _DFW_TEAM_RE.search(title or "")
 
 
+# Nov 27, render 299: NBC 5 carried AP's automated "Dallas Mavericks visit Phoenix Suns Friday in NBA Cup group stage" ("BOTTOM
+# LINE: The Dallas Mavericks travel to play the Dallas Mavericks ...", records against winning teams): a stats sheet, not news
+_AUTO_PREVIEW_RE = re.compile(r"\bBOTTOM LINE:|\bLAST TIME OUT:|\bTOP PERFORMERS:|\bINJURIES:", re.I)
+
+
+def automated_preview(summary: str) -> bool:
+    return bool(_AUTO_PREVIEW_RE.search(summary or ""))
+
+
 def hypothetical_sports(title: str) -> bool:
     """'SEC Championship Game scenarios: How Texas can join Georgia in Atlanta': what might happen is not news, and the
     sports cap carried it into the next morning (Nov 23, KXAN)."""
@@ -1511,6 +1520,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
         if story.source_kind == "rss" and other_metro_team(story.title) and (story.category_hint == "sports" or
                                                                              infer_category(story) == "sports"):
             dropped.append((story, "another metro's team feature"))
+            continue
+        if story.source_kind == "rss" and automated_preview(story.summary or ""):
+            dropped.append((story, "an automated stats preview (BOTTOM LINE), not news"))
             continue
         if story.source_kind in ("rss", "video") and hypothetical_sports(story.title) and (story.category_hint == "sports" or
                                                                                             infer_category(story) == "sports"):

@@ -877,3 +877,20 @@ def test_one_hit_and_run_told_twice_is_one_story():
     assert not same_hit_and_run("Driver arrested in Fort Worth hit-and-run that injured motorcyclist", "", posted)   # news
     assert not same_hit_and_run("Arlington police searching for hit-and-run suspect", "", posted)                     # another city
     assert not same_hit_and_run("Fort Worth police searching for robbery suspect", "", posted)
+
+
+def test_a_competition_is_not_a_photo_subject_and_a_campus_stadium_is_for_home_games():
+    """Nov 27, render 299: the Big 12 title game (at AT&T Stadium) drew Texas Tech's Jones Stadium in Lubbock, and the Mavericks'
+    NBA Cup game in Phoenix drew the Lakers' NBA Cup court; AP's automated stats preview is not news."""
+    from ftworthtv.filters import automated_preview
+    from ftworthtv.images.library import venue_fits
+    from ftworthtv.images.subject import plan_subject
+    t = "2026 Big 12 Championship Game: Utah vs. Texas Tech set as final league title matchup carries heavy CFP stakes"
+    body = "No. 2 Utah and No. 11 Texas Tech battle at AT&T Stadium in Arlington, Texas."
+    plan = plan_subject(t, body, "sports")
+    assert "texas-tech" not in plan.entity_topics and not any(n in ("Championship Game", "CFP") for n in plan.search_names)
+    assert not venue_fits("texas-tech", f"{t} {body}", t)
+    mavs = plan_subject("Dallas Mavericks visit Phoenix Suns Friday in NBA Cup group stage", "", "sports")
+    assert mavs.search_names == ["Dallas Mavericks"]
+    assert automated_preview("BOTTOM LINE: The Dallas Mavericks travel to play the Phoenix Suns in an NBA Cup matchup.")
+    assert not automated_preview("Kyrie Irving scored 25 points as the Mavericks beat the Suns.")
