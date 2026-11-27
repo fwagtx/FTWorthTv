@@ -1586,3 +1586,13 @@ def test_a_hit_and_run_is_a_happening_and_a_light_show_is_an_event():
                                 summary="Gift of Lights at Texas Motor Speedway opened Thursday night and runs through Jan. 3.")) == "events"
     assert infer_category(Story(id="y", title="Texas Motor Speedway announces 2027 NASCAR schedule", url="u",
                                 source="FOX 4 Dallas-Fort Worth", source_kind="rss", summary="")) == "sports"
+
+
+def test_a_sourcing_tag_and_a_scouts_abbreviation_are_not_headline_words():
+    """Nov 27, render 303: "RHP Jiménez continues comeback story, agrees to Minors deal with Rangers (source)" on the card."""
+    from ftworthtv.writer import clean_headline_tags
+    assert clean_headline_tags("RHP Jiménez continues comeback story, agrees to Minors deal with Rangers (source)") == \
+        "Right-hander Jiménez continues comeback story, agrees to Minors deal with Rangers"
+    assert clean_headline_tags("Cowboys sign kicker (report)") == "Cowboys sign kicker"
+    assert clean_headline_tags("TCU (6-6) accepts bowl bid") == "TCU (6-6) accepts bowl bid"
+    assert clean_headline_tags("RHPs to watch in the Rangers' system") == "RHPs to watch in the Rangers' system"

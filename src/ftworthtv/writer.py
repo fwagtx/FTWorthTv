@@ -1028,9 +1028,26 @@ def finalize(copy: PostCopy, story: Story, settings: Settings) -> PostCopy:
     headline = re.sub(r"[#@]", "", copy.headline).strip().rstrip(".")
     if story.source_kind in ("rss", "video") and not story.official:
         headline = strip_section_label(headline)
+    headline = clean_headline_tags(headline)
     headline = smart_headline(headline, 120) if len(headline) > 120 else headline
     return copy.model_copy(update={"caption": caption, "hashtags": tags, "first_comment": first_comment,
                                    "headline": headline or smart_headline(story.title, 110)})
+
+
+# Nov 27, render 303: MLB.com's "RHP Jiménez continues comeback story, agrees to Minors deal with Rangers (source)" went on the
+# card as written: an outlet's sourcing tag is not part of a headline, and a scout's abbreviation is not how a reader says it
+_HEADLINE_TAG_RE = re.compile(r"\s*\((?:source|sources|report|reports|per report|per source|per sources|official|video|photos?|"
+                              r"watch|update|updated|developing)\)\s*$", re.I)
+_POSITION_ABBR = {"RHP": "Right-hander", "LHP": "Left-hander"}
+
+
+def clean_headline_tags(headline: str) -> str:
+    """'RHP Jiménez ... deal with Rangers (source)' -> 'Right-hander Jiménez ... deal with Rangers'."""
+    h = _HEADLINE_TAG_RE.sub("", headline or "").strip()
+    first = h.split(" ", 1)
+    if first and first[0] in _POSITION_ABBR:
+        h = _POSITION_ABBR[first[0]] + (" " + first[1] if len(first) > 1 else "")
+    return h
 
 
 # an outlet's section label is not part of the headline: FOX 4's "Dallas Weather: First freeze warning of the season takes
