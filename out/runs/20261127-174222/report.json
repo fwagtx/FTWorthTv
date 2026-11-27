@@ -1,0 +1,3405 @@
+{
+  "started": "2026-11-27T23:42:22.993006+00:00",
+  "candidates": 677,
+  "posts": [
+    {
+      "title": "Yooka-Laylee’s free upgrade is skipping Xbox",
+      "source": "The Verge",
+      "kind": "rss",
+      "category": "other",
+      "mode": "photo",
+      "writer": "template",
+      "score": 0.3161,
+      "ok": true,
+      "publisher": "dryrun",
+      "post_id": null,
+      "post_url": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-174222/01-yooka-laylee-s-free-upgrade-is-skipping-xbox",
+      "detail": "written to disk (dry run)",
+      "scheduled_at": null,
+      "image": "out/runs/20261127-174222/01-yooka-laylee-s-free-upgrade-is-skipping-xbox/post.jpg"
+    }
+  ],
+  "skipped_by_writer": [
+    {
+      "title": "Christmas in the Fort Worth Stockyards",
+      "reason": "video share used (a few a day, one a run)",
+      "id": "5b60960bf85f656e",
+      "source": "WFAA",
+      "url": "https://www.youtube.com/watch?v=XphEc7ny7Hg",
+      "published": "2026-11-27T23:04:50+00:00"
+    },
+    {
+      "title": "No. 9 Texas Tech beats TCU 48-27 to secure spot against No. 2 Utah in Big 12 title game",
+      "reason": "daily cap for sports reached",
+      "id": "f250641d8151a2db",
+      "source": "WFAA Sports",
+      "url": "https://www.wfaa.com/article/sports/ncaa/no-9-texas-tech-beats-tcu-48-27-to-secure-spot-against-no-2-utah-in-big-12-title-game/616-38df76eb-74bc-40b7-b750-182fd5b85608",
+      "published": "2026-11-27T20:04:51+00:00"
+    },
+    {
+      "title": "Early voting opens Nov. 30 for Tarrant Appraisal District runoff election",
+      "reason": "tried at 16:13 (no picture of the subject that we may use): tried again after 2 hours",
+      "id": "273c4bbe9b854a9e",
+      "source": "Fort Worth Report",
+      "url": "https://fortworthreport.org/2026/11/27/early-voting-opens-nov-30-for-tarrant-appraisal-district-runoff-election/",
+      "published": "2026-11-27T18:00:00+00:00"
+    },
+    {
+      "title": "Warm, windy Saturday ahead for North Texas before Sunday cold front",
+      "reason": "video share used (a few a day, one a run)",
+      "id": "2f649a5d40e6baef",
+      "source": "CBS Texas",
+      "url": "https://www.youtube.com/watch?v=d8KTTSltr9s",
+      "published": "2026-11-27T22:34:59+00:00"
+    },
+    {
+      "title": "Fort Worth Stockyards kicks off Christmas season with cattle drive, Santa Claus",
+      "reason": "video share used (a few a day, one a run)",
+      "id": "6177975dd5a114de",
+      "source": "CBS Texas",
+      "url": "https://www.youtube.com/watch?v=nluUj9MdK8M",
+      "published": "2026-11-27T22:22:47+00:00"
+    },
+    {
+      "title": "DFW Weather: Cold front, rain forecast for North Texas",
+      "reason": "video share used (a few a day, one a run)",
+      "id": "c76be57b8637c502",
+      "source": "WFAA",
+      "url": "https://www.youtube.com/watch?v=0meqHyYGm60",
+      "published": "2026-11-27T23:12:52+00:00"
+    },
+    {
+      "title": "Cowboy Santa kicked off the holiday season in the Stockyards.",
+      "reason": "video share used (a few a day, one a run)",
+      "id": "00965753172888d8",
+      "source": "WFAA",
+      "url": "https://www.youtube.com/watch?v=xPBU57RKs_A",
+      "published": "2026-11-27T23:10:14+00:00"
+    },
+    {
+      "title": "Fort Worth police seek millions for drones to reduce dangerous vehicle chases",
+      "reason": "video share used (a few a day, one a run)",
+      "id": "a2baa815079c715a",
+      "source": "WFAA",
+      "url": "https://www.youtube.com/watch?v=_y22D8sZtWE",
+      "published": "2026-11-27T23:08:20+00:00"
+    },
+    {
+      "title": "Smash Mob Burgers in Arlington aims to keep it simple and good",
+      "reason": "tried at 16:13 (no picture of the subject that we may use): tried again after 2 hours",
+      "id": "97dcdc91f6f6001d",
+      "source": "CultureMap Fort Worth",
+      "url": "https://fortworth.culturemap.com/news/restaurants-bars/smash-mob-burgers-arlington-opening/",
+      "published": "2026-11-27T18:00:01+00:00"
+    },
+    {
+      "title": "United Way of Tarrant County highlights need for holiday giving",
+      "reason": "video share used (a few a day, one a run)",
+      "id": "a95f9a0c840714c6",
+      "source": "CBS Texas",
+      "url": "https://www.youtube.com/watch?v=FTf2f6BQoqg",
+      "published": "2026-11-27T22:37:45+00:00"
+    },
+    {
+      "title": "Affluent DFW city unwraps 5th biggest holiday budget in the U.S.",
+      "reason": "tried at 16:13 (no picture of the subject that we may use): tried again after 2 hours",
+      "id": "deed6afe163d9362",
+      "source": "CultureMap Fort Worth",
+      "url": "https://fortworth.culturemap.com/news/city-life/biggest-holiday-budgets-dfw-suburbs/",
+      "published": "2026-11-27T16:30:01+00:00"
+    },
+    {
+      "title": "Prairie Lights brings 2 miles of holiday displays to North Texas",
+      "reason": "video share used (a few a day, one a run)",
+      "id": "555d1824b2a9d303",
+      "source": "WFAA",
+      "url": "https://www.youtube.com/watch?v=-OyPxROVWwM",
+      "published": "2026-11-27T19:43:05+00:00"
+    },
+    {
+      "title": "Goo Goo Dolls Fans Slam NBC Over Thanksgiving Halftime Show Snub: ‘Badly Handled’",
+      "reason": "daily cap for sports reached",
+      "id": "1f02639686f33481",
+      "source": "Billboard",
+      "url": "https://www.billboard.com/music/music-news/goo-goo-dolls-fans-slam-thanksgiving-halftime-show-snub-1236390401/",
+      "published": "2026-11-27T19:59:09+00:00"
+    },
+    {
+      "title": "One person dead after single-vehicle accident in North Dallas, police say",
+      "reason": "tried at 16:13 (no summary to post: the feed gave only a headline): tried again after 2 hours",
+      "id": "32650cf1316d4e8d",
+      "source": "WFAA",
+      "url": "https://www.wfaa.com/article/traffic/incidents/one-person-dead-after-single-vehicle-accident-in-north-dallas-police-say/287-ed2abc27-113a-4755-bf8b-f207e1233b66",
+      "published": "2026-11-27T14:58:28+00:00"
+    },
+    {
+      "title": "Texas State University students protest, demand stronger free speech protections",
+      "reason": "tried at 16:13 (no picture of the subject that we may use): tried again after 2 hours",
+      "id": "f557e273ec5c23dc",
+      "source": "KXAN Austin",
+      "url": "https://www.kxan.com/news/education/texas-state-university-students-protest-demand-stronger-free-speech-protections/",
+      "published": "2026-11-27T13:00:00+00:00"
+    },
+    {
+      "title": "North Texas dance teams face unexpected costs after Macy’s Thanksgiving Day Parade postponement",
+      "reason": "tried at 16:13 (no picture of the subject that we may use): tried again after 2 hours",
+      "id": "94c05cad8e1d1e5a",
+      "source": "KVUE Austin",
+      "url": "https://www.kvue.com/article/news/local/north-texas-dance-teams-face-unexpected-costs-after-macys-thanksgiving-day-parade-postponement/287-cd7fdec1-f027-473f-847d-0e6a6bf05f1d",
+      "published": "2026-11-27T10:46:57+00:00"
+    },
+    {
+      "title": "Sarkisian proud of offensive line ahead of tough challenge against Texas A&M defense",
+      "reason": "tried at 16:43 (no summary to post: the feed gave only a headline): tried again after 2 hours",
+      "id": "aabf526393ef08f8",
+      "source": "KXAN Austin",
+      "url": "https://www.kxan.com/sports-general/horns-report/sarkisian-proud-of-offensive-line-ahead-of-tough-challenge-against-texas-am-defense/",
+      "published": "2026-11-27T13:00:00+00:00"
+    },
+    {
+      "title": "Reata opened its kitchen to a new crew for a Sunday night service",
+      "reason": "tried at 17:14 (no picture of the subject that we may use): tried again after 2 hours",
+      "id": "4a26b3b0d504932c",
+      "source": "Fort Worth Report",
+      "url": "https://fortworthreport.org/2026/11/26/reata-opened-its-kitchen-to-a-new-crew-for-a-sunday-night-service/",
+      "published": "2026-11-26T20:00:00+00:00"
+    },
+    {
+      "title": "Sixth grader in Texas foster care says art and humor help him cope while waiting for a family",
+      "reason": "tried at 17:14 (no summary to post: the feed gave only a headline): tried again after 2 hours",
+      "id": "e17411701c2e9a19",
+      "source": "KVUE Austin",
+      "url": "https://www.kvue.com/article/life/family/forever-families/forever-families-jackson/269-38a2bd7a-aeaa-4872-8f04-b41e106d0fab",
+      "published": "2026-11-26T12:34:43+00:00"
+    },
+    {
+      "title": "2 escape Thanksgiving Day house fire in Fort Worth",
+      "reason": "video share used (a few a day, one a run)",
+      "id": "6f4925fdb25cbc52",
+      "source": "CBS Texas",
+      "url": "https://www.youtube.com/watch?v=kSvKTtUvWKg",
+      "published": "2026-11-27T22:26:34+00:00"
+    },
+    {
+      "title": "First look at Austin thrill ride's safety measures after deadly Florida accident",
+      "reason": "no picture of the subject that we may use",
+      "id": "b824e89452bb9a2c",
+      "source": "KXAN Austin",
+      "url": "https://www.kxan.com/investigations/first-look-at-austin-thrill-rides-safety-measures-after-deadly-florida-accident/",
+      "published": "2026-11-27T23:33:21+00:00"
+    },
+    {
+      "title": "Yooka-Laylee and the Impossible Lair Dev's Explanation for Skipping Xbox Sparks Backlash",
+      "reason": "same story as one already chosen this run",
+      "id": "0c92b45929b3fa9a",
+      "source": "IGN",
+      "url": "https://www.ign.com/articles/yooka-laylee-and-the-impossible-lair-no-xbox-release",
+      "published": "2026-11-27T21:42:49+00:00"
+    }
+  ],
+  "dropped": [
+    {
+      "title": "USPS semi-truck ends up partially over I-35W railing in Fort Worth due to wet weather",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "2 minors killed, 3 others seriously injured after van crashes and catches fire in Fort Worth",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "UT Southwestern a step closer to opening of Radiation Oncology center",
+      "source": "Fort Worth Report",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Where to eat in Fort Worth: 5 tasty new restaurants to try",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "A first look at Beverly's Downtown, Fort Worth's new underground Mexican restaurant",
+      "source": "PaperCity Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Horned Frogs get back on winning track with 20-10 win over Kansas State",
+      "source": "ABC News (AP)",
+      "reason": "same story already posted (another outlet or format): Horned Frogs Fall to Blue Jays, 95-87"
+    },
+    {
+      "title": "Clear skies, chilly temps and the Leonid meteor shower peaks tonight over North Texas",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Fort Worth forecast for Tuesday, November 17",
+      "source": "FOX Weather",
+      "reason": "dated for a day that has passed"
+    },
+    {
+      "title": "Ty Myers: The Legal Tour 2026 at Dickies Arena",
+      "source": "Ticketmaster",
+      "reason": "already posted"
+    },
+    {
+      "title": "Women's Funkytown Showdown at Dickies Arena",
+      "source": "Ticketmaster",
+      "reason": "event listing without its own picture"
+    },
+    {
+      "title": "NBC Pulls Spot Advocating for End of U.S. Military Aid to Israel, Will Review Approval Procedures After Outcry",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Predicting Awards Season’s First Big Week: Who Wins at the Gothams, NYFCC, NBR and More",
+      "source": "Variety",
+      "reason": "a national outlet's magazine feature or explainer, not news"
+    },
+    {
+      "title": "‘Percy Jackson and the Olympians’ Star Leah Sava Jeffries on Her Idea for Annabeth’s Gray Contacts and the Big Fan Surprise Coming in the Season 3 Finale: A ‘Dream Came True’",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘The Hunting Wives’ Stars and Creator Break Down Margo and Sophie’s Dangerous Love Affair in Season 2: ‘It’s a F—-ed Up Commitment’ to ‘Move Past’ Murder",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Gayle King’s Son-in-Law Virgil Miller Dies at 45",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "BAFTA 2027 Entries Revealed: 126 Best Film Contenders, 728 Performances and No Spot for ‘You Can See Everything’ Star Amanda Seyfried",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Oscar-Nominated Director Rachid Bouchareb on the Challenges of Shooting ‘Reggane’: ‘We’re Making a Period Film in the Depths of the Sahara’",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘Hunger Games: Sunrise on the Reaping’ Soundtrack: The Best Music Moments From Haymitch Abernathy’s Prequel Movie",
+      "source": "Variety",
+      "reason": "a national outlet's magazine feature or explainer, not news"
+    },
+    {
+      "title": "Filming the Moroccan Horse-Riding Doc ‘Bardi’ Took Director Tala Hadid Into a ‘Terrain That Was Totally Unknown’ to Her: ‘I Was Almost Like an Alien’",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘A Girl Unknown,’ ‘Crawling Into Myself,’ ‘Concrete Land’ Take Main Prizes at Doha Film Festival",
+      "source": "Variety",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "NBC Pulls Ad Criticizing U.S. Military Aid to Israel After Backlash, Reviews Approval Process",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "How to Stream 2026 Soul Train Awards, Featuring Tributes to Dolly Parton and Freddie Jackson",
+      "source": "The Hollywood Reporter",
+      "reason": "a team's game notes or quotes sheet, not a story"
+    },
+    {
+      "title": "Audible Names Its Top 10 Celebrity Memoirs of 2026 — Listen With 99-Cent Black Friday Deal",
+      "source": "The Hollywood Reporter",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Ben Stiller Says Ariana Grande Exceeded His Expectations in ‘Focker-in-Law,’ Would Do a Fifth ‘Meet the Parents’ Film",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Black Friday 2026: The 50 Best Sales From Streaming to Designer Fashion",
+      "source": "The Hollywood Reporter",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "How This Year’s Black Friday Deals Explain the Tumultuous State of Streaming",
+      "source": "The Hollywood Reporter",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Denis Villeneuve Pledges Traditional, “Unapologetic” Bond: “Not Here to Change the DNA”",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Masaaki Yuasa’s ‘Daisy’s Life’ Unveils First Look Images From Japanese Anime Giant’s Next Feature",
+      "source": "The Hollywood Reporter",
+      "reason": "a studio's teaser or trailer: promotion, not news"
+    },
+    {
+      "title": "Denis Villeneuve “Deeply Disappointed” Disney Put ‘Avengers: Doomsday’ Against ‘Dune 3’",
+      "source": "The Hollywood Reporter",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "The Ultimate Thanksgiving Detox? Mexico’s Most Over-the-Top, Celeb-Approved Longevity Clinic",
+      "source": "The Hollywood Reporter",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Fuerza Regida Announces ‘Pisteando Con La Regida Vol. 4’ After Partial Legal Victory Against Rancho Humilde",
+      "source": "Billboard",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Black Friday Deal: Amazon Marks Down AMC+ Subscription to Just $1.99/Month, A 75% Savings",
+      "source": "Billboard",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Soul Train Awards 2026: Here’s Where to Watch the Awards Ceremony Online Free",
+      "source": "Billboard",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "FOX One Black Friday Deal: Here’s How to Save 75% Off a Streaming Subscription",
+      "source": "Billboard",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Best Black Friday Audio Deals 2026: Save Up to 60% Off Bose, Apple & Beats, Sonos, Sony & More Online",
+      "source": "Billboard",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Amazon Just Dropped One-Cent Deals (No, Really) for Black Friday: Shop Here",
+      "source": "Billboard",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Justin Timberlake Explains Why He Was ‘Reluctant’ to Make New Docuseries During ‘Tonight Show’ Interview",
+      "source": "Billboard",
+      "reason": "a national outlet's magazine feature or explainer, not news"
+    },
+    {
+      "title": "NFL Black Friday Game 2026: Here’s Where to Watch Denver Broncos vs. Pittsburgh Steelers Live Online Free",
+      "source": "Billboard",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Audible’s Black Friday Deal Gets You a Subscription to Bestselling Books for Only $.99 Per Month",
+      "source": "Billboard",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Shrek Minifigure Mystery Boxes Get Price Cut in LEGO's Black Friday Deals",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Proton’s Black Friday Deal Brings Our Favorite VPN Down to Its Lowest Price Yet",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "reMarkable’s Super Digital Reader Bundle Lets You Get More Than Double the Savings",
+      "source": "IGN",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Amazon Has an Asus ROG Flow Z13 Ultra-Portable Gaming Laptop for (Way) Below $2,000 for Black Friday",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Here Are the Top Black Friday 4K TV Deals You Don't Want to Miss, From Budget to Best",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Save 48% Off the 2026 LG Evo C6 4K OLED TV and Get $100 in Bonus Amazon Credit for Black Friday",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "The LEGO Transformers Bumblebee Set Hits Its Lowest Price Ever for Black Friday",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "The Flexispot Black Friday Sale Takes Up to 65% Off Office Furniture, Including Our Favorite Standing Desk",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "The Shrek Toaster Is the Only Black Friday Deal You Need",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Switch 2-Compatible SanDisk MicroSD Express Cards Are Up to $70 Off for Black Friday",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "The Official Elder Scrolls Cookbook Is at Its Lowest Price All Year on Black Friday",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Save Up to $1,100 Off the 2026 65\" Hisense UR8 RGB Mini-LED Ultimate Gaming TVs for Black Friday",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Save $100 Off the Apple MacBook Neo Laptop for Black Friday, Drops Back Down to Pre-Price Hike MSRP",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Metal Gear Solid Funko Pops Get Black Friday Discounts",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Score $40 off a Year of Humble Choice With a Limited-Time Discount Code for Black Friday",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Here’s a Chance to Win 1 Million LEGO Insiders Points for Black Friday",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Take the Big Bang Burger Challenge With the Official Persona Cookbook, Now 50% Off",
+      "source": "IGN",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "The Sony PlayStation DualSense Edge Controller Drops to $152 Exclusively at Lenovo for Black Friday",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Magic: The Gathering Play Booster Boxes Are up to 50% Off at Amazon for Black Friday",
+      "source": "IGN",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Roborock, Dreame, and Eufy are cutting robovac prices in half for Black Friday",
+      "source": "The Verge",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Many of our favorite Blu-ray movies are over 50 percent off for Black Friday",
+      "source": "The Verge",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "The absolute best Black Friday deals we’ve found (so far)",
+      "source": "The Verge",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "The new iPad Mini is getting its first major discount for Black Friday",
+      "source": "The Verge",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Allstate has been suffering an outage since Monday",
+      "source": "The Verge",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "The 25 best gaming deals we’ve found so far for Black Friday",
+      "source": "The Verge",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "My favorite MPC beat maker is ready for your vibe-coded firmware and effects",
+      "source": "The Verge",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Nothing’s ANC-equipped earbuds are on sale for less than $20 for Black Friday",
+      "source": "The Verge",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Apple’s latest AirTags have dropped to just $18 a pop for Black Friday",
+      "source": "The Verge",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Gayle King Taking Next Week Off From ‘CBS Mornings’ Following Son-In-Law’s Death",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘The Challenge’ Alum Tyler Duckworth’s Cause Of Death Revealed",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "William Shatner Responds After ‘Halloween’ Director John Carpenter Called Him “A Piece Of S***” For Snub",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘The Hunting Wives’ Pays Tribute To Lionsgate Exec Salli Newman",
+      "source": "Deadline",
+      "reason": "blocklist: obituary"
+    },
+    {
+      "title": "Justin Timberlake Visits Jimmy Fallon And Shares Thanksgiving Dish On New Apple TV Doc Series, How David Bowie Influenced ‘SexyBack’ & Performs Dance Classics",
+      "source": "Deadline",
+      "reason": "a national outlet's magazine feature or explainer, not news"
+    },
+    {
+      "title": "David Byrne On Getting Into Character As Elon Musk For ‘Musk’ Song “Let Me Sell You A Dream” – Crew Call Podcast",
+      "source": "Deadline",
+      "reason": "blocklist: podcast"
+    },
+    {
+      "title": "Doha Winners: ‘A Girl Unknown’ & ‘Concrete Land’ Scoop Top Prizes",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Kate Middleton Describes “Lonely Road” Of Navigating Cancer As She Meets Fellow Survivors In New Clip For Upcoming Doc",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Denis Villeneuve “Deeply Disappointed” That ‘Avengers: Doomsday’ Will Launch On Same Weekend As ‘Dune: Part Three’",
+      "source": "Deadline",
+      "reason": "another outlet's version of a story the session skipped: Denis Villeneuve Was 'Deeply Disappointed' by Disney's Decis"
+    },
+    {
+      "title": "Neil Patrick Harris & Patton Oswalt Get Behind iPhone-Shot Short ‘Dropping Off’ About LA Rideshare Driver",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "‘Sunrise On The Reaping’ Cooks Up $11M+ Thanksgiving, 2nd Best For Franchise; ‘Focker In-Law’ Seeing $40M 5-Day – Update",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Federal Incentive Will Level The Playing Field For America’s Creatives — Guest Column",
+      "source": "Deadline",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Thanksgiving storm batters East Coast. And, Black Friday sales to hit record levels",
+      "source": "NPR News",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "French cinema star Gérard Depardieu ordered to stand trial for rape and sexual assault",
+      "source": "NPR News",
+      "reason": "blocklist: sexual assault"
+    },
+    {
+      "title": "From Thanksgiving blackouts to Black Friday, a holiday hit by wild weather and economic woes",
+      "source": "NPR News",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Can luxury save Macy's?",
+      "source": "NPR News",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Screen-free tweens try their hand at Dungeons & Dragons",
+      "source": "NPR News",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "12 strategies to cut your risk of dementia. Take this quiz to start",
+      "source": "NPR News",
+      "reason": "blocklist: quiz"
+    },
+    {
+      "title": "Trump effectively ended asylum. Advocates look to the Supreme Court to restore it",
+      "source": "NPR News",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Morning news brief",
+      "source": "NPR News",
+      "reason": "title too short to be a story"
+    },
+    {
+      "title": "New balloons will fly in the postponed 100th Macy's Thanksgiving Day Parade",
+      "source": "NPR News",
+      "reason": "another outlet's version of a story the session skipped: Hold Your Turkeys! Macy’s 100th Thanksgiving Day Parade Has "
+    },
+    {
+      "title": "Eagles rally to stun Cowboys coming back from 21 points behind",
+      "source": "NPR News",
+      "reason": "same story already posted (another outlet or format): Cowboys blow 21-point lead in 39-38 Thanksgiving loss to Eag"
+    },
+    {
+      "title": "Black Friday scorigami: Steelers-Broncos ends with final score that's never happened before in NFL history",
+      "source": "CBS Sports",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Mason Rudolph and Steelers defense can clean up Aaron Rodgers' mess, but the franchise's problems run deeper",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Fantasy football rankings Week 12: Dave Richard's tough start/sit calls pinpoint which Jaguars WRs to play",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Minnesota vs. Wisconsin picks, odds, prediction, time: 2026 college football Rivalry Week betting preview",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "Fantasy football Week 12 PPR cheat sheet: How to get ahead of the Thanksgiving games slate",
+      "source": "CBS Sports",
+      "reason": "dated for a day that has passed"
+    },
+    {
+      "title": "Fantasy football Week 12 injury updates: Brock Bowers' uncertain status leaves managers needing a Plan B",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "What's next for Ole Miss: Pete Golding faces QB, coordinator decisions after CFP hopes fade",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Former lottery pick Rob Dillingham sucker-punched in G League game, leading to scrum, multiple ejections",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Fantasy basketball Week 7 waiver wire targets include Kelly Oubre Jr. and Charles Bassey in expanded roles",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "Knicks vs. Heat prediction, odds, time: 2026 NBA Cup picks for Friday, Nov. 27 from proven model",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "Texas vs. Texas A&M prediction, odds, time: 2026 Rivalry Week Friday picks from proven model",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "Rick Pitino takes thinly veiled jab at Aaron Rodgers over scathing Mike McCarthy comments",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Use DraftKings promo code to get $200 bonus bets, free NBA League Pass for Texas vs. Texas A&M on Black Friday",
+      "source": "CBS Sports",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Best Kalshi promo code CBSSPORTS55: Receive $55 bonus for Texas-Texas A&M, Black Friday college football",
+      "source": "CBS Sports",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Week 12 NFL odds, picks, predictions: Computer model backs Vikings and Dolphins",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "2026-27 MLB free agent tracker: Pre-Thanksgiving frenzy finds new homes for Skubal, Rogers, Peralta, more",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Broncos troll Steelers, Aaron Rodgers with 'discount double-check' celebration after safety",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Use BetMGM bonus code CBSSPORTS to get $1,500 bonus bets for Texas vs. Texas A&M on Black Friday",
+      "source": "CBS Sports",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Jazz Chisholm Jr. signing with Blue Jays: Two-time All-Star staying in AL East on one-year deal, per reports",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Tracking FBS conference championship scenarios: Big Ten, SEC still unsettled entering Week 13",
+      "source": "CBS Sports",
+      "reason": "a what-if sports piece (scenarios, projections), not news"
+    },
+    {
+      "title": "2026 college football coaching carousel 2026: Tracking hirings and firings",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "HQ PM Newsletter 11/27/2026",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "North Dakota St. vs. San Jose St. live stream, where to watch online, CBS Sports Network channel finder, odds",
+      "source": "CBS Sports",
+      "reason": "a team's game notes or quotes sheet, not a story"
+    },
+    {
+      "title": "Black Friday's top games to watch, best bets, odds: No. 3 Texas at Texas A&M, Lakers at Spurs, more",
+      "source": "CBS Sports",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Big Ten Championship Game scenarios: Iowa's win over Nebraska eliminates Ohio State, USC",
+      "source": "CBS Sports",
+      "reason": "a what-if sports piece (scenarios, projections), not news"
+    },
+    {
+      "title": "Florida vs. Florida State prediction, pick, odds, spread: Gators go for three in a row against Seminoles",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "NFL DFS, Week 12: Top daily Fantasy picks, lineups for the Sunday main slate",
+      "source": "CBS Sports",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "USC vs. UCLA prediction, pick, odds, spread: Trojans meet Bruins with Big Ten, CFP stakes in play",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "Alabama vs. Auburn prediction, pick, odds, spread: No. 6 Crimson Tide, Tigers clash in 2026 Iron Bowl",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "Ohio State vs. Michigan prediction, pick, odds, spread: Buckeyes, Wolverines battle for bragging rights",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "Henry Davis trade grades: Pirates cut ties with former No. 1 pick, add utilityman Tim Tawa from Diamondbacks",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Bears feared to lose another TE long-term as Colston Loveland looks for second opinion on knee injury",
+      "source": "CBS Sports",
+      "reason": "national outlet, no watchlist or shared big-moment term"
+    },
+    {
+      "title": "Cowboys coach Brian Schottenheimer on job security after latest disastrous loss: 'I don't worry about that'",
+      "source": "CBS Sports",
+      "reason": "a national outlet's magazine feature or explainer, not news"
+    },
+    {
+      "title": "NFL odds, picks: Brinson's best bets, player props, anytime TD scorers for Sunday's Week 12 games",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "Polymarket promo code CBSSPORTS: Pocket $25 bonus for Steelers vs. Broncos, NFL Black Friday predictions",
+      "source": "CBS Sports",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Ole Miss vs. Mississippi State prediction, pick, odds, spread: Is another wild Egg Bowl on tap in 2026?",
+      "source": "CBS Sports",
+      "reason": "sports betting picks or promo, not news"
+    },
+    {
+      "title": "Railroad Commission investigating Dallas gas utility over alleged safety violations",
+      "source": "The Texas Tribune",
+      "reason": "same story already posted (another outlet or format): Railroad Commission investigating Dallas gas utility over al"
+    },
+    {
+      "title": "Comptroller Huffines spars with successor Eckhardt over transition cooperation",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Lavish European travel by Texas’ ex-Juvenile Justice chief contributed to her exit, records show",
+      "source": "The Texas Tribune",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Texas lawmakers should promote fatherhood, family skills in 2027, report says",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "In first show of unity, Cruz and Talarico endorse Texas bid for new U.S. Space Academy",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "A Thanksgiving without a turkey: Texas food banks struggle to meet demand ahead of the holidays",
+      "source": "The Texas Tribune",
+      "reason": "already posted"
+    },
+    {
+      "title": "New ACA identity checks delay health insurance enrollment",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "New cypress trees grow in Kerr County, bringing hope and healing after floods",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas’ first review of college DEI ban doesn’t answer key questions about its impact",
+      "source": "The Texas Tribune",
+      "reason": "already posted"
+    },
+    {
+      "title": "Texas Supreme Court dismisses challenge to abortion restrictions",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Clayton Tucker names former state Rep. Tracy King as deputy agriculture commissioner",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas Dems celebrate flipping State Board of Education after final concession",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Mexico demands SpaceX clean up suspected rocket debris washing ashore near Texas",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "From pre-K to school funding, Texas Dems hope power shift gives education priorities momentum",
+      "source": "The Texas Tribune",
+      "reason": "already posted"
+    },
+    {
+      "title": "Texas Republicans spent billions lowering property taxes. What can Democrats do differently?",
+      "source": "The Texas Tribune",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Paxton drops suits against two Texas doctors over transgender care as he prepares to leave office",
+      "source": "The Texas Tribune",
+      "reason": "already posted"
+    },
+    {
+      "title": "Texas Sports Academy, tied to AI-driven Alpha School, is Texas’ biggest voucher recipient so far",
+      "source": "The Texas Tribune",
+      "reason": "already posted"
+    },
+    {
+      "title": "Texas power grid CEO secures multimillion-dollar contract extension, angering Dan Patrick",
+      "source": "The Texas Tribune",
+      "reason": "already posted"
+    },
+    {
+      "title": "State dismisses lawsuit against Latino voting group Jolt Initiative",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas drops abortion pill lawsuits against out-of-state medical providers",
+      "source": "The Texas Tribune",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "It’s Time That Texas’s Great Lost Novelist Got His Due",
+      "source": "Texas Monthly",
+      "reason": "a magazine's culture, food or travel feature, not news"
+    },
+    {
+      "title": "Meanwhile, in Texas: The Wiener Dog Has Its Day in Buda",
+      "source": "Texas Monthly",
+      "reason": "a magazine's culture, food or travel feature, not news"
+    },
+    {
+      "title": "The Daily Crossword: November 27, 2026",
+      "source": "Texas Monthly",
+      "reason": "blocklist: crossword"
+    },
+    {
+      "title": "Word Wrangler: November 27, 2026",
+      "source": "Texas Monthly",
+      "reason": "blocklist: word wrangler"
+    },
+    {
+      "title": "Meet the Rising Teen Stars of Texas Flag Football",
+      "source": "Texas Monthly",
+      "reason": "a magazine's culture, food or travel feature, not news"
+    },
+    {
+      "title": "The Daily Crossword: November 26, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Word Wrangler: November 26, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "The Next Wave of Japanese Dining in Texas",
+      "source": "Texas Monthly",
+      "reason": "a magazine's culture, food or travel feature, not news"
+    },
+    {
+      "title": "Cheerleading, but Make It Country and Western",
+      "source": "Texas Monthly",
+      "reason": "a magazine's culture, food or travel feature, not news"
+    },
+    {
+      "title": "The Daily Crossword: November 25, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Word Wrangler: November 25, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "This Texas Chef Never Lets His Tortilla Press Out of His Sight. Even When He Flies.",
+      "source": "Texas Monthly",
+      "reason": "a magazine's culture, food or travel feature, not news"
+    },
+    {
+      "title": "You May Never Have Heard of Kelly’s Bar-B-Que, but You Might Have Eaten Its Brisket",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Opinion: For My San Antonio Patients, the Need for Medicaid Expansion Is Clear",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Shana Feste’s Road to ‘Heartland’ Began and Ended in Texas",
+      "source": "Texas Monthly",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "The Daily Crossword: November 24, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Word Wrangler: November 24, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "The Texanist: Whatever Happened to a Good Old-Fashioned Turkey Shoot?",
+      "source": "Texas Monthly",
+      "reason": "a magazine's culture, food or travel feature, not news"
+    },
+    {
+      "title": "We’re Still Standing in the Shadow of ‘Giant’",
+      "source": "Texas Monthly",
+      "reason": "a magazine's culture, food or travel feature, not news"
+    },
+    {
+      "title": "I Tried to Hunt My Own Thanksgiving Turkey. It Didn’t Go as Planned.",
+      "source": "Texas Monthly",
+      "reason": "a magazine's culture, food or travel feature, not news"
+    },
+    {
+      "title": "The West Texans Fighting the Big Bend Border Barrier",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "The Daily Crossword: November 23, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Word Wrangler: November 23, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "The Daily Crossword: November 22, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Word Wrangler: November 22, 2026",
+      "source": "Texas Monthly",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "One dead following robbery-related shooting in east Austin",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Thanksgiving travelers face delays at Austin airport",
+      "source": "KXAN Austin",
+      "reason": "another metro's local story"
+    },
+    {
+      "title": "Windy weekend and a Sunday cold front ahead",
+      "source": "KXAN Austin",
+      "reason": "same story already posted (another outlet or format): DFW Weather: Sunny and warmer to start the weekend, but a co"
+    },
+    {
+      "title": "Audit on Austin's city-issued credit cards sparks policy updates",
+      "source": "KXAN Austin",
+      "reason": "another metro's local story"
+    },
+    {
+      "title": "Scammers use AI to mimic real retail sites on Black Friday",
+      "source": "KXAN Austin",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Hays CISD offering below-market housing for employees",
+      "source": "KXAN Austin",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Macy's Thanksgiving Day Parade postponement puts Legacy Ranch cheer team in limbo",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Here's our comprehensive list of holiday events across Central Texas this year",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Shadow Force: How Texas police are enforcing immigration law",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "How many freezes will Austin get this winter? Here's what the First Warning Weather team predicts",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "State Theatre to host free Texas vs. Texas A&M rivalry watch party",
+      "source": "KXAN Austin",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Austin ISD asks for donations to help support student meal accounts in need",
+      "source": "KXAN Austin",
+      "reason": "another metro's local story"
+    },
+    {
+      "title": "Rose McGowan's lawsuit against Harvey Weinstein dismissed",
+      "source": "KXAN Austin",
+      "reason": "blocklist: rape"
+    },
+    {
+      "title": "Rabid dog found in San Marcos as Texas rabies cases top 2025 totals",
+      "source": "KXAN Austin",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Liberty Hill grandmother finds relief after 8 brain surgeries",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Gov.-elect Gina Hinojosa joins Meals on Wheels for Thanksgiving deliveries",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Love steak but hate the price? An Austin butcher has a few suggestions",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "AUS Data Hub: Passenger totals, busiest months and new flights in 2026 and 2027",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Delays, few canceled flights at Austin airport amid coastal storms",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas football grateful ahead of Texas A&M game",
+      "source": "KXAN Austin",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Friends Bar serves Thanksgiving meals to community on Sixth Street",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Israeli strikes kill 10 in Gaza as Iranian drones kill 2 Italians in Kuwait, and other Mideast news",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Austin gathers for annual ThunderCloud Subs Turkey Trot",
+      "source": "KXAN Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Major airline steps in to bring Pearland HS band home after Macy’s Thanksgiving Day Parade",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Deadly crash shuts down 610 Loop ramp to SH 225 on Houston's southeast side",
+      "source": "KHOU 11 Houston",
+      "reason": "other-metro traffic, not statewide"
+    },
+    {
+      "title": "Girlfriend's body found in her abandoned car in NE Harris County, HCSO says | Investigators looking for boyfriend",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "A truck driver and his mystery passenger died in 1991. Now, 35 years later, there's a breakthrough",
+      "source": "KHOU 11 Houston",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Driver dies after crashing into retention pond in southwest Houston, officials say",
+      "source": "KHOU 11 Houston",
+      "reason": "another metro's local story"
+    },
+    {
+      "title": "HCSO: Deputy shoots armed woman during mental health crisis call in NW Harris County",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Thanksgiving Day fire prompts second-story window escape in northwest Harris County, officials say",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "HPD: Driver found passed out behind wheel leads officers on chase",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Crews working to recover vehicle from bayou in south Harris County",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "'It sounded like an explosion' | Train derailment rattles Houston neighborhood ahead of Thanksgiving",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "7-year-old critically injured in three-vehicle crash in northwest Houston, police say",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Union Pacific train derails in Houston’s Fifth Ward",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Katy boy, 9, to receive life-saving kidney transplant from stranger after unlikely match",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Pearland HS band raises $350,000 to stay in NYC for rescheduled Macy’s Thanksgiving Day Parade",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Sheriff: Man dies after being found unresponsive in Katy-area store parking lot",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Houston in talks to host Essence Festival after its departure from New Orleans",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "They’re studying engineering and medicine. They’re also building needed medical supplies for Houstonians",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Thanksgiving travelers hit Texas roads as holiday traffic builds",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "‘She’s not coming back’ | Mothers seek answers after best friends, 15 and 16, die in Aldine",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "New $29.8 million sea turtle hospital coming to Galveston’s Texas A&M campus",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "‘Our story does not end here’ | Houston Filipino café closes after costly building upgrade requirement",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Police search for gunman who shot worker at north Houston home construction site",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Questions remain after deadly tanker crash and fire on Houston's Eastex Freeway",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Thurlow Buchanan vanished from Fort Worth in 1987. His truck was found near UH, but he was never seen again",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Here are the Houston stores open and closed on Thanksgiving 2026",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Double homicide in Third Ward leaves 2 dead, 2 hurt, Houston police say",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Mother describes finding teen unconscious as investigators probe two girls’ deaths in Aldine",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas pharmacy recalls medications nationwide. Here's how to check yours",
+      "source": "KHOU 11 Houston",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Flying out of Houston for Thanksgiving? Here's what to know",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Trash hasn't been picked up in more than a month at this North Harris County apartment complex",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Truck driver killed in tanker crash on Eastex Freeway at 610 Loop",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Highway 249 reopens at Breen Road after crash involving dirt bike",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Houston weighs future of abandoned downtown hotel after body found inside",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Teen's death in e-bike crash fuels push for tougher rules in Fort Bend County",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Here's what a U.S. Space Academy in Houston could look like under Texas' official proposal | See the renderings",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "No stuffing? We find out some of the hottest takes from Thanksgiving travelers",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Bomb threats prompt security precautions at hospitals in The Woodlands, Texas Medical Center",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Deaths of two girls under investigation in north Harris County",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "HPD is looking for five people after several people were stabbed at Katz’s in Montrose",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Child killed in Fort Bend County e-bike crash as safety concerns grow",
+      "source": "KHOU 11 Houston",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Forecast: Milder and breezy to start the weekend",
+      "source": "KVUE Austin",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Legacy Ranch cheer team raises enough money to stay in New York despite Macy's Thanksgiving Day Parade being postponed",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Austin shoppers rethinking Black Friday spending",
+      "source": "KVUE Austin",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "'Hunger isn't a blue or red issue' | Hinojosa joins Thanksgiving meal delivery effort in Central Texas",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Residents in Lago Vista asked to reduce water usage as city remains under Stage 5 restriction",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Man arrested following suspected road rage shooting at Georgetown shopping center",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "City of Austin opening cold weather shelters Wednesday night",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "San Marcos warns residents after dog tests positive for rabies near city limits",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Austin explores rental assistance program as South Congress businesses face rising costs",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Convicted Fort Hood shooter files motion for stay of execution",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "As screwworm cases surge, researchers say they've found new, safer technology to combat the pest",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas State's ALERRT Center receives $10M to expand active shooter response training",
+      "source": "KVUE Austin",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Gillespie County sheriff investigates vandalism at Stonewall Catholic church",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Austin's airport sees record number of monthly travelers in October",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Links mentioned on KVUE News",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Millions of Texans are expected to travel around Thanksgiving. Here's what you need to know if you're headed to the airport or hitting the road",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas Lt. Gov.-elect Vikki Goodwin announces chief of staff ahead of January inauguration",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Latest maps provided by US Army show potential locations of lead exposure during Wednesday's controlled detonation in Iowa",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Sun City deer dispute carries on after Georgetown lawsuit settlement",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "KVUE obtains records revealing gap in Austin’s THC testing",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "East Austin mother calls for action after son witnesses shooting",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "APD SWAT responds to person barricaded inside southwest Austin home",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Travis County boosts funding for immigration legal aid amid rising demand",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Meals on Wheels Central Texas sees record Thanksgiving demand, plans to double meals served",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "1 juvenile injured in East Austin shooting",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas Sports Academy, tied to AI-driven Alpha School, is Texas’ biggest voucher recipient so far",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Selena’s brother calls for Corpus Christi memorial upgrades, renaming of Shoreline Boulevard",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas state employee could lose job as DACA renewal stalls",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Know before you go: H-E-B Feast of Sharing",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "'Help us bring her home' | Family of missing Kountze woman asks hunters to watch for clues",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "AFD puts out structure fire Monday night in East Austin",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "From the White House to Aggieland: Pardoned turkeys to retire at Texas A&M",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "North Austin shop asks community to help support local makers this holiday season",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas flood survivors had to wait more than 100 days to apply for FEMA aid. Now they want change.",
+      "source": "KVUE Austin",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Bexar County Sheriff's Office seeks public's help locating missing 26-year-old woman",
+      "source": "KENS 5 San Antonio",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Suspect arrested after alleged shooting, pursuit involving DPS trooper in downtown San Antonio",
+      "source": "KENS 5 San Antonio",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Neighbors kick in door to rescue elderly couple as Thanksgiving fire burns North Texas homes",
+      "source": "KENS 5 San Antonio",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "'Operation Home Cooking' helps give over 800 airmen a place to spend Thanksgiving",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "K9 helps uncover more than 130 pounds of fentanyl, meth hidden in car at Arizona border",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Dallas family escapes devastating Thanksgiving Day fire",
+      "source": "KENS 5 San Antonio",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "'A little bit of joy': Dallas Animal Shelter dogs get a Thanksgiving feast as they wait for forever homes",
+      "source": "KENS 5 San Antonio",
+      "reason": "another city's community feature"
+    },
+    {
+      "title": "A helping of hope: Raul Jimenez Thanksgiving Dinner brings San Antonio together for 47th year",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Man accused of killing woman in front of her four children also faces child sexual assault charge",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Silver Alert discontinued for 82-year-old man last seen in San Antonio on Thanksgiving",
+      "source": "KENS 5 San Antonio",
+      "reason": "another metro's local story"
+    },
+    {
+      "title": "A lifetime of memories, a word of thanks: Stone Oak seniors share their gratitude",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "A new home, then a fight to recover: Kerrville rescue helps dog who fell from bridge",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Have you seen Elliana? Bexar County deputies seek help finding missing 17-year-old",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Here, everything’s better: H-E-B offers holiday savings to help fill the family table",
+      "source": "KENS 5 San Antonio",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Driver booked for DWI after barrier crash leads to second collision on Loop 410, police say",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Driver caught after pickup hits woman and leaves scene on FM 78, police say",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Driver killed after speeding car hits Mustang stopped at red light, police say",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Woman takes gun from suspect after man is shot during fight, police say",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Man shot outside northwest side apartment during family’s pre-Thanksgiving gathering",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Suspected impaired driver detained after rear-end crash on northwest side of town",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Teen shot in the leg while walking home on west side, police say",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Thanksgiving pet safety: What not to feed your dog or cat",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "‘I just love them all’: Cibolo seniors share the blessings closest to their hearts",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "‘She didn’t deserve this’: Family seeks justice after 15-year-old daughter riding e-scooter killed in hit-and-run",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "San Antonio Botanical Garden, H-E-B team up to plant 2,500 native trees in Kerrville",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "San Antonio bike lane project could include two-way cycle track near Woodlawn Lake, councilwoman says",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Turning on the heat in San Antonio? Here’s when a burning smell warrants a repair call.",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "SAPD: Online purchase meetup leads to robbery, SWAT response at near Churchill High School",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Medicaid expansion tops Mayor Jones' legislative wish list ahead of 2027 session",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Bexar County investigators looking for truck that allegedly struck, killed 15-year-old girl Sunday night",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "San Antonio residents can help shape Marbach Road safety improvements at second community workshop",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "San Antonio's Metro Health says domestic violence ticks up during the holidays",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Child discovers two dead after suspected murder-suicide in northwest Bexar County, sheriff says",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Woman killed at southeast side apartment with children inside; suspect turn himself in, police say",
+      "source": "KENS 5 San Antonio",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Sonny Dykes fired at TCU: Horned Frogs cut ties 4 years after CFP title game run",
+      "source": "WFAA Sports",
+      "reason": "same story already posted (another outlet or format): Horned Frogs Fall to Blue Jays, 95-87"
+    },
+    {
+      "title": "Dak Prescott accounts for 5 TDs as the Cowboys roll to a 51-30 victory over the Titans",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Cooper Flagg saves Mavericks with late free throws to hold off Jazz comeback in 116-114 win",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Jake Oettinger stops 33 shots for league-best fifth shutout in Stars' 1-0 win over Penguins",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Tarik Skubal agrees to record $450 million, 9-year contract with New York Mets, AP source says",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Tom Jackson, Broncos star and ESPN 'Sunday NFL Countdown' analyst, dead at 75",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100",
+      "source": "WFAA Sports",
+      "reason": "already posted"
+    },
+    {
+      "title": "Dominant Allen volleyball completes North Texas success at state tournament",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Arch Manning steps up as Longhorns blow out Arkansas",
+      "source": "WFAA Sports",
+      "reason": "already posted"
+    },
+    {
+      "title": "Joaquín Valiente scores 2 goals, Dallas beats Timbers 3-0 in Game 1 of best-of-3 series",
+      "source": "WFAA Sports",
+      "reason": "already posted"
+    },
+    {
+      "title": "Wilmer-Hutchins and White Settlement Brewer keep playoff hopes alive, uplifting North Texas football fans",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Family of former MLB pitcher Lance Broadway release statement after unexplained death",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Kaskimaki's go-ahead goal helps Blues to 5-3 win over Stars",
+      "source": "WFAA Sports",
+      "reason": "same story already posted (another outlet or format): Kaskimaki's go-ahead goal helps Blues to 5-3 win over Stars"
+    },
+    {
+      "title": "USWNT plays El Salvador in Texas Health Mansfield Stadium",
+      "source": "WFAA Sports",
+      "reason": "same story already posted (another outlet or format): USWNT plays El Salvador in Texas Health Mansfield Stadium"
+    },
+    {
+      "title": "How to watch the Lone Star Showdown Texas vs. Texas A&M on WFAA",
+      "source": "WFAA Sports",
+      "reason": "a team's game notes or quotes sheet, not a story"
+    },
+    {
+      "title": "A stunning Eagles rally as QB Joe Milton leads 39-38 win over his former Cowboys",
+      "source": "WFAA Sports",
+      "reason": "same story already posted (another outlet or format): Cowboys blow 21-point lead in 39-38 Thanksgiving loss to Eag"
+    },
+    {
+      "title": "Cowboys lose following second-half comeback and 59-yard field goal securing Eagles win",
+      "source": "WFAA Sports",
+      "reason": "same story already posted (another outlet or format): Cowboys blow 21-point lead in 39-38 Thanksgiving loss to Eag"
+    },
+    {
+      "title": "Jerry Jones says he still believes in Brian Schottenheimer despite mounting meltdowns by Cowboys",
+      "source": "WFAA Sports",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Tom Brady, Terry Bradshaw call out Aaron Rodgers after public criticism of Steelers head coach",
+      "source": "WFAA Sports",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Texas high school football: Playoff matchups, schedule",
+      "source": "WFAA Sports",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "'Ultimate Dallas Sports Show' streams daily on WFAA+ and KFAA",
+      "source": "WFAA Sports",
+      "reason": "blocklist: streams daily"
+    },
+    {
+      "title": "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities",
+      "source": "WFAA Sports",
+      "reason": "same story already posted (another outlet or format): At AT&T Stadium, a Cowboys game-day job can open doors for p"
+    },
+    {
+      "title": "The Cowboys lead their NFC East rival, the Philadelphia Eagles, 28-10 at halftime.",
+      "source": "WFAA Sports",
+      "reason": "an in-game score update: the final is the post"
+    },
+    {
+      "title": "16K pounds of Cowboys' famous mac 'n' cheese? Thanksgiving game by the numbers",
+      "source": "WFAA Sports",
+      "reason": "same story already posted (another outlet or format): 16K pounds of Cowboys' famous mac 'n' cheese? Thanksgiving g"
+    },
+    {
+      "title": "Cowboys vs. Eagles: Thanksgiving game info, halftime show and national anthem singers",
+      "source": "WFAA Sports",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "How to watch the NFL's Thanksgiving Day games",
+      "source": "WFAA Sports",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Mavrik Bourque returns to Dallas and scores his first goal for Nashville in 3-1 win",
+      "source": "WFAA Sports",
+      "reason": "same story already posted (another outlet or format): Mavrik Bourque returns to Dallas and scores his first goal f"
+    },
+    {
+      "title": "Cooper Flagg has 24 points and 12 assists as Mavericks beat Nuggets 120-101 in NBA Cup contest",
+      "source": "WFAA Sports",
+      "reason": "already posted from another outlet: Flagg has 24 points, 12 assists as Mavericks beat Nuggets in"
+    },
+    {
+      "title": "Pittsburgh Steelers releasing Aaron Rodgers a day after benching him",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Former Cowboys quarterback Tony Romo lands new job nearly two months after CBS departure",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Martha Firestone Ford, owner of Detroit Lions, dies at age 101",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Former TCU football head coach Sonny Dykes releases first statement after firing",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "New stadium, hotel-anchored development could be coming to Celina",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Texas A&M names Dr. John Thornton as Interim Athletic Director",
+      "source": "WFAA Sports",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Jerry Jones, Cowboys donate $30M to Salvation Army in honor of 30 years of partnership",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "A wave of emotions for TCU after Dykes firing then a quick trip to No. 9 Texas Tech",
+      "source": "WFAA Sports",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "How to watch this week's NFL games | Week 12",
+      "source": "WFAA Sports",
+      "reason": "a team's game notes or quotes sheet, not a story"
+    },
+    {
+      "title": "SEC plans to vote on whether to terminate LSU's membership",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Lights go out briefly at Northwest Stadium during 3rd quarter of Bengals-Commanders game",
+      "source": "WFAA Sports",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "RHP Jiménez continues comeback story, agrees to Minors deal with Rangers (source)",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "same story already posted (another outlet or format): RHP Jiménez continues comeback story, agrees to Minors deal "
+    },
+    {
+      "title": "After short stint with Rangers to end season, what's next for O'Hoppe?",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Each MLB club's best prospect acquired via trade",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Walcott among Fall League's top Statcast performers",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Top prospect Walcott leads post-Fall League Top 30 rankings",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Solve today's Rangers trivia puzzle",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Rangers add pitcher Josh White off waivers before Rule 5 deadline",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Latest Rangers injuries & transactions",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Rangers' Top 30 Prospects list",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "A-Rod returns to HOF ballot for 6th season",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "3 Rangers takeaways from the GM Meetings",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "a roundup column (winners and losers, takeaways), not news"
+    },
+    {
+      "title": "Rangers staying 'very open-minded' as offseason begins -- including on trading stars",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "These ranked prospects got 40-man roster spots",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Rangers hire Tommy Joseph as hitting coach",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "a hire announcement, not news"
+    },
+    {
+      "title": "How Rangers' roster looks heading into GM Meetings",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "'27 Rookie of the Year candidates -- one from each team",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Here's how every prospect fared in the AFL Fall Stars Game",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Young: Payroll won't be impediment to improving Rangers",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Rangers shake up front office, coaching staff ahead of 2027",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Carter undergoes hip surgery, will likely miss start of '27 season",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Breaking down the Fall Stars Game participants by organization",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Top prospect duo of Miller-Walcott following in Harper-Trout footsteps in Arizona Fall League",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "The Solution is golden! Duran wins first Gold Glove",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Rangers mailbag: Walcott in the OF? Seager at DH full-time?",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "a roundup column (winners and losers, takeaways), not news"
+    },
+    {
+      "title": "World Series-winning manager Bochy up for Hall on Contemporary Baseball Era Ballot",
+      "source": "Texas Rangers (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Astros past and present give back to Houston this holiday season",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "26 things Sarah Langs is thankful for from the 2026 baseball season (which was the best!)",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Each MLB club's best prospect acquired via trade",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Astros tab Martinez to replace Miller, add Bates as hitting coach (source)",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Astros non-tender OF Trammell, sign INF Allen and LHP Sousa",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "Solve today's Astros trivia puzzle",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "Missing out on Gold Glove for 2nd straight year? That wasn’t an option for Walker",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Latest Astros injuries & transactions",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "Astros' Top 30 Prospects list",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "Astros name Bobby Wilson bench coach, add Bayer from Cards org. as asst. GM",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "Astros protect No. 16 prospect Nezuh from Rule 5 Draft, outright Loperfido",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "Yordan adds to trophy case with Silver Slugger; Astros honored as team",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "Back in manager's seat, Ausmus brings a new perspective",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Astros introduce Brad Ausmus as new manager",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "A deeper look into Astros' hiring of Ausmus as manager",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "Bagwell dishes on Astros hiring Ausmus as manager",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "another metro's team feature"
+    },
+    {
+      "title": "Yordan takes home first career MVP Award in unanimous victory",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "AL batting champ Alvarez named to All-MLB First Team",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "These ranked prospects got 40-man roster spots",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Alvarez adds prestigious Hank Aaron Award to trophy case",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Yordan unseats Ohtani for Outstanding DH, first new winner in 6 years",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Alvarez named AL Comeback Player of the Year",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Flores talks managerial search, offseason outlook at GM Meetings",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Baker's illustrious résumé boasts clear case for Cooperstown",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Smith excited to pay it forward for single-mom families",
+      "source": "Houston Astros (MLB.com)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "A fond farewell: East Fort Worth community print shop closes after 45 years",
+      "source": "Fort Worth Report",
+      "reason": "same story already posted (another outlet or format): A fond farewell: East Fort Worth community print shop closes"
+    },
+    {
+      "title": "‘Club Kid’ Review: From dance beats to heartbeats, Jordan Firstman’s vibrant and touching debut feature is one of the best films of the year",
+      "source": "Fort Worth Report",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Weekend Worthy: Cliburn piano concert sets Christmas scene at Stockyards",
+      "source": "Fort Worth Report",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Two state legislators want to change the state bird. Tarrant County birders weigh in",
+      "source": "Fort Worth Report",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Out and About in Arlington: Christmas spirit gobbles up Thanksgiving festivities",
+      "source": "Fort Worth Report",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Nolyn Maurice Tutson – July 31, 2024 – Nov. 21, 2026",
+      "source": "Fort Worth Report",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Shelter in place order lifted after Weatherford Aerospace fire threatens chemical tanks",
+      "source": "Fort Worth Report",
+      "reason": "already posted"
+    },
+    {
+      "title": "Turkey? No thanks. HEB ISD students dish out Thanksgiving favorites, family traditions",
+      "source": "Fort Worth Report",
+      "reason": "same story already posted (another outlet or format): Turkey? No thanks. HEB ISD students dish out Thanksgiving fa"
+    },
+    {
+      "title": "Disney’s Hexed casts a fun spell with magical family adventure",
+      "source": "CultureMap Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "These are the 14 best things to do in Fort Worth on Thanksgiving weekend",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "North Texas leads state in severe holiday crashes on major interstates",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Get holly jolly at these 2026 holiday pop-up bars around Fort Worth",
+      "source": "CultureMap Fort Worth",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Sebastian Stan drama Fjord explores family, faith, and prejudice",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Historic Fort Worth hotel lauded for one of America’s best afternoon teas",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Famous See's Candies unwraps holiday pop-up shop in north Fort Worth",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Iconic toy retailer Toys 'R' Us opens holiday pop-up store in Fort Worth",
+      "source": "CultureMap Fort Worth",
+      "reason": "already posted"
+    },
+    {
+      "title": "Amphibian Stage's 2027 season features world premiere and Broadway hit",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "U2 will bring 'Greatest Show' to Arlington on 2027 world tour",
+      "source": "CultureMap Fort Worth",
+      "reason": "already posted"
+    },
+    {
+      "title": "Fort Worth Mexican restaurant La Cabrona expands to Uptown Dallas",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "New 650-acre state park coming to Lake Palestine in East Texas",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Cult-fave burger chain White Castle makes Dallas-Fort Worth debut",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Sugar Plum Brunch tops 6 best food & drink events in Fort Worth this week",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "TCU sacks football coach Sonny Dykes 4 years after national title run",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Hot dog chain Portillo's closes 2 DFW restaurants and more top stories",
+      "source": "CultureMap Fort Worth",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Aspen Italian hot spot Acquolina sets early 2027 opening in Fort Worth",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "I Play Rocky scores a knockout with Sylvester Stallone's Hollywood story",
+      "source": "CultureMap Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Thanksgiving & Gratitude",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "RAZ Imports Returns to Balcom Agency as Agency of Record",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Calling for Nominations: Great Women of Texas",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "SANDRA BROWN’S NOVEL RAINWATERIN DEVELOPMENT AS NEW STAGEMUSICAL",
+      "source": "Fort Worth Business Press",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "MCADAMS TAPS INDUSTRY VETERAN MARILYN RAMIREZ TO LEAD GROWTH OF ITS ENERGY PRACTICE NATIONWIDE",
+      "source": "Fort Worth Business Press",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "TEXAS UNMANNED SYSTEMS DEFENSE CENTER OF EXCELLENCE GAINS MOMENTUM AS NATIONAL DEFENSE INDUSTRY LEADERS RALLY AROUND SHARED VISION",
+      "source": "Fort Worth Business Press",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Mamma Mia! coming back to town",
+      "source": "Fort Worth Business Press",
+      "reason": "already posted"
+    },
+    {
+      "title": "Boys & Girls Clubs of Greater Tarrant County Announces Host for 2027 Centennial Golf Classic at Shady Oaks Country Club",
+      "source": "Fort Worth Business Press",
+      "reason": "an organization's press release, not news"
+    },
+    {
+      "title": "James L. West Hosts Dementia-Friendly “Sounds of the Season” Concert",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Unbound Now Names Andrea Sparks Chief Government and Strategic Relations Officer",
+      "source": "Fort Worth Business Press",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Pedestrian killed in crash on Dallas North Tollway",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "another city's traffic"
+    },
+    {
+      "title": "Black Friday crowds wrap around JCPenney at Frisco's Stonebriar Mall",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Driver crashes into Dallas police vehicle at earlier wreck scene",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "DART to place Rosa Parks signs on buses for Dec. 1 anniversary",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Dallas Weather: Breezy, near-freezing ‘festive chill’ grips North Texas for Thanksgiving",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "same story already posted (another outlet or format): Dallas Weather: Breezy, near-freezing ‘festive chill’ grips "
+    },
+    {
+      "title": "Lower Greenville assault lands convicted sex offender back in jail for second parole violation",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Trackdown: Help find Dallas rapper BFG Baandz’s killer",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Top Dallas Police spokesperson reinstated after public integrity investigation",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "DeSoto police ask for help identifying mail thief",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Fatal Sunday morning crash involving SUV and 18-wheeler shuts down three eastbound lanes of I-20",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "3 men hospitalized after Garland police open fire while serving warrant with U.S. Marshals",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Darlie Routier appeal cites new DNA evidence in attempt to overturn death sentence",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Burleson police investigate possible road rage in deadly Thanksgiving crash",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "same story already posted (another outlet or format): Burleson police investigate possible road rage in deadly Tha"
+    },
+    {
+      "title": "Fort Worth motorcyclist recovering after hit-and-run",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "same story already posted (another outlet or format): Fort Worth motorcyclist recovering after hit-and-run"
+    },
+    {
+      "title": "Christmas lights bring families to Texas Motor Speedway",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "2 pets die, 1 rescued as Fort Worth firefighters respond to multiple fires amid cold weather",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "same story already posted (another outlet or format): 2 pets die, 1 rescued as Fort Worth firefighters respond to "
+    },
+    {
+      "title": "MADD and Waymo issue warnings before ‘Blackout Wednesday’",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Fairview Town Council holds meeting over McKinney airport noise",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "McKinney mayor won't resign as he, city council members face 2027 recall vote",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Avelo Airlines adds nonstop flights to Fort Lauderdale and Tampa from McKinney",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Dozens of drivers suffer flat tires from metal debris on I-35E in Denton",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "another city's traffic"
+    },
+    {
+      "title": "Flower Mound drill team scrambles to extend New York stay after historic Macy’s parade postponement",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "North Texas politician blasts Northwest ISD over Islam lesson; district reminds him he set the curriculum",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Everyone survives wrong-way crash on I-35 in Sanger; lanes to remain open",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "North Texas traffic stop leads to arrest of armed man accused of soliciting 15-year-old on Snapchat",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "‘Fighting for her remains': Family seeks to bring Dallas shooting victim home",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Storm blows down Kennedy Center tarp, showing name for first time in months",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Hackers attack and penetrate Air Force's computing platform",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "North Texas rallies to keep local students in Saturday's Macy's Thanksgiving Parade",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Jerry Jones says he still believes in Brian Schottenheimer despite mounting meltdowns by Cowboys",
+      "source": "NBC 5 DFW",
+      "reason": "another outlet's version of a story the session skipped: Jerry Jones says he still believes in Brian Schottenheimer d"
+    },
+    {
+      "title": "Not every company wants your money this Black Friday. Some are choosing causes over consumerism",
+      "source": "NBC 5 DFW",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Krispy Kreme has Rudolph guide its sleigh for latest doughnut collection",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Why Advent calendars are thriving in the ‘little treat' economy",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Black Friday shoppers fill stores across North Texas as retailers strategize with deals, in-person exclusives",
+      "source": "NBC 5 DFW",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "‘It's a blessing': Skyline coach J.B. Wallace Jr. reflects on 50 years of coaching",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Black Friday shoppers head to brick-and-mortar stores across the U.S.",
+      "source": "NBC 5 DFW",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Army deems Iowa lead azide detonation a success but criticism lingers",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Who won the 2026 National Dog Show? Meet Rocker",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "American Airlines plane ‘clipped the wing' of 2nd plane at Reagan National Airport",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Sales for Biden memoir fall far short of books by Obama, Clinton",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Pizza Hut cofounder Dan Carney dies, nearly seven decades after first launching the business",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "How to handle difficult family dynamics at the holidays: 5 tips from a therapist",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Dallas Mavericks visit Phoenix Suns Friday in NBA Cup group stage",
+      "source": "NBC 5 DFW",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "St. Louis Blues take on Dallas Stars, looking to extend home win streak",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Portland Timbers host FC Dallas in Western Conference semifinals",
+      "source": "NBC 5 DFW",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Viral video helps Dallas woman find man who motivated her to finish HYROX",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "A groundbreaking new chapter for girls' flag football arrives in Frisco",
+      "source": "NBC 5 DFW",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "The Macy's Thanksgiving parade is postponed. What happens to its expansive roster of performers?",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Nonprofit Thanksgiving in Dallas helps newly arrived families find sense of belonging",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Rosenthal prepares to join Railroad Commission after election win",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Anita DeFrantz, whose advocacy gave women a voice at the Olympics, dies at 74",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Fort Worth firefighters battle 27 fires in just over 24 hours",
+      "source": "NBC 5 DFW",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Trump calls the pre-election GDP figures ‘fake' and demands an investigation of Commerce Department",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "China and other US trading partners hit back at Trump's new tariff plans",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "‘You don't know what a hug can do' Witness reacts to compassionate crisis response",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "What's closed on Thanksgiving and when stores reopen on Black Friday",
+      "source": "NBC 5 DFW",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Judge blocks FCC from early license review for ABC stations",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Angelina Jolie and Brad Pitt settle winery fight lawsuit that surfaced abuse allegations",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Musume restaurant reopens nearly 3 years after downtown Fort Worth explosion",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "FedEx cargo plane runs off runway at Miami International Airport",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "From farm to football: How Paul Quinn College helps feed 90,000 Cowboys fans",
+      "source": "NBC 5 DFW",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Tony Romo joins Jake Paul's Betr as inaugural Chief Predictions Officer",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "North Texas volunteers prepare 7,000 Thanksgiving meals for neighbors in need",
+      "source": "NBC 5 DFW",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Dallas City Council set for potential vote tied to new arena as Mavs search for new home",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Macy's Thanksgiving Day Parade postponed for first time due to weather",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Investigation underway after 3 injured in Fort Worth shooting",
+      "source": "NBC 5 DFW",
+      "reason": "same story already posted (another outlet or format): Investigation underway after 3 injured in Fort Worth shootin"
+    },
+    {
+      "title": "Mississippi plane crash victims were members of a Florida family returning from a fishing trip",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Unexpected invite or package? It could be a scam",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "ICE arrests Boston man who won $1 million on scratch ticket",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "How to host for the holidays in a small space",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Package stolen from your porch? What to do next",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Kilmar Ábrego García arrives in Spain",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Ezra Frech makes ‘Dancing With the Stars' history: Everything to know about the Season 35 winner",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "New Miss Universe's Puerto Rican hometown celebrates her historic win",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Third suspect arrested in connection with deadly Halloween night shootings in Deep Ellum",
+      "source": "NBC 5 DFW",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Dallas dismissed from lawsuit alleging paramedic kicked man in head during 2019 incident",
+      "source": "WFAA",
+      "reason": "another city's community feature"
+    },
+    {
+      "title": "Frisco small businesses look for a boost as downtown construction wraps up",
+      "source": "WFAA",
+      "reason": "another city's community feature"
+    },
+    {
+      "title": "One dead following auto-pedestrian accident on Dallas North Tollway, officials say",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Northbound I-35 closed in Denton due to 'hazard' damaging tires, police say",
+      "source": "WFAA",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Forced to flee their countries, Dallas gave them a place at the table this Thanksgiving",
+      "source": "WFAA",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Dallas residents evacuated from condos amid reports of elevated carbon monoxide levels",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Thanksgiving house fire displaces 3, officials say",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Man attempts to set fire to Dallas Family Dollar, DFR says",
+      "source": "WFAA",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Fort Worth police asks for public's help in hit and run investigation",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "'She's changed my life': Why a 79-year-old North Texas DoorDash driver is getting so much love after one delivery",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Dallas Police seek public's help identifying suspects in deadly October shooting",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "North Texas teen faces federal charges after police find weapon with 'machine-gun conversion device'",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Railroad Commission investigating Dallas gas utility over alleged safety violations",
+      "source": "WFAA",
+      "reason": "same story already posted (another outlet or format): Railroad Commission investigating Dallas gas utility over al"
+    },
+    {
+      "title": "Pedestrian hit by train in Arlington, leading to temporary road closure",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Three dead in apparent murder-suicide, North Texas sheriff's department says",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Fire at Weatherford Aerospace may have involved hazardous materials, officials say",
+      "source": "WFAA",
+      "reason": "already posted"
+    },
+    {
+      "title": "'If we're not together, nothing's the same' | Five Texas siblings hope one family will adopt them all",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Three men in stable condition following Fort Worth shooting",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Dog shot by Arlington Police officer responding to alarm",
+      "source": "WFAA",
+      "reason": "same story already posted (another outlet or format): Arlington police officer shoots dog while responding to comm"
+    },
+    {
+      "title": "DPD arrests suspect who was possibly involved in deadly Deep Ellum Halloween shootings",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Dallas townhome owners fight nearly 450% increase in monthly HOA dues",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "What is Weatherford Aerospace?",
+      "source": "WFAA",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Garland neighbors, firefighters team up to bring Christmas cheer to couple married 63 years",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "North Texas man dead following shooting Sunday, Garland police say",
+      "source": "WFAA",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "North Texas mother charged with leaving four young children alone by roadway, sheriff's office says",
+      "source": "WFAA",
+      "reason": "already posted"
+    },
+    {
+      "title": "North Texas food insecurity rises as food pantry sees rising numbers",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Shoppers and diners react to parking QR code greets them in Lowest Greenville",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "McKinney recall election set for May after 4 city leaders decline to resign",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Deputies fatally shoot armed man overnight Tuesday, officials say",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Arlington two-vehicle crash claims the life of 77-year-old woman",
+      "source": "WFAA",
+      "reason": "already posted"
+    },
+    {
+      "title": "North Texas firefighters battling 2-story house fire; woman found injured inside, officials say",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Actress Irma P Hall, known for playing Big Mama Jo in Soul Food, dies at 91",
+      "source": "WFAA",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Cowboys' fans vent after Thanksgiving Day loss to Eagles: Armchair Quarterback",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Black Friday shoppers turn to Hurst thrift store for bargains and a good cause",
+      "source": "CBS News Texas",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Inside Visa's innovation center, where AI battles bots to combat payment fraud",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "East Coast storm leaves flooding, property damage and power outages",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Support pours in for Texas marching band after Macy's Thanksgiving Day Parade postponed",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Deputies close Washington state road to collect more than $7,000 in scattered cash",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Semi-truck jackknifes on Interstate 75 in Thanksgiving Day close call",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Trump plans talk with Nvidia CEO Jensen Huang amid national security concerns",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Incoming Texas railroad commissioner Jon Rosenthal seeks $1 billion agency budget",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "United Way of Tarrant County highlights need for holiday giving",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Warm, windy Saturday ahead for North Texas before Sunday cold front",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Pregnant New Mexico prisoner with Texas ties escapes after doctor's appointment",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "2 escape Thanksgiving Day house fire in Fort Worth",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Fort Worth Stockyards kicks off Christmas season with cattle drive, Santa Claus",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "North Texas cheer teams scramble to extend NYC stay after Macy's parade postponed",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Cowboys' fans voice frustration with Jerry Jones after another home loss",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Prosecutors seek 25-year sentence for former chef who supplied poison for 14 suicides: \"No case even remotely similar\"",
+      "source": "CBS News Texas",
+      "reason": "blocklist: suicide"
+    },
+    {
+      "title": "Helen Giddings discusses her 26-year career in the Texas House, the state of Texas politics, and her",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "Railroad Commissioner-Elect Jon Rosenthal discusses his goals, doubling the agency’s budget",
+      "source": "CBS News Texas",
+      "reason": "a station's video page: a clip the page cannot show"
+    },
+    {
+      "title": "U.S. opens hotline for tips about cartels, as Mexico calls DEA lapses the \"Fast and Furious of Fentanyl\"",
+      "source": "CBS News Texas",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "Pregnant prisoner escapes in corrections vehicle after officers stop at Whataburger in New Mexico",
+      "source": "CBS News Texas",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Road rage suspected in deadly North Texas crash on Thanksgiving, police say",
+      "source": "CBS News Texas",
+      "reason": "same story already posted (another outlet or format): Burleson police investigate possible road rage in deadly Tha"
+    },
+    {
+      "title": "Zelenskyy likens Trump calling Putin \"my friend\" to Hitler being viewed as friend during World War II",
+      "source": "CBS News Texas",
+      "reason": "blocklist: trump"
+    },
+    {
+      "title": "Your AI shopping agent may not spot a fake online store this Black Friday",
+      "source": "CBS News Texas",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Singer Parastoo Ahmadi's flogging is far from a unique case as women in Iran face targeted violence",
+      "source": "CBS News Texas",
+      "reason": "not local enough (relevance 0 < 2)"
+    },
+    {
+      "title": "The Black Friday shopping outlook for North Texas",
+      "source": "CBS News Texas",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "How to find Santa at the Galleria Dallas during Black Friday shopping",
+      "source": "CBS News Texas",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "A warmer Black Friday for North Texas is in store",
+      "source": "CBS News Texas",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "What's open and closed on Black Friday 2026? Hours for stores, restaurants, banks and more",
+      "source": "CBS News Texas",
+      "reason": "shopping guide, not news"
+    },
+    {
+      "title": "Rocker the coonhound nabs Best in Show at 2026 National Dog Show",
+      "source": "CBS News Texas",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Hello world!",
+      "source": "Crime Stoppers of Tarrant County",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "TCU Defeated by No. 11 Texas Tech",
+      "source": "TCU Athletics",
+      "reason": "already posted"
+    },
+    {
+      "title": "Postgame Notes - at Texas Tech",
+      "source": "TCU Athletics",
+      "reason": "a team's game notes or quotes sheet, not a story"
+    },
+    {
+      "title": "Frogs Head to Lubbock for Thanksgiving Showdown",
+      "source": "TCU Athletics",
+      "reason": "already posted"
+    },
+    {
+      "title": "(VIDEO) Andy Avalos Press Conference (at Texas Tech)",
+      "source": "TCU Athletics",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "From TCU AD Mike Buddie: Our Next Steps",
+      "source": "TCU Athletics",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "TCU Football Announces Change in Leadership",
+      "source": "TCU Athletics",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "TCU Falls to Utah in Home Finale",
+      "source": "TCU Athletics",
+      "reason": "already posted"
+    },
+    {
+      "title": "Postgame Notes - vs. Utah",
+      "source": "TCU Athletics",
+      "reason": "skipped by the reviewing session"
+    },
+    {
+      "title": "Frogs Host No. 2 Utah Under the Lights on Saturday",
+      "source": "TCU Athletics",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "TCU Athletics and REVELXP Renew Partnership to Continue Elevating Horned Frogs Game Day Experiences",
+      "source": "TCU Athletics",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Horned Frogs Fall to Blue Jays, 95-87",
+      "source": "TCU Athletics (men's basketball)",
+      "reason": "same story already posted (another outlet or format): Horned Frogs Fall to Blue Jays, 95-87"
+    },
+    {
+      "title": "Preview: Creighton",
+      "source": "TCU Athletics (men's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Big Second Half Leads TCU to 84-71 Win over No. 17 Miami",
+      "source": "TCU Athletics (men's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Preview: No. 17 Miami",
+      "source": "TCU Athletics (men's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Horned Frogs Fall in Overtime to Aggies, 97-92",
+      "source": "TCU Athletics (men's basketball)",
+      "reason": "same story already posted (another outlet or format): Horned Frogs Fall to Blue Jays, 95-87"
+    },
+    {
+      "title": "Preview: Texas A&M",
+      "source": "TCU Athletics (men's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Edmonds Double-Double Powers TCU over Milwaukee",
+      "source": "TCU Athletics (men's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Frogs Sign Butler, Welch Jr.",
+      "source": "TCU Athletics (men's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Frogs Add A-10 Player of the Year Avila",
+      "source": "TCU Athletics (men's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Preview: Milwaukee",
+      "source": "TCU Athletics (men's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Horned Frogs Rally Past Georgia Tech in Fort Myers",
+      "source": "TCU Athletics (women's basketball)",
+      "reason": "same story already posted (another outlet or format): Horned Frogs Fall to Blue Jays, 95-87"
+    },
+    {
+      "title": "Preview: Fort Myers Tip-Off",
+      "source": "TCU Athletics (women's basketball)",
+      "reason": "already posted"
+    },
+    {
+      "title": "Stout Defense Keys No. 15 TCU in Blowout Win Over Utah State",
+      "source": "TCU Athletics (women's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Preview: vs. Utah State",
+      "source": "TCU Athletics (women's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Wooten Records Triple-Double as TCU Routs UT Arlington",
+      "source": "TCU Athletics (women's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Preview: UT Arlington",
+      "source": "TCU Athletics (women's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "TCU Lands Kaylor Buse, Isabel Smith During Early Signing Period",
+      "source": "TCU Athletics (women's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "TCU Runs Home Winning Streak to 50 Games",
+      "source": "TCU Athletics (women's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Preview: Abilene Christian",
+      "source": "TCU Athletics (women's basketball)",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Horned Frogs Dish Out 31 Assists in Rout of Southeastern Louisiana",
+      "source": "TCU Athletics (women's basketball)",
+      "reason": "same story already posted (another outlet or format): Horned Frogs Fall to Blue Jays, 95-87"
+    },
+    {
+      "title": "Homicide Investigation - 600 Height Dr.",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Homicide Investigation - 1300 NE 38th St.",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Homicide Investigation 2600 Block of Swale Dr",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Homicide Investigation at 8300 block of N. Riverside Dr.",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Murder/Suicide at 2200 block of Whistler Creek Drive",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 14h"
+    },
+    {
+      "title": "Homicide Investigation at 4300 block of Martin St.",
+      "source": "Fort Worth Police Department",
+      "reason": "older than 14h"
+    }
+  ],
+  "waiting": [
+    {
+      "title": "2 escape Thanksgiving Day house fire in Fort Worth",
+      "source": "CBS Texas",
+      "id": "6f4925fdb25cbc52",
+      "category": "breaking",
+      "score": 1.1494,
+      "scope": "local",
+      "published": "2026-11-27T22:26:34+00:00"
+    },
+    {
+      "title": "Christmas in the Fort Worth Stockyards",
+      "source": "WFAA",
+      "id": "5b60960bf85f656e",
+      "category": "culture",
+      "score": 0.9279,
+      "scope": "local",
+      "published": "2026-11-27T23:04:50+00:00"
+    },
+    {
+      "title": "No. 9 Texas Tech beats TCU 48-27 to secure spot against No. 2 Utah in Big 12 title game",
+      "source": "WFAA Sports",
+      "id": "f250641d8151a2db",
+      "category": "sports",
+      "score": 0.8979,
+      "scope": "local",
+      "published": "2026-11-27T20:04:51+00:00"
+    },
+    {
+      "title": "Early voting opens Nov. 30 for Tarrant Appraisal District runoff election",
+      "source": "Fort Worth Report",
+      "id": "273c4bbe9b854a9e",
+      "category": "politics",
+      "score": 0.8833,
+      "scope": "local",
+      "published": "2026-11-27T18:00:00+00:00"
+    },
+    {
+      "title": "Warm, windy Saturday ahead for North Texas before Sunday cold front",
+      "source": "CBS Texas",
+      "id": "2f649a5d40e6baef",
+      "category": "weather",
+      "score": 0.8564,
+      "scope": "dfw",
+      "published": "2026-11-27T22:34:59+00:00"
+    },
+    {
+      "title": "Fort Worth Stockyards kicks off Christmas season with cattle drive, Santa Claus",
+      "source": "CBS Texas",
+      "id": "6177975dd5a114de",
+      "category": "culture",
+      "score": 0.8558,
+      "scope": "local",
+      "published": "2026-11-27T22:22:47+00:00"
+    },
+    {
+      "title": "DFW Weather: Cold front, rain forecast for North Texas",
+      "source": "WFAA",
+      "id": "c76be57b8637c502",
+      "category": "weather",
+      "score": 0.801,
+      "scope": "dfw",
+      "published": "2026-11-27T23:12:52+00:00"
+    },
+    {
+      "title": "Cowboy Santa kicked off the holiday season in the Stockyards.",
+      "source": "WFAA",
+      "id": "00965753172888d8",
+      "category": "culture",
+      "score": 0.7814,
+      "scope": "local",
+      "published": "2026-11-27T23:10:14+00:00"
+    },
+    {
+      "title": "Fort Worth police seek millions for drones to reduce dangerous vehicle chases",
+      "source": "WFAA",
+      "id": "a2baa815079c715a",
+      "category": "crime",
+      "score": 0.7785,
+      "scope": "local",
+      "published": "2026-11-27T23:08:20+00:00"
+    },
+    {
+      "title": "Smash Mob Burgers in Arlington aims to keep it simple and good",
+      "source": "CultureMap Fort Worth",
+      "id": "97dcdc91f6f6001d",
+      "category": "food",
+      "score": 0.6721,
+      "scope": "local",
+      "published": "2026-11-27T18:00:01+00:00"
+    },
+    {
+      "title": "United Way of Tarrant County highlights need for holiday giving",
+      "source": "CBS Texas",
+      "id": "a95f9a0c840714c6",
+      "category": "community",
+      "score": 0.6606,
+      "scope": "local",
+      "published": "2026-11-27T22:37:45+00:00"
+    },
+    {
+      "title": "Affluent DFW city unwraps 5th biggest holiday budget in the U.S.",
+      "source": "CultureMap Fort Worth",
+      "id": "deed6afe163d9362",
+      "category": "culture",
+      "score": 0.4783,
+      "scope": "dfw",
+      "published": "2026-11-27T16:30:01+00:00"
+    },
+    {
+      "title": "First look at Austin thrill ride's safety measures after deadly Florida accident",
+      "source": "KXAN Austin",
+      "id": "b824e89452bb9a2c",
+      "category": "business",
+      "score": 0.4747,
+      "scope": "texas",
+      "published": "2026-11-27T23:33:21+00:00"
+    },
+    {
+      "title": "Prairie Lights brings 2 miles of holiday displays to North Texas",
+      "source": "WFAA",
+      "id": "555d1824b2a9d303",
+      "category": "community",
+      "score": 0.4011,
+      "scope": "dfw",
+      "published": "2026-11-27T19:43:05+00:00"
+    },
+    {
+      "title": "Goo Goo Dolls Fans Slam NBC Over Thanksgiving Halftime Show Snub: ‘Badly Handled’",
+      "source": "Billboard",
+      "id": "1f02639686f33481",
+      "category": "sports",
+      "score": 0.333,
+      "scope": "national",
+      "published": "2026-11-27T19:59:09+00:00"
+    },
+    {
+      "title": "One person dead after single-vehicle accident in North Dallas, police say",
+      "source": "WFAA",
+      "id": "32650cf1316d4e8d",
+      "category": "crime",
+      "score": 0.31,
+      "scope": "dfw",
+      "published": "2026-11-27T14:58:28+00:00"
+    },
+    {
+      "title": "Yooka-Laylee and the Impossible Lair Dev's Explanation for Skipping Xbox Sparks Backlash",
+      "source": "IGN",
+      "id": "0c92b45929b3fa9a",
+      "category": "other",
+      "score": 0.2234,
+      "scope": "national",
+      "published": "2026-11-27T21:42:49+00:00"
+    },
+    {
+      "title": "Texas State University students protest, demand stronger free speech protections",
+      "source": "KXAN Austin",
+      "id": "f557e273ec5c23dc",
+      "category": "community",
+      "score": 0.1577,
+      "scope": "texas",
+      "published": "2026-11-27T13:00:00+00:00"
+    },
+    {
+      "title": "North Texas dance teams face unexpected costs after Macy’s Thanksgiving Day Parade postponement",
+      "source": "KVUE Austin",
+      "id": "94c05cad8e1d1e5a",
+      "category": "events",
+      "score": 0.1576,
+      "scope": "dfw",
+      "published": "2026-11-27T10:46:57+00:00"
+    },
+    {
+      "title": "Sarkisian proud of offensive line ahead of tough challenge against Texas A&M defense",
+      "source": "KXAN Austin",
+      "id": "aabf526393ef08f8",
+      "category": "other",
+      "score": 0.1143,
+      "scope": "texas",
+      "published": "2026-11-27T13:00:00+00:00"
+    },
+    {
+      "title": "Reata opened its kitchen to a new crew for a Sunday night service",
+      "source": "Fort Worth Report",
+      "id": "4a26b3b0d504932c",
+      "category": "other",
+      "score": 0.0379,
+      "scope": "local",
+      "published": "2026-11-26T20:00:00+00:00"
+    },
+    {
+      "title": "Sixth grader in Texas foster care says art and humor help him cope while waiting for a family",
+      "source": "KVUE Austin",
+      "id": "e17411701c2e9a19",
+      "category": "community",
+      "score": 0.0082,
+      "scope": "texas",
+      "published": "2026-11-26T12:34:43+00:00"
+    }
+  ],
+  "notes": [
+    "last post is scheduled ahead (17:58 local); new posts are spaced after it"
+  ]
+}

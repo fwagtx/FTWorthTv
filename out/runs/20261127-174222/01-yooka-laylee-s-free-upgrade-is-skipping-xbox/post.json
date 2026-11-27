@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-174222/01-yooka-laylee-s-free-upgrade-is-skipping-xbox/post.jpg",
+    "credit": "Photo: Chris Woodrich via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Playstation_5_DualSense_controller_in_Midnight_Black,_2026-02-07_(front).jpg",
+    "photo_id": "lib-playstation-5-dualsense-controller-in-midnight-black-2026-02",
+    "subject": "topic:gaming"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-174222/01-yooka-laylee-s-free-upgrade-is-skipping-xbox/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "Yooka-Laylee’s free upgrade is skipping Xbox",
+    "caption": "Yooka-Laylee’s Definitive Edition won’t come to Xbox because of ‘technological challenges and costs.’ Terrence O'Brien Nov 27, 2026, 11:30 PM UTC Link Share Gift Terrence O'Brien is the Verge’s weekend editor.\n\nHe’s covered the tech industry for over 18 years and knows a thing or two about synths.",
+    "first_comment": "Source: The Verge https://www.theverge.com/games/1044715/yooka-laylees-free-upgrade-is-skipping-xbox\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "44251b1138f605ea",
+    "source": "The Verge",
+    "source_kind": "rss",
+    "title": "Yooka-Laylee’s free upgrade is skipping Xbox",
+    "summary": "Yooka-Laylee’s Definitive Edition won’t come to Xbox because of ‘technological challenges and costs.’ Gaming News Tech Yooka-Laylee’s free upgrade is skipping Xbox Playtronic Games says Yooka-Laylee’s Definitive Edition won’t come to Xbox because of ‘technological challenges and costs.’ Playtronic Games says Yooka-Laylee’s Definitive Edition won’t come to Xbox because of ‘technological challenges and costs.’ Terrence O'Brien Nov 27, 2026, 11:30 PM UTC Link Share Gift Terrence O'Brien is the Verge’s weekend editor. He’s covered the tech industry for over 18 years and knows a thing or two about synths. Playtronic Games is getting ready to launch Yooka-Laylee and the Impossible Lair: Definitive Edition as a free update on PlayStation 5, Switch 2, and PC on December 15th. Unfortunately for Xbox owners, the developer says it “can’t commit to any additional platforms for the foreseeable…",
+    "url": "https://www.theverge.com/games/1044715/yooka-laylees-free-upgrade-is-skipping-xbox",
+    "published": "2026-11-27T23:30:32+00:00",
+    "category_hint": null,
+    "image_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/V1-scaled-1.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
+    "image_credit": "Photo: The Verge",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "The Verge",
+      "national": true,
+      "scope": "national",
+      "national_term": "xbox"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.3161
+  }
+}
