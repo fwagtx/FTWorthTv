@@ -437,5 +437,41 @@
    "att-stadium"
   ],
   "lesson": "Nov 26 (render 282): the people working at a stadium are the story; the stands at a Wisconsin bowl game are not, and neither is a search for the venue or the team"
+ },
+ {
+  "title": "Rabid dog found in San Marcos as Texas rabies cases top 2025 totals",
+  "body": "A dog in San Marcos tested positive for rabies as Texas surpassed last year's total number of rabies cases.",
+  "category": "other",
+  "mode": "beat",
+  "not_search": [
+   "San Marcos"
+  ],
+  "lesson": "Nov 26 (render 283, review Nov 27): a city is where a story happens, never its photo subject; 'San Marcos' found a Plaza San Marcos shopping centre"
+ },
+ {
+  "title": "Texas football grateful ahead of Texas A&M game",
+  "body": "As Texas football gears up for the regular season finale against rival Texas A&M, they do so feeling grateful during the Thanksgiving holiday.",
+  "category": "sports",
+  "mode": "search",
+  "not_search": [
+   "Texas A&M"
+  ],
+  "lesson": "Nov 26 (render 286, review Nov 27): the team after 'ahead of' is the opponent; its search found the A&M volleyball team at the White House"
+ },
+ {
+  "title": "Eagles DB DeJean (concussion) exits win early at Cowboys",
+  "body": "",
+  "category": "sports",
+  "mode": "entity",
+  "happened": true,
+  "lesson": "Nov 26 (render 290, review Nov 27): a concussion exit is a happening; the AT&T Stadium stands at a 2017 bowl game stood in"
+ },
+ {
+  "title": "Fort Worth motorcyclist recovering after hit-and-run",
+  "body": "A Fort Worth man spent Thanksgiving recovering in the hospital from a hit-and-run crash.",
+  "category": "traffic",
+  "mode": "beat",
+  "happened": true,
+  "lesson": "Nov 26 (render 288, review Nov 27): a hit-and-run is a happening; the downtown skyline stood in"
  }
 ]
