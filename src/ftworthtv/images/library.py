@@ -322,9 +322,11 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
             continue                                   # the Capitol stands for state government, not for "Texas" (a recall, a feature)
         if t not in out and not (elsewhere and t in FORT_WORTH_ONLY) and venue_fits(t, whole, title):
             out.append(t)
-    if category in ("community", "culture", "business", "events", "other", "food"):
+    if category in ("community", "culture", "business", "events", "other", "food", "sports", "crime", "breaking"):
         # Nov 26, render 270: NBC 5's "Private social clubs: Dallas' new 'third place for the wealthy'" drew the Dallas skyline
         # from Reunion Tower: another city's skyline is not a picture of a feature about a club, a shop or a trend there
+        # Nov 27, render 297: NBC 5's "A groundbreaking new chapter for girls' flag football arrives in Frisco" drew it too:
+        # a game, a team, a crime or a fire is never a skyline
         out = [t for t in out if t != "dallas-skyline"]
     if category == "sports":
         # Nov 24: WFAA's "Texas high school football: Playoff matchups, schedule" drew a Dell City ISD school bus

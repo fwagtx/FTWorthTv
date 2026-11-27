@@ -672,7 +672,11 @@ def digest_title(title: str) -> bool:
 
 
 _BLOTTER_RE = re.compile(r"\b(?:stable condition|no injuries|minor injuries|non-life-threatening|non life-threatening|expected to survive|no arrests?|"
-                         r"one person (?:shot|injured|hurt)|1 (?:shot|injured|hurt)|burglar|car break-ins?|shoplift)\b", re.I)
+                         r"one person (?:shot|injured|hurt)|1 (?:shot|injured|hurt)|burglar|car break-ins?|shoplift|"
+                         # Nov 27, render 297: WFAA's "Man attempts to set fire to Dallas Family Dollar, DFR says" (put out quickly,
+                         # no one hurt) was drafted a day later: an attempted arson at another city's store is that city's blotter
+                         r"attempts? to set (?:a )?fire|set(?:s|ting)? (?:a )?fires? (?:to|at|in|inside)|arson\w*|vandal\w*|graffiti|"
+                         r"smash-and-grab|break-ins?|broke into|catalytic converters?|porch pirates?|package thie(?:f|ves))\b", re.I)
 
 
 # Nov 25 (a Wednesday): WFAA's "North Texas man dead following shooting Sunday, Garland police say": another DFW city's shooting
@@ -718,7 +722,8 @@ def another_citys_blotter(title: str) -> bool:
     if any(w in low for w in ("fort worth", "tarrant", "arlington", "keller", "southlake", "mansfield", "haltom", "hurst", "euless", "bedford",
                               "grapevine", "north richland", "benbrook", "burleson", "crowley", "white settlement", "saginaw", "watauga", "azle", "weatherford")):
         return False
-    return bool(_BLOTTER_RE.search(low)) and not any(w in low for w in ("dead", "dies", "died", "killed", "fatal", "murder", "homicide", "manhunt", "amber alert"))
+    return bool(_BLOTTER_RE.search(low)) and not any(w in low for w in ("dead", "dies", "died", "killed", "kills", "deadly", "death", "fatal",
+                                                                        "murder", "homicide", "manhunt", "amber alert"))
 
 
 # roads and places a Fort Worth driver uses: a closure on one of them is this page's traffic news

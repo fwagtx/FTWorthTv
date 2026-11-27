@@ -431,11 +431,6 @@
       "reason": "daily cap for crime reached",
       "title": "Dallas police chief's publishing company, book signing events raise ethics questions"
     },
-    "95ab6e72af284b9c": {
-      "at": "2026-11-25T13:49:47.644414+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "Texas' first Democratic agriculture commissioner since 1991 outlines plans for the agency"
-    },
     "98e319a85ca8e297": {
       "at": "2026-11-27T03:13:39.720509+00:00",
       "reason": "daily cap for crime reached",
@@ -2602,6 +2597,11 @@
       "at": "2026-11-21T12:18:30.407673+00:00",
       "reason": "caption was the article's 2022 photo caption (Nissan Stadium, Nashville), and an AT&T Stadium stand-in for a game preview whose venue is not"
     },
+    "2b61139a7f00116e": {
+      "at": "2026-11-27T14:16:21.566314+00:00",
+      "reason": "a Frisco flag-football school feature, not Fort Worth news; the Dallas skyline stood in for girls' flag football",
+      "title": "A groundbreaking new chapter for girls' flag football arrives in Frisco"
+    },
     "2cdc89699285df95": {
       "at": "2026-11-26T14:45:15.724573+00:00",
       "reason": "another city's government: a Dallas police spokesperson reinstated after an internal investigation, not Fort Worth news",
@@ -2629,6 +2629,11 @@
       "at": "2026-11-24T19:47:10.058386+00:00",
       "reason": "CBS Sports' Texas A&M season analysis ('a cautionary tale', 'the collapse has been stunning', 'hapless Arkansas'), with Kyle Field standing ",
       "title": "One year after 11-0 start, Texas A&M enters rivalry week as a cautionary tale"
+    },
+    "36c6eefc62dd3ee5": {
+      "at": "2026-11-27T14:16:21.566298+00:00",
+      "reason": "a day-old attempted arson at a Dallas store, put out quickly with no one hurt: another city's blotter",
+      "title": "Man attempts to set fire to Dallas Family Dollar, DFR says"
     },
     "37039524c2bb0116": {
       "at": "2026-11-25T15:47:08.310204+00:00",

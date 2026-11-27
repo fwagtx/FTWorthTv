@@ -506,3 +506,15 @@ def test_a_road_closed_last_night_has_reopened_by_morning():
                     source_kind="rss", summary="TxDOT says the lanes will be closed through Monday.",
                     published=datetime(2026, 11, 26, 20, 0, tzinfo=timezone.utc))
     assert not stale_closure(planned, now)
+
+
+def test_another_citys_arson_attempt_is_its_blotter_and_its_skyline_is_no_sports_picture():
+    """Nov 27, render 297: a day-old Dallas Family Dollar arson attempt (no one hurt) and a Frisco flag-football feature with the
+    Dallas skyline."""
+    from ftworthtv.filters import another_citys_blotter
+    from ftworthtv.images.library import topics_for
+    assert another_citys_blotter("Man attempts to set fire to Dallas Family Dollar, DFR says")
+    assert not another_citys_blotter("Man arrested after setting fire to Fort Worth apartment complex")
+    assert not another_citys_blotter("Arson suspect sought after fire kills 2 in Dallas")
+    t = "A groundbreaking new chapter for girls' flag football arrives in Frisco"
+    assert "dallas-skyline" not in topics_for(t.lower(), "sports", "dfw", title=t)
