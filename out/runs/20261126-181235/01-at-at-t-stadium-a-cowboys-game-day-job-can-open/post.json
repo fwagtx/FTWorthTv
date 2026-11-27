@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-181235/01-at-at-t-stadium-a-cowboys-game-day-job-can-open/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-181235/01-at-at-t-stadium-a-cowboys-game-day-job-can-open/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities",
+    "caption": "More than 50 people work at the stadium’s condiment stations through a program that began in 2009. Clarinda Maria Otto has been part of it for 15 years.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/news/community/at-att-stadium-a-cowboys-game-day-job-can-open-doors-for-people-with-disabilities/287-575c6735-9bec-45f3-bf40-6d495db0469c\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "af62396ce8d06942",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "At AT&T Stadium, a Cowboys game-day job can open doors for people with disabilities",
+    "summary": "More than 50 people work at the stadium’s condiment stations through a program that began in 2009. Clarinda Maria Otto has been part of it for 15 years.",
+    "url": "https://www.wfaa.com/article/news/community/at-att-stadium-a-cowboys-game-day-job-can-open-doors-for-people-with-disabilities/287-575c6735-9bec-45f3-bf40-6d495db0469c",
+    "published": "2026-11-26T23:26:05+00:00",
+    "category_hint": "sports",
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/2c5e2793-466f-4aea-b34e-b69ab8dd5ba1/20261126T232213/2c5e2793-466f-4aea-b34e-b69ab8dd5ba1_750x422.jpg",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 4,
+    "score": 1.1521
+  }
+}
