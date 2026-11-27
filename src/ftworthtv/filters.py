@@ -728,6 +728,24 @@ TARRANT_SIDE_WORDS = ("fort worth", "tarrant", "arlington", "keller", "southlake
                       "azle", "weatherford")
 
 
+_BIG_FIRE_RE = re.compile(r"\b(?:\d-alarm|two-alarm|three-alarm|four-alarm|five-alarm|massive|apartment complex|dozens|"
+                          r"evacuat\w*|wildfire|grass fire|brush fire|acres)\b", re.I)
+
+
+def another_citys_house_fire(title: str) -> bool:
+    """'Dallas family escapes devastating Thanksgiving Day fire': one home's fire in another DFW city, with no one killed, is that
+    city's news (Nov 27, render 301); a death, a multi-alarm or a wildfire stays regional news."""
+    low = (title or "").lower()
+    if any(w in low for w in TARRANT_SIDE_WORDS) or not fire_incident(title):
+        return False
+    places = set(OTHER_METROS) | set(_NON_TARRANT_PLACES)
+    if not any(re.search(r"\b" + re.escape(m) + r"\b", low) for m in places):
+        return False
+    if _BIG_FIRE_RE.search(title or ""):
+        return False
+    return not any(w in low for w in ("dead", "dies", "died", "killed", "kills", "deadly", "death", "fatal"))
+
+
 def another_citys_blotter(title: str) -> bool:
     """'Juvenile shot in vehicle in stable condition, Dallas police say no arrests made yet': a single shooting with no death
     and no arrest in another DFW city is that city's police blotter, not Fort Worth news."""
@@ -1321,7 +1339,9 @@ def meeting_notice(title: str | None) -> bool:
 _FIRE_TITLE_RE = re.compile(
     r"(?<!\bon )\b(?:house|home|apartment|duplex|condo|workshop|garage|warehouse|business|building|plant|vehicle|car|truck|grass|brush|"
     r"structure|commercial|church|school|restaurant|early[- ]morning|overnight|deadly|fatal|massive|major|large|\d-alarm|two-alarm|"
-    r"three-alarm|four-alarm|thanksgiving|christmas|holiday)\s+fires?\b"
+    r"three-alarm|four-alarm|thanksgiving|christmas|holiday|devastating|destructive|raging|intense|huge|"
+    # Nov 27, render 301: "Dallas family escapes devastating Thanksgiving Day fire" was filed as community with a courthouse
+    r"(?:thanksgiving|christmas|new year'?s|holiday) (?:day|eve|night|morning))\s+fires?\b"
     r"|(?<!\bon )\bfires?\s+(?:destroys?|destroyed|damages?|damaged|displaces?|displaced|guts?|gutted|engulfs?|engulfed|kills?|killed|"
     r"injures?|injured|breaks? out|broke out|spreads?|rips? through|tears? through|burns?|burned|burning|scorches?|scorched)\b"
     r"|\b(?:sparks?|sparked|ignites?|ignited|battle|battles|battling|respond(?:s|ed|ing)? to|extinguish(?:es|ed)?|put out|douse[sd]?)\b"
@@ -1676,6 +1696,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
                 continue
             if tier[0] == "dfw" and another_dfw_citys_government(story.title):
                 dropped.append((story, "another city's government"))             # a Dallas spokesperson's leave is Dallas's news
+                continue
+            if tier[0] == "dfw" and another_citys_house_fire(story.title):
+                dropped.append((story, "another city's house fire"))         # a Dallas family's house fire, everyone out, is Dallas news
                 continue
             if tier[0] == "dfw" and cat == "crime" and another_citys_blotter(story.title):
                 dropped.append((story, "another city's police blotter"))     # a Dallas shooting with no death and no arrest is Dallas's blotter

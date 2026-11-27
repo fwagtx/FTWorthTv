@@ -894,3 +894,15 @@ def test_a_competition_is_not_a_photo_subject_and_a_campus_stadium_is_for_home_g
     assert mavs.search_names == ["Dallas Mavericks"]
     assert automated_preview("BOTTOM LINE: The Dallas Mavericks travel to play the Phoenix Suns in an NBA Cup matchup.")
     assert not automated_preview("Kyrie Irving scored 25 points as the Mavericks beat the Suns.")
+
+
+def test_another_citys_house_fire_is_its_news_and_any_fire_is_a_happening():
+    """Nov 27, render 301: "Dallas family escapes devastating Thanksgiving Day fire" was filed as community with a courthouse."""
+    from ftworthtv.filters import another_citys_house_fire, fire_incident
+    from ftworthtv.images.subject import happened
+    t = "Dallas family escapes devastating Thanksgiving Day fire"
+    assert fire_incident(t) and happened(t, "rss")
+    assert another_citys_house_fire(t)
+    assert not another_citys_house_fire("Fort Worth family escapes devastating Thanksgiving Day fire")
+    assert not another_citys_house_fire("3-alarm fire destroys Dallas apartment complex, dozens displaced")
+    assert not another_citys_house_fire("2 killed in Dallas house fire on Thanksgiving")

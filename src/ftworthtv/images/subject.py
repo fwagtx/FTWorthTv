@@ -700,6 +700,9 @@ def happened(title: str, kind: str = "rss") -> bool:
     events, the calendar, viewer clips) bring their own pictures and are not affected."""
     if kind not in ("rss", "video"):
         return False
+    from ..filters import fire_incident
+    if fire_incident(title):
+        return True                       # Nov 27, render 301: a "Thanksgiving Day fire" drew the courthouse: a fire is a happening
     low = f" {(title or '').lower()} "
     hits = [w for w in HAPPENED_WORDS if w in low]
     if not hits:
