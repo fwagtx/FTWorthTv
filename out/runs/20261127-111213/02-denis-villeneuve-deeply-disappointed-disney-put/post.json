@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T17:37:13.872656+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-111213/02-denis-villeneuve-deeply-disappointed-disney-put/post.jpg",
+    "credit": "Photo: SkywalkerEccleston via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Denis_Villeneuve_March_2026_Dune_Trailer_Launch_3.jpg",
+    "photo_id": "commons-186473975",
+    "subject": "entity:denis villeneuve"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-111213/02-denis-villeneuve-deeply-disappointed-disney-put/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "business",
+    "headline": "Denis Villeneuve “Deeply Disappointed” Disney Put ‘Avengers: Doomsday’ Against ‘Dune 3’",
+    "caption": "The director breaks silence on going head-to-head against Marvel's titan on \"Dunesday.\" Everybody has found it pretty cute, if slightly baffling, that expected box-office heavyweights Dune: Part Three and Avengers: Doomsday are opening on the same day (Dec. 18).\n\nBut Dune franchise director Denis Villeneuve isn’t amused by going head-to-head with the Marvel titan.",
+    "first_comment": "Source: The Hollywood Reporter https://www.hollywoodreporter.com/movies/movie-news/denis-villeneuve-dune-3-avengers-doomsday-dunesday-date-1236764139/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline day",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c3beae202dad4ef9",
+    "source": "The Hollywood Reporter",
+    "source_kind": "rss",
+    "title": "Denis Villeneuve “Deeply Disappointed” Disney Put ‘Avengers: Doomsday’ Against ‘Dune 3’",
+    "summary": "The director breaks silence on going head-to-head against Marvel's titan on \"Dunesday.\" Logo text Everybody has found it pretty cute, if slightly baffling, that expected box-office heavyweights Dune: Part Three and Avengers: Doomsday are opening on the same day (Dec. 18). But Dune franchise director Denis Villeneuve isn’t amused by going head-to-head with the Marvel titan. Villeneuve explains in a new interview that he was “deeply disappointed” by the “Dunesday” scheduling, but that Warner Bros. was basically trapped in the slot because the studio had successfully secured an exclusive run on IMAX screens for Dune 3 through the December holidays. Related Stories Movies 'Avengers: Doomsday' Eyes $270M Opening as 'Dune: Part Three' Also Heads for Big Start Movies 'Avengers: Doomsday' Final Trailer Shows Major X-Men Moment “Listen, I will be honest,” he told Time . “The first Dune came out…",
+    "url": "https://www.hollywoodreporter.com/movies/movie-news/denis-villeneuve-dune-3-avengers-doomsday-dunesday-date-1236764139/",
+    "published": "2026-11-27T17:04:10+00:00",
+    "category_hint": null,
+    "image_url": null,
+    "image_credit": "Photo: The Hollywood Reporter",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "The Hollywood Reporter",
+      "national": true,
+      "scope": "national",
+      "national_term": "avengers"
+    },
+    "category": "business",
+    "relevance": 2,
+    "score": 0.2769
+  }
+}
