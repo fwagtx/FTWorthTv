@@ -426,7 +426,7 @@ def resolve_titled(name: str, body: str) -> str | None:
 
 _LIGHT_SHOW_RE = re.compile(r"\b(?:christmas in the garden|light trail|lights? (?:show|display|festival|trail|walk|drive)|holiday lights|"
                             r"christmas lights|light installations?|luminarias?|illuminat\w+|lantern festival|winter wonderland|"
-                            r"parade of lights|trail of lights|festival of lights|zoo lights|enchant)\b", re.I)
+                            r"parade of lights|trail of lights|festival of lights|zoo lights|gift of lights|enchant)\b", re.I)
 LIGHT_WORDS = "light|lights|christmas|holiday|lantern|lanterns|luminaria|illumination|illuminations|night"
 
 
@@ -663,6 +663,8 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   # Nov 24: "AT&T Stadium lights up kettle red" drew a daytime aerial of the stadium
                   "lights up", "lit up", "illuminated", "illuminates",
                   "rescued", "pulled from", " dies ", " died ", "killed", " dead ", "arrested", "charged with", "indicted", "sentenced",
+                  # Nov 26, render 288: FOX 4's "Fort Worth motorcyclist recovering after hit-and-run" drew the downtown skyline
+                  "hit-and-run", "hit and run", "struck by", "run over", "rear-ended", "t-boned", "rollover",
                   # Nov 26, render 265: "Fort Worth country singer found not guilty after murder trial" drew the Tarrant County
                   # Courthouse: a verdict is a happening, and the courthouse is the building, never the picture of it
                   "acquitted", "not guilty", "found guilty", "convicted", "verdict", "mistrial", "pleads guilty", "pleaded guilty",

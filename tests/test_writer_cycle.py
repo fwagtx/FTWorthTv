@@ -1570,3 +1570,19 @@ def test_a_recap_keeps_the_headlines_spelling_and_the_sentence_cut_before_its_da
     assert not copy.skip
     assert "Mavrick" not in copy.caption and "Mavrik Bourque scored his first goal for Nashville." in copy.caption
     assert "as the Predators beat Dallas 3-1." in copy.caption
+
+
+def test_a_hit_and_run_is_a_happening_and_a_light_show_is_an_event():
+    """Nov 26, render 288: FOX 4's "Fort Worth motorcyclist recovering after hit-and-run" drew the downtown skyline, and
+    "Christmas lights bring families to Texas Motor Speedway" was filed as sports and drafted as a text card."""
+    from ftworthtv.filters import infer_category
+    from ftworthtv.images.subject import happened, light_show
+    from ftworthtv.models import Story
+    assert happened("Fort Worth motorcyclist recovering after hit-and-run", "rss")
+    assert happened("Pedestrian struck by car on I-30 in Fort Worth", "rss")
+    title = "Christmas lights bring families to Texas Motor Speedway"
+    assert light_show(title) and light_show("Gift of Lights opens at Texas Motor Speedway")
+    assert infer_category(Story(id="x", title=title, url="u", source="FOX 4 Dallas-Fort Worth", source_kind="rss",
+                                summary="Gift of Lights at Texas Motor Speedway opened Thursday night and runs through Jan. 3.")) == "events"
+    assert infer_category(Story(id="y", title="Texas Motor Speedway announces 2027 NASCAR schedule", url="u",
+                                source="FOX 4 Dallas-Fort Worth", source_kind="rss", summary="")) == "sports"

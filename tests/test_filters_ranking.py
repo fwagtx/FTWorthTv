@@ -447,7 +447,8 @@ def test_the_holiday_is_when_not_what_a_story_is():
                "Texas interstates saw the most severe crashes over the holidays.", source="CultureMap Fort Worth") == "traffic"
     assert cat("Happy Thanksgiving Fort Worth") == "community"
     assert cat("Thanksgiving dinner served to 500 at Fort Worth shelter by volunteers") == "community"
-    assert cat("Christmas in the Garden returns to Fort Worth Botanic Garden") == "culture"
+    assert cat("Christmas in the Garden returns to Fort Worth Botanic Garden") == "events"   # a light show (Nov 26, render 288)
+    assert cat("Botanic Garden opens new Japanese garden pavilion for the holidays") == "culture"
     assert not fire_incident("Thanksgiving fire safety tips from Fort Worth firefighters")
 
 

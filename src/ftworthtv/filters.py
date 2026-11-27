@@ -1305,6 +1305,11 @@ def infer_category(story: Story) -> str:
                                             # sports: a menu takes a picture of the food, never a text card
     if fire_incident(story.title) and story.category_hint != "sports":
         return "breaking"                   # "Home workshop sparks early morning fire on Thanksgiving in Fort Worth"
+    from .images.subject import light_show
+    if light_show(story.title):
+        return "events"                     # Nov 26, render 288: "Christmas lights bring families to Texas Motor Speedway" was
+                                            # filed as sports for the speedway and went to a sports text card: a light show takes
+                                            # a picture of the lights, or none
     if _GAME_RESULT_RE.search(story.title or ""):
         return "sports"                     # a final score is a game, whichever sport the keywords miss
     if meeting_notice(story.title) and story.category_hint != "sports":
