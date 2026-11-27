@@ -854,3 +854,15 @@ def test_the_opponent_in_a_sports_headline_is_never_the_photo_subject():
     assert plan_subject("Cowboys vs. Eagles: Thanksgiving game info", "", "sports").search_names == ["Cowboys"]
     # a venue after "at" is where the game is, not the other side
     assert "Dickies Arena" in plan_subject("Women's Funkytown Showdown at Dickies Arena, Sun, Nov 22 12:00 PM", "", "sports").search_names
+
+
+def test_two_roundups_of_a_citys_fires_are_one_story():
+    """Nov 27, render 293: NBC 5's 27-fires count repeated the Nov 26 1:10 p.m. post on the same run of fires."""
+    from ftworthtv.filters import same_fire
+    posted = "2 pets die, 1 rescued as Fort Worth firefighters respond to multiple fires amid cold weather"
+    title = "Fort Worth firefighters battle 27 fires in just over 24 hours"
+    summary = ("Fort Worth firefighters battled 27 fires across the city in just over 24 hours this week. No one was killed or "
+               "injured, but one family lost two pets.")
+    assert same_fire(title, summary, posted)
+    assert not same_fire(title, summary, "Home workshop sparks early morning fire on Thanksgiving in Fort Worth")
+    assert not same_fire("Arlington firefighters battle 12 fires overnight", "Arlington firefighters battled 12 fires.", posted)

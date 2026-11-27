@@ -8,7 +8,8 @@
     "2026-11-23": 20,
     "2026-11-24": 20,
     "2026-11-25": 19,
-    "2026-11-26": 15
+    "2026-11-26": 15,
+    "2026-11-27": 2
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -95,6 +96,10 @@
       "sports": 4,
       "traffic": 1,
       "weather": 1
+    },
+    "2026-11-27": {
+      "crime": 1,
+      "weather": 1
     }
   },
   "daily_by_kind": {
@@ -147,6 +152,10 @@
       "rss": 10,
       "video": 2,
       "wanted": 2
+    },
+    "2026-11-27": {
+      "video": 1,
+      "wanted": 1
     }
   },
   "daily_by_scope": {
@@ -193,6 +202,10 @@
     "2026-11-26": {
       "dfw": 2,
       "local": 13
+    },
+    "2026-11-27": {
+      "dfw": 1,
+      "local": 1
     }
   },
   "deferred": {
@@ -518,7 +531,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-26T21:22:00-06:00",
+  "last_post_at": "2026-11-27T06:47:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1384,6 +1397,19 @@
       "title": "Cowboys strip play-calling duties from defensive coordinator Christian Parker",
       "url": "https://www.nbcdfw.com/news/sports/blue-star/cowboys-strip-play-calling-duties-from-defensive-coordinator-christian-parker/4107747/"
     },
+    "7cb36b95e7142cef": {
+      "at": "2026-11-27T06:22:00-06:00",
+      "category": "weather",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "444292465",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=9050179286697986026",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "WFAA",
+      "title": "DFW Weather: Sunny and warmer to start the weekend, but a cold front brings cooler, windy Sunday",
+      "url": "https://www.youtube.com/watch?v=1HpaAEaBojM"
+    },
     "7db1ddf48ca929d8": {
       "at": "2026-11-23T12:15:00-06:00",
       "category": "sports",
@@ -1485,6 +1511,19 @@
       "source": "WFAA",
       "title": "Possible Frost and Freeze for North Texas This Week",
       "url": "https://www.youtube.com/watch?v=ejNuemk8F3I"
+    },
+    "8a94e6633077fd83": {
+      "at": "2026-11-27T06:47:00-06:00",
+      "category": "crime",
+      "kind": "wanted",
+      "mode": "photo",
+      "post_id": "444292575",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=443847780636642540",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "Arlington Police Department",
+      "title": "WANTED: Steven Brock",
+      "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives"
     },
     "8b4fd0691d844aec": {
       "at": "2026-11-20T10:14:00-06:00",
@@ -2852,6 +2891,11 @@
       "reason": "The Hollywood Reporter's Carly Rae Jepsen 'GTA VI' interview: a music feature, not a national moment, drafted with a PS5 controller; rule ad",
       "title": "‘GTA VI’ Just Might Turn Carly Rae Jepsen Into A “Late in Life Gamer”"
     },
+    "9ebb038b9933b565": {
+      "at": "2026-11-27T12:15:05.081072+00:00",
+      "reason": "the same run of Fort Worth fires (the family that lost two pets) as the Nov 26 1:10 p.m. post, told again as a count",
+      "title": "Fort Worth firefighters battle 27 fires in just over 24 hours"
+    },
     "9eeb905d6b413c90": {
       "at": "2026-11-22T14:47:12.892548+00:00",
       "reason": "an expert commentary piece, the second outlet's version of the one skipped at 8:12 (rule added)"
@@ -3118,7 +3162,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 149,
+  "total_posts": 151,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",

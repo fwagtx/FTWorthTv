@@ -1107,6 +1107,13 @@ _FIRE_PLACES = ("fort worth", "arlington", "north richland hills", "richland hil
                 "lake worth", "azle", "watauga", "colleyville", "grand prairie", "weatherford", "cleburne", "denton", "dallas")
 
 
+# Nov 27, render 293: NBC 5's "Fort Worth firefighters battle 27 fires in just over 24 hours" (the family that lost two pets)
+# was the run of fires our Nov 26 1:10 p.m. post had covered ("2 pets die, 1 rescued as Fort Worth firefighters respond to
+# multiple fires amid cold weather"): two roundups of a city's fires within the duplicate window are one story
+_FIRE_ROUNDUP_RE = re.compile(r"\b(?:multiple|several|numerous|many|dozens of|a string of|a series of|a rash of|a spate of|"
+                              r"\d+)\s+(?:house\s+|structure\s+|grass\s+)?fires\b", re.I)
+
+
 def same_fire(title: str, summary: str, posted_title: str) -> bool:
     """A later story about the fire a post already covered: both are fires in the same city, and most of the posted headline's
     own words (the home, the workshop, the hour) are in the new story. A death, a cause or an arrest is news (_FOLLOW_UP_RE)."""
@@ -1122,6 +1129,8 @@ def same_fire(title: str, summary: str, posted_title: str) -> bool:
     places = [c for c in _FIRE_PLACES if re.search(r"\b" + re.escape(c) + r"\b", posted)]
     if not places or not any(re.search(r"\b" + re.escape(c) + r"\b", text) for c in places):
         return False
+    if _FIRE_ROUNDUP_RE.search(title or "") and _FIRE_ROUNDUP_RE.search(posted_title or ""):
+        return True                         # one city's run of fires, counted again: "multiple fires", then "27 fires"
     words = {w for w in re.findall(r"[a-z]{4,}", posted) if w not in _FIRE_GENERIC}
     for c in places:
         words -= set(c.split())
