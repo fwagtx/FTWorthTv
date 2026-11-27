@@ -480,7 +480,10 @@ _PLACE_STOP = {"the", "a", "an", "of", "at", "in", "on", "and", "for", "with", "
 # a file that opens with a person's name is a portrait of that person: Nov 25, "Annie E. Andrews, Esquire American Lawyer and
 # Juvenile Justice Advocate" (a South Carolina lawyer) came back for "Juvenile Justice" on a story about Texas's former juvenile
 # justice director, a different woman. A venue named for a person ("Amon G. Carter Stadium") is not a portrait.
-_PERSON_START_RE = re.compile(r"^(?:File:)?\s*([A-Z][a-z]+)(?: ([A-Z])\.?)? ([A-Z][a-z]+(?:-[A-Z][a-z]+)?)\b(?!['’]s)"
+# Nov 27, render 302: 'John "Doomsday" Howard in 2025' (a fighter) went out for IGN's Avengers: Doomsday teaser: a nickname in
+# quotes between the names is still a person's portrait
+_PERSON_START_RE = re.compile(r"^(?:File:)?\s*([A-Z][a-z]+)(?: ([A-Z])\.?)?(?: [\"“'‘][^\"”'’]{1,24}[\"”'’])? "
+                              r"([A-Z][a-z]+(?:-[A-Z][a-z]+)?)\b(?!['’]s)"
                               r"(?!\s+(?:Stadium|Center|Centre|Hall|Park|Building|Museum|School|University|College|Field|Arena|"
                               r"Library|Bridge|Street|Avenue|Boulevard|Road|Tower|House|Church|Plaza|Theater|Theatre|Airport|Lake|"
                               r"River|County|Elementary|High|Middle|Memorial|Hospital|Courthouse|Gardens?|Zoo|Station|Square)\b)")

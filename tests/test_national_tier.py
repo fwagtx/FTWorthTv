@@ -135,8 +135,9 @@ def test_one_outlets_trailer_is_not_a_moment(settings, now):
     state = State(settings.state_path)
     stories = [
         _s(1, "Deadline", "‘Lil Kev’ Ends Up Behind Bars In Season 2 Trailer For Kevin Hart Animated Series", now=now),
-        _s(2, "Deadline", "Final ‘Avengers: Doomsday’ Trailer Has Fantastic Four Pulling Steve Rogers Out Of His Quiet Life", now=now),
-        _s(3, "Variety", "‘Avengers: Doomsday’ Final Trailer: Captain America’s Son Revealed, Fantastic Four Rescues Steve Rogers", now=now),
+        # Nov 27, render 302: a studio's trailer is promotion and is dropped on its own; the moment logic is tested with news
+        _s(2, "Deadline", "‘Avengers: Doomsday’ Release Date Pushed To May 2027 As Marvel Reshuffles Its Slate", now=now),
+        _s(3, "Variety", "‘Avengers: Doomsday’ Delayed to May 2027, Marvel Reshuffles Release Calendar", now=now),
     ]
     kept, dropped = filter_stories(stories, settings, state, now)
     assert {s.id for s in kept} == {"n2", "n3"}

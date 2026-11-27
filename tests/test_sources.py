@@ -906,3 +906,15 @@ def test_another_citys_house_fire_is_its_news_and_any_fire_is_a_happening():
     assert not another_citys_house_fire("Fort Worth family escapes devastating Thanksgiving Day fire")
     assert not another_citys_house_fire("3-alarm fire destroys Dallas apartment complex, dozens displaced")
     assert not another_citys_house_fire("2 killed in Dallas house fire on Thanksgiving")
+
+
+def test_a_nickname_portrait_is_a_strangers_photo_and_a_teaser_is_promotion():
+    """Nov 27, render 302: IGN's Avengers: Doomsday teaser drew 'John "Doomsday" Howard in 2025', a fighter."""
+    import re
+    from ftworthtv.filters import _TEASER_RE
+    from ftworthtv.images.providers import unnamed_person_photo
+    story = "New Avengers: Doomsday Teaser Shows Steve Rogers in Latveria, Potentially Names Doom's Son"
+    assert unnamed_person_photo('John "Doomsday" Howard in 2025', "Doomsday", story)
+    assert not unnamed_person_photo('John "Doomsday" Howard in 2025', "John Howard", "John Howard wins his fight in Fort Worth")
+    assert _TEASER_RE.search(story)
+    assert not _TEASER_RE.search("Marvel's Avengers: Doomsday tops the box office with $200 million")

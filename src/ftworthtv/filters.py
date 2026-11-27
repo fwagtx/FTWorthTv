@@ -236,6 +236,9 @@ def magazine_section(url: str) -> bool:
     return bool(_MAGAZINE_SECTION_RE.search(url or ""))
 
 
+_TEASER_RE = re.compile(r"\b(?:teasers?|trailers?|first look|sneak peek|sneak preview|promo|clip shows|footage shows)\b", re.I)
+
+
 def national_feature(title: str, url: str = "") -> bool:
     return bool(_FEATURE_TITLE_RE.search(title or "") or _FEATURE_URL_RE.search(url or ""))
 
@@ -1497,6 +1500,10 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if magazine_section(story.url):
             dropped.append((story, "a magazine's culture, food or travel feature, not news"))
+            continue
+        if story.extra.get("national") and _TEASER_RE.search(story.title or ""):
+            # Nov 27, render 302: IGN's "New Avengers: Doomsday Teaser Shows Steve Rogers in Latveria ..."
+            dropped.append((story, "a studio's teaser or trailer: promotion, not news"))
             continue
         if story.extra.get("national") and national_feature(story.title, story.url):
             # Nov 24: CBS Sports' "Why the Cowboys and Lions always play on Thanksgiving Day" passed on the Cowboys' name
