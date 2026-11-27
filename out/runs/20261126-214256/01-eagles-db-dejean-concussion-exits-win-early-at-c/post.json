@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-214256/01-eagles-db-dejean-concussion-exits-win-early-at-c/post.jpg",
+    "credit": "Photo: B. Johnson via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:2017_Cotton_Bowl_Classic_AT%26T_Stadium.jpg",
+    "photo_id": "lib-2017-cotton-bowl-classic-at-t-stadium-jpg",
+    "subject": "topic:att-stadium"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261126-214256/01-eagles-db-dejean-concussion-exits-win-early-at-c/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Eagles DB DeJean (concussion) exits win early at Cowboys",
+    "caption": "Eagles All-Pro defensive back Cooper DeJean was ruled out of Thursday's game against the Dallas Cowboys with a concussion. DeJean was injured on the first defensive series of the game on a third-down collision with running back Javonte Williams.\n\nDeJean went inside after being evaluated by the independent neurologist in the medical tent. He was replaced in the lineup by Michael Carter II.",
+    "first_comment": "Source: ESPN NFL https://www.espn.com/nfl/story/_/id/50606739/eagles-cooper-dejean-concussion-leaves-game-cowboys\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "342aceb326e31859",
+    "source": "ESPN NFL",
+    "source_kind": "rss",
+    "title": "Eagles DB DeJean (concussion) exits win early at Cowboys",
+    "summary": "Eagles All-Pro defensive back Cooper DeJean was ruled out of Thursday's game against the Dallas Cowboys with a concussion. ARLINGTON, Texas -- Philadelphia Eagles All-Pro defensive back Cooper DeJean was ruled out of Thursday's 39-38 win at the Dallas Cowboys with a concussion. DeJean was injured on the first defensive series of the game on a third-down collision with running back Javonte Williams . DeJean went inside after being evaluated by the independent neurologist in the medical tent. He was replaced in the lineup by Michael Carter II . DeJean, 23, entered the game with an interception, six passes defensed and five tackles for loss on the season.",
+    "url": "https://www.espn.com/nfl/story/_/id/50606739/eagles-cooper-dejean-concussion-leaves-game-cowboys",
+    "published": "2026-11-27T03:23:09+00:00",
+    "category_hint": "sports",
+    "image_url": null,
+    "image_credit": "Photo: ESPN NFL",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "www.espn.com - NFL",
+      "national": true,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 1.017
+  }
+}
