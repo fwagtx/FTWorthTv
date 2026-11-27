@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-27T13:07:59.794139+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-064259/02-tcu-defeated-by-no-11-texas-tech/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-064259/02-tcu-defeated-by-no-11-texas-tech/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "TCU Defeated by No. 11 Texas Tech",
+    "caption": "After taking a 10-0 lead in the first quarter, TCU was unable to maintain any rhythm and fell to No. 11 Texas Tech on Thursday night at Galaxy Stadium.",
+    "first_comment": "Source: TCU Athletics https://gofrogs.com/news/2026/11/26/football-tcu-defeated-by-no-11-texas-tech\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:Amon G. Carter Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "6a16042c29c33339",
+    "source": "TCU Athletics",
+    "source_kind": "rss",
+    "title": "TCU Defeated by No. 11 Texas Tech",
+    "summary": "After taking a 10-0 lead in the first quarter, TCU was unable to maintain any rhythm and fell to No. 11 Texas Tech on Thursday night at Galaxy Stadium.",
+    "url": "https://gofrogs.com/news/2026/11/26/football-tcu-defeated-by-no-11-texas-tech",
+    "published": "2026-11-27T05:32:00+00:00",
+    "category_hint": "sports",
+    "image_url": "https://gofrogs.com/common/controls/image_handler.aspx?thumb_prefix=rp_primary&image_path=/images/2026/11/26/261126_GAME12_INGAME___MG-03707__Custom_.jpg",
+    "image_credit": "Photo: TCU Athletics",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": true,
+    "weight": 0.6,
+    "extra": {
+      "feed_title": "",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.395
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=5Tfdb1AgAs4",
+  "scheduled_at": "2026-11-27T13:32:59.794139+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "events",
+    "headline": "Macy's parade delay leaves North Texas performers scrambling to stay",
+    "caption": "WATCH: Macy's parade delay leaves North Texas performers scrambling to stay\n\nHundreds of North Texas dancers face extra hotel and flight costs after Macy's moved its parade to Saturday.\n\nVideo: WFAA on YouTube",
+    "first_comment": "Source: WFAA on YouTube https://www.youtube.com/watch?v=5Tfdb1AgAs4\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "concert crowd lights",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "7cd1132c929e39c2",
+    "source": "WFAA",
+    "source_kind": "video",
+    "title": "Macy's parade delay leaves North Texas performers scrambling to stay",
+    "summary": "Hundreds of North Texas dancers face extra hotel and flight costs after Macy's moved its parade to Saturday. Some teams are even driving home.",
+    "url": "https://www.youtube.com/watch?v=5Tfdb1AgAs4",
+    "published": "2026-11-27T04:12:34+00:00",
+    "category_hint": null,
+    "image_url": "https://i2.ytimg.com/vi/5Tfdb1AgAs4/hqdefault.jpg",
+    "image_credit": "Video: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "5Tfdb1AgAs4",
+      "channel": "WFAA",
+      "handle": "@WFAA8",
+      "views": 5917,
+      "feed_title": "WFAA",
+      "scope": "dfw"
+    },
+    "category": "events",
+    "relevance": 2,
+    "score": 0.2909
+  }
+}

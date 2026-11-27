@@ -1,0 +1,60 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-064259/01-wanted-janice-shelby/post.jpg",
+    "credit": "Photo: Arlington Police Department",
+    "license": "official",
+    "provider": "source",
+    "source_url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-064259/01-wanted-janice-shelby/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Arlington police searching for Janice Shelby, wanted for organized retail theft",
+    "caption": "Arlington police are looking for Janice Shelby, wanted for organized retail theft. Crime Stoppers is offering up to $2,000 for information leading to an arrest.\n\nCall 817-469-TIPS (8477) or submit a tip at 469tips.com. You stay anonymous.",
+    "first_comment": "Source: Arlington Police Department most wanted https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives\n{photo_credit}\nTips: https://469tips.com\nCharges are accusations. All suspects are presumed innocent until proven guilty in a court of law.",
+    "hashtags": [],
+    "image_query": "police lights street night",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "1f26b6a72f5b3f47",
+    "source": "Arlington Police Department",
+    "source_kind": "wanted",
+    "title": "WANTED: Janice Shelby",
+    "summary": "Janice Shelby is wanted by the Arlington Police Department for Organized Retail Theft. Crime Stoppers will pay up to $2,000 for information leading to an arrest. Call 817-469-TIPS (8477) or submit a tip at https://469tips.com. Tipsters stay anonymous.",
+    "url": "https://www.arlingtontx.gov/City-Services/Public-Safety/Police-Department/Police-Programs/Cash-for-Crooks/Wanted-Fugitives",
+    "published": "2026-11-27T12:42:34.673397+00:00",
+    "category_hint": "crime",
+    "image_url": "https://www.arlingtontx.gov/files/assets/city/v/12/police/images/wanted-fugitives/wanted-fugitive-10.jpg",
+    "image_credit": "Photo: Arlington Police Department",
+    "image_license": "official",
+    "image_policy": "source_image",
+    "official": true,
+    "always_relevant": true,
+    "weight": 0.7,
+    "extra": {
+      "name": "Janice Shelby",
+      "charge": "Organized Retail Theft",
+      "agency": "Arlington Police Department",
+      "reward": "$2,000",
+      "tip_phone": "817-469-TIPS (8477)",
+      "tip_url": "https://469tips.com",
+      "age": null,
+      "city": "Arlington",
+      "details": "",
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 1,
+    "score": 0.7655
+  }
+}
