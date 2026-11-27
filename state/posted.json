@@ -8,7 +8,7 @@
     "2026-11-23": 20,
     "2026-11-24": 20,
     "2026-11-25": 19,
-    "2026-11-26": 13
+    "2026-11-26": 14
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -92,7 +92,7 @@
       "community": 3,
       "crime": 4,
       "other": 1,
-      "sports": 3,
+      "sports": 4,
       "weather": 1
     }
   },
@@ -143,7 +143,7 @@
     },
     "2026-11-26": {
       "culture": 1,
-      "rss": 8,
+      "rss": 9,
       "video": 2,
       "wanted": 2
     }
@@ -191,7 +191,7 @@
     },
     "2026-11-26": {
       "dfw": 2,
-      "local": 11
+      "local": 12
     }
   },
   "deferred": {
@@ -279,11 +279,6 @@
       "at": "2026-11-25T03:12:43.174953+00:00",
       "reason": "daily cap for crime reached",
       "title": "North Texas man dead following shooting Sunday, Garland police say"
-    },
-    "23e898a6ce4a4adf": {
-      "at": "2026-11-25T02:13:14.905609+00:00",
-      "reason": "daily cap for weather reached",
-      "title": "North Texas residents, businesses prepare for freezing temperatures before Thanksgiving"
     },
     "271ce4e9c6a18873": {
       "at": "2026-11-26T04:43:21.017069+00:00",
@@ -499,15 +494,10 @@
       "at": "2026-11-26T00:43:29.783110+00:00",
       "reason": "daily cap for community reached",
       "title": "Thanksgiving travelers hit Texas roads as holiday traffic builds"
-    },
-    "fc62da39f45d0a39": {
-      "at": "2026-11-25T02:13:14.905637+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "North Texas mother charged with leaving four young children alone by roadway, sheriff's office says"
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-26T18:22:00-06:00",
+  "last_post_at": "2026-11-26T20:22:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -857,6 +847,19 @@
       "source": "NBC 5 DFW",
       "title": "Wreaths Across America needs 36,000 wreaths in North Texas",
       "url": "https://www.youtube.com/watch?v=3aMNvGI5UFE"
+    },
+    "34bef9bebbbec8e0": {
+      "at": "2026-11-26T20:22:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "443856300",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-7809580396599426835",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "CBS News Texas",
+      "title": "Cowboys blow 21-point lead in 39-38 Thanksgiving loss to Eagles",
+      "url": "https://www.cbsnews.com/texas/news/cowboys-blow-21-point-lead-eagles-thanksgiving-november-2026/"
     },
     "366d61ae0256b13f": {
       "at": "2026-11-22T16:22:00-06:00",
@@ -3071,7 +3074,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 147,
+  "total_posts": 148,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
