@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-104318/01-new-avengers-doomsday-teaser-shows-steve-rogers/post.jpg",
+    "credit": "Photo: JohnDoomsdayHoward via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:John_%22Doomsday%22_Howard_in_2025.jpg",
+    "photo_id": "commons-163069370",
+    "subject": "entity:doomsday"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-104318/01-new-avengers-doomsday-teaser-shows-steve-rogers/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "New Avengers: Doomsday Teaser Shows Steve Rogers in Latveria, Potentially Names Doom's Son",
+    "caption": "Marvel Studios has released yet another Avengers: Doomsday trailer, this one focusing on Steve Rogers doing \"what needs to be done\" in Latveria. The clip, which is doing the rounds on social media, starts with Rodgers and Peggy Carter’s son asking him if he was a superhero, as we saw and heard in the final trailer released earlier this week.\n\n“There were six of us,” he replies.",
+    "first_comment": "Source: IGN https://www.ign.com/articles/new-avengers-doomsday-teaser-shows-steve-rogers-in-latveria-potentially-names-dooms-son\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "8cedca155f3625e2",
+    "source": "IGN",
+    "source_kind": "rss",
+    "title": "New Avengers: Doomsday Teaser Shows Steve Rogers in Latveria, Potentially Names Doom's Son",
+    "summary": "Marvel Studios has released yet another Avengers: Doomsday trailer, this one focusing on Steve Rogers doing \"what needs to be done\" in Latveria. Marvel Studios has released yet another Avengers: Doomsday trailer, this one focusing on Steve Rogers doing \"what needs to be done\" in Latveria. The clip, which is doing the rounds on social media, starts with Rodgers and Peggy Carter’s son asking him if he was a superhero, as we saw and heard in the final trailer released earlier this week. “There were six of us,” he replies. “We were called the Avengers.” 🚨Novo spot de #AvengersDoomsday com cenas inéditas da Disney Turquia. https://t.co/tYiOJDL3ny We then get a fun meta joke about Steve Rogers actor Chris Evans having played The Human Torch in the Fox-produced Fantastic Four films — a role he reprised in cameo form in Deadpool & Wolverine. “So, can you fly?” asks his son, as Thor leaps at…",
+    "url": "https://www.ign.com/articles/new-avengers-doomsday-teaser-shows-steve-rogers-in-latveria-potentially-names-dooms-son",
+    "published": "2026-11-27T16:23:20+00:00",
+    "category_hint": null,
+    "image_url": "https://assets-prd.ignimgs.com/2026/11/27/doom-1795796509604.png",
+    "image_credit": "Photo: IGN",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "IGN All",
+      "national": true,
+      "scope": "national",
+      "national_term": "avengers"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.3112
+  }
+}
