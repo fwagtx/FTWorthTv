@@ -1370,6 +1370,13 @@ def write_copy(story: Story, settings: Settings, now: datetime, *, force_templat
     if story.source_kind == "rss" and not story.official and stale_meeting_recap(story, now):
         return PostCopy(skip=True, skip_reason="a meeting recap more than a week old", category=story.category or "other",
                         headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"
+    from .filters import automated_preview
+    if story.source_kind == "rss" and not story.official and automated_preview(story.summary or ""):
+        # Nov 27, render 307: NBC 5's "Portland Timbers host FC Dallas in Western Conference semifinals" passed the filter on
+        # the feed's one-line teaser; the article it read was the wire's machine-written preview (LINE: Portland +108 ...
+        # BOTTOM LINE: ... TOP PERFORMERS:), checked only before the article was read
+        return PostCopy(skip=True, skip_reason="an automated stats preview (LINE / BOTTOM LINE), not news", category=story.category or "other",
+                        headline=truncate(story.title, 110, ""), caption="", first_comment="", hashtags=[], image_query="", location=""), "template"
     if story.source_kind == "rss" and not story.official and not _sentences(story.summary or ""):
         # the feed gave a headline and nothing to say under it: a post that is its own headline is not a post
         return PostCopy(skip=True, skip_reason="no summary to post: the feed gave only a headline", category=story.category or "other",

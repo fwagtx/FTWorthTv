@@ -195,6 +195,20 @@ _GAME_RE = re.compile(r"\b(?:vs\.?|versus|beat|beats|defeat|defeats|win|wins|won
                       r"scored|lead|leads|upset|sweep|swept|clinch|clinches|preview|face|faces|home)\b", re.I)
 
 
+_HEAD_HOST_RE = re.compile(r"^(.{3,60}?)\s+(?:host|hosts|hosted|hosting|welcome|welcomes)\s+(.{3,80})", re.I)
+
+
+def _other_team_hosts(head: str, teams) -> bool:
+    """Nov 27, render 307: NBC 5's "Portland Timbers host FC Dallas in Western Conference semifinals" drew Toyota Stadium in
+    Frisco: "host" read as a home game, but the team before the verb is the host, and it was Portland."""
+    m = _HEAD_HOST_RE.search(head or "")
+    if not m or not teams:
+        return False
+    before, after = m.group(1).lower(), m.group(2).lower()
+    return not any(re.search(r"\b" + re.escape(w) + r"\b", before) for w in teams) and \
+        any(re.search(r"\b" + re.escape(w) + r"\b", after) for w in teams)
+
+
 def venue_fits(topic: str, text: str, title: str | None = None) -> bool:
     """A team name brings its home venue only for a game there: never for a coaching, roster or contract story ("Parker
     disappointed Cowboys pulled play-calling duties"), never when the text names another stadium or says the team is on
@@ -209,6 +223,8 @@ def venue_fits(topic: str, text: str, title: str | None = None) -> bool:
         return True                                              # the venue itself is in the headline: it is the picture
     if not _GAME_RE.search(head):
         return False                                             # a person or a decision is the subject, not the building
+    if _other_team_hosts(head, HOME_TEAMS.get(topic, ())):
+        return False                                             # "Portland Timbers host FC Dallas": the game is in Portland
     if any(n in low for n in names):
         return True
     others = [v for v in _VENUE_RE.findall(text or "") if not any(n in v.lower() for n in names)]

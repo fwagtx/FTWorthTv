@@ -943,3 +943,28 @@ def test_a_late_copy_of_the_morning_forecast_is_the_same_forecast(settings, now)
     # a story with no time is left to the other holds
     undated = Story(id="u", source="NBC 5 DFW", source_kind="video", title="Forecast", summary="", url="https://x/u")
     assert not _same_forecast_cycle(state, undated)
+
+
+def test_an_away_game_preview_gets_no_home_stadium_and_a_read_article_is_checked_again(settings, now):
+    """Nov 27, render 307: NBC 5's "Portland Timbers host FC Dallas in Western Conference semifinals" drew Toyota Stadium in
+    Frisco (the game is in Portland), and the article behind the feed's teaser was the wire's automated betting preview."""
+    from ftworthtv.filters import automated_preview
+    from ftworthtv.images.library import venue_fits
+    from ftworthtv.models import Story
+    from ftworthtv.writer import write_copy
+    t = "Portland Timbers host FC Dallas in Western Conference semifinals"
+    body = ("Dallas either advances with a win or hosts a winner-take-all game next weekend. FC Dallas (16-8-10) vs. Portland "
+            "Timbers (13-14-7), Portland, Oregon; Saturday, 9:30 p.m. CST LINE: Portland +108, FC Dallas +197; over/under is "
+            "3.5 goals BOTTOM LINE: The Portland Timbers host Dallas in the Western Conference semifinals.")
+    assert not venue_fits("toyota-stadium", f"{t}. {body}", t)
+    assert venue_fits("toyota-stadium", "FC Dallas hosts Portland Timbers in Western Conference semifinal game",
+                      "FC Dallas hosts Portland Timbers in Western Conference semifinal game")
+    assert venue_fits("tcu-football", "TCU hosts Utah on Saturday", "TCU hosts Utah on Saturday")
+    assert not venue_fits("att-stadium", "Chiefs host Cowboys on Sunday night", "Chiefs host Cowboys on Sunday night")
+    assert automated_preview("LINE: Portland +108, FC Dallas +197; over/under is 3.5 goals")
+    assert not automated_preview("FC Dallas beat Portland 3-0 on Saturday to reach the conference final.")
+    story = Story(id="fcd", source="NBC 5 DFW", source_kind="rss", title=t, summary=body,
+                  url="https://www.nbcdfw.com/news/sports/soccer/portland-timbers-host-fc-dallas/4111290/", published=now)
+    story.category = "sports"
+    copy, _ = write_copy(story, settings, now, force_template=True)
+    assert copy.skip and "automated stats preview" in copy.skip_reason

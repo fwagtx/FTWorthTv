@@ -455,7 +455,8 @@ def other_metro_team(title: str) -> bool:
 
 # Nov 27, render 299: NBC 5 carried AP's automated "Dallas Mavericks visit Phoenix Suns Friday in NBA Cup group stage" ("BOTTOM
 # LINE: The Dallas Mavericks travel to play the Dallas Mavericks ...", records against winning teams): a stats sheet, not news
-_AUTO_PREVIEW_RE = re.compile(r"\bBOTTOM LINE:|\bLAST TIME OUT:|\bTOP PERFORMERS:|\bINJURIES:", re.I)
+_AUTO_PREVIEW_RE = re.compile(r"\bBOTTOM LINE:|\bLAST TIME OUT:|\bTOP PERFORMERS:|\bINJURIES:|"
+                              r"\bLINE:\s*[^;]{2,60}?[+-]\d{3}\b|\bover/under is\b", re.I)
 
 
 def automated_preview(summary: str) -> bool:
