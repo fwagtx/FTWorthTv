@@ -8,7 +8,7 @@
     "2026-11-23": 20,
     "2026-11-24": 20,
     "2026-11-25": 19,
-    "2026-11-26": 14
+    "2026-11-26": 15
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -93,6 +93,7 @@
       "crime": 4,
       "other": 1,
       "sports": 4,
+      "traffic": 1,
       "weather": 1
     }
   },
@@ -143,7 +144,7 @@
     },
     "2026-11-26": {
       "culture": 1,
-      "rss": 9,
+      "rss": 10,
       "video": 2,
       "wanted": 2
     }
@@ -191,7 +192,7 @@
     },
     "2026-11-26": {
       "dfw": 2,
-      "local": 12
+      "local": 13
     }
   },
   "deferred": {
@@ -274,11 +275,6 @@
       "at": "2026-11-25T21:15:15.510976+00:00",
       "reason": "daily cap for weather reached",
       "title": "Macy’s Thanksgiving Day Parade Postponed as Storm Descends on Northeast"
-    },
-    "1f85511983a4c451": {
-      "at": "2026-11-25T03:12:43.174953+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "North Texas man dead following shooting Sunday, Garland police say"
     },
     "271ce4e9c6a18873": {
       "at": "2026-11-26T04:43:21.017069+00:00",
@@ -415,6 +411,11 @@
       "reason": "daily cap for weather reached",
       "title": "Texas' first Democratic agriculture commissioner since 1991 outlines plans for the agency"
     },
+    "98e319a85ca8e297": {
+      "at": "2026-11-27T03:13:39.720509+00:00",
+      "reason": "daily cap for crime reached",
+      "title": "Northbound I-35 closed in Denton due to 'hazard' damaging tires, police say"
+    },
     "9bb6a809cdb1052a": {
       "at": "2026-11-25T21:15:15.511016+00:00",
       "reason": "daily cap for culture reached",
@@ -497,7 +498,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-26T20:22:00-06:00",
+  "last_post_at": "2026-11-26T21:22:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1134,6 +1135,19 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Fort Worth country club expels Bo French after social media controversies",
       "url": "https://www.fox4news.com/news/fort-worth-country-club-expels-bo-french-after-social-media-controversies"
+    },
+    "5f40f81e37fd1fc4": {
+      "at": "2026-11-26T21:22:00-06:00",
+      "category": "traffic",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "443884902",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1241130214178046860",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Fort Worth motorcyclist recovering after hit-and-run",
+      "url": "https://www.fox4news.com/news/fort-worth-motorcyclist-recovering-after-hit-and-run"
     },
     "601495a18c4f4f6c": {
       "at": "2026-11-19T21:41:00-06:00",
@@ -3074,7 +3088,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 148,
+  "total_posts": 149,
   "used_photos": [
     "commons-168451071",
     "lib-dallas-skyline-at-night-over-the-trinity-river-in-2015-png",
