@@ -10,6 +10,7 @@ from .models import PostDraft, PublishResult
 PRUNE_DAYS = 45
 MAX_USED_PHOTOS = 80
 DEFER_PRUNE_HOURS = 48      # a cap-held story is forgotten two days after it was held
+TRIED_PRUNE_HOURS = 24      # a story the writer could not use is forgotten a day after its last try
 
 
 class State:
@@ -66,6 +67,14 @@ class State:
         """A story a daily cap held back (the fourth community item of a busy day): remembered so the next day's render
         may still draft it while it is under filters.DEFERRED_MAX_AGE_HOURS old, instead of letting it age out of the window."""
         self.data.setdefault("deferred", {}).setdefault(story_id, {"title": title[:140], "reason": reason[:140], "at": when.isoformat()})
+
+    def tried(self, story_id: str) -> dict | None:
+        return (self.data.get("tried", {}) or {}).get(story_id)
+
+    def mark_tried(self, story_id: str, title: str, reason: str, when: datetime) -> None:
+        """A story the writer tried and could not use (no picture we may use, a headline with nothing under it): remembered
+        so the next runs give its writer slot to another story and try it again later (pipeline.RETRY_HOURS)."""
+        self.data.setdefault("tried", {})[story_id] = {"title": title[:140], "reason": reason[:140], "at": when.isoformat()}
 
     @property
     def last_post_at(self) -> datetime | None:
@@ -173,6 +182,9 @@ class State:
         deferred = self.data.get("deferred", {})
         for k in [k for k, v in deferred.items() if datetime.fromisoformat(v["at"]) < now - timedelta(hours=DEFER_PRUNE_HOURS)]:
             del deferred[k]
+        tried = self.data.get("tried", {})
+        for k in [k for k, v in tried.items() if datetime.fromisoformat(v["at"]) < now - timedelta(hours=TRIED_PRUNE_HOURS)]:
+            del tried[k]
         for key in ("daily", "daily_by_category", "daily_by_scope"):
             daily = self.data.get(key, {})
             for day in [d for d in daily if d < cutoff.date().isoformat()]:

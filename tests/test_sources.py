@@ -968,3 +968,49 @@ def test_an_away_game_preview_gets_no_home_stadium_and_a_read_article_is_checked
     story.category = "sports"
     copy, _ = write_copy(story, settings, now, force_template=True)
     assert copy.skip and "automated stats preview" in copy.skip_reason
+
+
+def test_a_story_the_writer_could_not_use_gives_its_slot_away_for_two_hours(settings, now, tmp_path):
+    """Nov 27, render 308: eight stories with no picture we may use and four headline-only items took all twelve writer
+    slots four runs running, and NBC 5's Weatherford aerospace-plant fire, ranked thirteenth, was never written."""
+    from datetime import datetime, timedelta
+    from ftworthtv.models import Story
+    from ftworthtv.pipeline import RETRY_HOURS, _tried_recently, run
+    from ftworthtv.session import record_posted, writer_failed
+    from ftworthtv.state import State
+    # the session's record step remembers the writer's failures from the run's report
+    run_dir = tmp_path / "run"
+    run_dir.mkdir()
+    (run_dir / "report.json").write_text(json.dumps({"skipped_by_writer": [
+        {"id": "musume", "title": "Musume restaurant reopens nearly 3 years after downtown Fort Worth explosion",
+         "reason": "no picture of the subject that we may use"},
+        {"id": "stars", "title": "St. Louis Blues take on Dallas Stars", "reason": "no summary to post: the feed gave only a headline"},
+        {"id": "capped", "title": "Arlington police officer shoots dog", "reason": "daily cap for crime reached"}]}), encoding="utf-8")
+    assert [r[0] for r in writer_failed(run_dir)] == ["musume", "stars"]
+    record_posted(run_dir, settings, {}, {})
+    state = State(settings.state_path)
+    assert state.tried("musume") and state.tried("stars") and not state.tried("capped")
+    # the next run skips it while it is fresh and tries it again after RETRY_HOURS
+    tried_at = datetime.fromisoformat(state.tried("musume")["at"])
+    musume = Story(id="musume", source="NBC 5 DFW", source_kind="rss", url="https://www.nbcdfw.com/news/local/musume/1/",
+                   published=tried_at - timedelta(hours=1),
+                   title="Musume restaurant reopens nearly 3 years after downtown Fort Worth explosion",
+                   summary="The Fort Worth restaurant inside the Sandman Signature hotel reopened Friday.")
+    assert _tried_recently(state, musume, tried_at + timedelta(minutes=30), settings.tz).startswith("tried at ")
+    assert _tried_recently(state, musume, tried_at + timedelta(hours=RETRY_HOURS, minutes=1), settings.tz) is None
+    report = run(settings, now=tried_at + timedelta(minutes=30), stories=[musume], publisher_name="dryrun")
+    assert any(s.id == "musume" and r.startswith("tried at ") for s, r in report.skipped), (report.skipped, report.dropped)
+
+
+def test_a_fire_at_a_named_place_is_a_fire():
+    """Nov 27, render 308: NBC 5's "'Everything is under control' after fire at Aerospace facility: Weatherford fire chief"
+    was filed as "other", so it could neither be breaking news nor take a text card."""
+    from ftworthtv.filters import fire_incident, infer_category
+    from ftworthtv.models import Story
+    t = "‘Everything is under control' after fire at Aerospace facility: Weatherford fire chief"
+    assert fire_incident(t)
+    assert infer_category(Story(id="w", source="NBC 5 DFW", source_kind="rss", title=t, summary="", url="https://x")) == "breaking"
+    assert fire_incident("Crews battle fire at Fort Worth apartment complex")
+    assert fire_incident("Fire at the Stockyards barn forces evacuations")
+    assert not fire_incident("Rangers fire at will in 12-2 rout")
+    assert not fire_incident("Critics fire at the new Netflix show")

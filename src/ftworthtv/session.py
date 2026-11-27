@@ -137,6 +137,23 @@ def cap_held(run_dir: Path) -> list[tuple[str, str, str]]:
             if isinstance(r, dict) and r.get("id") and str(r.get("reason", "")).startswith("daily cap for")]
 
 
+# what the writer says when a story it tried cannot be used as it stands; the same story fails the same way next run
+WRITER_RETRY_REASONS = ("no picture of the subject that we may use", "no summary to post: the feed gave only a headline")
+
+
+def writer_failed(run_dir: Path) -> list[tuple[str, str, str]]:
+    """(story_id, title, reason) for the run's stories the writer tried and could not use (from report.json)."""
+    path = Path(run_dir) / "report.json"
+    if not path.exists():
+        return []
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8")).get("skipped_by_writer", []) or []
+    except (json.JSONDecodeError, AttributeError):
+        return []
+    return [(str(r["id"]), str(r.get("title", "")), str(r.get("reason", ""))) for r in rows
+            if isinstance(r, dict) and r.get("id") and str(r.get("reason", "")) in WRITER_RETRY_REASONS]
+
+
 def record_posted(run_dir: Path, settings: Settings, posted: dict[str, dict], skipped: dict[str, str] | None = None) -> int:
     """posted: {story_id: {"post_id": ..., "story_post_id": ..., "at": iso}} -> state + review log, like the publish step.
     skipped: {story_id: reason} for drafts the session chose not to post; they are remembered so no later render redrafts them."""
@@ -155,6 +172,9 @@ def record_posted(run_dir: Path, settings: Settings, posted: dict[str, dict], sk
     for sid, title, reason in cap_held(Path(run_dir)):
         if not state.has(sid) and sid not in posted and not state.skipped(sid):
             state.defer(sid, title, reason, datetime.now(timezone.utc))      # tomorrow's render may still take it
+    for sid, title, reason in writer_failed(Path(run_dir)):
+        if not state.has(sid) and sid not in posted and not state.skipped(sid):
+            state.mark_tried(sid, title, reason, datetime.now(timezone.utc))   # the next runs give its slot to another story
     for folder in sorted(p for p in Path(run_dir).iterdir() if p.is_dir()):
         draft = load_draft(folder)
         if not draft or draft.story.id not in posted or state.has(draft.story.id):

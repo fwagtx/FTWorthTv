@@ -60,6 +60,7 @@ def in_quiet_hours(local: datetime, window) -> bool:
 
 
 WRITER_POOL_MIN = 12      # ranked candidates the writer may look at in one run, however few posts it needs
+RETRY_HOURS = 2           # a story the writer could not use is tried again this long after, not every run
 TEXT_CARD_CATEGORIES = ("crime", "breaking", "traffic", "weather", "sports")   # hard news and results may go out as a text card when no licensed picture exists
 
 
@@ -152,7 +153,7 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
 
     draftable: list[Story] = []
     for story in ranked:
-        why = day_budget_spent(story)
+        why = day_budget_spent(story) or _tried_recently(state, story, now, settings.tz)
         if why:
             report.skipped.append((story, why))
         else:
@@ -515,6 +516,26 @@ def _recent_weather_story(state, now, hours: float = 6) -> bool:
         if abs((now - at).total_seconds()) <= hours * 3600:
             return True
     return False
+
+
+def _tried_recently(state, story, now, tz) -> str | None:
+    """Nov 27, render 308: the same eight stories with no picture we may use and four headline-only items took all twelve
+    writer slots four runs running, and NBC 5's Weatherford aerospace-plant fire, ranked thirteenth, was never written. A
+    story the writer tried and could not use gives its slot to another story and is tried again RETRY_HOURS later."""
+    if story.is_urgent:
+        return None
+    info = state.tried(story.id)
+    if not info:
+        return None
+    try:
+        at = datetime.fromisoformat(str(info.get("at", "")))
+    except ValueError:
+        return None
+    if at.tzinfo is None:
+        at = at.replace(tzinfo=timezone.utc)
+    if timedelta(0) <= now - at < timedelta(hours=RETRY_HOURS):
+        return f"tried at {at.astimezone(tz).strftime('%H:%M')} ({info.get('reason', '')}): tried again after {RETRY_HOURS} hours"
+    return None
 
 
 def _same_forecast_cycle(state, story, hours: float = 6) -> str:

@@ -1389,7 +1389,12 @@ _FIRE_TITLE_RE = re.compile(
     r"|(?<!\bon )\bfires?\s+(?:destroys?|destroyed|damages?|damaged|displaces?|displaced|guts?|gutted|engulfs?|engulfed|kills?|killed|"
     r"injures?|injured|breaks? out|broke out|spreads?|rips? through|tears? through|burns?|burned|burning|scorches?|scorched)\b"
     r"|\b(?:sparks?|sparked|ignites?|ignited|battle|battles|battling|respond(?:s|ed|ing)? to|extinguish(?:es|ed)?|put out|douse[sd]?)\b"
-    r"(?:\s+[\w'-]+){0,3}?\s+fires?\b", re.I)
+    r"(?:\s+[\w'-]+){0,3}?\s+fires?\b"
+    # Nov 27, render 308: NBC 5's "'Everything is under control' after fire at Aerospace facility: Weatherford fire chief"
+    # was filed as "other": a fire at a named place is a fire
+    r"|(?<!\bon )\bfires?\s+at\s+(?:a\s+|an\s+|the\s+)?(?:[\w'&.-]+\s+){0,3}?(?:facility|plant|home|house|apartment|apartments|"
+    r"complex|building|business|warehouse|school|church|restaurant|store|shop|hotel|motel|factory|refinery|site|center|"
+    r"yard|mill|barn|garage|depot|hangar|airport|mall|campus|stadium|arena|park)\b", re.I)
 _FIRE_NOT_INCIDENT_RE = re.compile(r"\b(?:training|drills?|exercises?|prevention|safety tips?|awareness|grants?|academy|recruits?)\b", re.I)
 
 
