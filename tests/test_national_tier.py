@@ -265,3 +265,18 @@ def test_someones_feelings_about_a_decision_are_an_interviews_color(settings, no
     assert not national_feature("Disney moves Avengers: Doomsday to Dec. 18, the same day as Dune: Part Three")
     assert not national_feature("‘Avengers: Doomsday’ Delayed to May 2027, Marvel Reshuffles Release Calendar")
     assert not national_feature("Chiefs win Super Bowl LXI over the Eagles")
+
+
+def test_a_console_is_the_moment_only_when_the_headline_is_about_it(settings, now):
+    """Nov 27, render 316: The Verge's and IGN's "Yooka-Laylee's free upgrade is skipping Xbox" took the national slot on
+    "xbox" (two outlets carried it) with a stock gaming photo."""
+    from ftworthtv.filters import term_is_subject
+    assert not term_is_subject("xbox", "Yooka-Laylee’s free upgrade is skipping Xbox")
+    assert not term_is_subject("playstation", "Hollow Knight Silksong finally gets a PlayStation release date")
+    assert term_is_subject("xbox", "Xbox raises console prices again, citing tariffs")
+    assert term_is_subject("nintendo", "Nintendo Switch 2 sales top 20 million")
+    state = State(settings.state_path)
+    stories = [_s(1, "The Verge", "Yooka-Laylee’s free upgrade is skipping Xbox", now=now),
+               _s(2, "IGN", "Yooka-Laylee and the Impossible Lair Dev's Explanation for Skipping Xbox Sparks Backlash", now=now)]
+    kept, dropped = filter_stories(stories, settings, state, now)
+    assert not kept

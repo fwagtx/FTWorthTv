@@ -1024,7 +1024,10 @@ _HYPOTHETICAL_RE = re.compile(r"\?|\b(contenders?|hopes?|hopeful|chances|odds|co
 # a streaming service is a national moment when it is the story (a price hike, an outage, a password crackdown), never because
 # a story airs there: Nov 23, "Tyson Fury Reveals Schizophrenia Diagnosis in Netflix Documentary" (Variety and Deadline) took
 # the day's national slot, and "Netflix" in two unrelated headlines counted as two outlets carrying one moment
-PLATFORM_TERMS = ("netflix", "disney+", "hbo max", "hulu", "peacock", "paramount+", "prime video", "apple tv")
+# Nov 27, render 316: The Verge's and IGN's "Yooka-Laylee's free upgrade is skipping Xbox" took the national slot on "xbox": a
+# console or a phone is the moment only when the headline is about it (a price hike, an outage, a launch), not a game's port
+PLATFORM_TERMS = ("netflix", "disney+", "hbo max", "hulu", "peacock", "paramount+", "prime video", "apple tv",
+                  "xbox", "playstation", "nintendo", "iphone")
 
 
 _MOMENT_GENERIC = {"season", "series", "official", "final", "first", "trailer", "teaser", "show", "film", "movie", "release",
