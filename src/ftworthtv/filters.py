@@ -516,7 +516,11 @@ def roundup_column(title: str) -> bool:
 # Nov 26, render 263: CBS News Texas's "Why do the Detroit Lions and Dallas Cowboys play every year on Thanksgiving? The history"
 # (CBS Detroit's 1934 Portsmouth Spartans story) as a sports text card: the history of a tradition is a feature, not news
 _EVERGREEN_RE = re.compile(r"[?:.]\s*(?:the|its|a brief|a short) history\b|^(?:the )?history of\b|"
-                           r"\bwhy do(?:es)?\b[^?]{3,80}\bevery (?:year|thanksgiving|christmas|holiday|season)\b", re.I)
+                           r"\bwhy do(?:es)?\b[^?]{3,80}\bevery (?:year|thanksgiving|christmas|holiday|season)\b|"
+                           # Nov 28, render 331: NBC 5's "Holiday stress adding up? North Texas experts share tips to protect
+                           # your mental health" drafted as community news with the skyline: advice is a service piece
+                           r"\b(?:experts?|doctors?|therapists?|counselors?|pros?) (?:share|offer|give)s? (?:\w+ )?(?:tips|advice|ways)\b|"
+                           r"\btips (?:to|for) (?:protect|manage|cope|beat|handle|avoid|stay|keep|save|survive)\b", re.I)
 
 
 def evergreen_explainer(title: str) -> bool:
@@ -762,7 +766,11 @@ _DAY_IN_TITLE_RE = re.compile(r"\b(monday|tuesday|wednesday|thursday|friday|satu
 
 # Nov 26, render 263: FOX 4's "Trackdown: Help find Dallas rapper BFG Baandz's killer" (a shooting "earlier this year") was
 # drafted for a Fort Worth page; a cold case in another DFW city is that city's appeal, not this page's news
-_OLD_CRIME_RE = re.compile(r"\b(?:earlier this year|last year|last month|months ago|years ago|cold case|unsolved)\b|^trackdown\b", re.I)
+_OLD_CRIME_RE = re.compile(r"\b(?:earlier this year|last year|last month|months ago|years ago|cold case|unsolved|"
+                           # Nov 28, render 331: NBC 5's "'Fighting for her remains': Family seeks to bring Dallas shooting victim
+                           # home" ("killed ... on Halloween night ... nearly a month after her death"): a month-old Dallas crime
+                           r"(?:nearly|almost|about|more than) a month (?:after|since|ago)|weeks after (?:her|his|their|the) (?:death|killing|shooting)|"
+                           r"on halloween night)\b|^trackdown\b", re.I)
 _MONTHS = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december")
 _IN_MONTH_RE = re.compile(r"\bin (" + "|".join(_MONTHS) + r")\b", re.I)
 

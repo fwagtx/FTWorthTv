@@ -250,6 +250,11 @@
       "reason": "daily cap for sports reached",
       "title": "Goo Goo Dolls Fans Slam NBC Over Thanksgiving Halftime Show Snub: ‘Badly Handled’"
     },
+    "288d2e567efe215f": {
+      "at": "2026-11-28T14:15:27.719949+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Macy’s Thanksgiving Day Parade Kicks Off, Making History On A Dry And Breezy Saturday"
+    },
     "316735b6f4fea152": {
       "at": "2026-11-28T13:15:51.197024+00:00",
       "reason": "daily cap for weather reached",
@@ -2990,6 +2995,11 @@
       "at": "2026-11-22T20:45:53.903721+00:00",
       "reason": "a CBS Sports highlight-clip page ('Watch Titans rookie Carnell Tate score...') mid-game: the clip cannot ride a card; rule added"
     },
+    "902a6321d3e78808": {
+      "at": "2026-11-28T14:15:27.718980+00:00",
+      "reason": "a Dallas crime follow-up (a Deep Ellum Halloween-night shooting victim's family, nearly a month later): another city's story",
+      "title": "‘Fighting for her remains': Family seeks to bring Dallas shooting victim home"
+    },
     "915c86ebcf796323": {
       "at": "2026-11-25T12:46:20.997530+00:00",
       "reason": "CBS Texas's YouTube 'Freezing temps hit parts of North Texas' with no description, an hour after CBS News Texas's freeze warning went out; r",
@@ -3136,6 +3146,11 @@
       "at": "2026-11-28T13:47:01.905314+00:00",
       "reason": "a national celebrity death (WWE's Bronson Reed), not Fort Worth or regional news, with a run-on dek about unconfirmed injuries",
       "title": "Bronson Reed dies at 38: WWE superstar passes unexpectedly due to medical complications"
+    },
+    "b0347add7751d0a8": {
+      "at": "2026-11-28T14:15:27.718999+00:00",
+      "reason": "an advice piece (experts' holiday-stress tips), not news, with the Fort Worth skyline standing in",
+      "title": "Holiday stress adding up? North Texas experts share tips to protect your mental health"
     },
     "b0d02a7515d38b45": {
       "at": "2026-11-23T14:22:51.705143+00:00",
@@ -3385,7 +3400,7 @@
       "title": "Refugees from around the world gather in Dallas for Thanksgiving feast"
     },
     "1f02639686f33481": {
-      "at": "2026-11-27T22:43:30.534814+00:00",
+      "at": "2026-11-28T14:15:27.720617+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Goo Goo Dolls Fans Slam NBC Over Thanksgiving Halftime Show Snub: ‘Badly Handled’"
     },
@@ -3405,7 +3420,7 @@
       "title": "North Texas doctors urge vigilance as flu, RSV cases climb"
     },
     "32bd9658720e7a73": {
-      "at": "2026-11-27T22:13:45.620974+00:00",
+      "at": "2026-11-28T14:15:27.720622+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "Rosenthal prepares to join Railroad Commission after election win"
     },
@@ -3465,7 +3480,7 @@
       "title": "Rihanna atop the charts, Von Miller's breakout and more trends from Texas A&M's last Lone Star Showdown win"
     },
     "de5b38997515bc21": {
-      "at": "2026-11-27T22:13:45.620971+00:00",
+      "at": "2026-11-28T14:15:27.720607+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Musume restaurant reopens nearly 3 years after downtown Fort Worth explosion"
     },
@@ -3495,7 +3510,7 @@
       "title": "2026 SEC Championship Game: Texas gets one last shot at Georgia in contest's final edition"
     },
     "fe658b08aaf2903f": {
-      "at": "2026-11-27T22:13:45.620973+00:00",
+      "at": "2026-11-28T14:15:27.720620+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "St. Louis Blues take on Dallas Stars, looking to extend home win streak"
     }

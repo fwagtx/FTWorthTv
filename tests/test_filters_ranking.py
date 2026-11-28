@@ -640,3 +640,20 @@ def test_a_fire_two_days_gone_is_not_breaking_and_another_states_story_is_its_ow
     assert not another_states_story("Fort Worth man arrested in Oklahoma")
     assert not another_states_story("Texas family missing in Mexico")
     assert infer_category(_story("Pregnant prisoner escapes in corrections vehicle")) == "crime"
+
+
+def test_an_advice_piece_is_not_news_and_a_month_old_dallas_crime_is_old():
+    """Nov 28, render 331: NBC 5's "Holiday stress adding up? North Texas experts share tips to protect your mental health"
+    was drafted as community news with the Fort Worth skyline, and NBC 5's "'Fighting for her remains': Family seeks to bring
+    Dallas shooting victim home" (a Halloween-night Deep Ellum shooting, nearly a month ago) as a crime text card."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from ftworthtv.filters import another_citys_old_crime, evergreen_explainer
+    assert evergreen_explainer("Holiday stress adding up? North Texas experts share tips to protect your mental health")
+    assert evergreen_explainer("Doctors offer tips to stay healthy during flu season")
+    assert not evergreen_explainer("Fort Worth police share tips after rash of car break-ins")
+    saturday = datetime(2026, 11, 28, 8, 15, tzinfo=ZoneInfo("America/Chicago"))
+    lead = ("The siblings of a woman killed during a series of shootings in Dallas' Deep Ellum entertainment district on "
+            "Halloween night are fighting to bring her home to Iowa nearly a month after her death.")
+    assert another_citys_old_crime("‘Fighting for her remains': Family seeks to bring Dallas shooting victim home", saturday, lead)
+    assert not another_citys_old_crime("Dallas police investigate overnight shooting", saturday, "Police were called at 2 a.m.")
