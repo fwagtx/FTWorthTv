@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-134256/01-arlington-shooting-leaves-teen-dead-police-repor/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-134256/01-arlington-shooting-leaves-teen-dead-police-repor/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "Arlington shooting leaves teen dead, police report",
+    "caption": "Arlington Police say a teenage boy has died after a shooting Friday evening. The department said it happened just before 9 p.m. along the 1500 block of Regency Court.\n\nPolice said callers and witnesses said they heard gunfire after what was apparently an argument. Officers said they arrived and found the 15-year-old victim in the parking lot with gunshot wounds.",
+    "first_comment": "Source: CBS News Texas https://www.cbsnews.com/texas/news/arlington-teen-shooting-death-11-28-2026/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "police car lights",
+    "location": "Arlington, TX"
+  },
+  "story": {
+    "id": "b2f409a87a39cde3",
+    "source": "CBS News Texas",
+    "source_kind": "rss",
+    "title": "Arlington shooting leaves teen dead, police report",
+    "summary": "Homicide detectives are now investigating. November 28, 2026 / 1:16 PM CST / CBS Texas Arlington Police say a teenage boy has died after a shooting Friday evening. The department said it happened just before 9 p.m. along the 1500 block of Regency Court. Police said callers and witnesses said they heard gunfire after what was apparently an argument. Officers said they arrived and found the 15-year-old victim in the parking lot with gunshot wounds. He was declared dead at the scene and, as of publication, has not been publicly identified. Homicide detectives are now investigating and working to determine what led to the shooting and who the shooter was. No arrests have been made as of publication. Anyone with more information is asked to call Detective Van Treeck at 817-459-5579. Anonymous tips can also be shared by calling Crime Stoppers of Tarrant County at 817-469-5691. © 2026 CBS…",
+    "url": "https://www.cbsnews.com/texas/news/arlington-teen-shooting-death-11-28-2026/",
+    "published": "2026-11-28T19:16:12+00:00",
+    "category_hint": null,
+    "image_url": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/08/30/9abdf20c-409f-4d23-8ffc-d807bba6dda8/thumbnail/1024x576/f456b2a530614b69ca8835715f313f68/cbs-news-detroit-yt-thumbnail-template-2026-08-29t203424-173.png",
+    "image_credit": "Photo: CBS News Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.7,
+    "extra": {
+      "feed_title": "Home - CBS Texas",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.8311
+  }
+}
