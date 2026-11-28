@@ -9,7 +9,7 @@
     "2026-11-24": 20,
     "2026-11-25": 19,
     "2026-11-26": 15,
-    "2026-11-27": 13
+    "2026-11-27": 14
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -98,6 +98,7 @@
       "weather": 1
     },
     "2026-11-27": {
+      "breaking": 1,
       "community": 1,
       "crime": 3,
       "culture": 1,
@@ -158,7 +159,7 @@
       "wanted": 2
     },
     "2026-11-27": {
-      "rss": 9,
+      "rss": 10,
       "video": 2,
       "wanted": 2
     }
@@ -209,7 +210,7 @@
       "local": 13
     },
     "2026-11-27": {
-      "dfw": 3,
+      "dfw": 4,
       "local": 10
     }
   },
@@ -309,6 +310,11 @@
       "reason": "daily cap for crime reached",
       "title": "Dallas Police seek public's help identifying suspects in deadly October shooting"
     },
+    "ceaeb8fe29582112": {
+      "at": "2026-11-28T01:43:52.959448+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "TCU Finishes Third at Players Era after 88-69 Win over Baylor"
+    },
     "d6021fb5cfcf6a03": {
       "at": "2026-11-26T23:15:28.515150+00:00",
       "reason": "daily cap for community reached",
@@ -341,7 +347,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-27T18:49:00-06:00",
+  "last_post_at": "2026-11-27T19:49:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1486,6 +1492,19 @@
       "source": "Fort Worth Report",
       "title": "Fort Worth plan commission approves platting waivers, closing an alley for development",
       "url": "https://fortworthreport.org/2026/11/21/fort-worth-plan-commission-approves-platting-waivers-closing-an-alley-for-development/"
+    },
+    "8f29a75602d654b4": {
+      "at": "2026-11-27T19:49:00-06:00",
+      "category": "breaking",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "445060928",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4595476271433035806",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "FOX 4 Dallas-Fort Worth",
+      "title": "Dallas-bound American Airlines flight clips wings with another plane at Reagan National",
+      "url": "https://www.fox4news.com/news/dallas-bound-american-airlines-flight-clips-wings-another-plane-reagan-national"
     },
     "8f8740ad5adae026": {
       "at": "2026-11-20T14:24:00-06:00",
@@ -3235,7 +3254,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 162,
+  "total_posts": 163,
   "tried": {
     "1ab95098ab98f469": {
       "at": "2026-11-27T20:16:18.005986+00:00",
@@ -3257,6 +3276,11 @@
       "reason": "no summary to post: the feed gave only a headline",
       "title": "One person dead after single-vehicle accident in North Dallas, police say"
     },
+    "327d6d77c1246e5a": {
+      "at": "2026-11-28T01:43:52.960265+00:00",
+      "reason": "no picture of the subject that we may use",
+      "title": "North Texas doctors urge vigilance as flu, RSV cases climb"
+    },
     "32bd9658720e7a73": {
       "at": "2026-11-27T22:13:45.620974+00:00",
       "reason": "no summary to post: the feed gave only a headline",
@@ -3268,7 +3292,7 @@
       "title": "Horned Frogs Fall to Blue Jays, 95-87"
     },
     "4a26b3b0d504932c": {
-      "at": "2026-11-27T23:14:12.618170+00:00",
+      "at": "2026-11-28T01:43:52.960278+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Reata opened its kitchen to a new crew for a Sunday night service"
     },
