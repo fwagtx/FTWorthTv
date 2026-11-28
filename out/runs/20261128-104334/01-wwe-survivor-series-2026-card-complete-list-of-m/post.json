@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-104334/01-wwe-survivor-series-2026-card-complete-list-of-m/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-104334/01-wwe-survivor-series-2026-card-complete-list-of-m/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "WWE Survivor Series 2026 card: Complete list of matches and participants for WarGames in Houston",
+    "caption": "Survivor Series takes place in Houston on Nov. 28 with three namesake matches scheduled. Survivor Series has been defined by two eras: the original event, which ran from 1987 to 2021, and the WarGames period.\n\nThis year, those eras collide at Daikin Park in Houston. WWE superstars might want to take tips from the Houston Rockets because teamwork is the name of the game.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/wwe/news/wwe-survivor-seies-2026-match-card-matches-date-wargames/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "hockey arena ice",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "84265f099341c2ad",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "WWE Survivor Series 2026 card: Complete list of matches and participants for WarGames in Houston",
+    "summary": "Survivor Series takes place in Houston on Nov. 28 with three namesake matches scheduled. Survivor Series has been defined by two eras: the original event, which ran from 1987 to 2021, and the WarGames period. This year, those eras collide at Daikin Park in Houston. WWE superstars might want to take tips from the Houston Rockets because teamwork is the name of the game. Three team-based matches are set for this year's show, including two WarGames matches and a traditional five-on-five Survivor Series match. The match taking up the most time on WWE programming is the gang war between The Bloodline and 946. Roman Reigns and Royce Keys' factions will settle matters inside the massive WarGames cage. The traditional format commonly features five superstars on each team. It's an elimination match in which all members of a team must be pinned, submitted, counted out or disqualified before a…",
+    "url": "https://www.cbssports.com/wwe/news/wwe-survivor-seies-2026-match-card-matches-date-wargames/",
+    "published": "2026-11-28T16:27:17+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/14/586cac10-0174-44cd-a692-1b4b4345dcda/the-bloodline-survivor-series-wargames-pro-wrestling-nov-13-2026-start-time.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.45,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5724
+  }
+}

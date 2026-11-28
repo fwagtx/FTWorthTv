@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-28T17:08:34.158170+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-104334/02-usc-vs-texas-tech-to-open-2027-season-trojans-re/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-104334/02-usc-vs-texas-tech-to-open-2027-season-trojans-re/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "USC vs. Texas Tech to open 2027 season: Trojans, Red Raiders set for Las Vegas meeting in 'MGM Classic'",
+    "caption": "The Red Raiders and Trojans will get next season started in Sin City with a marquee nonconference showdown. The 2027 college football season is set to start with a bang.\n\nTexas Tech and USC have announced a non-conference matchup at Allegiant Stadium in Las Vegas on Aug. 27, 2027. The Red Raiders and Trojans have only met three times in their history, with the most recent matchup coming in the 1995 Cotton Bowl.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/college-football/news/usc-texas-tech-open-2027-season-las-vegas-mgm-classic/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "4325482b581b257e",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "USC vs. Texas Tech to open 2027 season: Trojans, Red Raiders set for Las Vegas meeting in 'MGM Classic'",
+    "summary": "The Red Raiders and Trojans will get next season started in Sin City with a marquee nonconference showdown. The 2027 college football season is set to start with a bang. Texas Tech and USC have announced a non-conference matchup at Allegiant Stadium in Las Vegas on Aug. 27, 2027. The Red Raiders and Trojans have only met three times in their history, with the most recent matchup coming in the 1995 Cotton Bowl. USC has won all three matchups, but Texas Tech will try to get on the board while picking up a quality win to start next season. 2027 season kickoff is officially set in Las Vegas! 🎰✌️ pic.twitter.com/Zw7Ewvm4O3 Trojans coach Lincoln Riley has plenty of connections to Texas Tech. Riley worked there as an assistant under Mike Leach from 2003-09. After starting as a student assistant, Riley climbed to the role of wide receivers coach before taking an offensive coordinator job at…",
+    "url": "https://www.cbssports.com/college-football/news/usc-texas-tech-open-2027-season-las-vegas-mgm-classic/",
+    "published": "2026-11-28T16:11:10+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/28/9bac0937-c430-4f6a-8bc9-4884f91f2185/gettyimages-2304850467-2.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.45,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5549
+  }
+}
