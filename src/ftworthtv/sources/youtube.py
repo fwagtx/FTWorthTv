@@ -64,6 +64,12 @@ _REGIONAL_PERSON_RE = re.compile(
     r"commuters?|homeowners?|renters?|voters?|taxpayers?|parents?|workers?)\b", re.I)
 
 
+# Nov 28, render 328: WFAA's "3 strangers, 1 rental car: An unlikely road trip from DFW to Tucson" passed on "DFW": a trip that
+# leaves DFW for somewhere else is about where it goes; the airport as a starting line is not our place
+_TRIP_FROM_RE = re.compile(r"\b(?:from|out of|leaving|left)\s+(?:dfw|dallas-fort worth|north texas)(?:\s+airport)?\s+(?:to|for|bound for)\b",
+                           re.I)
+
+
 def names_our_place(title: str, desc: str = "") -> bool:
     """A Tarrant-side place, or the region as a whole; but a title whose subject is Dallas ("The Dallas Foundation awards
     ... to North Texas nonprofits") does not become ours because it also says North Texas, and "a North Texas woman" is
@@ -72,6 +78,8 @@ def names_our_place(title: str, desc: str = "") -> bool:
     if any(p in text for p in PLACE_WORDS if p not in REGIONAL_WORDS):
         return True
     if not any(p in text for p in REGIONAL_WORDS):
+        return False
+    if _TRIP_FROM_RE.search(text):
         return False
     if _REGIONAL_PERSON_RE.search(text):
         low_desc = (desc or "").lower()

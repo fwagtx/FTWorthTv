@@ -362,6 +362,9 @@ _COLUMN_ROUNDUP_RE = re.compile(
                          # Nov 26, render 290: "'Happy Thanksgiving America': Jason Kelce leads reactions to Eagles' win over
                          # Cowboys": other people's posts about a game the page already reported
                          r"\b(?:leads?|tops) reactions\b|\b(?:social media|twitter|the internet|nfl world|fans|x) reacts?\b|"
+                         # Nov 28, render 328: WFAA's "'It's just pitiful. It's ridiculous.' | Dallas Cowboys superfans share their
+                         # frustration and angst": fans' feelings about a season are a feature, not news
+                         r"\b(?:super ?)?fans (?:share|sound off|vent|voice|air|express|weigh in|speak out|unload|lament)\b|"
                          r"\breactions? to (?:the )?[\w'’ .-]{0,40}?(?:win|loss|victory|defeat|collapse|comeback|meltdown|upset)\b|"
                          r"\b(?:winners and losers|takeaways|overreactions|what we learned|things we learned|observations from|"
                          r"instant analysis|hot takes?|mailbag|studs and duds|stock up,? stock down|"

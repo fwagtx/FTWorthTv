@@ -135,3 +135,17 @@ def test_north_texas_performers_need_our_side_named():
     assert not names_our_place(title, "Hundreds of North Texas dancers face extra hotel and flight costs after Macy's moved its parade.")
     assert names_our_place(title, "Dance teams from Keller and Mansfield face extra hotel costs after Macy's moved its parade.")
     assert names_our_place("North Texas storms knock out power overnight | NBC DFW")
+
+
+def test_a_trip_that_leaves_dfw_is_not_our_place_and_fans_sharing_feelings_is_a_feature():
+    """Nov 28, render 328: WFAA's YouTube "3 strangers, 1 rental car: An unlikely road trip from DFW to Tucson" passed the
+    place gate on "DFW", and WFAA's "'It's just pitiful. It's ridiculous.' | Dallas Cowboys superfans share their frustration
+    and angst" was drafted as a sports text card."""
+    from ftworthtv.filters import roundup_column
+    from ftworthtv.sources.youtube import names_our_place
+    assert not names_our_place("3 strangers, 1 rental car: An unlikely road trip from DFW to Tucson")
+    assert names_our_place("DFW Airport expects record Thanksgiving travel")
+    assert names_our_place("Fort Worth family drives from DFW to Tucson")
+    assert roundup_column("'It's just pitiful. It's ridiculous.' | Dallas Cowboys superfans share their frustration and angst")
+    assert roundup_column("Rangers fans sound off on the offseason")
+    assert not roundup_column("Cowboys fans pack AT&T Stadium for Thanksgiving game")
