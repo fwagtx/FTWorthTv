@@ -1613,3 +1613,15 @@ def test_a_description_that_spells_out_the_headline_is_about_it():
 </channel></rss>"""
     [story] = parse_feed({"name": "WFAA Sports", "category_hint": "sports"}, feed, datetime.now(timezone.utc))
     assert story.summary == d
+
+
+def test_a_description_is_matched_to_its_headline_by_word_stems():
+    """Nov 27, render 317: WFAA's "Fort Worth police tighten pursuit policy to reduce risk without compromising crimefighting
+    ability" lost "Nearly 1,000 police pursuits over five years resulted in hundreds of crashes and 10 deaths." ("pursuit" and
+    "pursuits" did not match) and was dropped as headline-only."""
+    from ftworthtv.sources.rss import _stem, about_headline
+    assert _stem("pursuits") == _stem("pursuit") and _stem("policies") == _stem("policy") and _stem("crashes") == _stem("crash")
+    assert about_headline("Fort Worth police tighten pursuit policy to reduce risk without compromising crimefighting ability",
+                          "Nearly 1,000 police pursuits over five years resulted in hundreds of crashes and 10 deaths.")
+    assert not about_headline("Christmas in the Garden returns to Fort Worth Botanic Garden",
+                              "Sunday Night Football is heading to Cleveland as the Browns host the Raiders in primetime.")

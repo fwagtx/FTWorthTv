@@ -74,8 +74,20 @@ def about_headline(title: str, text: str) -> bool:
     if not text or not t:
         return True
     spelled = t | _words(" ".join(_TITLE_ALIASES[w] for w in t if w in _TITLE_ALIASES))
-    shared = len(spelled & _words(text[:700]))
+    # Nov 27, render 317: WFAA's "Fort Worth police tighten pursuit policy ..." lost "Nearly 1,000 police pursuits over five
+    # years resulted in hundreds of crashes and 10 deaths." for "pursuit" against "pursuits": words are compared by their stems
+    shared = len({_stem(w) for w in spelled} & {_stem(w) for w in _words(text[:700])})
     return shared >= (1 if len(t) <= 6 else 2)
+
+
+def _stem(word: str) -> str:
+    """'pursuits' -> 'pursuit', 'policies' -> 'policy', 'crashes' -> 'crash', 'closing' -> 'clos', 'closed' -> 'clos'."""
+    if word.endswith("ies") and len(word) > 5:
+        return word[:-3] + "y"
+    for suffix in ("ing", "ed", "es", "s", "e"):
+        if word.endswith(suffix) and len(word) - len(suffix) >= 4:
+            return word[: -len(suffix)]
+    return word
 
 
 def parse_feed(cfg: dict, content: bytes | str, now: datetime) -> list[Story]:
