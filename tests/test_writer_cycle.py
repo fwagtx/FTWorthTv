@@ -1625,3 +1625,14 @@ def test_a_description_is_matched_to_its_headline_by_word_stems():
                           "Nearly 1,000 police pursuits over five years resulted in hundreds of crashes and 10 deaths.")
     assert not about_headline("Christmas in the Garden returns to Fort Worth Botanic Garden",
                               "Sunday Night Football is heading to Cleveland as the Browns host the Raiders in primetime.")
+
+
+def test_a_one_line_dek_needs_one_shared_word():
+    """Nov 27, render 325: WFAA's "Arlington police investigating fatal apartment complex shooting, officials say" lost its
+    description ("Police say the victim was found dead in the parking lot Friday evening.") and was dropped as headline-only."""
+    from ftworthtv.sources.rss import about_headline
+    assert about_headline("Arlington police investigating fatal apartment complex shooting, officials say",
+                          "Police say the victim was found dead in the parking lot Friday evening.")
+    snf = ("Sunday Night Football is heading to Cleveland for the first time in seven years, as the Browns will host the Las Vegas "
+           "Raiders in primetime. The Browns are in the thick of the AFC wild card race.")
+    assert not about_headline("Fort Worth police investigate deadly crash on Loop 820 near Lake Worth", snf)

@@ -77,7 +77,11 @@ def about_headline(title: str, text: str) -> bool:
     # Nov 27, render 317: WFAA's "Fort Worth police tighten pursuit policy ..." lost "Nearly 1,000 police pursuits over five
     # years resulted in hundreds of crashes and 10 deaths." for "pursuit" against "pursuits": words are compared by their stems
     shared = len({_stem(w) for w in spelled} & {_stem(w) for w in _words(text[:700])})
-    return shared >= (1 if len(t) <= 6 else 2)
+    # Nov 27, render 325: WFAA's "Arlington police investigating fatal apartment complex shooting, officials say" lost "Police say
+    # the victim was found dead in the parking lot Friday evening.": a one-line dek words the headline its own way ("found dead"
+    # for "fatal"), so a short description needs one shared word; the broken feed's long, repeated article still needs two
+    short = len(text.strip()) <= 160
+    return shared >= (1 if len(t) <= 6 or short else 2)
 
 
 def _stem(word: str) -> str:
