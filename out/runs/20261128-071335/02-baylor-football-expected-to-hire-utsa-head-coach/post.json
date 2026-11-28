@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-28T13:38:35.305551+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-071335/02-baylor-football-expected-to-hire-utsa-head-coach/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-071335/02-baylor-football-expected-to-hire-utsa-head-coach/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Baylor football expected to hire UTSA head coach",
+    "caption": "ESPN speculates that Baylor is expected to hire Jeff Traylor as the Bears next head football coach.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/sports/college/baylor/baylor-football-expected-hire-utsa-head-coach/500-eb0722e2-767e-4599-b849-d419c27e4d46\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "5e77cdaf8ea31f66",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "Baylor football expected to hire UTSA head coach",
+    "summary": "ESPN speculates that Baylor is expected to hire Jeff Traylor as the Bears next head football coach.",
+    "url": "https://www.wfaa.com/article/sports/college/baylor/baylor-football-expected-hire-utsa-head-coach/500-eb0722e2-767e-4599-b849-d419c27e4d46",
+    "published": "2026-11-28T03:29:28+00:00",
+    "category_hint": "sports",
+    "image_url": "https://media.tegna-media.com/assets/KCEN/images/d175701b-70a1-4870-b4ac-9e8e963eb3b1/20261125T002720/d175701b-70a1-4870-b4ac-9e8e963eb3b1_750x422.jpg",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.72,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.3069
+  }
+}

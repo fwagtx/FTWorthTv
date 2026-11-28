@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=0MxJ3sFttHE",
+  "scheduled_at": "2026-11-28T14:03:35.305551+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "North Texas high school football teams battle in regionals",
+    "caption": "WATCH: North Texas high school football teams battle in regionals\n\nVideo: CBS Texas on YouTube",
+    "first_comment": "Source: CBS Texas on YouTube https://www.youtube.com/watch?v=0MxJ3sFttHE\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "adab0e98a6cc0329",
+    "source": "CBS Texas",
+    "source_kind": "video",
+    "title": "North Texas high school football teams battle in regionals",
+    "summary": "The Texas high school football playoffs continued Friday night with key regional matchups across North Texas. Teams competed for a spot in the regional finals as the road to the state championships continued.",
+    "url": "https://www.youtube.com/watch?v=0MxJ3sFttHE",
+    "published": "2026-11-28T05:00:32+00:00",
+    "category_hint": null,
+    "image_url": "https://i1.ytimg.com/vi/0MxJ3sFttHE/hqdefault.jpg",
+    "image_credit": "Video: CBS Texas",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.63,
+    "extra": {
+      "video_id": "0MxJ3sFttHE",
+      "channel": "CBS Texas",
+      "handle": "@CBSTexas",
+      "views": 1153,
+      "feed_title": "CBS Texas",
+      "scope": "dfw"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.304
+  }
+}
