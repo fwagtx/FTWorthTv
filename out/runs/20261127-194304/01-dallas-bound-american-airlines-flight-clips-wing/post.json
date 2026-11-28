@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-194304/01-dallas-bound-american-airlines-flight-clips-wing/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261127-194304/01-dallas-bound-american-airlines-flight-clips-wing/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "breaking",
+    "headline": "Dallas-bound American Airlines flight clips wings with another plane at Reagan National",
+    "caption": "Two American Airlines flights taxiing for departure at Ronald Reagan Washington National Airport clipped wings Friday, a spokesperson for the company said. American Airlines flight 638 bound for Dallas and flight 2152 bound for Chicago made contact with each other and returned to their respective gates.\n\nAn American Airlines spokesperson said the wingtips of the 737-800s made contact. Maintenance crews will inspect the planes.",
+    "first_comment": "Source: FOX 4 Dallas-Fort Worth https://www.fox4news.com/news/dallas-bound-american-airlines-flight-clips-wings-another-plane-reagan-national\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown night",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "8f29a75602d654b4",
+    "source": "FOX 4 Dallas-Fort Worth",
+    "source_kind": "rss",
+    "title": "Dallas-bound American Airlines flight clips wings with another plane at Reagan National",
+    "summary": "Two American Airlines flights taxiing for departure at Ronald Reagan Washington National Airport clipped wings Friday, a spokesperson for the company said. Two American Airlines flights taxiing for departure at Ronald Reagan Washington National Airport clipped wings Friday, a spokesperson for the company said. American Airlines flight 638 bound for Dallas and flight 2152 bound for Chicago made contact with each other and returned to their respective gates. An American Airlines spokesperson said the wingtips of the 737-800s made contact. No injuries were reported. Maintenance crews will inspect the planes. People on both flights are expected to re-depart later on Friday. The Source: Information in this article comes from American Airlines.",
+    "url": "https://www.fox4news.com/news/dallas-bound-american-airlines-flight-clips-wings-another-plane-reagan-national",
+    "published": "2026-11-28T00:25:01+00:00",
+    "category_hint": null,
+    "image_url": "https://static.fox4news.com/www.fox4news.com/content/uploads/2020/09/aa.jpg",
+    "image_credit": "Photo: FOX 4 Dallas-Fort Worth",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "Latest News | FOX 4 News",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "breaking",
+    "relevance": 2,
+    "score": 1.3458
+  }
+}
