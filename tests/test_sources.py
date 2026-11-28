@@ -1039,3 +1039,20 @@ def test_a_data_plot_is_not_a_photo_and_planes_clipping_wings_is_breaking():
                   url="https://www.fox4news.com/news/x")
     assert infer_category(story) == "breaking"
     assert happened(t)
+
+
+def test_a_wind_alert_gets_no_rain_photo_and_a_video_of_a_posted_topic_is_a_repeat():
+    """Nov 28, render 327: a Wind Advisory for 46 counties drew raindrops on an umbrella ("Rains" County was in its headline's
+    list), and WFAA's YouTube "Full interview: Fort Worth Police Chief Eddie Garcia discusses changes to FWPD's pursuit policy"
+    came the morning after "Fort Worth police tighten pursuit policy ..." went out."""
+    from ftworthtv.filters import same_topic_phrase
+    from ftworthtv.images.subject import weather_topics
+    assert weather_topics("wind advisory") == []                 # wind has no library picture: a text card
+    assert weather_topics("high wind warning") == []
+    assert weather_topics("chance rain showers, high near 49")[0] == "rain"
+    assert weather_topics("freeze warning")[0] == "frost"
+    assert same_topic_phrase("Full interview: Fort Worth Police Chief Eddie Garcia discusses changes to FWPD's pursuit policy",
+                             "Fort Worth police tighten pursuit policy to reduce risk without compromising crimefighting ability")
+    assert not same_topic_phrase("Cowboy Santa arrives to the Fort Worth Stockyards",
+                                 "Fort Worth police tighten pursuit policy to reduce risk without compromising crimefighting ability")
+    assert not same_topic_phrase("Fort Worth police chief talks budget", "Fort Worth police chief named in lawsuit")

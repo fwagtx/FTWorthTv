@@ -420,6 +420,27 @@ def same_subjects(text: str, posted_title: str) -> bool:
     return len(_subject_names(text) & _subject_names(posted_title)) >= 2
 
 
+# Nov 28, render 327: WFAA's YouTube "Full interview: Fort Worth Police Chief Eddie Garcia discusses changes to FWPD's pursuit
+# policy" came the morning after "Fort Worth police tighten pursuit policy ..." went out, and the two named no subject in
+# common (a chief's name against a department): a video sharing the posted story's own topic phrase is that story again
+_GENERIC_PHRASE_WORDS = {"fort", "worth", "north", "texas", "county", "tarrant", "dallas", "city", "police", "department", "chief",
+                         "council", "school", "news", "live", "video", "full", "interview", "update", "today", "tonight",
+                         "weekend", "week", "says", "said", "after", "before", "with", "from", "this", "that", "their", "about",
+                         "over", "into", "what", "when", "where", "will", "would", "could", "people", "officials", "residents"}
+
+
+def _topic_phrases(text: str) -> set[str]:
+    words = re.findall(r"[a-z][a-z'-]{3,}", (text or "").lower())
+    words = [w.removesuffix("'s").removesuffix("’s") for w in words]
+    return {f"{a} {b}" for a, b in zip(words, words[1:])
+            if a not in _GENERIC_PHRASE_WORDS and b not in _GENERIC_PHRASE_WORDS}
+
+
+def same_topic_phrase(text: str, posted_title: str) -> bool:
+    """A video whose title shares a two-word topic phrase ("pursuit policy") with a story posted in the last two days."""
+    return bool(_topic_phrases(text) & _topic_phrases(posted_title))
+
+
 def highlight_reel(title: str) -> bool:
     """'George Pickens' Best Plays from 102-yard game | Week 11 Highlights': a team channel's highlight reel is a link
     to a clip, not Fort Worth news, and the sports cap carried two of them to the next morning (Nov 22)."""
@@ -1679,7 +1700,8 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "video":
             vtwin = state.recent_title_like(story.title, now, hours=48,
-                                            match=lambda x, y: same_subjects(f"{x}. {(story.summary or '')[:300]}", y))
+                                            match=lambda x, y: same_subjects(f"{x}. {(story.summary or '')[:300]}", y)
+                                            or same_topic_phrase(x, y))
             if vtwin:
                 dropped.append((story, f"a video of a story already posted: {vtwin[:60]}"))
                 continue

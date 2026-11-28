@@ -10,7 +10,7 @@
     "2026-11-25": 19,
     "2026-11-26": 15,
     "2026-11-27": 14,
-    "2026-11-28": 1
+    "2026-11-28": 2
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -108,7 +108,8 @@
       "weather": 1
     },
     "2026-11-28": {
-      "crime": 1
+      "crime": 1,
+      "sports": 1
     }
   },
   "daily_by_kind": {
@@ -168,7 +169,7 @@
       "wanted": 2
     },
     "2026-11-28": {
-      "rss": 1
+      "rss": 2
     }
   },
   "daily_by_scope": {
@@ -221,7 +222,8 @@
       "local": 10
     },
     "2026-11-28": {
-      "local": 1
+      "local": 1,
+      "texas": 1
     }
   },
   "deferred": {
@@ -347,7 +349,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-28T06:30:00-06:00",
+  "last_post_at": "2026-11-28T06:55:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -2218,6 +2220,19 @@
       "title": "Shelter in place order lifted after Weatherford Aerospace fire threatens chemical tanks",
       "url": "https://fortworthreport.org/2026/11/25/shelter-in-place-order-lifted-after-weatherford-aerospace-fire-threatens-chemical-tanks/"
     },
+    "f96935628a9cea1b": {
+      "at": "2026-11-28T06:55:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "445387084",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1497517753194005899",
+      "publisher": "metricool-session",
+      "scope": "texas",
+      "source": "KXAN Austin",
+      "title": "No. 3 Texas clinches SEC Championship Game berth with 16-6 win over Texas A&M",
+      "url": "https://www.kxan.com/sports-general/horns-report/live-updates-no-3-texas-vs-texas-am/"
+    },
     "f99bdb3e6bdf746a": {
       "at": "2026-11-25T07:35:00-06:00",
       "category": "crime",
@@ -2559,6 +2574,11 @@
     "274fbd3e228ce68a": {
       "at": "2026-11-22T14:23:34.180834+00:00",
       "reason": "a third weather post before 10 am (WFAA's 7-day outlook at 6:55 and the NWS forecast at 8:35 already out); the weather cap is now 2"
+    },
+    "27eed7346bbeff6a": {
+      "at": "2026-11-28T12:16:29.762210+00:00",
+      "reason": "WFAA's full interview video on the FWPD pursuit-policy changes: the same news as last night's 6:49 pm pursuit-policy post",
+      "title": "Full interview: Fort Worth Police Chief Eddie Garcia discusses changes to FWPD's pursuit policy"
     },
     "2998b3c145eb81a2": {
       "at": "2026-11-24T21:45:09.523256+00:00",
@@ -3267,7 +3287,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 164,
+  "total_posts": 165,
   "tried": {
     "073ea4c28e52affd": {
       "at": "2026-11-28T04:43:55.081406+00:00",

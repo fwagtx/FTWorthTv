@@ -243,6 +243,11 @@ def plan_image(draft: PostDraft, settings: Settings, state: State, workdir: Path
         # Title Case headline lost its names and drew a Stockyards beat photo, Justin Timberlake's documentary among them)
         sp = plan_subject(story.title, story.summary or "", copy.category)
         weather_text = " ".join(str(x) for x in (story.title, story.extra.get("short"), story.extra.get("event"))).lower()
+        if story.source_kind == "nws_alert":
+            # Nov 28, render 327: a Wind Advisory for 46 counties drew a rain photo from "Rains" County in its headline's
+            # list: an alert's weather is its event, never its counties
+            weather_text = " ".join(str(x) for x in (story.extra.get("event") or story.title.split(":", 1)[0],
+                                                     story.extra.get("short"))).lower()
         if story.source_kind in ("nws_forecast", "nws_alert") or copy.category == "weather" and sp.mode == "beat":
             from .subject import weather_topics
             lib_topics = weather_topics(weather_text)
