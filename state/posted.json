@@ -225,11 +225,6 @@
       "reason": "daily cap for community reached",
       "title": "Silver Alert discontinued for 82-year-old man last seen in San Antonio on Thanksgiving"
     },
-    "1741be6b0c3659eb": {
-      "at": "2026-11-26T03:12:50.377030+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Thanks-Giving Square and Chapel celebrates 50 years of creating gratitude in Dallas"
-    },
     "17d95716459e3730": {
       "at": "2026-11-26T04:16:21.863649+00:00",
       "reason": "daily cap for community reached",
@@ -284,6 +279,11 @@
       "at": "2026-11-26T04:16:21.863673+00:00",
       "reason": "daily cap for community reached",
       "title": "‘South Park’ Celebrates ‘GTA VI’ But Outages, AI Data Centers & Zombie Kenny Stand In The Way In Season 29 Finale"
+    },
+    "78bac2239965db74": {
+      "at": "2026-11-28T03:13:14.433748+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "Baylor set to hire UTSA coach Jeff Traylor after leading Roadrunners to new heights"
     },
     "79c2a7de0572f9c0": {
       "at": "2026-11-26T14:16:03.078372+00:00",
@@ -3267,12 +3267,12 @@
       "title": "Goo Goo Dolls Fans Slam NBC Over Thanksgiving Halftime Show Snub: ‘Badly Handled’"
     },
     "273c4bbe9b854a9e": {
-      "at": "2026-11-28T00:43:45.448318+00:00",
+      "at": "2026-11-28T03:13:14.434433+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Early voting opens Nov. 30 for Tarrant Appraisal District runoff election"
     },
     "32650cf1316d4e8d": {
-      "at": "2026-11-28T00:43:45.448341+00:00",
+      "at": "2026-11-28T03:13:14.434446+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "One person dead after single-vehicle accident in North Dallas, police say"
     },
@@ -3307,7 +3307,7 @@
       "title": "North Texas dance teams face unexpected costs after Macy’s Thanksgiving Day Parade postponement"
     },
     "97dcdc91f6f6001d": {
-      "at": "2026-11-28T00:43:45.448328+00:00",
+      "at": "2026-11-28T03:13:14.434443+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Smash Mob Burgers in Arlington aims to keep it simple and good"
     },
@@ -3347,7 +3347,7 @@
       "title": "Musume restaurant reopens nearly 3 years after downtown Fort Worth explosion"
     },
     "deed6afe163d9362": {
-      "at": "2026-11-28T00:43:45.448338+00:00",
+      "at": "2026-11-28T03:13:14.434448+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Affluent DFW city unwraps 5th biggest holiday budget in the U.S."
     },
