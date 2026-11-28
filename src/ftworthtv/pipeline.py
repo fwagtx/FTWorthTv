@@ -253,6 +253,12 @@ def run(settings: Settings, *, now: datetime | None = None, stories: list[Story]
                         or same_vote_of_confidence(x, story.summary or "", y) or same_hire(x, story.summary or "", y))
             twin = state.recent_title_like(story.title, now, hours=48, match=_same_news)
             twin = twin or next((d.story.title for d in drafts if _same_news(story.title, d.story.title)), None)
+            if not twin:
+                from .filters import same_fatal_incident
+                # one deadly incident, two outlets, hours apart (Nov 28, render 342: Arlington's fatal parking-lot shooting)
+                twin = state.recent_title_like(story.title, now, hours=18,
+                                               match=lambda x, y: same_fatal_incident(x, story.summary or "", y))
+                twin = twin or next((d.story.title for d in drafts if same_fatal_incident(story.title, "", d.story.title)), None)
             if twin:                   # the lead the article gave names the departure already posted ("Change in Leadership");
                 report.skipped.append((story, f"same news already posted: {twin[:60]}"))   # Nov 24: a 160-character teaser
                 continue               # skipped the check, so WFAA's copy of a story NBC 5's was skipped for went through

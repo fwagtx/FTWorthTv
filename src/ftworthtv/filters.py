@@ -1424,6 +1424,43 @@ def same_incident(title: str, summary: str, posted_title: str) -> bool:
     return any(n in (posted_title or "").lower() for n in names)
 
 
+# Nov 28, render 342: CBS News Texas's "Arlington shooting leaves teen dead, police report" (1:16 p.m.) came seven hours after
+# WFAA's "Arlington police investigating fatal apartment complex shooting, officials say" went out: one city, one kind of
+# incident, a death in both, and the newer headline reports no arrest, no charge and no name
+_DEATH_RE = re.compile(r"\b(?:dead|killed|kills|fatal|fatally|deadly|dies|died|death|homicide|murder(?:ed)?|slain)\b", re.I)
+_NEWER_FACT_RE = re.compile(r"\b(?:arrest(?:ed|s)?|charged|charges|identified|names?d?|in custody|surrender(?:s|ed)?|indicted|"
+                            r"suspect (?:sought|wanted)|second|another|2nd|again)\b", re.I)
+_INCIDENT_CITIES = ("fort worth", "arlington", "grand prairie", "mansfield", "burleson", "keller", "hurst", "euless", "bedford",
+                    "haltom city", "north richland hills", "richland hills", "watauga", "saginaw", "lake worth", "white settlement",
+                    "benbrook", "crowley", "kennedale", "forest hill", "everman", "azle", "southlake", "grapevine", "colleyville",
+                    "weatherford", "cleburne", "denton", "dallas", "irving", "garland", "mesquite", "plano", "frisco", "mckinney")
+_INCIDENT_KINDS = (("shooting", re.compile(r"\b(?:shooting|shot|gunfire|gunman)\b", re.I)),
+                   ("stabbing", re.compile(r"\b(?:stabbing|stabbed)\b", re.I)),
+                   ("crash", re.compile(r"\b(?:crash|wreck|collision|hit-and-run)\b", re.I)),
+                   ("fire", re.compile(r"\b(?:fire|blaze)\b", re.I)))
+
+
+def _incident_city(title: str) -> str | None:
+    low = _plain(title or "")
+    return next((c for c in sorted(_INCIDENT_CITIES, key=len, reverse=True)
+                 if re.search(r"(?<![\w])" + re.escape(c) + r"(?![\w])", low)), None)
+
+
+def same_fatal_incident(title: str, summary: str, posted_title: str) -> bool:
+    """One deadly incident told twice: the same city and the same kind of incident, a death in both headlines, and nothing
+    newer in the second (an arrest, a charge, a name, a second incident). The pipeline checks it over 18 hours only, since
+    a city can have two such incidents in two days."""
+    city = _incident_city(title)
+    if not city or city != _incident_city(posted_title):
+        return False
+    kinds = [k for k, rx in _INCIDENT_KINDS if rx.search(title or "")]
+    if not kinds or not any(_INCIDENT_KINDS[[k for k, _ in _INCIDENT_KINDS].index(k)][1].search(posted_title or "") for k in kinds):
+        return False
+    if not (_DEATH_RE.search(title or "") and _DEATH_RE.search(posted_title or "")):
+        return False
+    return not _NEWER_FACT_RE.search(title or "")
+
+
 # Nov 26, render 265: FOX 4's "Fort Worth country singer found not guilty after murder trial" a day after CBS's "Fort Worth
 # recording artist acquitted of murder in 2025 shooting death of man": one verdict, told twice
 _VERDICT_CLASSES = (("acquittal", re.compile(r"\b(?:acquitted|acquittal|found not guilty|not guilty)\b", re.I)),

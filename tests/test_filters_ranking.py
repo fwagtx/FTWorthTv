@@ -755,3 +755,19 @@ def test_qualifying_with_a_win_is_a_result():
     posted = "USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas"
     assert same_game("Sanchez hat trick sends USWNT to the World Cup with 8-0 qualifying victory over El Salvador", posted)
     assert not same_game("USWNT to face El Salvador again in March", posted)
+
+
+def test_one_deadly_incident_told_twice_is_the_same_news():
+    """Nov 28, render 342: CBS News Texas's "Arlington shooting leaves teen dead, police report" came seven hours after WFAA's
+    "Arlington police investigating fatal apartment complex shooting, officials say" went out."""
+    import inspect
+    from ftworthtv import pipeline
+    from ftworthtv.filters import same_fatal_incident
+    posted = "Arlington police investigating fatal apartment complex shooting, officials say"
+    assert same_fatal_incident("Arlington shooting leaves teen dead, police report", "", posted)
+    assert not same_fatal_incident("Arlington police arrest teen in deadly apartment shooting", "", posted)   # an arrest is news
+    assert not same_fatal_incident("Another deadly shooting in Arlington overnight", "", posted)
+    assert not same_fatal_incident("Fort Worth shooting leaves man dead", "", posted)
+    assert not same_fatal_incident("Arlington crash leaves 1 dead", "", posted)
+    assert not same_fatal_incident("Arlington shooting leaves man hurt", "", posted)
+    assert "hours=18" in inspect.getsource(pipeline)
