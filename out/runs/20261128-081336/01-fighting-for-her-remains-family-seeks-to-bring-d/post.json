@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-081336/01-fighting-for-her-remains-family-seeks-to-bring-d/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-081336/01-fighting-for-her-remains-family-seeks-to-bring-d/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "crime",
+    "headline": "‘Fighting for her remains': Family seeks to bring Dallas shooting victim home",
+    "caption": "After the Deep Ellum shootings, a family says their fight isn’t over as they try to bring Unique Benjamin home and secure her remains. The siblings of a woman killed during a series of shootings in Dallas’ Deep Ellum entertainment district on Halloween night are fighting to bring her home to Iowa nearly a month after her death.\n\nJazzmin Jackson and Lamaur Benjamin said they are struggling to raise enough money to transport their sister, 28-year-old Unique Benjamin, home. They also said they are fighting to have her remains released.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/family-seeks-bring-dallas-deep-ellum-shooting-victim-home/4111395/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Halloween decorations",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "902a6321d3e78808",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "‘Fighting for her remains': Family seeks to bring Dallas shooting victim home",
+    "summary": "After the Deep Ellum shootings, a family says their fight isn’t over as they try to bring Unique Benjamin home and secure her remains. The siblings of a woman killed during a series of shootings in Dallas’ Deep Ellum entertainment district on Halloween night are fighting to bring her home to Iowa nearly a month after her death. Jazzmin Jackson and Lamaur Benjamin said they are struggling to raise enough money to transport their sister, 28-year-old Unique Benjamin, home. They also said they are fighting to have her remains released. “We ain't too proud to reach out. We need help,” Jackson said. Dallas police said four people were killed and 15 others were injured in three separate shootings during the early morning hours of Nov. 1. Police have arrested three people and are searching for a fourth. As the community works to reinforce a sense of safety in the entertainment district…",
+    "url": "https://www.nbcdfw.com/news/local/family-seeks-bring-dallas-deep-ellum-shooting-victim-home/4111395/",
+    "published": "2026-11-28T08:01:23+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/split-2-diagonal-1200x675-28-3.jpg?quality=85&strip=all&fit=1200,675",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "crime",
+    "relevance": 2,
+    "score": 0.4151
+  }
+}

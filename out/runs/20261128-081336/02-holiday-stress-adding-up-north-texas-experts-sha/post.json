@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-28T14:38:36.275469+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-081336/02-holiday-stress-adding-up-north-texas-experts-sha/post.jpg",
+    "credit": "Photo: DerekAyala27 via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Downtown_Fort_Worth.jpg",
+    "photo_id": "lib-downtown-fort-worth-jpg",
+    "subject": "beat:skyline"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-081336/02-holiday-stress-adding-up-north-texas-experts-sha/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "Holiday stress adding up? North Texas experts share tips to protect your mental health",
+    "caption": "From setting boundaries to navigating grief, North Texas mental health experts share ways to make the holidays less overwhelming. The holiday season is here, bringing family gatherings, shopping, travel and celebrations.\n\nBut along with the festivities can come financial pressures, packed schedules and the expectation that everything should be perfect. For some North Texans, the most wonderful time of the year can also be one of the most stressful.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/holiday-stress-adding-up-north-texas-experts-share-tips-to-protect-your-mental-health/4111134/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "b0347add7751d0a8",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Holiday stress adding up? North Texas experts share tips to protect your mental health",
+    "summary": "From setting boundaries to navigating grief, North Texas mental health experts share ways to make the holidays less overwhelming. The holiday season is here, bringing family gatherings, shopping, travel and celebrations. But along with the festivities can come financial pressures, packed schedules and the expectation that everything should be perfect. For some North Texans, the most wonderful time of the year can also be one of the most stressful. \"The holidays usually will add a lot more demands without taking anything off our plate that's already there,\" said Dr. Roberto Gonzalez, a psychiatrist and medical director at Medical City Mental Health & Wellness Alliance. People are still working, paying bills and caring for their families, Gonzalez explained, while adding shopping, travel and holiday expectations to their schedules. But mental health experts say a few changes can help…",
+    "url": "https://www.nbcdfw.com/news/local/holiday-stress-adding-up-north-texas-experts-share-tips-to-protect-your-mental-health/4111134/",
+    "published": "2026-11-28T08:01:23+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2024/01/mental-health.jpg?quality=85&strip=all&fit=1274,715",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.3736
+  }
+}
