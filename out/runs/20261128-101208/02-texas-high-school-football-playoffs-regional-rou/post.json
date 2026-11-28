@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-28T16:37:08.075064+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-101208/02-texas-high-school-football-playoffs-regional-rou/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-101208/02-texas-high-school-football-playoffs-regional-rou/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Texas High School Football Playoffs: Regional round scores",
+    "caption": "Find the 2026 Class 6A Texas high school football Regional schedule with sites and start times. Scores will be updated throughout the playoffs.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/sports/hs-sports/2026-class-6a-texas-high-school-football-bi-district-playoff-schedule/4103096/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "64d6219a44779688",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "Texas High School Football Playoffs: Regional round scores",
+    "summary": "Find the 2026 Class 6A Texas high school football Regional schedule with sites and start times. Scores will be updated throughout the playoffs. 2026 Playoffs Schedules and Results 6A | 5A | 4A | 3A | 2A | 1A | Championship week schedule Regular Season Week 0, Preseason Rankings: IHSS Local Rankings Week 1, Aug. 27-29: Scores Week 2, Sept. 3-5: Scores | Rankings: IHSS Local | Campbell's Statewide Week 3, Sept. 10-12: Scores | Rankings : IHSS Local | Campbell's Statewide Week 4, Sept. 17-19: Scores | Rankings : IHSS Local | Campbell's Statewide Week 5, Sept. 23-26: Scores | Rankings : IHSS Local | Campbell's Statewide Week 6, Oct. 1-3: Scores | Rankings : IHSS Local | Campbell's Statewide Week 7, Oct. 8-10: Scores | Rankings : IHSS Local | Campbell's Statewide Week 8, Oct. 15-17: Scores | Rankings : IHSS Local | Campbell's Statewide Week 9, Oct. 22-24: Scores | Rankings : IHSS Local |…",
+    "url": "https://www.nbcdfw.com/news/sports/hs-sports/2026-class-6a-texas-high-school-football-bi-district-playoff-schedule/4103096/",
+    "published": "2026-11-28T10:01:01+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2021/11/Big-Game-Friday-Night-4P-110521.jpg?quality=85&strip=all&fit=1920,1080",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.72,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5319
+  }
+}

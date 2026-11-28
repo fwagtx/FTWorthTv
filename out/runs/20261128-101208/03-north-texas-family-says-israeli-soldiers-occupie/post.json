@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-28T17:02:08.075064+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-101208/03-north-texas-family-says-israeli-soldiers-occupie/post.jpg",
+    "credit": "Photo: MENA Water Review via Wikimedia Commons (CC BY 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "wikimedia",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Water_pipes_in_a_museum_display_comparing_West_Bank_and_settlement_pipes,_Palestine,_2022.jpg",
+    "photo_id": "commons-203729122",
+    "subject": "entity:west bank"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-101208/03-north-texas-family-says-israeli-soldiers-occupie/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "North Texas family says Israeli soldiers occupied their West Bank home",
+    "caption": "A North Texas family says soldiers entered their West Bank home, removed cameras and stayed for more than two weeks. For Andaleeb Mahmoud, the home is more than a building.\n\nIt is a place where her family and her husband's family gather, on land passed down through generations.",
+    "first_comment": "Source: NBC 5 DFW https://www.nbcdfw.com/news/local/north-texas-family-says-israeli-soldiers-occupied-their-west-bank-home/4111456/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "9d76cf21df5831a3",
+    "source": "NBC 5 DFW",
+    "source_kind": "rss",
+    "title": "North Texas family says Israeli soldiers occupied their West Bank home",
+    "summary": "A North Texas family says soldiers entered their West Bank home, removed cameras and stayed for more than two weeks. Here’s what happened next. A North Texas family says Israeli soldiers entered their home in the West Bank in October, removed security cameras and stayed at the property for more than two weeks, prompting the husband to travel thousands of miles to confront them. For Andaleeb Mahmoud, the home is more than a building. It is a place where her family and her husband's family gather, on land passed down through generations. “It’s a place where both families, you know, come together, my family, my husband’s family,” Mahmoud said. The family spent 20 years saving and working to build the house, Mahmoud said. She hoped it would remain a connection to the family's past and something her children could eventually pass down to their own children. But on Oct. 26, while Mahmoud was…",
+    "url": "https://www.nbcdfw.com/news/local/north-texas-family-says-israeli-soldiers-occupied-their-west-bank-home/4111456/",
+    "published": "2026-11-28T10:01:01+00:00",
+    "category_hint": null,
+    "image_url": "https://media.nbcdfw.com/2026/11/0_21-KXAS-5P-M-F-_-SOTVO-DFW-Allen-Family-Palestine-Home-Military-Takeover.png?fit=1920,1080&quality=85&strip=all",
+    "image_credit": "Photo: NBC 5 DFW",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.68,
+    "extra": {
+      "feed_title": "NBC 5 Dallas-Fort Worth",
+      "national": false,
+      "scope": "dfw"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.312
+  }
+}
