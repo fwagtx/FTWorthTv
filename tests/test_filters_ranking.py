@@ -746,3 +746,12 @@ def test_a_world_cup_qualifier_is_sports():
     s = Story(id="u", source="WFAA", source_kind="video", url="u", title="USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas",
               summary="The U.S. women beat El Salvador 8-0 in the 2026 Concacaf W Championship quarterfinal.")
     assert infer_category(s) == "sports"
+
+
+def test_qualifying_with_a_win_is_a_result():
+    """Nov 28: after WFAA's video "USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas" went out, WFAA
+    Sports' article on the same 8-0 game must read as the same game."""
+    from ftworthtv.filters import same_game
+    posted = "USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas"
+    assert same_game("Sanchez hat trick sends USWNT to the World Cup with 8-0 qualifying victory over El Salvador", posted)
+    assert not same_game("USWNT to face El Salvador again in March", posted)

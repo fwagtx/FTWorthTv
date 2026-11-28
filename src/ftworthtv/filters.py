@@ -1035,7 +1035,12 @@ _RESULT_RE = re.compile(r"\b(?:falls? to|fell to|tops?|topped|beats?|edges?|edge
                         r"escapes?|escaped|outlasts?|outscores?|outscored|downs|downed|"
                         # Nov 28, render 337: WFAA's "No. 9 Texas Tech beats TCU 48-27 ..." waited a day as a fresh story after TCU
                         # Athletics' "TCU Defeated by No. 11 Texas Tech" had gone out: "defeated by" was not read as a result
-                        r"defeats?|defeated|falls? at|fell at|loses? at|lost at)\b", re.I)
+                        r"defeats?|defeated|falls? at|fell at|loses? at|lost at|"
+                        # Nov 28, render 339: WFAA's video "USWNT qualifies for 2027 FIFA Women's World Cup with win in North
+                        # Texas" went out, and WFAA Sports' "Sanchez hat trick sends USWNT to the World Cup with 8-0 qualifying
+                        # victory over El Salvador" was not read as the same game: qualifying with a win is a result
+                        r"qualif(?:y|ies|ied) for|clinch(?:es|ed)?|(?:with|in) (?:a |an |the )?(?:\d{1,3}-\d{1,3} )?(?:win|victory)|"
+                        r"qualifying victory)\b", re.I)
 
 
 def _sports_result(title: str) -> bool:
