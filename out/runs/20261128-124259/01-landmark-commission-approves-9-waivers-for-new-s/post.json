@@ -1,0 +1,57 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-124259/01-landmark-commission-approves-9-waivers-for-new-s/post.jpg",
+    "credit": "Photo: Bob Francis | Fort Worth Report (CC BY-ND)",
+    "license": "cc-by-nd",
+    "provider": "source",
+    "source_url": "https://fortworthreport.org/2026/11/28/landmark-commission-approves-9-waivers-for-new-stockyards-boutique-hotel/",
+    "photo_id": null,
+    "subject": "own"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-124259/01-landmark-commission-approves-9-waivers-for-new-s/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "culture",
+    "headline": "Landmark Commission approves 9 waivers for new Stockyards boutique hotel",
+    "caption": "The hotel will be located at North Main and Northeast 23rd streets and include a two-story commercial building. A new 70-room boutique hotel and commercial project near the southern entrance of the Stockyards received waivers needed for development.\n\nThe Fort Worth Historic and Cultural Landmark Commission on Nov. 9 approved nine requested waivers for the project located at the corner of North Main and Northeast 23rd streets.",
+    "first_comment": "Source: Fort Worth Report @FortWorthReport https://fortworthreport.org/2026/11/28/landmark-commission-approves-9-waivers-for-new-stockyards-boutique-hotel/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth Stockyards",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "6ef8ef7db864782e",
+    "source": "Fort Worth Report",
+    "source_kind": "rss",
+    "title": "Landmark Commission approves 9 waivers for new Stockyards boutique hotel",
+    "summary": "The hotel will be located at North Main and Northeast 23rd streets and include a two-story commercial building. A new 70-room boutique hotel and commercial project near the southern entrance of the Stockyards received waivers needed for development. The Fort Worth Historic and Cultural Landmark Commission on Nov. 9 approved nine requested waivers for the project located at the corner of North Main and Northeast 23rd streets. The Fort Worth Report Documenters program empowers people like you to help fill the gaps in reporting on Tarrant County public meetings. Find out how you can join here . The development calls for an approximately 69,700-square-foot, three- or four-story hotel along North Main Street, along with a two-story commercial building. It’s part of a larger development by Fort Worth-based Delightful Development that includes a second hotel and underground parking. The…",
+    "url": "https://fortworthreport.org/2026/11/28/landmark-commission-approves-9-waivers-for-new-stockyards-boutique-hotel/",
+    "published": "2026-11-28T18:15:00+00:00",
+    "category_hint": null,
+    "image_url": "https://fortworthreport.org/wp-content/uploads/2025/11/20251112_113838-300x225.jpg",
+    "image_credit": "Photo: Bob Francis | Fort Worth Report",
+    "image_license": "cc-by-nd",
+    "image_policy": "source_image",
+    "official": false,
+    "always_relevant": true,
+    "weight": 1.0,
+    "extra": {
+      "feed_title": "Fort Worth Report",
+      "national": false,
+      "social_tag": "@FortWorthReport",
+      "article_fetched": true,
+      "scope": "local",
+      "page_caption": "Cattle from the Fort Worth Herd mosey down West Exchange Avenue on Nov. 12, 2025, to celebrate the new sign for the area. (Bob Francis | Fort Worth Report)",
+      "page_credit": "Bob Francis | Fort Worth Report"
+    },
+    "category": "culture",
+    "relevance": 4,
+    "score": 1.7653
+  }
+}
