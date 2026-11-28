@@ -1670,3 +1670,22 @@ def test_a_public_bodys_vote_weeks_ago_is_a_late_recap():
     coming = Story(id="c", source="Fort Worth Report", source_kind="rss", url="u", published=pub, title="Council to vote on budget",
                    summary="The Fort Worth City Council on Dec. 9 will vote on the budget.")
     assert not stale_meeting_recap(coming, pub)
+
+
+def test_a_board_that_heard_a_forecast_weeks_ago_is_a_late_recap():
+    """Nov 28, render 341: the Fort Worth Report's Nov. 28 "Downtown Fort Worth could see $2.9B in economic activity by 2030"
+    reported what the downtown TIRZ board "heard on Nov. 4"."""
+    from datetime import datetime, timezone
+    from ftworthtv.models import Story
+    from ftworthtv.writer import stale_meeting_recap
+    pub = datetime(2026, 11, 28, 18, 45, tzinfo=timezone.utc)
+    lead = ("Convention center upgrades, new hotels, Texas A&M's planned campus and other major developments are expected to "
+            "drive downtown growth. Downtown Fort Worth could generate about $2.9 billion in economic activity by 2030, largely "
+            "driven by convention center improvements, new hotels and Texas A&M University's new campus, the Downtown Tax "
+            "Increment Reinvestment Zone board heard on Nov. 4.")
+    s = Story(id="d", source="Fort Worth Report", source_kind="rss", url="u", published=pub,
+              title="Downtown Fort Worth could see $2.9B in economic activity by 2030", summary=lead)
+    assert stale_meeting_recap(s, pub)
+    soon = Story(id="e", source="Fort Worth Report", source_kind="rss", url="u", published=pub, title="Board approves plan",
+                 summary="The board approved a plan that takes effect on Dec. 1.")
+    assert not stale_meeting_recap(soon, pub)

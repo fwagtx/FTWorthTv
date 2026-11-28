@@ -504,6 +504,11 @@ _BODY_ACTED_RE = re.compile(r"\b(?:commission|council|board|commissioners|truste
                             r"\bon (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.? (\d{1,2})(?:,? (\d{4}))?,?\s+"
                             r"(?:unanimously\s+)?(?:approved|voted|denied|rejected|agreed|passed|adopted|granted|tabled|postponed|"
                             r"delayed|authorized|awarded|signed off|okayed|ok'd|gave)\b", re.I)
+# Nov 28, render 341: "... the Downtown Tax Increment Reinvestment Zone board heard on Nov. 4" (published Nov. 28): the verb first
+_BODY_HEARD_RE = re.compile(r"\b(?:commission|council|board|commissioners|trustees|committee|court|panel|authority)\s+"
+                            r"(?:heard|approved|voted|denied|rejected|agreed|passed|adopted|granted|tabled|postponed|delayed|"
+                            r"authorized|awarded|discussed|reviewed|received|learned|was told|were told|got)\b[^.]{0,60}?"
+                            r"\bon (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.? (\d{1,2})(?:,? (\d{4}))?\b", re.I)
 
 
 def stale_meeting_recap(story: Story, now: datetime) -> bool:
@@ -511,7 +516,7 @@ def stale_meeting_recap(story: Story, now: datetime) -> bool:
     more than a week old is not news for a daily page. A meeting still to come is never stale."""
     from datetime import date as _date
     lead = " ".join(_split_sentences(collapse_ws(story.summary or ""))[:3])
-    m = _MEETING_DATE_RE.search(lead) or _BODY_ACTED_RE.search(lead)
+    m = _MEETING_DATE_RE.search(lead) or _BODY_ACTED_RE.search(lead) or _BODY_HEARD_RE.search(lead)
     if not m:
         return False
     months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
