@@ -10,7 +10,7 @@
     "2026-11-25": 19,
     "2026-11-26": 15,
     "2026-11-27": 14,
-    "2026-11-28": 3
+    "2026-11-28": 5
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -109,8 +109,8 @@
     },
     "2026-11-28": {
       "crime": 1,
-      "sports": 1,
-      "weather": 1
+      "sports": 2,
+      "weather": 2
     }
   },
   "daily_by_kind": {
@@ -171,7 +171,8 @@
     },
     "2026-11-28": {
       "nws_alert": 1,
-      "rss": 2
+      "nws_forecast": 1,
+      "rss": 3
     }
   },
   "daily_by_scope": {
@@ -224,8 +225,8 @@
       "local": 10
     },
     "2026-11-28": {
-      "local": 2,
-      "texas": 1
+      "local": 3,
+      "texas": 2
     }
   },
   "deferred": {
@@ -248,6 +249,11 @@
       "at": "2026-11-27T23:43:52.965830+00:00",
       "reason": "daily cap for sports reached",
       "title": "Goo Goo Dolls Fans Slam NBC Over Thanksgiving Halftime Show Snub: ‘Badly Handled’"
+    },
+    "316735b6f4fea152": {
+      "at": "2026-11-28T13:15:51.197024+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "DFW Weather: Will it snow this winter in North Texas?"
     },
     "36c6eefc62dd3ee5": {
       "at": "2026-11-26T22:15:46.110029+00:00",
@@ -351,7 +357,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-28T07:20:00-06:00",
+  "last_post_at": "2026-11-28T08:10:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1092,6 +1098,19 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Fort Worth country club expels Bo French after social media controversies",
       "url": "https://www.fox4news.com/news/fort-worth-country-club-expels-bo-french-after-social-media-controversies"
+    },
+    "5e77cdaf8ea31f66": {
+      "at": "2026-11-28T08:10:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "445432510",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-3324681036550615346",
+      "publisher": "metricool-session",
+      "scope": "texas",
+      "source": "WFAA Sports",
+      "title": "Baylor football expected to hire UTSA head coach",
+      "url": "https://www.wfaa.com/article/sports/college/baylor/baylor-football-expected-hire-utsa-head-coach/500-eb0722e2-767e-4599-b849-d419c27e4d46"
     },
     "5f40f81e37fd1fc4": {
       "at": "2026-11-26T21:22:00-06:00",
@@ -2426,6 +2445,19 @@
       "title": "Fort Worth forecast for Wednesday, November 25",
       "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
     },
+    "forecast-2026-11-28": {
+      "at": "2026-11-28T07:45:00-06:00",
+      "category": "weather",
+      "kind": "nws_forecast",
+      "mode": "photo",
+      "post_id": "445432433",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=4236519865657150164",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "National Weather Service Fort Worth",
+      "title": "Fort Worth forecast for Saturday, November 28",
+      "url": "https://forecast.weather.gov/MapClick.php?lat=32.7555&lon=-97.3308"
+    },
     "manual-anthropic-ipo-2026-11-19": {
       "at": "2026-11-19T20:00:00+00:00",
       "category": "business",
@@ -3067,6 +3099,11 @@
       "at": "2026-11-21T15:50:03.621342+00:00",
       "reason": "a Bloomberg segment on the Anthropic IPO is not Fort Worth news; a video can only be a link post"
     },
+    "adab0e98a6cc0329": {
+      "at": "2026-11-28T13:15:51.196174+00:00",
+      "reason": "CBS Texas's regional high school football roundup video (many games), not one Fort Worth story",
+      "title": "North Texas high school football teams battle in regionals"
+    },
     "adbb645449e86450": {
       "at": "2026-11-25T18:45:33.177112+00:00",
       "reason": "Fort Worth Weekly's Sundance Square tree lighting announcement: the picture is Bass Hall's angels on a rainy day (a Flickr file labelled Sun",
@@ -3312,7 +3349,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 166,
+  "total_posts": 168,
   "tried": {
     "073ea4c28e52affd": {
       "at": "2026-11-28T04:43:55.081406+00:00",
@@ -3340,7 +3377,7 @@
       "title": "One person dead after single-vehicle accident in North Dallas, police say"
     },
     "327d6d77c1246e5a": {
-      "at": "2026-11-28T04:13:43.722982+00:00",
+      "at": "2026-11-28T13:15:51.197614+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "North Texas doctors urge vigilance as flu, RSV cases climb"
     },
@@ -3466,7 +3503,8 @@
     "sunshine-lib-downtown-fort-worth-skyline-jpg",
     "lib-gas-pump-fueling-toyota-4runner-53999956018-jpg",
     "openverse-245d4b45-1d0e-43a5-b771-9272ab306893",
-    "lib-thanksgiving-turkey-on-platter-jpg"
+    "lib-thanksgiving-turkey-on-platter-jpg",
+    "sunshine-lib-downtown-fort-worth-jpg"
   ],
   "version": 1
 }

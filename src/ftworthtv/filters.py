@@ -380,7 +380,12 @@ _PRESSER_RE = re.compile(r"\b(?:press conference|presser|media availability|medi
 
 
 _HIGHLIGHT_REEL_RE = re.compile(r"\b(?:best plays|top plays|week \d+ highlights|full highlights|game highlights|every (?:catch|touchdown|td|snap|sack)|"
-                                r"mic'?d up|all-22|film room|condensed game)\b", re.I)
+                                r"mic'?d up|all-22|film room|condensed game|"
+                                # Nov 28, render 329: CBS Texas's "North Texas high school football teams battle in regionals":
+                                # a station's round of many games is a highlights roundup, not one story
+                                r"teams (?:battle|face off|square off|clash|compete)|playoff (?:roundup|scores|highlights)|"
+                                r"friday night (?:highlights|scores|roundup)|scores and highlights|highlights and scores|scoreboard)\b",
+                                re.I)
 
 
 _CIVIC_NAMING_RE = re.compile(r"\b(?:streets?|roads?|avenues?|parks?|schools?|plazas?|library|libraries|buildings?|bridges?)\b[^.]{0,40}"

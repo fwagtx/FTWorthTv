@@ -1056,3 +1056,15 @@ def test_a_wind_alert_gets_no_rain_photo_and_a_video_of_a_posted_topic_is_a_repe
     assert not same_topic_phrase("Cowboy Santa arrives to the Fort Worth Stockyards",
                                  "Fort Worth police tighten pursuit policy to reduce risk without compromising crimefighting ability")
     assert not same_topic_phrase("Fort Worth police chief talks budget", "Fort Worth police chief named in lawsuit")
+
+
+def test_a_breezy_sunny_forecast_keeps_its_sky_and_a_highlights_roundup_is_a_reel():
+    """Nov 28, render 329: "Sunny, high near 74 ... gusts as high as 35 mph" was held because "gusts" read as a wind day, and
+    CBS Texas's YouTube "North Texas high school football teams battle in regionals" was drafted as a link post."""
+    from ftworthtv.filters import highlight_reel
+    from ftworthtv.images.subject import weather_topics
+    assert weather_topics("today: sunny, high near 74. south wind 5 to 20 mph, with gusts as high as 35 mph.")[0] == "sunshine"
+    assert weather_topics("wind advisory") == []
+    assert highlight_reel("North Texas high school football teams battle in regionals")
+    assert highlight_reel("Friday night highlights: Week 12 playoff scores")
+    assert not highlight_reel("Aledo wins state title in overtime thriller")

@@ -549,7 +549,9 @@ WEATHER_TOPICS = (
     # Nov 24: "chance rain showers, high near 49" drew a supercell: showers are not a thunderstorm, and the library has no rain
     (("rain", "showers", "drizzle", "wet"), ["rain", "clouds", "skyline"]),
     # Nov 28, render 327: a Wind Advisory drew raindrops on an umbrella; wind has no picture in the library: a text card
-    (("wind advisory", "high wind", "wind warning", "gusts", "gusty", "windy", "blowing dust"), []),
+    # Nov 28, render 329: "gusts" took a sunny forecast ("Sunny, high near 74 ... gusts as high as 35 mph") off its blue sky:
+    # only an alert's wording makes a wind day; an ordinary breezy forecast keeps its sky
+    (("wind advisory", "high wind", "wind warning", "blowing dust"), []),
     (("partly cloudy", "partly sunny", "mostly sunny"), ["sunshine", "skyline"]),
     # Nov 22: "mostly cloudy, high near 61" drew a blue-sky skyline; the gray courthouse photo was filed under sunshine
     # Nov 26: the library's skylines are blue-sky pictures, so a gray day out of the clouds photos' season gets a text card
