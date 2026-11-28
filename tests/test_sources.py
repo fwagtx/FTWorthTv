@@ -1088,3 +1088,17 @@ def test_a_dek_without_a_full_stop_does_not_run_into_the_lead_and_one_hire_is_on
     assert same_hire("Baylor set to hire UTSA coach Jeff Traylor after leading Roadrunners to new heights", "",
                      "Baylor football expected to hire UTSA head coach")
     assert not same_hire("TCU names Jeff Traylor head coach", "", "Baylor football expected to hire UTSA head coach")
+
+
+def test_a_scores_page_is_a_digest_and_an_occupied_home_is_a_happening():
+    """Nov 28, render 335: NBC 5's "Texas High School Football Playoffs: Regional round scores" (a schedule page whose scores
+    "will be updated throughout the playoffs") as a sports text card, and NBC 5's "North Texas family says Israeli soldiers
+    occupied their West Bank home" with water pipes in a museum display."""
+    from ftworthtv.filters import digest_title
+    from ftworthtv.images.subject import happened
+    assert digest_title("Texas High School Football Playoffs: Regional round scores")
+    assert digest_title("Week 12 Texas high school football: scoreboard")
+    assert not digest_title("Aledo routs Mansfield Summit to reach regional final")
+    assert happened("North Texas family says Israeli soldiers occupied their West Bank home")
+    assert happened("Police raided a Fort Worth game room overnight")
+    assert not happened("Fort Worth's historic Ridglea Theater gets new owner")

@@ -668,6 +668,9 @@ HAPPENED_WORDS = ("carted off", "carted", "injured", "injury", "hurt in", "score
                   "lights up", "lit up", "illuminated", "illuminates",
                   # Nov 27, render 309: WFAA's "Forced to flee their countries, Dallas gave them a place at the table this
                   # Thanksgiving" drew a stock turkey drumstick on a paper plate: a dinner that took place is a happening
+                  # Nov 28, render 335: NBC 5's "North Texas family says Israeli soldiers occupied their West Bank home" drew
+                  # water pipes in a museum display: a home occupied, raided or torn down is a happening
+                  " occupied ", "raided", "stormed", "seized", "demolished", "bulldozed", "evicted",
                   # Nov 27, render 319: two American Airlines jets that clipped wings at Reagan National drew a chart
                   "clips wings", "clipped wings", "wingtip", "emergency landing", "runway incursion", "near miss", "near-miss",
                   "place at the table", " gather in ", " gather for ", " gathered ", "served thanksgiving", "served hundreds",

@@ -10,7 +10,7 @@
     "2026-11-25": 19,
     "2026-11-26": 15,
     "2026-11-27": 14,
-    "2026-11-28": 8
+    "2026-11-28": 9
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -108,6 +108,7 @@
       "weather": 1
     },
     "2026-11-28": {
+      "breaking": 1,
       "community": 1,
       "crime": 1,
       "sports": 4,
@@ -173,7 +174,7 @@
     "2026-11-28": {
       "nws_alert": 1,
       "nws_forecast": 1,
-      "rss": 5,
+      "rss": 6,
       "video": 1
     }
   },
@@ -227,7 +228,7 @@
       "local": 10
     },
     "2026-11-28": {
-      "dfw": 1,
+      "dfw": 2,
       "local": 5,
       "texas": 2
     }
@@ -360,7 +361,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-28T09:25:00-06:00",
+  "last_post_at": "2026-11-28T10:18:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -645,6 +646,19 @@
       "source": "National Weather Service Fort Worth",
       "title": "Wind Advisory: Montague; Cooke; Grayson; Fannin; Lamar; Young; Jack; Wise; Denton; Collin; Hunt; Delta; Hopkins; Stephens; Palo Pinto; Parke",
       "url": "https://forecast.weather.gov/MapClick.php?zoneid=TXZ118"
+    },
+    "223e9fc07b2ae590": {
+      "at": "2026-11-28T10:18:00-06:00",
+      "category": "breaking",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "445577014",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-5913888006654571467",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "WFAA",
+      "title": "Fire burns at mansion linked to NBA star Chris Bosh, officials say",
+      "url": "https://www.wfaa.com/article/news/local/prosper-celina-bosh-mansion-fire-texas/287-315de512-e052-4171-83e5-3e7f27f13c1c"
     },
     "240e4247317b6fae": {
       "at": "2026-11-26T13:10:00-06:00",
@@ -2884,6 +2898,11 @@
       "at": "2026-11-22T15:49:39.045409+00:00",
       "reason": "the same game as 'Arch Manning steps up as Longhorns blow out Arkansas', posted Nov 21 at 7:35 pm (rule added)"
     },
+    "64d6219a44779688": {
+      "at": "2026-11-28T16:13:55.547871+00:00",
+      "reason": "a living schedule-and-scores page (NBC 5's HS football regional round), not a story",
+      "title": "Texas High School Football Playoffs: Regional round scores"
+    },
     "65578296630cfcbd": {
       "at": "2026-11-25T16:45:08.067273+00:00",
       "reason": "CBS Sports' Cowboys-Eagles Thanksgiving prediction: held by the photo check (a Cowboys players' and cheerleaders' visit to Fort Sill), and a",
@@ -3079,6 +3098,11 @@
       "at": "2026-11-25T21:45:16.027034+00:00",
       "reason": "The Hollywood Reporter's Carly Rae Jepsen 'GTA VI' interview: a music feature, not a national moment, drafted with a PS5 controller; rule ad",
       "title": "‘GTA VI’ Just Might Turn Carly Rae Jepsen Into A “Late in Life Gamer”"
+    },
+    "9d76cf21df5831a3": {
+      "at": "2026-11-28T16:13:55.547888+00:00",
+      "reason": "a North Texas family's West Bank home occupied (a happening abroad) with water pipes in a museum display standing in",
+      "title": "North Texas family says Israeli soldiers occupied their West Bank home"
     },
     "9ebb038b9933b565": {
       "at": "2026-11-27T12:15:05.081072+00:00",
@@ -3416,7 +3440,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 171,
+  "total_posts": 172,
   "tried": {
     "073ea4c28e52affd": {
       "at": "2026-11-28T04:43:55.081406+00:00",
@@ -3504,9 +3528,9 @@
       "title": "First look at Austin thrill ride's safety measures after deadly Florida accident"
     },
     "bcdfe07cddb76e0e": {
-      "at": "2026-11-27T22:13:45.620965+00:00",
+      "at": "2026-11-28T16:13:55.549101+00:00",
       "reason": "no picture of the subject that we may use",
-      "title": "North Texas community rallies to keep local students in Macy's Thanksgiving Day Parade"
+      "title": "North Texas rallies to keep local students in Saturday's Macy's Thanksgiving Parade"
     },
     "c4f2bd4818861956": {
       "at": "2026-11-28T02:42:48.699938+00:00",

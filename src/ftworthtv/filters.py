@@ -743,7 +743,10 @@ def other_metro_local(title: str) -> bool:
 
 
 _DIGEST_RE = re.compile(r"(?:\band more top stories\b|\btop stories\b|\bhottest headlines\b|\bnews roundup\b|\bweekly roundup\b|\bmorning briefing\b|"
-                        r"\bdaily digest\b|\bthings to know\b|\bwhat you need to know this week\b|\bheadlines of the week\b|\bin case you missed it\b)", re.I)
+                        r"\bdaily digest\b|\bthings to know\b|\bwhat you need to know this week\b|\bheadlines of the week\b|\bin case you missed it\b|"
+                        # Nov 28, render 335: NBC 5's "Texas High School Football Playoffs: Regional round scores" was a living
+                        # schedule-and-scores page ("Scores will be updated throughout the playoffs"), not a story
+                        r":\s*[\w -]{0,30}?\b(?:scores|schedules?|results|brackets?|scoreboard)\s*$|\bscores will be updated\b)", re.I)
 
 
 def digest_title(title: str) -> bool:
