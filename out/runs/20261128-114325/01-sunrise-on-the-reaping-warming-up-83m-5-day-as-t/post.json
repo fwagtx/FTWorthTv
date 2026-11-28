@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-114325/01-sunrise-on-the-reaping-warming-up-83m-5-day-as-t/post.jpg",
+    "credit": "Photo: Wolfmann via Wikimedia Commons (CC BY-SA 4.0)",
+    "license": "wikimedia-cc",
+    "provider": "library",
+    "source_url": "https://commons.wikimedia.org/wiki/File:4DX_seats_in_cinema_(motion_and_environmental_effects_synced_with_the_on-screen_action)_bench_rows_in_a_movie_theater_hall_Kinostoler_kinosal_Kilden_kino_T%C3%B8nsberg,_Norway_2023_IMG_7854.jpg",
+    "photo_id": "lib-4dx-seats-in-cinema-motion-and-environmental-effects-synced-",
+    "subject": "beat:movies"
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-114325/01-sunrise-on-the-reaping-warming-up-83m-5-day-as-t/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "community",
+    "headline": "‘Sunrise On The Reaping’ Warming Up $83M+ 5-Day As Thanksgiving Stretch Box Office Sees $220M+ – Update",
+    "caption": "'Hunger Games: Sunrise on the Reaping's is bound for the second best Thanksgiving stretch for franchise with $83M 5-day at domestic box office. Pic had second best Thanksgiving haul of franchise at $11.6M. SATURDAY AM: The Thanksgiving five-day stretch for all movies is coming in at an estimated at $220M+ per sources.",
+    "first_comment": "Source: Deadline https://deadline.com/2026/11/box-office-hunger-games-hexed-focker-in-law-thanksgiving-1237233281/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "Fort Worth downtown street",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "dd300947c042a30d",
+    "source": "Deadline",
+    "source_kind": "rss",
+    "title": "‘Sunrise On The Reaping’ Warming Up $83M+ 5-Day As Thanksgiving Stretch Box Office Sees $220M+ – Update",
+    "summary": "'Hunger Games: Sunrise on the Reaping's is bound for the second best Thanksgiving stretch for franchise with $83M 5-day at domestic box office. Pic had second best Thanksgiving haul of franchise at $11.6M. SATURDAY AM: The Thanksgiving five-day stretch for all movies is coming in at an estimated at $220M+ per sources, which isn’t the worst we’ve seen post Covid; higher than 2021, 2022 and 2023, but certainly far off as we always expected from 2024’s $424.9M (-48%) and even last year’s fifth best ever ($290.3M, -24%). Thank God for Lionsgate , Suzanne Collins and Francis Lawrence for resuscitating The Hunger Games: Sunrise on the Reaping , which is now seeing a Wednesday-Sunday estimate of $83.5M , because Walt Disney Animation’s Hexed (with a $33M-$34M 5-day ) isn’t cutting it, and Universal/Paramount’s Ariana Grande-Ben Stiller-Robert De Niro Focker In-Law (coming in with $40.1M ) is…",
+    "url": "https://deadline.com/2026/11/box-office-hunger-games-hexed-focker-in-law-thanksgiving-1237233281/",
+    "published": "2026-11-28T16:58:00+00:00",
+    "category_hint": null,
+    "image_url": "https://deadline.com/wp-content/uploads/2026/11/MCDHUGA_LG125.jpg",
+    "image_credit": "Photo: Deadline",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.3,
+    "extra": {
+      "feed_title": "Deadline",
+      "national": true,
+      "scope": "national",
+      "national_term": "box office"
+    },
+    "category": "community",
+    "relevance": 2,
+    "score": 0.3092
+  }
+}
