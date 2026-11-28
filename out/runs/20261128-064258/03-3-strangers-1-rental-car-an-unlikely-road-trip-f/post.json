@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=gsxq6NLDrvI",
+  "scheduled_at": "2026-11-28T13:32:58.621653+00:00",
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "3 strangers, 1 rental car: An unlikely road trip from DFW to Tucson",
+    "caption": "WATCH: 3 strangers, 1 rental car: An unlikely road trip from DFW to Tucson\n\nStranded by FAA ground stops, three strangers rented a car at DFW Airport and turned a travel nightmare into an unforgettable road trip and friendship.\n\nVideo: WFAA on YouTube",
+    "first_comment": "Source: WFAA on YouTube https://www.youtube.com/watch?v=gsxq6NLDrvI\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "58584e05cc528f3d",
+    "source": "WFAA",
+    "source_kind": "video",
+    "title": "3 strangers, 1 rental car: An unlikely road trip from DFW to Tucson",
+    "summary": "Stranded by FAA ground stops, three strangers rented a car at DFW Airport and turned a travel nightmare into an unforgettable road trip and friendship.",
+    "url": "https://www.youtube.com/watch?v=gsxq6NLDrvI",
+    "published": "2026-11-28T04:32:08+00:00",
+    "category_hint": null,
+    "image_url": "https://i4.ytimg.com/vi/gsxq6NLDrvI/hqdefault.jpg",
+    "image_credit": "Video: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "gsxq6NLDrvI",
+      "channel": "WFAA",
+      "handle": "@WFAA8",
+      "views": 867,
+      "feed_title": "WFAA",
+      "scope": "dfw"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.206
+  }
+}

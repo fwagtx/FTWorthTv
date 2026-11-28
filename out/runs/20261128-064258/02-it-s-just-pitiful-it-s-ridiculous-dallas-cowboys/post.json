@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-28T13:07:58.621653+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-064258/02-it-s-just-pitiful-it-s-ridiculous-dallas-cowboys/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-064258/02-it-s-just-pitiful-it-s-ridiculous-dallas-cowboys/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "'It's just pitiful. It's ridiculous.' | Dallas Cowboys superfans share their frustration and angst",
+    "caption": "Stoney's Dallas Cowboys Museum project is a shrine to history and hope. These days, frustration is roaming the hallways too.",
+    "first_comment": "Source: WFAA Sports https://www.wfaa.com/article/sports/nfl/cowboys/its-just-pitiful-its-ridiculous-dallas-cowboys-superfans-share-their-frustration-and-angst/287-32366e55-31d9-46a2-9815-f375eb4951a8\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "category:AT&T Stadium",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "c47d99262fd83b1e",
+    "source": "WFAA Sports",
+    "source_kind": "rss",
+    "title": "'It's just pitiful. It's ridiculous.' | Dallas Cowboys superfans share their frustration and angst",
+    "summary": "Stoney's Dallas Cowboys Museum project is a shrine to history and hope. These days, frustration is roaming the hallways too.",
+    "url": "https://www.wfaa.com/article/sports/nfl/cowboys/its-just-pitiful-its-ridiculous-dallas-cowboys-superfans-share-their-frustration-and-angst/287-32366e55-31d9-46a2-9815-f375eb4951a8",
+    "published": "2026-11-28T04:14:11+00:00",
+    "category_hint": "sports",
+    "image_url": "https://media.tegna-media.com/assets/WFAA/images/a1d3dbca-bfe5-4389-a2a7-5b94e6faab36/20261128T040140/a1d3dbca-bfe5-4389-a2a7-5b94e6faab36_750x422.jpg",
+    "image_credit": "Photo: WFAA Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.8,
+    "extra": {
+      "feed_title": "WFAA RSS Feed: sports",
+      "national": false,
+      "scope": "local"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.3942
+  }
+}
