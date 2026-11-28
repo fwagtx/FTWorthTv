@@ -10,7 +10,7 @@
     "2026-11-25": 19,
     "2026-11-26": 15,
     "2026-11-27": 14,
-    "2026-11-28": 6
+    "2026-11-28": 8
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -108,8 +108,9 @@
       "weather": 1
     },
     "2026-11-28": {
+      "community": 1,
       "crime": 1,
-      "sports": 3,
+      "sports": 4,
       "weather": 2
     }
   },
@@ -172,7 +173,8 @@
     "2026-11-28": {
       "nws_alert": 1,
       "nws_forecast": 1,
-      "rss": 4
+      "rss": 5,
+      "video": 1
     }
   },
   "daily_by_scope": {
@@ -225,7 +227,8 @@
       "local": 10
     },
     "2026-11-28": {
-      "local": 4,
+      "dfw": 1,
+      "local": 5,
       "texas": 2
     }
   },
@@ -295,11 +298,6 @@
       "reason": "daily cap for sports reached",
       "title": "Baylor set to hire UTSA coach Jeff Traylor after leading Roadrunners to new heights"
     },
-    "79c2a7de0572f9c0": {
-      "at": "2026-11-26T14:16:03.078372+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Fort Worth police asks for public's help in hit and run investigation"
-    },
     "98e319a85ca8e297": {
       "at": "2026-11-27T03:13:39.720509+00:00",
       "reason": "daily cap for crime reached",
@@ -362,7 +360,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-28T08:35:00-06:00",
+  "last_post_at": "2026-11-28T09:25:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1079,6 +1077,19 @@
       "source": "Fort Worth Police Department",
       "title": "WANTED: Bria Greer",
       "url": "https://police.fortworthtexas.gov/Crime-Public-Info/most-wanted"
+    },
+    "56d20f77fb24ee87": {
+      "at": "2026-11-28T09:25:00-06:00",
+      "category": "community",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "445498983",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=5723391469139740222",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA",
+      "title": "New restaurants coming to TCU campus",
+      "url": "https://www.youtube.com/watch?v=60O7f6d7uSg"
     },
     "56f4f4b01365b602": {
       "at": "2026-11-19T22:06:00-06:00",
@@ -2089,6 +2100,19 @@
       "title": "City Improves Pedestrian Safety, Access in Entertainment District",
       "url": "https://www.arlingtontx.gov/News-Articles/2026/November/City-Improves-Pedestrian-Safety-Access-in-Entertainment-District"
     },
+    "e04073ff65d11b7c": {
+      "at": "2026-11-28T09:00:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "445498903",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-2081794836306116392",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "WFAA Sports",
+      "title": "Cooper Flagg leads Mavericks' rally to beat Suns, finish 4-0 in NBA Cup group play",
+      "url": "https://www.wfaa.com/article/sports/nba/mavericks/cooper-flagg-leads-mavericks-rally-to-beat-suns-finish-4-0-in-nba-cup-group-play/616-d4bcb61f-da11-4740-a64a-7bfaece1b1a6"
+    },
     "e10f1c3863a282c4": {
       "at": "2026-11-23T19:00:00-06:00",
       "category": "breaking",
@@ -2973,6 +2997,11 @@
       "at": "2026-11-20T15:47:44.701022+00:00",
       "reason": "another city's ballot fight (Austin Prop J)"
     },
+    "8192ee576a72fe98": {
+      "at": "2026-11-28T14:45:12.911169+00:00",
+      "reason": "a regional consumer feature (North Texas homeowners' moving costs) with the Fort Worth skyline standing in for it",
+      "title": "The hidden costs North Texas homeowners are weighing before deciding to move"
+    },
     "820b38f60f704328": {
       "at": "2026-11-26T16:17:20.565654+00:00",
       "reason": "volunteers preparing meals (a happening) with a stock family carving a turkey at home; a community post takes a picture of it or none",
@@ -3387,7 +3416,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 169,
+  "total_posts": 171,
   "tried": {
     "073ea4c28e52affd": {
       "at": "2026-11-28T04:43:55.081406+00:00",

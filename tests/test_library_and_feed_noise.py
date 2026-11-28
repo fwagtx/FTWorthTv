@@ -153,3 +153,16 @@ def test_an_air_travel_story_never_gets_a_train():
     items = lib if isinstance(lib, list) else lib.get("photos", [])
     airport = [e for e in items if e.get("topic") == "dfw-airport"]
     assert not any(w in e.get("title", "").lower() for e in airport for w in ("station", "texrail", "dart", "train"))
+
+
+def test_our_skyline_does_not_stand_in_for_a_regional_feature():
+    """Nov 28, renders 331 and 332: NBC 5's "Holiday stress adding up? North Texas experts share tips ..." and "The hidden
+    costs North Texas homeowners are weighing before deciding to move" drew the downtown Fort Worth skyline."""
+    t = "The hidden costs North Texas homeowners are weighing before deciding to move"
+    body = "A 2024 Redfin figure showed that 59.4% of homeowners had mortgage rates below 4%."
+    topics = topics_for(f"{t} {body}".lower(), "other", "dfw", title=t)
+    assert not {"skyline", "downtown", "sundance-square", "skyline-night"} & set(topics)
+    t2 = "Holiday stress adding up? North Texas experts share tips to protect your mental health"
+    assert not {"skyline", "downtown"} & set(topics_for(t2.lower(), "community", "dfw", title=t2))
+    t3 = "Fort Worth opens new downtown library branch"
+    assert "downtown" in topics_for(t3.lower(), "community", "dfw", title=t3)          # a story about our city keeps it

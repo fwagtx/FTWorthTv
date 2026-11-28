@@ -113,6 +113,7 @@ TOPIC_RULES: list[tuple[tuple[str, ...], str]] = [
     (("dallas",), "dallas-skyline"),
 ]
 OTHER_CITY_SKYLINES = {"dallas-skyline", "houston-skyline", "austin-skyline", "san-antonio-skyline"}
+GENERIC_CITY_TOPICS = {"skyline", "skyline-night", "downtown", "sundance-square"}
 # when nothing above matches: by category, then by scope
 CATEGORY_DEFAULTS = {"traffic": ["highway"], "crime": ["police"], "politics": ["city-hall"], "weather": ["storm", "skyline"],
                      "business": ["downtown", "skyline"], "community": ["downtown", "sundance-square", "skyline"],
@@ -355,6 +356,12 @@ def topics_for(text: str, category: str, scope: str, title: str | None = None) -
         # Nov 27, render 310: ESPN's "Houston's all-black threads top best uniforms of college football Week 13" drew the
         # Houston skyline: any other city's skyline, not only Dallas's
         out = [t for t in out if t not in OTHER_CITY_SKYLINES]
+    if category in ("community", "culture", "business", "other", "food") and scope != "local" and \
+            not any(w in (whole or "").lower() for w in ("fort worth", "tarrant", "sundance square", "downtown fort worth")):
+        # Nov 28, renders 331 and 332: NBC 5's "Holiday stress adding up? North Texas experts share tips ..." and "The hidden
+        # costs North Texas homeowners are weighing before deciding to move" drew the downtown Fort Worth skyline: our skyline
+        # stands in only for a story about our city, never for a feature about people anywhere in the region
+        out = [t for t in out if t not in GENERIC_CITY_TOPICS]
     if category == "sports":
         # Nov 24: WFAA's "Texas high school football: Playoff matchups, schedule" drew a Dell City ISD school bus
         out = [t for t in out if t not in ("school-bus", "schools", "courthouse", "courtroom", "jail", "police")]   # Nov 24: a
