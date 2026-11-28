@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-28T12:38:39.600024+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-061339/02-no-3-texas-clinches-sec-championship-game-berth/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-061339/02-no-3-texas-clinches-sec-championship-game-berth/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "No. 3 Texas clinches SEC Championship Game berth with 16-6 win over Texas A&M",
+    "caption": "No. 3 Texas leaned on its defense and three Gianni Spetic field goals to defeat rival Texas A&M 16-6, setting up a rematch with No. 1 Georgia in the SEC Championship Game.",
+    "first_comment": "Source: KXAN Austin https://www.kxan.com/sports-general/horns-report/live-updates-no-3-texas-vs-texas-am/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "f96935628a9cea1b",
+    "source": "KXAN Austin",
+    "source_kind": "rss",
+    "title": "No. 3 Texas clinches SEC Championship Game berth with 16-6 win over Texas A&M",
+    "summary": "No. 3 Texas leaned on its defense and three Gianni Spetic field goals to defeat rival Texas A&M 16-6, setting up a rematch with No. 1 Georgia in the SEC Championship Game.",
+    "url": "https://www.kxan.com/sports-general/horns-report/live-updates-no-3-texas-vs-texas-am/",
+    "published": "2026-11-28T06:59:52+00:00",
+    "category_hint": null,
+    "image_url": "https://www.kxan.com/wp-content/uploads/sites/40/2026/11/AP26332168605310.jpg?w=900",
+    "image_credit": "Photo: KXAN Austin",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.54,
+    "extra": {
+      "feed_title": "KXAN Austin",
+      "national": false,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.5036
+  }
+}
