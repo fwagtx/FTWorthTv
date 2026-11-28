@@ -19,7 +19,9 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
                 "wind chills", "frost", "first freeze", "chilly", "highs in", "lows in", "drizzle", "showers",
                 # Nov 26: CBS News Texas's "North Texas faces freezing Thanksgiving morning before weekend warmup" was filed as
                 # community (its "Thanksgiving" outscored a forecast that named no listed weather word) and drew a smoked turkey
-                "freezing", "warmup", "warm-up", "warming trend", "cool-down", "gusty winds"],
+                "freezing", "warmup", "warm-up", "warming trend", "cool-down", "gusty winds",
+                # Nov 28, render 337: CBS News Texas's "Windy weekend for North Texas in store" was filed as business for "store"
+                "windy", "breezy", "gusts", "wind gusts"],
     "traffic": ["crash", "crashes", "wreck", "wrecks", "i-35w", "35w", "i-30", "i-20", "loop 820", "highway", "interstate", "interstates",
                 "lanes closed", "road closure",
                 # Nov 27, render 295: "Northbound I-35 closed in Denton due to 'hazard' damaging tires, police say" was crime
@@ -1020,7 +1022,10 @@ _RESULT_RE = re.compile(r"\b(?:falls? to|fell to|tops?|topped|beats?|edges?|edge
                         r"stuns?|stunned|upsets?|shuts? out|blanks?|outlasts?|ends? in|ended in|scorigami|final score|"
                         # Nov 27, render 298: ESPN's "Joe Milton has huge game as Eagles shock Cowboys on Thanksgiving"
                         r"shocks?|shocked|stuns?|rallies past|rally past|comes? back to beat|came back to beat|survives?|survived|"
-                        r"escapes?|escaped|outlasts?|outscores?|outscored|downs|downed)\b", re.I)
+                        r"escapes?|escaped|outlasts?|outscores?|outscored|downs|downed|"
+                        # Nov 28, render 337: WFAA's "No. 9 Texas Tech beats TCU 48-27 ..." waited a day as a fresh story after TCU
+                        # Athletics' "TCU Defeated by No. 11 Texas Tech" had gone out: "defeated by" was not read as a result
+                        r"defeats?|defeated|falls? at|fell at|loses? at|lost at)\b", re.I)
 
 
 def _sports_result(title: str) -> bool:
@@ -1570,6 +1575,8 @@ _FIRE_NOT_INCIDENT_RE = re.compile(r"\b(?:training|drills?|exercises?|prevention
 def fire_incident(title: str | None) -> bool:
     t = title or ""
     return bool(_FIRE_TITLE_RE.search(t)) and not _FIRE_NOT_INCIDENT_RE.search(t)
+# "a windy weekend in store", "what's in store for ...": the idiom is not a shop (Nov 28, render 337)
+_NOT_BUSINESS_RE = re.compile(r"\bin store\b(?![- ](?:pickup|only|shopping|purchases?|sales?|credit|deals?|prices?))", re.I)
 _NOT_CRIME_RE = re.compile(r"\bcardiac arrests?\b|\bheart attacks?\b"
                            r"|\b(?:texas |state )?bar (?:foundation|association|exam|of texas)\b|\bstate bar\b"
                            r"|\bgrand theft auto\b", re.I)
@@ -1611,6 +1618,7 @@ def infer_category(story: Story) -> str:
     # training for an emergency is not the emergency: Nov 25, KVUE's "Texas State's ALERRT Center receives $10M to expand active
     # shooter response training" was filed as breaking news and drafted as a text card
     text, title = _NOT_BREAKING_RE.sub(" ", text), _NOT_BREAKING_RE.sub(" ", title)
+    text, title = _NOT_BUSINESS_RE.sub(" in ", text), _NOT_BUSINESS_RE.sub(" in ", title)
     # another region's story is breaking news only when its headline says so: Nov 23, KVUE's "Mexico demands SpaceX clean up
     # suspected rocket debris washing ashore near Texas" was filed as breaking for "explosion" in its lead, a background fact
     title_only_breaking = (story.extra or {}).get("scope") in ("texas", "national") or bool((story.extra or {}).get("national"))

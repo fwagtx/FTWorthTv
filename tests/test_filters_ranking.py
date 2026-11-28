@@ -669,3 +669,19 @@ def test_a_match_card_is_a_listing_and_next_years_opener_is_a_schedule_note():
     assert future_season_schedule("TCU, Notre Dame set 2028 season opener in Dublin", 2026)
     assert not future_season_schedule("TCU to open 2026 season against Utah", 2026)
     assert not digest_title("Cowboys beat Chiefs to open the season")
+
+
+def test_defeated_by_is_a_result_and_the_in_store_idiom_is_not_a_shop():
+    """Nov 28, render 337: WFAA's "No. 9 Texas Tech beats TCU 48-27 ..." was still drafting a day after TCU Athletics'
+    "TCU Defeated by No. 11 Texas Tech" went out, and CBS News Texas's "Windy weekend for North Texas in store" was business."""
+    from ftworthtv.filters import infer_category, same_game
+    from ftworthtv.models import Story
+    assert same_game("No. 9 Texas Tech beats TCU 48-27 to secure spot against No. 2 Utah in Big 12 title game",
+                     "TCU Defeated by No. 11 Texas Tech")
+    assert same_game("Horned Frogs fall at Baylor", "Baylor tops TCU 31-24")
+    assert not same_game("Bill defeated in Texas Senate", "Texas Senate passes bill")
+    windy = Story(id="w", source="CBS News Texas", source_kind="rss", title="Windy weekend for North Texas in store", summary="", url="u")
+    assert infer_category(windy) == "weather"
+    shop = Story(id="s", source="FW Report", source_kind="rss", title="New H-E-B store opens in Fort Worth's Alliance area",
+                 summary="The store opens Wednesday with 400 jobs.", url="u")
+    assert infer_category(shop) == "business"
