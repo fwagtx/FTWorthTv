@@ -9,7 +9,7 @@
     "2026-11-24": 20,
     "2026-11-25": 19,
     "2026-11-26": 15,
-    "2026-11-27": 12
+    "2026-11-27": 13
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -99,7 +99,7 @@
     },
     "2026-11-27": {
       "community": 1,
-      "crime": 2,
+      "crime": 3,
       "culture": 1,
       "sports": 6,
       "traffic": 1,
@@ -158,7 +158,7 @@
       "wanted": 2
     },
     "2026-11-27": {
-      "rss": 8,
+      "rss": 9,
       "video": 2,
       "wanted": 2
     }
@@ -210,7 +210,7 @@
     },
     "2026-11-27": {
       "dfw": 3,
-      "local": 9
+      "local": 10
     }
   },
   "deferred": {
@@ -218,11 +218,6 @@
       "at": "2026-11-27T03:44:49.300907+00:00",
       "reason": "daily cap for sports reached",
       "title": "Joe Milton has huge game as Eagles shock Cowboys on Thanksgiving"
-    },
-    "0d2375f9243ca9af": {
-      "at": "2026-11-26T00:15:31.930844+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Trackdown: Help find Dallas rapper BFG Baandz’s killer"
     },
     "0dba1427f980d09d": {
       "at": "2026-11-26T22:42:46.609569+00:00",
@@ -264,11 +259,6 @@
       "reason": "daily cap for sports reached",
       "title": "Horned Frogs Fall to Blue Jays, 95-87"
     },
-    "3eba59e59ea55eb2": {
-      "at": "2026-11-26T00:15:31.930811+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Out and About in Arlington: Christmas spirit gobbles up Thanksgiving festivities"
-    },
     "445c3859648d5cf7": {
       "at": "2026-11-26T04:16:21.863671+00:00",
       "reason": "daily cap for community reached",
@@ -293,16 +283,6 @@
       "at": "2026-11-26T04:16:21.863673+00:00",
       "reason": "daily cap for community reached",
       "title": "‘South Park’ Celebrates ‘GTA VI’ But Outages, AI Data Centers & Zombie Kenny Stand In The Way In Season 29 Finale"
-    },
-    "7178796b22dcd127": {
-      "at": "2026-11-26T00:15:31.930847+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Thanksgiving travel runs smoothly at DFW Airport as millions hit the road"
-    },
-    "75edbd3031747521": {
-      "at": "2026-11-26T00:43:29.783146+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Pearl Harbor sailor to be laid to rest in Denton 85 years after his death"
     },
     "79c2a7de0572f9c0": {
       "at": "2026-11-26T14:16:03.078372+00:00",
@@ -334,11 +314,6 @@
       "reason": "daily cap for community reached",
       "title": "Forced to flee their countries, Dallas gave them a place at the table this Thanksgiving"
     },
-    "d74ddfe27da243e9": {
-      "at": "2026-11-26T00:15:31.930856+00:00",
-      "reason": "daily cap for community reached",
-      "title": "New $29.8 million sea turtle hospital coming to Galveston’s Texas A&M campus"
-    },
     "de02b16ac2490fcc": {
       "at": "2026-11-26T23:48:01.851649+00:00",
       "reason": "daily cap for community reached",
@@ -363,15 +338,10 @@
       "at": "2026-11-27T23:43:52.965809+00:00",
       "reason": "daily cap for sports reached",
       "title": "No. 9 Texas Tech beats TCU 48-27 to secure spot against No. 2 Utah in Big 12 title game"
-    },
-    "f54cea9077e747c0": {
-      "at": "2026-11-26T00:43:29.783110+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Thanksgiving travelers hit Texas roads as holiday traffic builds"
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-27T17:58:00-06:00",
+  "last_post_at": "2026-11-27T18:49:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -617,6 +587,19 @@
       "source": "FOX 4 Dallas-Fort Worth",
       "title": "Tarrant Area Food Bank hosts Thanksgiving mega food distribution at AT&T Stadium",
       "url": "https://www.fox4news.com/good-day/tarrant-area-food-bank-hosts-thanksgiving-mega-food-distribution-att-stadium"
+    },
+    "218d866234ff91a2": {
+      "at": "2026-11-27T18:49:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "445029489",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-6167832892695297806",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA",
+      "title": "Fort Worth police tighten pursuit policy to reduce risk without compromising crimefighting ability",
+      "url": "https://www.wfaa.com/article/news/local/tarrant-county/fort-worth-police-tighten-pursuit-policy-reduce-risk-without-compromising-ability/287-f8c09a8b-f716-4286-b0ec-22fcc2cab5ed"
     },
     "240e4247317b6fae": {
       "at": "2026-11-26T13:10:00-06:00",
@@ -3252,7 +3235,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 161,
+  "total_posts": 162,
   "tried": {
     "1ab95098ab98f469": {
       "at": "2026-11-27T20:16:18.005986+00:00",
@@ -3265,12 +3248,12 @@
       "title": "Goo Goo Dolls Fans Slam NBC Over Thanksgiving Halftime Show Snub: ‘Badly Handled’"
     },
     "273c4bbe9b854a9e": {
-      "at": "2026-11-27T22:13:45.620937+00:00",
+      "at": "2026-11-28T00:43:45.448318+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Early voting opens Nov. 30 for Tarrant Appraisal District runoff election"
     },
     "32650cf1316d4e8d": {
-      "at": "2026-11-27T22:13:45.620963+00:00",
+      "at": "2026-11-28T00:43:45.448341+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "One person dead after single-vehicle accident in North Dallas, police say"
     },
@@ -3295,12 +3278,12 @@
       "title": "Nonprofit Thanksgiving in Dallas helps newly arrived families find sense of belonging"
     },
     "94c05cad8e1d1e5a": {
-      "at": "2026-11-27T22:13:45.620967+00:00",
+      "at": "2026-11-28T00:43:45.448335+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "North Texas dance teams face unexpected costs after Macy’s Thanksgiving Day Parade postponement"
     },
     "97dcdc91f6f6001d": {
-      "at": "2026-11-27T22:13:45.620958+00:00",
+      "at": "2026-11-28T00:43:45.448328+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Smash Mob Burgers in Arlington aims to keep it simple and good"
     },
@@ -3335,7 +3318,7 @@
       "title": "Musume restaurant reopens nearly 3 years after downtown Fort Worth explosion"
     },
     "deed6afe163d9362": {
-      "at": "2026-11-27T22:13:45.620969+00:00",
+      "at": "2026-11-28T00:43:45.448338+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Affluent DFW city unwraps 5th biggest holiday budget in the U.S."
     },
@@ -3350,7 +3333,7 @@
       "title": "No. 9 Texas Tech beats TCU 48-27 to secure spot against No. 2 Utah in Big 12 title game"
     },
     "f557e273ec5c23dc": {
-      "at": "2026-11-27T22:13:45.620976+00:00",
+      "at": "2026-11-28T00:43:45.448332+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Texas State University students protest, demand stronger free speech protections"
     },
