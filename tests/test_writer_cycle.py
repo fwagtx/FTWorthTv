@@ -1649,3 +1649,24 @@ def test_a_slot_after_the_last_post_time_moves_to_the_next_morning():
     assert in_posting_window(datetime(2026, 11, 28, 1, 15, tzinfo=tz), {}) == datetime(2026, 11, 28, 6, 30, tzinfo=tz)
     assert in_posting_window(datetime(2026, 11, 27, 22, 10, tzinfo=tz), {}) == datetime(2026, 11, 27, 22, 10, tzinfo=tz)
     assert in_posting_window(datetime(2026, 11, 27, 6, 5, tzinfo=tz), {}) == datetime(2026, 11, 27, 6, 5, tzinfo=tz)
+
+
+def test_a_public_bodys_vote_weeks_ago_is_a_late_recap():
+    """Nov 28, render 340: the Fort Worth Report's Nov. 28 story on the Landmark Commission's Nov. 9 vote named no "meeting"."""
+    from datetime import datetime, timezone
+    from ftworthtv.models import Story
+    from ftworthtv.writer import stale_meeting_recap
+    pub = datetime(2026, 11, 28, 18, 15, tzinfo=timezone.utc)
+    lead = ("The hotel will be located at North Main and Northeast 23rd streets and include a two-story commercial building. "
+            "A new 70-room boutique hotel and commercial project near the southern entrance of the Stockyards received waivers "
+            "needed for development. The Fort Worth Historic and Cultural Landmark Commission on Nov. 9 approved nine requested "
+            "waivers for the project located at the corner of North Main and Northeast 23rd streets.")
+    old = Story(id="h", source="Fort Worth Report", source_kind="rss", url="u", published=pub,
+                title="Landmark Commission approves 9 waivers for new Stockyards boutique hotel", summary=lead)
+    assert stale_meeting_recap(old, pub)
+    recent = Story(id="r", source="Fort Worth Report", source_kind="rss", url="u", published=pub, title="Council approves budget",
+                   summary="The Fort Worth City Council on Nov. 25 approved the budget. It takes effect in January.")
+    assert not stale_meeting_recap(recent, pub)
+    coming = Story(id="c", source="Fort Worth Report", source_kind="rss", url="u", published=pub, title="Council to vote on budget",
+                   summary="The Fort Worth City Council on Dec. 9 will vote on the budget.")
+    assert not stale_meeting_recap(coming, pub)

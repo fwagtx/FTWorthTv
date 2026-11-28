@@ -497,12 +497,21 @@ _MEETING_DATE_RE = re.compile(r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|
                               r"\b(?:meeting|hearing|session)\b", re.I)
 
 
+# Nov 28, render 340: the Fort Worth Report's "Landmark Commission approves 9 waivers for new Stockyards boutique hotel"
+# (published Nov. 28: "The Fort Worth Historic and Cultural Landmark Commission on Nov. 9 approved nine requested waivers")
+# named no "meeting": a public body's vote on a date more than a week back is the same late recap
+_BODY_ACTED_RE = re.compile(r"\b(?:commission|council|board|commissioners|trustees|committee|court|panel|authority)\b[^.]{0,40}?"
+                            r"\bon (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.? (\d{1,2})(?:,? (\d{4}))?,?\s+"
+                            r"(?:unanimously\s+)?(?:approved|voted|denied|rejected|agreed|passed|adopted|granted|tabled|postponed|"
+                            r"delayed|authorized|awarded|signed off|okayed|ok'd|gave)\b", re.I)
+
+
 def stale_meeting_recap(story: Story, now: datetime) -> bool:
     """'A proposed pet resort dominated the Nov. 4 Colleyville City Council meeting' published on Nov. 21: a meeting recap
     more than a week old is not news for a daily page. A meeting still to come is never stale."""
     from datetime import date as _date
     lead = " ".join(_split_sentences(collapse_ws(story.summary or ""))[:3])
-    m = _MEETING_DATE_RE.search(lead)
+    m = _MEETING_DATE_RE.search(lead) or _BODY_ACTED_RE.search(lead)
     if not m:
         return False
     months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
