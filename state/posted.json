@@ -9,7 +9,8 @@
     "2026-11-24": 20,
     "2026-11-25": 19,
     "2026-11-26": 15,
-    "2026-11-27": 14
+    "2026-11-27": 14,
+    "2026-11-28": 1
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -105,6 +106,9 @@
       "sports": 6,
       "traffic": 1,
       "weather": 1
+    },
+    "2026-11-28": {
+      "crime": 1
     }
   },
   "daily_by_kind": {
@@ -162,6 +166,9 @@
       "rss": 10,
       "video": 2,
       "wanted": 2
+    },
+    "2026-11-28": {
+      "rss": 1
     }
   },
   "daily_by_scope": {
@@ -212,6 +219,9 @@
     "2026-11-27": {
       "dfw": 4,
       "local": 10
+    },
+    "2026-11-28": {
+      "local": 1
     }
   },
   "deferred": {
@@ -225,11 +235,6 @@
       "reason": "daily cap for community reached",
       "title": "Silver Alert discontinued for 82-year-old man last seen in San Antonio on Thanksgiving"
     },
-    "17d95716459e3730": {
-      "at": "2026-11-26T04:16:21.863649+00:00",
-      "reason": "daily cap for community reached",
-      "title": "North Texas faces freezing Thanksgiving morning before weekend warmup"
-    },
     "1ab95098ab98f469": {
       "at": "2026-11-27T00:44:18.338460+00:00",
       "reason": "daily cap for community reached",
@@ -240,11 +245,6 @@
       "reason": "daily cap for sports reached",
       "title": "Goo Goo Dolls Fans Slam NBC Over Thanksgiving Halftime Show Snub: ‘Badly Handled’"
     },
-    "271ce4e9c6a18873": {
-      "at": "2026-11-26T04:43:21.017069+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "North Texas teen faces federal charges after police find weapon with 'machine-gun conversion device'"
-    },
     "36c6eefc62dd3ee5": {
       "at": "2026-11-26T22:15:46.110029+00:00",
       "reason": "daily cap for crime reached",
@@ -254,11 +254,6 @@
       "at": "2026-11-27T03:44:49.300906+00:00",
       "reason": "daily cap for sports reached",
       "title": "Horned Frogs Fall to Blue Jays, 95-87"
-    },
-    "445c3859648d5cf7": {
-      "at": "2026-11-26T04:16:21.863671+00:00",
-      "reason": "daily cap for community reached",
-      "title": "‘South Park’ Season 29 Finale: ‘GTA 6’ Inspires Stan, Kyle and Cartman to Get to the Bottom of South America’s Power Outages"
     },
     "446f4cb8592beabf": {
       "at": "2026-11-26T22:42:46.609572+00:00",
@@ -280,11 +275,6 @@
       "reason": "daily cap for sports reached",
       "title": "Baylor football expected to hire UTSA head coach"
     },
-    "6de503fc28d48097": {
-      "at": "2026-11-26T04:16:21.863673+00:00",
-      "reason": "daily cap for community reached",
-      "title": "‘South Park’ Celebrates ‘GTA VI’ But Outages, AI Data Centers & Zombie Kenny Stand In The Way In Season 29 Finale"
-    },
     "78bac2239965db74": {
       "at": "2026-11-28T03:13:14.433748+00:00",
       "reason": "daily cap for sports reached",
@@ -294,11 +284,6 @@
       "at": "2026-11-26T14:16:03.078372+00:00",
       "reason": "daily cap for crime reached",
       "title": "Fort Worth police asks for public's help in hit and run investigation"
-    },
-    "7cde9022743df70d": {
-      "at": "2026-11-26T04:43:21.017076+00:00",
-      "reason": "daily cap for community reached",
-      "title": "Dallas food pantry sees increased need ahead of Thanksgiving"
     },
     "98e319a85ca8e297": {
       "at": "2026-11-27T03:13:39.720509+00:00",
@@ -310,10 +295,15 @@
       "reason": "daily cap for community reached",
       "title": "New cypress trees grow in Kerr County, bringing hope and healing after floods"
     },
-    "cdb121ed072afaa0": {
-      "at": "2026-11-26T04:43:21.017048+00:00",
-      "reason": "daily cap for crime reached",
-      "title": "Dallas Police seek public's help identifying suspects in deadly October shooting"
+    "af61dab16bc164e4": {
+      "at": "2026-11-28T04:43:55.080744+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "Bronson Reed dies at 38: WWE superstar passes unexpectedly due to medical complications"
+    },
+    "c47d99262fd83b1e": {
+      "at": "2026-11-28T04:43:55.080709+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "'It's just pitiful. It's ridiculous.' | Dallas Cowboys superfans share their frustration and angst"
     },
     "ceaeb8fe29582112": {
       "at": "2026-11-28T01:43:52.959448+00:00",
@@ -349,10 +339,15 @@
       "at": "2026-11-27T23:43:52.965809+00:00",
       "reason": "daily cap for sports reached",
       "title": "No. 9 Texas Tech beats TCU 48-27 to secure spot against No. 2 Utah in Big 12 title game"
+    },
+    "fc95fa9bb31fb619": {
+      "at": "2026-11-28T04:43:55.080736+00:00",
+      "reason": "daily cap for sports reached",
+      "title": "2026 SEC Championship Game: Texas gets one last shot at Georgia in contest's final edition"
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-27T19:49:00-06:00",
+  "last_post_at": "2026-11-28T06:30:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -366,6 +361,19 @@
       "source": "Fort Worth Report",
       "title": "Judge rejects lawsuit to stop deal extending Dallas Cowboys lease of AT&T Stadium without election",
       "url": "https://fortworthreport.org/2026/11/24/judge-rejects-lawsuit-to-stop-deal-extending-dallas-cowboys-lease-of-att-stadium-without-election/"
+    },
+    "00d3f2ce599d0e66": {
+      "at": "2026-11-28T06:30:00-06:00",
+      "category": "crime",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "445140176",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=1236557625285955047",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "WFAA",
+      "title": "Arlington police investigating fatal apartment complex shooting, officials say",
+      "url": "https://www.wfaa.com/article/news/crime/arlington-police-investigating-fatal-apartment-complex-shooting-officials-say/287-7ee7b007-9c8d-4223-99b1-7fe28ff6f48d"
     },
     "01c0c24801a299e3": {
       "at": "2026-11-26T10:20:00-06:00",
@@ -3259,8 +3267,13 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 163,
+  "total_posts": 164,
   "tried": {
+    "073ea4c28e52affd": {
+      "at": "2026-11-28T04:43:55.081406+00:00",
+      "reason": "no picture of the subject that we may use",
+      "title": "WWE Star Bronson Reed Dies at 38"
+    },
     "1ab95098ab98f469": {
       "at": "2026-11-27T20:16:18.005986+00:00",
       "reason": "no picture of the subject that we may use",
@@ -3327,7 +3340,7 @@
       "title": "Sarkisian proud of offensive line ahead of tough challenge against Texas A&M defense"
     },
     "b824e89452bb9a2c": {
-      "at": "2026-11-28T02:13:15.715303+00:00",
+      "at": "2026-11-28T04:43:55.081411+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "First look at Austin thrill ride's safety measures after deadly Florida accident"
     },

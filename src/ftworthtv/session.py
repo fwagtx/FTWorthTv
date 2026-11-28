@@ -83,6 +83,20 @@ def latest_scheduled(state: State) -> datetime | None:
     return max(times) if times else None
 
 
+def in_posting_window(when: datetime, posting: dict) -> datetime:
+    """Nov 27, render 326: the 10:41 pm cycle proposed 10:48 pm for WFAA's Arlington shooting, after the page's last post
+    time. Nothing goes out after 10:30 pm or before 6 am Central: a slot outside the window moves to the next 6:30 am."""
+    last_h, last_m = (int(x) for x in str(posting.get("last_post_local", "22:30")).split(":"))
+    first_h, first_m = (int(x) for x in str(posting.get("first_post_local", "06:30")).split(":"))
+    opens = when.replace(hour=6, minute=0, second=0, microsecond=0)
+    closes = when.replace(hour=last_h, minute=last_m, second=0, microsecond=0)
+    if when > closes:
+        return (when + timedelta(days=1)).replace(hour=first_h, minute=first_m, second=0, microsecond=0)
+    if when < opens:
+        return when.replace(hour=first_h, minute=first_m, second=0, microsecond=0)
+    return when
+
+
 def build_manifest(run_dir: Path, settings: Settings, *, branch: str, repo: str, start: datetime | None = None,
                    spacing_minutes: int | None = None) -> list[dict]:
     """One entry per draft folder: what to look at, what to check, what to send. Posts already in the memory are skipped
@@ -104,6 +118,8 @@ def build_manifest(run_dir: Path, settings: Settings, *, branch: str, repo: str,
         if state.has(draft.story.id):
             rows.append({"folder": str(folder), "story_id": draft.story.id, "skip": "already posted", "headline": draft.copy.headline})
             continue
+        if not draft.story.is_urgent:
+            when = in_posting_window(when, posting)
         card = next((folder / n for n in ("post.jpg", "card.jpg", "photo.jpg", "quote.jpg") if (folder / n).exists()), None)
         story_img = folder / "story.jpg" if (folder / "story.jpg").exists() else None
         image_url = raw_url(repo, branch, run_dir, card, settings.root) if draft.mode != "link" else None

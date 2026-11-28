@@ -1636,3 +1636,16 @@ def test_a_one_line_dek_needs_one_shared_word():
     snf = ("Sunday Night Football is heading to Cleveland for the first time in seven years, as the Browns will host the Las Vegas "
            "Raiders in primetime. The Browns are in the thick of the AFC wild card race.")
     assert not about_headline("Fort Worth police investigate deadly crash on Loop 820 near Lake Worth", snf)
+
+
+def test_a_slot_after_the_last_post_time_moves_to_the_next_morning():
+    """Nov 27, render 326: the 10:41 pm cycle proposed 10:48 pm for WFAA's Arlington shooting, after the page's 10:30 pm
+    last post; nothing goes out between 10:30 pm and 6 am, and a slot there moves to the next 6:30 am."""
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from ftworthtv.session import in_posting_window
+    tz = ZoneInfo("America/Chicago")
+    assert in_posting_window(datetime(2026, 11, 27, 22, 48, tzinfo=tz), {}) == datetime(2026, 11, 28, 6, 30, tzinfo=tz)
+    assert in_posting_window(datetime(2026, 11, 28, 1, 15, tzinfo=tz), {}) == datetime(2026, 11, 28, 6, 30, tzinfo=tz)
+    assert in_posting_window(datetime(2026, 11, 27, 22, 10, tzinfo=tz), {}) == datetime(2026, 11, 27, 22, 10, tzinfo=tz)
+    assert in_posting_window(datetime(2026, 11, 27, 6, 5, tzinfo=tz), {}) == datetime(2026, 11, 27, 6, 5, tzinfo=tz)
