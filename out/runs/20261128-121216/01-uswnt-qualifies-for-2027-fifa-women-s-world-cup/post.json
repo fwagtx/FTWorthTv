@@ -1,0 +1,48 @@
+{
+  "mode": "link",
+  "writer": "template",
+  "link": "https://www.youtube.com/watch?v=9vsUrC5Pv0o",
+  "scheduled_at": null,
+  "image": null,
+  "video": null,
+  "story_image": null,
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "other",
+    "headline": "USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas",
+    "caption": "WATCH: USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas\n\nThe U.S. women beat El Salvador 8-0 in the 2026 Concacaf W Championship quarterfinal.\n\nVideo: WFAA on YouTube",
+    "first_comment": "Source: WFAA on YouTube https://www.youtube.com/watch?v=9vsUrC5Pv0o\n{photo_credit}",
+    "hashtags": [],
+    "image_query": "Fort Worth skyline",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "aa57a172837d72b4",
+    "source": "WFAA",
+    "source_kind": "video",
+    "title": "USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas",
+    "summary": "The U.S. women beat El Salvador 8-0 in the 2026 Concacaf W Championship quarterfinal.",
+    "url": "https://www.youtube.com/watch?v=9vsUrC5Pv0o",
+    "published": "2026-11-28T17:55:10+00:00",
+    "category_hint": null,
+    "image_url": "https://i2.ytimg.com/vi/9vsUrC5Pv0o/hqdefault.jpg",
+    "image_credit": "Video: WFAA",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.595,
+    "extra": {
+      "video_id": "9vsUrC5Pv0o",
+      "channel": "WFAA",
+      "handle": "@WFAA8",
+      "views": 4,
+      "feed_title": "WFAA",
+      "scope": "dfw"
+    },
+    "category": "other",
+    "relevance": 2,
+    "score": 0.5897
+  }
+}
