@@ -299,6 +299,11 @@
       "reason": "daily cap for sports reached",
       "title": "Baylor set to hire UTSA coach Jeff Traylor after leading Roadrunners to new heights"
     },
+    "8f189f50c8ce8592": {
+      "at": "2026-11-28T16:46:40.153292+00:00",
+      "reason": "daily cap for weather reached",
+      "title": "Windy weekend ahead for North Texas"
+    },
     "98e319a85ca8e297": {
       "at": "2026-11-27T03:13:39.720509+00:00",
       "reason": "daily cap for crime reached",
@@ -2795,6 +2800,11 @@
       "reason": "Deadline's U2 2027 stadium tour: no Texas stop (Miami, LA), and a North American T-6 Texan airplane for 'North American'; rules added",
       "title": "U2 Sets North American Stops On 2027 Stadium Tour; 2 LA Shows Planned"
     },
+    "4325482b581b257e": {
+      "at": "2026-11-28T16:46:40.152624+00:00",
+      "reason": "a 2027 schedule announcement for USC-Texas Tech in Las Vegas, not Fort Worth news (now a future_season_schedule rule)",
+      "title": "USC vs. Texas Tech to open 2027 season: Trojans, Red Raiders set for Las Vegas meeting in 'MGM Classic'"
+    },
     "439d83114736ca15": {
       "at": "2026-11-24T17:18:18.966624+00:00",
       "reason": "ESPN's Cardinals DC firing: Arizona NFL news counted as Texas for a coach named Austin, with a Fort Worth Fire truck for 'fire'; rules added",
@@ -3025,6 +3035,11 @@
       "at": "2026-11-26T16:17:20.565654+00:00",
       "reason": "volunteers preparing meals (a happening) with a stock family carving a turkey at home; a community post takes a picture of it or none",
       "title": "North Texas volunteers prepare 7,000 Thanksgiving meals for neighbors in need"
+    },
+    "84265f099341c2ad": {
+      "at": "2026-11-28T16:46:40.152606+00:00",
+      "reason": "a WWE match-card listing for an event in Houston, not Fort Worth news; caption leaned on column rhetoric (now a digest_title rule)",
+      "title": "WWE Survivor Series 2026 card: Complete list of matches and participants for WarGames in Houston"
     },
     "8cedca155f3625e2": {
       "at": "2026-11-27T16:45:53.617708+00:00",
@@ -3543,7 +3558,7 @@
       "title": "Rihanna atop the charts, Von Miller's breakout and more trends from Texas A&M's last Lone Star Showdown win"
     },
     "de5b38997515bc21": {
-      "at": "2026-11-28T14:15:27.720607+00:00",
+      "at": "2026-11-28T16:46:40.153911+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Musume restaurant reopens nearly 3 years after downtown Fort Worth explosion"
     },

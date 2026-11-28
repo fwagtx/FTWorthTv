@@ -657,3 +657,15 @@ def test_an_advice_piece_is_not_news_and_a_month_old_dallas_crime_is_old():
             "Halloween night are fighting to bring her home to Iowa nearly a month after her death.")
     assert another_citys_old_crime("‘Fighting for her remains': Family seeks to bring Dallas shooting victim home", saturday, lead)
     assert not another_citys_old_crime("Dallas police investigate overnight shooting", saturday, "Police were called at 2 a.m.")
+
+
+def test_a_match_card_is_a_listing_and_next_years_opener_is_a_schedule_note():
+    """Nov 28, render 336: CBS Sports' "WWE Survivor Series 2026 card: Complete list of matches ..." and "USC vs. Texas Tech to
+    open 2027 season ..." were drafted as sports text cards."""
+    from ftworthtv.filters import digest_title, future_season_schedule
+    assert digest_title("WWE Survivor Series 2026 card: Complete list of matches and participants for WarGames in Houston")
+    assert digest_title("UFC 330 full card and start time")
+    assert future_season_schedule("USC vs. Texas Tech to open 2027 season: Trojans, Red Raiders set for Las Vegas meeting", 2026)
+    assert future_season_schedule("TCU, Notre Dame set 2028 season opener in Dublin", 2026)
+    assert not future_season_schedule("TCU to open 2026 season against Utah", 2026)
+    assert not digest_title("Cowboys beat Chiefs to open the season")

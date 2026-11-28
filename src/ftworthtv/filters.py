@@ -746,7 +746,21 @@ _DIGEST_RE = re.compile(r"(?:\band more top stories\b|\btop stories\b|\bhottest 
                         r"\bdaily digest\b|\bthings to know\b|\bwhat you need to know this week\b|\bheadlines of the week\b|\bin case you missed it\b|"
                         # Nov 28, render 335: NBC 5's "Texas High School Football Playoffs: Regional round scores" was a living
                         # schedule-and-scores page ("Scores will be updated throughout the playoffs"), not a story
-                        r":\s*[\w -]{0,30}?\b(?:scores|schedules?|results|brackets?|scoreboard)\s*$|\bscores will be updated\b)", re.I)
+                        r":\s*[\w -]{0,30}?\b(?:scores|schedules?|results|brackets?|scoreboard)\s*$|\bscores will be updated\b|"
+                        # Nov 28, render 336: CBS Sports' "WWE Survivor Series 2026 card: Complete list of matches and participants
+                        # for WarGames in Houston": a card listing, not a story
+                        r"\bcomplete list of\b|\bfull (?:match )?card\b|\bmatch card\b)", re.I)
+
+
+# Nov 28, render 336: CBS Sports' "USC vs. Texas Tech to open 2027 season: Trojans, Red Raiders set for Las Vegas meeting":
+# a game scheduled for a season that has not started (August 2027) is a schedule announcement, not news for this page
+_FUTURE_SEASON_RE = re.compile(r"\b(?:to )?(?:open|opens|kick off|kicks off|start|starts)\s+(?:the\s+)?(20\d\d)\s+season\b|"
+                               r"\b(20\d\d)\s+season[- ]opener\b", re.I)
+
+
+def future_season_schedule(title: str, now_year: int) -> bool:
+    m = _FUTURE_SEASON_RE.search(title or "")
+    return bool(m) and int(m.group(1) or m.group(2)) > now_year
 
 
 def digest_title(title: str) -> bool:
@@ -1827,6 +1841,9 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         if story.source_kind == "rss" and digest_title(story.title):
             dropped.append((story, "a digest, not a story"))
+            continue
+        if story.source_kind == "rss" and future_season_schedule(story.title, now.year):
+            dropped.append((story, "a schedule announcement for a season that has not started"))
             continue
         if story.source_kind == "rss" and other_metro_forecast(story.source, story.title, story.url):
             dropped.append((story, "another metro's forecast"))
