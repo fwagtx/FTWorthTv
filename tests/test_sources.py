@@ -1014,3 +1014,28 @@ def test_a_fire_at_a_named_place_is_a_fire():
     assert fire_incident("Fire at the Stockyards barn forces evacuations")
     assert not fire_incident("Rangers fire at will in 12-2 rout")
     assert not fire_incident("Critics fire at the new Netflix show")
+
+
+def test_a_data_plot_is_not_a_photo_and_planes_clipping_wings_is_breaking():
+    """Nov 27, render 319: FOX 4's "Dallas-bound American Airlines flight clips wings with another plane at Reagan National"
+    was filed as business and drew "Average daily wind speed reagan national.png", a NOAA plot, from a Commons search."""
+    from ftworthtv.filters import infer_category
+    from ftworthtv.images.providers import PhotoCandidate, not_a_photo
+    from ftworthtv.images.subject import happened
+    from ftworthtv.models import Story
+    chart = PhotoCandidate(id="commons-195942859", url="https://upload.wikimedia.org/x.png", credit="Photo: Ldecola via Wikimedia Commons (CC0)",
+                           license="wikimedia-cc", provider="wikimedia",
+                           source_url="https://commons.wikimedia.org/wiki/File:Average_daily_wind_speed_reagan_national.png",
+                           title="Average daily wind speed reagan national")
+    assert not_a_photo(chart)
+    jets = PhotoCandidate(id="commons-1", url="https://upload.wikimedia.org/y.jpg", credit="Photo: x via Wikimedia Commons (CC BY 2.0)",
+                          license="wikimedia-cc", provider="wikimedia",
+                          source_url="https://commons.wikimedia.org/wiki/File:American_Airlines_737-800_taxiing_at_DCA.jpg",
+                          title="American Airlines 737-800 taxiing at DCA")
+    assert not not_a_photo(jets)
+    t = "Dallas-bound American Airlines flight clips wings with another plane at Reagan National"
+    story = Story(id="aa", source="FOX 4", source_kind="rss", title=t,
+                  summary="Two American Airlines flights taxiing for departure at Ronald Reagan Washington National Airport clipped wings Friday.",
+                  url="https://www.fox4news.com/news/x")
+    assert infer_category(story) == "breaking"
+    assert happened(t)

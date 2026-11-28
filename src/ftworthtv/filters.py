@@ -55,7 +55,11 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
     "breaking": ["breaking:", "breaking news", "developing:", "developing story", "evacuat", "explosion", "massive fire", "amber alert",
                  "active shooter", "lockdown", "shelter in place",   # "breaking records" is not breaking news
                  "house fire", "apartment fire", "structure fire", "home fire", "grass fire", "brush fire", "wildfire", "blaze",
-                 "firefighters", "gas leak", "hazmat"],              # Nov 22: a 2-story house fire was filed "other" and got a parked fire truck
+                 "firefighters", "gas leak", "hazmat",                 # Nov 22: a 2-story house fire was filed "other" and got a parked fire truck
+                 # Nov 27, render 319: FOX 4's "Dallas-bound American Airlines flight clips wings with another plane at Reagan
+                 # National" was filed as business: an aviation incident is breaking news
+                 "clips wings", "clipped wings", "clip wings", "wingtips", "wingtip", "emergency landing", "runway incursion",
+                 "near miss", "near-miss", "planes collide", "plane crash", "aircraft collided", "collided on the taxiway"],
 }
 
 
