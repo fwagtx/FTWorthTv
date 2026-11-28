@@ -1199,6 +1199,24 @@ def same_vote_of_confidence(title: str, summary: str, posted_title: str) -> bool
     return len(names(title) & names(posted_title)) >= 2
 
 
+# Nov 28, render 330: CBS Sports' "Baylor set to hire UTSA coach Jeff Traylor after leading Roadrunners to new heights" came
+# twenty-five minutes after WFAA's "Baylor football expected to hire UTSA head coach" was scheduled: one hire, two wordings
+_HIRING_RE = re.compile(r"\b(?:to hire|hires|hired|hiring|names|named|tabs|tabbed|lands|landed|taps|tapped|set to hire|"
+                        r"expected to hire|finalizing (?:a )?deal|agree(?:s|d)? to terms|new head coach|next head coach)\b", re.I)
+
+
+def same_hire(title: str, summary: str, posted_title: str) -> bool:
+    """A post in the last two days reported a team hiring someone; a story reporting a hire that names the same two
+    organizations (the team and the coach's school) is the same hire."""
+    if not _HIRING_RE.search(posted_title or "") or not _HIRING_RE.search(title or ""):
+        return False
+
+    def orgs(text: str) -> set[str]:
+        return {w.lower() for w in re.findall(r"\b(?:[A-Z]{2,5}|[A-Z][a-z]{3,})\b", text or "")} - _NOT_SURNAMES - \
+            {"football", "basketball", "coach", "head", "after", "leading", "expected", "hire", "hires", "names", "with", "from"}
+    return len(orgs(title) & orgs(posted_title)) >= 2
+
+
 # a numbered seat is one race: Nov 25, the Fort Worth Report's "Texas Supreme Court mulls candidate's eligibility in House 93 race"
 # came the morning after FOX 4's "Texas House District 93 winner remains unknown amid eligibility dispute" went out. Until there
 # is a decision (a ruling, a winner certified or sworn in, a concession), it is the same news.

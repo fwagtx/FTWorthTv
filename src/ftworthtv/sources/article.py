@@ -168,7 +168,13 @@ def enrich_summary(story: Story, min_len: int = 160) -> Story:
     if body and len(t & _words(body[:800])) < max(2, len(t) // 3):
         log.info("article body does not match the story (%s); keeping the description only", story.title[:50])
         body = ""                                   # a "Home Alone" sequel under a fan's death: the page's longest block was another article
-    lead = " ".join(part for part in (info.get("description", ""), body) if part)
+    description = (info.get("description", "") or "").strip()
+    if description and body and not re.search(r"[.!?…\"'”’)]$", description):
+        # Nov 28, render 330: CBS Sports' dek "Reed suffered multiple unconfirmed injuries at WWE Crown Jewel on Nov. 7" ran
+        # into the article's first sentence ("... on Nov. 7 Jermaine Haley, better known as ...") and the caption carried
+        # the run-on: a dek without its own full stop gets one before the article's lead
+        description += "."
+    lead = " ".join(part for part in (description, body) if part)
     if not lead:
         log.info("article page gave no text for %s", story.url)
     if len(lead) > len(story.summary or ""):

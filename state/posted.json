@@ -10,7 +10,7 @@
     "2026-11-25": 19,
     "2026-11-26": 15,
     "2026-11-27": 14,
-    "2026-11-28": 5
+    "2026-11-28": 6
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -109,7 +109,7 @@
     },
     "2026-11-28": {
       "crime": 1,
-      "sports": 2,
+      "sports": 3,
       "weather": 2
     }
   },
@@ -172,7 +172,7 @@
     "2026-11-28": {
       "nws_alert": 1,
       "nws_forecast": 1,
-      "rss": 3
+      "rss": 4
     }
   },
   "daily_by_scope": {
@@ -225,7 +225,7 @@
       "local": 10
     },
     "2026-11-28": {
-      "local": 3,
+      "local": 4,
       "texas": 2
     }
   },
@@ -357,7 +357,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-28T08:10:00-06:00",
+  "last_post_at": "2026-11-28T08:35:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1984,6 +1984,19 @@
       "title": "White Castle vending machine debuts at Dallas Love Field ahead of first Texas location",
       "url": "https://www.fox4news.com/news/white-castle-vending-machine-debuts-dallas-love-field-ahead-first-texas-location"
     },
+    "ceaeb8fe29582112": {
+      "at": "2026-11-28T08:35:00-06:00",
+      "category": "sports",
+      "kind": "rss",
+      "mode": "photo",
+      "post_id": "445455279",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=8397695012721411837",
+      "publisher": "metricool-session",
+      "scope": "local",
+      "source": "TCU Athletics (men's basketball)",
+      "title": "TCU Finishes Third at Players Era after 88-69 Win over Baylor",
+      "url": "https://gofrogs.com/news/2026/11/27/mens-basketball-tcu-finishes-in-third-at-players-era-after-88-69-win-over-baylor"
+    },
     "culture-parade-of-lights-2026-0": {
       "at": "2026-11-20T07:44:00-06:00",
       "category": "events",
@@ -2913,6 +2926,11 @@
       "reason": "CBS Sports' 'One bold prediction for each NFL Thanksgiving game': a column of food puns, and its caption reads 'the Philadelphia and the Dal",
       "title": "One bold prediction for each NFL Thanksgiving game, including Cowboys' Dak Prescott to feast on Eagles"
     },
+    "78bac2239965db74": {
+      "at": "2026-11-28T13:47:01.905297+00:00",
+      "reason": "the same Baylor hire of UTSA's Jeff Traylor as the 8:10 post (CBS Sports' version), with a run-on caption",
+      "title": "Baylor set to hire UTSA coach Jeff Traylor after leading Roadrunners to new heights"
+    },
     "79edd98f008b11a6": {
       "at": "2026-11-23T22:15:30.424563+00:00",
       "reason": "ESPN's Texas A&M interim athletic director: College Station's athletics office is not Fort Worth news, and Kyle Field stood in for a job cha",
@@ -3113,6 +3131,11 @@
       "at": "2026-11-25T20:46:14.167062+00:00",
       "reason": "Fort Worth Report's 'The Dish: Acquolina ...': drafted with a British Museum enamel dish for the column name 'Dish'; the page's own photo is",
       "title": "The Dish: Acquolina brings Italian fare to the slopes of Camp Bowie District"
+    },
+    "af61dab16bc164e4": {
+      "at": "2026-11-28T13:47:01.905314+00:00",
+      "reason": "a national celebrity death (WWE's Bronson Reed), not Fort Worth or regional news, with a run-on dek about unconfirmed injuries",
+      "title": "Bronson Reed dies at 38: WWE superstar passes unexpectedly due to medical complications"
     },
     "b0d02a7515d38b45": {
       "at": "2026-11-23T14:22:51.705143+00:00",
@@ -3349,7 +3372,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 168,
+  "total_posts": 169,
   "tried": {
     "073ea4c28e52affd": {
       "at": "2026-11-28T04:43:55.081406+00:00",
@@ -3457,7 +3480,7 @@
       "title": "Sixth grader in Texas foster care says art and humor help him cope while waiting for a family"
     },
     "f250641d8151a2db": {
-      "at": "2026-11-27T22:43:30.534777+00:00",
+      "at": "2026-11-28T13:47:01.906843+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "No. 9 Texas Tech beats TCU 48-27 to secure spot against No. 2 Utah in Big 12 title game"
     },
@@ -3465,6 +3488,11 @@
       "at": "2026-11-28T00:43:45.448332+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Texas State University students protest, demand stronger free speech protections"
+    },
+    "fc95fa9bb31fb619": {
+      "at": "2026-11-28T13:47:01.906833+00:00",
+      "reason": "no summary to post: the feed gave only a headline",
+      "title": "2026 SEC Championship Game: Texas gets one last shot at Georgia in contest's final edition"
     },
     "fe658b08aaf2903f": {
       "at": "2026-11-27T22:13:45.620973+00:00",

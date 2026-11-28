@@ -1068,3 +1068,23 @@ def test_a_breezy_sunny_forecast_keeps_its_sky_and_a_highlights_roundup_is_a_ree
     assert highlight_reel("North Texas high school football teams battle in regionals")
     assert highlight_reel("Friday night highlights: Week 12 playoff scores")
     assert not highlight_reel("Aledo wins state title in overtime thriller")
+
+
+def test_a_dek_without_a_full_stop_does_not_run_into_the_lead_and_one_hire_is_one_story(monkeypatch):
+    """Nov 28, render 330: CBS Sports' dek "Reed suffered multiple unconfirmed injuries at WWE Crown Jewel on Nov. 7" ran into
+    the article's first sentence ("... on Nov. 7 Jermaine Haley, better known as ..."), and CBS's "Baylor set to hire UTSA
+    coach Jeff Traylor ..." came after WFAA's "Baylor football expected to hire UTSA head coach" was scheduled."""
+    from ftworthtv.filters import same_hire
+    from ftworthtv.models import Story
+    import ftworthtv.sources.article as article
+    monkeypatch.setattr(article, "fetch_article", lambda url: {
+        "title": "Bronson Reed dies at 38: WWE superstar passes unexpectedly due to medical complications",
+        "description": "Reed suffered multiple unconfirmed injuries at WWE Crown Jewel on Nov. 7",
+        "summary": "Jermaine Haley, better known as WWE superstar Bronson Reed, has died at age 38, the company announced Friday night."})
+    s = Story(id="r", source="CBS Sports", source_kind="rss", url="https://www.cbssports.com/wwe/news/x/",
+              title="Bronson Reed dies at 38: WWE superstar passes unexpectedly due to medical complications", summary="")
+    article.enrich_summary(s)
+    assert "on Nov. 7. Jermaine Haley" in s.summary
+    assert same_hire("Baylor set to hire UTSA coach Jeff Traylor after leading Roadrunners to new heights", "",
+                     "Baylor football expected to hire UTSA head coach")
+    assert not same_hire("TCU names Jeff Traylor head coach", "", "Baylor football expected to hire UTSA head coach")
