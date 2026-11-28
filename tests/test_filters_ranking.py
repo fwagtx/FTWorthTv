@@ -685,3 +685,13 @@ def test_defeated_by_is_a_result_and_the_in_store_idiom_is_not_a_shop():
     shop = Story(id="s", source="FW Report", source_kind="rss", title="New H-E-B store opens in Fort Worth's Alliance area",
                  summary="The store opens Wednesday with 400 jobs.", url="u")
     assert infer_category(shop) == "business"
+
+
+def test_weekend_box_office_grosses_are_trade_numbers():
+    """Nov 28, render 338: Deadline's Thanksgiving box-office update went to a draft with 4DX theater seats."""
+    from ftworthtv.filters import industry_trade
+    assert industry_trade("‘Sunrise On The Reaping’ Warming Up $83M+ 5-Day As Thanksgiving Stretch Box Office Sees $220M+ – Update")
+    assert industry_trade("Box Office: ‘Hunger Games: Sunrise on the Reaping’ Continues Its Rule With $22.5 Million")
+    assert industry_trade("‘Wicked: For Good’ Box Office Climbs To $400M Worldwide – Update")
+    assert not industry_trade("‘Wicked: For Good’ tops box office with $150 million opening")    # the result is the moment
+    assert not industry_trade("Fort Worth Stock Show sets attendance record")

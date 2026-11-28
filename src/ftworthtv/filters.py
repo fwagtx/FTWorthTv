@@ -219,7 +219,15 @@ _INDUSTRY_TRADE_RE = re.compile(r"\b(?:closes?|completes?|finalizes?|seals?)\b.{
                                 # Nov 25, The Hollywood Reporter: "'Avengers: Doomsday' Eyes $270M Opening as 'Dune: Part Three' Also
                                 # Heads for Big Start" (tracking services' projections, a month before release)
                                 r"\beyes \$[\d.]+\s?[mb](?:illion)?\b.{0,25}\bopening\b|\btracking (?:for|services?|ahead)\b|"
-                                r"\bopening(?:-| )weekend (?:projections?|tracking|forecasts?)\b|box-office-tracking",
+                                r"\bopening(?:-| )weekend (?:projections?|tracking|forecasts?)\b|box-office-tracking|"
+                                # Nov 28, render 338: Deadline's "'Sunrise On The Reaping' Warming Up $83M+ 5-Day As Thanksgiving
+                                # Stretch Box Office Sees $220M+ - Update" went to a draft with 4DX theater seats and a caption in
+                                # trade shorthand ("Pic had ...", "SATURDAY AM:"): a weekend's grosses are the trades' numbers
+                                # (a running estimate: "$83M+", a multi-day stretch, a "Box Office:" column, an "– Update"); the
+                                # result itself ("tops box office with $150 million opening", "breaks box office record") is the moment
+                                r"^\W*box office:|\bbox office\b.{0,80}[-–—]\s*update\b|\$[\d.]+\s?[mb]\+|"
+                                r"\b(?:\d|five|four|three)-day\b.{0,60}\bbox office\b|\bbox office\b.{0,60}\b(?:\d|five|four|three)-day\b|"
+                                r"\bthanksgiving (?:stretch|frame|corridor)\b",
                                 re.I)
 
 
