@@ -1,0 +1,53 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": null,
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-074448/01-baylor-set-to-hire-utsa-coach-jeff-traylor-after/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-074448/01-baylor-set-to-hire-utsa-coach-jeff-traylor-after/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Baylor set to hire UTSA coach Jeff Traylor after leading Roadrunners to new heights",
+    "caption": "The former Texas high school coach clinched a spot in the American Conference title game on Friday. Traylor is a legendary Texas high school football coach at Gilmer High School in East Texas, winning three state championships and earning a spot in the THSCA Hall of Honor.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/college-football/news/baylor-hires-jeff-traylor-utsa-coaching-carousel/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "football stadium Texas",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "78bac2239965db74",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "Baylor set to hire UTSA coach Jeff Traylor after leading Roadrunners to new heights",
+    "summary": "The former Texas high school coaching legend, who went 61-28 with three 10-win seasons at UTSA, takes over in Waco after Dave Aranda was fired in October Baylor is set to hire UTSA coach Jeff Traylor to the same position, according to CBS Sports' Matt Zenitz. The former Texas high school coach clinched a spot in the American Conference title game on Friday. Traylor is a legendary Texas high school football coach at Gilmer High School in East Texas, winning three state championships and earning a spot in the THSCA Hall of Honor. After stints as an assistant at Texas, SMU and Arkansas , he was named head coach at UTSA in 2020, where he helped lead the Roadrunners to an unprecedented stretch of success. The Roadrunners went 61-28 under Traylor's watch, including three 10-win seasons. They're playing for their third conference title in six years, and first since transitioning to the…",
+    "url": "https://www.cbssports.com/college-football/news/baylor-hires-jeff-traylor-utsa-coaching-carousel/",
+    "published": "2026-11-28T03:44:49+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/28/6127366e-f5c4-4763-8552-4796874260c0/traylor-getty.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.45,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "texas"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.2139
+  }
+}

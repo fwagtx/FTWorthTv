@@ -1,0 +1,54 @@
+{
+  "mode": "photo",
+  "writer": "template",
+  "link": null,
+  "scheduled_at": "2026-11-28T14:34:48.081133+00:00",
+  "image": {
+    "path": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-074448/03-bronson-reed-dies-at-38-wwe-superstar-passes-une/post.jpg",
+    "credit": "Card: FWD",
+    "license": "card",
+    "provider": "card",
+    "source_url": null,
+    "photo_id": null,
+    "subject": null
+  },
+  "video": null,
+  "story_image": "/home/runner/work/FTWorthTv/FTWorthTv/out/runs/20261128-074448/03-bronson-reed-dies-at-38-wwe-superstar-passes-une/story.jpg",
+  "copy": {
+    "skip": false,
+    "skip_reason": "",
+    "category": "sports",
+    "headline": "Bronson Reed dies at 38: WWE superstar passes unexpectedly due to medical complications",
+    "caption": "Reed suffered multiple unconfirmed injuries at WWE Crown Jewel on Nov. 7 Jermaine Haley, better known as WWE superstar Bronson Reed, has died at age 38 due to medical complications, the company announced Friday night. Haley was last seen on screen at WWE Crown Jewel, held on Nov. 6 in Riyadh, Saudi Arabia.\n\nHe was believed to be dealing with multiple injuries coming out of the event, though those were never officially disclosed by the company.",
+    "first_comment": "Source: CBS Sports https://www.cbssports.com/wwe/news/bronson-reed-dies-38-wwe-superstar-jermaine-haley/\n{photo_credit}\nDM us your videos & photos 📲",
+    "hashtags": [],
+    "image_query": "hockey arena ice",
+    "location": "Fort Worth, TX"
+  },
+  "story": {
+    "id": "af61dab16bc164e4",
+    "source": "CBS Sports",
+    "source_kind": "rss",
+    "title": "Bronson Reed dies at 38: WWE superstar passes unexpectedly due to medical complications",
+    "summary": "Reed suffered multiple unconfirmed injuries at WWE Crown Jewel on Nov. 7 Jermaine Haley, better known as WWE superstar Bronson Reed, has died at age 38 due to medical complications, the company announced Friday night. Haley was last seen on screen at WWE Crown Jewel, held on Nov. 6 in Riyadh, Saudi Arabia. He was believed to be dealing with multiple injuries coming out of the event, though those were never officially disclosed by the company. During his Crown Jewel appearance, Haley tussled with up-and-coming star Oba Femi, who initially shoulder-tackled the Australian on the ramp before dropping him down off the stage through multiple tables. Both are spots that WWE superstars and other wrestlers across the industry perform with regularity. Haley, who won the NXT North American Championship and the Andre the Giant Memorial Battle Royal across two stints with WWE, joined the company in…",
+    "url": "https://www.cbssports.com/wwe/news/bronson-reed-dies-38-wwe-superstar-jermaine-haley/",
+    "published": "2026-11-28T01:46:44+00:00",
+    "category_hint": "sports",
+    "image_url": "https://sportshub.cbsistatic.com/i/2026/11/28/7622fa2c-85ae-4140-8cf9-1964379ced26/bronson-reed-wwe-shirt.jpg",
+    "image_credit": "Photo: CBS Sports",
+    "image_license": "source-owned",
+    "image_policy": "none",
+    "official": false,
+    "always_relevant": false,
+    "weight": 0.39,
+    "extra": {
+      "feed_title": "CBS Sports Headlines",
+      "national": true,
+      "scope": "national",
+      "national_term": "dies at"
+    },
+    "category": "sports",
+    "relevance": 2,
+    "score": 0.1284
+  }
+}
