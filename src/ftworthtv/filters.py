@@ -1049,18 +1049,93 @@ def _sports_result(title: str) -> bool:
 _PLAIN_ALIASES = {"north texas", "bears", "cougars", "wildcats", "horns", "hogs", "mustangs"}   # place names and plain words first
 
 
+# Nov 28, render 337: a Title Case headline makes every word a capital ("Stout Defense Keys No. 15 TCU in Blowout Win Over Utah
+# State"), so a result word shared with another game ("... after 88-69 Win over Baylor") read as a second team
+_HEADLINE_WORDS = {"win", "wins", "won", "over", "past", "fall", "falls", "fell", "rally", "rallies", "rallied", "beat", "beats",
+                   "top", "tops", "topped", "rout", "routs", "loss", "losses", "victory", "defeat", "defeats", "defeated", "edge",
+                   "edges", "blowout", "finish", "finishes", "finished", "first", "second", "third", "fourth", "fifth", "overtime",
+                   "leads", "lead", "keys", "half", "opener", "dish", "out", "assists", "points", "rebounds", "score", "scores",
+                   "defense", "offense", "stout", "late", "comeback", "rallying", "come", "comes", "short", "falls", "takes",
+                   "holds", "hold", "off", "up", "for", "with", "and", "against", "to", "of", "by", "vs", "from"}
+
+# the nicknames of the teams the feeds cover: two headlines that each name two teams name one game only when the teams match
+# (Nov 28, render 337: "Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100" read as the same game
+# as "Cooper Flagg leads Mavericks' rally to beat Suns" on the player's two names and the Mavericks)
+TEAM_NICKNAMES = {
+    # NBA
+    "hawks", "celtics", "nets", "hornets", "bulls", "cavaliers", "cavs", "pistons", "pacers", "heat", "bucks", "knicks", "magic",
+    "76ers", "sixers", "raptors", "wizards", "mavericks", "nuggets", "warriors", "rockets", "clippers", "lakers", "grizzlies",
+    "timberwolves", "pelicans", "thunder", "suns", "trail blazers", "blazers", "kings", "spurs", "jazz",
+    # NFL
+    "cardinals", "falcons", "ravens", "bills", "panthers", "bengals", "browns", "cowboys", "broncos", "lions", "packers", "texans",
+    "colts", "jaguars", "chiefs", "raiders", "chargers", "rams", "dolphins", "vikings", "patriots", "saints", "giants", "jets",
+    "eagles", "steelers", "49ers", "niners", "seahawks", "buccaneers", "bucs", "titans", "commanders",
+    # NHL
+    "ducks", "bruins", "sabres", "flames", "hurricanes", "blackhawks", "avalanche", "blue jackets", "stars", "red wings", "oilers",
+    "wild", "canadiens", "predators", "devils", "islanders", "rangers", "senators", "flyers", "penguins", "sharks", "kraken",
+    "blues", "lightning", "maple leafs", "canucks", "golden knights", "capitals", "mammoth",
+    # MLB
+    "diamondbacks", "braves", "orioles", "red sox", "cubs", "white sox", "reds", "guardians", "rockies", "tigers", "astros",
+    "royals", "angels", "dodgers", "marlins", "brewers", "twins", "mets", "yankees", "athletics", "phillies", "pirates", "padres",
+    "mariners", "rays", "blue jays", "nationals",
+    # WNBA, MLS
+    "wings", "fever", "aces", "liberty", "sky", "storm", "dream", "mercury", "lynx", "sparks", "mystics", "valkyries", "timbers",
+    "sounders", "galaxy", "dynamo",
+    # college
+    "buffaloes", "sun devils", "bearcats", "knights", "mountaineers", "yellow jackets", "seminoles", "gators", "bulldogs",
+    "crimson tide", "volunteers", "rebels", "gamecocks", "commodores", "buckeyes", "wolverines", "spartans", "nittany lions",
+    "hawkeyes", "badgers", "cornhuskers", "boilermakers", "hoosiers", "illini", "gophers", "terrapins", "scarlet knights",
+    "beavers", "huskies", "trojans", "bruins", "golden bears", "demon deacons", "tar heels", "blue devils", "wolfpack", "hokies",
+    "roadrunners", "miners", "owls", "green wave", "golden hurricane", "aztecs", "lobos", "rainbow warriors", "broncos"}
+
+
+def _blank(text: str, phrase: str) -> str:
+    return re.sub(r"(?<![\w])" + re.escape(phrase) + r"(?![\w])", " ", text, flags=re.I)
+
+
 def _game_keys(title: str) -> set[str]:
     t = " " + (title or "").lower().replace("’", "'") + " "
+    rest = (title or "").replace("’", "'")
     keys: set[str] = set()
     for alias in sorted(TEAM_ALIASES, key=len, reverse=True):
         if re.search(r"(?<![\w])" + re.escape(alias) + r"(?![\w])", t):
             keys.add(TEAM_ALIASES[alias])
             t = re.sub(r"(?<![\w])" + re.escape(alias) + r"(?![\w])", " ", t)
-    for word in re.findall(r"\b[A-Z][\w&]+(?:\s+[A-Z][\w&]+)?", title or ""):
+            rest = _blank(rest, alias)          # "Horned Frogs" is one team, not "horned" and "tcu"
+    for word in re.findall(r"\b[A-Z][\w&]+(?:\s+[A-Z][\w&]+)?", rest):
         for w in word.lower().split():
-            if w not in _TEAM_STOP and len(w) > 2:
+            if w not in _TEAM_STOP and w not in _HEADLINE_WORDS and len(w) > 2:
                 keys.add(TEAM_ALIASES.get(w, w))
     return keys
+
+
+def _named_teams(title: str) -> set[str]:
+    """The teams a headline names by nickname, alias or canonical name ("Horned Frogs", "TCU", "Mavs", "Suns")."""
+    t = " " + _plain(title or "").replace("’", "'") + " "
+    teams: set[str] = set()
+    names = {**{a: c for a, c in TEAM_ALIASES.items() if a not in _PLAIN_ALIASES},
+             **{c: c for c in TEAM_ALIASES.values() if c not in ("texas", "houston", "utah", "kansas", "arkansas", "oklahoma")},
+             **{n: n for n in TEAM_NICKNAMES}}
+    for name in sorted(names, key=len, reverse=True):
+        if re.search(r"(?<![\w])" + re.escape(name) + r"(?![\w])", t):
+            teams.add(names[name])
+            t = re.sub(r"(?<![\w])" + re.escape(name) + r"(?![\w])", " ", t)
+    return teams
+
+
+# a team's record is not a final score: "finish 4-0 in NBA Cup group play", "improve to 5-2", "(9-3)", "a 4-0 start"
+_RECORD_RE = re.compile(r"\b(?:finish(?:es|ed)?|improves?|improved|moves?|moved|goes|go|went|stays?|stayed|falls?|fell|drops?|"
+                        r"dropped|climbs?|climbed|remains?|remained|now|at|to)\s+(?:to\s+)?\d{1,3}-\d{1,3}\b|"
+                        r"\(\d{1,3}-\d{1,3}(?:,\s*\d{1,3}-\d{1,3})?\)|\b\d{1,3}-\d{1,3}\s+(?:start|record|mark|season)\b", re.I)
+
+
+def _final_scores(title: str) -> set[tuple[int, int]]:
+    t = _RECORD_RE.sub(" ", title or "")
+    out = set()
+    for m in _SCORE_RE.finditer(t):
+        a, b = (int(x) for x in m.group(0).split("-"))
+        out.add((max(a, b), min(a, b)))
+    return out
 
 
 # one subject, several spellings: two outlets carry the same moment whichever spelling each uses
@@ -1145,7 +1220,15 @@ def same_game(a: str, b: str) -> bool:
         return False                                      # a preview and a result are two stories
     if not (_sports_result(a) and _sports_result(b)):
         return False                                      # only games are games
+    sa, sb = _final_scores(a), _final_scores(b)
+    if sa and sb and not (sa & sb):
+        return False                                      # Nov 28: "Horned Frogs Fall in Overtime to Aggies, 97-92" is not the 95-87 game
+    ta, tb = _named_teams(a), _named_teams(b)
+    if len(ta) >= 2 and len(tb) >= 2 and len(ta & tb) < 2:
+        return False                                      # Mavericks-Clippers is not Mavericks-Suns
     shared = _game_keys(a) & _game_keys(b)
+    if sa & sb and shared:
+        return True                                       # "Creighton beats TCU 95-87" and "Horned Frogs Fall to Blue Jays, 95-87"
     return len(shared) >= 2
 
 

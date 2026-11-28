@@ -695,3 +695,22 @@ def test_weekend_box_office_grosses_are_trade_numbers():
     assert industry_trade("‘Wicked: For Good’ Box Office Climbs To $400M Worldwide – Update")
     assert not industry_trade("‘Wicked: For Good’ tops box office with $150 million opening")    # the result is the moment
     assert not industry_trade("Fort Worth Stock Show sets attendance record")
+
+
+def test_one_teams_other_games_are_not_the_same_game():
+    """Nov 28, render 337: TCU women's basketball results and the Mavericks' other NBA Cup games were dropped as "the same game"
+    as a TCU men's result or a Mavericks game already posted ("Horned" + "Frogs", a Title Case "Win", a player's two names)."""
+    from ftworthtv.filters import same_game
+    posted_tcu = "Horned Frogs Fall to Blue Jays, 95-87"
+    assert not same_game("Horned Frogs Rally Past Georgia Tech in Fort Myers", posted_tcu)
+    assert not same_game("Horned Frogs Fall in Overtime to Aggies, 97-92", posted_tcu)
+    assert not same_game("Stout Defense Keys No. 15 TCU in Blowout Win Over Utah State",
+                         "TCU Finishes Third at Players Era after 88-69 Win over Baylor")
+    assert not same_game("Big Second Half Leads TCU to 84-71 Win over No. 17 Miami",
+                         "TCU Finishes Third at Players Era after 88-69 Win over Baylor")
+    posted_mavs = "Cooper Flagg leads Mavericks' rally to beat Suns, finish 4-0 in NBA Cup group play"
+    assert not same_game("Kyrie Irving scores 25, Cooper Flagg 22 as the Mavericks top the Clippers 110-100", posted_mavs)
+    assert not same_game("Cooper Flagg has 24 points and 12 assists as Mavericks beat Nuggets 120-101 in NBA Cup contest", posted_mavs)
+    # the same game, told another way
+    assert same_game("Mavericks beat Suns 120-115 to sweep NBA Cup group", posted_mavs)      # "finish 4-0" is a record
+    assert same_game("Creighton beats TCU 95-87", posted_tcu)                                # one score, one shared team
