@@ -39,7 +39,9 @@ CATEGORY_KEYWORDS: dict[str, list[str]] = {
                # Nov 23: "Miller won't return as Astros' pitching coach in '27" read as "other", so the other-metro team rule
                # (sports only) let it through with the Astros' ballpark as its picture
                "astros", "mlb", "nfl", "nba", "nhl", "pitching coach", "pitcher", "bullpen", "inning", "home run",
-               "offensive coordinator", "defensive coordinator"],
+               "offensive coordinator", "defensive coordinator",
+               # Nov 28, render 339: WFAA's "USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas" was "other"
+               "soccer", "world cup", "uswnt", "usmnt", "fifa", "concacaf", "nwsl", "mls", "qualifier", "qualifies for"],
     "food": ["restaurant", "barbecue", "bbq", "brisket", "taco", "brewery", "bar ", "cafe", "coffee", "bakery", "food hall",
              "menu", "chef", "opens its", "grand opening", "margarita", "tex-mex", "burger", "pizza"],
     "events": ["concert", "festival", "tour", "live at", "dickies arena", "billy bob", "bass hall", "will rogers", "fair",
@@ -1232,6 +1234,32 @@ def same_game(a: str, b: str) -> bool:
     return len(shared) >= 2
 
 
+def previewed_local_game(state: State, story: Story, now: datetime, hours: float = 36.0) -> str | None:
+    """The result of a game this page previewed as local news follows the preview's place (Nov 28, render 338: "Sanchez hat
+    trick sends USWNT to the World Cup with 8-0 qualifying victory over El Salvador" was 'not local enough' the night after
+    "USWNT plays El Salvador in Texas Health Mansfield Stadium" went out). Returns the preview's title."""
+    from .images.subject import happened
+    title = story.title or ""
+    if story.source_kind != "rss" or not (_SCORE_RE.search(title) or _RESULT_RE.search(title)):
+        return None
+    keys = _game_keys(title)
+    for info in state.data.get("posted", {}).values():
+        if not isinstance(info, dict) or info.get("category") != "sports" or info.get("scope", "local") != "local":
+            continue
+        posted = info.get("title", "")
+        if happened(posted) or _SCORE_RE.search(posted) or _RESULT_RE.search(posted):
+            continue                                      # a result is not a preview: its next game is another story
+        try:
+            at = datetime.fromisoformat(info.get("at", ""))
+        except Exception:
+            continue
+        if at.tzinfo is None:
+            continue
+        if 0 <= (now - at).total_seconds() <= hours * 3600 and len(keys & _game_keys(posted)) >= 2:
+            return posted
+    return None
+
+
 def same_story(a: str, b: str, threshold: float = 0.6) -> bool:
     """Two headlines about the same event (an outlet's and a station's): the shorter one's content words are mostly
     contained in the other's, and at least four of them match."""
@@ -1949,6 +1977,11 @@ def filter_stories(stories: list[Story], settings: Settings, state: State, now: 
             continue
         story.relevance = relevance_score(story, keywords)
         story.extra.setdefault("scope", "local")
+        if not story.always_relevant and story.relevance < min_rel:
+            preview = previewed_local_game(state, story, now)
+            if preview:
+                story.relevance = min_rel             # the result of a local game this page previewed is local news too
+                story.extra["follows_preview"] = preview
         if not story.always_relevant and story.relevance < min_rel:
             # the Dallas page is Dallas-first but posts DFW and Texas-wide stories every day (new Texas bills, H-E-B,
             # gas prices, outages). Keep those at a lower weight and a lower share; drop the rest.

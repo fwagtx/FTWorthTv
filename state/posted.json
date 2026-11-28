@@ -10,7 +10,7 @@
     "2026-11-25": 19,
     "2026-11-26": 15,
     "2026-11-27": 14,
-    "2026-11-28": 9
+    "2026-11-28": 10
   },
   "daily_by_category": {
     "2026-11-18": {
@@ -111,6 +111,7 @@
       "breaking": 1,
       "community": 1,
       "crime": 1,
+      "other": 1,
       "sports": 4,
       "weather": 2
     }
@@ -175,7 +176,7 @@
       "nws_alert": 1,
       "nws_forecast": 1,
       "rss": 6,
-      "video": 1
+      "video": 2
     }
   },
   "daily_by_scope": {
@@ -228,7 +229,7 @@
       "local": 10
     },
     "2026-11-28": {
-      "dfw": 2,
+      "dfw": 3,
       "local": 5,
       "texas": 2
     }
@@ -361,7 +362,7 @@
     }
   },
   "flags": {},
-  "last_post_at": "2026-11-28T10:18:00-06:00",
+  "last_post_at": "2026-11-28T12:19:00-06:00",
   "posted": {
     "00c9e1bc4c8d21b5": {
       "at": "2026-11-24T16:19:00-06:00",
@@ -1745,6 +1746,19 @@
       "source": "The Texas Tribune",
       "title": "Texas Sports Academy, tied to AI-driven Alpha School, is Texas’ biggest voucher recipient so far",
       "url": "https://feeds.texastribune.org/link/16799/17537271/texas-school-vouchers-alpha-sports-academy-ai"
+    },
+    "aa57a172837d72b4": {
+      "at": "2026-11-28T12:19:00-06:00",
+      "category": "other",
+      "kind": "video",
+      "mode": "link",
+      "post_id": "445682085",
+      "post_url": "https://app.metricool.com/planner/calendar?blogId=8208939&openWithPostUuid=-4417261449084647211",
+      "publisher": "metricool-session",
+      "scope": "dfw",
+      "source": "WFAA",
+      "title": "USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas",
+      "url": "https://www.youtube.com/watch?v=9vsUrC5Pv0o"
     },
     "ab13521a28cf5e32": {
       "at": "2026-11-23T08:55:00-06:00",
@@ -3455,7 +3469,7 @@
       "title": "Fort Worth forecast for Thursday, November 26"
     }
   },
-  "total_posts": 172,
+  "total_posts": 173,
   "tried": {
     "073ea4c28e52affd": {
       "at": "2026-11-28T04:43:55.081406+00:00",
@@ -3463,7 +3477,7 @@
       "title": "WWE Star Bronson Reed Dies at 38"
     },
     "19a0b20bd408dc87": {
-      "at": "2026-11-28T15:13:35.195078+00:00",
+      "at": "2026-11-28T18:14:21.912867+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "Broadway Gets Speed-Dating-Style Tribute At Macy’s Thanksgiving Day Parade"
     },
@@ -3493,7 +3507,7 @@
       "title": "North Texas doctors urge vigilance as flu, RSV cases climb"
     },
     "32bd9658720e7a73": {
-      "at": "2026-11-28T14:15:27.720622+00:00",
+      "at": "2026-11-28T18:14:21.912871+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "Rosenthal prepares to join Railroad Commission after election win"
     },
@@ -3516,6 +3530,11 @@
       "at": "2026-11-28T17:16:02.982235+00:00",
       "reason": "no picture of the subject that we may use",
       "title": "RAYE Sets the Mood at 2026 Macy’s Thanksgiving Day Parade With ‘Joy’"
+    },
+    "796d6ddf6006d160": {
+      "at": "2026-11-28T18:14:21.912873+00:00",
+      "reason": "no picture of the subject that we may use",
+      "title": "Scrooge's festive haunting returns in Dallas Theater Center's ‘A Christmas Carol'"
     },
     "94c05cad8e1d1e5a": {
       "at": "2026-11-28T00:43:45.448335+00:00",
@@ -3593,7 +3612,7 @@
       "title": "2026 SEC Championship Game: Texas gets one last shot at Georgia in contest's final edition"
     },
     "fe658b08aaf2903f": {
-      "at": "2026-11-28T14:15:27.720620+00:00",
+      "at": "2026-11-28T18:14:21.912860+00:00",
       "reason": "no summary to post: the feed gave only a headline",
       "title": "St. Louis Blues take on Dallas Stars, looking to extend home win streak"
     }

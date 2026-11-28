@@ -714,3 +714,35 @@ def test_one_teams_other_games_are_not_the_same_game():
     # the same game, told another way
     assert same_game("Mavericks beat Suns 120-115 to sweep NBA Cup group", posted_mavs)      # "finish 4-0" is a record
     assert same_game("Creighton beats TCU 95-87", posted_tcu)                                # one score, one shared team
+
+
+def test_the_result_of_a_previewed_local_game_is_local(tmp_path):
+    """Nov 28, render 338: "Sanchez hat trick sends USWNT to the World Cup with 8-0 qualifying victory over El Salvador" was
+    'not local enough' the night after "USWNT plays El Salvador in Texas Health Mansfield Stadium" went out."""
+    from datetime import datetime, timezone
+    from ftworthtv.filters import previewed_local_game
+    from ftworthtv.models import Story
+    from ftworthtv.state import State
+    st = State(tmp_path / "posted.json")
+    st.data.setdefault("posted", {})["p1"] = {"at": "2026-11-27T16:43:00-06:00", "category": "sports", "scope": "local",
+                                              "title": "USWNT plays El Salvador in Texas Health Mansfield Stadium"}
+    st.data["posted"]["p2"] = {"at": "2026-11-27T07:37:00-06:00", "category": "sports", "scope": "local",
+                               "title": "TCU Defeated by No. 11 Texas Tech"}
+    now = datetime(2026, 11, 28, 4, 0, tzinfo=timezone.utc)
+    result = Story(id="r", source="WFAA Sports", source_kind="rss", url="u", summary="",
+                   title="Sanchez hat trick sends USWNT to the World Cup with 8-0 qualifying victory over El Salvador")
+    assert previewed_local_game(st, result, now) == "USWNT plays El Salvador in Texas Health Mansfield Stadium"
+    # a posted result is not a preview: another game of the same opponent stays where it is
+    other = Story(id="o", source="ESPN", source_kind="rss", url="u", summary="", title="Texas Tech beats Utah 30-20 for Big 12 title")
+    assert previewed_local_game(st, other, now) is None
+    preview_like = Story(id="q", source="ESPN", source_kind="rss", url="u", summary="", title="USWNT to face El Salvador again in March")
+    assert previewed_local_game(st, preview_like, now) is None                 # not a result
+
+
+def test_a_world_cup_qualifier_is_sports():
+    """Nov 28, render 339: WFAA's "USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas" was filed as other."""
+    from ftworthtv.filters import infer_category
+    from ftworthtv.models import Story
+    s = Story(id="u", source="WFAA", source_kind="video", url="u", title="USWNT qualifies for 2027 FIFA Women's World Cup with win in North Texas",
+              summary="The U.S. women beat El Salvador 8-0 in the 2026 Concacaf W Championship quarterfinal.")
+    assert infer_category(s) == "sports"
